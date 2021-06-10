@@ -1,0 +1,37 @@
+var structlala_1_1_formula =
+[
+    [ "Raw", "structlala_1_1_formula_1_1_raw.html", "structlala_1_1_formula_1_1_raw" ],
+    [ "Type", "structlala_1_1_formula.html#ae0aa63797b2ba827e10d762c5d4ab6ec", [
+      [ "LONG", "structlala_1_1_formula.html#ae0aa63797b2ba827e10d762c5d4ab6ecab1a1e7b1607b3b827b8f856e4732e229", null ],
+      [ "DOUBLE", "structlala_1_1_formula.html#ae0aa63797b2ba827e10d762c5d4ab6ecac4aceb321533a34b336f72dac3128c53", null ],
+      [ "AVAR", "structlala_1_1_formula.html#ae0aa63797b2ba827e10d762c5d4ab6ecaaab82e9596fb7906eef28b46ac9da55c", null ],
+      [ "ADD", "structlala_1_1_formula.html#ae0aa63797b2ba827e10d762c5d4ab6ecad594a1ce502ae464dc4cfe0ef265e3db", null ],
+      [ "SUB", "structlala_1_1_formula.html#ae0aa63797b2ba827e10d762c5d4ab6eca751e9b0284cb0175eb4fd724aeac872a", null ],
+      [ "MUL", "structlala_1_1_formula.html#ae0aa63797b2ba827e10d762c5d4ab6eca8657fd73d2e828d36735d8f2164828d9", null ],
+      [ "DIV", "structlala_1_1_formula.html#ae0aa63797b2ba827e10d762c5d4ab6eca9cd2eddb3e2c3c8e0697f06376122ea9", null ],
+      [ "MOD", "structlala_1_1_formula.html#ae0aa63797b2ba827e10d762c5d4ab6eca42fb65cfd044d798ac011fe97a559380", null ],
+      [ "POW", "structlala_1_1_formula.html#ae0aa63797b2ba827e10d762c5d4ab6eca73347298a0e298651e0d42234da226d9", null ],
+      [ "EQ", "structlala_1_1_formula.html#ae0aa63797b2ba827e10d762c5d4ab6ecacbfbf7c7476e62aa93eea26b6fb8e00f", null ],
+      [ "LEQ", "structlala_1_1_formula.html#ae0aa63797b2ba827e10d762c5d4ab6ecad187300be489dbf3bbaf42f3abfba1aa", null ],
+      [ "GEQ", "structlala_1_1_formula.html#ae0aa63797b2ba827e10d762c5d4ab6ecaeaf69f9e59c18f7f14841d89eadb23e1", null ],
+      [ "NEQ", "structlala_1_1_formula.html#ae0aa63797b2ba827e10d762c5d4ab6eca3dc2fa9974029d052e4b2ee43b442734", null ],
+      [ "GT", "structlala_1_1_formula.html#ae0aa63797b2ba827e10d762c5d4ab6eca3a560edf5c1715e533b7c86701cd3a61", null ],
+      [ "LT", "structlala_1_1_formula.html#ae0aa63797b2ba827e10d762c5d4ab6eca8cade4d55d9ed0dedd43bd05871a4197", null ],
+      [ "TRUE", "structlala_1_1_formula.html#ae0aa63797b2ba827e10d762c5d4ab6eca16fd4dcb8807a049cea6c4026c41a806", null ],
+      [ "FALSE", "structlala_1_1_formula.html#ae0aa63797b2ba827e10d762c5d4ab6eca7670a105bf31cd8099b609a8d90a0c3d", null ],
+      [ "AND", "structlala_1_1_formula.html#ae0aa63797b2ba827e10d762c5d4ab6ecaacb79d2ad811c6d4628fe247826e3a2a", null ],
+      [ "OR", "structlala_1_1_formula.html#ae0aa63797b2ba827e10d762c5d4ab6eca1c6e0f8ff7e782a215c07f342b5a4a01", null ],
+      [ "IMPLY", "structlala_1_1_formula.html#ae0aa63797b2ba827e10d762c5d4ab6eca30ccf66c007178fca8615109e37fb5a2", null ],
+      [ "EQUIV", "structlala_1_1_formula.html#ae0aa63797b2ba827e10d762c5d4ab6ecae2479c687ca52637dfd01464fafd57d6", null ],
+      [ "NOT", "structlala_1_1_formula.html#ae0aa63797b2ba827e10d762c5d4ab6ecad7eb3d6ce49067e07f7aada515f67d2b", null ],
+      [ "RAW", "structlala_1_1_formula.html#ae0aa63797b2ba827e10d762c5d4ab6eca1ba220a38b031dc6c40a4863b3a7ee0c", null ]
+    ] ],
+    [ "ad_uid", "structlala_1_1_formula.html#a90cfbdc5f598c8795ceea6ac91fe698c", null ],
+    [ "tag", "structlala_1_1_formula.html#a0dadcc6b7c9c105f0429f33799edeb38", null ],
+    [ "i", "structlala_1_1_formula.html#adc40ad13510ff13fc843c08276ed60fb", null ],
+    [ "f", "structlala_1_1_formula.html#a61a40e3e4efeebf4d906b5e747df0512", null ],
+    [ "v", "structlala_1_1_formula.html#aaf356d7c8964327a7282c3e862c2ca86", null ],
+    [ "children", "structlala_1_1_formula.html#a8da2de3e31a3d21cc7ba870b12f70451", null ],
+    [ "n", "structlala_1_1_formula.html#ac5be20e856d1886b602830fba9ee61a0", null ],
+    [ "raw", "structlala_1_1_formula.html#a735557f0ed35fb4b0934242e81e7f536", null ]
+];

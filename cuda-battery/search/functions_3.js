@@ -1,0 +1,8 @@
+var searchData=
+[
+  ['operator_20delete_58',['operator delete',['../allocator_8hpp.html#a0423a6ab74d1aad5a0d473016ae84de2',1,'operator delete(void *ptr, PoolAllocator &amp;p):&#160;allocator.hpp'],['../allocator_8hpp.html#ac41cd416529994ed673b38c97c23d7a9',1,'operator delete(void *ptr, StandardAllocator &amp;p):&#160;allocator.hpp']]],
+  ['operator_20delete_5b_5d_59',['operator delete[]',['../allocator_8hpp.html#a4190346e894965a50684b10ef7b56a33',1,'operator delete[](void *ptr, PoolAllocator &amp;p):&#160;allocator.hpp'],['../allocator_8hpp.html#a5dc6a55f8fd95ea69a742bf6413061ef',1,'operator delete[](void *ptr, StandardAllocator &amp;p):&#160;allocator.hpp']]],
+  ['operator_20new_60',['operator new',['../allocator_8hpp.html#a8bbeb4d85cbe89081c97676362f96dd8',1,'operator new(size_t bytes, PoolAllocator &amp;p):&#160;allocator.hpp'],['../allocator_8hpp.html#ade9552c15c59ec44621670dfdaf22858',1,'operator new(size_t bytes, StandardAllocator &amp;p):&#160;allocator.hpp']]],
+  ['operator_20new_5b_5d_61',['operator new[]',['../allocator_8hpp.html#aacc0c7591e22aae8a3a77923cb2e8c38',1,'operator new[](size_t bytes, PoolAllocator &amp;p):&#160;allocator.hpp'],['../allocator_8hpp.html#a30c66b4a10518808086a8d120e979655',1,'operator new[](size_t bytes, StandardAllocator &amp;p):&#160;allocator.hpp']]],
+  ['operator_5b_5d_62',['operator[]',['../class_d_array.html#a2f910bca050d3f9c332182fe823fe888',1,'DArray::operator[](size_t i)'],['../class_d_array.html#a85915aa94d5e153e76efadd88a5591bf',1,'DArray::operator[](size_t i) const'],['../class_string.html#a7831188f74dbd92f745fde4a440bce80',1,'String::operator[](size_t i)'],['../class_string.html#a74f34a74b3651c421d17b47032631f8d',1,'String::operator[](size_t i) const']]]
+];
