@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['top_143',['top',['../classlala_1_1_abstract_domain.html#a70c4db4753e8304a33bff85812762520',1,'lala::AbstractDomain::top()'],['../struct_limits.html#a8b97acc5e499bffe9fcaa538b3cfcbed',1,'Limits::top()'],['../classlala_1_1z__inc.html#ad9759bd6dd8a011755825954d212ce10',1,'lala::z_inc::top()']]]
+  ['zinc_114',['ZInc',['../classlala_1_1_z_inc.html#a7c7897192c0e7b093f518aaf84b90d52',1,'lala::ZInc::ZInc(VT2 i)'],['../classlala_1_1_z_inc.html#a3a59927d7852e7a3dae9541c560ebc83',1,'lala::ZInc::ZInc(const ZInc&lt; ValueType, Allocator2 &gt; &amp;i)'],['../classlala_1_1_z_inc.html#a4b35adefb24633e935f8378a86b27f54',1,'lala::ZInc::ZInc(const this_type &amp;i)']]]
 ];

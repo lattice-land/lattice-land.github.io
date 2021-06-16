@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['log_206',['LOG',['../cuda__helper_8hpp.html#adadcbb9e426e1bf6bd7ac06dac7f958b',1,'cuda_helper.hpp']]]
+  ['vid_173',['VID',['../ast_8hpp.html#a9e7eae1a193619234ab1f80472a7c917',1,'ast.hpp']]]
 ];

@@ -11,5 +11,6 @@ var utility_8hpp =
     [ "CUDIE0", "utility_8hpp.html#a69266c88630468f7832878fd9e1a4648", null ],
     [ "LOG", "utility_8hpp.html#adadcbb9e426e1bf6bd7ac06dac7f958b", null ],
     [ "INFO", "utility_8hpp.html#ac0e7ce4f5ccb0f16d1103330cce71abc", null ],
-    [ "swap", "utility_8hpp.html#ac503be50019173a62d3c87a2658bec4b", null ]
+    [ "swap", "utility_8hpp.html#ac503be50019173a62d3c87a2658bec4b", null ],
+    [ "strlen", "utility_8hpp.html#ad5f2b0218fb6b4c3bd93e0fff12ef131", null ]
 ];

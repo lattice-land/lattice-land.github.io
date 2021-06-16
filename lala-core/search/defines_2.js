@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['info_205',['INFO',['../cuda__helper_8hpp.html#ac0e7ce4f5ccb0f16d1103330cce71abc',1,'cuda_helper.hpp']]]
+  ['untyped_5fad_172',['UNTYPED_AD',['../ast_8hpp.html#a599487e8d46ae1687653435b3d4d7b29',1,'ast.hpp']]]
 ];

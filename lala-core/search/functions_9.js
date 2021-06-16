@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['print_137',['print',['../classlala_1_1_abstract_domain.html#a916750dcfb5bafbb755234cba2c91b90',1,'lala::AbstractDomain::print()'],['../classlala_1_1z__inc.html#aa594baf2f56bf3b78130a917e752694f',1,'lala::z_inc::print()']]],
-  ['project_138',['project',['../classlala_1_1_abstract_domain.html#af454aa61d13ac4f1592d053c6d1e8e4e',1,'lala::AbstractDomain']]]
+  ['refine_110',['refine',['../classlala_1_1_abstract_domain.html#ad8cfcdd82cd2aa9eebd136e93ec2f307',1,'lala::AbstractDomain::refine()'],['../classlala_1_1_z_inc.html#a1bf9e04b0119863dec34379c55e81ea7',1,'lala::ZInc::refine()']]],
+  ['reset_111',['reset',['../classlala_1_1_abstract_domain.html#a37bee7d2ec4cec939f6b95609dceb084',1,'lala::AbstractDomain::reset()'],['../classlala_1_1_z_inc.html#a542a0323c4452ec70eb2a765071e8848',1,'lala::ZInc::reset()']]]
 ];

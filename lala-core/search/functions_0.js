@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['allocate_117',['allocate',['../class_standard_allocator.html#a89a70ab422a9af1c90d1379eb4764828',1,'StandardAllocator']]]
+  ['bot_95',['bot',['../classlala_1_1_abstract_domain.html#acae16222fe68180fb74bae8cb38da6c5',1,'lala::AbstractDomain::bot()'],['../classlala_1_1_z_inc.html#a29dfc89abc67bbef68ec7b4951ce644f',1,'lala::ZInc::bot()']]]
 ];

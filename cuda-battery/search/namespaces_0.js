@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['impl_46',['impl',['../namespaceimpl.html',1,'']]]
+  ['battery_48',['battery',['../namespacebattery.html',1,'']]]
 ];

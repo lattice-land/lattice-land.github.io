@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['clone_119',['clone',['../classlala_1_1_abstract_domain.html#a6615e0c46950fb33bdb2932ae0d8c1b2',1,'lala::AbstractDomain::clone()'],['../classlala_1_1z__inc.html#a5207ca102ab5b9c92cb50ee293f2460c',1,'lala::z_inc::clone()']]]
+  ['deinterpret_97',['deinterpret',['../classlala_1_1_abstract_domain.html#a2a85651f65cc98f762823aac0f9d88b4',1,'lala::AbstractDomain::deinterpret()'],['../classlala_1_1_z_inc.html#a94f30760cdcd573b5aeeb04b9fbc16b2',1,'lala::ZInc::deinterpret()']]]
 ];

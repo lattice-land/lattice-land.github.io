@@ -4,5 +4,5 @@ var namespacelala =
     [ "Environment", "structlala_1_1_environment.html", "structlala_1_1_environment" ],
     [ "Formula", "structlala_1_1_formula.html", "structlala_1_1_formula" ],
     [ "SolveMode", "structlala_1_1_solve_mode.html", "structlala_1_1_solve_mode" ],
-    [ "z_inc", "classlala_1_1z__inc.html", "classlala_1_1z__inc" ]
+    [ "ZInc", "classlala_1_1_z_inc.html", "classlala_1_1_z_inc" ]
 ];

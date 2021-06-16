@@ -5,7 +5,7 @@ var searchData=
   ['ad_5fuid_2',['ad_uid',['../structlala_1_1_formula.html#a90cfbdc5f598c8795ceea6ac91fe698c',1,'lala::Formula::ad_uid()'],['../namespacelala.html#a48362f813033e6da0ac221b76ea904f6',1,'lala::AD_UID()']]],
   ['add_3',['ADD',['../structlala_1_1_formula.html#ae0aa63797b2ba827e10d762c5d4ab6ecad594a1ce502ae464dc4cfe0ef265e3db',1,'lala::Formula']]],
   ['aid_4',['AID',['../ast_8hpp.html#ab70e5715f2567e1e5c7c0dfab68317a2',1,'ast.hpp']]],
-  ['allocate_5',['allocate',['../class_standard_allocator.html#a89a70ab422a9af1c90d1379eb4764828',1,'StandardAllocator']]],
+  ['allocator_5',['Allocator',['../classlala_1_1_abstract_domain.html#a5a7eb95db55f1615f59146144c04cad7',1,'lala::AbstractDomain::Allocator()'],['../classlala_1_1_z_inc.html#a9798dec86a5132f35ed97cd607abc102',1,'lala::ZInc::Allocator()']]],
   ['and_6',['AND',['../structlala_1_1_formula.html#ae0aa63797b2ba827e10d762c5d4ab6ecaacb79d2ad811c6d4628fe247826e3a2a',1,'lala::Formula']]],
   ['approx_7',['Approx',['../namespacelala.html#aeecfc640d117a6c1efb50d5a90f8a369',1,'lala']]],
   ['ast_2ehpp_8',['ast.hpp',['../ast_8hpp.html',1,'']]],

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['standard_5fallocator_159',['standard_allocator',['../memory_8hpp.html#ad03f23bb7e8da3f09369b9ed7888200b',1,'memory.hpp']]]
+  ['tag_129',['tag',['../structlala_1_1_formula.html#a0dadcc6b7c9c105f0429f33799edeb38',1,'lala::Formula::tag()'],['../structlala_1_1_solve_mode.html#ab8d0a2b11367277297c79d50ac3eec86',1,'lala::SolveMode::tag()']]]
 ];

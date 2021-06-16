@@ -98,91 +98,100 @@ $(document).ready(function(){initNavTree('utility_8hpp_source.html',''); initRes
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#define UTILITY_HPP</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;cstdio&gt;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;cassert&gt;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;limits&gt;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
-<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="utility_8hpp.html#a9b3a72b320467bcad48a277e9aa0b9f7">   11</a></span>&#160;<span class="preprocessor">#define ON_GPU() (defined(__CUDA_ARCH__) &amp;&amp; (__CUDA_ARCH__ &gt; 0))</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="utility_8hpp.html#a56d95d2dc300f9e526f8789bed779fce">   12</a></span>&#160;<span class="preprocessor">#define ON_CPU() (!defined(__CUDA_ARCH__) || (__CUDA_ARCH__ == 0))</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#ifdef __NVCC__</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">  #define CUDA_GLOBAL __global__</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">  #define DEVICE __device__</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">  #define HOST __host__</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">  #define CUDA DEVICE HOST</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">  #define CUDIE(result) { \</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">    cudaError_t e = (result); \</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">    if (e != cudaSuccess) { \</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">      printf(&quot;%s:%d CUDA runtime error %s\n&quot;, __FILE__, __LINE__, cudaGetErrorString(e)); \</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">    }}</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">  #define CUDIE0() CUDIE(cudaGetLastError())</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="utility_8hpp.html#a82371da0ef2093da131cfb4d0e5a5747">   28</a></span>&#160;<span class="preprocessor">  #define CUDA_GLOBAL</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="utility_8hpp.html#a775d096fbc3988fb7ed858b79ef44e22">   29</a></span>&#160;<span class="preprocessor">  #define DEVICE</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="utility_8hpp.html#abbbcf3c42c997889127cc676754a6fea">   30</a></span>&#160;<span class="preprocessor">  #define HOST</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">   31</a></span>&#160;<span class="preprocessor">  #define CUDA</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="utility_8hpp.html#a46471ddcabc17b7264c7d3876a835024">   32</a></span>&#160;<span class="preprocessor">  #define CUDIE</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="utility_8hpp.html#a69266c88630468f7832878fd9e1a4648">   33</a></span>&#160;<span class="preprocessor">  #define CUDIE0</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">  #include &lt;algorithm&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &lt;cassert&gt;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;limits&gt;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="utility_8hpp.html#a9b3a72b320467bcad48a277e9aa0b9f7">   10</a></span>&#160;<span class="preprocessor">#define ON_GPU() (defined(__CUDA_ARCH__) &amp;&amp; (__CUDA_ARCH__ &gt; 0))</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="utility_8hpp.html#a56d95d2dc300f9e526f8789bed779fce">   11</a></span>&#160;<span class="preprocessor">#define ON_CPU() (!defined(__CUDA_ARCH__) || (__CUDA_ARCH__ == 0))</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#ifdef __NVCC__</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">  #define CUDA_GLOBAL __global__</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">  #define DEVICE __device__</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">  #define HOST __host__</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">  #define CUDA DEVICE HOST</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">  #define CUDIE(result) { \</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">    cudaError_t e = (result); \</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">    if (e != cudaSuccess) { \</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">      printf(&quot;%s:%d CUDA runtime error %s\n&quot;, __FILE__, __LINE__, cudaGetErrorString(e)); \</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">    }}</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">  #define CUDIE0() CUDIE(cudaGetLastError())</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="utility_8hpp.html#a82371da0ef2093da131cfb4d0e5a5747">   27</a></span>&#160;<span class="preprocessor">  #define CUDA_GLOBAL</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="utility_8hpp.html#a775d096fbc3988fb7ed858b79ef44e22">   28</a></span>&#160;<span class="preprocessor">  #define DEVICE</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="utility_8hpp.html#abbbcf3c42c997889127cc676754a6fea">   29</a></span>&#160;<span class="preprocessor">  #define HOST</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">   30</a></span>&#160;<span class="preprocessor">  #define CUDA</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="utility_8hpp.html#a46471ddcabc17b7264c7d3876a835024">   31</a></span>&#160;<span class="preprocessor">  #define CUDIE</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="utility_8hpp.html#a69266c88630468f7832878fd9e1a4648">   32</a></span>&#160;<span class="preprocessor">  #define CUDIE0</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">  #include &lt;algorithm&gt;</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">  #include &lt;cstring&gt;</span> <span class="comment">// for strlen</span></div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  <span class="keyword">using</span> std::min;</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  <span class="keyword">using</span> std::max;</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  <span class="keyword">using</span> <a class="code" href="namespaceimpl.html#ac503be50019173a62d3c87a2658bec4b">std::swap</a>;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceimpl.html">impl</a> {</div>
-<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="namespaceimpl.html#ac503be50019173a62d3c87a2658bec4b">   43</a></span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt; <a class="code" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> <span class="keywordtype">void</span> <a class="code" href="namespaceimpl.html#ac503be50019173a62d3c87a2658bec4b">swap</a>(T&amp; a, T&amp; b) {</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    T c(std::move(a));</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    a = std::move(b);</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    b = std::move(c);</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  }</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;}</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor">#ifdef __NVCC__</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  <span class="keyword">using</span> <a class="code" href="namespaceimpl.html#ac503be50019173a62d3c87a2658bec4b">impl::swap</a>;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="namespacebattery.html">   39</a></span>&#160;  <span class="keyword">namespace </span><a class="code" href="namespacebattery.html">battery</a> {</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keyword">using</span> <a class="code" href="namespaceimpl.html#ad5f2b0218fb6b4c3bd93e0fff12ef131">std::strlen</a>;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  }</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceimpl.html">impl</a> {</div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="namespaceimpl.html#ac503be50019173a62d3c87a2658bec4b">   45</a></span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt; <a class="code" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> <span class="keywordtype">void</span> <a class="code" href="namespaceimpl.html#ac503be50019173a62d3c87a2658bec4b">swap</a>(T&amp; a, T&amp; b) {</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    T c(std::move(a));</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    a = std::move(b);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    b = std::move(c);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  }</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  <a class="code" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> <span class="keywordtype">size_t</span> <a class="code" href="namespaceimpl.html#ad5f2b0218fb6b4c3bd93e0fff12ef131">strlen</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* str);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;}</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> N&gt;</div>
-<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="struct_limits.html">   55</a></span>&#160;<span class="keyword">struct </span><a class="code" href="struct_limits.html">Limits</a> {</div>
-<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="struct_limits.html#afbc049b4ce1361334fbff95fc66c99a3">   56</a></span>&#160;  <span class="keyword">static</span> constexpr N <a class="code" href="struct_limits.html#afbc049b4ce1361334fbff95fc66c99a3">bot</a>() {</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordflow">if</span> constexpr (std::is_floating_point&lt;N&gt;()) {</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;      <span class="keywordflow">return</span> -std::numeric_limits&lt;N&gt;::infinity();</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    }</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordflow">return</span> std::numeric_limits&lt;N&gt;::min();</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  }</div>
-<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="struct_limits.html#a8b97acc5e499bffe9fcaa538b3cfcbed">   62</a></span>&#160;  <span class="keyword">static</span> constexpr N <a class="code" href="struct_limits.html#a8b97acc5e499bffe9fcaa538b3cfcbed">top</a>() {</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keywordflow">if</span> constexpr (std::is_floating_point&lt;N&gt;()) {</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;      <span class="keywordflow">return</span> std::numeric_limits&lt;N&gt;::infinity();</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    }</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordflow">return</span> std::numeric_limits&lt;N&gt;::max();</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  }</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;};</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="preprocessor">#ifdef DEBUG</span></div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="preprocessor">  #define LDEBUG</span></div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="preprocessor">  #define LOG(X) X</span></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="utility_8hpp.html#adadcbb9e426e1bf6bd7ac06dac7f958b">   74</a></span>&#160;<span class="preprocessor">  #define LOG(X)</span></div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="preprocessor">#ifdef __NVCC__</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  <span class="keyword">using</span> <a class="code" href="namespaceimpl.html#ac503be50019173a62d3c87a2658bec4b">impl::swap</a>;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  <span class="keyword">namespace </span><a class="code" href="namespacebattery.html">battery</a> { <span class="comment">// otherwise strlen conflicts with another declaration... (I don&#39;t know why).</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keyword">using</span> <a class="code" href="namespaceimpl.html#ad5f2b0218fb6b4c3bd93e0fff12ef131">impl::strlen</a>;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  }</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> N&gt;</div>
+<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="struct_limits.html">   62</a></span>&#160;<span class="keyword">struct </span><a class="code" href="struct_limits.html">Limits</a> {</div>
+<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="struct_limits.html#afbc049b4ce1361334fbff95fc66c99a3">   63</a></span>&#160;  <span class="keyword">static</span> constexpr N <a class="code" href="struct_limits.html#afbc049b4ce1361334fbff95fc66c99a3">bot</a>() {</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordflow">if</span> constexpr (std::is_floating_point&lt;N&gt;()) {</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;      <span class="keywordflow">return</span> -std::numeric_limits&lt;N&gt;::infinity();</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    }</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordflow">return</span> std::numeric_limits&lt;N&gt;::min();</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;  }</div>
+<div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="struct_limits.html#a8b97acc5e499bffe9fcaa538b3cfcbed">   69</a></span>&#160;  <span class="keyword">static</span> constexpr N <a class="code" href="struct_limits.html#a8b97acc5e499bffe9fcaa538b3cfcbed">top</a>() {</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordflow">if</span> constexpr (std::is_floating_point&lt;N&gt;()) {</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;      <span class="keywordflow">return</span> std::numeric_limits&lt;N&gt;::infinity();</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    }</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordflow">return</span> std::numeric_limits&lt;N&gt;::max();</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;  }</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;};</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="preprocessor">#ifdef LDEBUG</span></div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="preprocessor">  #define INFO(X) X</span></div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00080"></a><span class="lineno"><a class="line" href="utility_8hpp.html#ac0e7ce4f5ccb0f16d1103330cce71abc">   80</a></span>&#160;<span class="preprocessor">  #define INFO(X)</span></div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="preprocessor">#endif // UTILITY_HPP</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="preprocessor">#ifdef DEBUG</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="preprocessor">  #define LDEBUG</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="preprocessor">  #define LOG(X) X</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno"><a class="line" href="utility_8hpp.html#adadcbb9e426e1bf6bd7ac06dac7f958b">   81</a></span>&#160;<span class="preprocessor">  #define LOG(X)</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="preprocessor">#ifdef LDEBUG</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="preprocessor">  #define INFO(X) X</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno"><a class="line" href="utility_8hpp.html#ac0e7ce4f5ccb0f16d1103330cce71abc">   87</a></span>&#160;<span class="preprocessor">  #define INFO(X)</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="preprocessor">#endif // UTILITY_HPP</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="astruct_limits_html"><div class="ttname"><a href="struct_limits.html">Limits</a></div><div class="ttdef"><b>Definition:</b> utility.hpp:55</div></div>
-<div class="ttc" id="astruct_limits_html_a8b97acc5e499bffe9fcaa538b3cfcbed"><div class="ttname"><a href="struct_limits.html#a8b97acc5e499bffe9fcaa538b3cfcbed">Limits::top</a></div><div class="ttdeci">static constexpr N top()</div><div class="ttdef"><b>Definition:</b> utility.hpp:62</div></div>
-<div class="ttc" id="autility_8hpp_html_a7b01e29f669d6beed251f1b2a547ca93"><div class="ttname"><a href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a></div><div class="ttdeci">#define CUDA</div><div class="ttdef"><b>Definition:</b> utility.hpp:31</div></div>
-<div class="ttc" id="anamespaceimpl_html_ac503be50019173a62d3c87a2658bec4b"><div class="ttname"><a href="namespaceimpl.html#ac503be50019173a62d3c87a2658bec4b">impl::swap</a></div><div class="ttdeci">CUDA void swap(T &amp;a, T &amp;b)</div><div class="ttdef"><b>Definition:</b> utility.hpp:43</div></div>
+<div class="ttc" id="astruct_limits_html"><div class="ttname"><a href="struct_limits.html">Limits</a></div><div class="ttdef"><b>Definition:</b> utility.hpp:62</div></div>
+<div class="ttc" id="astruct_limits_html_a8b97acc5e499bffe9fcaa538b3cfcbed"><div class="ttname"><a href="struct_limits.html#a8b97acc5e499bffe9fcaa538b3cfcbed">Limits::top</a></div><div class="ttdeci">static constexpr N top()</div><div class="ttdef"><b>Definition:</b> utility.hpp:69</div></div>
+<div class="ttc" id="autility_8hpp_html_a7b01e29f669d6beed251f1b2a547ca93"><div class="ttname"><a href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a></div><div class="ttdeci">#define CUDA</div><div class="ttdef"><b>Definition:</b> utility.hpp:30</div></div>
+<div class="ttc" id="anamespaceimpl_html_ad5f2b0218fb6b4c3bd93e0fff12ef131"><div class="ttname"><a href="namespaceimpl.html#ad5f2b0218fb6b4c3bd93e0fff12ef131">impl::strlen</a></div><div class="ttdeci">CUDA size_t strlen(const char *str)</div></div>
+<div class="ttc" id="anamespaceimpl_html_ac503be50019173a62d3c87a2658bec4b"><div class="ttname"><a href="namespaceimpl.html#ac503be50019173a62d3c87a2658bec4b">impl::swap</a></div><div class="ttdeci">CUDA void swap(T &amp;a, T &amp;b)</div><div class="ttdef"><b>Definition:</b> utility.hpp:45</div></div>
 <div class="ttc" id="anamespaceimpl_html"><div class="ttname"><a href="namespaceimpl.html">impl</a></div><div class="ttdef"><b>Definition:</b> darray.hpp:10</div></div>
-<div class="ttc" id="astruct_limits_html_afbc049b4ce1361334fbff95fc66c99a3"><div class="ttname"><a href="struct_limits.html#afbc049b4ce1361334fbff95fc66c99a3">Limits::bot</a></div><div class="ttdeci">static constexpr N bot()</div><div class="ttdef"><b>Definition:</b> utility.hpp:56</div></div>
+<div class="ttc" id="anamespacebattery_html"><div class="ttname"><a href="namespacebattery.html">battery</a></div><div class="ttdef"><b>Definition:</b> utility.hpp:39</div></div>
+<div class="ttc" id="astruct_limits_html_afbc049b4ce1361334fbff95fc66c99a3"><div class="ttname"><a href="struct_limits.html#afbc049b4ce1361334fbff95fc66c99a3">Limits::bot</a></div><div class="ttdeci">static constexpr N bot()</div><div class="ttdef"><b>Definition:</b> utility.hpp:63</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
