@@ -3,9 +3,8 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title></title>
-                        <base href="/">
-        
+        <title>CUDA-Battery Library - Lattice Land Book</title>
+                
 
         <!-- Custom HTML head -->
         
@@ -83,7 +82,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="index.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="CUDA-Battery.html"><strong aria-hidden="true">2.</strong> CUDA-Battery Library</a></li></ol>            </div>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="index.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="CUDA-Battery.html" class="active"><strong aria-hidden="true">2.</strong> CUDA-Battery Library</a></li></ol>            </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
 
@@ -144,13 +143,88 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="document-not-found-404"><a class="header" href="#document-not-found-404">Document not found (404)</a></h1>
-<p>This URL is invalid, sorry. Please use the navigation bar or search to continue.</p>
+                        <h1 id="cuda-battery-library"><a class="header" href="#cuda-battery-library">CUDA-Battery Library</a></h1>
+<p>This library provides a number of data structures to ease the programming in CUDA.
+Our goal is to support the development of various lattice data structures in our project &quot;Lattice Land&quot;.</p>
+<p>Everything is under the namespace <code>battery::</code>.
+The Doxygen documentation is available at <a href="https://lattice-land.github.io/cuda-battery">here</a>.</p>
+<h2 id="allocator"><a class="header" href="#allocator">Allocator</a></h2>
+<p><code>allocator.hpp</code> provides several allocators for CPU and GPU:</p>
+<ol>
+<li><em>Standard allocator</em>: Allocate in CPU's memory from host side using standard <code>malloc</code> and <code>free</code> functions (<code>StandardAllocator</code>).</li>
+<li><em>Global allocator</em>: Allocate in GPU's global memory from host side (<code>GlobalAllocatorCPU</code>) and device side (<code>GlobalAllocatorGPU</code>).</li>
+<li><em>Managed allocator</em>: Allocate in managed memory from host side (<code>ManagedAllocator</code>).</li>
+<li><em>Shared allocator</em>: Allocate in a pool of memory from host or device side where memory is never freed (<code>PoolAllocator</code>), especially useful for dealing with shared memory in GPU.</li>
+</ol>
+<h2 id="memory"><a class="header" href="#memory">Memory</a></h2>
+<p><code>memory.hpp</code> provides abstractions over various kinds of memory in terms of loads and stores, a memory usually carries an allocator too:</p>
+<ol>
+<li><em>Local sequential memory</em>: Accessed by only one thread and managed automatically (e.g., stored on the stack) (<code>LocalMemory</code>).</li>
+<li><em>Unprotected memory</em>: Memory with unprotected load and store accesses, suppose to be accessed by only one thread and managed by an allocator (<code>Memory&lt;Allocator&gt;</code>).</li>
+<li><em>Read-only memory</em>: Memory with only a load operation, managed by an allocator and can be accessed by several threads since the values are not supposed to change (<code>ReadOnlyMemory&lt;Allocator&gt;</code>).</li>
+<li><em>Shared atomic memory</em>: Memory with atomic load and store operations, managed by an allocator and can be accessed by several threads (<code>AtomicMemory&lt;Allocator, memory_order&gt;</code>).
+The <code>memory_order</code> defaults to the weakest memory consistency (relaxed) which is enough if you stay within the framework of the Lattice-Land project.</li>
+<li><em>Shared GPU atomic memory</em>: Same than shared atomic memory, but with an additional scope of the memory:
+<ul>
+<li><code>AtomicMemoryBlock</code>: Memory can only be accessed within a block (shared memory).</li>
+<li><code>AtomicMemoryDevice</code>: Memory can only be accessed in a single device (global memory).</li>
+<li><code>AtomicMemorySystem</code>: Memory can be accessed from several devices.</li>
+</ul>
+</li>
+</ol>
+<h2 id="stl-data-structures"><a class="header" href="#stl-data-structures">STL data structures</a></h2>
+<p>We provide various data structures that can be used on both the CPU and GPU, with the same code.
+It means that you can write code once that run on both the CPU and GPU.</p>
+<p>Your code <em>will not be parallelized or optimized for GPU</em>.
+Basically, if you ask for a vector, it will be the same on CPU and GPU, the parallelism and memory accesses protection are left to you (unless explicitely mentioned).</p>
+<ul>
+<li>Vector <code>vector&lt;T, Allocator&gt;</code>.</li>
+<li>Shared pointer <code>shared_ptr&lt;T, Allocator&gt;</code>.</li>
+<li>Unique pointer <code>unique_ptr&lt;T, Allocator&gt;</code>.</li>
+<li>String <code>string&lt;Allocator&gt;</code> (non-resizable and null-terminated).</li>
+<li>Tuple <code>tuple&lt;T1, ..., Tn&gt;</code>, depending on the compiler used (e.g., nvcc or gcc), it includes <code>cuda::std::tuple</code> or <code>std::tuple</code>.</li>
+<li>Variant <code>variant&lt;T1, ..., Tn&gt;</code>.</li>
+</ul>
+<p>Moreover, we provide a variant of <code>bitset</code> parametrized by a memory:</p>
+<ul>
+<li><code>bitset&lt;N, Mem, T&gt;</code> is a bitset of size <code>N * sizeof(T)</code> where the elements of the underlying array are stored depending on the <code>Mem</code> policy (e.g., either as atomics or not).</li>
+</ul>
+<h2 id="utility"><a class="header" href="#utility">Utility</a></h2>
+<p>Provide unified functions that either forward the call to the standard library if called on host, or to the CUDA primitives when available if called on device.
+Some functions are reimplemented from scratch to provide them on GPU.</p>
+<ul>
+<li><em>Utility/arithmetic functions</em>: <code>swap</code>, <code>min</code>, <code>max</code>, <code>signum</code>, <code>ipow</code>.</li>
+<li><em>String functions</em>: <code>strlen</code>, <code>strcmp</code>.</li>
+<li><em>Floating-point functions</em>: <code>isnan</code>, <code>nextafter</code>, <code>add_up</code>, <code>add_down</code>, <code>sub_up</code>, <code>sub_down</code>, <code>mul_up</code>, <code>mul_down</code>, <code>div_up</code>, <code>div_down</code>.</li>
+<li><em>Bits-level functions</em>: <code>popcount</code>, <code>countl_zero</code>, <code>countl_one</code>, <code>countr_zero</code>, <code>countr_one</code>.</li>
+</ul>
+<h3 id="infinities"><a class="header" href="#infinities">Infinities</a></h3>
+<p>For the purposes of Lattice-Land, we often need to represent infinities of primitive types, these are given by <code>Limits&lt;T&gt;::bot()</code> for the smallest element and <code>Limits&lt;T&gt;::top()</code> for the largest element.
+For floating-point numbers, it returns infinities, and for integers it returns the smallest/largest element representable.
+When applicable, we usually consider that <code>MIN_INT</code> and <code>MAX_INT</code> (or equivalent) are special elements modeling infinities for integer types.
+This is especially important for the casting rules below.</p>
+<h3 id="casting-functions"><a class="header" href="#casting-functions">Casting functions</a></h3>
+<p>We provide functions to cast primitive types to other types according to a rounding mode.</p>
+<ul>
+<li><code>ru_cast&lt;To, From&gt;</code>: cast the value of type <code>To</code> to a value of type <code>From</code>, it is guaranteed that the casted value is greater or equal to the input value.
+In other terms, when the casted value is not exactly representable (e.g., <code>float</code> to <code>int</code>) we round towards infinity.</li>
+<li><code>rd_cast&lt;To, From&gt;</code>: Same as <code>ru_cast</code> but rounds towards negative infinity.</li>
+</ul>
+<p>Some things to know about these functions:</p>
+<ul>
+<li><em>Infinities</em> are preserved, e.g., <code>MAX_INT</code> is mapped to the floating-point infinity value.</li>
+<li><em>Overflow and underflow</em>: nothing special is done.</li>
+<li><em>Rounding mode</em>: on CPU, we use the rounding mode to perform conversion with floating-point numbers. /!\ It is not reinitialized to the rounding mode before the call was made.</li>
+<li><code>utility_test_cpu_gpu</code> tests whether the rounding functions behaves the same on CPU and GPU.</li>
+</ul>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
+                                                    <a rel="prev" href="index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
                         
                         
                         <div style="clear: both"></div>
@@ -159,6 +233,9 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                                    <a rel="prev" href="index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
                 
                             </nav>
 
