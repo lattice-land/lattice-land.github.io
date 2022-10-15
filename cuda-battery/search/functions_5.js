@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['size_67',['size',['../class_d_array.html#aaac0afcdb53ce3ac8f141b99c527d5ef',1,'DArray::size()'],['../class_string.html#acef75a854c0384cf58bd08d814badbe1',1,'String::size()']]],
-  ['string_68',['String',['../class_string.html#a57ef7764364fd24088bb0b48e4abefb3',1,'String::String(size_t n, const Allocator &amp;alloc=Allocator())'],['../class_string.html#aa5cc5509a11cd513d6607eee6f801e62',1,'String::String(const char *raw_string, const Allocator &amp;alloc=Allocator())'],['../class_string.html#a1ae383565f2b43d4e9d0b8ea72fba156',1,'String::String(const String&lt; Allocator2 &gt; &amp;from, const Allocator &amp;alloc=Allocator())'],['../class_string.html#aed09bf6da41ec8dee9e98d1d49784e91',1,'String::String(const String&lt; Allocator &gt; &amp;from)'],['../class_string.html#a4647c6e32fae23589e8a1a605584a88d',1,'String::String(const std::string &amp;from, const Allocator &amp;alloc=Allocator())']]],
-  ['strlen_69',['strlen',['../namespaceimpl.html#ad5f2b0218fb6b4c3bd93e0fff12ef131',1,'impl']]],
-  ['swap_70',['swap',['../namespaceimpl.html#ac503be50019173a62d3c87a2658bec4b',1,'impl']]]
+  ['flip_217',['flip',['../classbattery_1_1_bitset.html#a9e67f7df573b2ea7ab62e2275da6b220',1,'battery::Bitset::flip()'],['../classbattery_1_1_bitset.html#a6e53fde12c7fc1c64dcc8826757b0ede',1,'battery::Bitset::flip(size_t pos)']]],
+  ['front_218',['front',['../classbattery_1_1vector.html#a21576fd4dffdb8ff1ad5b3a349fa6050',1,'battery::vector::front()'],['../classbattery_1_1vector.html#a12bbe590549ed7597265faf576b453c2',1,'battery::vector::front() const']]]
 ];

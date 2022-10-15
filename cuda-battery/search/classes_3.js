@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['standardallocator_45',['StandardAllocator',['../class_standard_allocator.html',1,'']]],
-  ['string_46',['String',['../class_string.html',1,'']]]
+  ['memory_157',['Memory',['../classbattery_1_1_memory.html',1,'battery']]]
 ];

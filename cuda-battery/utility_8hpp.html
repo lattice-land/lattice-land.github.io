@@ -100,41 +100,51 @@ $(document).ready(function(){initNavTree('utility_8hpp.html',''); initResizable(
 <div class="textblock"><code>#include &lt;cstdio&gt;</code><br />
 <code>#include &lt;cassert&gt;</code><br />
 <code>#include &lt;limits&gt;</code><br />
+<code>#include &lt;climits&gt;</code><br />
 <code>#include &lt;algorithm&gt;</code><br />
 <code>#include &lt;cstring&gt;</code><br />
+<code>#include &lt;cmath&gt;</code><br />
+<code>#include &lt;cfenv&gt;</code><br />
+<code>#include &lt;bit&gt;</code><br />
 </div>
 <p><a href="utility_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_limits.html">Limits&lt; N &gt;</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbattery_1_1_limits.html">battery::Limits&lt; T &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr class="memitem:namespacebattery"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacebattery.html">battery</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:namespaceimpl"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceimpl.html">impl</a></td></tr>
+<tr class="memitem:namespacebattery_1_1impl"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacebattery_1_1impl.html">battery::impl</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:a9b3a72b320467bcad48a277e9aa0b9f7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utility_8hpp.html#a9b3a72b320467bcad48a277e9aa0b9f7">ON_GPU</a>()&#160;&#160;&#160;(defined(__CUDA_ARCH__) &amp;&amp; (__CUDA_ARCH__ &gt; 0))</td></tr>
-<tr class="separator:a9b3a72b320467bcad48a277e9aa0b9f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a56d95d2dc300f9e526f8789bed779fce"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utility_8hpp.html#a56d95d2dc300f9e526f8789bed779fce">ON_CPU</a>()&#160;&#160;&#160;(!defined(__CUDA_ARCH__) || (__CUDA_ARCH__ == 0))</td></tr>
-<tr class="separator:a56d95d2dc300f9e526f8789bed779fce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a82371da0ef2093da131cfb4d0e5a5747"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utility_8hpp.html#a82371da0ef2093da131cfb4d0e5a5747">CUDA_GLOBAL</a></td></tr>
 <tr class="separator:a82371da0ef2093da131cfb4d0e5a5747"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a775d096fbc3988fb7ed858b79ef44e22"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utility_8hpp.html#a775d096fbc3988fb7ed858b79ef44e22">DEVICE</a></td></tr>
 <tr class="separator:a775d096fbc3988fb7ed858b79ef44e22"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abbbcf3c42c997889127cc676754a6fea"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utility_8hpp.html#abbbcf3c42c997889127cc676754a6fea">HOST</a></td></tr>
 <tr class="separator:abbbcf3c42c997889127cc676754a6fea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a884c794595c4aa480df9022648c29564"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utility_8hpp.html#a884c794595c4aa480df9022648c29564">SHARED</a></td></tr>
+<tr class="separator:a884c794595c4aa480df9022648c29564"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7b01e29f669d6beed251f1b2a547ca93"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a></td></tr>
 <tr class="separator:a7b01e29f669d6beed251f1b2a547ca93"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a46471ddcabc17b7264c7d3876a835024"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utility_8hpp.html#a46471ddcabc17b7264c7d3876a835024">CUDIE</a></td></tr>
-<tr class="separator:a46471ddcabc17b7264c7d3876a835024"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe889e7769b8e7d197dd79a7ab3fd249"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utility_8hpp.html#afe889e7769b8e7d197dd79a7ab3fd249">CUDIE</a>(S)&#160;&#160;&#160;S</td></tr>
+<tr class="separator:afe889e7769b8e7d197dd79a7ab3fd249"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a69266c88630468f7832878fd9e1a4648"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utility_8hpp.html#a69266c88630468f7832878fd9e1a4648">CUDIE0</a></td></tr>
 <tr class="separator:a69266c88630468f7832878fd9e1a4648"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2eb6f9e0395b47b8d5e3eeae4fe0c116"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utility_8hpp.html#a2eb6f9e0395b47b8d5e3eeae4fe0c116">INLINE</a>&#160;&#160;&#160;inline</td></tr>
+<tr class="separator:a2eb6f9e0395b47b8d5e3eeae4fe0c116"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a38a8e36b956411445100bc439be8ee8e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utility_8hpp.html#a38a8e36b956411445100bc439be8ee8e">MAP_LIMITS</a>(x,  From,  To)</td></tr>
+<tr class="separator:a38a8e36b956411445100bc439be8ee8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a02c6c229b4b7fd59e49e11aee52dd1c8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utility_8hpp.html#a02c6c229b4b7fd59e49e11aee52dd1c8">FLOAT_ARITHMETIC_CUDA_IMPL</a>(name,  cudaname)</td></tr>
+<tr class="separator:a02c6c229b4b7fd59e49e11aee52dd1c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac1e9caf1be8ef431e3665e424e654427"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utility_8hpp.html#ac1e9caf1be8ef431e3665e424e654427">FLOAT_ARITHMETIC_CPP_IMPL</a>(cppop,  cppround)</td></tr>
+<tr class="separator:ac1e9caf1be8ef431e3665e424e654427"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adadcbb9e426e1bf6bd7ac06dac7f958b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utility_8hpp.html#adadcbb9e426e1bf6bd7ac06dac7f958b">LOG</a>(X)</td></tr>
 <tr class="separator:adadcbb9e426e1bf6bd7ac06dac7f958b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac0e7ce4f5ccb0f16d1103330cce71abc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utility_8hpp.html#ac0e7ce4f5ccb0f16d1103330cce71abc">INFO</a>(X)</td></tr>
@@ -142,47 +152,128 @@ Macros</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ac503be50019173a62d3c87a2658bec4b"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:ac503be50019173a62d3c87a2658bec4b"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceimpl.html#ac503be50019173a62d3c87a2658bec4b">impl::swap</a> (T &amp;a, T &amp;b)</td></tr>
-<tr class="separator:ac503be50019173a62d3c87a2658bec4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad5f2b0218fb6b4c3bd93e0fff12ef131"><td class="memItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceimpl.html#ad5f2b0218fb6b4c3bd93e0fff12ef131">impl::strlen</a> (const char *str)</td></tr>
-<tr class="separator:ad5f2b0218fb6b4c3bd93e0fff12ef131"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe1c5f14f7cc1e9d300a07faa42ed90b"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
+<tr class="memitem:afe1c5f14f7cc1e9d300a07faa42ed90b"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery_1_1impl.html#afe1c5f14f7cc1e9d300a07faa42ed90b">battery::impl::swap</a> (T &amp;a, T &amp;b)</td></tr>
+<tr class="separator:afe1c5f14f7cc1e9d300a07faa42ed90b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1889ca321d9dfa5be5810ab6ade05969"><td class="memItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacebattery_1_1impl.html#a1889ca321d9dfa5be5810ab6ade05969">battery::impl::strlen</a> (const char *str)</td></tr>
+<tr class="separator:a1889ca321d9dfa5be5810ab6ade05969"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ec3d1cf323edaaf8cae4be0b64001a3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacebattery_1_1impl.html#a7ec3d1cf323edaaf8cae4be0b64001a3">battery::impl::strcmp</a> (const char *s1, const char *s2)</td></tr>
+<tr class="separator:a7ec3d1cf323edaaf8cae4be0b64001a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f637a26222c3f3f8f4aabe03f1b3226"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
+<tr class="memitem:a6f637a26222c3f3f8f4aabe03f1b3226"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#a6f637a26222c3f3f8f4aabe03f1b3226">battery::swap</a> (T &amp;a, T &amp;b)</td></tr>
+<tr class="separator:a6f637a26222c3f3f8f4aabe03f1b3226"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa1cf697cae8216f7684d0346171319ea"><td class="memItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacebattery.html#aa1cf697cae8216f7684d0346171319ea">battery::strlen</a> (const char *str)</td></tr>
+<tr class="separator:aa1cf697cae8216f7684d0346171319ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab691ad4fee48ad7c2309df69ce4e5329"><td class="memItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacebattery.html#ab691ad4fee48ad7c2309df69ce4e5329">battery::strcmp</a> (const char *s1, const char *s2)</td></tr>
+<tr class="separator:ab691ad4fee48ad7c2309df69ce4e5329"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a04a6678814325d5d98c7fc9904f5aa"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
+<tr class="memitem:a1a04a6678814325d5d98c7fc9904f5aa"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#a1a04a6678814325d5d98c7fc9904f5aa">battery::min</a> (T a, T b)</td></tr>
+<tr class="separator:a1a04a6678814325d5d98c7fc9904f5aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a61ce1476010103d779e3eadd35363c0d"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
+<tr class="memitem:a61ce1476010103d779e3eadd35363c0d"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#a61ce1476010103d779e3eadd35363c0d">battery::max</a> (T a, T b)</td></tr>
+<tr class="separator:a61ce1476010103d779e3eadd35363c0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9376f59153a85ab6eea965ba255e9d86"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
+<tr class="memitem:a9376f59153a85ab6eea965ba255e9d86"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#a9376f59153a85ab6eea965ba255e9d86">battery::isnan</a> (T a)</td></tr>
+<tr class="separator:a9376f59153a85ab6eea965ba255e9d86"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8900251f1f508a0ce2148be46101ebc7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacebattery.html#a8900251f1f508a0ce2148be46101ebc7">battery::nextafter</a> (float f, float dir)</td></tr>
+<tr class="separator:a8900251f1f508a0ce2148be46101ebc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aebe095238ef425718aba424159d6af75"><td class="memItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacebattery.html#aebe095238ef425718aba424159d6af75">battery::nextafter</a> (double f, double dir)</td></tr>
+<tr class="separator:aebe095238ef425718aba424159d6af75"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d42f88b43d88d0eafb8bca3b9569eeb"><td class="memTemplParams" colspan="2">template&lt;class To , class From &gt; </td></tr>
+<tr class="memitem:a6d42f88b43d88d0eafb8bca3b9569eeb"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> To&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#a6d42f88b43d88d0eafb8bca3b9569eeb">battery::ru_cast</a> (From x)</td></tr>
+<tr class="separator:a6d42f88b43d88d0eafb8bca3b9569eeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a3d3dc37cb22f628f36c049494cbe91"><td class="memTemplParams" colspan="2">template&lt;class To , class From &gt; </td></tr>
+<tr class="memitem:a7a3d3dc37cb22f628f36c049494cbe91"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> To&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#a7a3d3dc37cb22f628f36c049494cbe91">battery::rd_cast</a> (From x)</td></tr>
+<tr class="separator:a7a3d3dc37cb22f628f36c049494cbe91"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d9c95e5974e8d9e185b89181b1623c4"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
+<tr class="memitem:a1d9c95e5974e8d9e185b89181b1623c4"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#a1d9c95e5974e8d9e185b89181b1623c4">battery::popcount</a> (T x)</td></tr>
+<tr class="separator:a1d9c95e5974e8d9e185b89181b1623c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3153d693cad6bb51b6f2416f4f876f33"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
+<tr class="memitem:a3153d693cad6bb51b6f2416f4f876f33"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#a3153d693cad6bb51b6f2416f4f876f33">battery::countl_zero</a> (T x)</td></tr>
+<tr class="separator:a3153d693cad6bb51b6f2416f4f876f33"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c0f71c460fb3d2014f7809d9c8601ea"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
+<tr class="memitem:a4c0f71c460fb3d2014f7809d9c8601ea"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#a4c0f71c460fb3d2014f7809d9c8601ea">battery::countl_one</a> (T x)</td></tr>
+<tr class="separator:a4c0f71c460fb3d2014f7809d9c8601ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a079afa36af037f416999e0d2019769a0"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
+<tr class="memitem:a079afa36af037f416999e0d2019769a0"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#a079afa36af037f416999e0d2019769a0">battery::countr_zero</a> (T x)</td></tr>
+<tr class="separator:a079afa36af037f416999e0d2019769a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab12cd2d991163f37bf7b435d5c25926d"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
+<tr class="memitem:ab12cd2d991163f37bf7b435d5c25926d"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#ab12cd2d991163f37bf7b435d5c25926d">battery::countr_one</a> (T x)</td></tr>
+<tr class="separator:ab12cd2d991163f37bf7b435d5c25926d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99e82e004900f7fa7f48ba52881345a1"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
+<tr class="memitem:a99e82e004900f7fa7f48ba52881345a1"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#a99e82e004900f7fa7f48ba52881345a1">battery::signum</a> (T val)</td></tr>
+<tr class="separator:a99e82e004900f7fa7f48ba52881345a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade9638f43a724673606d059e0476b354"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
+<tr class="memitem:ade9638f43a724673606d059e0476b354"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#ade9638f43a724673606d059e0476b354">battery::ipow</a> (T a, T b)</td></tr>
+<tr class="separator:ade9638f43a724673606d059e0476b354"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9aca830a6e006bd67c0c4975e5c8f845"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
+<tr class="memitem:a9aca830a6e006bd67c0c4975e5c8f845"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#a9aca830a6e006bd67c0c4975e5c8f845">battery::add_up</a> (T x, T y)</td></tr>
+<tr class="separator:a9aca830a6e006bd67c0c4975e5c8f845"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5a69dc3b55b02823bd014236d456e923"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
+<tr class="memitem:a5a69dc3b55b02823bd014236d456e923"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#a5a69dc3b55b02823bd014236d456e923">battery::add_down</a> (T x, T y)</td></tr>
+<tr class="separator:a5a69dc3b55b02823bd014236d456e923"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6435520caa5379644ab38827e7dd0cb7"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
+<tr class="memitem:a6435520caa5379644ab38827e7dd0cb7"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#a6435520caa5379644ab38827e7dd0cb7">battery::sub_up</a> (T x, T y)</td></tr>
+<tr class="separator:a6435520caa5379644ab38827e7dd0cb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb5750c8a7860217091227636e5e0b24"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
+<tr class="memitem:acb5750c8a7860217091227636e5e0b24"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#acb5750c8a7860217091227636e5e0b24">battery::sub_down</a> (T x, T y)</td></tr>
+<tr class="separator:acb5750c8a7860217091227636e5e0b24"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a07164f8b4bbe820441bda6411b461a1d"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
+<tr class="memitem:a07164f8b4bbe820441bda6411b461a1d"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#a07164f8b4bbe820441bda6411b461a1d">battery::mul_up</a> (T x, T y)</td></tr>
+<tr class="separator:a07164f8b4bbe820441bda6411b461a1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a58dfce4996406fccaef562d86f9edaba"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
+<tr class="memitem:a58dfce4996406fccaef562d86f9edaba"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#a58dfce4996406fccaef562d86f9edaba">battery::mul_down</a> (T x, T y)</td></tr>
+<tr class="separator:a58dfce4996406fccaef562d86f9edaba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f4448314a1601e0dea2ee43de7c9766"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
+<tr class="memitem:a3f4448314a1601e0dea2ee43de7c9766"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#a3f4448314a1601e0dea2ee43de7c9766">battery::div_up</a> (T x, T y)</td></tr>
+<tr class="separator:a3f4448314a1601e0dea2ee43de7c9766"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afffcc17d04b21b6db88996f34fe9c3a8"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
+<tr class="memitem:afffcc17d04b21b6db88996f34fe9c3a8"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#afffcc17d04b21b6db88996f34fe9c3a8">battery::div_down</a> (T x, T y)</td></tr>
+<tr class="separator:afffcc17d04b21b6db88996f34fe9c3a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca6f1767f401748bf81a8404ef6b6c85"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:aca6f1767f401748bf81a8404ef6b6c85"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#aca6f1767f401748bf81a8404ef6b6c85">battery::print</a> (const T &amp;t)</td></tr>
+<tr class="separator:aca6f1767f401748bf81a8404ef6b6c85"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ead5a107626648948845cc0a2dddd64"><td class="memItemLeft" align="right" valign="top">template&lt;&gt; </td></tr>
+<tr class="memitem:a1ead5a107626648948845cc0a2dddd64"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#a1ead5a107626648948845cc0a2dddd64">battery::print</a> (const char &amp;x)</td></tr>
+<tr class="separator:a1ead5a107626648948845cc0a2dddd64"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a82c4d3061d08cc22766e62b071b1943a"><td class="memItemLeft" align="right" valign="top">template&lt;&gt; </td></tr>
+<tr class="memitem:a82c4d3061d08cc22766e62b071b1943a"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#a82c4d3061d08cc22766e62b071b1943a">battery::print</a> (const short &amp;x)</td></tr>
+<tr class="separator:a82c4d3061d08cc22766e62b071b1943a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab9d1abe3503f22f8a14128d95a54416a"><td class="memItemLeft" align="right" valign="top">template&lt;&gt; </td></tr>
+<tr class="memitem:ab9d1abe3503f22f8a14128d95a54416a"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#ab9d1abe3503f22f8a14128d95a54416a">battery::print</a> (const int &amp;x)</td></tr>
+<tr class="separator:ab9d1abe3503f22f8a14128d95a54416a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67d928cfaacd3b22dba1f70fcca470bf"><td class="memItemLeft" align="right" valign="top">template&lt;&gt; </td></tr>
+<tr class="memitem:a67d928cfaacd3b22dba1f70fcca470bf"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#a67d928cfaacd3b22dba1f70fcca470bf">battery::print</a> (const long long int &amp;x)</td></tr>
+<tr class="separator:a67d928cfaacd3b22dba1f70fcca470bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a59ccf09fce3517de56355442e33dbab9"><td class="memItemLeft" align="right" valign="top">template&lt;&gt; </td></tr>
+<tr class="memitem:a59ccf09fce3517de56355442e33dbab9"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#a59ccf09fce3517de56355442e33dbab9">battery::print</a> (const long int &amp;x)</td></tr>
+<tr class="separator:a59ccf09fce3517de56355442e33dbab9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4907e084c10dd30ee8731fe724f0bbb5"><td class="memItemLeft" align="right" valign="top">template&lt;&gt; </td></tr>
+<tr class="memitem:a4907e084c10dd30ee8731fe724f0bbb5"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#a4907e084c10dd30ee8731fe724f0bbb5">battery::print</a> (const unsigned char &amp;x)</td></tr>
+<tr class="separator:a4907e084c10dd30ee8731fe724f0bbb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae9d8a86f7dd309eb8e778be1b4d548f5"><td class="memItemLeft" align="right" valign="top">template&lt;&gt; </td></tr>
+<tr class="memitem:ae9d8a86f7dd309eb8e778be1b4d548f5"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#ae9d8a86f7dd309eb8e778be1b4d548f5">battery::print</a> (const unsigned short &amp;x)</td></tr>
+<tr class="separator:ae9d8a86f7dd309eb8e778be1b4d548f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe7a777af84c10be552a8ad01f4adbe4"><td class="memItemLeft" align="right" valign="top">template&lt;&gt; </td></tr>
+<tr class="memitem:abe7a777af84c10be552a8ad01f4adbe4"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#abe7a777af84c10be552a8ad01f4adbe4">battery::print</a> (const unsigned int &amp;x)</td></tr>
+<tr class="separator:abe7a777af84c10be552a8ad01f4adbe4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac7ffff2a0c0edd279be6818427ba51c9"><td class="memItemLeft" align="right" valign="top">template&lt;&gt; </td></tr>
+<tr class="memitem:ac7ffff2a0c0edd279be6818427ba51c9"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#ac7ffff2a0c0edd279be6818427ba51c9">battery::print</a> (const unsigned long &amp;x)</td></tr>
+<tr class="separator:ac7ffff2a0c0edd279be6818427ba51c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7075825e896d43073cc60ee9693fb48e"><td class="memItemLeft" align="right" valign="top">template&lt;&gt; </td></tr>
+<tr class="memitem:a7075825e896d43073cc60ee9693fb48e"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#a7075825e896d43073cc60ee9693fb48e">battery::print</a> (const unsigned long long &amp;x)</td></tr>
+<tr class="separator:a7075825e896d43073cc60ee9693fb48e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a32b75013e4abf4dca39b589d19f4978e"><td class="memItemLeft" align="right" valign="top">template&lt;&gt; </td></tr>
+<tr class="memitem:a32b75013e4abf4dca39b589d19f4978e"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#a32b75013e4abf4dca39b589d19f4978e">battery::print</a> (const float &amp;x)</td></tr>
+<tr class="separator:a32b75013e4abf4dca39b589d19f4978e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea6591a1ea39a64d14017e84b06698d0"><td class="memItemLeft" align="right" valign="top">template&lt;&gt; </td></tr>
+<tr class="memitem:aea6591a1ea39a64d14017e84b06698d0"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#aea6591a1ea39a64d14017e84b06698d0">battery::print</a> (const double &amp;x)</td></tr>
+<tr class="separator:aea6591a1ea39a64d14017e84b06698d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad013208215f8c5d7b2fbaa719e7a17d2"><td class="memItemLeft" align="right" valign="top">template&lt;&gt; </td></tr>
+<tr class="memitem:ad013208215f8c5d7b2fbaa719e7a17d2"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#ad013208215f8c5d7b2fbaa719e7a17d2">battery::print</a> (char const *const &amp;x)</td></tr>
+<tr class="separator:ad013208215f8c5d7b2fbaa719e7a17d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="a9b3a72b320467bcad48a277e9aa0b9f7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9b3a72b320467bcad48a277e9aa0b9f7">&#9670;&nbsp;</a></span>ON_GPU</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define ON_GPU</td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td>&#160;&#160;&#160;(defined(__CUDA_ARCH__) &amp;&amp; (__CUDA_ARCH__ &gt; 0))</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a56d95d2dc300f9e526f8789bed779fce"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a56d95d2dc300f9e526f8789bed779fce">&#9670;&nbsp;</a></span>ON_CPU</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define ON_CPU</td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td>&#160;&#160;&#160;(!defined(__CUDA_ARCH__) || (__CUDA_ARCH__ == 0))</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="a82371da0ef2093da131cfb4d0e5a5747"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a82371da0ef2093da131cfb4d0e5a5747">&#9670;&nbsp;</a></span>CUDA_GLOBAL</h2>
 
@@ -225,6 +316,20 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a884c794595c4aa480df9022648c29564"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a884c794595c4aa480df9022648c29564">&#9670;&nbsp;</a></span>SHARED</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define SHARED</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a7b01e29f669d6beed251f1b2a547ca93"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7b01e29f669d6beed251f1b2a547ca93">&#9670;&nbsp;</a></span>CUDA</h2>
 
@@ -239,14 +344,18 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a46471ddcabc17b7264c7d3876a835024"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a46471ddcabc17b7264c7d3876a835024">&#9670;&nbsp;</a></span>CUDIE</h2>
+<a id="afe889e7769b8e7d197dd79a7ab3fd249"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe889e7769b8e7d197dd79a7ab3fd249">&#9670;&nbsp;</a></span>CUDIE</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">#define CUDIE</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">S</td><td>)</td>
+          <td>&#160;&#160;&#160;S</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -265,6 +374,129 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+</div>
+</div>
+<a id="a2eb6f9e0395b47b8d5e3eeae4fe0c116"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2eb6f9e0395b47b8d5e3eeae4fe0c116">&#9670;&nbsp;</a></span>INLINE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define INLINE&#160;&#160;&#160;inline</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a38a8e36b956411445100bc439be8ee8e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a38a8e36b956411445100bc439be8ee8e">&#9670;&nbsp;</a></span>MAP_LIMITS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MAP_LIMITS</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">From, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">To&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">  <span class="keywordflow">if</span>(x == 0) { <span class="keywordflow">return</span> 0; } \</div>
+<div class="line">  if(x == Limits&lt;From&gt;::bot()) {\</div>
+<div class="line">    return Limits&lt;To&gt;::bot();   \</div>
+<div class="line">  }                             \</div>
+<div class="line">  if(x == Limits&lt;From&gt;::top()) {\</div>
+<div class="line">    return Limits&lt;To&gt;::top();   \</div>
+<div class="line">  }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a02c6c229b4b7fd59e49e11aee52dd1c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a02c6c229b4b7fd59e49e11aee52dd1c8">&#9670;&nbsp;</a></span>FLOAT_ARITHMETIC_CUDA_IMPL</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define FLOAT_ARITHMETIC_CUDA_IMPL</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">name, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cudaname&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">  <span class="keywordflow">if</span> constexpr(std::is_same_v&lt;T, float&gt;) {           \</div>
+<div class="line">    return __f ## cudaname(x, y);                    \</div>
+<div class="line">  }                                                  \</div>
+<div class="line">  else <span class="keywordflow">if</span> constexpr(std::is_same_v&lt;T, double&gt;) {     \</div>
+<div class="line">    return __d ## cudaname(x, y);                    \</div>
+<div class="line">  }                                                  \</div>
+<div class="line">  else {                                             \</div>
+<div class="line">    static_assert(std::is_same_v&lt;T, float&gt;, #name <span class="stringliteral">&quot; (CUDA version) only support float or double types.&quot;</span>); \</div>
+<div class="line">  }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="ac1e9caf1be8ef431e3665e424e654427"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac1e9caf1be8ef431e3665e424e654427">&#9670;&nbsp;</a></span>FLOAT_ARITHMETIC_CPP_IMPL</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define FLOAT_ARITHMETIC_CPP_IMPL</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cppop, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">cppround&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">  <span class="keywordtype">int</span> r = std::fesetround(cppround);              \</div>
+<div class="line">  assert(r == 0);                                  \</div>
+<div class="line">  return x cppop y;</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="adadcbb9e426e1bf6bd7ac06dac7f958b"></a>

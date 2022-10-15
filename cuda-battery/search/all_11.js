@@ -1,0 +1,8 @@
+var searchData=
+[
+  ['unique_5fptr_127',['unique_ptr',['../classbattery_1_1unique__ptr.html',1,'battery::unique_ptr&lt; T, Allocator &gt;'],['../classbattery_1_1unique__ptr.html#a0444cdb78e46474745edd3edca153793',1,'battery::unique_ptr::unique_ptr()'],['../classbattery_1_1unique__ptr.html#ad1bf37d21fb0afdeb71ae08e55862f26',1,'battery::unique_ptr::unique_ptr(const allocator_type &amp;alloc=allocator_type())'],['../classbattery_1_1unique__ptr.html#a4c719a4be3cda43a847426b0b41e19eb',1,'battery::unique_ptr::unique_ptr(std::nullptr_t, const allocator_type &amp;alloc=allocator_type())'],['../classbattery_1_1unique__ptr.html#abf3a32084be34d246e3a849ed2adb97a',1,'battery::unique_ptr::unique_ptr(pointer ptr, const allocator_type &amp;alloc=allocator_type())'],['../classbattery_1_1unique__ptr.html#a5b89dceee105928e9707cdc8efa2cbbc',1,'battery::unique_ptr::unique_ptr(this_type &amp;&amp;from)'],['../classbattery_1_1unique__ptr.html#a5aabc91678beed8fccf64aea46330c98',1,'battery::unique_ptr::unique_ptr(unique_ptr&lt; U, Allocator &gt; &amp;&amp;from)'],['../classbattery_1_1unique__ptr.html#a62f4aa209cb1afada6ebb3b69d4ff344',1,'battery::unique_ptr::unique_ptr(const this_type &amp;)=delete']]],
+  ['unique_5fptr_2ehpp_128',['unique_ptr.hpp',['../unique__ptr_8hpp.html',1,'']]],
+  ['use_5fcount_129',['use_count',['../classbattery_1_1shared__ptr.html#a265238eef73faae1246fc11412a0d450',1,'battery::shared_ptr']]],
+  ['used_130',['used',['../classbattery_1_1_pool_allocator.html#a484efdbbde8d05e4f2ae9c66d20ab37c',1,'battery::PoolAllocator']]],
+  ['utility_2ehpp_131',['utility.hpp',['../utility_8hpp.html',1,'']]]
+];

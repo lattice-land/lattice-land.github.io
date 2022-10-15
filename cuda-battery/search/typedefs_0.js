@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['this_5ftype_74',['this_type',['../class_d_array.html#a18ef8511b2909412f8790c248f0689a0',1,'DArray::this_type()'],['../class_string.html#aef04ce841945d3618b7d27667af116db',1,'String::this_type()']]]
+  ['allocator_5ftype_292',['allocator_type',['../classbattery_1_1_memory.html#a20de7e6b1b37dcbf31a48072b33ee624',1,'battery::Memory::allocator_type()'],['../classbattery_1_1_atomic_memory.html#ab465431440845dd862d29f266f772c17',1,'battery::AtomicMemory::allocator_type()'],['../classbattery_1_1shared__ptr.html#aef103793e04f8470abea71c60d7c6297',1,'battery::shared_ptr::allocator_type()'],['../classbattery_1_1_string.html#a2ef0880d721e43d4ca7180e5fa887b2e',1,'battery::String::allocator_type()'],['../classbattery_1_1unique__ptr.html#a052cfdf1cf3184366e7130ea5dba8b4d',1,'battery::unique_ptr::allocator_type()'],['../classbattery_1_1vector.html#a18d3e3bd8653759cbe9e29989f3d5157',1,'battery::vector::allocator_type()']]],
+  ['atomic_5ft_293',['atomic_t',['../namespacebattery_1_1impl.html#a7fd088e773a19cf9633c6bac6e479d21',1,'battery::impl']]],
+  ['atomic_5ftype_294',['atomic_type',['../classbattery_1_1_local_memory.html#af3aa9ca17d00e20b3d0c11a779ed9a3d',1,'battery::LocalMemory::atomic_type()'],['../classbattery_1_1_memory.html#a45f6a06ba22053848d043c3814b842bd',1,'battery::Memory::atomic_type()'],['../classbattery_1_1_atomic_memory.html#adee2aa50a762c856d1ce5950c3e72fc1',1,'battery::AtomicMemory::atomic_type()']]]
 ];

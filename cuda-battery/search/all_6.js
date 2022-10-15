@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['limits_19',['Limits',['../struct_limits.html',1,'']]],
-  ['log_20',['LOG',['../utility_8hpp.html#adadcbb9e426e1bf6bd7ac06dac7f958b',1,'utility.hpp']]]
+  ['get_47',['get',['../classbattery_1_1shared__ptr.html#a7fc2b4b015db992d990346406142a150',1,'battery::shared_ptr::get()'],['../classbattery_1_1unique__ptr.html#a84fbb3935f6035a52343ee13ceff3d77',1,'battery::unique_ptr::get()'],['../structbattery_1_1variant.html#a3c2ee43e4fb093121806832b34aeacff',1,'battery::variant::get()'],['../structbattery_1_1variant.html#acd24ffd9edac406caae57c9c6c859e78',1,'battery::variant::get()'],['../namespacebattery.html#a2690835dac25686be6136f2da2c722f3',1,'battery::get(variant&lt; Ts... &gt; &amp;v)'],['../namespacebattery.html#a3aa005f095e0846f84cd79c49ce45d47',1,'battery::get(const variant&lt; Ts... &gt; &amp;v)']]],
+  ['get_5fallocator_48',['get_allocator',['../classbattery_1_1_memory.html#a9f256fb2d99d426e1e4436998971541b',1,'battery::Memory::get_allocator()'],['../classbattery_1_1_atomic_memory.html#af20ed2e2fd54775b0c7f6ba5513d3a57',1,'battery::AtomicMemory::get_allocator()'],['../classbattery_1_1shared__ptr.html#a13d0cfcf14a2fde749ac144a2b6a336e',1,'battery::shared_ptr::get_allocator()'],['../classbattery_1_1_string.html#aeb7809cf628cc9a3a23809b8281fee8b',1,'battery::String::get_allocator()'],['../classbattery_1_1unique__ptr.html#abaf283d28e483eea6c293cb52417fac1',1,'battery::unique_ptr::get_allocator()'],['../classbattery_1_1vector.html#a905383d1a07727d186f858838a878432',1,'battery::vector::get_allocator()']]]
 ];

@@ -1,10 +1,4 @@
 var searchData=
 [
-  ['on_5fcpu_21',['ON_CPU',['../utility_8hpp.html#a56d95d2dc300f9e526f8789bed779fce',1,'utility.hpp']]],
-  ['on_5fgpu_22',['ON_GPU',['../utility_8hpp.html#a9b3a72b320467bcad48a277e9aa0b9f7',1,'utility.hpp']]],
-  ['operator_20delete_23',['operator delete',['../allocator_8hpp.html#a0423a6ab74d1aad5a0d473016ae84de2',1,'operator delete(void *ptr, PoolAllocator &amp;p):&#160;allocator.hpp'],['../allocator_8hpp.html#ac41cd416529994ed673b38c97c23d7a9',1,'operator delete(void *ptr, StandardAllocator &amp;p):&#160;allocator.hpp']]],
-  ['operator_20delete_5b_5d_24',['operator delete[]',['../allocator_8hpp.html#a4190346e894965a50684b10ef7b56a33',1,'operator delete[](void *ptr, PoolAllocator &amp;p):&#160;allocator.hpp'],['../allocator_8hpp.html#a5dc6a55f8fd95ea69a742bf6413061ef',1,'operator delete[](void *ptr, StandardAllocator &amp;p):&#160;allocator.hpp']]],
-  ['operator_20new_25',['operator new',['../allocator_8hpp.html#a8bbeb4d85cbe89081c97676362f96dd8',1,'operator new(size_t bytes, PoolAllocator &amp;p):&#160;allocator.hpp'],['../allocator_8hpp.html#ade9552c15c59ec44621670dfdaf22858',1,'operator new(size_t bytes, StandardAllocator &amp;p):&#160;allocator.hpp']]],
-  ['operator_20new_5b_5d_26',['operator new[]',['../allocator_8hpp.html#aacc0c7591e22aae8a3a77923cb2e8c38',1,'operator new[](size_t bytes, PoolAllocator &amp;p):&#160;allocator.hpp'],['../allocator_8hpp.html#a30c66b4a10518808086a8d120e979655',1,'operator new[](size_t bytes, StandardAllocator &amp;p):&#160;allocator.hpp']]],
-  ['operator_5b_5d_27',['operator[]',['../class_d_array.html#a2f910bca050d3f9c332182fe823fe888',1,'DArray::operator[](size_t i)'],['../class_d_array.html#a85915aa94d5e153e76efadd88a5591bf',1,'DArray::operator[](size_t i) const'],['../class_string.html#aa804cfa0f4bc47766a2d10f12ccb842e',1,'String::operator[](size_t i)'],['../class_string.html#a2e1e7b4008917d167790aa8980d6c693',1,'String::operator[](size_t i) const']]]
+  ['host_49',['HOST',['../utility_8hpp.html#abbbcf3c42c997889127cc676754a6fea',1,'utility.hpp']]]
 ];

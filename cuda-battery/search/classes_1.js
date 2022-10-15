@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['limits_43',['Limits',['../struct_limits.html',1,'']]]
+  ['bitset_154',['Bitset',['../classbattery_1_1_bitset.html',1,'battery']]]
 ];

@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['poolallocator_66',['PoolAllocator',['../class_pool_allocator.html#af04e1e683461b914a579eb713801f6fa',1,'PoolAllocator::PoolAllocator(const PoolAllocator &amp;)'],['../class_pool_allocator.html#a739e0b7d8f02792580508d80b7e51263',1,'PoolAllocator::PoolAllocator(int *mem, size_t capacity)'],['../class_pool_allocator.html#a8d6a38ac9b1320c4864dd430ba162214',1,'PoolAllocator::PoolAllocator()=delete']]]
+  ['emplace_5fback_214',['emplace_back',['../classbattery_1_1vector.html#a450c6aba41d0bbd22560bcebe5c0e193',1,'battery::vector']]],
+  ['empty_215',['empty',['../classbattery_1_1vector.html#ac069f65044de1bbe06849200f3c135eb',1,'battery::vector']]],
+  ['equals_216',['equals',['../structbattery_1_1impl_1_1variant__helper__rec_3_01n_00_01_f_00_01_ts_8_8_8_01_4.html#a848c6c41a02285963a1cc030423c87c3',1,'battery::impl::variant_helper_rec&lt; n, F, Ts... &gt;::equals()'],['../structbattery_1_1impl_1_1variant__helper__rec_3_01n_01_4.html#aae155ae9cd6815183f3f17aa449fe663',1,'battery::impl::variant_helper_rec&lt; n &gt;::equals()'],['../structbattery_1_1impl_1_1variant__helper.html#a907898ca804f43dfc74a18b84e252497',1,'battery::impl::variant_helper::equals()'],['../structbattery_1_1impl_1_1variant__helper_3_4.html#ae25d7145f9730b90b563a227c9230ad9',1,'battery::impl::variant_helper&lt;&gt;::equals()']]]
 ];
