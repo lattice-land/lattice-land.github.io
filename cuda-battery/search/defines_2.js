@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['float_5farithmetic_5fcpp_5fimpl_313',['FLOAT_ARITHMETIC_CPP_IMPL',['../utility_8hpp.html#ac1e9caf1be8ef431e3665e424e654427',1,'utility.hpp']]],
-  ['float_5farithmetic_5fcuda_5fimpl_314',['FLOAT_ARITHMETIC_CUDA_IMPL',['../utility_8hpp.html#a02c6c229b4b7fd59e49e11aee52dd1c8',1,'utility.hpp']]]
+  ['host_295',['HOST',['../utility_8hpp.html#abbbcf3c42c997889127cc676754a6fea',1,'utility.hpp']]]
 ];

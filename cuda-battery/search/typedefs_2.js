@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['memory_5forder_296',['memory_order',['../namespacebattery.html#af53e67590f0db63701fcff136837902c',1,'battery']]]
+  ['local_5fmemory_276',['local_memory',['../namespacebattery.html#a09111ca968cc4d8defa60555963dd052',1,'battery']]]
 ];

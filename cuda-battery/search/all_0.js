@@ -1,16 +1,19 @@
 var searchData=
 [
-  ['add_5fdown_0',['add_down',['../namespacebattery.html#a5a69dc3b55b02823bd014236d456e923',1,'battery']]],
-  ['add_5fup_1',['add_up',['../namespacebattery.html#a9aca830a6e006bd67c0c4975e5c8f845',1,'battery']]],
-  ['align_5fat_2',['align_at',['../classbattery_1_1_pool_allocator.html#a919264becb4ec2cc86e630ded2e08df5',1,'battery::PoolAllocator']]],
-  ['all_3',['all',['../classbattery_1_1_bitset.html#a42915651366dbe5542c483951e5484c6',1,'battery::Bitset']]],
-  ['allocate_4',['allocate',['../classbattery_1_1_pool_allocator.html#ab3bc1d29bc04dc3471ab39f1bf94aede',1,'battery::PoolAllocator::allocate()'],['../classbattery_1_1_standard_allocator.html#ab135d277950c1432b9ecb7cf20b5fb6f',1,'battery::StandardAllocator::allocate()']]],
+  ['add_5fdown_0',['add_down',['../namespacebattery.html#a43d013f1db8f8b8c085c544859e24a7f',1,'battery']]],
+  ['add_5fup_1',['add_up',['../namespacebattery.html#af3a4582a08267940dbdb5b39044aa4c6',1,'battery']]],
+  ['align_5fat_2',['align_at',['../classbattery_1_1pool__allocator.html#ab4fd5000109638d0b5acec882b6665e5',1,'battery::pool_allocator']]],
+  ['all_3',['all',['../classbattery_1_1bitset.html#a2a07e625ff44063651bb7e3a75dc4de1',1,'battery::bitset']]],
+  ['allocate_4',['allocate',['../classbattery_1_1global__allocator.html#ada473df0210a42254096546eb7afe88a',1,'battery::global_allocator::allocate()'],['../classbattery_1_1managed__allocator.html#ae7bb765647ea7f795ec0d21c6b3d2794',1,'battery::managed_allocator::allocate()'],['../classbattery_1_1pool__allocator.html#a8ba03357c0cd2e8ff4258cb8a35b40bd',1,'battery::pool_allocator::allocate()'],['../classbattery_1_1standard__allocator.html#a76bb4621a419834e959b53576d890d48',1,'battery::standard_allocator::allocate()'],['../classbattery_1_1statistics__allocator.html#a9151961ec13b1b74fef97ee40e44a337',1,'battery::statistics_allocator::allocate()']]],
   ['allocate_5fshared_5',['allocate_shared',['../namespacebattery.html#aee9241d882f78f0130435b46389ff9ac',1,'battery']]],
   ['allocate_5funique_6',['allocate_unique',['../namespacebattery.html#aa354aeb0995d495b2b9858a6ea2fb568',1,'battery']]],
   ['allocator_2ehpp_7',['allocator.hpp',['../allocator_8hpp.html',1,'']]],
-  ['allocator_5ftype_8',['allocator_type',['../classbattery_1_1_memory.html#a20de7e6b1b37dcbf31a48072b33ee624',1,'battery::Memory::allocator_type()'],['../classbattery_1_1_atomic_memory.html#ab465431440845dd862d29f266f772c17',1,'battery::AtomicMemory::allocator_type()'],['../classbattery_1_1shared__ptr.html#aef103793e04f8470abea71c60d7c6297',1,'battery::shared_ptr::allocator_type()'],['../classbattery_1_1_string.html#a2ef0880d721e43d4ca7180e5fa887b2e',1,'battery::String::allocator_type()'],['../classbattery_1_1unique__ptr.html#a052cfdf1cf3184366e7130ea5dba8b4d',1,'battery::unique_ptr::allocator_type()'],['../classbattery_1_1vector.html#a18d3e3bd8653759cbe9e29989f3d5157',1,'battery::vector::allocator_type()']]],
-  ['any_9',['any',['../classbattery_1_1_bitset.html#a7366b0b1d96c324797e2ce2d5054e1d5',1,'battery::Bitset']]],
-  ['atomic_5ft_10',['atomic_t',['../namespacebattery_1_1impl.html#a7fd088e773a19cf9633c6bac6e479d21',1,'battery::impl']]],
-  ['atomic_5ftype_11',['atomic_type',['../classbattery_1_1_local_memory.html#af3aa9ca17d00e20b3d0c11a779ed9a3d',1,'battery::LocalMemory::atomic_type()'],['../classbattery_1_1_memory.html#a45f6a06ba22053848d043c3814b842bd',1,'battery::Memory::atomic_type()'],['../classbattery_1_1_atomic_memory.html#adee2aa50a762c856d1ce5950c3e72fc1',1,'battery::AtomicMemory::atomic_type()']]],
-  ['atomicmemory_12',['AtomicMemory',['../classbattery_1_1_atomic_memory.html',1,'battery::AtomicMemory&lt; Allocator, mem_order &gt;'],['../classbattery_1_1_atomic_memory.html#ae7a331d04ac1768c913666d78a601752',1,'battery::AtomicMemory::AtomicMemory(allocator_type alloc)'],['../classbattery_1_1_atomic_memory.html#a2df59ea8154d7cd2c9cf358d2e619695',1,'battery::AtomicMemory::AtomicMemory(const AtomicMemory &amp;am)']]]
+  ['allocator_5ftype_8',['allocator_type',['../classbattery_1_1shared__ptr.html#aef103793e04f8470abea71c60d7c6297',1,'battery::shared_ptr::allocator_type()'],['../classbattery_1_1vector.html#a18d3e3bd8653759cbe9e29989f3d5157',1,'battery::vector::allocator_type()'],['../classbattery_1_1unique__ptr.html#a052cfdf1cf3184366e7130ea5dba8b4d',1,'battery::unique_ptr::allocator_type()'],['../classbattery_1_1string.html#a9f2f9863c4c3e190ad8700cae45023a8',1,'battery::string::allocator_type()']]],
+  ['any_9',['any',['../classbattery_1_1bitset.html#a034aaf8f708a49521270651dfe6d2dbd',1,'battery::bitset']]],
+  ['atomic_5fmemory_10',['atomic_memory',['../classbattery_1_1atomic__memory.html',1,'battery']]],
+  ['atomic_5fmemory_5fblock_11',['atomic_memory_block',['../namespacebattery.html#afb485d8f961537d1ca590f78d16ac1c4',1,'battery']]],
+  ['atomic_5fmemory_5fgrid_12',['atomic_memory_grid',['../namespacebattery.html#a2af42ce969d94b6b8bb1ed9a94b9cf49',1,'battery']]],
+  ['atomic_5fmemory_5fmulti_5fgrid_13',['atomic_memory_multi_grid',['../namespacebattery.html#a972d9650ddbedff1111369e8cdd4bc52',1,'battery']]],
+  ['atomic_5fmemory_5fscoped_14',['atomic_memory_scoped',['../classbattery_1_1atomic__memory__scoped.html',1,'battery']]],
+  ['atomic_5ftype_15',['atomic_type',['../classbattery_1_1atomic__memory.html#adad462f0c2e6158160a07d621a9578f2',1,'battery::atomic_memory::atomic_type()'],['../classbattery_1_1atomic__memory__scoped.html#a406839b26412bb03fdea1a43999802d0',1,'battery::atomic_memory_scoped::atomic_type()'],['../classbattery_1_1memory.html#a8e0509df2aad0130fac9df9ebd9122a3',1,'battery::memory::atomic_type()']]]
 ];

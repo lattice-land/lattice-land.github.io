@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['nextafter_233',['nextafter',['../namespacebattery.html#a8900251f1f508a0ce2148be46101ebc7',1,'battery::nextafter(float f, float dir)'],['../namespacebattery.html#aebe095238ef425718aba424159d6af75',1,'battery::nextafter(double f, double dir)']]],
-  ['none_234',['none',['../classbattery_1_1_bitset.html#a0ca349f84558af954f80ce9f95877c81',1,'battery::Bitset']]]
+  ['nextafter_211',['nextafter',['../namespacebattery.html#ad65fedc9033223e52dbc6601426d40a7',1,'battery::nextafter(float f, float dir)'],['../namespacebattery.html#a05f24092ca3133fc568ce54fdd62c3d6',1,'battery::nextafter(double f, double dir)']]],
+  ['none_212',['none',['../classbattery_1_1bitset.html#a99b67ce9d7cf3ca653ccfb0c3385e6d5',1,'battery::bitset']]],
+  ['num_5fallocations_213',['num_allocations',['../classbattery_1_1statistics__allocator.html#af98303e76e95a5f12e6ecce2e615e61a',1,'battery::statistics_allocator']]],
+  ['num_5fdeallocations_214',['num_deallocations',['../classbattery_1_1pool__allocator.html#afc015fad5ef8742afc69cab8e83d4882',1,'battery::pool_allocator::num_deallocations()'],['../classbattery_1_1statistics__allocator.html#a142cba1058499974191021e9561be2f3',1,'battery::statistics_allocator::num_deallocations()']]]
 ];

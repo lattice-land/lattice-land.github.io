@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['limits_155',['Limits',['../structbattery_1_1_limits.html',1,'battery']]],
-  ['localmemory_156',['LocalMemory',['../classbattery_1_1_local_memory.html',1,'battery']]]
+  ['global_5fallocator_142',['global_allocator',['../classbattery_1_1global__allocator.html',1,'battery']]]
 ];

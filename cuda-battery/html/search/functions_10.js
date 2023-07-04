@@ -1,0 +1,6 @@
+var searchData=
+[
+  ['unique_5fptr_305',['unique_ptr',['../classbattery_1_1unique__ptr.html#ad3ed3e2b616e732e5d4996a2fa06d84b',1,'battery::unique_ptr::unique_ptr(const allocator_type &amp;allocator=allocator_type())'],['../classbattery_1_1unique__ptr.html#ae0c6f3ca49d5fc227ed2697cef8c30d2',1,'battery::unique_ptr::unique_ptr(std::nullptr_t, const allocator_type &amp;allocator=allocator_type())'],['../classbattery_1_1unique__ptr.html#afe3cedc04d29e02abbf5854fdba8a569',1,'battery::unique_ptr::unique_ptr(pointer ptr, const allocator_type &amp;allocator=allocator_type())'],['../classbattery_1_1unique__ptr.html#a5b89dceee105928e9707cdc8efa2cbbc',1,'battery::unique_ptr::unique_ptr(this_type &amp;&amp;from)'],['../classbattery_1_1unique__ptr.html#a5aabc91678beed8fccf64aea46330c98',1,'battery::unique_ptr::unique_ptr(unique_ptr&lt; U, Allocator &gt; &amp;&amp;from)'],['../classbattery_1_1unique__ptr.html#a62f4aa209cb1afada6ebb3b69d4ff344',1,'battery::unique_ptr::unique_ptr(const this_type &amp;)=delete']]],
+  ['use_5fcount_306',['use_count',['../classbattery_1_1shared__ptr.html#a265238eef73faae1246fc11412a0d450',1,'battery::shared_ptr']]],
+  ['used_307',['used',['../classbattery_1_1pool__allocator.html#a0f485861003e14846b56f31ad48cb356',1,'battery::pool_allocator']]]
+];

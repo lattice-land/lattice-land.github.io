@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['memory_5forder_5frelaxed_290',['memory_order_relaxed',['../namespacebattery.html#ab4e244dc90c6ebff87bc62f899a1b65f',1,'battery']]],
-  ['memory_5forder_5fseq_5fcst_291',['memory_order_seq_cst',['../namespacebattery.html#acd1208ff76904d2c817319a8328f91e6',1,'battery']]]
+  ['sequential_269',['sequential',['../classbattery_1_1memory.html#ac018784a6831f75b9cf87ee397286fff',1,'battery::memory::sequential()'],['../classbattery_1_1atomic__memory__scoped.html#aacc0e6bc8dc8c03df40036179c952e6c',1,'battery::atomic_memory_scoped::sequential()'],['../classbattery_1_1atomic__memory.html#a9d2df41c8baf69092a39dbccb4ca2850',1,'battery::atomic_memory::sequential()']]]
 ];

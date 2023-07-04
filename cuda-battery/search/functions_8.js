@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['load_224',['load',['../classbattery_1_1_local_memory.html#a1544a87439b8647d00aba29dfe086c54',1,'battery::LocalMemory::load()'],['../classbattery_1_1_memory.html#a38c78f4ff5a1b6b5928dc7ee48afd401',1,'battery::Memory::load()'],['../classbattery_1_1_atomic_memory.html#ab57692fbf3a7a09ce2b0ced3aa948dfb',1,'battery::AtomicMemory::load()']]]
+  ['load_202',['load',['../classbattery_1_1memory.html#ac8815a32207ac5077e69ad9fb6f8b374',1,'battery::memory::load()'],['../classbattery_1_1atomic__memory__scoped.html#a047c0021248c3c3161d8c9a807c8ac21',1,'battery::atomic_memory_scoped::load()'],['../classbattery_1_1atomic__memory.html#a409911978ffa081468ec74c94f751297',1,'battery::atomic_memory::load()']]]
 ];

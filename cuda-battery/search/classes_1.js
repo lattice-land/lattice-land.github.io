@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['bitset_154',['Bitset',['../classbattery_1_1_bitset.html',1,'battery']]]
+  ['bitset_141',['bitset',['../classbattery_1_1bitset.html',1,'battery']]]
 ];

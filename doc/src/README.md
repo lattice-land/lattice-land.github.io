@@ -1,9 +1,9 @@
 # Introduction
 
-Hello! You reached the `Lattice Land` book.
-`Lattice land` is a collection of C++ libraries compatible with NVIDIA GPU.
-Most of the library implements _abstract domains for constraint reasoning_ a new kind of data structure based on [abstract interpretation](https://en.wikipedia.org/wiki/Abstract_interpretation), [lattice theory](https://en.wikipedia.org/wiki/Lattice_(order)) and [constraint reasoning](https://en.wikipedia.org/wiki/Constraint_satisfaction).
-This is a book presenting this project, the involved research papers and the code documentation.
+Hello! You just arrived in lattice land!
+Lattice land is a collection of C++ libraries compatible with NVIDIA CUDA framework.
+Most of the libraries implement _abstract domains for constraint reasoning_ a new kind of data structure based on [abstract interpretation](https://en.wikipedia.org/wiki/Abstract_interpretation), [lattice theory](https://en.wikipedia.org/wiki/Lattice_(order)) and [constraint reasoning](https://en.wikipedia.org/wiki/Constraint_satisfaction).
+This is a book presenting our research project, the involved research papers and the code documentation.
 
 This project is available on [github](https://github.com/lattice-land).
 
