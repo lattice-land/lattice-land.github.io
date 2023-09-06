@@ -1,5 +1,5 @@
 var classbattery_1_1standard__allocator =
 [
-    [ "allocate", "classbattery_1_1standard__allocator.html#a76bb4621a419834e959b53576d890d48", null ],
-    [ "deallocate", "classbattery_1_1standard__allocator.html#a462a5af843bc39ec2486e484b9ccede0", null ]
+    [ "allocate", "classbattery_1_1standard__allocator.html#a4196e2e45591caa4a79e54e9e0060e3e", null ],
+    [ "deallocate", "classbattery_1_1standard__allocator.html#aa718ff577c1ebfa1088dc182a89d3a4d", null ]
 ];

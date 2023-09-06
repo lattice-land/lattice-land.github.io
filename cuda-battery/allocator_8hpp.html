@@ -106,10 +106,6 @@ $(document).ready(function(){initNavTree('allocator_8hpp.html',''); initResizabl
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbattery_1_1global__allocator.html">battery::global_allocator</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbattery_1_1managed__allocator.html">battery::managed_allocator</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbattery_1_1pool__allocator.html">battery::pool_allocator</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbattery_1_1standard__allocator.html">battery::standard_allocator</a></td></tr>
@@ -124,14 +120,6 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a946779923f0a8d254fc33647b5dea167"><td class="memItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="allocator_8hpp.html#a946779923f0a8d254fc33647b5dea167">operator new</a> (size_t bytes, <a class="el" href="classbattery_1_1managed__allocator.html">battery::managed_allocator</a> &amp;p)</td></tr>
-<tr class="separator:a946779923f0a8d254fc33647b5dea167"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af1b4ffc3201a3b17c1590433d6d52711"><td class="memItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="allocator_8hpp.html#af1b4ffc3201a3b17c1590433d6d52711">operator delete</a> (void *ptr, <a class="el" href="classbattery_1_1managed__allocator.html">battery::managed_allocator</a> &amp;p)</td></tr>
-<tr class="separator:af1b4ffc3201a3b17c1590433d6d52711"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af58c7be2b3df631bcec060ccecc31287"><td class="memItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="allocator_8hpp.html#af58c7be2b3df631bcec060ccecc31287">operator new</a> (size_t bytes, <a class="el" href="classbattery_1_1global__allocator.html">battery::global_allocator</a> &amp;p)</td></tr>
-<tr class="separator:af58c7be2b3df631bcec060ccecc31287"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2d43383c20fc7dff753d329a74982b08"><td class="memItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="allocator_8hpp.html#a2d43383c20fc7dff753d329a74982b08">operator delete</a> (void *ptr, <a class="el" href="classbattery_1_1global__allocator.html">battery::global_allocator</a> &amp;p)</td></tr>
-<tr class="separator:a2d43383c20fc7dff753d329a74982b08"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1b14fe2103137b6e468ec53d234abae8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="allocator_8hpp.html#a1b14fe2103137b6e468ec53d234abae8">operator new</a> (size_t bytes, <a class="el" href="classbattery_1_1pool__allocator.html">battery::pool_allocator</a> &amp;p)</td></tr>
 <tr class="separator:a1b14fe2103137b6e468ec53d234abae8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a63099a92325007898b0cbd5981ef1736"><td class="memItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="allocator_8hpp.html#a63099a92325007898b0cbd5981ef1736">operator delete</a> (void *ptr, <a class="el" href="classbattery_1_1pool__allocator.html">battery::pool_allocator</a> &amp;p)</td></tr>
@@ -145,152 +133,8 @@ Functions</h2></td></tr>
 <div class="textblock"><p>We provide several allocators compatible with the data structures provided by this library. The allocators are aimed to be used to distinguish in which memory (shared, global, managed or the "standard" C++ memory) we should allocate data. This allows us to provide uniform interfaces for both host (C++) and device (CUDA) code.</p>
 <p>As a general comment, be careful to always deallocate the memory from the side you allocated it, e.g., do not allocate on the host then try to deallocate it on the device. To avoid these kind of mistakes, you should use <code><a class="el" href="classbattery_1_1shared__ptr.html">battery::shared_ptr</a></code> when passing data to a CUDA kernel, see the manual for examples. </p>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="a946779923f0a8d254fc33647b5dea167"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a946779923f0a8d254fc33647b5dea167">&#9670;&nbsp;</a></span>operator new() <span class="overload">[1/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> void* operator new </td>
-          <td>(</td>
-          <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>bytes</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="classbattery_1_1managed__allocator.html">battery::managed_allocator</a> &amp;&#160;</td>
-          <td class="paramname"><em>p</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="af1b4ffc3201a3b17c1590433d6d52711"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af1b4ffc3201a3b17c1590433d6d52711">&#9670;&nbsp;</a></span>operator delete() <span class="overload">[1/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> void operator delete </td>
-          <td>(</td>
-          <td class="paramtype">void *&#160;</td>
-          <td class="paramname"><em>ptr</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="classbattery_1_1managed__allocator.html">battery::managed_allocator</a> &amp;&#160;</td>
-          <td class="paramname"><em>p</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="af58c7be2b3df631bcec060ccecc31287"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af58c7be2b3df631bcec060ccecc31287">&#9670;&nbsp;</a></span>operator new() <span class="overload">[2/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> void* operator new </td>
-          <td>(</td>
-          <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>bytes</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="classbattery_1_1global__allocator.html">battery::global_allocator</a> &amp;&#160;</td>
-          <td class="paramname"><em>p</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a2d43383c20fc7dff753d329a74982b08"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2d43383c20fc7dff753d329a74982b08">&#9670;&nbsp;</a></span>operator delete() <span class="overload">[2/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> void operator delete </td>
-          <td>(</td>
-          <td class="paramtype">void *&#160;</td>
-          <td class="paramname"><em>ptr</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="classbattery_1_1global__allocator.html">battery::global_allocator</a> &amp;&#160;</td>
-          <td class="paramname"><em>p</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="a1b14fe2103137b6e468ec53d234abae8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1b14fe2103137b6e468ec53d234abae8">&#9670;&nbsp;</a></span>operator new() <span class="overload">[3/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b14fe2103137b6e468ec53d234abae8">&#9670;&nbsp;</a></span>operator new() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -326,7 +170,7 @@ Functions</h2></td></tr>
 </div>
 </div>
 <a id="a63099a92325007898b0cbd5981ef1736"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a63099a92325007898b0cbd5981ef1736">&#9670;&nbsp;</a></span>operator delete() <span class="overload">[3/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a63099a92325007898b0cbd5981ef1736">&#9670;&nbsp;</a></span>operator delete() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -362,7 +206,7 @@ Functions</h2></td></tr>
 </div>
 </div>
 <a id="ae3d699ae3973a235ceea6afd869edfe0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae3d699ae3973a235ceea6afd869edfe0">&#9670;&nbsp;</a></span>operator new() <span class="overload">[4/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ae3d699ae3973a235ceea6afd869edfe0">&#9670;&nbsp;</a></span>operator new() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -398,7 +242,7 @@ Functions</h2></td></tr>
 </div>
 </div>
 <a id="af84b7183a6198885578e7d8622adc8ee"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af84b7183a6198885578e7d8622adc8ee">&#9670;&nbsp;</a></span>operator delete() <span class="overload">[4/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#af84b7183a6198885578e7d8622adc8ee">&#9670;&nbsp;</a></span>operator delete() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">

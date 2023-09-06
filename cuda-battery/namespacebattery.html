@@ -100,10 +100,6 @@ $(document).ready(function(){initNavTree('namespacebattery.html',''); initResiza
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbattery_1_1global__allocator.html">global_allocator</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbattery_1_1managed__allocator.html">managed_allocator</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbattery_1_1pool__allocator.html">pool_allocator</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbattery_1_1standard__allocator.html">standard_allocator</a></td></tr>
@@ -113,8 +109,6 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbattery_1_1bitset.html">bitset</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbattery_1_1memory.html">memory</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbattery_1_1atomic__memory__scoped.html">atomic_memory_scoped</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbattery_1_1atomic__memory.html">atomic_memory</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -137,30 +131,24 @@ Typedefs</h2></td></tr>
 <tr class="separator:a09111ca968cc4d8defa60555963dd052"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a22ff3da8ce553868de9c2b8fe604fe3c"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacebattery.html#a22ff3da8ce553868de9c2b8fe604fe3c">read_only_memory</a> = <a class="el" href="classbattery_1_1memory.html">memory</a>&lt; true &gt;</td></tr>
 <tr class="separator:a22ff3da8ce553868de9c2b8fe604fe3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afb485d8f961537d1ca590f78d16ac1c4"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacebattery.html#afb485d8f961537d1ca590f78d16ac1c4">atomic_memory_block</a> = <a class="el" href="classbattery_1_1atomic__memory__scoped.html">atomic_memory_scoped</a>&lt; cuda::thread_scope_block &gt;</td></tr>
-<tr class="separator:afb485d8f961537d1ca590f78d16ac1c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2af42ce969d94b6b8bb1ed9a94b9cf49"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacebattery.html#a2af42ce969d94b6b8bb1ed9a94b9cf49">atomic_memory_grid</a> = <a class="el" href="classbattery_1_1atomic__memory__scoped.html">atomic_memory_scoped</a>&lt; cuda::thread_scope_device &gt;</td></tr>
-<tr class="separator:a2af42ce969d94b6b8bb1ed9a94b9cf49"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a972d9650ddbedff1111369e8cdd4bc52"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacebattery.html#a972d9650ddbedff1111369e8cdd4bc52">atomic_memory_multi_grid</a> = <a class="el" href="classbattery_1_1atomic__memory__scoped.html">atomic_memory_scoped</a>&lt; cuda::thread_scope_system &gt;</td></tr>
-<tr class="separator:a972d9650ddbedff1111369e8cdd4bc52"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ab6d6bf7e67229cfdefe540ec75d82939"><td class="memTemplParams" colspan="2">template&lt;size_t N, class Mem , class T &gt; </td></tr>
-<tr class="memitem:ab6d6bf7e67229cfdefe540ec75d82939"><td class="memTemplItemLeft" align="right" valign="top">constexpr <a class="el" href="classbattery_1_1bitset.html">bitset</a>&lt; N, Mem, T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#ab6d6bf7e67229cfdefe540ec75d82939">operator&amp;</a> (const <a class="el" href="classbattery_1_1bitset.html">bitset</a>&lt; N, Mem, T &gt; &amp;lhs, const <a class="el" href="classbattery_1_1bitset.html">bitset</a>&lt; N, Mem, T &gt; &amp;rhs)</td></tr>
-<tr class="separator:ab6d6bf7e67229cfdefe540ec75d82939"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad828899d2bb8d42822389d82594b8a90"><td class="memTemplParams" colspan="2">template&lt;size_t N, class Mem , class T &gt; </td></tr>
-<tr class="memitem:ad828899d2bb8d42822389d82594b8a90"><td class="memTemplItemLeft" align="right" valign="top">constexpr <a class="el" href="classbattery_1_1bitset.html">bitset</a>&lt; N, Mem, T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#ad828899d2bb8d42822389d82594b8a90">operator|</a> (const <a class="el" href="classbattery_1_1bitset.html">bitset</a>&lt; N, Mem, T &gt; &amp;lhs, const <a class="el" href="classbattery_1_1bitset.html">bitset</a>&lt; N, Mem, T &gt; &amp;rhs)</td></tr>
-<tr class="separator:ad828899d2bb8d42822389d82594b8a90"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a53a2af39e7adb2f7d2bb60657679c9ff"><td class="memTemplParams" colspan="2">template&lt;size_t N, class Mem , class T &gt; </td></tr>
-<tr class="memitem:a53a2af39e7adb2f7d2bb60657679c9ff"><td class="memTemplItemLeft" align="right" valign="top">constexpr <a class="el" href="classbattery_1_1bitset.html">bitset</a>&lt; N, Mem, T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#a53a2af39e7adb2f7d2bb60657679c9ff">operator^</a> (const <a class="el" href="classbattery_1_1bitset.html">bitset</a>&lt; N, Mem, T &gt; &amp;lhs, const <a class="el" href="classbattery_1_1bitset.html">bitset</a>&lt; N, Mem, T &gt; &amp;rhs)</td></tr>
-<tr class="separator:a53a2af39e7adb2f7d2bb60657679c9ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aee9241d882f78f0130435b46389ff9ac"><td class="memTemplParams" colspan="2">template&lt;class T , class Alloc , class... Args&gt; </td></tr>
-<tr class="memitem:aee9241d882f78f0130435b46389ff9ac"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> <a class="el" href="classbattery_1_1shared__ptr.html">shared_ptr</a>&lt; T, Alloc &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#aee9241d882f78f0130435b46389ff9ac">allocate_shared</a> (const Alloc &amp;alloc, Args &amp;&amp;... args)</td></tr>
-<tr class="separator:aee9241d882f78f0130435b46389ff9ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a51fbd102c2aef01adc744cee4bc35ea9"><td class="memTemplParams" colspan="2">template&lt;class T , class Alloc , class... Args&gt; </td></tr>
-<tr class="memitem:a51fbd102c2aef01adc744cee4bc35ea9"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> <a class="el" href="classbattery_1_1shared__ptr.html">shared_ptr</a>&lt; T, Alloc &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#a51fbd102c2aef01adc744cee4bc35ea9">make_shared</a> (Args &amp;&amp;... args)</td></tr>
-<tr class="separator:a51fbd102c2aef01adc744cee4bc35ea9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d67c395708e5023f60fefb4b165750c"><td class="memTemplParams" colspan="2">template&lt;size_t N, class Mem , class T &gt; </td></tr>
+<tr class="memitem:a0d67c395708e5023f60fefb4b165750c"><td class="memTemplItemLeft" align="right" valign="top">constexpr <a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> <a class="el" href="classbattery_1_1bitset.html">bitset</a>&lt; N, Mem, T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#a0d67c395708e5023f60fefb4b165750c">operator&amp;</a> (const <a class="el" href="classbattery_1_1bitset.html">bitset</a>&lt; N, Mem, T &gt; &amp;lhs, const <a class="el" href="classbattery_1_1bitset.html">bitset</a>&lt; N, Mem, T &gt; &amp;rhs)</td></tr>
+<tr class="separator:a0d67c395708e5023f60fefb4b165750c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad0628a6bc608319d23fbb8c7f28f8907"><td class="memTemplParams" colspan="2">template&lt;size_t N, class Mem , class T &gt; </td></tr>
+<tr class="memitem:ad0628a6bc608319d23fbb8c7f28f8907"><td class="memTemplItemLeft" align="right" valign="top">constexpr <a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> <a class="el" href="classbattery_1_1bitset.html">bitset</a>&lt; N, Mem, T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#ad0628a6bc608319d23fbb8c7f28f8907">operator|</a> (const <a class="el" href="classbattery_1_1bitset.html">bitset</a>&lt; N, Mem, T &gt; &amp;lhs, const <a class="el" href="classbattery_1_1bitset.html">bitset</a>&lt; N, Mem, T &gt; &amp;rhs)</td></tr>
+<tr class="separator:ad0628a6bc608319d23fbb8c7f28f8907"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a774931ca37440ef09f85f35507267a9d"><td class="memTemplParams" colspan="2">template&lt;size_t N, class Mem , class T &gt; </td></tr>
+<tr class="memitem:a774931ca37440ef09f85f35507267a9d"><td class="memTemplItemLeft" align="right" valign="top">constexpr <a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> <a class="el" href="classbattery_1_1bitset.html">bitset</a>&lt; N, Mem, T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#a774931ca37440ef09f85f35507267a9d">operator^</a> (const <a class="el" href="classbattery_1_1bitset.html">bitset</a>&lt; N, Mem, T &gt; &amp;lhs, const <a class="el" href="classbattery_1_1bitset.html">bitset</a>&lt; N, Mem, T &gt; &amp;rhs)</td></tr>
+<tr class="separator:a774931ca37440ef09f85f35507267a9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c10cb4b2da8a73b4f439ebfa67c6d9a"><td class="memTemplParams" colspan="2">template&lt;class T , class Alloc , class... Args&gt; </td></tr>
+<tr class="memitem:a3c10cb4b2da8a73b4f439ebfa67c6d9a"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> <a class="el" href="utility_8hpp.html#a860bedb684529775463fa3a6cb467efa">NI</a> <a class="el" href="classbattery_1_1shared__ptr.html">shared_ptr</a>&lt; T, Alloc &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#a3c10cb4b2da8a73b4f439ebfa67c6d9a">allocate_shared</a> (const Alloc &amp;alloc, Args &amp;&amp;... args)</td></tr>
+<tr class="separator:a3c10cb4b2da8a73b4f439ebfa67c6d9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae61605945519ce21c6957dcd5222bbe7"><td class="memTemplParams" colspan="2">template&lt;class T , class Alloc , class... Args&gt; </td></tr>
+<tr class="memitem:ae61605945519ce21c6957dcd5222bbe7"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> <a class="el" href="utility_8hpp.html#a860bedb684529775463fa3a6cb467efa">NI</a> <a class="el" href="classbattery_1_1shared__ptr.html">shared_ptr</a>&lt; T, Alloc &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#ae61605945519ce21c6957dcd5222bbe7">make_shared</a> (Args &amp;&amp;... args)</td></tr>
+<tr class="separator:ae61605945519ce21c6957dcd5222bbe7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af20bf52da412236ddfa5a22bde3f50e6"><td class="memTemplParams" colspan="2">template&lt;class Alloc1 , class Alloc2 &gt; </td></tr>
 <tr class="memitem:af20bf52da412236ddfa5a22bde3f50e6"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#af20bf52da412236ddfa5a22bde3f50e6">operator==</a> (const <a class="el" href="classbattery_1_1string.html">string</a>&lt; Alloc1 &gt; &amp;lhs, const <a class="el" href="classbattery_1_1string.html">string</a>&lt; Alloc2 &gt; &amp;rhs)</td></tr>
 <tr class="separator:af20bf52da412236ddfa5a22bde3f50e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -179,18 +167,12 @@ Functions</h2></td></tr>
 <tr class="memitem:ac522b97a49631d2a0052acf75c8a712f"><td class="memTemplParams" colspan="2">template&lt;class Allocator &gt; </td></tr>
 <tr class="memitem:ac522b97a49631d2a0052acf75c8a712f"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> <a class="el" href="classbattery_1_1string.html">string</a>&lt; Allocator &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#ac522b97a49631d2a0052acf75c8a712f">operator+</a> (const <a class="el" href="classbattery_1_1string.html">string</a>&lt; Allocator &gt; &amp;lhs, const char *rhs)</td></tr>
 <tr class="separator:ac522b97a49631d2a0052acf75c8a712f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa354aeb0995d495b2b9858a6ea2fb568"><td class="memTemplParams" colspan="2">template&lt;class T , class Alloc , class... Args&gt; </td></tr>
-<tr class="memitem:aa354aeb0995d495b2b9858a6ea2fb568"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> <a class="el" href="classbattery_1_1unique__ptr.html">unique_ptr</a>&lt; T, Alloc &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#aa354aeb0995d495b2b9858a6ea2fb568">allocate_unique</a> (const Alloc &amp;alloc, Args &amp;&amp;... args)</td></tr>
-<tr class="separator:aa354aeb0995d495b2b9858a6ea2fb568"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a15423377cbdc9bfeabbea86af1cb91be"><td class="memTemplParams" colspan="2">template&lt;class T , class Alloc , class... Args&gt; </td></tr>
+<tr class="memitem:a15423377cbdc9bfeabbea86af1cb91be"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> <a class="el" href="utility_8hpp.html#a860bedb684529775463fa3a6cb467efa">NI</a> <a class="el" href="classbattery_1_1unique__ptr.html">unique_ptr</a>&lt; T, Alloc &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#a15423377cbdc9bfeabbea86af1cb91be">allocate_unique</a> (const Alloc &amp;alloc, Args &amp;&amp;... args)</td></tr>
+<tr class="separator:a15423377cbdc9bfeabbea86af1cb91be"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a08d5604fdc7ea7c18562cb614bcab5ad"><td class="memTemplParams" colspan="2">template&lt;class T , class Alloc , class... Args&gt; </td></tr>
 <tr class="memitem:a08d5604fdc7ea7c18562cb614bcab5ad"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> <a class="el" href="classbattery_1_1unique__ptr.html">unique_ptr</a>&lt; T, Alloc &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#a08d5604fdc7ea7c18562cb614bcab5ad">make_unique</a> (Args &amp;&amp;... args)</td></tr>
 <tr class="separator:a08d5604fdc7ea7c18562cb614bcab5ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa781d8577b63b6e7b789223e825f52c3"><td class="memTemplParams" colspan="2">template&lt;class T , class Alloc , class... Args&gt; </td></tr>
-<tr class="memitem:aa781d8577b63b6e7b789223e825f52c3"><td class="memTemplItemLeft" align="right" valign="top">__device__ T &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#aa781d8577b63b6e7b789223e825f52c3">make_unique_block</a> (<a class="el" href="classbattery_1_1unique__ptr.html">unique_ptr</a>&lt; T, Alloc &gt; &amp;ptr, Args &amp;&amp;... args)</td></tr>
-<tr class="separator:aa781d8577b63b6e7b789223e825f52c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5ba4adb6d7953ca7e8c6602b7e455b14"><td class="memTemplParams" colspan="2">template&lt;class T , class Alloc , class... Args&gt; </td></tr>
-<tr class="memitem:a5ba4adb6d7953ca7e8c6602b7e455b14"><td class="memTemplItemLeft" align="right" valign="top">__device__ T &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#a5ba4adb6d7953ca7e8c6602b7e455b14">make_unique_grid</a> (<a class="el" href="classbattery_1_1unique__ptr.html">unique_ptr</a>&lt; T, Alloc &gt; &amp;ptr, Args &amp;&amp;... args)</td></tr>
-<tr class="separator:a5ba4adb6d7953ca7e8c6602b7e455b14"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a98a6215afc5bccc5b68e0983fd35ce02"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
 <tr class="memitem:a98a6215afc5bccc5b68e0983fd35ce02"><td class="memTemplItemLeft" align="right" valign="top">constexpr <a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#a98a6215afc5bccc5b68e0983fd35ce02">swap</a> (T &amp;a, T &amp;b)</td></tr>
 <tr class="separator:a98a6215afc5bccc5b68e0983fd35ce02"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -211,33 +193,33 @@ Functions</h2></td></tr>
 <tr class="separator:ad65fedc9033223e52dbc6601426d40a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a05f24092ca3133fc568ce54fdd62c3d6"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacebattery.html#a05f24092ca3133fc568ce54fdd62c3d6">nextafter</a> (double f, double dir)</td></tr>
 <tr class="separator:a05f24092ca3133fc568ce54fdd62c3d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7fdea425c76eab201a009ea09b8cbac0"><td class="memTemplParams" colspan="2">template&lt;class To , class From , bool map_limits = true&gt; </td></tr>
-<tr class="memitem:a7fdea425c76eab201a009ea09b8cbac0"><td class="memTemplItemLeft" align="right" valign="top">constexpr <a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> To&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#a7fdea425c76eab201a009ea09b8cbac0">ru_cast</a> (From x)</td></tr>
-<tr class="separator:a7fdea425c76eab201a009ea09b8cbac0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa2296c962277e71780bccf1ba9708f59"><td class="memTemplParams" colspan="2">template&lt;class To , class From , bool map_limits = true&gt; </td></tr>
-<tr class="memitem:aa2296c962277e71780bccf1ba9708f59"><td class="memTemplItemLeft" align="right" valign="top">constexpr <a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> To&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#aa2296c962277e71780bccf1ba9708f59">rd_cast</a> (From x)</td></tr>
-<tr class="separator:aa2296c962277e71780bccf1ba9708f59"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2821ae67e8ea81b375f3fd6d70909fef"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
-<tr class="memitem:a2821ae67e8ea81b375f3fd6d70909fef"><td class="memTemplItemLeft" align="right" valign="top">constexpr <a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#a2821ae67e8ea81b375f3fd6d70909fef">popcount</a> (T x)</td></tr>
-<tr class="separator:a2821ae67e8ea81b375f3fd6d70909fef"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa18a34122dc3e8b7e96c4a54eeffa9aa"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
-<tr class="memitem:aa18a34122dc3e8b7e96c4a54eeffa9aa"><td class="memTemplItemLeft" align="right" valign="top">constexpr <a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#aa18a34122dc3e8b7e96c4a54eeffa9aa">countl_zero</a> (T x)</td></tr>
-<tr class="separator:aa18a34122dc3e8b7e96c4a54eeffa9aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae252a50e577d7b092eb368b7e0289772"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
-<tr class="memitem:ae252a50e577d7b092eb368b7e0289772"><td class="memTemplItemLeft" align="right" valign="top">constexpr <a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#ae252a50e577d7b092eb368b7e0289772">countl_one</a> (T x)</td></tr>
-<tr class="separator:ae252a50e577d7b092eb368b7e0289772"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7338f90fab224e49c3716c5eace58bee"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
-<tr class="memitem:a7338f90fab224e49c3716c5eace58bee"><td class="memTemplItemLeft" align="right" valign="top">constexpr <a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#a7338f90fab224e49c3716c5eace58bee">countr_zero</a> (T x)</td></tr>
-<tr class="separator:a7338f90fab224e49c3716c5eace58bee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a974d0a682d546e1185ae7dca29c272d6"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
-<tr class="memitem:a974d0a682d546e1185ae7dca29c272d6"><td class="memTemplItemLeft" align="right" valign="top">constexpr <a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#a974d0a682d546e1185ae7dca29c272d6">countr_one</a> (T x)</td></tr>
-<tr class="separator:a974d0a682d546e1185ae7dca29c272d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af0d114b391878e53237f001aeeb41f20"><td class="memTemplParams" colspan="2">template&lt;class To , class From , bool map_limits = true&gt; </td></tr>
+<tr class="memitem:af0d114b391878e53237f001aeeb41f20"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> constexpr <a class="el" href="utility_8hpp.html#a860bedb684529775463fa3a6cb467efa">NI</a> To&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#af0d114b391878e53237f001aeeb41f20">ru_cast</a> (From x)</td></tr>
+<tr class="separator:af0d114b391878e53237f001aeeb41f20"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e9d524dd0ac8ed6de30ffdfbd8c61cc"><td class="memTemplParams" colspan="2">template&lt;class To , class From , bool map_limits = true&gt; </td></tr>
+<tr class="memitem:a1e9d524dd0ac8ed6de30ffdfbd8c61cc"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> constexpr <a class="el" href="utility_8hpp.html#a860bedb684529775463fa3a6cb467efa">NI</a> To&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#a1e9d524dd0ac8ed6de30ffdfbd8c61cc">rd_cast</a> (From x)</td></tr>
+<tr class="separator:a1e9d524dd0ac8ed6de30ffdfbd8c61cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a861ae54749bff80cc1fcb466b91e597b"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
+<tr class="memitem:a861ae54749bff80cc1fcb466b91e597b"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> constexpr <a class="el" href="utility_8hpp.html#a860bedb684529775463fa3a6cb467efa">NI</a> int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#a861ae54749bff80cc1fcb466b91e597b">popcount</a> (T x)</td></tr>
+<tr class="separator:a861ae54749bff80cc1fcb466b91e597b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a11f8dbd11106de7ddf1420444980074e"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
+<tr class="memitem:a11f8dbd11106de7ddf1420444980074e"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> constexpr <a class="el" href="utility_8hpp.html#a860bedb684529775463fa3a6cb467efa">NI</a> int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#a11f8dbd11106de7ddf1420444980074e">countl_zero</a> (T x)</td></tr>
+<tr class="separator:a11f8dbd11106de7ddf1420444980074e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4fca37d7e13e8b5b7d6b20cfbdee46d5"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
+<tr class="memitem:a4fca37d7e13e8b5b7d6b20cfbdee46d5"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> constexpr <a class="el" href="utility_8hpp.html#a860bedb684529775463fa3a6cb467efa">NI</a> int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#a4fca37d7e13e8b5b7d6b20cfbdee46d5">countl_one</a> (T x)</td></tr>
+<tr class="separator:a4fca37d7e13e8b5b7d6b20cfbdee46d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1483cec94715a03b7648fdbe8718326b"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
+<tr class="memitem:a1483cec94715a03b7648fdbe8718326b"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> constexpr <a class="el" href="utility_8hpp.html#a860bedb684529775463fa3a6cb467efa">NI</a> int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#a1483cec94715a03b7648fdbe8718326b">countr_zero</a> (T x)</td></tr>
+<tr class="separator:a1483cec94715a03b7648fdbe8718326b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a92936108839acba3459916e6d64709"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
+<tr class="memitem:a9a92936108839acba3459916e6d64709"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> constexpr <a class="el" href="utility_8hpp.html#a860bedb684529775463fa3a6cb467efa">NI</a> int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#a9a92936108839acba3459916e6d64709">countr_one</a> (T x)</td></tr>
+<tr class="separator:a9a92936108839acba3459916e6d64709"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a31b3f5ee3799a73d29c153ebd222cdea"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
 <tr class="memitem:a31b3f5ee3799a73d29c153ebd222cdea"><td class="memTemplItemLeft" align="right" valign="top">constexpr <a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#a31b3f5ee3799a73d29c153ebd222cdea">signum</a> (T val)</td></tr>
 <tr class="separator:a31b3f5ee3799a73d29c153ebd222cdea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a93472d80842253624e2436eef7b900b6"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
-<tr class="memitem:a93472d80842253624e2436eef7b900b6"><td class="memTemplItemLeft" align="right" valign="top">constexpr <a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#a93472d80842253624e2436eef7b900b6">ipow</a> (T a, T b)</td></tr>
-<tr class="separator:a93472d80842253624e2436eef7b900b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e981b3b540bc6fbfd18768a44787d49"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
+<tr class="memitem:a6e981b3b540bc6fbfd18768a44787d49"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> constexpr <a class="el" href="utility_8hpp.html#a860bedb684529775463fa3a6cb467efa">NI</a> T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#a6e981b3b540bc6fbfd18768a44787d49">ipow</a> (T a, T b)</td></tr>
+<tr class="separator:a6e981b3b540bc6fbfd18768a44787d49"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af3a4582a08267940dbdb5b39044aa4c6"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
 <tr class="memitem:af3a4582a08267940dbdb5b39044aa4c6"><td class="memTemplItemLeft" align="right" valign="top">constexpr <a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#af3a4582a08267940dbdb5b39044aa4c6">add_up</a> (T x, T y)</td></tr>
 <tr class="separator:af3a4582a08267940dbdb5b39044aa4c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -262,60 +244,60 @@ Functions</h2></td></tr>
 <tr class="memitem:ac253a56f7fa54ade8f2eb762d3b317f9"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
 <tr class="memitem:ac253a56f7fa54ade8f2eb762d3b317f9"><td class="memTemplItemLeft" align="right" valign="top">constexpr <a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#ac253a56f7fa54ade8f2eb762d3b317f9">div_down</a> (T x, T y)</td></tr>
 <tr class="separator:ac253a56f7fa54ade8f2eb762d3b317f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aca6f1767f401748bf81a8404ef6b6c85"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:aca6f1767f401748bf81a8404ef6b6c85"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#aca6f1767f401748bf81a8404ef6b6c85">print</a> (const T &amp;t)</td></tr>
-<tr class="separator:aca6f1767f401748bf81a8404ef6b6c85"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1ead5a107626648948845cc0a2dddd64"><td class="memItemLeft" align="right" valign="top">template&lt;&gt; </td></tr>
-<tr class="memitem:a1ead5a107626648948845cc0a2dddd64"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#a1ead5a107626648948845cc0a2dddd64">print</a> (const char &amp;x)</td></tr>
-<tr class="separator:a1ead5a107626648948845cc0a2dddd64"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a82c4d3061d08cc22766e62b071b1943a"><td class="memItemLeft" align="right" valign="top">template&lt;&gt; </td></tr>
-<tr class="memitem:a82c4d3061d08cc22766e62b071b1943a"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#a82c4d3061d08cc22766e62b071b1943a">print</a> (const short &amp;x)</td></tr>
-<tr class="separator:a82c4d3061d08cc22766e62b071b1943a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab9d1abe3503f22f8a14128d95a54416a"><td class="memItemLeft" align="right" valign="top">template&lt;&gt; </td></tr>
-<tr class="memitem:ab9d1abe3503f22f8a14128d95a54416a"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#ab9d1abe3503f22f8a14128d95a54416a">print</a> (const int &amp;x)</td></tr>
-<tr class="separator:ab9d1abe3503f22f8a14128d95a54416a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a67d928cfaacd3b22dba1f70fcca470bf"><td class="memItemLeft" align="right" valign="top">template&lt;&gt; </td></tr>
-<tr class="memitem:a67d928cfaacd3b22dba1f70fcca470bf"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#a67d928cfaacd3b22dba1f70fcca470bf">print</a> (const long long int &amp;x)</td></tr>
-<tr class="separator:a67d928cfaacd3b22dba1f70fcca470bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a59ccf09fce3517de56355442e33dbab9"><td class="memItemLeft" align="right" valign="top">template&lt;&gt; </td></tr>
-<tr class="memitem:a59ccf09fce3517de56355442e33dbab9"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#a59ccf09fce3517de56355442e33dbab9">print</a> (const long int &amp;x)</td></tr>
-<tr class="separator:a59ccf09fce3517de56355442e33dbab9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4907e084c10dd30ee8731fe724f0bbb5"><td class="memItemLeft" align="right" valign="top">template&lt;&gt; </td></tr>
-<tr class="memitem:a4907e084c10dd30ee8731fe724f0bbb5"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#a4907e084c10dd30ee8731fe724f0bbb5">print</a> (const unsigned char &amp;x)</td></tr>
-<tr class="separator:a4907e084c10dd30ee8731fe724f0bbb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae9d8a86f7dd309eb8e778be1b4d548f5"><td class="memItemLeft" align="right" valign="top">template&lt;&gt; </td></tr>
-<tr class="memitem:ae9d8a86f7dd309eb8e778be1b4d548f5"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#ae9d8a86f7dd309eb8e778be1b4d548f5">print</a> (const unsigned short &amp;x)</td></tr>
-<tr class="separator:ae9d8a86f7dd309eb8e778be1b4d548f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abe7a777af84c10be552a8ad01f4adbe4"><td class="memItemLeft" align="right" valign="top">template&lt;&gt; </td></tr>
-<tr class="memitem:abe7a777af84c10be552a8ad01f4adbe4"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#abe7a777af84c10be552a8ad01f4adbe4">print</a> (const unsigned int &amp;x)</td></tr>
-<tr class="separator:abe7a777af84c10be552a8ad01f4adbe4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac7ffff2a0c0edd279be6818427ba51c9"><td class="memItemLeft" align="right" valign="top">template&lt;&gt; </td></tr>
-<tr class="memitem:ac7ffff2a0c0edd279be6818427ba51c9"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#ac7ffff2a0c0edd279be6818427ba51c9">print</a> (const unsigned long &amp;x)</td></tr>
-<tr class="separator:ac7ffff2a0c0edd279be6818427ba51c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7075825e896d43073cc60ee9693fb48e"><td class="memItemLeft" align="right" valign="top">template&lt;&gt; </td></tr>
-<tr class="memitem:a7075825e896d43073cc60ee9693fb48e"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#a7075825e896d43073cc60ee9693fb48e">print</a> (const unsigned long long &amp;x)</td></tr>
-<tr class="separator:a7075825e896d43073cc60ee9693fb48e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a32b75013e4abf4dca39b589d19f4978e"><td class="memItemLeft" align="right" valign="top">template&lt;&gt; </td></tr>
-<tr class="memitem:a32b75013e4abf4dca39b589d19f4978e"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#a32b75013e4abf4dca39b589d19f4978e">print</a> (const float &amp;x)</td></tr>
-<tr class="separator:a32b75013e4abf4dca39b589d19f4978e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aea6591a1ea39a64d14017e84b06698d0"><td class="memItemLeft" align="right" valign="top">template&lt;&gt; </td></tr>
-<tr class="memitem:aea6591a1ea39a64d14017e84b06698d0"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#aea6591a1ea39a64d14017e84b06698d0">print</a> (const double &amp;x)</td></tr>
-<tr class="separator:aea6591a1ea39a64d14017e84b06698d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad013208215f8c5d7b2fbaa719e7a17d2"><td class="memItemLeft" align="right" valign="top">template&lt;&gt; </td></tr>
-<tr class="memitem:ad013208215f8c5d7b2fbaa719e7a17d2"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#ad013208215f8c5d7b2fbaa719e7a17d2">print</a> (char const *const &amp;x)</td></tr>
-<tr class="separator:ad013208215f8c5d7b2fbaa719e7a17d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a66a73df11417a729bfa43b005bb5ba4e"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a66a73df11417a729bfa43b005bb5ba4e"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> <a class="el" href="utility_8hpp.html#a860bedb684529775463fa3a6cb467efa">NI</a> void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#a66a73df11417a729bfa43b005bb5ba4e">print</a> (const T &amp;t)</td></tr>
+<tr class="separator:a66a73df11417a729bfa43b005bb5ba4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a7141dc9fb8c54414123803b7f86c2f"><td class="memItemLeft" align="right" valign="top">template&lt;&gt; </td></tr>
+<tr class="memitem:a8a7141dc9fb8c54414123803b7f86c2f"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> <a class="el" href="utility_8hpp.html#a860bedb684529775463fa3a6cb467efa">NI</a> void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#a8a7141dc9fb8c54414123803b7f86c2f">print</a> (const char &amp;x)</td></tr>
+<tr class="separator:a8a7141dc9fb8c54414123803b7f86c2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e2236679fc3c4522a26bb5d4cc4a6a5"><td class="memItemLeft" align="right" valign="top">template&lt;&gt; </td></tr>
+<tr class="memitem:a8e2236679fc3c4522a26bb5d4cc4a6a5"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> <a class="el" href="utility_8hpp.html#a860bedb684529775463fa3a6cb467efa">NI</a> void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#a8e2236679fc3c4522a26bb5d4cc4a6a5">print</a> (const short &amp;x)</td></tr>
+<tr class="separator:a8e2236679fc3c4522a26bb5d4cc4a6a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf08442467172e30bc29c054da0aad59"><td class="memItemLeft" align="right" valign="top">template&lt;&gt; </td></tr>
+<tr class="memitem:acf08442467172e30bc29c054da0aad59"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> <a class="el" href="utility_8hpp.html#a860bedb684529775463fa3a6cb467efa">NI</a> void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#acf08442467172e30bc29c054da0aad59">print</a> (const int &amp;x)</td></tr>
+<tr class="separator:acf08442467172e30bc29c054da0aad59"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a810f8cd959c5f27d2574ae6a13ea7e4a"><td class="memItemLeft" align="right" valign="top">template&lt;&gt; </td></tr>
+<tr class="memitem:a810f8cd959c5f27d2574ae6a13ea7e4a"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> <a class="el" href="utility_8hpp.html#a860bedb684529775463fa3a6cb467efa">NI</a> void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#a810f8cd959c5f27d2574ae6a13ea7e4a">print</a> (const long long int &amp;x)</td></tr>
+<tr class="separator:a810f8cd959c5f27d2574ae6a13ea7e4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9ef0e4459e90c73c37e190b96dc4187"><td class="memItemLeft" align="right" valign="top">template&lt;&gt; </td></tr>
+<tr class="memitem:aa9ef0e4459e90c73c37e190b96dc4187"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> <a class="el" href="utility_8hpp.html#a860bedb684529775463fa3a6cb467efa">NI</a> void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#aa9ef0e4459e90c73c37e190b96dc4187">print</a> (const long int &amp;x)</td></tr>
+<tr class="separator:aa9ef0e4459e90c73c37e190b96dc4187"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb4f5ceff88cd9556d1361d25d133356"><td class="memItemLeft" align="right" valign="top">template&lt;&gt; </td></tr>
+<tr class="memitem:afb4f5ceff88cd9556d1361d25d133356"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> <a class="el" href="utility_8hpp.html#a860bedb684529775463fa3a6cb467efa">NI</a> void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#afb4f5ceff88cd9556d1361d25d133356">print</a> (const unsigned char &amp;x)</td></tr>
+<tr class="separator:afb4f5ceff88cd9556d1361d25d133356"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9933054bb0738ad26e1f20467c6c940"><td class="memItemLeft" align="right" valign="top">template&lt;&gt; </td></tr>
+<tr class="memitem:ac9933054bb0738ad26e1f20467c6c940"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> <a class="el" href="utility_8hpp.html#a860bedb684529775463fa3a6cb467efa">NI</a> void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#ac9933054bb0738ad26e1f20467c6c940">print</a> (const unsigned short &amp;x)</td></tr>
+<tr class="separator:ac9933054bb0738ad26e1f20467c6c940"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3da9624d2403a994468cf9abeaa67c5b"><td class="memItemLeft" align="right" valign="top">template&lt;&gt; </td></tr>
+<tr class="memitem:a3da9624d2403a994468cf9abeaa67c5b"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> <a class="el" href="utility_8hpp.html#a860bedb684529775463fa3a6cb467efa">NI</a> void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#a3da9624d2403a994468cf9abeaa67c5b">print</a> (const unsigned int &amp;x)</td></tr>
+<tr class="separator:a3da9624d2403a994468cf9abeaa67c5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a793f974343bf43e865cff26f2b53e1ae"><td class="memItemLeft" align="right" valign="top">template&lt;&gt; </td></tr>
+<tr class="memitem:a793f974343bf43e865cff26f2b53e1ae"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> <a class="el" href="utility_8hpp.html#a860bedb684529775463fa3a6cb467efa">NI</a> void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#a793f974343bf43e865cff26f2b53e1ae">print</a> (const unsigned long &amp;x)</td></tr>
+<tr class="separator:a793f974343bf43e865cff26f2b53e1ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca4e9781e6f130d863bdb31876a11d50"><td class="memItemLeft" align="right" valign="top">template&lt;&gt; </td></tr>
+<tr class="memitem:aca4e9781e6f130d863bdb31876a11d50"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> <a class="el" href="utility_8hpp.html#a860bedb684529775463fa3a6cb467efa">NI</a> void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#aca4e9781e6f130d863bdb31876a11d50">print</a> (const unsigned long long &amp;x)</td></tr>
+<tr class="separator:aca4e9781e6f130d863bdb31876a11d50"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ae8ab5eb9518ff6512231fc7df911e8"><td class="memItemLeft" align="right" valign="top">template&lt;&gt; </td></tr>
+<tr class="memitem:a8ae8ab5eb9518ff6512231fc7df911e8"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> <a class="el" href="utility_8hpp.html#a860bedb684529775463fa3a6cb467efa">NI</a> void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#a8ae8ab5eb9518ff6512231fc7df911e8">print</a> (const float &amp;x)</td></tr>
+<tr class="separator:a8ae8ab5eb9518ff6512231fc7df911e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2506785c7472130d057a2b0553b35f82"><td class="memItemLeft" align="right" valign="top">template&lt;&gt; </td></tr>
+<tr class="memitem:a2506785c7472130d057a2b0553b35f82"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> <a class="el" href="utility_8hpp.html#a860bedb684529775463fa3a6cb467efa">NI</a> void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#a2506785c7472130d057a2b0553b35f82">print</a> (const double &amp;x)</td></tr>
+<tr class="separator:a2506785c7472130d057a2b0553b35f82"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed45ee36fff726d8e33a95f8144564c2"><td class="memItemLeft" align="right" valign="top">template&lt;&gt; </td></tr>
+<tr class="memitem:aed45ee36fff726d8e33a95f8144564c2"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> <a class="el" href="utility_8hpp.html#a860bedb684529775463fa3a6cb467efa">NI</a> void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#aed45ee36fff726d8e33a95f8144564c2">print</a> (char const *const &amp;x)</td></tr>
+<tr class="separator:aed45ee36fff726d8e33a95f8144564c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2690835dac25686be6136f2da2c722f3"><td class="memTemplParams" colspan="2">template&lt;size_t i, typename... Ts&gt; </td></tr>
 <tr class="memitem:a2690835dac25686be6136f2da2c722f3"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> impl::variant_alternative&lt; i, Ts... &gt;::type &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#a2690835dac25686be6136f2da2c722f3">get</a> (<a class="el" href="structbattery_1_1variant.html">variant</a>&lt; Ts... &gt; &amp;v)</td></tr>
 <tr class="separator:a2690835dac25686be6136f2da2c722f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6e81fa8938d53c54c343980856ffeebc"><td class="memTemplParams" colspan="2">template&lt;size_t i, typename... Ts&gt; </td></tr>
 <tr class="memitem:a6e81fa8938d53c54c343980856ffeebc"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> const impl::variant_alternative&lt; i, Ts... &gt;::type &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#a6e81fa8938d53c54c343980856ffeebc">get</a> (const <a class="el" href="structbattery_1_1variant.html">variant</a>&lt; Ts... &gt; &amp;v)</td></tr>
 <tr class="separator:a6e81fa8938d53c54c343980856ffeebc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adc4686400a7bfa0f07ae65311568844f"><td class="memTemplParams" colspan="2">template&lt;typename... Ts&gt; </td></tr>
-<tr class="memitem:adc4686400a7bfa0f07ae65311568844f"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#adc4686400a7bfa0f07ae65311568844f">operator==</a> (const <a class="el" href="structbattery_1_1variant.html">variant</a>&lt; Ts... &gt; &amp;lhs, const <a class="el" href="structbattery_1_1variant.html">variant</a>&lt; Ts... &gt; &amp;rhs)</td></tr>
-<tr class="separator:adc4686400a7bfa0f07ae65311568844f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaa79d5b21394563505a3bc3ba3cf6b25"><td class="memTemplParams" colspan="2">template&lt;class T , class Allocator &gt; </td></tr>
-<tr class="memitem:aaa79d5b21394563505a3bc3ba3cf6b25"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#aaa79d5b21394563505a3bc3ba3cf6b25">operator==</a> (const <a class="el" href="classbattery_1_1vector.html">vector</a>&lt; T, Allocator &gt; &amp;lhs, const <a class="el" href="classbattery_1_1vector.html">vector</a>&lt; T, Allocator &gt; &amp;rhs)</td></tr>
-<tr class="separator:aaa79d5b21394563505a3bc3ba3cf6b25"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a530a0e80c119364e92b4a61ac61f9028"><td class="memTemplParams" colspan="2">template&lt;typename... Ts&gt; </td></tr>
+<tr class="memitem:a530a0e80c119364e92b4a61ac61f9028"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> <a class="el" href="utility_8hpp.html#a860bedb684529775463fa3a6cb467efa">NI</a> bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#a530a0e80c119364e92b4a61ac61f9028">operator==</a> (const <a class="el" href="structbattery_1_1variant.html">variant</a>&lt; Ts... &gt; &amp;lhs, const <a class="el" href="structbattery_1_1variant.html">variant</a>&lt; Ts... &gt; &amp;rhs)</td></tr>
+<tr class="separator:a530a0e80c119364e92b4a61ac61f9028"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a42eaf15f5dfef83f13ef2edc60f8b8bc"><td class="memTemplParams" colspan="2">template&lt;class T , class Allocator &gt; </td></tr>
+<tr class="memitem:a42eaf15f5dfef83f13ef2edc60f8b8bc"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> <a class="el" href="utility_8hpp.html#a860bedb684529775463fa3a6cb467efa">NI</a> bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#a42eaf15f5dfef83f13ef2edc60f8b8bc">operator==</a> (const <a class="el" href="classbattery_1_1vector.html">vector</a>&lt; T, Allocator &gt; &amp;lhs, const <a class="el" href="classbattery_1_1vector.html">vector</a>&lt; T, Allocator &gt; &amp;rhs)</td></tr>
+<tr class="separator:a42eaf15f5dfef83f13ef2edc60f8b8bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Typedef Documentation</h2>
 <a id="a09111ca968cc4d8defa60555963dd052"></a>
@@ -346,51 +328,9 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="afb485d8f961537d1ca590f78d16ac1c4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afb485d8f961537d1ca590f78d16ac1c4">&#9670;&nbsp;</a></span>atomic_memory_block</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="namespacebattery.html#afb485d8f961537d1ca590f78d16ac1c4">battery::atomic_memory_block</a> = typedef <a class="el" href="classbattery_1_1atomic__memory__scoped.html">atomic_memory_scoped</a>&lt;cuda::thread_scope_block&gt;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a2af42ce969d94b6b8bb1ed9a94b9cf49"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2af42ce969d94b6b8bb1ed9a94b9cf49">&#9670;&nbsp;</a></span>atomic_memory_grid</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="namespacebattery.html#a2af42ce969d94b6b8bb1ed9a94b9cf49">battery::atomic_memory_grid</a> = typedef <a class="el" href="classbattery_1_1atomic__memory__scoped.html">atomic_memory_scoped</a>&lt;cuda::thread_scope_device&gt;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a972d9650ddbedff1111369e8cdd4bc52"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a972d9650ddbedff1111369e8cdd4bc52">&#9670;&nbsp;</a></span>atomic_memory_multi_grid</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="namespacebattery.html#a972d9650ddbedff1111369e8cdd4bc52">battery::atomic_memory_multi_grid</a> = typedef <a class="el" href="classbattery_1_1atomic__memory__scoped.html">atomic_memory_scoped</a>&lt;cuda::thread_scope_system&gt;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="ab6d6bf7e67229cfdefe540ec75d82939"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab6d6bf7e67229cfdefe540ec75d82939">&#9670;&nbsp;</a></span>operator&amp;()</h2>
+<a id="a0d67c395708e5023f60fefb4b165750c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d67c395708e5023f60fefb4b165750c">&#9670;&nbsp;</a></span>operator&amp;()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -401,7 +341,7 @@ template&lt;size_t N, class Mem , class T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr <a class="el" href="classbattery_1_1bitset.html">bitset</a>&lt;N, Mem, T&gt; battery::operator&amp; </td>
+          <td class="memname">constexpr <a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> <a class="el" href="classbattery_1_1bitset.html">bitset</a>&lt;N, Mem, T&gt; battery::operator&amp; </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="classbattery_1_1bitset.html">bitset</a>&lt; N, Mem, T &gt; &amp;&#160;</td>
           <td class="paramname"><em>lhs</em>, </td>
@@ -427,8 +367,8 @@ template&lt;size_t N, class Mem , class T &gt; </div>
 
 </div>
 </div>
-<a id="ad828899d2bb8d42822389d82594b8a90"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad828899d2bb8d42822389d82594b8a90">&#9670;&nbsp;</a></span>operator|()</h2>
+<a id="ad0628a6bc608319d23fbb8c7f28f8907"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad0628a6bc608319d23fbb8c7f28f8907">&#9670;&nbsp;</a></span>operator|()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -439,7 +379,7 @@ template&lt;size_t N, class Mem , class T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr <a class="el" href="classbattery_1_1bitset.html">bitset</a>&lt;N, Mem, T&gt; battery::operator| </td>
+          <td class="memname">constexpr <a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> <a class="el" href="classbattery_1_1bitset.html">bitset</a>&lt;N, Mem, T&gt; battery::operator| </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="classbattery_1_1bitset.html">bitset</a>&lt; N, Mem, T &gt; &amp;&#160;</td>
           <td class="paramname"><em>lhs</em>, </td>
@@ -465,8 +405,8 @@ template&lt;size_t N, class Mem , class T &gt; </div>
 
 </div>
 </div>
-<a id="a53a2af39e7adb2f7d2bb60657679c9ff"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a53a2af39e7adb2f7d2bb60657679c9ff">&#9670;&nbsp;</a></span>operator^()</h2>
+<a id="a774931ca37440ef09f85f35507267a9d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a774931ca37440ef09f85f35507267a9d">&#9670;&nbsp;</a></span>operator^()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -477,7 +417,7 @@ template&lt;size_t N, class Mem , class T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr <a class="el" href="classbattery_1_1bitset.html">bitset</a>&lt;N, Mem, T&gt; battery::operator^ </td>
+          <td class="memname">constexpr <a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> <a class="el" href="classbattery_1_1bitset.html">bitset</a>&lt;N, Mem, T&gt; battery::operator^ </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="classbattery_1_1bitset.html">bitset</a>&lt; N, Mem, T &gt; &amp;&#160;</td>
           <td class="paramname"><em>lhs</em>, </td>
@@ -503,8 +443,8 @@ template&lt;size_t N, class Mem , class T &gt; </div>
 
 </div>
 </div>
-<a id="aee9241d882f78f0130435b46389ff9ac"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aee9241d882f78f0130435b46389ff9ac">&#9670;&nbsp;</a></span>allocate_shared()</h2>
+<a id="a3c10cb4b2da8a73b4f439ebfa67c6d9a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c10cb4b2da8a73b4f439ebfa67c6d9a">&#9670;&nbsp;</a></span>allocate_shared()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -512,7 +452,7 @@ template&lt;size_t N, class Mem , class T &gt; </div>
 template&lt;class T , class Alloc , class... Args&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> <a class="el" href="classbattery_1_1shared__ptr.html">shared_ptr</a>&lt;T, Alloc&gt; battery::allocate_shared </td>
+          <td class="memname"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> <a class="el" href="utility_8hpp.html#a860bedb684529775463fa3a6cb467efa">NI</a> <a class="el" href="classbattery_1_1shared__ptr.html">shared_ptr</a>&lt;T, Alloc&gt; battery::allocate_shared </td>
           <td>(</td>
           <td class="paramtype">const Alloc &amp;&#160;</td>
           <td class="paramname"><em>alloc</em>, </td>
@@ -533,8 +473,8 @@ template&lt;class T , class Alloc , class... Args&gt; </div>
 
 </div>
 </div>
-<a id="a51fbd102c2aef01adc744cee4bc35ea9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a51fbd102c2aef01adc744cee4bc35ea9">&#9670;&nbsp;</a></span>make_shared()</h2>
+<a id="ae61605945519ce21c6957dcd5222bbe7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae61605945519ce21c6957dcd5222bbe7">&#9670;&nbsp;</a></span>make_shared()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -542,7 +482,7 @@ template&lt;class T , class Alloc , class... Args&gt; </div>
 template&lt;class T , class Alloc , class... Args&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> <a class="el" href="classbattery_1_1shared__ptr.html">shared_ptr</a>&lt;T, Alloc&gt; battery::make_shared </td>
+          <td class="memname"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> <a class="el" href="utility_8hpp.html#a860bedb684529775463fa3a6cb467efa">NI</a> <a class="el" href="classbattery_1_1shared__ptr.html">shared_ptr</a>&lt;T, Alloc&gt; battery::make_shared </td>
           <td>(</td>
           <td class="paramtype">Args &amp;&amp;...&#160;</td>
           <td class="paramname"><em>args</em></td><td>)</td>
@@ -734,8 +674,8 @@ template&lt;class Allocator &gt; </div>
 
 </div>
 </div>
-<a id="aa354aeb0995d495b2b9858a6ea2fb568"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa354aeb0995d495b2b9858a6ea2fb568">&#9670;&nbsp;</a></span>allocate_unique()</h2>
+<a id="a15423377cbdc9bfeabbea86af1cb91be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a15423377cbdc9bfeabbea86af1cb91be">&#9670;&nbsp;</a></span>allocate_unique()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -743,7 +683,7 @@ template&lt;class Allocator &gt; </div>
 template&lt;class T , class Alloc , class... Args&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> <a class="el" href="classbattery_1_1unique__ptr.html">unique_ptr</a>&lt;T, Alloc&gt; battery::allocate_unique </td>
+          <td class="memname"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> <a class="el" href="utility_8hpp.html#a860bedb684529775463fa3a6cb467efa">NI</a> <a class="el" href="classbattery_1_1unique__ptr.html">unique_ptr</a>&lt;T, Alloc&gt; battery::allocate_unique </td>
           <td>(</td>
           <td class="paramtype">const Alloc &amp;&#160;</td>
           <td class="paramname"><em>alloc</em>, </td>
@@ -782,73 +722,6 @@ template&lt;class T , class Alloc , class... Args&gt; </div>
       </table>
 </div><div class="memdoc">
 <p>Similar to <code>allocate_unique</code> but with an default-constructed allocator. </p>
-
-</div>
-</div>
-<a id="aa781d8577b63b6e7b789223e825f52c3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa781d8577b63b6e7b789223e825f52c3">&#9670;&nbsp;</a></span>make_unique_block()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T , class Alloc , class... Args&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">__device__ T&amp; battery::make_unique_block </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classbattery_1_1unique__ptr.html">unique_ptr</a>&lt; T, Alloc &gt; &amp;&#160;</td>
-          <td class="paramname"><em>ptr</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Args &amp;&amp;...&#160;</td>
-          <td class="paramname"><em>args</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>We construct a <code><a class="el" href="classbattery_1_1unique__ptr.html">unique_ptr</a></code> in the style of <code>allocate_unique</code> but the function is allowed to be entered by all threads of a block. Only one thread of the block will call the function <code>allocate_unique</code>. The created pointer is stored in one of the <code><a class="el" href="classbattery_1_1unique__ptr.html">unique_ptr</a></code> passed as parameter to allow for RAII. The function returns a reference to the object created. Usage: </p><div class="fragment"><div class="line"><a class="code" href="classbattery_1_1unique__ptr.html">battery::unique_ptr&lt;int, battery::global_allocator&gt;</a> ptr;</div>
-<div class="line"><span class="keywordtype">int</span>&amp; block_int = <a class="code" href="namespacebattery.html#aa781d8577b63b6e7b789223e825f52c3">battery::make_unique_block</a>(ptr, 10);</div>
-<div class="line"><span class="comment">// all threads can now use `block_int`.</span></div>
-<div class="ttc" id="aclassbattery_1_1unique__ptr_html"><div class="ttname"><a href="classbattery_1_1unique__ptr.html">battery::unique_ptr</a></div><div class="ttdef"><b>Definition:</b> unique_ptr.hpp:20</div></div>
-<div class="ttc" id="anamespacebattery_html_aa781d8577b63b6e7b789223e825f52c3"><div class="ttname"><a href="namespacebattery.html#aa781d8577b63b6e7b789223e825f52c3">battery::make_unique_block</a></div><div class="ttdeci">__device__ T &amp; make_unique_block(unique_ptr&lt; T, Alloc &gt; &amp;ptr, Args &amp;&amp;... args)</div><div class="ttdef"><b>Definition:</b> unique_ptr.hpp:159</div></div>
-</div><!-- fragment --><p>NOTE: this function use the cooperative groups library. </p>
-
-</div>
-</div>
-<a id="a5ba4adb6d7953ca7e8c6602b7e455b14"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5ba4adb6d7953ca7e8c6602b7e455b14">&#9670;&nbsp;</a></span>make_unique_grid()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T , class Alloc , class... Args&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">__device__ T&amp; battery::make_unique_grid </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classbattery_1_1unique__ptr.html">unique_ptr</a>&lt; T, Alloc &gt; &amp;&#160;</td>
-          <td class="paramname"><em>ptr</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Args &amp;&amp;...&#160;</td>
-          <td class="paramname"><em>args</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Same as <code>make_unique_block</code> but for the grid (all blocks). NOTE: a kernel using this function must be launched using <code>cudaLaunchCooperativeKernel</code> instead of the <code>&lt;&lt;&lt;...&gt;&gt;&gt;</code> syntax. </p>
 
 </div>
 </div>
@@ -1129,8 +1002,8 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
-<a id="a7fdea425c76eab201a009ea09b8cbac0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7fdea425c76eab201a009ea09b8cbac0">&#9670;&nbsp;</a></span>ru_cast()</h2>
+<a id="af0d114b391878e53237f001aeeb41f20"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af0d114b391878e53237f001aeeb41f20">&#9670;&nbsp;</a></span>ru_cast()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1141,7 +1014,7 @@ template&lt;class To , class From , bool map_limits = true&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr <a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> To battery::ru_cast </td>
+          <td class="memname"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> constexpr <a class="el" href="utility_8hpp.html#a860bedb684529775463fa3a6cb467efa">NI</a> To battery::ru_cast </td>
           <td>(</td>
           <td class="paramtype">From&#160;</td>
           <td class="paramname"><em>x</em></td><td>)</td>
@@ -1163,8 +1036,8 @@ template&lt;class To , class From , bool map_limits = true&gt; </div>
 
 </div>
 </div>
-<a id="aa2296c962277e71780bccf1ba9708f59"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa2296c962277e71780bccf1ba9708f59">&#9670;&nbsp;</a></span>rd_cast()</h2>
+<a id="a1e9d524dd0ac8ed6de30ffdfbd8c61cc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e9d524dd0ac8ed6de30ffdfbd8c61cc">&#9670;&nbsp;</a></span>rd_cast()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1175,7 +1048,7 @@ template&lt;class To , class From , bool map_limits = true&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr <a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> To battery::rd_cast </td>
+          <td class="memname"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> constexpr <a class="el" href="utility_8hpp.html#a860bedb684529775463fa3a6cb467efa">NI</a> To battery::rd_cast </td>
           <td>(</td>
           <td class="paramtype">From&#160;</td>
           <td class="paramname"><em>x</em></td><td>)</td>
@@ -1197,8 +1070,8 @@ template&lt;class To , class From , bool map_limits = true&gt; </div>
 
 </div>
 </div>
-<a id="a2821ae67e8ea81b375f3fd6d70909fef"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2821ae67e8ea81b375f3fd6d70909fef">&#9670;&nbsp;</a></span>popcount()</h2>
+<a id="a861ae54749bff80cc1fcb466b91e597b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a861ae54749bff80cc1fcb466b91e597b">&#9670;&nbsp;</a></span>popcount()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1209,7 +1082,7 @@ template&lt;class T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr <a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> int battery::popcount </td>
+          <td class="memname"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> constexpr <a class="el" href="utility_8hpp.html#a860bedb684529775463fa3a6cb467efa">NI</a> int battery::popcount </td>
           <td>(</td>
           <td class="paramtype">T&#160;</td>
           <td class="paramname"><em>x</em></td><td>)</td>
@@ -1225,8 +1098,8 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
-<a id="aa18a34122dc3e8b7e96c4a54eeffa9aa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa18a34122dc3e8b7e96c4a54eeffa9aa">&#9670;&nbsp;</a></span>countl_zero()</h2>
+<a id="a11f8dbd11106de7ddf1420444980074e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a11f8dbd11106de7ddf1420444980074e">&#9670;&nbsp;</a></span>countl_zero()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1237,7 +1110,7 @@ template&lt;class T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr <a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> int battery::countl_zero </td>
+          <td class="memname"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> constexpr <a class="el" href="utility_8hpp.html#a860bedb684529775463fa3a6cb467efa">NI</a> int battery::countl_zero </td>
           <td>(</td>
           <td class="paramtype">T&#160;</td>
           <td class="paramname"><em>x</em></td><td>)</td>
@@ -1253,8 +1126,8 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
-<a id="ae252a50e577d7b092eb368b7e0289772"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae252a50e577d7b092eb368b7e0289772">&#9670;&nbsp;</a></span>countl_one()</h2>
+<a id="a4fca37d7e13e8b5b7d6b20cfbdee46d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4fca37d7e13e8b5b7d6b20cfbdee46d5">&#9670;&nbsp;</a></span>countl_one()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1265,7 +1138,7 @@ template&lt;class T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr <a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> int battery::countl_one </td>
+          <td class="memname"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> constexpr <a class="el" href="utility_8hpp.html#a860bedb684529775463fa3a6cb467efa">NI</a> int battery::countl_one </td>
           <td>(</td>
           <td class="paramtype">T&#160;</td>
           <td class="paramname"><em>x</em></td><td>)</td>
@@ -1281,8 +1154,8 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
-<a id="a7338f90fab224e49c3716c5eace58bee"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7338f90fab224e49c3716c5eace58bee">&#9670;&nbsp;</a></span>countr_zero()</h2>
+<a id="a1483cec94715a03b7648fdbe8718326b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1483cec94715a03b7648fdbe8718326b">&#9670;&nbsp;</a></span>countr_zero()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1293,7 +1166,7 @@ template&lt;class T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr <a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> int battery::countr_zero </td>
+          <td class="memname"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> constexpr <a class="el" href="utility_8hpp.html#a860bedb684529775463fa3a6cb467efa">NI</a> int battery::countr_zero </td>
           <td>(</td>
           <td class="paramtype">T&#160;</td>
           <td class="paramname"><em>x</em></td><td>)</td>
@@ -1309,8 +1182,8 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
-<a id="a974d0a682d546e1185ae7dca29c272d6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a974d0a682d546e1185ae7dca29c272d6">&#9670;&nbsp;</a></span>countr_one()</h2>
+<a id="a9a92936108839acba3459916e6d64709"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a92936108839acba3459916e6d64709">&#9670;&nbsp;</a></span>countr_one()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1321,7 +1194,7 @@ template&lt;class T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr <a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> int battery::countr_one </td>
+          <td class="memname"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> constexpr <a class="el" href="utility_8hpp.html#a860bedb684529775463fa3a6cb467efa">NI</a> int battery::countr_one </td>
           <td>(</td>
           <td class="paramtype">T&#160;</td>
           <td class="paramname"><em>x</em></td><td>)</td>
@@ -1366,8 +1239,8 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
-<a id="a93472d80842253624e2436eef7b900b6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a93472d80842253624e2436eef7b900b6">&#9670;&nbsp;</a></span>ipow()</h2>
+<a id="a6e981b3b540bc6fbfd18768a44787d49"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e981b3b540bc6fbfd18768a44787d49">&#9670;&nbsp;</a></span>ipow()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1378,7 +1251,7 @@ template&lt;class T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr <a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> T battery::ipow </td>
+          <td class="memname"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> constexpr <a class="el" href="utility_8hpp.html#a860bedb684529775463fa3a6cb467efa">NI</a> T battery::ipow </td>
           <td>(</td>
           <td class="paramtype">T&#160;</td>
           <td class="paramname"><em>a</em>, </td>
@@ -1709,36 +1582,28 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
-<a id="aca6f1767f401748bf81a8404ef6b6c85"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aca6f1767f401748bf81a8404ef6b6c85">&#9670;&nbsp;</a></span>print() <span class="overload">[1/14]</span></h2>
+<a id="a66a73df11417a729bfa43b005bb5ba4e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a66a73df11417a729bfa43b005bb5ba4e">&#9670;&nbsp;</a></span>print() <span class="overload">[1/14]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;typename T &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> void battery::print </td>
+          <td class="memname"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> <a class="el" href="utility_8hpp.html#a860bedb684529775463fa3a6cb467efa">NI</a> void battery::print </td>
           <td>(</td>
           <td class="paramtype">const T &amp;&#160;</td>
           <td class="paramname"><em>t</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a1ead5a107626648948845cc0a2dddd64"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1ead5a107626648948845cc0a2dddd64">&#9670;&nbsp;</a></span>print() <span class="overload">[2/14]</span></h2>
+<a id="a8a7141dc9fb8c54414123803b7f86c2f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a7141dc9fb8c54414123803b7f86c2f">&#9670;&nbsp;</a></span>print() <span class="overload">[2/14]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1749,7 +1614,7 @@ template&lt;&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> void battery::print </td>
+          <td class="memname"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> <a class="el" href="utility_8hpp.html#a860bedb684529775463fa3a6cb467efa">NI</a> void battery::print </td>
           <td>(</td>
           <td class="paramtype">const char &amp;&#160;</td>
           <td class="paramname"><em>x</em></td><td>)</td>
@@ -1765,8 +1630,8 @@ template&lt;&gt; </div>
 
 </div>
 </div>
-<a id="a82c4d3061d08cc22766e62b071b1943a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a82c4d3061d08cc22766e62b071b1943a">&#9670;&nbsp;</a></span>print() <span class="overload">[3/14]</span></h2>
+<a id="a8e2236679fc3c4522a26bb5d4cc4a6a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e2236679fc3c4522a26bb5d4cc4a6a5">&#9670;&nbsp;</a></span>print() <span class="overload">[3/14]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1777,7 +1642,7 @@ template&lt;&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> void battery::print </td>
+          <td class="memname"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> <a class="el" href="utility_8hpp.html#a860bedb684529775463fa3a6cb467efa">NI</a> void battery::print </td>
           <td>(</td>
           <td class="paramtype">const short &amp;&#160;</td>
           <td class="paramname"><em>x</em></td><td>)</td>
@@ -1793,8 +1658,8 @@ template&lt;&gt; </div>
 
 </div>
 </div>
-<a id="ab9d1abe3503f22f8a14128d95a54416a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab9d1abe3503f22f8a14128d95a54416a">&#9670;&nbsp;</a></span>print() <span class="overload">[4/14]</span></h2>
+<a id="acf08442467172e30bc29c054da0aad59"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf08442467172e30bc29c054da0aad59">&#9670;&nbsp;</a></span>print() <span class="overload">[4/14]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1805,7 +1670,7 @@ template&lt;&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> void battery::print </td>
+          <td class="memname"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> <a class="el" href="utility_8hpp.html#a860bedb684529775463fa3a6cb467efa">NI</a> void battery::print </td>
           <td>(</td>
           <td class="paramtype">const int &amp;&#160;</td>
           <td class="paramname"><em>x</em></td><td>)</td>
@@ -1821,8 +1686,8 @@ template&lt;&gt; </div>
 
 </div>
 </div>
-<a id="a67d928cfaacd3b22dba1f70fcca470bf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a67d928cfaacd3b22dba1f70fcca470bf">&#9670;&nbsp;</a></span>print() <span class="overload">[5/14]</span></h2>
+<a id="a810f8cd959c5f27d2574ae6a13ea7e4a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a810f8cd959c5f27d2574ae6a13ea7e4a">&#9670;&nbsp;</a></span>print() <span class="overload">[5/14]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1833,7 +1698,7 @@ template&lt;&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> void battery::print </td>
+          <td class="memname"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> <a class="el" href="utility_8hpp.html#a860bedb684529775463fa3a6cb467efa">NI</a> void battery::print </td>
           <td>(</td>
           <td class="paramtype">const long long int &amp;&#160;</td>
           <td class="paramname"><em>x</em></td><td>)</td>
@@ -1849,8 +1714,8 @@ template&lt;&gt; </div>
 
 </div>
 </div>
-<a id="a59ccf09fce3517de56355442e33dbab9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a59ccf09fce3517de56355442e33dbab9">&#9670;&nbsp;</a></span>print() <span class="overload">[6/14]</span></h2>
+<a id="aa9ef0e4459e90c73c37e190b96dc4187"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9ef0e4459e90c73c37e190b96dc4187">&#9670;&nbsp;</a></span>print() <span class="overload">[6/14]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1861,7 +1726,7 @@ template&lt;&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> void battery::print </td>
+          <td class="memname"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> <a class="el" href="utility_8hpp.html#a860bedb684529775463fa3a6cb467efa">NI</a> void battery::print </td>
           <td>(</td>
           <td class="paramtype">const long int &amp;&#160;</td>
           <td class="paramname"><em>x</em></td><td>)</td>
@@ -1877,8 +1742,8 @@ template&lt;&gt; </div>
 
 </div>
 </div>
-<a id="a4907e084c10dd30ee8731fe724f0bbb5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4907e084c10dd30ee8731fe724f0bbb5">&#9670;&nbsp;</a></span>print() <span class="overload">[7/14]</span></h2>
+<a id="afb4f5ceff88cd9556d1361d25d133356"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb4f5ceff88cd9556d1361d25d133356">&#9670;&nbsp;</a></span>print() <span class="overload">[7/14]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1889,7 +1754,7 @@ template&lt;&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> void battery::print </td>
+          <td class="memname"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> <a class="el" href="utility_8hpp.html#a860bedb684529775463fa3a6cb467efa">NI</a> void battery::print </td>
           <td>(</td>
           <td class="paramtype">const unsigned char &amp;&#160;</td>
           <td class="paramname"><em>x</em></td><td>)</td>
@@ -1905,8 +1770,8 @@ template&lt;&gt; </div>
 
 </div>
 </div>
-<a id="ae9d8a86f7dd309eb8e778be1b4d548f5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae9d8a86f7dd309eb8e778be1b4d548f5">&#9670;&nbsp;</a></span>print() <span class="overload">[8/14]</span></h2>
+<a id="ac9933054bb0738ad26e1f20467c6c940"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac9933054bb0738ad26e1f20467c6c940">&#9670;&nbsp;</a></span>print() <span class="overload">[8/14]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1917,7 +1782,7 @@ template&lt;&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> void battery::print </td>
+          <td class="memname"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> <a class="el" href="utility_8hpp.html#a860bedb684529775463fa3a6cb467efa">NI</a> void battery::print </td>
           <td>(</td>
           <td class="paramtype">const unsigned short &amp;&#160;</td>
           <td class="paramname"><em>x</em></td><td>)</td>
@@ -1933,8 +1798,8 @@ template&lt;&gt; </div>
 
 </div>
 </div>
-<a id="abe7a777af84c10be552a8ad01f4adbe4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abe7a777af84c10be552a8ad01f4adbe4">&#9670;&nbsp;</a></span>print() <span class="overload">[9/14]</span></h2>
+<a id="a3da9624d2403a994468cf9abeaa67c5b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3da9624d2403a994468cf9abeaa67c5b">&#9670;&nbsp;</a></span>print() <span class="overload">[9/14]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1945,7 +1810,7 @@ template&lt;&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> void battery::print </td>
+          <td class="memname"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> <a class="el" href="utility_8hpp.html#a860bedb684529775463fa3a6cb467efa">NI</a> void battery::print </td>
           <td>(</td>
           <td class="paramtype">const unsigned int &amp;&#160;</td>
           <td class="paramname"><em>x</em></td><td>)</td>
@@ -1961,8 +1826,8 @@ template&lt;&gt; </div>
 
 </div>
 </div>
-<a id="ac7ffff2a0c0edd279be6818427ba51c9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac7ffff2a0c0edd279be6818427ba51c9">&#9670;&nbsp;</a></span>print() <span class="overload">[10/14]</span></h2>
+<a id="a793f974343bf43e865cff26f2b53e1ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a793f974343bf43e865cff26f2b53e1ae">&#9670;&nbsp;</a></span>print() <span class="overload">[10/14]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1973,7 +1838,7 @@ template&lt;&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> void battery::print </td>
+          <td class="memname"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> <a class="el" href="utility_8hpp.html#a860bedb684529775463fa3a6cb467efa">NI</a> void battery::print </td>
           <td>(</td>
           <td class="paramtype">const unsigned long &amp;&#160;</td>
           <td class="paramname"><em>x</em></td><td>)</td>
@@ -1989,8 +1854,8 @@ template&lt;&gt; </div>
 
 </div>
 </div>
-<a id="a7075825e896d43073cc60ee9693fb48e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7075825e896d43073cc60ee9693fb48e">&#9670;&nbsp;</a></span>print() <span class="overload">[11/14]</span></h2>
+<a id="aca4e9781e6f130d863bdb31876a11d50"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aca4e9781e6f130d863bdb31876a11d50">&#9670;&nbsp;</a></span>print() <span class="overload">[11/14]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2001,7 +1866,7 @@ template&lt;&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> void battery::print </td>
+          <td class="memname"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> <a class="el" href="utility_8hpp.html#a860bedb684529775463fa3a6cb467efa">NI</a> void battery::print </td>
           <td>(</td>
           <td class="paramtype">const unsigned long long &amp;&#160;</td>
           <td class="paramname"><em>x</em></td><td>)</td>
@@ -2017,8 +1882,8 @@ template&lt;&gt; </div>
 
 </div>
 </div>
-<a id="a32b75013e4abf4dca39b589d19f4978e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a32b75013e4abf4dca39b589d19f4978e">&#9670;&nbsp;</a></span>print() <span class="overload">[12/14]</span></h2>
+<a id="a8ae8ab5eb9518ff6512231fc7df911e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ae8ab5eb9518ff6512231fc7df911e8">&#9670;&nbsp;</a></span>print() <span class="overload">[12/14]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2029,7 +1894,7 @@ template&lt;&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> void battery::print </td>
+          <td class="memname"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> <a class="el" href="utility_8hpp.html#a860bedb684529775463fa3a6cb467efa">NI</a> void battery::print </td>
           <td>(</td>
           <td class="paramtype">const float &amp;&#160;</td>
           <td class="paramname"><em>x</em></td><td>)</td>
@@ -2045,8 +1910,8 @@ template&lt;&gt; </div>
 
 </div>
 </div>
-<a id="aea6591a1ea39a64d14017e84b06698d0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aea6591a1ea39a64d14017e84b06698d0">&#9670;&nbsp;</a></span>print() <span class="overload">[13/14]</span></h2>
+<a id="a2506785c7472130d057a2b0553b35f82"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2506785c7472130d057a2b0553b35f82">&#9670;&nbsp;</a></span>print() <span class="overload">[13/14]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2057,7 +1922,7 @@ template&lt;&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> void battery::print </td>
+          <td class="memname"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> <a class="el" href="utility_8hpp.html#a860bedb684529775463fa3a6cb467efa">NI</a> void battery::print </td>
           <td>(</td>
           <td class="paramtype">const double &amp;&#160;</td>
           <td class="paramname"><em>x</em></td><td>)</td>
@@ -2073,8 +1938,8 @@ template&lt;&gt; </div>
 
 </div>
 </div>
-<a id="ad013208215f8c5d7b2fbaa719e7a17d2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad013208215f8c5d7b2fbaa719e7a17d2">&#9670;&nbsp;</a></span>print() <span class="overload">[14/14]</span></h2>
+<a id="aed45ee36fff726d8e33a95f8144564c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aed45ee36fff726d8e33a95f8144564c2">&#9670;&nbsp;</a></span>print() <span class="overload">[14/14]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2085,7 +1950,7 @@ template&lt;&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> void battery::print </td>
+          <td class="memname"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> <a class="el" href="utility_8hpp.html#a860bedb684529775463fa3a6cb467efa">NI</a> void battery::print </td>
           <td>(</td>
           <td class="paramtype">char const *const &amp;&#160;</td>
           <td class="paramname"><em>x</em></td><td>)</td>
@@ -2141,8 +2006,8 @@ template&lt;size_t i, typename... Ts&gt; </div>
 
 </div>
 </div>
-<a id="adc4686400a7bfa0f07ae65311568844f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adc4686400a7bfa0f07ae65311568844f">&#9670;&nbsp;</a></span>operator==() <span class="overload">[4/5]</span></h2>
+<a id="a530a0e80c119364e92b4a61ac61f9028"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a530a0e80c119364e92b4a61ac61f9028">&#9670;&nbsp;</a></span>operator==() <span class="overload">[4/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2150,7 +2015,7 @@ template&lt;size_t i, typename... Ts&gt; </div>
 template&lt;typename... Ts&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> bool battery::operator== </td>
+          <td class="memname"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> <a class="el" href="utility_8hpp.html#a860bedb684529775463fa3a6cb467efa">NI</a> bool battery::operator== </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="structbattery_1_1variant.html">variant</a>&lt; Ts... &gt; &amp;&#160;</td>
           <td class="paramname"><em>lhs</em>, </td>
@@ -2171,8 +2036,8 @@ template&lt;typename... Ts&gt; </div>
 
 </div>
 </div>
-<a id="aaa79d5b21394563505a3bc3ba3cf6b25"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaa79d5b21394563505a3bc3ba3cf6b25">&#9670;&nbsp;</a></span>operator==() <span class="overload">[5/5]</span></h2>
+<a id="a42eaf15f5dfef83f13ef2edc60f8b8bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a42eaf15f5dfef83f13ef2edc60f8b8bc">&#9670;&nbsp;</a></span>operator==() <span class="overload">[5/5]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2180,7 +2045,7 @@ template&lt;typename... Ts&gt; </div>
 template&lt;class T , class Allocator &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> bool battery::operator== </td>
+          <td class="memname"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> <a class="el" href="utility_8hpp.html#a860bedb684529775463fa3a6cb467efa">NI</a> bool battery::operator== </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="classbattery_1_1vector.html">vector</a>&lt; T, Allocator &gt; &amp;&#160;</td>
           <td class="paramname"><em>lhs</em>, </td>

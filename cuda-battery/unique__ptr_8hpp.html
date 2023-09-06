@@ -99,7 +99,6 @@ $(document).ready(function(){initNavTree('unique__ptr_8hpp.html',''); initResiza
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="utility_8hpp_source.html">utility.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="allocator_8hpp_source.html">allocator.hpp</a>&quot;</code><br />
-<code>#include &lt;cooperative_groups.h&gt;</code><br />
 </div>
 <p><a href="unique__ptr_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -115,18 +114,12 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:aa354aeb0995d495b2b9858a6ea2fb568"><td class="memTemplParams" colspan="2">template&lt;class T , class Alloc , class... Args&gt; </td></tr>
-<tr class="memitem:aa354aeb0995d495b2b9858a6ea2fb568"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> unique_ptr&lt; T, Alloc &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#aa354aeb0995d495b2b9858a6ea2fb568">battery::allocate_unique</a> (const Alloc &amp;alloc, Args &amp;&amp;... args)</td></tr>
-<tr class="separator:aa354aeb0995d495b2b9858a6ea2fb568"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a15423377cbdc9bfeabbea86af1cb91be"><td class="memTemplParams" colspan="2">template&lt;class T , class Alloc , class... Args&gt; </td></tr>
+<tr class="memitem:a15423377cbdc9bfeabbea86af1cb91be"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> <a class="el" href="utility_8hpp.html#a860bedb684529775463fa3a6cb467efa">NI</a> unique_ptr&lt; T, Alloc &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#a15423377cbdc9bfeabbea86af1cb91be">battery::allocate_unique</a> (const Alloc &amp;alloc, Args &amp;&amp;... args)</td></tr>
+<tr class="separator:a15423377cbdc9bfeabbea86af1cb91be"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a08d5604fdc7ea7c18562cb614bcab5ad"><td class="memTemplParams" colspan="2">template&lt;class T , class Alloc , class... Args&gt; </td></tr>
 <tr class="memitem:a08d5604fdc7ea7c18562cb614bcab5ad"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> unique_ptr&lt; T, Alloc &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#a08d5604fdc7ea7c18562cb614bcab5ad">battery::make_unique</a> (Args &amp;&amp;... args)</td></tr>
 <tr class="separator:a08d5604fdc7ea7c18562cb614bcab5ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa781d8577b63b6e7b789223e825f52c3"><td class="memTemplParams" colspan="2">template&lt;class T , class Alloc , class... Args&gt; </td></tr>
-<tr class="memitem:aa781d8577b63b6e7b789223e825f52c3"><td class="memTemplItemLeft" align="right" valign="top">__device__ T &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#aa781d8577b63b6e7b789223e825f52c3">battery::make_unique_block</a> (unique_ptr&lt; T, Alloc &gt; &amp;ptr, Args &amp;&amp;... args)</td></tr>
-<tr class="separator:aa781d8577b63b6e7b789223e825f52c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5ba4adb6d7953ca7e8c6602b7e455b14"><td class="memTemplParams" colspan="2">template&lt;class T , class Alloc , class... Args&gt; </td></tr>
-<tr class="memitem:a5ba4adb6d7953ca7e8c6602b7e455b14"><td class="memTemplItemLeft" align="right" valign="top">__device__ T &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacebattery.html#a5ba4adb6d7953ca7e8c6602b7e455b14">battery::make_unique_grid</a> (unique_ptr&lt; T, Alloc &gt; &amp;ptr, Args &amp;&amp;... args)</td></tr>
-<tr class="separator:a5ba4adb6d7953ca7e8c6602b7e455b14"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Similar to std::unique_ptr with small technical differences:</p><ul>

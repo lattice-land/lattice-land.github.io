@@ -1,7 +1,4 @@
 var searchData=
 [
-  ['shared_5fptr_147',['shared_ptr',['../classbattery_1_1shared__ptr.html',1,'battery']]],
-  ['standard_5fallocator_148',['standard_allocator',['../classbattery_1_1standard__allocator.html',1,'battery']]],
-  ['statistics_5fallocator_149',['statistics_allocator',['../classbattery_1_1statistics__allocator.html',1,'battery']]],
-  ['string_150',['string',['../classbattery_1_1string.html',1,'battery']]]
+  ['unique_5fptr_143',['unique_ptr',['../classbattery_1_1unique__ptr.html',1,'battery']]]
 ];

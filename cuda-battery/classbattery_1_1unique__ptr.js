@@ -10,7 +10,7 @@ var classbattery_1_1unique__ptr =
     [ "unique_ptr", "classbattery_1_1unique__ptr.html#a5b89dceee105928e9707cdc8efa2cbbc", null ],
     [ "unique_ptr", "classbattery_1_1unique__ptr.html#a5aabc91678beed8fccf64aea46330c98", null ],
     [ "unique_ptr", "classbattery_1_1unique__ptr.html#a62f4aa209cb1afada6ebb3b69d4ff344", null ],
-    [ "~unique_ptr", "classbattery_1_1unique__ptr.html#ac19601a9508fa2ee2fdb8e90fe169904", null ],
+    [ "~unique_ptr", "classbattery_1_1unique__ptr.html#a960c283f9f178c5a9b8df30f5166b20c", null ],
     [ "swap", "classbattery_1_1unique__ptr.html#ae02b168407a24b81d3c666e653622c2e", null ],
     [ "operator=", "classbattery_1_1unique__ptr.html#a452580e17fe2a8d0524f8ef2e6dff1ea", null ],
     [ "operator=", "classbattery_1_1unique__ptr.html#af49431b21bfd2d293b562b935fa51c7e", null ],

@@ -83,7 +83,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="index.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="CUDA-Battery.html"><strong aria-hidden="true">2.</strong> CUDA-Battery Library</a></li><li class="chapter-item expanded affix "><li class="part-title">Parallel Lattice Programming</li><li class="chapter-item expanded "><a href="minimum.html"><strong aria-hidden="true">3.</strong> Minimum Algorithm</a></li><li class="chapter-item expanded "><a href="floyd-warshall.html"><strong aria-hidden="true">4.</strong> Floyd-Warshall Algorithm</a></li><li class="chapter-item expanded affix "><li class="part-title">Abstract Constraint Reasoning</li><li class="chapter-item expanded affix "><li class="part-title">Parallel Abstract Constraint Reasoning</li></ol>            </div>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="index.html"><strong aria-hidden="true">1.</strong> Lattice Land</a></li><li class="chapter-item expanded affix "><li class="part-title">CUDA Battery Library</li><li class="chapter-item expanded "><a href="1-cuda-battery.html"><strong aria-hidden="true">2.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="2-cuda-battery.html"><strong aria-hidden="true">3.</strong> Data from CPU to GPU</a></li><li class="chapter-item expanded "><a href="3-cuda-battery.html"><strong aria-hidden="true">4.</strong> CMake Project</a></li><li class="chapter-item expanded "><a href="4-cuda-battery.html"><strong aria-hidden="true">5.</strong> In-Kernel Allocation</a></li><li class="chapter-item expanded "><a href="5-cuda-battery.html"><strong aria-hidden="true">6.</strong> Shared Memory Allocator</a></li><li class="chapter-item expanded "><a href="6-cuda-battery.html"><strong aria-hidden="true">7.</strong> Caution</a></li><li class="chapter-item expanded affix "><li class="part-title">Parallel Lattice Programming</li><li class="chapter-item expanded affix "><li class="part-title">Abstract Constraint Reasoning</li><li class="chapter-item expanded affix "><li class="part-title">Parallel Abstract Constraint Reasoning</li><li class="chapter-item expanded affix "><li class="part-title">Turbo Technical Journal</li><li class="chapter-item expanded "><a href="1-turbo.html"><strong aria-hidden="true">8.</strong> Quest for Efficiency</a></li><li class="chapter-item expanded "><a href="2-turbo.html"><strong aria-hidden="true">9.</strong> Pallet Town (Unoptimized Solver)</a></li></ol>            </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
 
@@ -144,7 +144,7 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="introduction"><a class="header" href="#introduction">Introduction</a></h1>
+                        <h1 id="lattice-land"><a class="header" href="#lattice-land">Lattice Land</a></h1>
 <p>Hello! You just arrived in lattice land!
 Lattice land is a collection of C++ libraries compatible with NVIDIA CUDA framework.
 Most of the libraries implement <em>abstract domains for constraint reasoning</em> a new kind of data structure based on <a href="https://en.wikipedia.org/wiki/Abstract_interpretation">abstract interpretation</a>, <a href="https://en.wikipedia.org/wiki/Lattice_(order)">lattice theory</a> and <a href="https://en.wikipedia.org/wiki/Constraint_satisfaction">constraint reasoning</a>.
@@ -153,44 +153,12 @@ This is a book presenting our research project, the involved research papers and
 <h2 id="documentation-of-libraries"><a class="header" href="#documentation-of-libraries">Documentation of libraries</a></h2>
 <ul>
 <li><a href="https://lattice-land.github.io/cuda-battery">cuda-battery</a>: Memory allocators, vector, utilities and more which run on both CPU and GPU (CUDA).
-See also the chapter <a href="CUDA-Battery.html">CUDA-Battery Library</a>.</li>
+See also the chapter <a href="1-cuda-battery.html">CUDA-Battery Library</a>.</li>
 <li><a href="https://lattice-land.github.io/lala-core">lala-core</a>: Core definitions of the formula AST and abstract domain.</li>
 <li><a href="https://github.com/lattice-land/lattice-land.github.io">lattice-land.github.io</a>: The repository hosting this book and the libraries documentation.</li>
 </ul>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="cuda-battery-library"><a class="header" href="#cuda-battery-library">CUDA-Battery Library</a></h1>
-<h2 id="quick-reference"><a class="header" href="#quick-reference">Quick Reference</a></h2>
-<ul>
-<li>Namespace: <code>battery::*</code>.</li>
-<li>The documentation is not exhaustive (which is why we provide a link to the standard C++ STL documentation), but we document most of the main differences and the features without a standard counterpart.</li>
-<li>The table below is a quick reference to the most useful features, but it is not exhaustive.</li>
-<li><em>The structures provided here are not thread-safe, this responsibility is delegated to the user of this library.</em></li>
-</ul>
-<table><thead><tr><th>Category</th><th>Main features</th><th></th><th></th><th></th></tr></thead><tbody>
-<tr><td><a href="cuda-battery/allocator_8hpp.html">Allocator</a></td><td><a href="cuda-battery/classbattery_1_1standard__allocator.html"><code>standard_allocator</code></a></td><td><a href="cuda-battery/classbattery_1_1global__allocator.html"><code>global_allocator</code></a></td><td><a href="cuda-battery/classbattery_1_1managed__allocator.html"><code>managed_allocator</code></a></td><td><a href="cuda-battery/classbattery_1_1pool__allocator.html"><code>pool_allocator</code></a></td></tr>
-<tr><td>Pointers</td><td><a href="cuda-battery/classbattery_1_1shared__ptr.html"><code>shared_ptr</code></a> (<a href="https://en.cppreference.com/w/cpp/memory/shared_ptr"><code>std</code></a>)</td><td><a href="cuda-battery/namespacebattery.html#a51fbd102c2aef01adc744cee4bc35ea9"><code>make_shared</code></a> (<a href="https://en.cppreference.com/w/cpp/memory/shared_ptr/make_shared"><code>std</code></a>)</td><td><a href="cuda-battery/namespacebattery.html#aee9241d882f78f0130435b46389ff9ac"><code>allocate_shared</code></a> (<a href="https://en.cppreference.com/w/cpp/memory/shared_ptr/allocate_shared"><code>std</code></a>)</td><td></td></tr>
-<tr><td></td><td><a href="cuda-battery/classbattery_1_1unique__ptr.html"><code>unique_ptr</code></a> (<a href="https://en.cppreference.com/w/cpp/memory/unique_ptr"><code>std</code></a>)</td><td><a href="cuda-battery/namespacebattery.html#aa354aeb0995d495b2b9858a6ea2fb568"><code>make_unique</code></a> (<a href="https://en.cppreference.com/w/cpp/memory/unique_ptr/make_unique"><code>std</code></a>)</td><td><a href="cuda-battery/namespacebattery.html#aa781d8577b63b6e7b789223e825f52c3"><code>make_unique_block</code></a></td><td><a href="cuda-battery/namespacebattery.html#a5ba4adb6d7953ca7e8c6602b7e455b14"><code>make_unique_grid</code></a></td></tr>
-<tr><td>Containers</td><td><a href="cuda-battery/vector_8hpp.html"><code>vector</code></a> (<a href="https://en.cppreference.com/w/cpp/container/vector"><code>std</code></a>)</td><td><a href="cuda-battery/string_8hpp.html"><code>string</code></a> (<a href="https://en.cppreference.com/w/cpp/string/basic_string"><code>std</code></a>)</td><td></td><td></td></tr>
-<tr><td></td><td><a href="https://en.cppreference.com/w/cpp/utility/tuple"><code>tuple</code></a></td><td><a href="cuda-battery/variant_8hpp.html"><code>variant</code></a> (<a href="https://en.cppreference.com/w/cpp/utility/variant"><code>std</code></a>)</td><td><a href="cuda-battery/bitset_8hpp.html"><code>bitset</code></a> (<a href="https://en.cppreference.com/w/cpp/utility/bitset"><code>std</code></a>)</td><td></td></tr>
-<tr><td>Utility</td><td><a href="cuda-battery/utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93"><code>CUDA</code></a></td><td><a href="cuda-battery/utility_8hpp.html#a2eb6f9e0395b47b8d5e3eeae4fe0c116"><code>INLINE</code></a></td><td><a href="cuda-battery/utility_8hpp.html#a289596c1db721f82251de6902f9699db"><code>CUDAE</code></a></td><td><a href="cuda-battery/utility_8hpp.html#af35c92d967acfadd086658422f631100"><code>CUDAEX</code></a></td></tr>
-<tr><td></td><td><a href="cuda-battery/structbattery_1_1limits.html"><code>limits</code></a></td><td><a href="cuda-battery/namespacebattery.html#a7fdea425c76eab201a009ea09b8cbac0"><code>ru_cast</code></a></td><td><a href="cuda-battery/namespacebattery.html#aa2296c962277e71780bccf1ba9708f59"><code>rd_cast</code></a></td><td></td></tr>
-<tr><td></td><td><a href="cuda-battery/namespacebattery.html#a2821ae67e8ea81b375f3fd6d70909fef"><code>popcount</code></a> (<a href="https://en.cppreference.com/w/cpp/numeric/popcount"><code>std</code></a>)</td><td><a href="cuda-battery/namespacebattery.html#aa18a34122dc3e8b7e96c4a54eeffa9aa"><code>countl_zero</code></a> (<a href="https://en.cppreference.com/w/cpp/numeric/countl_zero"><code>std</code></a>)</td><td><a href="cuda-battery/namespacebattery.html#ae252a50e577d7b092eb368b7e0289772"><code>countl_one</code></a> (<a href="https://en.cppreference.com/w/cpp/numeric/countl_one"><code>std</code></a>)</td><td><a href="cuda-battery/namespacebattery.html#a7338f90fab224e49c3716c5eace58bee"><code>countr_zero</code></a> (<a href="https://en.cppreference.com/w/cpp/numeric/countr_zero"><code>std</code></a>)</td></tr>
-<tr><td></td><td><a href="cuda-battery/namespacebattery.html#a974d0a682d546e1185ae7dca29c272d6"><code>countr_one</code></a> (<a href="https://en.cppreference.com/w/cpp/numeric/countr_one"><code>std</code></a>)</td><td><a href="cuda-battery/namespacebattery.html#a31b3f5ee3799a73d29c153ebd222cdea"><code>signum</code></a></td><td><a href="cuda-battery/namespacebattery.html#a93472d80842253624e2436eef7b900b6"><code>ipow</code></a></td><td></td></tr>
-<tr><td></td><td><a href="cuda-battery/namespacebattery.html#af3a4582a08267940dbdb5b39044aa4c6"><code>add_up</code></a></td><td><a href="cuda-battery/namespacebattery.html#a43d013f1db8f8b8c085c544859e24a7f"><code>add_down</code></a></td><td><a href="cuda-battery/namespacebattery.html#a6d6340503a20225d569990c0044519bb"><code>sub_up</code></a></td><td><a href="cuda-battery/namespacebattery.html#a32ff1fe9f8d2eac8fd7a2d08b0110461"><code>sub_down</code></a></td></tr>
-<tr><td></td><td><a href="cuda-battery/namespacebattery.html#ae3edf2725aaea683aff7a100733b26f2"><code>mul_up</code></a></td><td><a href="cuda-battery/namespacebattery.html#a6dd3e5546b5286d98cb29c7560542759"><code>mul_down</code></a></td><td><a href="cuda-battery/namespacebattery.html#a3ce4b4df0f80c5b19c7d3b401464f309"><code>div_up</code></a></td><td><a href="cuda-battery/namespacebattery.html#ac253a56f7fa54ade8f2eb762d3b317f9"><code>div_down</code></a></td></tr>
-<tr><td><a href="cuda-battery/memory_8hpp.html">Memory</a></td><td><a href="cuda-battery/namespacebattery.html#a09111ca968cc4d8defa60555963dd052"><code>local_memory</code></a></td><td><a href="cuda-battery/namespacebattery.html#a22ff3da8ce553868de9c2b8fe604fe3c"><code>read_only_memory</code></a></td><td><a href="cuda-battery/classbattery_1_1atomic__memory.html"><code>atomic_memory</code></a></td><td></td></tr>
-<tr><td></td><td><a href="cuda-battery/classbattery_1_1atomic__memory__scoped.html"><code>atomic_scoped_memory</code></a></td><td><a href="cuda-battery/namespacebattery.html#afb485d8f961537d1ca590f78d16ac1c4"><code>atomic_memory_block</code></a></td><td><a href="cuda-battery/namespacebattery.html#a2af42ce969d94b6b8bb1ed9a94b9cf49"><code>atomic_memory_grid</code></a></td><td></td></tr>
-</tbody></table>
-<h2 id="highlights"><a class="header" href="#highlights">Highlights</a></h2>
-<ul>
-<li><a href="CUDA-Battery.html#transferring-data-from-the-cpu-to-the-gpu">How to transfer data from the CPU to the GPU?</a></li>
-<li><a href="CUDA-Battery.html#cmake-cuda-project">How to create a CMake project for CUDA project?</a></li>
-<li><a href="CUDA-Battery.html#block-local-memory">How to allocate a vector shared by all threads of a block inside a kernel?</a></li>
-<li><a href="CUDA-Battery.html#grid-local-memory">How to allocate a vector shared by all blocks inside a kernel?</a></li>
-<li><a href="CUDA-Battery.html#avoiding-obscure-cuda-runtime-errors">CUDA runtime error an illegal memory access was encountered</a></li>
-<li><a href="CUDA-Battery.html#shared-memory-allocator">How to allocate a vector in shared memory?</a></li>
-</ul>
-<h2 id="introduction-1"><a class="header" href="#introduction-1">Introduction</a></h2>
-<p>The main objective of this library is to make it easier to develop software fully executing on the GPU.
+<div style="break-before: page; page-break-before: always;"></div><h1 id="introduction"><a class="header" href="#introduction">Introduction</a></h1>
+<p>The main objective of the CUDA battery library is to make it easier to develop software fully executing on the GPU.
 This is in contrast to applications where the CPU is the &quot;director&quot;, and the GPU is only there to execute small kernels performing specific parallel tasks.
 We want to have the whole computation on the GPU when possible.
 Why you asked?
@@ -218,7 +186,7 @@ Another well-known library is <a href="https://github.com/NVIDIA/thrust">thrust<
 <p>Note that this tutorial does not introduce basic CUDA concepts: it is for (possibly beginners) CUDA programmers who want to simplify their code.
 For an introduction to CUDA, you can first refer to <a href="https://ulhpc-tutorials.readthedocs.io/en/latest/gpu/cuda2023/">this tutorial</a>.
 Finally, the full code of all examples given here is available in a <a href="https://github.com/lattice-land/cuda-battery/tree/v1.0.0/demo">demo project</a>.</p>
-<h2 id="transferring-data-from-the-cpu-to-the-gpu"><a class="header" href="#transferring-data-from-the-cpu-to-the-gpu">Transferring data from the CPU to the GPU</a></h2>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="transferring-data-from-the-cpu-to-the-gpu"><a class="header" href="#transferring-data-from-the-cpu-to-the-gpu">Transferring data from the CPU to the GPU</a></h1>
 <p>(<a href="https://github.com/lattice-land/cuda-battery/tree/v1.0.0/demo/src/demo.cpp">code of this section</a>)</p>
 <p>One of the first tasks a CUDA programmer is facing is to transfer data from the CPU to the GPU.
 Using this library, it is very straightforward, and it is always the same scheme.
@@ -231,7 +199,7 @@ To illustrate the concepts of this library, we implement a <code>map(v, f)</code
 }
 </code></pre>
 <p>Now we must pass <code>gpu_v</code> to a CUDA kernel.
-However, there is a slight technical issue due to the weird parameters passing semantics of CUDA kernel (function with <code>__global__</code>): we must pass primitive types or pointers to the functions.
+However, there is a slight technical issue due to the weird parameters passing semantics of CUDA kernel (<code>__global__</code> function): we must pass primitive types or pointers to the functions.
 Indeed, trying to pass an object by reference or copy <a href="https://docs.nvidia.com/cuda/cuda-c-programming-guide/#function-parameters">is undefined behavior</a>.
 This is only a restriction on <code>__global__</code> functions, and once inside the kernel, passing by reference or copy works well (when calling <code>__device__</code> functions).
 You could simply pass the data as <code>kernel&lt;&lt;&lt;1,1&gt;&gt;&gt;(gpu_v.data(), gpu_v.size())</code>, but you lose all the advantages of vector when programming in the kernel.
@@ -255,15 +223,15 @@ void map(std::vector&lt;int&gt;&amp; v) {
 <p>Due to the <a href="https://en.cppreference.com/w/cpp/language/raii">C++ RAII idiom</a>, the managed memory of both the GPU <code>unique_ptr</code> and <code>mvector</code> is automatically freed when leaving the scope of the function.
 Importantly, the memory allocated on the CPU must be freed by the CPU, even if it is accessible by the GPU, and vice-versa.
 But you should not encounter this issue if you use this idiom to pass data from the CPU to the GPU.</p>
-<h2 id="cmake-cuda-project"><a class="header" href="#cmake-cuda-project">CMake CUDA Project</a></h2>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="cmake-cuda-project"><a class="header" href="#cmake-cuda-project">CMake CUDA Project</a></h1>
 <p>(<a href="https://github.com/lattice-land/cuda-battery/tree/v1.0.0/demo/CMakeLists.txt">code of this section</a>)</p>
 <p>In order to compile and test the code presented above, you will need to add the headers of this library to <code>nvcc</code>.</p>
 <pre><code class="language-bash">nvcc -I cuda-battery/include demo.cu
 </code></pre>
 <p>We prefer to delegate the management of dependencies to <a href="https://cmake.org/">CMake</a>, a build automation tool.
 However, creating a CMake project for hybrid CPU/GPU code is not an easy task, and we provide a demonstration CMake project in <a href="https://github.com/lattice-land/cuda-battery/tree/v1.0.0/demo">cuda-battery/demo</a>.
-You can start your own project by copying this folder and modifying the name of the project inside the file <code>CMakeLists.txt</code>.
-To compile and run this demo project, you can write:</p>
+You can start your own project by copying the <code>demo</code> folder and modifying the name of the project inside the file <code>CMakeLists.txt</code>.
+To compile and run this project, you can write:</p>
 <pre><code>cd cuda-battery/demo
 mkdir -p build/gpu-debug
 cmake -DCMAKE_BUILD_TYPE=Debug -Bbuild/gpu-debug
@@ -289,16 +257,16 @@ This can easily be changed if you are cross-compiling by defining the flag <code
 <li>Moreover, when testing GPU code, we verify there is no memory leaks or some data races (using <code>compute-sanitizer</code>).</li>
 </ul>
 <p>We have documented the <a href="https://github.com/lattice-land/cuda-battery/tree/v1.0.0/demo/CMakeLists.txt">CMakeLists.txt</a> so you can adjust it to your own project.</p>
-<h2 id="in-kernel-memory-allocation"><a class="header" href="#in-kernel-memory-allocation">In-Kernel Memory Allocation</a></h2>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="in-kernel-memory-allocation"><a class="header" href="#in-kernel-memory-allocation">In-Kernel Memory Allocation</a></h1>
 <p>(<a href="https://github.com/lattice-land/cuda-battery/tree/v1.0.0/demo/src/inkernel_allocation.cpp">code of this section</a>)</p>
 <p>The typical way to allocate data structures shared by all threads or blocks in a CUDA kernel is to get all the memory allocations done before the kernel starts.
 However, when developing a larger CUDA kernel, it is frequent to rely on intermediate structures that are only temporary and are deleted before the end of the kernel.
 It might be difficult, or at best inconvenient, to allocate everything before the start of the kernel.
 Moreover, to follow good software engineering practice, these temporary structures should be hidden from the user of the kernel.</p>
-<h3 id="thread-local-memory"><a class="header" href="#thread-local-memory">Thread-local Memory</a></h3>
+<h2 id="thread-local-memory"><a class="header" href="#thread-local-memory">Thread-local Memory</a></h2>
 <p>Thread-local memory is a chunk of memory that is only accessed by a single thread.
 This is the default allocation mode when declaring a variable in CUDA kernel, hence it does not need any support from this library.</p>
-<h3 id="block-local-memory"><a class="header" href="#block-local-memory">Block-local Memory</a></h3>
+<h2 id="block-local-memory"><a class="header" href="#block-local-memory">Block-local Memory</a></h2>
 <p>Block-local memory is a chunk of memory that is only accessed by the threads of a single block.
 To avoid any ambiguity: &quot;block-local memory&quot; is conceptual and might reside in global memory; it is not necessarily in shared memory.</p>
 <p>A simple use-case is when blocks need to work on different copies of an original array.
@@ -317,7 +285,7 @@ __global__ void block_vector_copy(mvector* v_ptr) {
 <p>Without this facility, we would need to initialize <code>n</code> copies of the vector in the host code and pass them as parameters to the kernel.
 Finally, the function <code>make_unique_block</code> synchronizes all threads of the current block before returning, therefore <code>v_block</code> is directly usable by all threads.
 Before you use this technique, keep reading because you might need to increase the size of the heap and stack.</p>
-<h3 id="avoiding-obscure-cuda-runtime-errors"><a class="header" href="#avoiding-obscure-cuda-runtime-errors">Avoiding Obscure CUDA Runtime Errors</a></h3>
+<h2 id="avoiding-obscure-cuda-runtime-errors"><a class="header" href="#avoiding-obscure-cuda-runtime-errors">Avoiding Obscure CUDA Runtime Errors</a></h2>
 <p>Developing an entire system within a single kernel can easily lead to CUDA runtime error due to overflow of the allowed heap and stack memory.
 The heap memory is by-default limited to 8 MB for allocations taking place in the kernel.
 If you allocate more than 8 MB, which is not very difficult, you will run into an error of the style &quot;CUDA runtime error an illegal memory access was encountered&quot;.
@@ -350,7 +318,7 @@ In that case you can increase the size of the stack as follows:</p>
 }
 </code></pre>
 <p>For information, the stack frames are stored in global memory, but the compiler will try its best to place them in the registers and caches when possible.</p>
-<h3 id="grid-local-memory"><a class="header" href="#grid-local-memory">Grid-local Memory</a></h3>
+<h2 id="grid-local-memory"><a class="header" href="#grid-local-memory">Grid-local Memory</a></h2>
 <p>Similarly to the previous section, we sometimes wish to initialize, inside the kernel, data that is shared by all blocks.
 Once again, we suppose to have an original array <code>*v_ptr</code> that we wish to copy, but per-grid and not per-block.</p>
 <pre><code class="language-c++">__global__ void grid_vector_copy(mvector* v_ptr) {
@@ -377,9 +345,9 @@ In the case of <code>make_unique_grid</code>, CUDA requires the kernel to be lau
 }
 </code></pre>
 <p>I am not sure why the syntax is different, but since it is a fairly recent feature, it might be improved in future releases.</p>
-<h3 id="multi-grid-memory"><a class="header" href="#multi-grid-memory">Multi-grid Memory</a></h3>
+<h2 id="multi-grid-memory"><a class="header" href="#multi-grid-memory">Multi-grid Memory</a></h2>
 <p>For now, we do not support multi-grid memory allocation.</p>
-<h2 id="shared-memory-allocator"><a class="header" href="#shared-memory-allocator">Shared Memory Allocator</a></h2>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="shared-memory-allocator"><a class="header" href="#shared-memory-allocator">Shared Memory Allocator</a></h1>
 <p>(<a href="https://github.com/lattice-land/cuda-battery/tree/v1.0.0/demo/src/demo.cpp">code of this section</a>)</p>
 <p>We show how to use shared memory using a memory pool allocator.</p>
 <pre><code class="language-c++">using pvector = battery::vector&lt;int, battery::pool_allocator&gt;;
@@ -420,7 +388,7 @@ We then copy this span into the vector <code>v</code> which is in shared memory.
 <p>The algorithm <code>block_par_map</code> is then called on <code>v</code> for each block.
 The last step is to transfer the memory from the shared memory to the global memory.
 After each block finished computing, the <code>map</code> function has been applied to each element of the initial vector.</p>
-<h2 id="a-word-of-caution-on-shared-state-parallelism"><a class="header" href="#a-word-of-caution-on-shared-state-parallelism">A Word of Caution on Shared-state Parallelism</a></h2>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="a-word-of-caution-on-shared-state-parallelism"><a class="header" href="#a-word-of-caution-on-shared-state-parallelism">A Word of Caution on Shared-State Parallelism</a></h1>
 <p>Developing a parallel algorithm is relatively easy as long as threads read and write independent memory chunks.
 Such an algorithm is referred as <a href="https://en.wikipedia.org/wiki/Embarrassingly_parallel">embarrassingly parallel</a>.
 As a rule of thumb, it is best if you can stay within this paradigm.
@@ -430,91 +398,57 @@ Beware, designing <em>correct and efficient</em> parallel algorithms with thread
 We cannot even scratch the surface here, and this library does not provide much support for it.
 Nevertheless, it is possible to write such algorithms in CUDA using <a href="https://nvidia.github.io/libcudacxx/extended_api/synchronization_primitives.html">atomics and synchronization primitives</a>.
 To use them well, I would advise to take a class (or <a href="https://arxiv.org/abs/1701.00854">read a book</a>) on parallel programming and memory consistency models.</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="parallel-minimum-algorithm"><a class="header" href="#parallel-minimum-algorithm">Parallel Minimum Algorithm</a></h1>
-<p>We present a simple algorithm computing the minimum element of an array in parallel on GPU.
-We introduce the main concepts behind this framework, and give a first grasp to use the library.</p>
-<h2 id="an-array-of-element-on-gpu"><a class="header" href="#an-array-of-element-on-gpu">An array of element on GPU</a></h2>
-<p>The first thing to do is to create an array of numbers to be passed to a GPU kernel.
-As easy as it seems, there is already a small pitfall not to fall in.
-Thanks to our library <a href="CUDA-Battery.html">cuda-battery</a>, we can use a <code>vector&lt;int&gt;</code> similarly to what we use on CPU.
-Surprisingly, such a simple <code>vector</code> class is not yet available on GPU, although they are working on a copy of the STL called <a href="https://nvidia.github.io/libcudacxx/">libcudacxx</a> working on CUDA GPU.
-As soon as <code>vector</code> is available there, we will use the standard one, meanwhile, let's use the one from cuda-battery.
-One of the main distinction between CPU and GPU programming is the memory.
-On the CPU side, we allocate using <code>new</code> or <code>malloc</code>, but on GPU you should allocate using the more specific <code>cudaMalloc</code>.
-Although it does not seem like a big deal, it makes developing code working on both CPU and GPU a bit harder.
-We rely on the <em>allocators</em> provided by cuda-battery, and basically all the code is templated by a <code>class Allocator</code>.
-In the standard library, the class <code>vector</code> is parametrized by an allocator, and so is the <code>battery::vector</code> version.
-Although most of us never use it, it is actually not very difficult.
-The safest allocator to use is <code>battery::ManagedAllocator</code> which uses the managed memory of CUDA, which is a memory automatically accessible from the CPU and GPU, and the data migrates automatically between the two worlds.</p>
-<pre><code class="language-c++">#include &quot;vector.hpp&quot; // From cuda-battery.
-#include &quot;allocator.hpp&quot; // From cuda-battery.
+<div style="break-before: page; page-break-before: always;"></div><h1 id="quest-for-efficiency"><a class="header" href="#quest-for-efficiency">Quest for Efficiency</a></h1>
+<p><em>30 August 2023.</em> Turbo is a constraint solver running entirely on the GPU with an architecture based on abstract domains.
+Intuitively, it seems that constraint solvers are a poor match for GPUs.
+These solvers have complex architecture with many dynamic data structures, divergent branches and often save and restore the memory when backtracking.
+Clearly not the kind of things GPUs like the most.
+Moreover, over the years, new solving techniques have been primarily developed with a sequential mindset, without consideration for parallel execution.
+The most successful approach to parallel constraint solving is <em>embarrassingly parallel search</em> where the problem is decomposed into many subproblems that are solved independently on different cores.
+Although GPUs have thousands of cores, it is not reasonable to execute one subproblem per core.
+The reason is that a single core does not have its own cache.
+Cores are actually grouped in streaming multiprocessors (SMs), and all cores in one SM share the same cache (called L1 cache).
+The L1 cache is only 256KB on the most recent NVIDIA Hopper GPUs (that nobody has).
+A quick calculation shows why one subproblem per core is not a viable option.
+Suppose the domain of a variable is represented by an interval (the lightest you can do, it is usually represented by a set of intervals), hence 8 bytes, a store of 1000 variables takes 8KB of memory.
+An SM has 64 (integer) cores, hence we need 64*8 = 512KB of cache to fit all the stores at once.
+We should also store the propagators, and although the stateless propagators can be shared among subproblems, it easily takes up dozens of KB not available for the stores.
+The different subproblems will end up competing for the cache, and it will generate many memory transfers between the global memory, L2 cache and L1 cache.
+Memory transfers are usually the most costly operation, hence you try to avoid them in a GPU (loading data from the global memory is about 10x slower than from the L1 cache).
+I am not saying it is impossible to do efficiently, but it seems quite complicated, especially when taking into account warps that are SIMD units of the GPUs (blocks of 32 threads), and thus must all have their data ready in the cache at the same time when executing.</p>
+<p>Therefore, we ruled out the <code>one subproblem per core</code> design that is so commonly used in CPU parallel constraint solver.
+Instead, we can execute one subproblem per SM.
+The parallelism inside an SM is obtained by parallelizing propagation!
+It is worth mentioning that no attempt to parallelize propagation resulted in a faster solver in comparison to simply parallelizing the search.
+In fact, no solver parallelizes propagation.
+To achieve efficiency on GPU, it seems that adapting an existing solver to work on GPU is doomed to fail.
+We must write a new one from scratch, forgetting about all common assumptions of what is absolutely necessary for a constraint solver to be efficient.
+The road might be long!</p>
+<p>I write this technical journal to document my attempts to obtain an efficient GPU-based constraint solver named Turbo.
+Moreover, because I like my life to be (too) complicated, Turbo is also based on abstract interpretation and implements so-called <em>abstract domains</em> which are very general mathematical generalizations of the representation of constraints.
+Let's go!</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="pallet-town-unoptimized-solver"><a class="header" href="#pallet-town-unoptimized-solver">Pallet Town (Unoptimized Solver)</a></h1>
+<p><em>31 August 2023.</em> We start this adventure with a functional but slow GPU solver.
+To make it work on the GPU, we had to simplify the architecture of mainstream CPU-based constraint solver in many regards.
+Let's start with the main design decisions behind Turbo:</p>
+<ul>
+<li><em>Pure GPU</em>: We decided early on to make it a solver entirely on the GPU, this is to avoid memory transfer between CPU and GPU, and also to force us to have a complete parallel mindset.</li>
+<li><em>Propagation loop</em>: Based on the very first AC1, we simply take the first N propagators, run them in parallel, then take the next N propagator, and so on until they are all executed, where N is the number of cores available in the current block.
+We repeat this operation in a fixed point loop until no change is detected anymore.
+This implies we do not have a queue of propagators to be woken up or any notion of events in the solver.</li>
+<li><em>Backtracking</em>: It is based on full recomputation, each time we backtrack, we re-apply all the decisions from the root node; actually, from the root of the current EPS subproblem being solved.</li>
+<li><em>Embarrassingly parallel search</em>: We dynamically create subproblems that are explored individually by GPU blocks, hence the parallel propagation only happens inside one block.</li>
+<li><em>Abstract domains</em>: The solver architecture is based on abstract domains which encapsulate solving algorithms dedicated to a particular constraint language, similarly to theories in SMT.</li>
+<li><em>No conflict learning</em>: Conflicts require dynamic data structures to represent the implication graph, and memory allocation is quite costly on GPU, so we have no conflict learning.</li>
+<li><em>Lock-free</em>: Although propagators are sharing the memory, we do not have locks on the variables, and actually no lock at all.</li>
+</ul>
+<p>We have thrown away many optimizations considered essential in mainstream CPU-based constraint solvers.
+Incidentally, the GPU solver is much simpler than a CPU solver, while obtaining similar performances (of course, when comparing a pure CP solver without SAT).
+Back in 2021, our hypothesis was that drastically simplifying the solver design was necessary to implement a GPU solver and that it could be efficient.
+We implemented a prototype (Turbo) that demonstrated it could work as we obtained similar performances between Turbo and Gecode (on a 6-cores CPU with 12 threads) on RCPSP.
+We also laid out the theory behind parallel constraint propagation on GPU and show that, although we did not use any lock, it was giving correct results.
+These findings were summarized in our AAAI 2022 paper.</p>
 
-int main() {
-  battery::vector&lt;int, battery::ManagedAllocator&gt; v{5, 1, 2, 3};
-}
-</code></pre>
-<p>To make the type shorter, let's use the following alias:</p>
-<pre><code class="language-c++">using namespace battery; // let's make things shorter for this tutorial.
-using ivector = vector&lt;int, ManagedAllocator&gt;;
-</code></pre>
-<p>A common use-case is to declare and initialize an array on the CPU and then pass it to the GPU.
-However, there is a catch...
-None of the following kernel declaration will work as we would like to:</p>
-<pre><code class="language-c++">__global__ void min_kernel(ivector&amp; v);
-__global__ void min_kernel(const ivector&amp; v);
-__global__ void min_kernel(ivector v);
-</code></pre>
-<p>The two first are not working because the address of <code>v</code> in the main is an address on the CPU side, and of course it does not work when we try to access it on the GPU, so it will segfault.
-The third version works but it performs an unwanted copy of the array.
-After all, we used a managed allocator to avoid copying the array to the GPU once initialized and declared on the CPU.
-There is not a hundred ways to achieve what we want: we need to pass the data through a pointer allocated on the GPU.
-Since we are coding in &quot;modern C++&quot;, we will avoid manipulating raw pointers, and instead will rely on <code>shared_ptr</code>.
-Once again, a CUDA-friendly version of <code>shared_ptr</code> is provided by cuda-battery.</p>
-<pre><code class="language-c++">#include &quot;shared_ptr.hpp&quot;
-#include &quot;vector.hpp&quot;
-#include &quot;allocator.hpp&quot;
-
-using namespace battery;
-using ivector = vector&lt;int, ManagedAllocator&gt;;
-using svector = shared_ptr&lt;ivector, ManagedAllocator&gt;;
-
-__global__ void min_kernel(svector v);
-
-int main() {
-  svector v = make_shared&lt;ivector, ManagedAllocator&gt;(ivector{5, 1, 2, 3});
-}
-</code></pre>
-<p>Now we can pass an array to our GPU kernel, we can start working on the minimum algorithm.
-The result of the algorithm is retrieved using an integer pointer, because CUDA kernels cannot return value.
-The rule of thumb is to use <code>shared_ptr&lt;T, ManagedMemory&gt;</code> to pass any argument of type <code>T</code> to a kernel, unless it is a primitive constant.
-If you do that, we do not even need to worry about deallocation.
-But using <code>shared_ptr</code> for parameters passing is just necessary for the kernel, afterwards, you can use reference parameter passing as usual (see <code>minimum</code> below).</p>
-<pre><code class="language-c++">CUDA int minimum(const ivector&amp; v) {
-  int result = std::numeric_limits&lt;int&gt;::max();
-  for (int i = 0; i &lt; v.size(); ++i) {
-    result = min(result, v[i]);
-  }
-  return result;
-}
-
-__global__ void min_kernel(svector v, shared_ptr&lt;int, ManagedAllocator&gt; result) {
-  *result = minimum(*v);
-}
-
-int main() {
-  svector v = make_shared&lt;ivector, ManagedAllocator&gt;(ivector{5, 1, 2, 3});
-  shared_ptr&lt;int, ManagedAllocator&gt; result =
-    make_shared&lt;int, ManagedAllocator&gt;(std::numeric_limits&lt;int&gt;::max());
-  min_kernel&lt;&lt;&lt;1, 1&gt;&gt;&gt;(v, result);
-  CUDIE(cudaDeviceSynchronize());
-  printf(&quot;minimum: %d\n&quot;, *result);
-}
-</code></pre>
-<h2 id="parallelizing-the-minimum-algorithm"><a class="header" href="#parallelizing-the-minimum-algorithm">Parallelizing the minimum algorithm</a></h2>
-<p>The code presented above is still single-threaded, although it runs on the GPU.
-A common approach to parallelize <code>minimum</code> is to divide the array into <code>N</code> parts, where <code>N</code> is the number of threads available.
-Each thread then computes a local minimum, and a single thread eventually aggregates the results.</p>
-<div style="break-before: page; page-break-before: always;"></div>
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">

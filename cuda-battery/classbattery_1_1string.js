@@ -17,7 +17,8 @@ var classbattery_1_1string =
     [ "operator[]", "classbattery_1_1string.html#aa68420d329958d7ba295d34d57c725d7", null ],
     [ "data", "classbattery_1_1string.html#a04d383f7dc57b72f3d62fc8f77e1e925", null ],
     [ "data", "classbattery_1_1string.html#ac3c6d0f56961527883bca60912dd75a3", null ],
-    [ "print", "classbattery_1_1string.html#a5ab24e306ff6a10b33fceef0db584f87", null ],
+    [ "print", "classbattery_1_1string.html#ab9eaf927333bf5ac9dd873a888274fe6", null ],
+    [ "ends_with", "classbattery_1_1string.html#a0b2765cd4d3112974ff8cdb7b77085d4", null ],
     [ "string", "classbattery_1_1string.html#aaecd502d6cdb0a573da01975d30ff100", null ],
     [ "operator==", "classbattery_1_1string.html#a8d520b0716cd21d26ec504f3989d4665", null ]
 ];

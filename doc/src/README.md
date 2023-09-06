@@ -1,4 +1,4 @@
-# Introduction
+# Lattice Land
 
 Hello! You just arrived in lattice land!
 Lattice land is a collection of C++ libraries compatible with NVIDIA CUDA framework.
@@ -10,6 +10,6 @@ This project is available on [github](https://github.com/lattice-land).
 ## Documentation of libraries
 
 * [cuda-battery](https://lattice-land.github.io/cuda-battery): Memory allocators, vector, utilities and more which run on both CPU and GPU (CUDA).
-See also the chapter [CUDA-Battery Library](CUDA-Battery.md).
+See also the chapter [CUDA-Battery Library](1-cuda-battery.md).
 * [lala-core](https://lattice-land.github.io/lala-core): Core definitions of the formula AST and abstract domain.
 * [lattice-land.github.io](https://github.com/lattice-land/lattice-land.github.io): The repository hosting this book and the libraries documentation.

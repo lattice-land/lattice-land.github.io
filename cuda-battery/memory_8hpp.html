@@ -100,15 +100,14 @@ $(document).ready(function(){initNavTree('memory_8hpp.html',''); initResizable()
 <div class="textblock"><code>#include &lt;cassert&gt;</code><br />
 <code>#include &lt;type_traits&gt;</code><br />
 <code>#include &lt;utility&gt;</code><br />
-<code>#include &lt;cuda/atomic&gt;</code><br />
+<code>#include &lt;atomic&gt;</code><br />
+<code>#include &quot;<a class="el" href="utility_8hpp_source.html">utility.hpp</a>&quot;</code><br />
 </div>
 <p><a href="memory_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbattery_1_1memory.html">battery::memory&lt; read_only &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbattery_1_1atomic__memory__scoped.html">battery::atomic_memory_scoped&lt; scope, mem_order &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbattery_1_1atomic__memory.html">battery::atomic_memory&lt; mem_order &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -124,12 +123,6 @@ Typedefs</h2></td></tr>
 <tr class="separator:a09111ca968cc4d8defa60555963dd052"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a22ff3da8ce553868de9c2b8fe604fe3c"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacebattery.html#a22ff3da8ce553868de9c2b8fe604fe3c">battery::read_only_memory</a> = memory&lt; true &gt;</td></tr>
 <tr class="separator:a22ff3da8ce553868de9c2b8fe604fe3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afb485d8f961537d1ca590f78d16ac1c4"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacebattery.html#afb485d8f961537d1ca590f78d16ac1c4">battery::atomic_memory_block</a> = atomic_memory_scoped&lt; cuda::thread_scope_block &gt;</td></tr>
-<tr class="separator:afb485d8f961537d1ca590f78d16ac1c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2af42ce969d94b6b8bb1ed9a94b9cf49"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacebattery.html#a2af42ce969d94b6b8bb1ed9a94b9cf49">battery::atomic_memory_grid</a> = atomic_memory_scoped&lt; cuda::thread_scope_device &gt;</td></tr>
-<tr class="separator:a2af42ce969d94b6b8bb1ed9a94b9cf49"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a972d9650ddbedff1111369e8cdd4bc52"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacebattery.html#a972d9650ddbedff1111369e8cdd4bc52">battery::atomic_memory_multi_grid</a> = atomic_memory_scoped&lt; cuda::thread_scope_system &gt;</td></tr>
-<tr class="separator:a972d9650ddbedff1111369e8cdd4bc52"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>An abstraction of memory load and store useful to write a single version of an algorithm working either sequentially or in parallel, and on CPU or GPU. Note that these classes are mainly designed to work with a relaxed memory ordering; we are unsure of their applicability to other kinds of memory ordering. </p>

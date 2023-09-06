@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['global_5fallocator_142',['global_allocator',['../classbattery_1_1global__allocator.html',1,'battery']]]
+  ['limits_136',['limits',['../structbattery_1_1limits.html',1,'battery']]]
 ];
