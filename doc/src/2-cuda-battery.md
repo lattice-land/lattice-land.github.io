@@ -34,6 +34,7 @@ __global__ void map_kernel(mvector* v_ptr) {
 void map(std::vector<int>& v) {
   auto gpu_v = battery::make_unique<mvector, battery::managed_allocator>(v);
   map_kernel<<<256, 256>>>(gpu_v.get());
+  CUDAEX(cudaDeviceSynchronize());
   // Transfering the new data to the initial vector.
   for(int i = 0; i < v.size(); ++i) {
     v[i] = (*gpu_v)[i];

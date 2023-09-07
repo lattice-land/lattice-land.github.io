@@ -23,4 +23,4 @@
 # Turbo Technical Journal
 
 * [Quest for Efficiency](1-turbo.md)
-* [Pallet Town (Unoptimized Solver)](2-turbo.md)
+* [Design Rational](2-turbo.md)

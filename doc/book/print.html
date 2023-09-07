@@ -83,7 +83,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="index.html"><strong aria-hidden="true">1.</strong> Lattice Land</a></li><li class="chapter-item expanded affix "><li class="part-title">CUDA Battery Library</li><li class="chapter-item expanded "><a href="1-cuda-battery.html"><strong aria-hidden="true">2.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="2-cuda-battery.html"><strong aria-hidden="true">3.</strong> Data from CPU to GPU</a></li><li class="chapter-item expanded "><a href="3-cuda-battery.html"><strong aria-hidden="true">4.</strong> CMake Project</a></li><li class="chapter-item expanded "><a href="4-cuda-battery.html"><strong aria-hidden="true">5.</strong> In-Kernel Allocation</a></li><li class="chapter-item expanded "><a href="5-cuda-battery.html"><strong aria-hidden="true">6.</strong> Shared Memory Allocator</a></li><li class="chapter-item expanded "><a href="6-cuda-battery.html"><strong aria-hidden="true">7.</strong> Caution</a></li><li class="chapter-item expanded affix "><li class="part-title">Parallel Lattice Programming</li><li class="chapter-item expanded affix "><li class="part-title">Abstract Constraint Reasoning</li><li class="chapter-item expanded affix "><li class="part-title">Parallel Abstract Constraint Reasoning</li><li class="chapter-item expanded affix "><li class="part-title">Turbo Technical Journal</li><li class="chapter-item expanded "><a href="1-turbo.html"><strong aria-hidden="true">8.</strong> Quest for Efficiency</a></li><li class="chapter-item expanded "><a href="2-turbo.html"><strong aria-hidden="true">9.</strong> Pallet Town (Unoptimized Solver)</a></li></ol>            </div>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="index.html"><strong aria-hidden="true">1.</strong> Lattice Land</a></li><li class="chapter-item expanded affix "><li class="part-title">CUDA Battery Library</li><li class="chapter-item expanded "><a href="1-cuda-battery.html"><strong aria-hidden="true">2.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="2-cuda-battery.html"><strong aria-hidden="true">3.</strong> Data from CPU to GPU</a></li><li class="chapter-item expanded "><a href="3-cuda-battery.html"><strong aria-hidden="true">4.</strong> CMake Project</a></li><li class="chapter-item expanded "><a href="4-cuda-battery.html"><strong aria-hidden="true">5.</strong> In-Kernel Allocation</a></li><li class="chapter-item expanded "><a href="5-cuda-battery.html"><strong aria-hidden="true">6.</strong> Shared Memory Allocator</a></li><li class="chapter-item expanded "><a href="6-cuda-battery.html"><strong aria-hidden="true">7.</strong> Caution</a></li><li class="chapter-item expanded affix "><li class="part-title">Parallel Lattice Programming</li><li class="chapter-item expanded affix "><li class="part-title">Abstract Constraint Reasoning</li><li class="chapter-item expanded affix "><li class="part-title">Parallel Abstract Constraint Reasoning</li><li class="chapter-item expanded affix "><li class="part-title">Turbo Technical Journal</li><li class="chapter-item expanded "><a href="1-turbo.html"><strong aria-hidden="true">8.</strong> Quest for Efficiency</a></li><li class="chapter-item expanded "><a href="2-turbo.html"><strong aria-hidden="true">9.</strong> Design Rational</a></li></ol>            </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
 
@@ -214,6 +214,7 @@ __global__ void map_kernel(mvector* v_ptr) {
 void map(std::vector&lt;int&gt;&amp; v) {
   auto gpu_v = battery::make_unique&lt;mvector, battery::managed_allocator&gt;(v);
   map_kernel&lt;&lt;&lt;256, 256&gt;&gt;&gt;(gpu_v.get());
+  CUDAEX(cudaDeviceSynchronize());
   // Transfering the new data to the initial vector.
   for(int i = 0; i &lt; v.size(); ++i) {
     v[i] = (*gpu_v)[i];
@@ -398,56 +399,70 @@ Beware, designing <em>correct and efficient</em> parallel algorithms with thread
 We cannot even scratch the surface here, and this library does not provide much support for it.
 Nevertheless, it is possible to write such algorithms in CUDA using <a href="https://nvidia.github.io/libcudacxx/extended_api/synchronization_primitives.html">atomics and synchronization primitives</a>.
 To use them well, I would advise to take a class (or <a href="https://arxiv.org/abs/1701.00854">read a book</a>) on parallel programming and memory consistency models.</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="quest-for-efficiency"><a class="header" href="#quest-for-efficiency">Quest for Efficiency</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="turbo"><a class="header" href="#turbo">Turbo</a></h1>
+<p>(For a gentle and quick introduction to GPU programming, you can check out my <a href="https://ulhpc-tutorials.readthedocs.io/en/latest/gpu/cuda2023/">tutorial</a> and go through the slides; it is especially useful to know the CUDA vocabulary).</p>
 <p><em>30 August 2023.</em> Turbo is a constraint solver running entirely on the GPU with an architecture based on abstract domains.
 Intuitively, it seems that constraint solvers are a poor match for GPUs.
 These solvers have complex architecture with many dynamic data structures, divergent branches and often save and restore the memory when backtracking.
 Clearly not the kind of things GPUs like the most.
-Moreover, over the years, new solving techniques have been primarily developed with a sequential mindset, without consideration for parallel execution.
+Moreover, over the years, new solving techniques have been primarily developed within a sequential mindset, without consideration for parallel execution.
 The most successful approach to parallel constraint solving is <em>embarrassingly parallel search</em> where the problem is decomposed into many subproblems that are solved independently on different cores.
 Although GPUs have thousands of cores, it is not reasonable to execute one subproblem per core.
 The reason is that a single core does not have its own cache.
 Cores are actually grouped in streaming multiprocessors (SMs), and all cores in one SM share the same cache (called L1 cache).
-The L1 cache is only 256KB on the most recent NVIDIA Hopper GPUs (that nobody has).
+The L1 cache is only 256KB on the most recent NVIDIA Hopper GPUs (which I don't have).
 A quick calculation shows why one subproblem per core is not a viable option.
 Suppose the domain of a variable is represented by an interval (the lightest you can do, it is usually represented by a set of intervals), hence 8 bytes, a store of 1000 variables takes 8KB of memory.
 An SM has 64 (integer) cores, hence we need 64*8 = 512KB of cache to fit all the stores at once.
-We should also store the propagators, and although the stateless propagators can be shared among subproblems, it easily takes up dozens of KB not available for the stores.
-The different subproblems will end up competing for the cache, and it will generate many memory transfers between the global memory, L2 cache and L1 cache.
-Memory transfers are usually the most costly operation, hence you try to avoid them in a GPU (loading data from the global memory is about 10x slower than from the L1 cache).
-I am not saying it is impossible to do efficiently, but it seems quite complicated, especially when taking into account warps that are SIMD units of the GPUs (blocks of 32 threads), and thus must all have their data ready in the cache at the same time when executing.</p>
-<p>Therefore, we ruled out the <code>one subproblem per core</code> design that is so commonly used in CPU parallel constraint solver.
-Instead, we can execute one subproblem per SM.
-The parallelism inside an SM is obtained by parallelizing propagation!
+We should also store the propagators, and although the stateless propagators can be shared among subproblems, it easily takes up dozens of KB; memory that will not be available for the stores.
+The threads will end up competing for the caches, and it will generate many memory transfers between the global memory, L2 cache and L1 cache.
+Memory transfers are usually the most costly operation, hence you try to avoid them in a GPU; loading data from the global memory is about 10x slower than from the L1 cache.
+I am not saying it is impossible to do efficiently, but it seems quite complicated, especially when taking into account warps that are SIMD units of the GPUs (blocks of 32 threads), and thus must all have their data ready in the cache at the same time when executing.
+This is a hypothesis based on intuition and discussion with GPU experts, but I should verify it experimentally.</p>
+<p>Instead of relying on <code>one subproblem per core</code> design that is so commonly used in CPU parallel constraint solver, we can execute one subproblem per SM.
+And the parallelism inside an SM is obtained by parallelizing propagation!
 It is worth mentioning that no attempt to parallelize propagation resulted in a faster solver in comparison to simply parallelizing the search.
-In fact, no solver parallelizes propagation.
-To achieve efficiency on GPU, it seems that adapting an existing solver to work on GPU is doomed to fail.
-We must write a new one from scratch, forgetting about all common assumptions of what is absolutely necessary for a constraint solver to be efficient.
-The road might be long!</p>
+In fact, no modern solver parallelizes propagation.
+Because most solvers are designed for CPU, it seems that adapting an existing solver to work on GPU is doomed to fail.
+The design rational of Turbo is to aim first at a <em>simple but correct</em> parallel design.</p>
 <p>I write this technical journal to document my attempts to obtain an efficient GPU-based constraint solver named Turbo.
 Moreover, because I like my life to be (too) complicated, Turbo is also based on abstract interpretation and implements so-called <em>abstract domains</em> which are very general mathematical generalizations of the representation of constraints.
 Let's go!</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="pallet-town-unoptimized-solver"><a class="header" href="#pallet-town-unoptimized-solver">Pallet Town (Unoptimized Solver)</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="design-rational"><a class="header" href="#design-rational">Design Rational</a></h1>
 <p><em>31 August 2023.</em> We start this adventure with a functional but slow GPU solver.
 To make it work on the GPU, we had to simplify the architecture of mainstream CPU-based constraint solver in many regards.
-Let's start with the main design decisions behind Turbo:</p>
+Let's start with the current design decisions behind Turbo:</p>
 <ul>
-<li><em>Pure GPU</em>: We decided early on to make it a solver entirely on the GPU, this is to avoid memory transfer between CPU and GPU, and also to force us to have a complete parallel mindset.</li>
-<li><em>Propagation loop</em>: Based on the very first AC1, we simply take the first N propagators, run them in parallel, then take the next N propagator, and so on until they are all executed, where N is the number of cores available in the current block.
+<li><em>Pure GPU</em>: We decided early on to make it a solver entirely on the GPU, this is to avoid memory transfer between CPU and GPU.
+We are also forced to design each component with a parallel mindset.</li>
+<li><em>Propagation</em>: The propagation loop is based on the very first AC1 algorithm: we simply take the first N propagators, run them in parallel, then take the next N propagators, and so on until they are all executed, where N is the number of cores available in the current block.
 We repeat this operation in a fixed point loop until no change is detected anymore.
 This implies we do not have a queue of propagators to be woken up or any notion of events in the solver.</li>
 <li><em>Backtracking</em>: It is based on full recomputation, each time we backtrack, we re-apply all the decisions from the root node; actually, from the root of the current EPS subproblem being solved.</li>
 <li><em>Embarrassingly parallel search</em>: We dynamically create subproblems that are explored individually by GPU blocks, hence the parallel propagation only happens inside one block.</li>
-<li><em>Abstract domains</em>: The solver architecture is based on abstract domains which encapsulate solving algorithms dedicated to a particular constraint language, similarly to theories in SMT.</li>
-<li><em>No conflict learning</em>: Conflicts require dynamic data structures to represent the implication graph, and memory allocation is quite costly on GPU, so we have no conflict learning.</li>
+<li><em>Abstract domains</em>: The solver architecture is based on abstract domains which encapsulate solving algorithms dedicated to a particular constraint language, similarly to theories in SMT.
+However, abstract domains are semantic objects while SMT theories are syntactic objects (and a formal connection exists between the two), which makes abstract domains closer the actual implementation code.</li>
+<li><em>No conflict learning</em>: Conflicts require dynamic data structures to represent the implication graph, and memory allocation is quite costly on GPU, so we currently have no conflict learning.</li>
 <li><em>Lock-free</em>: Although propagators are sharing the memory, we do not have locks on the variables, and actually no lock at all.</li>
 </ul>
 <p>We have thrown away many optimizations considered essential in mainstream CPU-based constraint solvers.
-Incidentally, the GPU solver is much simpler than a CPU solver, while obtaining similar performances (of course, when comparing a pure CP solver without SAT).
+Incidentally, the GPU solver is much simpler than a CPU solver, while obtaining similar performances (of course, when comparing a pure CP solver without SAT learning).
 Back in 2021, our hypothesis was that drastically simplifying the solver design was necessary to implement a GPU solver and that it could be efficient.
-We implemented a prototype (Turbo) that demonstrated it could work as we obtained similar performances between Turbo and Gecode (on a 6-cores CPU with 12 threads) on RCPSP.
+We implemented a <a href="https://github.com/ptal/turbo/tree/aaai2022">prototype (Turbo)</a> that demonstrated it could work as we obtained similar performances between Turbo and Gecode (on a 6-cores CPU with 12 threads) on RCPSP.
 We also laid out the theory behind parallel constraint propagation on GPU and show that, although we did not use any lock, it was giving correct results.
-These findings were summarized in our AAAI 2022 paper.</p>
+These findings were summarized in our <a href="http://hyc.io/papers/aaai2022.pdf">AAAI 2022 paper</a>.</p>
+<p>For more than one year, I have been refactoring and extending this initial prototype in multiple ways.
+One goal has been achieved now and Turbo can solve MiniZinc model with two limitations: for now, it only supports integer variables, and all global constraints are decomposed into primitive constraints.
+The solver Turbo is part of a larger project called <em>Lattice Land</em>, which is a collection of libraries representing lattice data structures.
+The long-term goal is to be able to reuse these libraries outside of constraint solving, for instance in static analysis by abstract interpretation and in distributed computing using CRDT.
+The code of Turbo is the glue putting together the required libraries to solve a constraint problem.</p>
+<p>However, as one could expect, the new <em>abstract domain</em> design comes with a price: it is less efficient than the prototype.
+I will try to integrate one by one various optimizations and attempt to first reach the previous efficiency, and then go beyond it.
+To benchmark our progresses, I think it is reasonable to start with a set of easy instances and a set of hard instances.</p>
+<ul>
+<li><em>Resource-constrained project scheduling problem (RCPSP)</em>: Patterson instances (110 in total), these are all solved quickly by modern CP-SAT solvers.</li>
+<li><em>MiniZinc competition 2022</em>: The problems are more diverse but also harder.</li>
+</ul>
 
                     </main>
 

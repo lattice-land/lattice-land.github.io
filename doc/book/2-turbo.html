@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Pallet Town (Unoptimized Solver) - Lattice Land Book</title>
+        <title>Design Rational - Lattice Land Book</title>
                 
 
         <!-- Custom HTML head -->
@@ -82,7 +82,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="index.html"><strong aria-hidden="true">1.</strong> Lattice Land</a></li><li class="chapter-item expanded affix "><li class="part-title">CUDA Battery Library</li><li class="chapter-item expanded "><a href="1-cuda-battery.html"><strong aria-hidden="true">2.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="2-cuda-battery.html"><strong aria-hidden="true">3.</strong> Data from CPU to GPU</a></li><li class="chapter-item expanded "><a href="3-cuda-battery.html"><strong aria-hidden="true">4.</strong> CMake Project</a></li><li class="chapter-item expanded "><a href="4-cuda-battery.html"><strong aria-hidden="true">5.</strong> In-Kernel Allocation</a></li><li class="chapter-item expanded "><a href="5-cuda-battery.html"><strong aria-hidden="true">6.</strong> Shared Memory Allocator</a></li><li class="chapter-item expanded "><a href="6-cuda-battery.html"><strong aria-hidden="true">7.</strong> Caution</a></li><li class="chapter-item expanded affix "><li class="part-title">Parallel Lattice Programming</li><li class="chapter-item expanded affix "><li class="part-title">Abstract Constraint Reasoning</li><li class="chapter-item expanded affix "><li class="part-title">Parallel Abstract Constraint Reasoning</li><li class="chapter-item expanded affix "><li class="part-title">Turbo Technical Journal</li><li class="chapter-item expanded "><a href="1-turbo.html"><strong aria-hidden="true">8.</strong> Quest for Efficiency</a></li><li class="chapter-item expanded "><a href="2-turbo.html" class="active"><strong aria-hidden="true">9.</strong> Pallet Town (Unoptimized Solver)</a></li></ol>            </div>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="index.html"><strong aria-hidden="true">1.</strong> Lattice Land</a></li><li class="chapter-item expanded affix "><li class="part-title">CUDA Battery Library</li><li class="chapter-item expanded "><a href="1-cuda-battery.html"><strong aria-hidden="true">2.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="2-cuda-battery.html"><strong aria-hidden="true">3.</strong> Data from CPU to GPU</a></li><li class="chapter-item expanded "><a href="3-cuda-battery.html"><strong aria-hidden="true">4.</strong> CMake Project</a></li><li class="chapter-item expanded "><a href="4-cuda-battery.html"><strong aria-hidden="true">5.</strong> In-Kernel Allocation</a></li><li class="chapter-item expanded "><a href="5-cuda-battery.html"><strong aria-hidden="true">6.</strong> Shared Memory Allocator</a></li><li class="chapter-item expanded "><a href="6-cuda-battery.html"><strong aria-hidden="true">7.</strong> Caution</a></li><li class="chapter-item expanded affix "><li class="part-title">Parallel Lattice Programming</li><li class="chapter-item expanded affix "><li class="part-title">Abstract Constraint Reasoning</li><li class="chapter-item expanded affix "><li class="part-title">Parallel Abstract Constraint Reasoning</li><li class="chapter-item expanded affix "><li class="part-title">Turbo Technical Journal</li><li class="chapter-item expanded "><a href="1-turbo.html"><strong aria-hidden="true">8.</strong> Quest for Efficiency</a></li><li class="chapter-item expanded "><a href="2-turbo.html" class="active"><strong aria-hidden="true">9.</strong> Design Rational</a></li></ol>            </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
 
@@ -143,27 +143,41 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="pallet-town-unoptimized-solver"><a class="header" href="#pallet-town-unoptimized-solver">Pallet Town (Unoptimized Solver)</a></h1>
+                        <h1 id="design-rational"><a class="header" href="#design-rational">Design Rational</a></h1>
 <p><em>31 August 2023.</em> We start this adventure with a functional but slow GPU solver.
 To make it work on the GPU, we had to simplify the architecture of mainstream CPU-based constraint solver in many regards.
-Let's start with the main design decisions behind Turbo:</p>
+Let's start with the current design decisions behind Turbo:</p>
 <ul>
-<li><em>Pure GPU</em>: We decided early on to make it a solver entirely on the GPU, this is to avoid memory transfer between CPU and GPU, and also to force us to have a complete parallel mindset.</li>
-<li><em>Propagation loop</em>: Based on the very first AC1, we simply take the first N propagators, run them in parallel, then take the next N propagator, and so on until they are all executed, where N is the number of cores available in the current block.
+<li><em>Pure GPU</em>: We decided early on to make it a solver entirely on the GPU, this is to avoid memory transfer between CPU and GPU.
+We are also forced to design each component with a parallel mindset.</li>
+<li><em>Propagation</em>: The propagation loop is based on the very first AC1 algorithm: we simply take the first N propagators, run them in parallel, then take the next N propagators, and so on until they are all executed, where N is the number of cores available in the current block.
 We repeat this operation in a fixed point loop until no change is detected anymore.
 This implies we do not have a queue of propagators to be woken up or any notion of events in the solver.</li>
 <li><em>Backtracking</em>: It is based on full recomputation, each time we backtrack, we re-apply all the decisions from the root node; actually, from the root of the current EPS subproblem being solved.</li>
 <li><em>Embarrassingly parallel search</em>: We dynamically create subproblems that are explored individually by GPU blocks, hence the parallel propagation only happens inside one block.</li>
-<li><em>Abstract domains</em>: The solver architecture is based on abstract domains which encapsulate solving algorithms dedicated to a particular constraint language, similarly to theories in SMT.</li>
-<li><em>No conflict learning</em>: Conflicts require dynamic data structures to represent the implication graph, and memory allocation is quite costly on GPU, so we have no conflict learning.</li>
+<li><em>Abstract domains</em>: The solver architecture is based on abstract domains which encapsulate solving algorithms dedicated to a particular constraint language, similarly to theories in SMT.
+However, abstract domains are semantic objects while SMT theories are syntactic objects (and a formal connection exists between the two), which makes abstract domains closer the actual implementation code.</li>
+<li><em>No conflict learning</em>: Conflicts require dynamic data structures to represent the implication graph, and memory allocation is quite costly on GPU, so we currently have no conflict learning.</li>
 <li><em>Lock-free</em>: Although propagators are sharing the memory, we do not have locks on the variables, and actually no lock at all.</li>
 </ul>
 <p>We have thrown away many optimizations considered essential in mainstream CPU-based constraint solvers.
-Incidentally, the GPU solver is much simpler than a CPU solver, while obtaining similar performances (of course, when comparing a pure CP solver without SAT).
+Incidentally, the GPU solver is much simpler than a CPU solver, while obtaining similar performances (of course, when comparing a pure CP solver without SAT learning).
 Back in 2021, our hypothesis was that drastically simplifying the solver design was necessary to implement a GPU solver and that it could be efficient.
-We implemented a prototype (Turbo) that demonstrated it could work as we obtained similar performances between Turbo and Gecode (on a 6-cores CPU with 12 threads) on RCPSP.
+We implemented a <a href="https://github.com/ptal/turbo/tree/aaai2022">prototype (Turbo)</a> that demonstrated it could work as we obtained similar performances between Turbo and Gecode (on a 6-cores CPU with 12 threads) on RCPSP.
 We also laid out the theory behind parallel constraint propagation on GPU and show that, although we did not use any lock, it was giving correct results.
-These findings were summarized in our AAAI 2022 paper.</p>
+These findings were summarized in our <a href="http://hyc.io/papers/aaai2022.pdf">AAAI 2022 paper</a>.</p>
+<p>For more than one year, I have been refactoring and extending this initial prototype in multiple ways.
+One goal has been achieved now and Turbo can solve MiniZinc model with two limitations: for now, it only supports integer variables, and all global constraints are decomposed into primitive constraints.
+The solver Turbo is part of a larger project called <em>Lattice Land</em>, which is a collection of libraries representing lattice data structures.
+The long-term goal is to be able to reuse these libraries outside of constraint solving, for instance in static analysis by abstract interpretation and in distributed computing using CRDT.
+The code of Turbo is the glue putting together the required libraries to solve a constraint problem.</p>
+<p>However, as one could expect, the new <em>abstract domain</em> design comes with a price: it is less efficient than the prototype.
+I will try to integrate one by one various optimizations and attempt to first reach the previous efficiency, and then go beyond it.
+To benchmark our progresses, I think it is reasonable to start with a set of easy instances and a set of hard instances.</p>
+<ul>
+<li><em>Resource-constrained project scheduling problem (RCPSP)</em>: Patterson instances (110 in total), these are all solved quickly by modern CP-SAT solvers.</li>
+<li><em>MiniZinc competition 2022</em>: The problems are more diverse but also harder.</li>
+</ul>
 
                     </main>
 
