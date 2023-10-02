@@ -21,7 +21,7 @@ Memory transfers are usually the most costly operation, hence you try to avoid t
 I am not saying it is impossible to do efficiently, but it seems quite complicated, especially when taking into account warps that are SIMD units of the GPUs (blocks of 32 threads), and thus must all have their data ready in the cache at the same time when executing.
 This is a hypothesis based on intuition and discussion with GPU experts, but I should verify it experimentally.
 
-Instead of relying on ``one subproblem per core`` design that is so commonly used in CPU parallel constraint solver, we can execute one subproblem per SM.
+Instead of relying on "one subproblem per core" design that is so commonly used in CPU parallel constraint solver, we can execute one subproblem per SM.
 And the parallelism inside an SM is obtained by parallelizing propagation!
 It is worth mentioning that no attempt to parallelize propagation resulted in a faster solver in comparison to simply parallelizing the search.
 In fact, no modern solver parallelizes propagation.

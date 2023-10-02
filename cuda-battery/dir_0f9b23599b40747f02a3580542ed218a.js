@@ -2,6 +2,7 @@ var dir_0f9b23599b40747f02a3580542ed218a =
 [
     [ "allocator.hpp", "allocator_8hpp.html", "allocator_8hpp" ],
     [ "bitset.hpp", "bitset_8hpp.html", "bitset_8hpp" ],
+    [ "dynamic_bitset.hpp", "dynamic__bitset_8hpp.html", "dynamic__bitset_8hpp" ],
     [ "memory.hpp", "memory_8hpp.html", "memory_8hpp" ],
     [ "shared_ptr.hpp", "shared__ptr_8hpp.html", "shared__ptr_8hpp" ],
     [ "string.hpp", "string_8hpp.html", "string_8hpp" ],

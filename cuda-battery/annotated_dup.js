@@ -5,6 +5,7 @@ var annotated_dup =
       [ "standard_allocator", "classbattery_1_1standard__allocator.html", "classbattery_1_1standard__allocator" ],
       [ "statistics_allocator", "classbattery_1_1statistics__allocator.html", "classbattery_1_1statistics__allocator" ],
       [ "bitset", "classbattery_1_1bitset.html", "classbattery_1_1bitset" ],
+      [ "dynamic_bitset", "classbattery_1_1dynamic__bitset.html", "classbattery_1_1dynamic__bitset" ],
       [ "memory", "classbattery_1_1memory.html", "classbattery_1_1memory" ],
       [ "atomic_memory", "classbattery_1_1atomic__memory.html", "classbattery_1_1atomic__memory" ],
       [ "shared_ptr", "classbattery_1_1shared__ptr.html", "classbattery_1_1shared__ptr" ],

@@ -3,7 +3,7 @@
 _31 August 2023._ We start this adventure with a functional but slow GPU solver.
 To make it work on the GPU, we had to simplify the architecture of mainstream CPU-based constraint solver in many regards.
 Let's start with the current design decisions behind Turbo:
-* *Pure GPU*: We decided early on to make it a solver entirely on the GPU, this is to avoid memory transfer between CPU and GPU.
+* *Pure GPU*: We decided early on to make it a solver entirely on the GPU, this is to avoid memory transfers between CPU and GPU.
 We are also forced to design each component with a parallel mindset.
 * *Propagation*: The propagation loop is based on the very first AC1 algorithm: we simply take the first N propagators, run them in parallel, then take the next N propagators, and so on until they are all executed, where N is the number of cores available in the current block.
 We repeat this operation in a fixed point loop until no change is detected anymore.

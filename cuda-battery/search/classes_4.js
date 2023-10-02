@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['pool_5fallocator_138',['pool_allocator',['../classbattery_1_1pool__allocator.html',1,'battery']]]
+  ['memory_141',['memory',['../classbattery_1_1memory.html',1,'battery']]]
 ];
