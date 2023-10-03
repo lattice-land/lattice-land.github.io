@@ -1,11 +1,6 @@
 var searchData=
 [
-  ['make_5fvar_42',['make_var',['../namespacelala.html#adfaf312293cd9a38317dd46817d261b1',1,'lala']]],
-  ['make_5fx_5fop_5fi_43',['make_x_op_i',['../namespacelala.html#af3155864b6fdb23100cc3d9bb1bca557',1,'lala']]],
-  ['maximize_44',['MAXIMIZE',['../structlala_1_1_solve_mode.html#ad8a74c287572dc8c85c3abfb6c1fd0dfaaaec3b6e4675bc8ac122da778083e0d4',1,'lala::SolveMode']]],
-  ['meet_45',['meet',['../classlala_1_1_abstract_domain.html#a34b26a034ed5f83cae11883a7b5393c9',1,'lala::AbstractDomain::meet()'],['../classlala_1_1_z_inc.html#ab6ae23202b321b5aeec8155acdcbcd4c',1,'lala::ZInc::meet()']]],
-  ['minimize_46',['MINIMIZE',['../structlala_1_1_solve_mode.html#ad8a74c287572dc8c85c3abfb6c1fd0dfaee2388f4ecded05712bfbad28b7f3561',1,'lala::SolveMode']]],
-  ['mod_47',['MOD',['../structlala_1_1_formula.html#ae0aa63797b2ba827e10d762c5d4ab6eca42fb65cfd044d798ac011fe97a559380',1,'lala::Formula']]],
-  ['mode_48',['mode',['../structlala_1_1_environment.html#a7a401b573358b662b5db64c72bb98f38',1,'lala::Environment']]],
-  ['mul_49',['MUL',['../structlala_1_1_formula.html#ae0aa63797b2ba827e10d762c5d4ab6eca8657fd73d2e828d36735d8f2164828d9',1,'lala::Formula']]]
+  ['join_169',['join',['../structlala_1_1_pre_s_inc.html#af5399497bc8ce35a701101d91ccbf715',1,'lala::PreSInc::join()'],['../structlala_1_1_pre_b_dec.html#a905d6406095f6d6a8801967195fc3302',1,'lala::PreBDec::join()'],['../structlala_1_1_pre_b_inc.html#a279d9659fc6db21012d3b8f45e944e68',1,'lala::PreBInc::join()'],['../structlala_1_1_pre_f_dec.html#a95c60855a5469cbd48e547dca18695f1',1,'lala::PreFDec::join()'],['../structlala_1_1_pre_f_inc.html#a5870b4f5744c463bef90975af4682284',1,'lala::PreFInc::join()'],['../structlala_1_1_pre_z_dec.html#aab19edc98ec14205abea0a9673af3396',1,'lala::PreZDec::join()'],['../structlala_1_1_pre_z_inc.html#a404f44a61922f1ce4fdafccfe8871833',1,'lala::PreZInc::join()'],['../namespacelala.html#a0d3c3a3e1c850baa795fb4d8b9572b26',1,'lala::join(const CartesianProduct&lt; As... &gt; &amp;a, const CartesianProduct&lt; Bs... &gt; &amp;b)'],['../namespacelala.html#a12b3311d4f0ae191fda5354efd5c221a',1,'lala::join(const Interval&lt; L &gt; &amp;a, const Interval&lt; K &gt; &amp;b)'],['../namespacelala.html#aeaaf07a75c4bb1887f47ea6fd8644528',1,'lala::join(const FlatUniverse&lt; Pre, M1 &gt; &amp;a, const FlatUniverse&lt; Pre, M2 &gt; &amp;b)'],['../namespacelala.html#ae9ebd6af8ce93b84643db65329ec8423',1,'lala::join(const PrimitiveUpset&lt; Pre, M1 &gt; &amp;a, const PrimitiveUpset&lt; Pre, M2 &gt; &amp;b)'],['../namespacelala.html#a1f3db32c37974ff1b5936224bab4605a',1,'lala::join(const VStore&lt; L, Alloc &gt; &amp;a, const VStore&lt; K, Alloc &gt; &amp;b)']]],
+  ['join_5ferrors_170',['join_errors',['../classlala_1_1_i_result.html#add70ac0ec3c4845981ac91b8156aef9b',1,'lala::IResult']]],
+  ['join_5fwarnings_171',['join_warnings',['../classlala_1_1_i_result.html#a9e165857567785be9ee4cd17145f17fe',1,'lala::IResult']]]
 ];

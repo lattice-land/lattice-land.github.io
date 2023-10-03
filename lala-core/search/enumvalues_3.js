@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['false_149',['FALSE',['../structlala_1_1_formula.html#ae0aa63797b2ba827e10d762c5d4ab6eca7670a105bf31cd8099b609a8d90a0c3d',1,'lala::Formula']]]
+  ['difference_684',['DIFFERENCE',['../namespacelala.html#a4be41540c5051a480d0611a3e216b659a3c6da3ab50bf2b967f5adc12f15609d2',1,'lala']]],
+  ['div_685',['DIV',['../namespacelala.html#a4be41540c5051a480d0611a3e216b659a9934922159223c8b46e0774c4fc92bc0',1,'lala']]]
 ];

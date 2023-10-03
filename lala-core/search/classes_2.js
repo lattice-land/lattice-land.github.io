@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['formula_86',['Formula',['../structlala_1_1_formula.html',1,'lala']]]
+  ['flatuniverse_366',['FlatUniverse',['../classlala_1_1_flat_universe.html',1,'lala']]]
 ];

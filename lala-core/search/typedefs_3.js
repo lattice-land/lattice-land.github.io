@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['valuetype_137',['ValueType',['../classlala_1_1_z_inc.html#a016cf64018e8becb8a9ac8451723b8cd',1,'lala::ZInc']]],
-  ['vardom_138',['VarDom',['../classlala_1_1_abstract_domain.html#a0eda61ab2d0221f633c02f8970c29202',1,'lala::AbstractDomain']]]
+  ['dual_5ftype_628',['dual_type',['../structlala_1_1_pre_s_inc.html#a36a4df6001274f9e48dd0e2010d75545',1,'lala::PreSInc::dual_type()'],['../structlala_1_1_pre_b_dec.html#ac87a4c0ad0ae3cddf687b7313bf258e1',1,'lala::PreBDec::dual_type()'],['../structlala_1_1_pre_b_inc.html#aea99f6498a21d4f32ff3a11973aaacd0',1,'lala::PreBInc::dual_type()'],['../structlala_1_1_pre_f_dec.html#a9c4b3cfa3b4141fdf6aca4fc1049c26b',1,'lala::PreFDec::dual_type()'],['../structlala_1_1_pre_f_inc.html#ae4f3bd68625e7f349e415a0e30793314',1,'lala::PreFInc::dual_type()'],['../structlala_1_1_pre_z_dec.html#a38f51c6d144eeb8aa2dee94c1ddec24d',1,'lala::PreZDec::dual_type()'],['../structlala_1_1_pre_z_inc.html#a271fe81e8adb70b052da165330395254',1,'lala::PreZInc::dual_type()'],['../classlala_1_1_primitive_upset.html#a7dd965d18056b3c7a3885280769504ca',1,'lala::PrimitiveUpset::dual_type()']]]
 ];

@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['make_5fvar_103',['make_var',['../namespacelala.html#adfaf312293cd9a38317dd46817d261b1',1,'lala']]],
-  ['make_5fx_5fop_5fi_104',['make_x_op_i',['../namespacelala.html#af3155864b6fdb23100cc3d9bb1bca557',1,'lala']]],
-  ['meet_105',['meet',['../classlala_1_1_abstract_domain.html#a34b26a034ed5f83cae11883a7b5393c9',1,'lala::AbstractDomain::meet()'],['../classlala_1_1_z_inc.html#ab6ae23202b321b5aeec8155acdcbcd4c',1,'lala::ZInc::meet()']]]
+  ['geq_5fk_451',['geq_k',['../classlala_1_1_primitive_upset.html#a518a6a4fb4e75b047ed4b63ff0131c91',1,'lala::PrimitiveUpset']]],
+  ['get_5fallocator_452',['get_allocator',['../classlala_1_1_abstract_deps.html#a10114e224184a0a46a3c7d9232a34594',1,'lala::AbstractDeps::get_allocator()'],['../classlala_1_1_var_env.html#a0ae7d9314590332f73d96ea6565bd992',1,'lala::VarEnv::get_allocator()'],['../classlala_1_1_v_store.html#a457d82333e45ab37c2002006e0f201eb',1,'lala::VStore::get_allocator()']]],
+  ['guarded_5fdiv_453',['guarded_div',['../classlala_1_1_primitive_upset.html#a70456d71fef491fd32d6d0738039e6ab',1,'lala::PrimitiveUpset']]]
 ];

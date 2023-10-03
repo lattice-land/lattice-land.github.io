@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['operator_20valuetype_106',['operator ValueType',['../classlala_1_1_z_inc.html#a4e9921adba5bcdabf63428d4e39222d3',1,'lala::ZInc']]],
-  ['operator_3d_3d_107',['operator==',['../classlala_1_1_z_inc.html#ae1162928bfbdb89a4fcc830b7a9f7836',1,'lala::ZInc']]]
+  ['has_5fvalue_454',['has_value',['../classlala_1_1_i_result.html#aa92d6073a560e0ada413c8ef7a55813c',1,'lala::IResult']]],
+  ['has_5fwarning_455',['has_warning',['../classlala_1_1_i_result.html#a380bca94590a5d7ef70ab3371cd4ab06',1,'lala::IResult']]]
 ];

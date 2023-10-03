@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['imply_152',['IMPLY',['../structlala_1_1_formula.html#ae0aa63797b2ba827e10d762c5d4ab6eca30ccf66c007178fca8615109e37fb5a2',1,'lala::Formula']]]
+  ['fdiv_691',['FDIV',['../namespacelala.html#a4be41540c5051a480d0611a3e216b659abe3e0277999e826e63b167544d8fd503',1,'lala']]],
+  ['fmod_692',['FMOD',['../namespacelala.html#a4be41540c5051a480d0611a3e216b659a9be7decc85369374244b2fe67dee128f',1,'lala']]]
 ];

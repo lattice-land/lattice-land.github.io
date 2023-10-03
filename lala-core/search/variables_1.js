@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['children_118',['children',['../structlala_1_1_formula_1_1_raw.html#a537c7fe0a00b7be21b39a974971acdd2',1,'lala::Formula::Raw::children()'],['../structlala_1_1_formula.html#a8da2de3e31a3d21cc7ba870b12f70451',1,'lala::Formula::children()']]]
+  ['b_590',['B',['../classlala_1_1_t_formula.html#af957a672f38994b0d514c2953ed0b097',1,'lala::TFormula']]]
 ];

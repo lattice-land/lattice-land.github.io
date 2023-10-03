@@ -1,4 +1,7 @@
 var searchData=
 [
-  ['raw_165',['RAW',['../structlala_1_1_formula.html#ae0aa63797b2ba827e10d762c5d4ab6eca1ba220a38b031dc6c40a4863b3a7ee0c',1,'lala::Formula']]]
+  ['neg_711',['NEG',['../namespacelala.html#a4be41540c5051a480d0611a3e216b659afd5c2ae3d5e7293327344b6c3485fc82',1,'lala']]],
+  ['neq_712',['NEQ',['../namespacelala.html#a4be41540c5051a480d0611a3e216b659a09229291382be14131439437cd0709c6',1,'lala']]],
+  ['not_713',['NOT',['../namespacelala.html#a4be41540c5051a480d0611a3e216b659a18f2489be7b8b3ac8699bdf3508e1a6e',1,'lala']]],
+  ['nroot_714',['NROOT',['../namespacelala.html#a4be41540c5051a480d0611a3e216b659a58076eb396317a32d0b3c96c36dcdc91',1,'lala']]]
 ];

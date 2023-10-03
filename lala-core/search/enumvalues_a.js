@@ -1,4 +1,9 @@
 var searchData=
 [
-  ['pow_164',['POW',['../structlala_1_1_formula.html#ae0aa63797b2ba827e10d762c5d4ab6eca73347298a0e298651e0d42234da226d9',1,'lala::Formula']]]
+  ['max_705',['MAX',['../namespacelala.html#a4be41540c5051a480d0611a3e216b659aab34a3b23024271c113e7e4b1514bbe0',1,'lala']]],
+  ['maximize_706',['MAXIMIZE',['../namespacelala.html#a4be41540c5051a480d0611a3e216b659ad20094bfd86b4eb408d39956ec443856',1,'lala']]],
+  ['min_707',['MIN',['../namespacelala.html#a4be41540c5051a480d0611a3e216b659a862175bb85bef55b954e572e71f4ffcd',1,'lala']]],
+  ['minimize_708',['MINIMIZE',['../namespacelala.html#a4be41540c5051a480d0611a3e216b659ad31b4d2b16f0588a88f952ed29ddace6',1,'lala']]],
+  ['mod_709',['MOD',['../namespacelala.html#a4be41540c5051a480d0611a3e216b659a3a7de24e0b0ef7e829db0e2a0d7da845',1,'lala']]],
+  ['mul_710',['MUL',['../namespacelala.html#a4be41540c5051a480d0611a3e216b659af1fff2ec2753a69d89e5a48ddceb6982',1,'lala']]]
 ];

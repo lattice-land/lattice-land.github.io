@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['v_161',['v',['../structlala_1_1_formula.html#aaf356d7c8964327a7282c3e862c2ca86',1,'lala::Formula']]]
+  ['tag_614',['tag',['../structlala_1_1_sort.html#a7c4bf378ba36b0047d024580932643ff',1,'lala::Sort']]]
 ];

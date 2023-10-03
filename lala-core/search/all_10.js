@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['tag_70',['tag',['../structlala_1_1_formula.html#a0dadcc6b7c9c105f0429f33799edeb38',1,'lala::Formula::tag()'],['../structlala_1_1_solve_mode.html#ab8d0a2b11367277297c79d50ac3eec86',1,'lala::SolveMode::tag()']]],
-  ['this_5ftype_71',['this_type',['../classlala_1_1_abstract_domain.html#ad00a5d9ef9962f650ab4e1c52f3fdf9d',1,'lala::AbstractDomain::this_type()'],['../classlala_1_1_z_inc.html#a6679b988efc2d0ac53662a9f0ece6c18',1,'lala::ZInc::this_type()']]],
-  ['top_72',['top',['../classlala_1_1_abstract_domain.html#a1c604e66bfd7f653ee50189889ff4689',1,'lala::AbstractDomain::top()'],['../classlala_1_1_z_inc.html#a639866a1f8372daa52a560316be3312f',1,'lala::ZInc::top()']]],
-  ['true_73',['TRUE',['../structlala_1_1_formula.html#ae0aa63797b2ba827e10d762c5d4ab6eca16fd4dcb8807a049cea6c4026c41a806',1,'lala::Formula']]],
-  ['type_74',['Type',['../structlala_1_1_formula.html#ae0aa63797b2ba827e10d762c5d4ab6ec',1,'lala::Formula']]]
+  ['r_277',['R',['../classlala_1_1_t_formula.html#a66a3dd389a6b03a3f1ecde091092b773',1,'lala::TFormula']]],
+  ['r_278',['r',['../classlala_1_1_t_formula.html#ab8807e3f0b051a5e507d1f4aa3bc87f0',1,'lala::TFormula::r() const'],['../classlala_1_1_t_formula.html#ace1711b74f92aeb94afb07f0d5cd2f03',1,'lala::TFormula::r()']]],
+  ['real_279',['Real',['../structlala_1_1_sort.html#a267f9fffa9f58fd4365285c11724129bad8d6c82b617470daeb524706d8ad1ff6',1,'lala::Sort']]],
+  ['restore_280',['restore',['../classlala_1_1_var_env.html#afb1f36be814fba336939347535a9c52c',1,'lala::VarEnv::restore()'],['../classlala_1_1_v_store.html#aa7da4f8a6bbe3cbf4c21986b48d4ec22',1,'lala::VStore::restore()']]],
+  ['reverse_281',['reverse',['../classlala_1_1_interval.html#a204ec1a66907fdb3b308baa68cda4f23',1,'lala::Interval']]]
 ];

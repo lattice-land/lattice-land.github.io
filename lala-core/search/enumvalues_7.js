@@ -1,7 +1,4 @@
 var searchData=
 [
-  ['maximize_156',['MAXIMIZE',['../structlala_1_1_solve_mode.html#ad8a74c287572dc8c85c3abfb6c1fd0dfaaaec3b6e4675bc8ac122da778083e0d4',1,'lala::SolveMode']]],
-  ['minimize_157',['MINIMIZE',['../structlala_1_1_solve_mode.html#ad8a74c287572dc8c85c3abfb6c1fd0dfaee2388f4ecded05712bfbad28b7f3561',1,'lala::SolveMode']]],
-  ['mod_158',['MOD',['../structlala_1_1_formula.html#ae0aa63797b2ba827e10d762c5d4ab6eca42fb65cfd044d798ac011fe97a559380',1,'lala::Formula']]],
-  ['mul_159',['MUL',['../structlala_1_1_formula.html#ae0aa63797b2ba827e10d762c5d4ab6eca8657fd73d2e828d36735d8f2164828d9',1,'lala::Formula']]]
+  ['hull_695',['HULL',['../namespacelala.html#a4be41540c5051a480d0611a3e216b659a02302aa01aa754187469769f88fc461a',1,'lala']]]
 ];

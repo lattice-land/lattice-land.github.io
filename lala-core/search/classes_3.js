@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['raw_87',['Raw',['../structlala_1_1_formula_1_1_raw.html',1,'lala::Formula']]]
+  ['gaussseideliteration_367',['GaussSeidelIteration',['../classlala_1_1_gauss_seidel_iteration.html',1,'lala']]]
 ];

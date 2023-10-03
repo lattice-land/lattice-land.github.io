@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['or_162',['OR',['../structlala_1_1_formula.html#ae0aa63797b2ba827e10d762c5d4ab6eca1c6e0f8ff7e782a215c07f342b5a4a01',1,'lala::Formula']]],
-  ['over_163',['OVER',['../namespacelala.html#aeecfc640d117a6c1efb50d5a90f8a369abdc724f531168031569d518abd8ab53b',1,'lala']]]
+  ['leq_701',['LEQ',['../namespacelala.html#a4be41540c5051a480d0611a3e216b659a17a7bbf0e65530521932e221dc59c066',1,'lala']]],
+  ['ln_702',['LN',['../namespacelala.html#a4be41540c5051a480d0611a3e216b659a8d57491689c25bef2fe14921b9f1022c',1,'lala']]],
+  ['log_703',['LOG',['../namespacelala.html#a4be41540c5051a480d0611a3e216b659af348f0154452264ff05f2e996b32b7e6',1,'lala']]],
+  ['lt_704',['LT',['../namespacelala.html#a4be41540c5051a480d0611a3e216b659ab511bc3f2670b98e55fc89f91b427e69',1,'lala']]]
 ];

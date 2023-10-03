@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['true_168',['TRUE',['../structlala_1_1_formula.html#ae0aa63797b2ba827e10d762c5d4ab6eca16fd4dcb8807a049cea6c4026c41a806',1,'lala::Formula']]]
+  ['pow_716',['POW',['../namespacelala.html#a4be41540c5051a480d0611a3e216b659a6e53c3a9eb723ce5327d4052e4e30fdc',1,'lala']]]
 ];

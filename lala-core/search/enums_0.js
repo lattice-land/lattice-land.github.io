@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['approx_139',['Approx',['../namespacelala.html#aeecfc640d117a6c1efb50d5a90f8a369',1,'lala']]]
+  ['sig_665',['Sig',['../namespacelala.html#a4be41540c5051a480d0611a3e216b659',1,'lala']]]
 ];

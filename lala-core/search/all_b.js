@@ -1,8 +1,24 @@
 var searchData=
 [
-  ['n_50',['n',['../structlala_1_1_formula_1_1_raw.html#ac11e1c410e34af27ed9ec61bc547eec1',1,'lala::Formula::Raw::n()'],['../structlala_1_1_formula.html#ac5be20e856d1886b602830fba9ee61a0',1,'lala::Formula::n()'],['../structlala_1_1_environment_1_1_var_array.html#a34a79b35a6c83d7e0e2ece74bd385653',1,'lala::Environment::VarArray::n()'],['../structlala_1_1_environment.html#ae7c3c59059232e10899c05dbab9846ff',1,'lala::Environment::n()']]],
-  ['name_51',['name',['../structlala_1_1_formula_1_1_raw.html#a4c56a04da6b5fa052daaa8f9571cfdd3',1,'lala::Formula::Raw']]],
-  ['neq_52',['NEQ',['../structlala_1_1_formula.html#ae0aa63797b2ba827e10d762c5d4ab6eca3dc2fa9974029d052e4b2ee43b442734',1,'lala::Formula']]],
-  ['not_53',['NOT',['../structlala_1_1_formula.html#ae0aa63797b2ba827e10d762c5d4ab6ecad7eb3d6ce49067e07f7aada515f67d2b',1,'lala::Formula']]],
-  ['num_5fsols_54',['num_sols',['../structlala_1_1_solve_mode.html#a2dce61d719096f1204c9d3da15a790a7',1,'lala::SolveMode']]]
+  ['lala_172',['lala',['../namespacelala.html',1,'']]],
+  ['lb_173',['LB',['../classlala_1_1_interval.html#a4addbf280c8cd6ad02982beb8bc50f90',1,'lala::Interval']]],
+  ['lb_174',['lb',['../classlala_1_1_interval.html#ad2759a638b11a916b4029d75e3ae1f0d',1,'lala::Interval']]],
+  ['leq_175',['LEQ',['../namespacelala.html#a4be41540c5051a480d0611a3e216b659a17a7bbf0e65530521932e221dc59c066',1,'lala']]],
+  ['leq_5fk_176',['leq_k',['../classlala_1_1_primitive_upset.html#ab428f628356cc9a3b1ec7120c956e856',1,'lala::PrimitiveUpset']]],
+  ['ln_177',['LN',['../namespacelala.html#a4be41540c5051a480d0611a3e216b659a8d57491689c25bef2fe14921b9f1022c',1,'lala']]],
+  ['local_178',['local',['../namespacelala_1_1local.html',1,'lala']]],
+  ['local_5ftype_179',['local_type',['../classlala_1_1_cartesian_product.html#abfd3a4fe7949c8aec751c5d6ed70bd59',1,'lala::CartesianProduct::local_type()'],['../classlala_1_1_interval.html#a814b4bce11d3cde75fa2ad2db54994a7',1,'lala::Interval::local_type()'],['../classlala_1_1_flat_universe.html#a82bf7fc891c2153a27a51a3f38cf6a84',1,'lala::FlatUniverse::local_type()'],['../classlala_1_1_primitive_upset.html#ad0c09049b0c379d9d1ddf482d1a24456',1,'lala::PrimitiveUpset::local_type()']]],
+  ['local_5funiverse_180',['local_universe',['../classlala_1_1_v_store.html#a78ed6bcff683cb7d93f29f0e5d06e916',1,'lala::VStore']]],
+  ['log_181',['LOG',['../namespacelala.html#a4be41540c5051a480d0611a3e216b659af348f0154452264ff05f2e996b32b7e6',1,'lala']]],
+  ['logic_2ehpp_182',['logic.hpp',['../logic_8hpp.html',1,'']]],
+  ['logic_5fbool_183',['logic_bool',['../namespacelala.html#a2397fa063de70fb2241dc9ea08c47800',1,'lala']]],
+  ['logic_5fint_184',['logic_int',['../namespacelala.html#a303d30ab753875ab1fc49e3b4f195719',1,'lala']]],
+  ['logic_5freal_185',['logic_real',['../namespacelala.html#a08adbd4b2483ca2b14db01ba8769ef93',1,'lala']]],
+  ['logic_5fset_186',['logic_set',['../namespacelala.html#aa6a2de27857c134650693ca016c9c057',1,'lala']]],
+  ['logicset_187',['LogicSet',['../classlala_1_1_t_formula.html#a2908cc921241cb7450bacb2c5d059cac',1,'lala::TFormula']]],
+  ['lt_188',['LT',['../namespacelala.html#a4be41540c5051a480d0611a3e216b659ab511bc3f2670b98e55fc89f91b427e69',1,'lala']]],
+  ['lv_189',['LV',['../classlala_1_1_t_formula.html#aa9912ceebf4c4b5e9d2bdbcd7b608e45',1,'lala::TFormula']]],
+  ['lv_190',['lv',['../classlala_1_1_t_formula.html#a8905b5be8af1a70433aa83ea7b5cf1d5',1,'lala::TFormula']]],
+  ['lvar_191',['LVar',['../namespacelala.html#acb9f389c51804929bfb3e6d682d77ff0',1,'lala']]],
+  ['lvars_5fsnap_192',['lvars_snap',['../structlala_1_1_var_env_1_1snapshot__type.html#ac81f01df45ebece4e1d7bef5a315ec90',1,'lala::VarEnv::snapshot_type']]]
 ];
