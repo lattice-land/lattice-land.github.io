@@ -1,0 +1,28 @@
+var struct_statistics =
+[
+    [ "Statistics", "struct_statistics.html#abb63a0cc480576b9724083512e28e9bb", null ],
+    [ "Statistics", "struct_statistics.html#a5dca1c8763b1c0b99f79231222cd5264", null ],
+    [ "Statistics", "struct_statistics.html#a960c9f31af8acc795f77470db0eb2e36", null ],
+    [ "Statistics", "struct_statistics.html#a373d1164676eee45df96058ed57ad6d8", null ],
+    [ "join", "struct_statistics.html#a1a9b704b99cbbb4e8910ac530b06cc26", null ],
+    [ "print_mzn_statistics", "struct_statistics.html#a35047830ce5d2509f8b83882bb103847", null ],
+    [ "print_mzn_end_stats", "struct_statistics.html#a8e69c949bceefdd5a1e2c3ed2841fce0", null ],
+    [ "print_mzn_objective", "struct_statistics.html#a500f20883ce3dcf1d839a514bebc1d1e", null ],
+    [ "print_mzn_separator", "struct_statistics.html#ae7ef2f3873851b56337402bf906f665c", null ],
+    [ "print_mzn_final_separator", "struct_statistics.html#a9fd368a3d013805efc2edb61345ccad4", null ],
+    [ "variables", "struct_statistics.html#addf157a3464b41f04afc7230a11cbd31", null ],
+    [ "constraints", "struct_statistics.html#a42b5622d3db68722e2edc9fc7fb757c1", null ],
+    [ "optimization", "struct_statistics.html#afb9b27a993738c2ba527f25af7e2d31e", null ],
+    [ "duration", "struct_statistics.html#adf2b9251ea4af19944cd7dbb3606e5d1", null ],
+    [ "interpretation_duration", "struct_statistics.html#a75511963214df2c75c82d1b4dac23736", null ],
+    [ "nodes", "struct_statistics.html#abbcb20755134a0cab9adebbe6ee321ab", null ],
+    [ "fails", "struct_statistics.html#a063cf6a180152133c77b7e86996b6221", null ],
+    [ "solutions", "struct_statistics.html#ac0448a72f46c728d676ff93a13ddf86e", null ],
+    [ "depth_max", "struct_statistics.html#a0ba0e681750f3c2fcef1f157ac16965f", null ],
+    [ "exhaustive", "struct_statistics.html#afcf97dcde2e073aa0942cbe445cc2c37", null ],
+    [ "eps_num_subproblems", "struct_statistics.html#a04d4f1ad39b4c2cbba880b1695c46da5", null ],
+    [ "eps_solved_subproblems", "struct_statistics.html#a48698a0fda28b0638cd187e974c0ec64", null ],
+    [ "eps_skipped_subproblems", "struct_statistics.html#a5bd2c19483f31617b049a41690217835", null ],
+    [ "num_blocks_done", "struct_statistics.html#a37b659551d0b1f473eb43b856cf96366", null ],
+    [ "fixpoint_iterations", "struct_statistics.html#a15596b3df0aa6aed1133d52896360ff6", null ]
+];
