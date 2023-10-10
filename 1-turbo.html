@@ -163,7 +163,7 @@ The threads will end up competing for the caches, and it will generate many memo
 Memory transfers are usually the most costly operation, hence you try to avoid them in a GPU; loading data from the global memory is about 10x slower than from the L1 cache.
 I am not saying it is impossible to do efficiently, but it seems quite complicated, especially when taking into account warps that are SIMD units of the GPUs (blocks of 32 threads), and thus must all have their data ready in the cache at the same time when executing.
 This is a hypothesis based on intuition and discussion with GPU experts, but I should verify it experimentally.</p>
-<p>Instead of relying on <code>one subproblem per core</code> design that is so commonly used in CPU parallel constraint solver, we can execute one subproblem per SM.
+<p>Instead of relying on &quot;one subproblem per core&quot; design that is so commonly used in CPU parallel constraint solver, we can execute one subproblem per SM.
 And the parallelism inside an SM is obtained by parallelizing propagation!
 It is worth mentioning that no attempt to parallelize propagation resulted in a faster solver in comparison to simply parallelizing the search.
 In fact, no modern solver parallelizes propagation.

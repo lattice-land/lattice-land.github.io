@@ -149,11 +149,15 @@ Lattice land is a collection of C++ libraries compatible with NVIDIA CUDA framew
 Most of the libraries implement <em>abstract domains for constraint reasoning</em> a new kind of data structure based on <a href="https://en.wikipedia.org/wiki/Abstract_interpretation">abstract interpretation</a>, <a href="https://en.wikipedia.org/wiki/Lattice_(order)">lattice theory</a> and <a href="https://en.wikipedia.org/wiki/Constraint_satisfaction">constraint reasoning</a>.
 This is a book presenting our research project, the involved research papers and the code documentation.</p>
 <p>This project is available on <a href="https://github.com/lattice-land">github</a>.</p>
-<h2 id="documentation-of-libraries"><a class="header" href="#documentation-of-libraries">Documentation of libraries</a></h2>
+<h2 id="api-documentation"><a class="header" href="#api-documentation">API Documentation</a></h2>
 <ul>
 <li><a href="https://lattice-land.github.io/cuda-battery">cuda-battery</a>: Memory allocators, vector, utilities and more which run on both CPU and GPU (CUDA).
 See also the chapter <a href="1-cuda-battery.html">CUDA-Battery Library</a>.</li>
 <li><a href="https://lattice-land.github.io/lala-core">lala-core</a>: Core definitions of the formula AST and abstract domain.</li>
+<li><a href="https://lattice-land.github.io/lala-parsing">lala-parsing</a>: Utilities to parse combinatorial formats include flatzinc and XCSP3.</li>
+<li><a href="https://lattice-land.github.io/lala-pc">lala-pc</a>: <em>Propagator completion abstract domain</em> representing a collection of refinement functions. It implements propagators, an essential component of constraint solver.</li>
+<li><a href="https://lattice-land.github.io/lala-power">lala-power</a>: Abstract domains representing disjunctive collections of information. It includes the search tree and branch-and-bound.</li>
+<li><a href="https://lattice-land.github.io/turbo">turbo</a>: Abstract constraint solver building on all other libraries.</li>
 <li><a href="https://github.com/lattice-land/lattice-land.github.io">lattice-land.github.io</a>: The repository hosting this book and the libraries documentation.</li>
 </ul>
 
