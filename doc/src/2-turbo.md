@@ -28,9 +28,34 @@ The solver Turbo is part of a larger project called _Lattice Land_, which is a c
 The long-term goal is to be able to reuse these libraries outside of constraint solving, for instance in static analysis by abstract interpretation and in distributed computing using CRDT.
 The code of Turbo is the glue putting together the required libraries to solve a constraint problem.
 
+## Benchmarking Suite
+
 However, as one could expect, the new _abstract domain_ design comes with a price: it is less efficient than the prototype.
 I will try to integrate one by one various optimizations and attempt to first reach the previous efficiency, and then go beyond it.
-To benchmark our progresses, I think it is reasonable to start with a set of easy instances and a set of hard instances.
-* _Resource-constrained project scheduling problem (RCPSP)_: Patterson instances (110 in total), these are all solved quickly by modern CP-SAT solvers.
-* _MiniZinc competition 2022_: The problems are more diverse but also harder.
+To benchmark our progresses, I think it is reasonable to start with a set of easy instances (J30 benchmarks on RCPSP) and a set of hard instances (from MiniZinc competition 2022).
+I have selected a subset of the MiniZinc competition benchmarks where I discarded models with set variables (unsupported by Turbo).
+For a representative but quicker benchmarking, I selected 1 or 2 instances per problems, arbitrarily varying between small and large.
+For RCPSP, I randomly selected 19 instances.
+In the following table, I describe the problems of the benchmarking suite.
+
+| Problem | #Instances | Description | Global Constraints | Shape |
+|---------|------------|-------------|--------------------|-------|
+| Wordpress | 1 | Allocation problem: assign software components to hardware units under some constraints. | None | Many `sum()()`. |
+| ACCAP | 2 | Allocation problem: Airport check-in counter allocation problem (ACCAP) with fixed opening/closing times. | `diffn` (1) | Precedence constraints. |
+| Tower | 1 | Allocation problem: assign handsets to communication towers to maximize connection quality. | None | |
+| Team Assignment | 1 | Allocation problem: make teams of players to maximize happiness and balancing. | `bin_packing_load`, `alldifferent` (\*), `bin_packing` (1\*) | Sums of Boolean. |
+| NFC | 1 | Graph problem: network flow global constraint. | `network_flow_cost` | Equality/sum constraints. |
+| Diameterc-mst | 1 | Graph problem: Diameter Constrained Minimum Spanning Tree | None | Many implications / disjunctions.  |
+| Stripboard | 2 | Layout for electrical components on stripboard: find the most compact layout. | `diffn` (1), `disjunctive` (1), `alldifferent` (1\*), `strictly_decreasing` (1\*) | Many implications. |
+| Blocks world | 1 | Planning problem: find a path of minimum length from an initial configuration to a final configuration of the puzzle. | `increasing` (1), `global_cardinality_closed` | |
+| Roster Sickness | 1 | Scheduling problem: assign employees to work shifts with expertise constraints.  | None | Lexicographic optimization. |
+| Triangular | 2 | Puzzle | None. | Sum constraints. |
+| Generalized-peacable Queens | 1 | Toy problem: A variant of n-queens with several armies of queens. | `regular`, `global_cardinality` (1), `all_equal` (1), `value_precede_chain` (1\*), `lex_lesseq` (\*) | Almost only global constraints. |
+| GFD Schedule | 1 | Scheduling problem: productions of group of items in various facilities. | `cumulative`, `at_most`, `nvalue` | Many implications / disjunctions. |
+| RCPSP | 18 | Scheduling problem: Minimize makespan of tasks under resources constraints. | `cumulative` | Precedence constraints, disjunctions. |
+| Spot 5 | 1 | Satellite imaging: select a subset of photograph to be taken maximizing a weight. | `table` | |
+
+## Benchmarks Analysis
+
+
 
