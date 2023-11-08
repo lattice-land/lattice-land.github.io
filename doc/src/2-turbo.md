@@ -57,5 +57,27 @@ In the following table, I describe the problems of the benchmarking suite.
 
 ## Benchmarks Analysis
 
+The goal of our first benchmarking session is to have an idea how close is Turbo from modern/state-of-the-art constraint solvers (spoiler: not very close).
+In order to assess the efficiency of Turbo, I compared against Choco and Or-Tools:
 
+* [Choco](github.com/chocoteam/choco-solver) v4.10.13: Java constraint solver without SAT clause learning and with global constraints.
+* [Or-Tools](github.com/chocoteam/choco-solver) v9.6: C++ constraint solver with SAT clause learning and global constraints.
+
+Since Turbo has no global constraint, I also benchmarked the two previous solvers on problem with decomposition of global constraints, named `choco.noglobal` and `or-tools.noglobal` below.
+Turbo is also developed in a way it can be executed on both the CPU or the GPU, although no special effort is made to make it efficient on CPU ; it is useful to debug and compare the efficiency of almost identical solving algorithm.
+
+The machine on which I performed the benchmarks is a Dell Precision 5820 (desktop computer):
+
+* CPU: Intel Core i9-10900X (3,7GHz, 4,7GHz Turbo, 10C, cache 19,25Mo, HT, 165W).
+* RAM: 64 Go, 2 x 32 Go, DDR4 UDIMM.
+* GPU: NVIDIA RTX A5000, 24Go, 64 streaming multiprocessors (8192 CUDA cores), 230W.
+
+The timeout is set to 5 minutes for each instance, it is relatively small in order to quickly iterate and test new optimizations of Turbo.
+
+We first start by an overview of the benchmarks:
+
+![Status comparison](turbo-v1.0.1/problem-status.png)
+
+The overall results are not surprising.
+When looking at Choco and Or-Tools, we might wonder if global constraints are worth the investment, especially when clause learning is activated (Or-Tools).
 
