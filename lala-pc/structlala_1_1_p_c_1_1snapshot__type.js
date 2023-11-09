@@ -5,8 +5,8 @@ var structlala_1_1_p_c_1_1snapshot__type =
     [ "snapshot_type", "structlala_1_1_p_c_1_1snapshot__type.html#a03fc43b051002b2d68e514319659ff01", null ],
     [ "snapshot_type", "structlala_1_1_p_c_1_1snapshot__type.html#acb7b81b06e7489959dd24b7e87146496", null ],
     [ "snapshot_type", "structlala_1_1_p_c_1_1snapshot__type.html#a02dfc501e5c555c7bd59b44daa360e2b", null ],
-    [ "operator=", "structlala_1_1_p_c_1_1snapshot__type.html#a9666384c4c1d307ed471bde5769ab528", null ],
-    [ "operator=", "structlala_1_1_p_c_1_1snapshot__type.html#a68252317c2805fd0b4c45ee82a58b3cb", null ],
+    [ "operator=", "structlala_1_1_p_c_1_1snapshot__type.html#aa9d9d83098c4793cc904799419d1df40", null ],
+    [ "operator=", "structlala_1_1_p_c_1_1snapshot__type.html#a609136ae4964e883d54e7fbabb0eed62", null ],
     [ "num_props", "structlala_1_1_p_c_1_1snapshot__type.html#a6a099763d598d772deaf4740929459d6", null ],
     [ "sub_snap", "structlala_1_1_p_c_1_1snapshot__type.html#a7fdb69129b17088171cc2ce07d1fff41", null ]
 ];
