@@ -1,6 +1,6 @@
 var sort_8hpp =
 [
-    [ "Sort", "structlala_1_1_sort.html", "structlala_1_1_sort" ],
+    [ "lala::Sort< Allocator >", "structlala_1_1_sort.html", "structlala_1_1_sort" ],
     [ "UNTYPED", "sort_8hpp.html#af5d67e1d1856b2c01653a0f9ab95d391", null ],
     [ "AType", "sort_8hpp.html#a6c626918dd7c19ff046f5cebaabec18f", null ],
     [ "logic_bool", "sort_8hpp.html#a2397fa063de70fb2241dc9ea08c47800", null ],

@@ -1,7 +1,7 @@
 var ast_8hpp =
 [
-    [ "AVar", "classlala_1_1_a_var.html", "classlala_1_1_a_var" ],
-    [ "TFormula", "classlala_1_1_t_formula.html", "classlala_1_1_t_formula" ],
+    [ "lala::AVar", "classlala_1_1_a_var.html", "classlala_1_1_a_var" ],
+    [ "lala::TFormula< Allocator, ExtendedSig >", "classlala_1_1_t_formula.html", "classlala_1_1_t_formula" ],
     [ "LVar", "ast_8hpp.html#acb9f389c51804929bfb3e6d682d77ff0", null ],
     [ "Sig", "ast_8hpp.html#a4be41540c5051a480d0611a3e216b659", [
       [ "NEG", "ast_8hpp.html#a4be41540c5051a480d0611a3e216b659afd5c2ae3d5e7293327344b6c3485fc82", null ],
@@ -68,11 +68,11 @@ var ast_8hpp =
       [ "MAXIMIZE", "ast_8hpp.html#a4be41540c5051a480d0611a3e216b659ad20094bfd86b4eb408d39956ec443856", null ],
       [ "MINIMIZE", "ast_8hpp.html#a4be41540c5051a480d0611a3e216b659ad31b4d2b16f0588a88f952ed29ddace6", null ]
     ] ],
-    [ "string_of_sig", "ast_8hpp.html#a23e4cd05f6c827108d47c98443be639e", null ],
-    [ "is_prefix", "ast_8hpp.html#af2b298de3e0cbb50bbc02bc606b7c56a", null ],
-    [ "is_division", "ast_8hpp.html#abf05545f06bb4e74db05c3c520cb31e8", null ],
-    [ "is_modulo", "ast_8hpp.html#a97ff9ae908dd0eed685d87631506b3eb", null ],
-    [ "is_associative", "ast_8hpp.html#a6b055c3c2499841f43012304df8c0686", null ],
+    [ "string_of_sig", "ast_8hpp.html#aad8550569c2adf06a8d8ce470bd2e3e9", null ],
+    [ "is_prefix", "ast_8hpp.html#a9decc16cdfba74c367b1edf7110e595f", null ],
+    [ "is_division", "ast_8hpp.html#ab39552615f718c4f45eece484b13baa8", null ],
+    [ "is_modulo", "ast_8hpp.html#adcf455317064ad356964a272138df9b5", null ],
+    [ "is_associative", "ast_8hpp.html#a4ad1145d2bc437a38928e69fc17af113", null ],
     [ "print", "ast_8hpp.html#ae10b07a3758fa9b4c6b79d976097ef9f", null ],
     [ "operator==", "ast_8hpp.html#aa035eb336900b61d13e7f0dbc517d334", null ]
 ];
