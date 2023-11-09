@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['universe_5ftype_172',['universe_type',['../classlala_1_1_search_tree.html#a37a66ec1daccbdad83a63aa95ca17ca9',1,'lala::SearchTree']]]
+  ['universe_5ftype_0',['universe_type',['../classlala_1_1_search_tree.html#a37a66ec1daccbdad83a63aa95ca17ca9',1,'lala::SearchTree']]]
 ];
