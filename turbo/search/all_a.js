@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['must_5fquit_54',['must_quit',['../common__solving_8hpp.html#aceec23d67eb8f6c24010f377a52aee98',1,'common_solving.hpp']]]
+  ['listore_0',['LIStore',['../struct_abstract_domains.html#a1ab2170a315a7428892ce6e3310a72a9',1,'AbstractDomains']]]
 ];

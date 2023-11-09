@@ -22,5 +22,5 @@
 
 # Turbo Technical Journal
 
-* [Quest for Efficiency](1-turbo.md)
-* [Design Rational](2-turbo.md)
+* [Introducing Turbo](1-turbo.md)
+* [v1.0.1: Unoptimized Turbo](2-turbo.md)

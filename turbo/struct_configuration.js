@@ -15,6 +15,7 @@ var struct_configuration =
     [ "verbose_solving", "struct_configuration.html#a339e1d8e3df826f7eb6f3dbed59adeb5", null ],
     [ "print_ast", "struct_configuration.html#a2e1d83ae5ce1588efe89ff65b9220460", null ],
     [ "timeout_ms", "struct_configuration.html#a551421ac989bd6fed56f7e09de7618e2", null ],
+    [ "kernel_shutdown_timeout_ms", "struct_configuration.html#a8134f3dc5baa904a825d9afa3c4115b8", null ],
     [ "or_nodes", "struct_configuration.html#a6400dfba9cd09ea3050d18c71c8d47fb", null ],
     [ "and_nodes", "struct_configuration.html#ad71c1fc1db14a57e26417c6bd4ffb402", null ],
     [ "subproblems_power", "struct_configuration.html#afb757200eb840ef0b0c908827ab77d88", null ],

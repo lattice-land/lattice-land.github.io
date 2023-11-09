@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['optimization_174',['optimization',['../struct_statistics.html#afb9b27a993738c2ba527f25af7e2d31e',1,'Statistics']]],
-  ['or_5fnodes_175',['or_nodes',['../struct_configuration.html#a6400dfba9cd09ea3050d18c71c8d47fb',1,'Configuration']]]
+  ['nodes_0',['nodes',['../struct_statistics.html#abbcb20755134a0cab9adebbe6ee321ab',1,'Statistics']]],
+  ['num_5fblocks_5fdone_1',['num_blocks_done',['../struct_statistics.html#a37b659551d0b1f473eb43b856cf96366',1,'Statistics']]]
 ];

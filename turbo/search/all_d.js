@@ -1,19 +1,9 @@
 var searchData=
 [
-  ['parse_5fargs_63',['parse_args',['../config_8hpp.html#ae98b2a94863cf90ea5c7aabe95c1d7a5',1,'config.hpp']]],
-  ['prepare_5fsolver_64',['prepare_solver',['../struct_abstract_domains.html#abfe2dbf8d800ee620940db4d3a677153',1,'AbstractDomains']]],
-  ['print_5fast_65',['print_ast',['../struct_configuration.html#a2e1d83ae5ce1588efe89ff65b9220460',1,'Configuration']]],
-  ['print_5fcommandline_66',['print_commandline',['../struct_configuration.html#ab26cab83eec7511813d66fd21c715ba5',1,'Configuration']]],
-  ['print_5ffinal_5fsolution_67',['print_final_solution',['../struct_abstract_domains.html#a1ba9490f8b7b9a1f9058ca5c7352c1e7',1,'AbstractDomains']]],
-  ['print_5fintermediate_5fsolutions_68',['print_intermediate_solutions',['../struct_configuration.html#a1e28a838055718bee138fc096d43696e',1,'Configuration']]],
-  ['print_5fmzn_5fend_5fstats_69',['print_mzn_end_stats',['../struct_statistics.html#a8e69c949bceefdd5a1e2c3ed2841fce0',1,'Statistics']]],
-  ['print_5fmzn_5ffinal_5fseparator_70',['print_mzn_final_separator',['../struct_statistics.html#a9fd368a3d013805efc2edb61345ccad4',1,'Statistics']]],
-  ['print_5fmzn_5fobjective_71',['print_mzn_objective',['../struct_statistics.html#a500f20883ce3dcf1d839a514bebc1d1e',1,'Statistics']]],
-  ['print_5fmzn_5fseparator_72',['print_mzn_separator',['../struct_statistics.html#ae7ef2f3873851b56337402bf906f665c',1,'Statistics']]],
-  ['print_5fmzn_5fstatistics_73',['print_mzn_statistics',['../struct_abstract_domains.html#af512dd0701e97987346dbc2cb2319922',1,'AbstractDomains::print_mzn_statistics()'],['../struct_configuration.html#a326f93187848c69b41a34008ad16233a',1,'Configuration::print_mzn_statistics()'],['../struct_statistics.html#a35047830ce5d2509f8b83882bb103847',1,'Statistics::print_mzn_statistics()']]],
-  ['print_5fstatistics_74',['print_statistics',['../struct_configuration.html#ad4b8d3dc5fa618691241f82ca0407d06',1,'Configuration']]],
-  ['print_5fstore_75',['print_store',['../struct_abstract_domains.html#ac720fe059f8a5595d7270d81c4def7e2',1,'AbstractDomains']]],
-  ['problem_5fpath_76',['problem_path',['../struct_configuration.html#a0cb163b34ca0cb8d9dca2e65345e5ab6',1,'Configuration']]],
-  ['prop_5fallocator_77',['prop_allocator',['../struct_abstract_domains.html#abbced67ac6f10ece988f632e1bc9b34c',1,'AbstractDomains']]],
-  ['prop_5fallocator_5ftype_78',['prop_allocator_type',['../struct_abstract_domains.html#a83cbd890abd795757263dfff456840c2',1,'AbstractDomains']]]
+  ['on_5ffailed_5fnode_0',['on_failed_node',['../struct_abstract_domains.html#a83c68e8983fe058fcd5137f12e47ae73',1,'AbstractDomains']]],
+  ['on_5fnode_1',['on_node',['../struct_abstract_domains.html#a770c5774dbe0231237fab01dfb148c7b',1,'AbstractDomains']]],
+  ['on_5fsolution_5fnode_2',['on_solution_node',['../struct_abstract_domains.html#a391ddbddc47c3fff8a47cb2ba5ffd7d4',1,'AbstractDomains']]],
+  ['operator_3d_3',['operator=',['../struct_unique_alloc.html#a827b2ff1f1b476dbd28d87f3a68f4988',1,'UniqueAlloc']]],
+  ['optimization_4',['optimization',['../struct_statistics.html#afb9b27a993738c2ba527f25af7e2d31e',1,'Statistics']]],
+  ['or_5fnodes_5',['or_nodes',['../struct_configuration.html#a6400dfba9cd09ea3050d18c71c8d47fb',1,'Configuration']]]
 ];
