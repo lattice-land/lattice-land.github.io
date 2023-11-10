@@ -1,47 +1,47 @@
 <!DOCTYPE HTML>
-<html lang="en" class="sidebar-visible no-js light">
+<html lang="en" class="light" dir="ltr">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Design Rational - Lattice Land Book</title>
-                
+        <title>v1.0.1: Unoptimized Turbo - Lattice Land Book</title>
+
 
         <!-- Custom HTML head -->
         
-
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="theme-color" content="#ffffff" />
+        <meta name="theme-color" content="#ffffff">
 
-                <link rel="icon" href="favicon.svg">
-                        <link rel="shortcut icon" href="favicon.png">
-                <link rel="stylesheet" href="css/variables.css">
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
         <link rel="stylesheet" href="css/general.css">
         <link rel="stylesheet" href="css/chrome.css">
-                <link rel="stylesheet" href="css/print.css" media="print">
-        
+        <link rel="stylesheet" href="css/print.css" media="print">
+
         <!-- Fonts -->
         <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
-                <link rel="stylesheet" href="fonts/fonts.css">
-        
+        <link rel="stylesheet" href="fonts/fonts.css">
+
         <!-- Highlight.js Stylesheets -->
         <link rel="stylesheet" href="highlight.css">
         <link rel="stylesheet" href="tomorrow-night.css">
         <link rel="stylesheet" href="ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
-        
-            </head>
-    <body>
+        <link rel="stylesheet" href="custom.css">
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
         <!-- Provide site root to javascript -->
-        <script type="text/javascript">
+        <script>
             var path_to_root = "";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
-        <script type="text/javascript">
+        <script>
             try {
                 var theme = localStorage.getItem('mdbook-theme');
                 var sidebar = localStorage.getItem('mdbook-sidebar');
@@ -57,71 +57,100 @@
         </script>
 
         <!-- Set the theme before any content is loaded, prevents flash -->
-        <script type="text/javascript">
+        <script>
             var theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
             var html = document.querySelector('html');
-            html.classList.remove('no-js')
             html.classList.remove('light')
             html.classList.add(theme);
-            html.classList.add('js');
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
         </script>
 
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
         <!-- Hide / unhide sidebar before it is displayed -->
-        <script type="text/javascript">
-            var html = document.querySelector('html');
-            var sidebar = 'hidden';
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
             }
-            html.classList.remove('sidebar-visible');
-            html.classList.add("sidebar-" + sidebar);
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="index.html"><strong aria-hidden="true">1.</strong> Lattice Land</a></li><li class="chapter-item expanded affix "><li class="part-title">CUDA Battery Library</li><li class="chapter-item expanded "><a href="1-cuda-battery.html"><strong aria-hidden="true">2.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="2-cuda-battery.html"><strong aria-hidden="true">3.</strong> Data from CPU to GPU</a></li><li class="chapter-item expanded "><a href="3-cuda-battery.html"><strong aria-hidden="true">4.</strong> CMake Project</a></li><li class="chapter-item expanded "><a href="4-cuda-battery.html"><strong aria-hidden="true">5.</strong> In-Kernel Allocation</a></li><li class="chapter-item expanded "><a href="5-cuda-battery.html"><strong aria-hidden="true">6.</strong> Shared Memory Allocator</a></li><li class="chapter-item expanded "><a href="6-cuda-battery.html"><strong aria-hidden="true">7.</strong> Caution</a></li><li class="chapter-item expanded affix "><li class="part-title">Parallel Lattice Programming</li><li class="chapter-item expanded affix "><li class="part-title">Abstract Constraint Reasoning</li><li class="chapter-item expanded affix "><li class="part-title">Parallel Abstract Constraint Reasoning</li><li class="chapter-item expanded affix "><li class="part-title">Turbo Technical Journal</li><li class="chapter-item expanded "><a href="1-turbo.html"><strong aria-hidden="true">8.</strong> Quest for Efficiency</a></li><li class="chapter-item expanded "><a href="2-turbo.html" class="active"><strong aria-hidden="true">9.</strong> Design Rational</a></li></ol>            </div>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="index.html"><strong aria-hidden="true">1.</strong> Lattice Land</a></li><li class="chapter-item expanded affix "><li class="part-title">CUDA Battery Library</li><li class="chapter-item expanded "><a href="1-cuda-battery.html"><strong aria-hidden="true">2.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="2-cuda-battery.html"><strong aria-hidden="true">3.</strong> Data from CPU to GPU</a></li><li class="chapter-item expanded "><a href="3-cuda-battery.html"><strong aria-hidden="true">4.</strong> CMake Project</a></li><li class="chapter-item expanded "><a href="4-cuda-battery.html"><strong aria-hidden="true">5.</strong> In-Kernel Allocation</a></li><li class="chapter-item expanded "><a href="5-cuda-battery.html"><strong aria-hidden="true">6.</strong> Shared Memory Allocator</a></li><li class="chapter-item expanded "><a href="6-cuda-battery.html"><strong aria-hidden="true">7.</strong> Caution</a></li><li class="chapter-item expanded affix "><li class="part-title">Parallel Lattice Programming</li><li class="chapter-item expanded affix "><li class="part-title">Abstract Constraint Reasoning</li><li class="chapter-item expanded affix "><li class="part-title">Parallel Abstract Constraint Reasoning</li><li class="chapter-item expanded affix "><li class="part-title">Turbo Technical Journal</li><li class="chapter-item expanded "><a href="1-turbo.html"><strong aria-hidden="true">8.</strong> Introducing Turbo</a></li><li class="chapter-item expanded "><a href="2-turbo.html" class="active"><strong aria-hidden="true">9.</strong> v1.0.1: Unoptimized Turbo</a></li></ol>
+            </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
 
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                
-                <div id="menu-bar-hover-placeholder"></div>
-                <div id="menu-bar" class="menu-bar sticky bordered">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
-                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
                             <i class="fa fa-bars"></i>
-                        </button>
+                        </label>
                         <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
                             <i class="fa fa-paint-brush"></i>
                         </button>
                         <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
                         </ul>
-                                                <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                             <i class="fa fa-search"></i>
                         </button>
-                                            </div>
+                    </div>
 
                     <h1 class="menu-title">Lattice Land Book</h1>
 
                     <div class="right-buttons">
-                                                <a href="print.html" title="Print this book" aria-label="Print this book">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
-                                                                        
+
                     </div>
                 </div>
 
-                                <div id="search-wrapper" class="hidden">
+                <div id="search-wrapper" class="hidden">
                     <form id="searchbar-outer" class="searchbar-outer">
                         <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
                     </form>
@@ -131,9 +160,9 @@
                         </ul>
                     </div>
                 </div>
-                
+
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
-                <script type="text/javascript">
+                <script>
                     document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
                     document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
                     Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
@@ -143,12 +172,12 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="design-rational"><a class="header" href="#design-rational">Design Rational</a></h1>
-<p><em>31 August 2023.</em> We start this adventure with a functional but slow GPU solver.
+                        <h1 id="v101-unoptimized-turbo"><a class="header" href="#v101-unoptimized-turbo">v1.0.1: Unoptimized Turbo</a></h1>
+<p><em>08 November 2023.</em> We start this adventure with a functional but slow GPU solver.
 To make it work on the GPU, we had to simplify the architecture of mainstream CPU-based constraint solver in many regards.
 Let's start with the current design decisions behind Turbo:</p>
 <ul>
-<li><em>Pure GPU</em>: We decided early on to make it a solver entirely on the GPU, this is to avoid memory transfers between CPU and GPU.
+<li><em>Pure GPU</em>: From the beginning, we decided to develop Turbo entirely on the GPU, primarily to eliminate memory transfers between the CPU and GPU.
 We are also forced to design each component with a parallel mindset.</li>
 <li><em>Propagation</em>: The propagation loop is based on the very first AC1 algorithm: we simply take the first N propagators, run them in parallel, then take the next N propagators, and so on until they are all executed, where N is the number of cores available in the current block.
 We repeat this operation in a fixed point loop until no change is detected anymore.
@@ -156,70 +185,180 @@ This implies we do not have a queue of propagators to be woken up or any notion 
 <li><em>Backtracking</em>: It is based on full recomputation, each time we backtrack, we re-apply all the decisions from the root node; actually, from the root of the current EPS subproblem being solved.</li>
 <li><em>Embarrassingly parallel search</em>: We dynamically create subproblems that are explored individually by GPU blocks, hence the parallel propagation only happens inside one block.</li>
 <li><em>Abstract domains</em>: The solver architecture is based on abstract domains which encapsulate solving algorithms dedicated to a particular constraint language, similarly to theories in SMT.
-However, abstract domains are semantic objects while SMT theories are syntactic objects (and a formal connection exists between the two), which makes abstract domains closer the actual implementation code.</li>
+However, abstract domains are semantic objects while SMT theories are syntactic objects (and a formal connection exists between the two).
+Our opinion is that abstract domains are closer to the actual implementation code than SMT theories.
+Moreover, since a product of abstract domains is also an abstract domain, this framework offers promising perspectives for combining solving algorithms.</li>
 <li><em>No conflict learning</em>: Conflicts require dynamic data structures to represent the implication graph, and memory allocation is quite costly on GPU, so we currently have no conflict learning.</li>
-<li><em>Lock-free</em>: Although propagators are sharing the memory, we do not have locks on the variables, and actually no lock at all.</li>
+<li><em>Lock-free</em>: Although propagators are sharing the memory, we do not have locks on variables, and actually no lock at all (this is a lie: a single lock used for printing purposes).</li>
+<li><em>Formally correct</em>: Parallel programming is hard and prone to bugs. The theory behind Turbo relies on lattice theory which enabled us to prove that our lock-free propagation loop is correct.</li>
 </ul>
 <p>We have thrown away many optimizations considered essential in mainstream CPU-based constraint solvers.
-Incidentally, the GPU solver is much simpler than a CPU solver, while obtaining similar performances (of course, when comparing a pure CP solver without SAT learning).
+Incidentally, the GPU solver is simpler than a CPU solver, while obtaining similar performances; of course, when comparing to a pure CP solver without SAT learning.
 Back in 2021, our hypothesis was that drastically simplifying the solver design was necessary to implement a GPU solver and that it could be efficient.
-We implemented a <a href="https://github.com/ptal/turbo/tree/aaai2022">prototype (Turbo)</a> that demonstrated it could work as we obtained similar performances between Turbo and Gecode (on a 6-cores CPU with 12 threads) on RCPSP.
-We also laid out the theory behind parallel constraint propagation on GPU and show that, although we did not use any lock, it was giving correct results.
+We implemented a <a href="https://github.com/ptal/turbo/tree/aaai2022">prototype (Turbo)</a> demonstrating it could work: we obtained similar performances between Turbo and Gecode (on a 6-cores CPU with 12 threads) on RCPSP.
+More importantly, we laid out the theory behind parallel constraint propagation on GPU and show that, despite the absence of locks, it yielded correct results.
 These findings were summarized in our <a href="http://hyc.io/papers/aaai2022.pdf">AAAI 2022 paper</a>.</p>
 <p>For more than one year, I have been refactoring and extending this initial prototype in multiple ways.
 One goal has been achieved now and Turbo can solve MiniZinc model with two limitations: for now, it only supports integer variables, and all global constraints are decomposed into primitive constraints.
 The solver Turbo is part of a larger project called <em>Lattice Land</em>, which is a collection of libraries representing lattice data structures.
 The long-term goal is to be able to reuse these libraries outside of constraint solving, for instance in static analysis by abstract interpretation and in distributed computing using CRDT.
-The code of Turbo is the glue putting together the required libraries to solve a constraint problem.</p>
-<p>However, as one could expect, the new <em>abstract domain</em> design comes with a price: it is less efficient than the prototype.
-I will try to integrate one by one various optimizations and attempt to first reach the previous efficiency, and then go beyond it.
-To benchmark our progresses, I think it is reasonable to start with a set of easy instances and a set of hard instances.</p>
+The code of Turbo is the glue putting together the required libraries to solve a constraint problem.
+The new <em>abstract domain</em> design comes with a price: it is less efficient than the prototype.
+It was expected since the prototype could only handle a very small constraint language with limited architectural overhead.
+I will try to integrate one by one various optimizations and attempt to first reach the previous efficiency, and then go beyond it.</p>
+<h2 id="benchmarking"><a class="header" href="#benchmarking">Benchmarking</a></h2>
+<p>To benchmark our progresses, I think it is reasonable to start with a set of easy instances (J30 benchmarks on RCPSP) and a set of harder instances (from MiniZinc competition 2022).
+I have selected a subset of the MiniZinc competition benchmarks where I discarded models with set variables (unsupported by Turbo).
+For a representative but quicker benchmarking, I selected 1 or 2 instances per problems, arbitrarily varying between small and large instances.
+For RCPSP, I randomly selected 19 instances of the J30 dataset.
+In the following table, I describe the problems of the benchmarking suite (<code>diffn</code> (1) indicates one occurrence of the global constraint, <code>alldifferent</code> (*) indicates the global constraint occurs in redundant or symmetry breaking constraints).</p>
+<h3 id="description"><a class="header" href="#description">Description</a></h3>
 <ul>
-<li><em>Resource-constrained project scheduling problem (RCPSP)</em>: Patterson instances (110 in total), these are all solved quickly by modern CP-SAT solvers.</li>
-<li><em>MiniZinc competition 2022</em>: The problems are more diverse but also harder.</li>
+<li>Wordpress: Assign software components to hardware units under some constraints.</li>
+<li>ACCAP: Airport check-in counter allocation problem (ACCAP) with fixed opening/closing times.</li>
+<li>Tower: Assign handsets to communication towers to maximize connection quality.</li>
+<li>Team: Make teams of players to maximize happiness and balancing.</li>
+<li>NFC: Network flow global constraint.</li>
+<li>Diameterc-mst: Diameter Constrained Minimum Spanning Tree.</li>
+<li>Stripboard: Layout for electrical components on stripboard: find the most compact layout.</li>
+<li>Blocks world: Find a path of minimum length from an initial configuration to a final configuration of the puzzle.</li>
+<li>Triangular: Puzzle.</li>
+<li>Generalized-peacable Queens: A variant of n-queens with several armies of queens.</li>
+<li>Roster Sickness: Assign employees to work shifts with expertise constraints.</li>
+<li>GFD Schedule: Productions of group of items in various facilities.</li>
+<li>RCPSP: Minimize makespan of tasks under resources constraints.</li>
+<li>Spot 5: Select a subset of photograph to be taken maximizing a weight.</li>
 </ul>
+<div class="table-wrapper"><table><thead><tr><th>Problem</th><th>#Inst</th><th>Kind</th><th>Global Constraints</th><th>Shape</th></tr></thead><tbody>
+<tr><td>Wordpress</td><td>1</td><td>Allocation</td><td>None</td><td>Many <code>sum()()</code>.</td></tr>
+<tr><td>ACCAP</td><td>2</td><td>Allocation</td><td><code>diffn</code> (1)</td><td>Precedence constraints.</td></tr>
+<tr><td>Tower</td><td>1</td><td>Allocation</td><td>None</td><td></td></tr>
+<tr><td>Team Assignment</td><td>1</td><td>Allocation</td><td><code>bin_packing_load</code>, <code>alldifferent</code> (*), <code>bin_packing</code> (1*)</td><td>Sums of Boolean.</td></tr>
+<tr><td>NFC</td><td>1</td><td>Graph</td><td><code>network_flow_cost</code></td><td>Equality/sum constraints.</td></tr>
+<tr><td>Diameterc-mst</td><td>1</td><td>Graph</td><td>None</td><td>Many implications / disjunctions.</td></tr>
+<tr><td>Stripboard</td><td>2</td><td>Packing</td><td><code>diffn</code> (1), <code>disjunctive</code> (1), <code>alldifferent</code> (1*), <code>strictly_decreasing</code> (1*)</td><td>Many implications.</td></tr>
+<tr><td>Blocks world</td><td>1</td><td>Planning</td><td><code>increasing</code> (1), <code>global_cardinality_closed</code></td><td></td></tr>
+<tr><td>Triangular</td><td>2</td><td>Puzzle</td><td>None</td><td>Sum constraints.</td></tr>
+<tr><td>Generalized-peacable Queens</td><td>1</td><td>Puzzle</td><td><code>regular</code>, <code>global_cardinality</code> (1), <code>all_equal</code> (1), <code>value_precede_chain</code> (1*), <code>lex_lesseq</code> (*)</td><td>Almost only global constraints.</td></tr>
+<tr><td>Roster Sickness</td><td>1</td><td>Scheduling</td><td>None</td><td>Lexicographic optimization.</td></tr>
+<tr><td>GFD Schedule</td><td>1</td><td>Scheduling</td><td><code>cumulative</code>, <code>at_most</code>, <code>nvalue</code></td><td>Many implications / disjunctions.</td></tr>
+<tr><td>RCPSP</td><td>18</td><td>Scheduling</td><td><code>cumulative</code></td><td>Precedence constraints, disjunctions.</td></tr>
+<tr><td>Spot 5</td><td>1</td><td>Ad-hoc</td><td><code>table</code></td><td></td></tr>
+</tbody></table>
+</div>
+<h3 id="analysis"><a class="header" href="#analysis">Analysis</a></h3>
+<p>The primary goal of our initial benchmarking session is to gauge how Turbo measures up against contemporary, state-of-the-art constraint solvers (spoiler: there's room for improvement).
+In order to assess the efficiency of Turbo, I compared it against Choco and Or-Tools:</p>
+<ul>
+<li><a href="https://github.com/ptal/turbo/tree/v1.0.1">Turbo</a> v1.0.1: C++/CUDA constraint solver without SAT clause learning and without global constraints.</li>
+<li><a href="https://github.com/chocoteam/choco-solver">Choco</a> v4.10.13: Java constraint solver without SAT clause learning and with global constraints.</li>
+<li><a href="https://github.com/google/or-tools">Or-Tools</a> v9.6: C++ constraint solver with SAT clause learning and global constraints.</li>
+</ul>
+<p>Since Turbo has no global constraint, I also benchmarked the two previous solvers on problem with decomposition of global constraints, named <code>choco.noglobal</code> and <code>or-tools.noglobal</code> below.
+Turbo is developed to run on both CPU and GPU, although it is primarily optimized for GPU use.
+We run on the CPU mainly for debugging and comparative efficiency analysis.</p>
+<p>The machine on which I performed the benchmarks is a Dell Precision 5820 (desktop computer):</p>
+<ul>
+<li>CPU: Intel Core i9-10900X (3,7GHz, 4,7GHz Turbo, 10C, cache 19,25Mo, HT, 165W).</li>
+<li>RAM: 64 Go, 2 x 32 Go, DDR4 UDIMM.</li>
+<li>GPU: NVIDIA RTX A5000, 24Go, 64 streaming multiprocessors (8192 CUDA cores), 230W.</li>
+</ul>
+<p>About the details of the experiments:</p>
+<ul>
+<li>Timeout: 5 minutes per instance (it is relatively small in order to quickly iterate and test new optimizations of Turbo).</li>
+<li>EPS (TurboGPU): generate 1024 subproblems (<code>-sub 10</code> for &quot;2^10&quot;).</li>
+</ul>
+<p><em>Warning</em>: Before we start, let's get something straight: <em>the comparison between TurboGPU and other solver is relatively unfair.</em>
+In particular, because of EPS, TurboGPU uses breadth-first search at the top of the tree, and thus sometimes can get better bounds, while the others use depth-first search and might stay stuck in the left part of the search tree longer.
+In contrast, on some problems, depth-first search allows TurboCPU to find a better bound because it goes deeper in the search tree.
+To be completely fair, we should enable parallelism for each solver since most of them support it.
+We don't because when you run a race, you don't try to overtake the 1th runner when you are at the back of the race, you first focus on overtaking the runner in front of you ;-)</p>
+<p>Alright, let's go with the benchmarks, the full Jupyter notebook is available <a href="https://github.com/ptal/turbo/blob/v1.0.1/benchmarks/analysis-v1.0.1.ipynb">here</a>.
+We first start by an overview:</p>
+<p><img src="turbo-v1.0.1/overall.png" alt="Status comparison" /></p>
+<p>The overall results are not surprising.
+When looking at Choco and Or-Tools, we might wonder if global constraints are worth the investment, especially when clause learning is activated (Or-Tools).
+In the following, we take a closer look at Choco and Or-Tools:</p>
+<p><img src="baseline/or-tools-vs-or-tools-noglobal.png" alt="OrTools vs OrTools.noglobal" />
+<img src="baseline/choco-vs-choco-noglobal.png" alt="Choco vs Choco.noglobal" /></p>
+<p>Here, we only compare the objective bounds and not the time needed to reach the best found objective.
+Back to Turbo, let's compare it to our its CPU-version and the baseline solvers:</p>
+<p><img src="turbo-v1.0.1/turbocpu-vs-turbogpu.png" alt="TurboCPU vs TurboGPU" />
+<img src="turbo-v1.0.1/turbogpu-vs-ortools.png" alt="TurboGPU vs OrTools" />
+<img src="turbo-v1.0.1/turbogpu-vs-ortools-noglobal.png" alt="TurboGPU vs OrTools.noglobal" />
+<img src="turbo-v1.0.1/turbogpu-vs-choco.png" alt="TurboGPU vs Choco" />
+<img src="turbo-v1.0.1/turbogpu-vs-choco-noglobal.png" alt="TurboGPU vs Choco.noglobal" /></p>
+<p>For future references, it is interesting to have an average of some speed and memory metrics across all problems:</p>
+<div class="table-wrapper"><table><thead><tr><th>Metrics</th><th>Average</th><th>Median</th></tr></thead><tbody>
+<tr><td>Nodes per seconds</td><td>1246.77</td><td>35.07</td></tr>
+<tr><td>Fixpoint iterations per node</td><td>8.48</td><td>7.11</td></tr>
+<tr><td>IDLE SMs at timeout</td><td>13</td><td></td></tr>
+<tr><td>Propagators memory</td><td>16.41MB</td><td>13.07MB</td></tr>
+<tr><td>Variables store memory</td><td>167.78KB</td><td>174.01KB</td></tr>
+</tbody></table>
+</div>
+<p>When comparing the number of nodes per second, we can see that TurboGPU explores around 5 to 10 times more nodes per second than TurboCPU; showing a &quot;purely computational gain&quot; when using the GPU.
+Just 5x to 10x quicker is actually not that much quicker considering we have 64 streaming multiprocessors, and indicate we are under-using the parallel capacities of the GPU.
+In the future, I'll benchmark how efficiently Turbo is using the GPU using the profiling tools of NVIDIA.</p>
+<p><img src="turbo-v1.0.1/number-of-nodes-per-second.png" alt="TurboGPU nodes per second" /></p>
+<p>You might notice that on RCPSP, TurboCPU is actually better in terms of nodes per second.
+The reason is that the number of subproblems is not large enough, and some streaming multiprocessors become IDLE because no more problems can be consumed.
+On two problems, we have only one streaming multiprocessors working, meaning only 1/64 of the GPU is used at the end...
+We need to improve the EPS algorithm and the decomposition into subproblems.</p>
+<p><img src="turbo-v1.0.1/turbo-eps-nodes.png" alt="TurboGPU EPS" /></p>
+<p>Finally, let's look at the fixpoint iterations.
+On average, Turbo needs to execute each propagator 8 times before reaching a fixpoint, of course it depends on the problem:</p>
+<p><img src="turbo-v1.0.1/number-of-fixpoint-iterations-per-node.png" alt="TurboGPU fixpoint iterations" /></p>
+<p>To conclude this first benchmarking session, I found the results encouraging, especially when considering how primitive is the propagation loop.
+I think two important missing optimizations are:</p>
+<ol>
+<li>Preprocessing in the root node, potentially root nodes of each subproblem, to reduce the number of constraints and variables, and avoid useless propagation.</li>
+<li>Disable propagators that are entailed.</li>
+</ol>
+<p>See you next time for more benchmarking!</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                                                    <a rel="prev" href="1-turbo.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="1-turbo.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
-                        
-                        
+
+
                         <div style="clear: both"></div>
                     </nav>
                 </div>
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                                    <a rel="prev" href="1-turbo.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="1-turbo.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
-                
-                            </nav>
+
+            </nav>
 
         </div>
 
-        
-        
-        
-                <script type="text/javascript">
+
+
+
+        <script>
             window.playground_copyable = true;
         </script>
-        
-        
-                <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
-        
-        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
-        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
 
         <!-- Custom JS scripts -->
-        
-        
+
+
+    </div>
     </body>
 </html>

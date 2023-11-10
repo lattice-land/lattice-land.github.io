@@ -3,3 +3,6 @@ authors = ["Pierre Talbot"]
 multilingual = false
 src = "src"
 title = "Lattice Land Book"
+
+[output.html]
+additional-css = ["custom.css"]
