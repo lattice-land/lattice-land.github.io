@@ -943,7 +943,8 @@ template&lt;class F , class Env &gt; </div>
 </div><div class="memdoc">
 <p>Support the same language than the Cartesian product, and more:</p><ul>
 <li><code>x != k</code> is under-approximated by interpreting <code>x != k</code> in the lower bound.</li>
-<li><code>x == k</code> is interpreted by over-approximating <code>x == k</code> in both bounds and then verifying both bounds are the same. </li>
+<li><code>x == k</code> is interpreted by over-approximating <code>x == k</code> in both bounds and then verifying both bounds are the same.</li>
+<li><code>x in {[l..u]} is interpreted by under-approximating</code>x &gt;= l<code>and</code>x &lt;= u`. </li>
 </ul>
 
 </div>

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['nonatomicextraction_0',['NonAtomicExtraction',['../structlala_1_1_non_atomic_extraction.html',1,'lala']]]
+  ['light_5fcopy_5ftag_0',['light_copy_tag',['../structlala_1_1_simplifier_1_1light__copy__tag.html',1,'lala::Simplifier']]]
 ];

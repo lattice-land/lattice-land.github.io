@@ -151,6 +151,8 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlala_1_1_primitive_upset.html">PrimitiveUpset</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlala_1_1_simplifier.html">Simplifier</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlala_1_1_sort.html">Sort</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlala_1_1_t_formula.html">TFormula</a></td></tr>
@@ -178,9 +180,9 @@ Typedefs</h2></td></tr>
 <tr class="separator:a303d30ab753875ab1fc49e3b4f195719"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a08adbd4b2483ca2b14db01ba8769ef93" id="r_a08adbd4b2483ca2b14db01ba8769ef93"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelala.html#a08adbd4b2483ca2b14db01ba8769ef93">logic_real</a> = battery::tuple&lt; double, double &gt;</td></tr>
 <tr class="separator:a08adbd4b2483ca2b14db01ba8769ef93"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa6a2de27857c134650693ca016c9c057" id="r_aa6a2de27857c134650693ca016c9c057"><td class="memTemplParams" colspan="2">template&lt;class F , class Allocator &gt; </td></tr>
-<tr class="memitem:aa6a2de27857c134650693ca016c9c057"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelala.html#aa6a2de27857c134650693ca016c9c057">logic_set</a> = battery::vector&lt; battery::tuple&lt; F, F &gt;, Allocator &gt;</td></tr>
-<tr class="separator:aa6a2de27857c134650693ca016c9c057"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d3475914a4dbd0a377ee399dd9adaa8" id="r_a5d3475914a4dbd0a377ee399dd9adaa8"><td class="memTemplParams" colspan="2">template&lt;class F &gt; </td></tr>
+<tr class="memitem:a5d3475914a4dbd0a377ee399dd9adaa8"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelala.html#a5d3475914a4dbd0a377ee399dd9adaa8">logic_set</a> = battery::vector&lt; battery::tuple&lt; F, F &gt;, typename F::allocator_type &gt;</td></tr>
+<tr class="separator:a5d3475914a4dbd0a377ee399dd9adaa8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1d79402fae1ea02a3b1f4710aff94403" id="r_a1d79402fae1ea02a3b1f4710aff94403"><td class="memTemplParams" colspan="2">template&lt;class VT , class Mem &gt; </td></tr>
 <tr class="memitem:a1d79402fae1ea02a3b1f4710aff94403"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelala.html#a1d79402fae1ea02a3b1f4710aff94403">ZFlat</a> = <a class="el" href="classlala_1_1_flat_universe.html">FlatUniverse</a>&lt; <a class="el" href="structlala_1_1_pre_z_inc.html">PreZInc</a>&lt; VT &gt;, Mem &gt;</td></tr>
 <tr class="separator:a1d79402fae1ea02a3b1f4710aff94403"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -339,12 +341,21 @@ Functions</h2></td></tr>
 <tr class="memitem:a8264bf97bc739bc4ef3de14b159d4d6c" id="r_a8264bf97bc739bc4ef3de14b159d4d6c"><td class="memTemplParams" colspan="2">template&lt;class Allocator , class ExtendedSig &gt; </td></tr>
 <tr class="memitem:a8264bf97bc739bc4ef3de14b159d4d6c"><td class="memTemplItemLeft" align="right" valign="top">CUDA NI bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelala.html#a8264bf97bc739bc4ef3de14b159d4d6c">is_v_op_z</a> (const <a class="el" href="classlala_1_1_t_formula.html">TFormula</a>&lt; Allocator, ExtendedSig &gt; &amp;f, <a class="el" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659">Sig</a> sig)</td></tr>
 <tr class="separator:a8264bf97bc739bc4ef3de14b159d4d6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a73e72bb3380853c8c65ff15a601e3d18" id="r_a73e72bb3380853c8c65ff15a601e3d18"><td class="memTemplParams" colspan="2">template&lt;typename Allocator &gt; </td></tr>
+<tr class="memitem:a704b489e2f66fc4666a9d9d5dd07f0a5" id="r_a704b489e2f66fc4666a9d9d5dd07f0a5"><td class="memTemplParams" colspan="2">template&lt;class Allocator , class ExtendedSig &gt; </td></tr>
+<tr class="memitem:a704b489e2f66fc4666a9d9d5dd07f0a5"><td class="memTemplItemLeft" align="right" valign="top">CUDA NI bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelala.html#a704b489e2f66fc4666a9d9d5dd07f0a5">is_var_equality</a> (const <a class="el" href="classlala_1_1_t_formula.html">TFormula</a>&lt; Allocator, ExtendedSig &gt; &amp;f)</td></tr>
+<tr class="separator:a704b489e2f66fc4666a9d9d5dd07f0a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a73e72bb3380853c8c65ff15a601e3d18" id="r_a73e72bb3380853c8c65ff15a601e3d18"><td class="memTemplParams" colspan="2">template&lt;class Allocator &gt; </td></tr>
 <tr class="memitem:a73e72bb3380853c8c65ff15a601e3d18"><td class="memTemplItemLeft" align="right" valign="top">CUDA NI <a class="el" href="classlala_1_1_t_formula.html">TFormula</a>&lt; Allocator &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelala.html#a73e72bb3380853c8c65ff15a601e3d18">make_v_op_z</a> (<a class="el" href="namespacelala.html#acb9f389c51804929bfb3e6d682d77ff0">LVar</a>&lt; Allocator &gt; v, <a class="el" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659">Sig</a> sig, <a class="el" href="namespacelala.html#a303d30ab753875ab1fc49e3b4f195719">logic_int</a> z, <a class="el" href="namespacelala.html#a6c626918dd7c19ff046f5cebaabec18f">AType</a> aty=<a class="el" href="sort_8hpp.html#af5d67e1d1856b2c01653a0f9ab95d391">UNTYPED</a>, const Allocator &amp;allocator=Allocator())</td></tr>
 <tr class="separator:a73e72bb3380853c8c65ff15a601e3d18"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1c98e8affc35bd856ed8c317c57beb93" id="r_a1c98e8affc35bd856ed8c317c57beb93"><td class="memTemplParams" colspan="2">template&lt;typename Allocator &gt; </td></tr>
+<tr class="memitem:a1c98e8affc35bd856ed8c317c57beb93" id="r_a1c98e8affc35bd856ed8c317c57beb93"><td class="memTemplParams" colspan="2">template&lt;class Allocator &gt; </td></tr>
 <tr class="memitem:a1c98e8affc35bd856ed8c317c57beb93"><td class="memTemplItemLeft" align="right" valign="top">CUDA NI <a class="el" href="classlala_1_1_t_formula.html">TFormula</a>&lt; Allocator &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelala.html#a1c98e8affc35bd856ed8c317c57beb93">make_v_op_z</a> (<a class="el" href="classlala_1_1_a_var.html">AVar</a> v, <a class="el" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659">Sig</a> sig, <a class="el" href="namespacelala.html#a303d30ab753875ab1fc49e3b4f195719">logic_int</a> z, <a class="el" href="namespacelala.html#a6c626918dd7c19ff046f5cebaabec18f">AType</a> aty=<a class="el" href="sort_8hpp.html#af5d67e1d1856b2c01653a0f9ab95d391">UNTYPED</a>, const Allocator &amp;allocator=Allocator())</td></tr>
 <tr class="separator:a1c98e8affc35bd856ed8c317c57beb93"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac44fa0949aa0050534b4e5888182cf27" id="r_ac44fa0949aa0050534b4e5888182cf27"><td class="memTemplParams" colspan="2">template&lt;class Allocator &gt; </td></tr>
+<tr class="memitem:ac44fa0949aa0050534b4e5888182cf27"><td class="memTemplItemLeft" align="right" valign="top">CUDA <a class="el" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659">Sig</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelala.html#ac44fa0949aa0050534b4e5888182cf27">geq_of_constant</a> (const <a class="el" href="classlala_1_1_t_formula.html">TFormula</a>&lt; Allocator &gt; &amp;f)</td></tr>
+<tr class="separator:ac44fa0949aa0050534b4e5888182cf27"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99742669495aa20254d238796f3225f9" id="r_a99742669495aa20254d238796f3225f9"><td class="memTemplParams" colspan="2">template&lt;class Allocator &gt; </td></tr>
+<tr class="memitem:a99742669495aa20254d238796f3225f9"><td class="memTemplItemLeft" align="right" valign="top">CUDA <a class="el" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659">Sig</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelala.html#a99742669495aa20254d238796f3225f9">leq_of_constant</a> (const <a class="el" href="classlala_1_1_t_formula.html">TFormula</a>&lt; Allocator &gt; &amp;f)</td></tr>
+<tr class="separator:a99742669495aa20254d238796f3225f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad61da309e0f805e38d1b86a1d9bf4b70" id="r_ad61da309e0f805e38d1b86a1d9bf4b70"><td class="memTemplParams" colspan="2">template&lt;typename Allocator , typename ExtendedSig &gt; </td></tr>
 <tr class="memitem:ad61da309e0f805e38d1b86a1d9bf4b70"><td class="memTemplItemLeft" align="right" valign="top">CUDA const <a class="el" href="classlala_1_1_t_formula.html">TFormula</a>&lt; Allocator, ExtendedSig &gt; &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelala.html#ad61da309e0f805e38d1b86a1d9bf4b70">var_in</a> (const <a class="el" href="classlala_1_1_t_formula.html">TFormula</a>&lt; Allocator, ExtendedSig &gt; &amp;f)</td></tr>
 <tr class="separator:ad61da309e0f805e38d1b86a1d9bf4b70"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -380,9 +391,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a16fbc50bc2d3462ef777a93bab8d31cd" id="r_a16fbc50bc2d3462ef777a93bab8d31cd"><td class="memTemplParams" colspan="2">template&lt;class F &gt; </td></tr>
 <tr class="memitem:a16fbc50bc2d3462ef777a93bab8d31cd"><td class="memTemplItemLeft" align="right" valign="top">CUDA NI F&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelala.html#a16fbc50bc2d3462ef777a93bab8d31cd">move_constants_on_rhs</a> (const F &amp;f)</td></tr>
 <tr class="separator:a16fbc50bc2d3462ef777a93bab8d31cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7cdbaf3bdbe60e23bff508ebf0f51cbc" id="r_a7cdbaf3bdbe60e23bff508ebf0f51cbc"><td class="memTemplParams" colspan="2">template&lt;class F , class Env &gt; </td></tr>
-<tr class="memitem:a7cdbaf3bdbe60e23bff508ebf0f51cbc"><td class="memTemplItemLeft" align="right" valign="top">CUDA NI void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelala.html#a7cdbaf3bdbe60e23bff508ebf0f51cbc">map_avar_to_lvar</a> (F &amp;f, const Env &amp;env)</td></tr>
-<tr class="separator:a7cdbaf3bdbe60e23bff508ebf0f51cbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c3a823ec9c5e512892e628d8311c543" id="r_a1c3a823ec9c5e512892e628d8311c543"><td class="memTemplParams" colspan="2">template&lt;class F , class Env &gt; </td></tr>
+<tr class="memitem:a1c3a823ec9c5e512892e628d8311c543"><td class="memTemplItemLeft" align="right" valign="top">CUDA NI void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelala.html#a1c3a823ec9c5e512892e628d8311c543">map_avar_to_lvar</a> (F &amp;f, const Env &amp;env, bool erase_type=false)</td></tr>
+<tr class="separator:a1c3a823ec9c5e512892e628d8311c543"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aad8550569c2adf06a8d8ce470bd2e3e9" id="r_aad8550569c2adf06a8d8ce470bd2e3e9"><td class="memItemLeft" align="right" valign="top">CUDA NI const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelala.html#aad8550569c2adf06a8d8ce470bd2e3e9">string_of_sig</a> (<a class="el" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659">Sig</a> sig)</td></tr>
 <tr class="separator:aad8550569c2adf06a8d8ce470bd2e3e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9decc16cdfba74c367b1edf7110e595f" id="r_a9decc16cdfba74c367b1edf7110e595f"><td class="memItemLeft" align="right" valign="top">CUDA NI constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelala.html#a9decc16cdfba74c367b1edf7110e595f">is_prefix</a> (<a class="el" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659">Sig</a> sig)</td></tr>
@@ -559,20 +570,20 @@ template&lt;class Allocator &gt; </div>
 
 </div>
 </div>
-<a id="aa6a2de27857c134650693ca016c9c057" name="aa6a2de27857c134650693ca016c9c057"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa6a2de27857c134650693ca016c9c057">&#9670;&#160;</a></span>logic_set</h2>
+<a id="a5d3475914a4dbd0a377ee399dd9adaa8" name="a5d3475914a4dbd0a377ee399dd9adaa8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d3475914a4dbd0a377ee399dd9adaa8">&#9670;&#160;</a></span>logic_set</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class F , class Allocator &gt; </div>
+template&lt;class F &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="namespacelala.html#aa6a2de27857c134650693ca016c9c057">lala::logic_set</a> = typedef battery::vector&lt;battery::tuple&lt;F, F&gt;, Allocator&gt;</td>
+          <td class="memname">using <a class="el" href="namespacelala.html#a5d3475914a4dbd0a377ee399dd9adaa8">lala::logic_set</a> = typedef battery::vector&lt;battery::tuple&lt;F, F&gt;, typename F::allocator_type&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>A set is parametric in a universe of discourse. For instance, <code>logic_set&lt;logic_int&gt;</code> is a set of integers. Sets are defined in extension: we explicitly list the values belonging to the set. To avoid using too much memory with large sets, we use an interval representation, e.g., \( \{1..3, 5..5, 10..12\} = \{1, 2, 3, 5, 10, 11, 12\} \). When sets occur in intervals, they are ordered by set inclusion, e.g., \( \{\{1..2\}..\{1..4\}\} = \{\{1,2\}, \{1,2,3\}, \{1,2,4\}, \{1,2,3,4\}\} \). </p>
+<p>A set is parametric in a universe of discourse. For instance, <code>logic_set&lt;F&gt;</code>, with F representing an integer constant, is a set of integers. Sets are defined in extension: we explicitly list the values belonging to the set. To avoid using too much memory with large sets, we use an interval representation, e.g., \( \{1..3, 5..5, 10..12\} = \{1, 2, 3, 5, 10, 11, 12\} \). When sets occur in intervals, they are ordered by set inclusion, e.g., \( \{\{1..2\}..\{1..4\}\} = \{\{1,2\}, \{1,2,3\}, \{1,2,4\}, \{1,2,3,4\}\} \). </p>
 
 </div>
 </div>
@@ -1393,13 +1404,34 @@ template&lt;class Allocator , class ExtendedSig &gt; </div>
 
 </div>
 </div>
+<a id="a704b489e2f66fc4666a9d9d5dd07f0a5" name="a704b489e2f66fc4666a9d9d5dd07f0a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a704b489e2f66fc4666a9d9d5dd07f0a5">&#9670;&#160;</a></span>is_var_equality()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Allocator , class ExtendedSig &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">CUDA NI bool lala::is_var_equality </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classlala_1_1_t_formula.html">TFormula</a>&lt; Allocator, ExtendedSig &gt; &amp;&#160;</td>
+          <td class="paramname"><em>f</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if the formula <code>f</code> has the shape <code>variable = variable</code> or <code>variable &lt;=&gt; variable</code>. </dd></dl>
+
+</div>
+</div>
 <a id="a73e72bb3380853c8c65ff15a601e3d18" name="a73e72bb3380853c8c65ff15a601e3d18"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a73e72bb3380853c8c65ff15a601e3d18">&#9670;&#160;</a></span>make_v_op_z() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Allocator &gt; </div>
+template&lt;class Allocator &gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">CUDA NI <a class="el" href="classlala_1_1_t_formula.html">TFormula</a>&lt; Allocator &gt; lala::make_v_op_z </td>
@@ -1447,7 +1479,7 @@ template&lt;typename Allocator &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Allocator &gt; </div>
+template&lt;class Allocator &gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">CUDA NI <a class="el" href="classlala_1_1_t_formula.html">TFormula</a>&lt; Allocator &gt; lala::make_v_op_z </td>
@@ -1483,6 +1515,46 @@ template&lt;typename Allocator &gt; </div>
           <td></td>
           <td>)</td>
           <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac44fa0949aa0050534b4e5888182cf27" name="ac44fa0949aa0050534b4e5888182cf27"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac44fa0949aa0050534b4e5888182cf27">&#9670;&#160;</a></span>geq_of_constant()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Allocator &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">CUDA <a class="el" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659">Sig</a> lala::geq_of_constant </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classlala_1_1_t_formula.html">TFormula</a>&lt; Allocator &gt; &amp;&#160;</td>
+          <td class="paramname"><em>f</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a99742669495aa20254d238796f3225f9" name="a99742669495aa20254d238796f3225f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a99742669495aa20254d238796f3225f9">&#9670;&#160;</a></span>leq_of_constant()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Allocator &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">CUDA <a class="el" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659">Sig</a> lala::leq_of_constant </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classlala_1_1_t_formula.html">TFormula</a>&lt; Allocator &gt; &amp;&#160;</td>
+          <td class="paramname"><em>f</em></td><td>)</td>
+          <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1774,8 +1846,8 @@ template&lt;class F &gt; </div>
 
 </div>
 </div>
-<a id="a7cdbaf3bdbe60e23bff508ebf0f51cbc" name="a7cdbaf3bdbe60e23bff508ebf0f51cbc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7cdbaf3bdbe60e23bff508ebf0f51cbc">&#9670;&#160;</a></span>map_avar_to_lvar()</h2>
+<a id="a1c3a823ec9c5e512892e628d8311c543" name="a1c3a823ec9c5e512892e628d8311c543"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c3a823ec9c5e512892e628d8311c543">&#9670;&#160;</a></span>map_avar_to_lvar()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1792,7 +1864,13 @@ template&lt;class F , class Env &gt; </div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const Env &amp;&#160;</td>
-          <td class="paramname"><em>env</em>&#160;</td>
+          <td class="paramname"><em>env</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>erase_type</em> = <code>false</code>&#160;</td>
         </tr>
         <tr>
           <td></td>

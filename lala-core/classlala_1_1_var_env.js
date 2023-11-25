@@ -13,6 +13,7 @@ var classlala_1_1_var_env =
     [ "VarEnv", "classlala_1_1_var_env.html#a99f974318ecb8b5de6457cc9ee670650", null ],
     [ "extends_abstract_dom", "classlala_1_1_var_env.html#ae1b7cf4978d4c7fd20e69ca572312185", null ],
     [ "operator=", "classlala_1_1_var_env.html#a073d2eadc1be68b525003ae9f9e1bea6", null ],
+    [ "operator=", "classlala_1_1_var_env.html#a58f211f05ccde6208dd78fd14655aed0", null ],
     [ "get_allocator", "classlala_1_1_var_env.html#a0ae7d9314590332f73d96ea6565bd992", null ],
     [ "num_abstract_doms", "classlala_1_1_var_env.html#a282e2ca603f59cf4d358508434c116d8", null ],
     [ "num_vars", "classlala_1_1_var_env.html#ab081512efec6a44cca0fb735b214bf79", null ],

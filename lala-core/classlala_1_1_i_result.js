@@ -14,6 +14,7 @@ var classlala_1_1_i_result =
     [ "operator=", "classlala_1_1_i_result.html#a1e8e3ccf0fdde5d8e9f9ef6a809ffb8f", null ],
     [ "has_value", "classlala_1_1_i_result.html#aa92d6073a560e0ada413c8ef7a55813c", null ],
     [ "value", "classlala_1_1_i_result.html#a22363da716cd9ebdaffb3981a209c42f", null ],
+    [ "is_error", "classlala_1_1_i_result.html#ab2605ab50cd9447fda16704a00f9cd69", null ],
     [ "map_error", "classlala_1_1_i_result.html#a05f0c831c4928a3ab8ac839ec2984f16", null ],
     [ "map", "classlala_1_1_i_result.html#a816ae676a30b7e5ae27141bd41d8ce12", null ],
     [ "join_warnings", "classlala_1_1_i_result.html#a1da72787a085df8ea8705dc8f100973f", null ],

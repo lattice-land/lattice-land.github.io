@@ -4,7 +4,7 @@ var classlala_1_1_t_formula =
     [ "this_type", "classlala_1_1_t_formula.html#a67f0f0e7612e3afaf58163bafcc975ab", null ],
     [ "Sequence", "classlala_1_1_t_formula.html#a1121e3bec55d97bd7ea7944c64e8f98a", null ],
     [ "Existential", "classlala_1_1_t_formula.html#a8092cf5a2d0f5ba2204b39dd7f170f24", null ],
-    [ "LogicSet", "classlala_1_1_t_formula.html#a2908cc921241cb7450bacb2c5d059cac", null ],
+    [ "LogicSet", "classlala_1_1_t_formula.html#acac756e8ab2736ba443860966941fa9e", null ],
     [ "Formula", "classlala_1_1_t_formula.html#ae7d0f18aa13af6a137ca7936a44b50e3", null ],
     [ "TFormula", "classlala_1_1_t_formula.html#ad1be4511a85e20dcbd367ed4b970df57", null ],
     [ "TFormula", "classlala_1_1_t_formula.html#a1c1b39458901d6a937bb5c3b4c5fda4e", null ],
@@ -55,6 +55,8 @@ var classlala_1_1_t_formula =
     [ "eseq", "classlala_1_1_t_formula.html#a6d9e0c1bccbf571b2f27d672a9b7d3b3", null ],
     [ "map_sig", "classlala_1_1_t_formula.html#a2a5716a076227c570bf32968ffa84d65", null ],
     [ "map_atype", "classlala_1_1_t_formula.html#acf12a1ad457cc57f419abb16a2a193a3", null ],
+    [ "inplace_map", "classlala_1_1_t_formula.html#a3202a61cdd7935087df1cb54093592d1", null ],
+    [ "map", "classlala_1_1_t_formula.html#ae8f93a4904714389e5cb9ee76b95f6f4", null ],
     [ "print", "classlala_1_1_t_formula.html#abf04875013ba79ffe4ddaeffede01496", null ],
     [ "TFormula", "classlala_1_1_t_formula.html#a1ae5b519a1a605de4484945fda47f773", null ]
 ];

@@ -20,6 +20,7 @@ var annotated_dup =
       [ "PreZDec", "structlala_1_1_pre_z_dec.html", "structlala_1_1_pre_z_dec" ],
       [ "PreZInc", "structlala_1_1_pre_z_inc.html", "structlala_1_1_pre_z_inc" ],
       [ "PrimitiveUpset", "classlala_1_1_primitive_upset.html", "classlala_1_1_primitive_upset" ],
+      [ "Simplifier", "classlala_1_1_simplifier.html", "classlala_1_1_simplifier" ],
       [ "Sort", "structlala_1_1_sort.html", "structlala_1_1_sort" ],
       [ "TFormula", "classlala_1_1_t_formula.html", "classlala_1_1_t_formula" ],
       [ "VarEnv", "classlala_1_1_var_env.html", "classlala_1_1_var_env" ],

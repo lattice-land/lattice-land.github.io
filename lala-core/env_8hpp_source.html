@@ -209,259 +209,291 @@ $(document).ready(function(){initNavTree('env_8hpp_source.html',''); initResizab
 <div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>  CUDA NI AVar extends_vars(<a class="code hl_typedef" href="namespacelala.html#a6c626918dd7c19ff046f5cebaabec18f">AType</a> aty, <span class="keyword">const</span> battery::string&lt;Alloc2&gt;&amp; <a class="code hl_variable" href="classlala_1_1_var_env.html#ab9fcf8252087465acec55baeb9419f90">name</a>, <span class="keyword">const</span> Sort&lt;Alloc3&gt;&amp; sort) {</div>
 <div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    extends_abstract_doms(aty);</div>
 <div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    AVar avar(aty, avar2lvar[aty].size());</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    avar2lvar[aty].push_back(lvars.size());</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    lvars.push_back(Variable(<a class="code hl_variable" href="classlala_1_1_var_env.html#ab9fcf8252087465acec55baeb9419f90">name</a>, sort, avar, <a class="code hl_function" href="classlala_1_1_var_env.html#a0ae7d9314590332f73d96ea6565bd992">get_allocator</a>()));</div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    <span class="keywordflow">return</span> avar;</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>  }</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>  <span class="keyword">template</span> &lt;<span class="keyword">class</span> F&gt;</div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>  CUDA NI iresult&lt;F&gt; interpret_existential(<span class="keyword">const</span> F&amp; f) {</div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    <span class="keyword">const</span> <span class="keyword">auto</span>&amp; vname = battery::get&lt;0&gt;(f.exists());</div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    <span class="keywordflow">if</span>(f.type() == <a class="code hl_define" href="sort_8hpp.html#af5d67e1d1856b2c01653a0f9ab95d391">UNTYPED</a>) {</div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>      <span class="keywordflow">return</span> iresult&lt;F&gt;(IError&lt;F&gt;(<span class="keyword">true</span>, <a class="code hl_variable" href="classlala_1_1_var_env.html#ab9fcf8252087465acec55baeb9419f90">name</a>, <span class="stringliteral">&quot;Untyped abstract type: variable `&quot;</span> + vname + <span class="stringliteral">&quot;` has no abstract type.&quot;</span>, f));</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    <span class="comment">// We first verify the variable doesn&#39;t already exist.</span></div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    <span class="keyword">auto</span> lvar_idx = lvar_index_of(<a class="code hl_variable" href="classlala_1_1_var_env.html#ab9fcf8252087465acec55baeb9419f90">name</a>.data());</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    <span class="keywordflow">if</span>(lvar_idx.has_value()) {</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>      <span class="keyword">auto</span> avar_opt = lvars[*lvar_idx].avar_of(aty);</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>      <span class="keywordflow">if</span>(avar_opt.has_value()) {</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>        <span class="keywordflow">return</span> *avar_opt;</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>      }</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>      <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>        lvars[*lvar_idx].avars.push_back(avar);</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>      }</div>
 <div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    }</div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    <span class="keywordflow">if</span>(<a class="code hl_function" href="classlala_1_1_var_env.html#afb94db92bab89580a92319287b826c73">contains</a>(vname)) {</div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>      <span class="keywordflow">return</span> iresult&lt;F&gt;(IError&lt;F&gt;(<span class="keyword">true</span>, <a class="code hl_variable" href="classlala_1_1_var_env.html#ab9fcf8252087465acec55baeb9419f90">name</a>, <span class="stringliteral">&quot;Invalid redeclaration: variable `&quot;</span> + vname + <span class="stringliteral">&quot;` has already been declared.&quot;</span>, f));</div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    }</div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    <span class="keywordflow">else</span> {</div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>      <a class="code hl_typedef" href="namespacelala.html#a6c626918dd7c19ff046f5cebaabec18f">AType</a> aty = f.type();</div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>      <span class="keyword">const</span> Sort&lt;Allocator&gt;&amp; sort = battery::get&lt;1&gt;(f.exists());</div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>      <span class="keywordflow">return</span> iresult&lt;F&gt;(extends_vars(aty, vname, sort));</div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    }</div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>  }</div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>  <span class="keyword">template</span> &lt;<span class="keyword">class</span> F&gt;</div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>  CUDA NI iresult&lt;F&gt; interpret_lv(<span class="keyword">const</span> F&amp; f) {</div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    <span class="keyword">const</span> <span class="keyword">auto</span>&amp; vname = f.lv();</div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    <span class="keyword">auto</span> var = <a class="code hl_function" href="classlala_1_1_var_env.html#ab02488a8443856fb1675e68f05c6ccec">variable_of</a>(vname);</div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    <span class="keywordflow">if</span>(var.has_value()) {</div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>      <span class="keywordflow">if</span>(f.type() != <a class="code hl_define" href="sort_8hpp.html#af5d67e1d1856b2c01653a0f9ab95d391">UNTYPED</a>) {</div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>        <span class="keyword">auto</span> avar = var-&gt;avar_of(f.type());</div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>        <span class="keywordflow">if</span>(avar.has_value()) {</div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>          <span class="keywordflow">return</span> AVar(*avar);</div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>        }</div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>        <span class="keywordflow">else</span> {</div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>          <span class="keywordflow">return</span> iresult&lt;F&gt;(IError&lt;F&gt;(<span class="keyword">true</span>, <a class="code hl_variable" href="classlala_1_1_var_env.html#ab9fcf8252087465acec55baeb9419f90">name</a>, <span class="stringliteral">&quot;Variable `&quot;</span> + vname + <span class="stringliteral">&quot;` has not been declared in the abstract domain `&quot;</span> + fstring&lt;F&gt;::from_int(f.type()) + <span class="stringliteral">&quot;`.&quot;</span>, f));</div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>        }</div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>      }</div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>      <span class="keywordflow">else</span> {</div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>        <span class="keywordflow">if</span>(var-&gt;avars.size() == 1) {</div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>          <span class="keywordflow">return</span> AVar(var-&gt;avars[0]);</div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>        }</div>
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>        <span class="keywordflow">else</span> {</div>
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>          <span class="keywordflow">return</span> iresult&lt;F&gt;(IError&lt;F&gt;(<span class="keyword">true</span>, <a class="code hl_variable" href="classlala_1_1_var_env.html#ab9fcf8252087465acec55baeb9419f90">name</a>, <span class="stringliteral">&quot;Variable occurrence `&quot;</span> + vname + <span class="stringliteral">&quot;` is untyped, but exists in multiple abstract domains.&quot;</span>, f));</div>
-<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>        }</div>
-<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>      }</div>
-<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>    }</div>
-<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>    <span class="keywordflow">else</span> {</div>
-<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>      <span class="keywordflow">return</span> iresult&lt;F&gt;(IError&lt;F&gt;(<span class="keyword">true</span>, <a class="code hl_variable" href="classlala_1_1_var_env.html#ab9fcf8252087465acec55baeb9419f90">name</a>, <span class="stringliteral">&quot;Undeclared variable `&quot;</span> + vname + <span class="stringliteral">&quot;`.&quot;</span>, f));</div>
-<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>    }</div>
-<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>  }</div>
-<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span> </div>
-<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00145" name="l00145"></a><span class="lineno"><a class="line" href="classlala_1_1_var_env.html#ae0c76dc56b65f5e0489d5f3efb6ad714">  145</a></span>  CUDA <a class="code hl_function" href="classlala_1_1_var_env.html#ae0c76dc56b65f5e0489d5f3efb6ad714">VarEnv</a>(<span class="keyword">const</span> Allocator&amp; allocator): lvars(allocator), avar2lvar(allocator) {}</div>
-<div class="line"><a id="l00146" name="l00146"></a><span class="lineno"><a class="line" href="classlala_1_1_var_env.html#a6b3fb3b741836d1dc7e77065bcb66ea8">  146</a></span>  CUDA <a class="code hl_function" href="classlala_1_1_var_env.html#a6b3fb3b741836d1dc7e77065bcb66ea8">VarEnv</a>(<a class="code hl_class" href="classlala_1_1_var_env.html">this_type</a>&amp;&amp; other): lvars(std::move(other.lvars)), avar2lvar(std::move(other.avar2lvar)) {}</div>
-<div class="line"><a id="l00147" name="l00147"></a><span class="lineno"><a class="line" href="classlala_1_1_var_env.html#a13efaa2f8aa5946a3a86725e5f42eb2d">  147</a></span>  CUDA <a class="code hl_function" href="classlala_1_1_var_env.html#a13efaa2f8aa5946a3a86725e5f42eb2d">VarEnv</a>(): <a class="code hl_class" href="classlala_1_1_var_env.html">VarEnv</a>(Allocator()) {}</div>
-<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span> </div>
-<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>  <span class="keyword">template</span> &lt;<span class="keyword">class</span> Alloc2&gt;</div>
-<div class="foldopen" id="foldopen00150" data-start="{" data-end="}">
-<div class="line"><a id="l00150" name="l00150"></a><span class="lineno"><a class="line" href="classlala_1_1_var_env.html#a99f974318ecb8b5de6457cc9ee670650">  150</a></span>  CUDA <a class="code hl_function" href="classlala_1_1_var_env.html#a99f974318ecb8b5de6457cc9ee670650">VarEnv</a>(<span class="keyword">const</span> <a class="code hl_class" href="classlala_1_1_var_env.html">VarEnv&lt;Alloc2&gt;</a>&amp; other, <span class="keyword">const</span> Allocator&amp; allocator = Allocator())</div>
-<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>    : lvars(other.lvars, allocator)</div>
-<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>    , avar2lvar(other.avar2lvar, allocator)</div>
-<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>  {}</div>
-</div>
-<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span> </div>
-<div class="foldopen" id="foldopen00155" data-start="{" data-end="}">
-<div class="line"><a id="l00155" name="l00155"></a><span class="lineno"><a class="line" href="classlala_1_1_var_env.html#a073d2eadc1be68b525003ae9f9e1bea6">  155</a></span>  CUDA <a class="code hl_class" href="classlala_1_1_var_env.html">this_type</a>&amp; <a class="code hl_function" href="classlala_1_1_var_env.html#a073d2eadc1be68b525003ae9f9e1bea6">operator=</a>(<a class="code hl_class" href="classlala_1_1_var_env.html">this_type</a>&amp;&amp; other) {</div>
-<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>    lvars = std::move(other.lvars);</div>
-<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>    avar2lvar = std::move(other.avar2lvar);</div>
-<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>    <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
-<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>  }</div>
-</div>
-<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span> </div>
-<div class="foldopen" id="foldopen00161" data-start="{" data-end="}">
-<div class="line"><a id="l00161" name="l00161"></a><span class="lineno"><a class="line" href="classlala_1_1_var_env.html#a0ae7d9314590332f73d96ea6565bd992">  161</a></span>  CUDA <a class="code hl_typedef" href="classlala_1_1_var_env.html#abb18c8eb73c7d88761d941b6eabe1e36">allocator_type</a> <a class="code hl_function" href="classlala_1_1_var_env.html#a0ae7d9314590332f73d96ea6565bd992">get_allocator</a>()<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>    <span class="keywordflow">return</span> lvars.get_allocator();</div>
-<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>  }</div>
-</div>
-<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span> </div>
-<div class="foldopen" id="foldopen00165" data-start="{" data-end="}">
-<div class="line"><a id="l00165" name="l00165"></a><span class="lineno"><a class="line" href="classlala_1_1_var_env.html#a282e2ca603f59cf4d358508434c116d8">  165</a></span>  CUDA <span class="keywordtype">size_t</span> <a class="code hl_function" href="classlala_1_1_var_env.html#a282e2ca603f59cf4d358508434c116d8">num_abstract_doms</a>()<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>    <span class="keywordflow">return</span> avar2lvar.size();</div>
-<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>  }</div>
-</div>
-<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span> </div>
-<div class="foldopen" id="foldopen00169" data-start="{" data-end="}">
-<div class="line"><a id="l00169" name="l00169"></a><span class="lineno"><a class="line" href="classlala_1_1_var_env.html#ab081512efec6a44cca0fb735b214bf79">  169</a></span>  CUDA <span class="keywordtype">size_t</span> <a class="code hl_function" href="classlala_1_1_var_env.html#ab081512efec6a44cca0fb735b214bf79">num_vars</a>()<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>    <span class="keywordflow">return</span> lvars.size();</div>
-<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>  }</div>
-</div>
-<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span> </div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>      lvar_idx = {lvars.size()};</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>      lvars.push_back(Variable(<a class="code hl_variable" href="classlala_1_1_var_env.html#ab9fcf8252087465acec55baeb9419f90">name</a>, sort, avar, <a class="code hl_function" href="classlala_1_1_var_env.html#a0ae7d9314590332f73d96ea6565bd992">get_allocator</a>()));</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    }</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    avar2lvar[aty].push_back(*lvar_idx);</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    <span class="keywordflow">return</span> avar;</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>  }</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>  <span class="comment">// Variable redeclaration does not lead to an error, instead the abstract type of the variable is added to the abstract variables list (`avars`) of the variable.</span></div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>  <span class="keyword">template</span> &lt;<span class="keyword">class</span> F&gt;</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>  CUDA NI iresult&lt;F&gt; interpret_existential(<span class="keyword">const</span> F&amp; f) {</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    <span class="keyword">const</span> <span class="keyword">auto</span>&amp; vname = battery::get&lt;0&gt;(f.exists());</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    <span class="keywordflow">if</span>(f.type() == <a class="code hl_define" href="sort_8hpp.html#af5d67e1d1856b2c01653a0f9ab95d391">UNTYPED</a>) {</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>      <span class="keywordflow">return</span> iresult&lt;F&gt;(IError&lt;F&gt;(<span class="keyword">true</span>, <a class="code hl_variable" href="classlala_1_1_var_env.html#ab9fcf8252087465acec55baeb9419f90">name</a>, <span class="stringliteral">&quot;Untyped abstract type: variable `&quot;</span> + vname + <span class="stringliteral">&quot;` has no abstract type.&quot;</span>, f));</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    }</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    <span class="keyword">auto</span> var = <a class="code hl_function" href="classlala_1_1_var_env.html#ab02488a8443856fb1675e68f05c6ccec">variable_of</a>(vname);</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    <span class="keywordflow">if</span>(var.has_value()) {</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>      <span class="keywordflow">if</span>(var-&gt;sort != battery::get&lt;1&gt;(f.exists())) {</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>        <span class="keywordflow">return</span> iresult&lt;F&gt;(IError&lt;F&gt;(<span class="keyword">true</span>, <a class="code hl_variable" href="classlala_1_1_var_env.html#ab9fcf8252087465acec55baeb9419f90">name</a>, <span class="stringliteral">&quot;Invalid redeclaration with different sort: variable `&quot;</span> + vname + <span class="stringliteral">&quot;` has already been declared and the sort does not coincide.&quot;</span>, f));</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>      }</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    }</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    <span class="keywordflow">return</span> iresult&lt;F&gt;(extends_vars(f.type(), vname, battery::get&lt;1&gt;(f.exists())));</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>  }</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span> </div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>  <span class="keyword">template</span> &lt;<span class="keyword">class</span> F&gt;</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>  CUDA NI iresult&lt;F&gt; interpret_lv(<span class="keyword">const</span> F&amp; f) {</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    <span class="keyword">const</span> <span class="keyword">auto</span>&amp; vname = f.lv();</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    <span class="keyword">auto</span> var = <a class="code hl_function" href="classlala_1_1_var_env.html#ab02488a8443856fb1675e68f05c6ccec">variable_of</a>(vname);</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>    <span class="keywordflow">if</span>(var.has_value()) {</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>      <span class="keywordflow">if</span>(f.type() != <a class="code hl_define" href="sort_8hpp.html#af5d67e1d1856b2c01653a0f9ab95d391">UNTYPED</a>) {</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>        <span class="keyword">auto</span> avar = var-&gt;avar_of(f.type());</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>        <span class="keywordflow">if</span>(avar.has_value()) {</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>          <span class="keywordflow">return</span> AVar(*avar);</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>        }</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>        <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>          <span class="keywordflow">return</span> iresult&lt;F&gt;(IError&lt;F&gt;(<span class="keyword">true</span>, <a class="code hl_variable" href="classlala_1_1_var_env.html#ab9fcf8252087465acec55baeb9419f90">name</a>, <span class="stringliteral">&quot;Variable `&quot;</span> + vname + <span class="stringliteral">&quot;` has not been declared in the abstract domain `&quot;</span> + fstring&lt;F&gt;::from_int(f.type()) + <span class="stringliteral">&quot;`.&quot;</span>, f));</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>        }</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>      }</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>      <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>        <span class="keywordflow">if</span>(var-&gt;avars.size() == 1) {</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>          <span class="keywordflow">return</span> AVar(var-&gt;avars[0]);</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>        }</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>        <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>          <span class="keywordflow">return</span> iresult&lt;F&gt;(IError&lt;F&gt;(<span class="keyword">true</span>, <a class="code hl_variable" href="classlala_1_1_var_env.html#ab9fcf8252087465acec55baeb9419f90">name</a>, <span class="stringliteral">&quot;Variable occurrence `&quot;</span> + vname + <span class="stringliteral">&quot;` is untyped, but exists in multiple abstract domains.&quot;</span>, f));</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>        }</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>      }</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>    }</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>    <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>      <span class="keywordflow">return</span> iresult&lt;F&gt;(IError&lt;F&gt;(<span class="keyword">true</span>, <a class="code hl_variable" href="classlala_1_1_var_env.html#ab9fcf8252087465acec55baeb9419f90">name</a>, <span class="stringliteral">&quot;Undeclared variable `&quot;</span> + vname + <span class="stringliteral">&quot;`.&quot;</span>, f));</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>    }</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>  }</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span> </div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>  CUDA NI thrust::optional&lt;int&gt; lvar_index_of(<span class="keyword">const</span> <span class="keywordtype">char</span>* lv)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; lvars.size(); ++i) {</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>      <span class="keywordflow">if</span>(lvars[i].<a class="code hl_variable" href="classlala_1_1_var_env.html#ab9fcf8252087465acec55baeb9419f90">name</a> == lv) {</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>        <span class="keywordflow">return</span> i;</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>      }</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>    }</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>    <span class="keywordflow">return</span> {};</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>  }</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span> </div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno"><a class="line" href="classlala_1_1_var_env.html#ae0c76dc56b65f5e0489d5f3efb6ad714">  168</a></span>  CUDA <a class="code hl_function" href="classlala_1_1_var_env.html#ae0c76dc56b65f5e0489d5f3efb6ad714">VarEnv</a>(<span class="keyword">const</span> Allocator&amp; allocator): lvars(allocator), avar2lvar(allocator) {}</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno"><a class="line" href="classlala_1_1_var_env.html#a6b3fb3b741836d1dc7e77065bcb66ea8">  169</a></span>  CUDA <a class="code hl_function" href="classlala_1_1_var_env.html#a6b3fb3b741836d1dc7e77065bcb66ea8">VarEnv</a>(<a class="code hl_class" href="classlala_1_1_var_env.html">this_type</a>&amp;&amp; other): lvars(std::move(other.lvars)), avar2lvar(std::move(other.avar2lvar)) {}</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno"><a class="line" href="classlala_1_1_var_env.html#a13efaa2f8aa5946a3a86725e5f42eb2d">  170</a></span>  CUDA <a class="code hl_function" href="classlala_1_1_var_env.html#a13efaa2f8aa5946a3a86725e5f42eb2d">VarEnv</a>(): <a class="code hl_class" href="classlala_1_1_var_env.html">VarEnv</a>(Allocator()) {}</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span> </div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>  <span class="keyword">template</span> &lt;<span class="keyword">class</span> Alloc2&gt;</div>
 <div class="foldopen" id="foldopen00173" data-start="{" data-end="}">
-<div class="line"><a id="l00173" name="l00173"></a><span class="lineno"><a class="line" href="classlala_1_1_var_env.html#abfe4eed2f69f6b57e657e9a51fa5644f">  173</a></span>  CUDA <span class="keywordtype">size_t</span> <a class="code hl_function" href="classlala_1_1_var_env.html#abfe4eed2f69f6b57e657e9a51fa5644f">num_vars_in</a>(<a class="code hl_typedef" href="namespacelala.html#a6c626918dd7c19ff046f5cebaabec18f">AType</a> aty)<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>    <span class="keywordflow">if</span>(aty &gt;= avar2lvar.size()) {</div>
-<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>      <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>    }</div>
-<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>    <span class="keywordflow">else</span> {</div>
-<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>      <span class="keywordflow">return</span> avar2lvar[aty].size();</div>
-<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>    }</div>
-<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>  }</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno"><a class="line" href="classlala_1_1_var_env.html#a99f974318ecb8b5de6457cc9ee670650">  173</a></span>  CUDA <a class="code hl_function" href="classlala_1_1_var_env.html#a99f974318ecb8b5de6457cc9ee670650">VarEnv</a>(<span class="keyword">const</span> <a class="code hl_class" href="classlala_1_1_var_env.html">VarEnv&lt;Alloc2&gt;</a>&amp; other, <span class="keyword">const</span> Allocator&amp; allocator = Allocator())</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>    : lvars(other.lvars, allocator)</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>    , avar2lvar(other.avar2lvar, allocator)</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>  {}</div>
 </div>
-<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span><span class="comment"></span> </div>
-<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span><span class="comment">  /** A variable environment can interpret formulas of two forms:</span></div>
-<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span><span class="comment">   *    - Existential formula with a valid abstract type (`f.type() != UNTYPED`).</span></div>
-<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span><span class="comment">   *    - Variable occurrence.</span></div>
-<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span><span class="comment">   * It returns an abstract variable (`AVar`) corresponding to the variable created (existential) or already presents (occurrence). */</span></div>
-<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>  <span class="keyword">template</span> &lt;<span class="keyword">class</span> F&gt;</div>
-<div class="foldopen" id="foldopen00187" data-start="{" data-end="}">
-<div class="line"><a id="l00187" name="l00187"></a><span class="lineno"><a class="line" href="classlala_1_1_var_env.html#a109483b206041bdf0847e761d990a981">  187</a></span>  CUDA NI <a class="code hl_class" href="classlala_1_1_i_result.html">iresult&lt;F&gt;</a> <a class="code hl_function" href="classlala_1_1_var_env.html#a109483b206041bdf0847e761d990a981">interpret</a>(<span class="keyword">const</span> F&amp; f) {</div>
-<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>    <span class="keywordflow">if</span>(f.is(F::E)) {</div>
-<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>      <span class="keywordflow">return</span> interpret_existential(f);</div>
-<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>    }</div>
-<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(f.is(F::LV)) {</div>
-<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>      <span class="keywordflow">return</span> interpret_lv(f);</div>
-<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>    }</div>
-<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(f.is(F::V)) {</div>
-<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>      <span class="keywordflow">if</span>(<a class="code hl_function" href="classlala_1_1_var_env.html#afb94db92bab89580a92319287b826c73">contains</a>(f.v())) {</div>
-<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>        <span class="keywordflow">return</span> f.v();</div>
-<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>      }</div>
-<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>      <span class="keywordflow">else</span> {</div>
-<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>        <span class="keywordflow">return</span> <a class="code hl_class" href="classlala_1_1_i_result.html">iresult&lt;F&gt;</a>(<a class="code hl_class" href="classlala_1_1_i_error.html">IError&lt;F&gt;</a>(<span class="keyword">true</span>, <a class="code hl_variable" href="classlala_1_1_var_env.html#ab9fcf8252087465acec55baeb9419f90">name</a>, <span class="stringliteral">&quot;Undeclared abstract variable `&quot;</span> + fstring&lt;F&gt;::from_int(f.v().aty()) + <span class="stringliteral">&quot;, &quot;</span> + fstring&lt;F&gt;::from_int(f.v().vid()) + <span class="stringliteral">&quot;`.&quot;</span>, f));</div>
-<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>      }</div>
-<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>    }</div>
-<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>    <span class="keywordflow">else</span> {</div>
-<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>      <span class="keywordflow">return</span> <a class="code hl_class" href="classlala_1_1_i_result.html">iresult&lt;F&gt;</a>(<a class="code hl_class" href="classlala_1_1_i_error.html">IError&lt;F&gt;</a>(<span class="keyword">true</span>, <a class="code hl_variable" href="classlala_1_1_var_env.html#ab9fcf8252087465acec55baeb9419f90">name</a>, <span class="stringliteral">&quot;Unsupported formula: `VarEnv` can only interpret quantifiers and occurrences of variables.&quot;</span>, f));</div>
-<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>    }</div>
-<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>  }</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span> </div>
+<div class="foldopen" id="foldopen00178" data-start="{" data-end="}">
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno"><a class="line" href="classlala_1_1_var_env.html#a073d2eadc1be68b525003ae9f9e1bea6">  178</a></span>  CUDA <a class="code hl_class" href="classlala_1_1_var_env.html">this_type</a>&amp; <a class="code hl_function" href="classlala_1_1_var_env.html#a073d2eadc1be68b525003ae9f9e1bea6">operator=</a>(<a class="code hl_class" href="classlala_1_1_var_env.html">this_type</a>&amp;&amp; other) {</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>    lvars = std::move(other.lvars);</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>    avar2lvar = std::move(other.avar2lvar);</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>    <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>  }</div>
 </div>
-<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span> </div>
-<div class="foldopen" id="foldopen00207" data-start="{" data-end="}">
-<div class="line"><a id="l00207" name="l00207"></a><span class="lineno"><a class="line" href="classlala_1_1_var_env.html#ab02488a8443856fb1675e68f05c6ccec">  207</a></span>  CUDA NI thrust::optional&lt;const variable_type&amp;&gt; <a class="code hl_function" href="classlala_1_1_var_env.html#ab02488a8443856fb1675e68f05c6ccec">variable_of</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* lv)<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; lvars.size(); ++i) {</div>
-<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>      <span class="keywordflow">if</span>(lvars[i].<a class="code hl_variable" href="classlala_1_1_var_env.html#ab9fcf8252087465acec55baeb9419f90">name</a> == lv) {</div>
-<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>        <span class="keywordflow">return</span> lvars[i];</div>
-<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>      }</div>
-<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>    }</div>
-<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>    <span class="keywordflow">return</span> {};</div>
-<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>  }</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span> </div>
+<div class="foldopen" id="foldopen00184" data-start="{" data-end="}">
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno"><a class="line" href="classlala_1_1_var_env.html#a58f211f05ccde6208dd78fd14655aed0">  184</a></span>  CUDA <a class="code hl_class" href="classlala_1_1_var_env.html">this_type</a>&amp; <a class="code hl_function" href="classlala_1_1_var_env.html#a58f211f05ccde6208dd78fd14655aed0">operator=</a>(<span class="keyword">const</span> <a class="code hl_class" href="classlala_1_1_var_env.html">this_type</a>&amp; other) {</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>    lvars = other.lvars;</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>    avar2lvar = other.avar2lvar;</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>    <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>  }</div>
 </div>
-<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span> </div>
-<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>  <span class="keyword">template</span> &lt;<span class="keyword">class</span> Alloc2&gt;</div>
-<div class="foldopen" id="foldopen00217" data-start="{" data-end="}">
-<div class="line"><a id="l00217" name="l00217"></a><span class="lineno"><a class="line" href="classlala_1_1_var_env.html#aca4f1f72a4bab1d314c1e91b4d1e3f90">  217</a></span>  CUDA thrust::optional&lt;const variable_type&amp;&gt; <a class="code hl_function" href="classlala_1_1_var_env.html#aca4f1f72a4bab1d314c1e91b4d1e3f90">variable_of</a>(<span class="keyword">const</span> battery::string&lt;Alloc2&gt;&amp; lv)<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="classlala_1_1_var_env.html#ab02488a8443856fb1675e68f05c6ccec">variable_of</a>(lv.data());</div>
-<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>  }</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span> </div>
+<div class="foldopen" id="foldopen00190" data-start="{" data-end="}">
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno"><a class="line" href="classlala_1_1_var_env.html#a0ae7d9314590332f73d96ea6565bd992">  190</a></span>  CUDA <a class="code hl_typedef" href="classlala_1_1_var_env.html#abb18c8eb73c7d88761d941b6eabe1e36">allocator_type</a> <a class="code hl_function" href="classlala_1_1_var_env.html#a0ae7d9314590332f73d96ea6565bd992">get_allocator</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>    <span class="keywordflow">return</span> lvars.get_allocator();</div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>  }</div>
 </div>
-<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span> </div>
-<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>  <span class="keyword">template</span> &lt;<span class="keyword">class</span> Alloc2&gt;</div>
-<div class="foldopen" id="foldopen00222" data-start="{" data-end="}">
-<div class="line"><a id="l00222" name="l00222"></a><span class="lineno"><a class="line" href="classlala_1_1_var_env.html#afb94db92bab89580a92319287b826c73">  222</a></span>  CUDA <span class="keywordtype">bool</span> <a class="code hl_function" href="classlala_1_1_var_env.html#afb94db92bab89580a92319287b826c73">contains</a>(<span class="keyword">const</span> battery::string&lt;Alloc2&gt;&amp; lv)<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="classlala_1_1_var_env.html#afb94db92bab89580a92319287b826c73">contains</a>(lv.data());</div>
-<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>  }</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span> </div>
+<div class="foldopen" id="foldopen00194" data-start="{" data-end="}">
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno"><a class="line" href="classlala_1_1_var_env.html#a282e2ca603f59cf4d358508434c116d8">  194</a></span>  CUDA <span class="keywordtype">size_t</span> <a class="code hl_function" href="classlala_1_1_var_env.html#a282e2ca603f59cf4d358508434c116d8">num_abstract_doms</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>    <span class="keywordflow">return</span> avar2lvar.size();</div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>  }</div>
 </div>
-<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span> </div>
-<div class="foldopen" id="foldopen00226" data-start="{" data-end="}">
-<div class="line"><a id="l00226" name="l00226"></a><span class="lineno"><a class="line" href="classlala_1_1_var_env.html#a3ce2e6884718dfaac5ab413243601b03">  226</a></span>  CUDA <span class="keywordtype">bool</span> <a class="code hl_function" href="classlala_1_1_var_env.html#a3ce2e6884718dfaac5ab413243601b03">contains</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* lv)<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="classlala_1_1_var_env.html#ab02488a8443856fb1675e68f05c6ccec">variable_of</a>(lv).has_value();</div>
-<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>  }</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span> </div>
+<div class="foldopen" id="foldopen00198" data-start="{" data-end="}">
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno"><a class="line" href="classlala_1_1_var_env.html#ab081512efec6a44cca0fb735b214bf79">  198</a></span>  CUDA <span class="keywordtype">size_t</span> <a class="code hl_function" href="classlala_1_1_var_env.html#ab081512efec6a44cca0fb735b214bf79">num_vars</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>    <span class="keywordflow">return</span> lvars.size();</div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>  }</div>
 </div>
-<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span> </div>
-<div class="foldopen" id="foldopen00230" data-start="{" data-end="}">
-<div class="line"><a id="l00230" name="l00230"></a><span class="lineno"><a class="line" href="classlala_1_1_var_env.html#a893da90eda0d93db9b54c4848c9c1918">  230</a></span>  CUDA <span class="keywordtype">bool</span> <a class="code hl_function" href="classlala_1_1_var_env.html#a893da90eda0d93db9b54c4848c9c1918">contains</a>(<a class="code hl_class" href="classlala_1_1_a_var.html">AVar</a> av)<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>    <span class="keywordflow">if</span>(!av.<a class="code hl_function" href="classlala_1_1_a_var.html#ac1befe42844bc0f496c49d5ce726d084">is_untyped</a>()) {</div>
-<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>      <span class="keywordflow">return</span> avar2lvar.size() &gt; av.<a class="code hl_function" href="classlala_1_1_a_var.html#a18d80c5e7ea9fac6d6ec9da00ea0e5a4">aty</a>() &amp;&amp; avar2lvar[av.<a class="code hl_function" href="classlala_1_1_a_var.html#a18d80c5e7ea9fac6d6ec9da00ea0e5a4">aty</a>()].size() &gt; av.<a class="code hl_function" href="classlala_1_1_a_var.html#a0f0eb73862fff331afaba5780ed37903">vid</a>();</div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span> </div>
+<div class="foldopen" id="foldopen00202" data-start="{" data-end="}">
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno"><a class="line" href="classlala_1_1_var_env.html#abfe4eed2f69f6b57e657e9a51fa5644f">  202</a></span>  CUDA <span class="keywordtype">size_t</span> <a class="code hl_function" href="classlala_1_1_var_env.html#abfe4eed2f69f6b57e657e9a51fa5644f">num_vars_in</a>(<a class="code hl_typedef" href="namespacelala.html#a6c626918dd7c19ff046f5cebaabec18f">AType</a> aty)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>    <span class="keywordflow">if</span>(aty &gt;= avar2lvar.size()) {</div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>      <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>    }</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>    <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>      <span class="keywordflow">return</span> avar2lvar[aty].size();</div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>    }</div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>  }</div>
+</div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span><span class="comment"></span> </div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span><span class="comment">  /** A variable environment can interpret formulas of two forms:</span></div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span><span class="comment">   *    - Existential formula with a valid abstract type (`f.type() != UNTYPED`).</span></div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span><span class="comment">   *    - Variable occurrence.</span></div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span><span class="comment">   * It returns an abstract variable (`AVar`) corresponding to the variable created (existential) or already presents (occurrence). */</span></div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>  <span class="keyword">template</span> &lt;<span class="keyword">class</span> F&gt;</div>
+<div class="foldopen" id="foldopen00216" data-start="{" data-end="}">
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno"><a class="line" href="classlala_1_1_var_env.html#a109483b206041bdf0847e761d990a981">  216</a></span>  CUDA NI <a class="code hl_class" href="classlala_1_1_i_result.html">iresult&lt;F&gt;</a> <a class="code hl_function" href="classlala_1_1_var_env.html#a109483b206041bdf0847e761d990a981">interpret</a>(<span class="keyword">const</span> F&amp; f) {</div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>    <span class="keywordflow">if</span>(f.is(F::E)) {</div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>      <span class="keywordflow">return</span> interpret_existential(f);</div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>    }</div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(f.is(F::LV)) {</div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>      <span class="keywordflow">return</span> interpret_lv(f);</div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>    }</div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(f.is(F::V)) {</div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>      <span class="keywordflow">if</span>(<a class="code hl_function" href="classlala_1_1_var_env.html#afb94db92bab89580a92319287b826c73">contains</a>(f.v())) {</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>        <span class="keywordflow">return</span> f.v();</div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>      }</div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>      <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>        <span class="keywordflow">return</span> <a class="code hl_class" href="classlala_1_1_i_result.html">iresult&lt;F&gt;</a>(<a class="code hl_class" href="classlala_1_1_i_error.html">IError&lt;F&gt;</a>(<span class="keyword">true</span>, <a class="code hl_variable" href="classlala_1_1_var_env.html#ab9fcf8252087465acec55baeb9419f90">name</a>, <span class="stringliteral">&quot;Undeclared abstract variable `&quot;</span> + fstring&lt;F&gt;::from_int(f.v().aty()) + <span class="stringliteral">&quot;, &quot;</span> + fstring&lt;F&gt;::from_int(f.v().vid()) + <span class="stringliteral">&quot;`.&quot;</span>, f));</div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>      }</div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>    }</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>    <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>      <span class="keywordflow">return</span> <a class="code hl_class" href="classlala_1_1_i_result.html">iresult&lt;F&gt;</a>(<a class="code hl_class" href="classlala_1_1_i_error.html">IError&lt;F&gt;</a>(<span class="keyword">true</span>, <a class="code hl_variable" href="classlala_1_1_var_env.html#ab9fcf8252087465acec55baeb9419f90">name</a>, <span class="stringliteral">&quot;Unsupported formula: `VarEnv` can only interpret quantifiers and occurrences of variables.&quot;</span>, f));</div>
 <div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>    }</div>
-<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>  }</div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>  }</div>
 </div>
-<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span> </div>
-<div class="foldopen" id="foldopen00237" data-start="{" data-end="}">
-<div class="line"><a id="l00237" name="l00237"></a><span class="lineno"><a class="line" href="classlala_1_1_var_env.html#aa471ea898feeeeb599335970bdf987e9">  237</a></span>  CUDA <span class="keyword">const</span> <a class="code hl_struct" href="structlala_1_1_variable.html">variable_type</a>&amp; <a class="code hl_function" href="classlala_1_1_var_env.html#aa471ea898feeeeb599335970bdf987e9">operator[]</a>(<span class="keywordtype">int</span> i)<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>    <span class="keywordflow">return</span> lvars[i];</div>
-<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>  }</div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span> </div>
+<div class="foldopen" id="foldopen00236" data-start="{" data-end="}">
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno"><a class="line" href="classlala_1_1_var_env.html#ab02488a8443856fb1675e68f05c6ccec">  236</a></span>  CUDA NI thrust::optional&lt;const variable_type&amp;&gt; <a class="code hl_function" href="classlala_1_1_var_env.html#ab02488a8443856fb1675e68f05c6ccec">variable_of</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* lv)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>    <span class="keyword">auto</span> r = lvar_index_of(lv);</div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>    <span class="keywordflow">if</span>(r.has_value()) {</div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>      <span class="keywordflow">return</span> lvars[*r];</div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>    }</div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>    <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>      <span class="keywordflow">return</span> {};</div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>    }</div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>  }</div>
 </div>
-<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span> </div>
-<div class="foldopen" id="foldopen00241" data-start="{" data-end="}">
-<div class="line"><a id="l00241" name="l00241"></a><span class="lineno"><a class="line" href="classlala_1_1_var_env.html#a07ce3c079e22f283e6171e127398b7d1">  241</a></span>  CUDA <span class="keyword">const</span> <a class="code hl_struct" href="structlala_1_1_variable.html">variable_type</a>&amp; <a class="code hl_function" href="classlala_1_1_var_env.html#a07ce3c079e22f283e6171e127398b7d1">operator[]</a>(<a class="code hl_class" href="classlala_1_1_a_var.html">AVar</a> av)<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>    <span class="keywordflow">return</span> lvars[avar2lvar[av.<a class="code hl_function" href="classlala_1_1_a_var.html#a18d80c5e7ea9fac6d6ec9da00ea0e5a4">aty</a>()][av.<a class="code hl_function" href="classlala_1_1_a_var.html#a0f0eb73862fff331afaba5780ed37903">vid</a>()]];</div>
-<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>  }</div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span> </div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>  <span class="keyword">template</span> &lt;<span class="keyword">class</span> Alloc2&gt;</div>
+<div class="foldopen" id="foldopen00247" data-start="{" data-end="}">
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno"><a class="line" href="classlala_1_1_var_env.html#aca4f1f72a4bab1d314c1e91b4d1e3f90">  247</a></span>  CUDA thrust::optional&lt;const variable_type&amp;&gt; <a class="code hl_function" href="classlala_1_1_var_env.html#aca4f1f72a4bab1d314c1e91b4d1e3f90">variable_of</a>(<span class="keyword">const</span> battery::string&lt;Alloc2&gt;&amp; lv)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="classlala_1_1_var_env.html#ab02488a8443856fb1675e68f05c6ccec">variable_of</a>(lv.data());</div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>  }</div>
 </div>
-<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span> </div>
-<div class="foldopen" id="foldopen00245" data-start="{" data-end="}">
-<div class="line"><a id="l00245" name="l00245"></a><span class="lineno"><a class="line" href="classlala_1_1_var_env.html#aeb75588dd07defab5093fd9eff8342a4">  245</a></span>  CUDA <span class="keyword">const</span> <a class="code hl_typedef" href="classlala_1_1_var_env.html#a9b5bbc8fcf5fae35e003a733a0df0506">bstring</a>&amp; <a class="code hl_function" href="classlala_1_1_var_env.html#aeb75588dd07defab5093fd9eff8342a4">name_of</a>(<a class="code hl_class" href="classlala_1_1_a_var.html">AVar</a> av)<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>    <span class="keywordflow">return</span> (*<span class="keyword">this</span>)[av].name;</div>
-<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>  }</div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span> </div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>  <span class="keyword">template</span> &lt;<span class="keyword">class</span> Alloc2&gt;</div>
+<div class="foldopen" id="foldopen00252" data-start="{" data-end="}">
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno"><a class="line" href="classlala_1_1_var_env.html#afb94db92bab89580a92319287b826c73">  252</a></span>  CUDA <span class="keywordtype">bool</span> <a class="code hl_function" href="classlala_1_1_var_env.html#afb94db92bab89580a92319287b826c73">contains</a>(<span class="keyword">const</span> battery::string&lt;Alloc2&gt;&amp; lv)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="classlala_1_1_var_env.html#afb94db92bab89580a92319287b826c73">contains</a>(lv.data());</div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>  }</div>
 </div>
-<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span> </div>
-<div class="foldopen" id="foldopen00249" data-start="{" data-end="}">
-<div class="line"><a id="l00249" name="l00249"></a><span class="lineno"><a class="line" href="classlala_1_1_var_env.html#aef890360f5cfd50e69dc2fec7a99a137">  249</a></span>  CUDA <span class="keyword">const</span> <a class="code hl_struct" href="structlala_1_1_sort.html">Sort&lt;Allocator&gt;</a>&amp; <a class="code hl_function" href="classlala_1_1_var_env.html#aef890360f5cfd50e69dc2fec7a99a137">sort_of</a>(<a class="code hl_class" href="classlala_1_1_a_var.html">AVar</a> av)<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>    <span class="keywordflow">return</span> (*<span class="keyword">this</span>)[av].sort;</div>
-<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>  }</div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span> </div>
+<div class="foldopen" id="foldopen00256" data-start="{" data-end="}">
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno"><a class="line" href="classlala_1_1_var_env.html#a3ce2e6884718dfaac5ab413243601b03">  256</a></span>  CUDA <span class="keywordtype">bool</span> <a class="code hl_function" href="classlala_1_1_var_env.html#a3ce2e6884718dfaac5ab413243601b03">contains</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* lv)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="classlala_1_1_var_env.html#ab02488a8443856fb1675e68f05c6ccec">variable_of</a>(lv).has_value();</div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>  }</div>
 </div>
-<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span> </div>
-<div class="foldopen" id="foldopen00253" data-start="{" data-end="};">
-<div class="line"><a id="l00253" name="l00253"></a><span class="lineno"><a class="line" href="structlala_1_1_var_env_1_1snapshot__type.html">  253</a></span>  <span class="keyword">struct </span><a class="code hl_struct" href="structlala_1_1_var_env_1_1snapshot__type.html">snapshot_type</a> {</div>
-<div class="line"><a id="l00254" name="l00254"></a><span class="lineno"><a class="line" href="structlala_1_1_var_env_1_1snapshot__type.html#ac81f01df45ebece4e1d7bef5a315ec90">  254</a></span>    <a class="code hl_typedef" href="classlala_1_1_var_env.html#a922e74bccb84ac197ff681ec0ac32822">bvector&lt;int&gt;</a> <a class="code hl_variable" href="structlala_1_1_var_env_1_1snapshot__type.html#ac81f01df45ebece4e1d7bef5a315ec90">lvars_snap</a>;</div>
-<div class="line"><a id="l00255" name="l00255"></a><span class="lineno"><a class="line" href="structlala_1_1_var_env_1_1snapshot__type.html#a22a3a1c662a6273f41a9f1d16f8ea609">  255</a></span>    <a class="code hl_typedef" href="classlala_1_1_var_env.html#a922e74bccb84ac197ff681ec0ac32822">bvector&lt;int&gt;</a> <a class="code hl_variable" href="structlala_1_1_var_env_1_1snapshot__type.html#a22a3a1c662a6273f41a9f1d16f8ea609">avar2lvar_snap</a>;</div>
-<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>  };</div>
-</div>
-<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span><span class="comment"></span> </div>
-<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span><span class="comment">  /** Save the state of the environment. */</span></div>
-<div class="foldopen" id="foldopen00259" data-start="{" data-end="}">
-<div class="line"><a id="l00259" name="l00259"></a><span class="lineno"><a class="line" href="classlala_1_1_var_env.html#af3e3140ebd83eae6a8a4b977c6c3c07f">  259</a></span>  CUDA NI <a class="code hl_struct" href="structlala_1_1_var_env_1_1snapshot__type.html">snapshot_type</a> <a class="code hl_function" href="classlala_1_1_var_env.html#af3e3140ebd83eae6a8a4b977c6c3c07f">snapshot</a>()<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>    <a class="code hl_struct" href="structlala_1_1_var_env_1_1snapshot__type.html">snapshot_type</a> snap;</div>
-<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; lvars.size(); ++i) {</div>
-<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>      snap.<a class="code hl_variable" href="structlala_1_1_var_env_1_1snapshot__type.html#ac81f01df45ebece4e1d7bef5a315ec90">lvars_snap</a>.push_back(lvars[i].avars.size());</div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span> </div>
+<div class="foldopen" id="foldopen00260" data-start="{" data-end="}">
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno"><a class="line" href="classlala_1_1_var_env.html#a893da90eda0d93db9b54c4848c9c1918">  260</a></span>  CUDA <span class="keywordtype">bool</span> <a class="code hl_function" href="classlala_1_1_var_env.html#a893da90eda0d93db9b54c4848c9c1918">contains</a>(<a class="code hl_class" href="classlala_1_1_a_var.html">AVar</a> av)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>    <span class="keywordflow">if</span>(!av.<a class="code hl_function" href="classlala_1_1_a_var.html#ac1befe42844bc0f496c49d5ce726d084">is_untyped</a>()) {</div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>      <span class="keywordflow">return</span> avar2lvar.size() &gt; av.<a class="code hl_function" href="classlala_1_1_a_var.html#a18d80c5e7ea9fac6d6ec9da00ea0e5a4">aty</a>() &amp;&amp; avar2lvar[av.<a class="code hl_function" href="classlala_1_1_a_var.html#a18d80c5e7ea9fac6d6ec9da00ea0e5a4">aty</a>()].size() &gt; av.<a class="code hl_function" href="classlala_1_1_a_var.html#a0f0eb73862fff331afaba5780ed37903">vid</a>();</div>
 <div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>    }</div>
-<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; avar2lvar.size(); ++i) {</div>
-<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>      snap.<a class="code hl_variable" href="structlala_1_1_var_env_1_1snapshot__type.html#a22a3a1c662a6273f41a9f1d16f8ea609">avar2lvar_snap</a>.push_back(avar2lvar[i].size());</div>
-<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>    }</div>
-<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>    <span class="keywordflow">return</span> std::move(snap);</div>
-<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>  }</div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>  }</div>
 </div>
-<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span><span class="comment"></span> </div>
-<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span><span class="comment">  /** Restore the environment to its previous state `snap`. */</span></div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span> </div>
+<div class="foldopen" id="foldopen00267" data-start="{" data-end="}">
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno"><a class="line" href="classlala_1_1_var_env.html#aa471ea898feeeeb599335970bdf987e9">  267</a></span>  CUDA <span class="keyword">const</span> <a class="code hl_struct" href="structlala_1_1_variable.html">variable_type</a>&amp; <a class="code hl_function" href="classlala_1_1_var_env.html#aa471ea898feeeeb599335970bdf987e9">operator[]</a>(<span class="keywordtype">int</span> i)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>    <span class="keywordflow">return</span> lvars[i];</div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>  }</div>
+</div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span> </div>
 <div class="foldopen" id="foldopen00271" data-start="{" data-end="}">
-<div class="line"><a id="l00271" name="l00271"></a><span class="lineno"><a class="line" href="classlala_1_1_var_env.html#afb1f36be814fba336939347535a9c52c">  271</a></span>  CUDA NI <span class="keywordtype">void</span> <a class="code hl_function" href="classlala_1_1_var_env.html#afb1f36be814fba336939347535a9c52c">restore</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structlala_1_1_var_env_1_1snapshot__type.html">snapshot_type</a>&amp; snap) {</div>
-<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>    assert(lvars.size() &gt;= snap.<a class="code hl_variable" href="structlala_1_1_var_env_1_1snapshot__type.html#ac81f01df45ebece4e1d7bef5a315ec90">lvars_snap</a>.size());</div>
-<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>    assert(avar2lvar.size() &gt;= snap.<a class="code hl_variable" href="structlala_1_1_var_env_1_1snapshot__type.html#a22a3a1c662a6273f41a9f1d16f8ea609">avar2lvar_snap</a>.size());</div>
-<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span>    <span class="keywordflow">while</span>(lvars.size() &gt; snap.<a class="code hl_variable" href="structlala_1_1_var_env_1_1snapshot__type.html#ac81f01df45ebece4e1d7bef5a315ec90">lvars_snap</a>.size()) {</div>
-<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>      lvars.pop_back();</div>
-<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>    }</div>
-<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span>    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; lvars.size(); ++i) {</div>
-<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>      lvars[i].avars.resize(snap.<a class="code hl_variable" href="structlala_1_1_var_env_1_1snapshot__type.html#ac81f01df45ebece4e1d7bef5a315ec90">lvars_snap</a>[i]);</div>
-<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>    }</div>
-<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span>    <span class="keywordflow">while</span>(avar2lvar.size() &gt; snap.<a class="code hl_variable" href="structlala_1_1_var_env_1_1snapshot__type.html#a22a3a1c662a6273f41a9f1d16f8ea609">avar2lvar_snap</a>.size()) {</div>
-<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span>      avar2lvar.pop_back();</div>
-<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span>    }</div>
-<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span>    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; avar2lvar.size(); ++i) {</div>
-<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span>      avar2lvar[i].resize(snap.<a class="code hl_variable" href="structlala_1_1_var_env_1_1snapshot__type.html#a22a3a1c662a6273f41a9f1d16f8ea609">avar2lvar_snap</a>[i]);</div>
-<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>    }</div>
-<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span>  }</div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno"><a class="line" href="classlala_1_1_var_env.html#a07ce3c079e22f283e6171e127398b7d1">  271</a></span>  CUDA <span class="keyword">const</span> <a class="code hl_struct" href="structlala_1_1_variable.html">variable_type</a>&amp; <a class="code hl_function" href="classlala_1_1_var_env.html#a07ce3c079e22f283e6171e127398b7d1">operator[]</a>(<a class="code hl_class" href="classlala_1_1_a_var.html">AVar</a> av)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>    <span class="keywordflow">return</span> lvars[avar2lvar[av.<a class="code hl_function" href="classlala_1_1_a_var.html#a18d80c5e7ea9fac6d6ec9da00ea0e5a4">aty</a>()][av.<a class="code hl_function" href="classlala_1_1_a_var.html#a0f0eb73862fff331afaba5780ed37903">vid</a>()]];</div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>  }</div>
 </div>
-<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>};</div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span> </div>
+<div class="foldopen" id="foldopen00275" data-start="{" data-end="}">
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno"><a class="line" href="classlala_1_1_var_env.html#aeb75588dd07defab5093fd9eff8342a4">  275</a></span>  CUDA <span class="keyword">const</span> <a class="code hl_typedef" href="classlala_1_1_var_env.html#a9b5bbc8fcf5fae35e003a733a0df0506">bstring</a>&amp; <a class="code hl_function" href="classlala_1_1_var_env.html#aeb75588dd07defab5093fd9eff8342a4">name_of</a>(<a class="code hl_class" href="classlala_1_1_a_var.html">AVar</a> av)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>    <span class="keywordflow">return</span> (*<span class="keyword">this</span>)[av].name;</div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span>  }</div>
 </div>
-<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span><span class="comment"></span> </div>
-<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span><span class="comment">/** Given a formula `f` and an environment, return the first variable occurring in `f` or `{}` if `f` has no variable in `env`. */</span></div>
-<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span><span class="keyword">template</span> &lt;<span class="keyword">class</span> F, <span class="keyword">class</span> Env&gt;</div>
-<div class="foldopen" id="foldopen00291" data-start="{" data-end="}">
-<div class="line"><a id="l00291" name="l00291"></a><span class="lineno"><a class="line" href="namespacelala.html#a229f68fee0d04041637f3d9b7999436d">  291</a></span>CUDA NI thrust::optional&lt;const typename Env::variable_type&amp;&gt; <a class="code hl_function" href="namespacelala.html#ad61da309e0f805e38d1b86a1d9bf4b70">var_in</a>(<span class="keyword">const</span> F&amp; f, <span class="keyword">const</span> Env&amp; env) {</div>
-<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span>  <span class="keyword">const</span> <span class="keyword">auto</span>&amp; g = <a class="code hl_function" href="namespacelala.html#ad61da309e0f805e38d1b86a1d9bf4b70">var_in</a>(f);</div>
-<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span>  <span class="keywordflow">switch</span>(g.index()) {</div>
-<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span>    <span class="keywordflow">case</span> F::V:</div>
-<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span>      <span class="keywordflow">if</span>(g.v().is_untyped()) { <span class="keywordflow">return</span> {}; }</div>
-<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span>      <span class="keywordflow">else</span> { <span class="keywordflow">return</span> env[g.v()]; }</div>
-<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span>    <span class="keywordflow">case</span> F::E:</div>
-<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span>      <span class="keywordflow">return</span> env.variable_of(battery::get&lt;0&gt;(g.exists()));</div>
-<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span>    <span class="keywordflow">case</span> F::LV:</div>
-<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span>      <span class="keywordflow">return</span> env.variable_of(g.lv());</div>
-<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span>  }</div>
-<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span>  <span class="keywordflow">return</span> {};</div>
-<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span>}</div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span> </div>
+<div class="foldopen" id="foldopen00279" data-start="{" data-end="}">
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno"><a class="line" href="classlala_1_1_var_env.html#aef890360f5cfd50e69dc2fec7a99a137">  279</a></span>  CUDA <span class="keyword">const</span> <a class="code hl_struct" href="structlala_1_1_sort.html">Sort&lt;Allocator&gt;</a>&amp; <a class="code hl_function" href="classlala_1_1_var_env.html#aef890360f5cfd50e69dc2fec7a99a137">sort_of</a>(<a class="code hl_class" href="classlala_1_1_a_var.html">AVar</a> av)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span>    <span class="keywordflow">return</span> (*<span class="keyword">this</span>)[av].sort;</div>
+<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span>  }</div>
 </div>
-<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span>}</div>
-<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span> </div>
-<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span> </div>
+<div class="foldopen" id="foldopen00283" data-start="{" data-end="};">
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno"><a class="line" href="structlala_1_1_var_env_1_1snapshot__type.html">  283</a></span>  <span class="keyword">struct </span><a class="code hl_struct" href="structlala_1_1_var_env_1_1snapshot__type.html">snapshot_type</a> {</div>
+<div class="line"><a id="l00284" name="l00284"></a><span class="lineno"><a class="line" href="structlala_1_1_var_env_1_1snapshot__type.html#ac81f01df45ebece4e1d7bef5a315ec90">  284</a></span>    <a class="code hl_typedef" href="classlala_1_1_var_env.html#a922e74bccb84ac197ff681ec0ac32822">bvector&lt;int&gt;</a> <a class="code hl_variable" href="structlala_1_1_var_env_1_1snapshot__type.html#ac81f01df45ebece4e1d7bef5a315ec90">lvars_snap</a>;</div>
+<div class="line"><a id="l00285" name="l00285"></a><span class="lineno"><a class="line" href="structlala_1_1_var_env_1_1snapshot__type.html#a22a3a1c662a6273f41a9f1d16f8ea609">  285</a></span>    <a class="code hl_typedef" href="classlala_1_1_var_env.html#a922e74bccb84ac197ff681ec0ac32822">bvector&lt;int&gt;</a> <a class="code hl_variable" href="structlala_1_1_var_env_1_1snapshot__type.html#a22a3a1c662a6273f41a9f1d16f8ea609">avar2lvar_snap</a>;</div>
+<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span>  };</div>
+</div>
+<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span><span class="comment"></span> </div>
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span><span class="comment">  /** Save the state of the environment. */</span></div>
+<div class="foldopen" id="foldopen00289" data-start="{" data-end="}">
+<div class="line"><a id="l00289" name="l00289"></a><span class="lineno"><a class="line" href="classlala_1_1_var_env.html#af3e3140ebd83eae6a8a4b977c6c3c07f">  289</a></span>  CUDA NI <a class="code hl_struct" href="structlala_1_1_var_env_1_1snapshot__type.html">snapshot_type</a> <a class="code hl_function" href="classlala_1_1_var_env.html#af3e3140ebd83eae6a8a4b977c6c3c07f">snapshot</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span>    <a class="code hl_struct" href="structlala_1_1_var_env_1_1snapshot__type.html">snapshot_type</a> snap;</div>
+<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span>    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; lvars.size(); ++i) {</div>
+<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span>      snap.<a class="code hl_variable" href="structlala_1_1_var_env_1_1snapshot__type.html#ac81f01df45ebece4e1d7bef5a315ec90">lvars_snap</a>.push_back(lvars[i].avars.size());</div>
+<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span>    }</div>
+<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span>    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; avar2lvar.size(); ++i) {</div>
+<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span>      snap.<a class="code hl_variable" href="structlala_1_1_var_env_1_1snapshot__type.html#a22a3a1c662a6273f41a9f1d16f8ea609">avar2lvar_snap</a>.push_back(avar2lvar[i].size());</div>
+<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span>    }</div>
+<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span>    <span class="keywordflow">return</span> std::move(snap);</div>
+<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span>  }</div>
+</div>
+<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span><span class="comment"></span> </div>
+<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span><span class="comment">  /** Restore the environment to its previous state `snap`. */</span></div>
+<div class="foldopen" id="foldopen00301" data-start="{" data-end="}">
+<div class="line"><a id="l00301" name="l00301"></a><span class="lineno"><a class="line" href="classlala_1_1_var_env.html#afb1f36be814fba336939347535a9c52c">  301</a></span>  CUDA NI <span class="keywordtype">void</span> <a class="code hl_function" href="classlala_1_1_var_env.html#afb1f36be814fba336939347535a9c52c">restore</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structlala_1_1_var_env_1_1snapshot__type.html">snapshot_type</a>&amp; snap) {</div>
+<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span>    assert(lvars.size() &gt;= snap.<a class="code hl_variable" href="structlala_1_1_var_env_1_1snapshot__type.html#ac81f01df45ebece4e1d7bef5a315ec90">lvars_snap</a>.size());</div>
+<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span>    assert(avar2lvar.size() &gt;= snap.<a class="code hl_variable" href="structlala_1_1_var_env_1_1snapshot__type.html#a22a3a1c662a6273f41a9f1d16f8ea609">avar2lvar_snap</a>.size());</div>
+<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span>    <span class="keywordflow">while</span>(lvars.size() &gt; snap.<a class="code hl_variable" href="structlala_1_1_var_env_1_1snapshot__type.html#ac81f01df45ebece4e1d7bef5a315ec90">lvars_snap</a>.size()) {</div>
+<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span>      lvars.pop_back();</div>
+<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span>    }</div>
+<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span>    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; lvars.size(); ++i) {</div>
+<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span>      lvars[i].avars.resize(snap.<a class="code hl_variable" href="structlala_1_1_var_env_1_1snapshot__type.html#ac81f01df45ebece4e1d7bef5a315ec90">lvars_snap</a>[i]);</div>
+<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span>    }</div>
+<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span>    <span class="keywordflow">while</span>(avar2lvar.size() &gt; snap.<a class="code hl_variable" href="structlala_1_1_var_env_1_1snapshot__type.html#a22a3a1c662a6273f41a9f1d16f8ea609">avar2lvar_snap</a>.size()) {</div>
+<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span>      avar2lvar.pop_back();</div>
+<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span>    }</div>
+<div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span>    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; avar2lvar.size(); ++i) {</div>
+<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span>      avar2lvar[i].resize(snap.<a class="code hl_variable" href="structlala_1_1_var_env_1_1snapshot__type.html#a22a3a1c662a6273f41a9f1d16f8ea609">avar2lvar_snap</a>[i]);</div>
+<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span>    }</div>
+<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span>  }</div>
+</div>
+<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span>};</div>
+</div>
+<div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span><span class="comment"></span> </div>
+<div class="line"><a id="l00319" name="l00319"></a><span class="lineno">  319</span><span class="comment">/** Given a formula `f` and an environment, return the first variable occurring in `f` or `{}` if `f` has no variable in `env`. */</span></div>
+<div class="line"><a id="l00320" name="l00320"></a><span class="lineno">  320</span><span class="keyword">template</span> &lt;<span class="keyword">class</span> F, <span class="keyword">class</span> Env&gt;</div>
+<div class="foldopen" id="foldopen00321" data-start="{" data-end="}">
+<div class="line"><a id="l00321" name="l00321"></a><span class="lineno"><a class="line" href="namespacelala.html#a229f68fee0d04041637f3d9b7999436d">  321</a></span>CUDA NI thrust::optional&lt;const typename Env::variable_type&amp;&gt; <a class="code hl_function" href="namespacelala.html#ad61da309e0f805e38d1b86a1d9bf4b70">var_in</a>(<span class="keyword">const</span> F&amp; f, <span class="keyword">const</span> Env&amp; env) {</div>
+<div class="line"><a id="l00322" name="l00322"></a><span class="lineno">  322</span>  <span class="keyword">const</span> <span class="keyword">auto</span>&amp; g = <a class="code hl_function" href="namespacelala.html#ad61da309e0f805e38d1b86a1d9bf4b70">var_in</a>(f);</div>
+<div class="line"><a id="l00323" name="l00323"></a><span class="lineno">  323</span>  <span class="keywordflow">switch</span>(g.index()) {</div>
+<div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span>    <span class="keywordflow">case</span> F::V:</div>
+<div class="line"><a id="l00325" name="l00325"></a><span class="lineno">  325</span>      <span class="keywordflow">if</span>(g.v().is_untyped()) { <span class="keywordflow">return</span> {}; }</div>
+<div class="line"><a id="l00326" name="l00326"></a><span class="lineno">  326</span>      <span class="keywordflow">else</span> { <span class="keywordflow">return</span> env[g.v()]; }</div>
+<div class="line"><a id="l00327" name="l00327"></a><span class="lineno">  327</span>    <span class="keywordflow">case</span> F::E:</div>
+<div class="line"><a id="l00328" name="l00328"></a><span class="lineno">  328</span>      <span class="keywordflow">return</span> env.variable_of(battery::get&lt;0&gt;(g.exists()));</div>
+<div class="line"><a id="l00329" name="l00329"></a><span class="lineno">  329</span>    <span class="keywordflow">case</span> F::LV:</div>
+<div class="line"><a id="l00330" name="l00330"></a><span class="lineno">  330</span>      <span class="keywordflow">return</span> env.variable_of(g.lv());</div>
+<div class="line"><a id="l00331" name="l00331"></a><span class="lineno">  331</span>  }</div>
+<div class="line"><a id="l00332" name="l00332"></a><span class="lineno">  332</span>  <span class="keywordflow">return</span> {};</div>
+<div class="line"><a id="l00333" name="l00333"></a><span class="lineno">  333</span>}</div>
+</div>
+<div class="line"><a id="l00334" name="l00334"></a><span class="lineno">  334</span>}</div>
+<div class="line"><a id="l00335" name="l00335"></a><span class="lineno">  335</span> </div>
+<div class="line"><a id="l00336" name="l00336"></a><span class="lineno">  336</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aast_8hpp_html"><div class="ttname"><a href="ast_8hpp.html">ast.hpp</a></div></div>
 <div class="ttc" id="aclasslala_1_1_a_var_html"><div class="ttname"><a href="classlala_1_1_a_var.html">lala::AVar</a></div><div class="ttdef"><b>Definition</b> ast.hpp:27</div></div>
 <div class="ttc" id="aclasslala_1_1_a_var_html_a0f0eb73862fff331afaba5780ed37903"><div class="ttname"><a href="classlala_1_1_a_var.html#a0f0eb73862fff331afaba5780ed37903">lala::AVar::vid</a></div><div class="ttdeci">CUDA constexpr int vid() const</div><div class="ttdef"><b>Definition</b> ast.hpp:57</div></div>
@@ -470,41 +502,42 @@ $(document).ready(function(){initNavTree('env_8hpp_source.html',''); initResizab
 <div class="ttc" id="aclasslala_1_1_i_error_html"><div class="ttname"><a href="classlala_1_1_i_error.html">lala::IError</a></div><div class="ttdef"><b>Definition</b> iresult.hpp:18</div></div>
 <div class="ttc" id="aclasslala_1_1_i_result_html"><div class="ttname"><a href="classlala_1_1_i_result.html">lala::IResult</a></div><div class="ttdef"><b>Definition</b> iresult.hpp:95</div></div>
 <div class="ttc" id="aclasslala_1_1_var_env_html"><div class="ttname"><a href="classlala_1_1_var_env.html">lala::VarEnv</a></div><div class="ttdef"><b>Definition</b> env.hpp:52</div></div>
-<div class="ttc" id="aclasslala_1_1_var_env_html_a073d2eadc1be68b525003ae9f9e1bea6"><div class="ttname"><a href="classlala_1_1_var_env.html#a073d2eadc1be68b525003ae9f9e1bea6">lala::VarEnv::operator=</a></div><div class="ttdeci">CUDA this_type &amp; operator=(this_type &amp;&amp;other)</div><div class="ttdef"><b>Definition</b> env.hpp:155</div></div>
-<div class="ttc" id="aclasslala_1_1_var_env_html_a07ce3c079e22f283e6171e127398b7d1"><div class="ttname"><a href="classlala_1_1_var_env.html#a07ce3c079e22f283e6171e127398b7d1">lala::VarEnv::operator[]</a></div><div class="ttdeci">CUDA const variable_type &amp; operator[](AVar av) const</div><div class="ttdef"><b>Definition</b> env.hpp:241</div></div>
-<div class="ttc" id="aclasslala_1_1_var_env_html_a0ae7d9314590332f73d96ea6565bd992"><div class="ttname"><a href="classlala_1_1_var_env.html#a0ae7d9314590332f73d96ea6565bd992">lala::VarEnv::get_allocator</a></div><div class="ttdeci">CUDA allocator_type get_allocator() const</div><div class="ttdef"><b>Definition</b> env.hpp:161</div></div>
-<div class="ttc" id="aclasslala_1_1_var_env_html_a109483b206041bdf0847e761d990a981"><div class="ttname"><a href="classlala_1_1_var_env.html#a109483b206041bdf0847e761d990a981">lala::VarEnv::interpret</a></div><div class="ttdeci">CUDA NI iresult&lt; F &gt; interpret(const F &amp;f)</div><div class="ttdef"><b>Definition</b> env.hpp:187</div></div>
-<div class="ttc" id="aclasslala_1_1_var_env_html_a13efaa2f8aa5946a3a86725e5f42eb2d"><div class="ttname"><a href="classlala_1_1_var_env.html#a13efaa2f8aa5946a3a86725e5f42eb2d">lala::VarEnv::VarEnv</a></div><div class="ttdeci">CUDA VarEnv()</div><div class="ttdef"><b>Definition</b> env.hpp:147</div></div>
-<div class="ttc" id="aclasslala_1_1_var_env_html_a282e2ca603f59cf4d358508434c116d8"><div class="ttname"><a href="classlala_1_1_var_env.html#a282e2ca603f59cf4d358508434c116d8">lala::VarEnv::num_abstract_doms</a></div><div class="ttdeci">CUDA size_t num_abstract_doms() const</div><div class="ttdef"><b>Definition</b> env.hpp:165</div></div>
-<div class="ttc" id="aclasslala_1_1_var_env_html_a3ce2e6884718dfaac5ab413243601b03"><div class="ttname"><a href="classlala_1_1_var_env.html#a3ce2e6884718dfaac5ab413243601b03">lala::VarEnv::contains</a></div><div class="ttdeci">CUDA bool contains(const char *lv) const</div><div class="ttdef"><b>Definition</b> env.hpp:226</div></div>
-<div class="ttc" id="aclasslala_1_1_var_env_html_a6b3fb3b741836d1dc7e77065bcb66ea8"><div class="ttname"><a href="classlala_1_1_var_env.html#a6b3fb3b741836d1dc7e77065bcb66ea8">lala::VarEnv::VarEnv</a></div><div class="ttdeci">CUDA VarEnv(this_type &amp;&amp;other)</div><div class="ttdef"><b>Definition</b> env.hpp:146</div></div>
-<div class="ttc" id="aclasslala_1_1_var_env_html_a893da90eda0d93db9b54c4848c9c1918"><div class="ttname"><a href="classlala_1_1_var_env.html#a893da90eda0d93db9b54c4848c9c1918">lala::VarEnv::contains</a></div><div class="ttdeci">CUDA bool contains(AVar av) const</div><div class="ttdef"><b>Definition</b> env.hpp:230</div></div>
+<div class="ttc" id="aclasslala_1_1_var_env_html_a073d2eadc1be68b525003ae9f9e1bea6"><div class="ttname"><a href="classlala_1_1_var_env.html#a073d2eadc1be68b525003ae9f9e1bea6">lala::VarEnv::operator=</a></div><div class="ttdeci">CUDA this_type &amp; operator=(this_type &amp;&amp;other)</div><div class="ttdef"><b>Definition</b> env.hpp:178</div></div>
+<div class="ttc" id="aclasslala_1_1_var_env_html_a07ce3c079e22f283e6171e127398b7d1"><div class="ttname"><a href="classlala_1_1_var_env.html#a07ce3c079e22f283e6171e127398b7d1">lala::VarEnv::operator[]</a></div><div class="ttdeci">CUDA const variable_type &amp; operator[](AVar av) const</div><div class="ttdef"><b>Definition</b> env.hpp:271</div></div>
+<div class="ttc" id="aclasslala_1_1_var_env_html_a0ae7d9314590332f73d96ea6565bd992"><div class="ttname"><a href="classlala_1_1_var_env.html#a0ae7d9314590332f73d96ea6565bd992">lala::VarEnv::get_allocator</a></div><div class="ttdeci">CUDA allocator_type get_allocator() const</div><div class="ttdef"><b>Definition</b> env.hpp:190</div></div>
+<div class="ttc" id="aclasslala_1_1_var_env_html_a109483b206041bdf0847e761d990a981"><div class="ttname"><a href="classlala_1_1_var_env.html#a109483b206041bdf0847e761d990a981">lala::VarEnv::interpret</a></div><div class="ttdeci">CUDA NI iresult&lt; F &gt; interpret(const F &amp;f)</div><div class="ttdef"><b>Definition</b> env.hpp:216</div></div>
+<div class="ttc" id="aclasslala_1_1_var_env_html_a13efaa2f8aa5946a3a86725e5f42eb2d"><div class="ttname"><a href="classlala_1_1_var_env.html#a13efaa2f8aa5946a3a86725e5f42eb2d">lala::VarEnv::VarEnv</a></div><div class="ttdeci">CUDA VarEnv()</div><div class="ttdef"><b>Definition</b> env.hpp:170</div></div>
+<div class="ttc" id="aclasslala_1_1_var_env_html_a282e2ca603f59cf4d358508434c116d8"><div class="ttname"><a href="classlala_1_1_var_env.html#a282e2ca603f59cf4d358508434c116d8">lala::VarEnv::num_abstract_doms</a></div><div class="ttdeci">CUDA size_t num_abstract_doms() const</div><div class="ttdef"><b>Definition</b> env.hpp:194</div></div>
+<div class="ttc" id="aclasslala_1_1_var_env_html_a3ce2e6884718dfaac5ab413243601b03"><div class="ttname"><a href="classlala_1_1_var_env.html#a3ce2e6884718dfaac5ab413243601b03">lala::VarEnv::contains</a></div><div class="ttdeci">CUDA bool contains(const char *lv) const</div><div class="ttdef"><b>Definition</b> env.hpp:256</div></div>
+<div class="ttc" id="aclasslala_1_1_var_env_html_a58f211f05ccde6208dd78fd14655aed0"><div class="ttname"><a href="classlala_1_1_var_env.html#a58f211f05ccde6208dd78fd14655aed0">lala::VarEnv::operator=</a></div><div class="ttdeci">CUDA this_type &amp; operator=(const this_type &amp;other)</div><div class="ttdef"><b>Definition</b> env.hpp:184</div></div>
+<div class="ttc" id="aclasslala_1_1_var_env_html_a6b3fb3b741836d1dc7e77065bcb66ea8"><div class="ttname"><a href="classlala_1_1_var_env.html#a6b3fb3b741836d1dc7e77065bcb66ea8">lala::VarEnv::VarEnv</a></div><div class="ttdeci">CUDA VarEnv(this_type &amp;&amp;other)</div><div class="ttdef"><b>Definition</b> env.hpp:169</div></div>
+<div class="ttc" id="aclasslala_1_1_var_env_html_a893da90eda0d93db9b54c4848c9c1918"><div class="ttname"><a href="classlala_1_1_var_env.html#a893da90eda0d93db9b54c4848c9c1918">lala::VarEnv::contains</a></div><div class="ttdeci">CUDA bool contains(AVar av) const</div><div class="ttdef"><b>Definition</b> env.hpp:260</div></div>
 <div class="ttc" id="aclasslala_1_1_var_env_html_a922e74bccb84ac197ff681ec0ac32822"><div class="ttname"><a href="classlala_1_1_var_env.html#a922e74bccb84ac197ff681ec0ac32822">lala::VarEnv::bvector</a></div><div class="ttdeci">battery::vector&lt; T, Allocator &gt; bvector</div><div class="ttdef"><b>Definition</b> env.hpp:64</div></div>
-<div class="ttc" id="aclasslala_1_1_var_env_html_a99f974318ecb8b5de6457cc9ee670650"><div class="ttname"><a href="classlala_1_1_var_env.html#a99f974318ecb8b5de6457cc9ee670650">lala::VarEnv::VarEnv</a></div><div class="ttdeci">CUDA VarEnv(const VarEnv&lt; Alloc2 &gt; &amp;other, const Allocator &amp;allocator=Allocator())</div><div class="ttdef"><b>Definition</b> env.hpp:150</div></div>
+<div class="ttc" id="aclasslala_1_1_var_env_html_a99f974318ecb8b5de6457cc9ee670650"><div class="ttname"><a href="classlala_1_1_var_env.html#a99f974318ecb8b5de6457cc9ee670650">lala::VarEnv::VarEnv</a></div><div class="ttdeci">CUDA VarEnv(const VarEnv&lt; Alloc2 &gt; &amp;other, const Allocator &amp;allocator=Allocator())</div><div class="ttdef"><b>Definition</b> env.hpp:173</div></div>
 <div class="ttc" id="aclasslala_1_1_var_env_html_a9b5bbc8fcf5fae35e003a733a0df0506"><div class="ttname"><a href="classlala_1_1_var_env.html#a9b5bbc8fcf5fae35e003a733a0df0506">lala::VarEnv::bstring</a></div><div class="ttdeci">battery::string&lt; Allocator &gt; bstring</div><div class="ttdef"><b>Definition</b> env.hpp:65</div></div>
-<div class="ttc" id="aclasslala_1_1_var_env_html_aa471ea898feeeeb599335970bdf987e9"><div class="ttname"><a href="classlala_1_1_var_env.html#aa471ea898feeeeb599335970bdf987e9">lala::VarEnv::operator[]</a></div><div class="ttdeci">CUDA const variable_type &amp; operator[](int i) const</div><div class="ttdef"><b>Definition</b> env.hpp:237</div></div>
-<div class="ttc" id="aclasslala_1_1_var_env_html_ab02488a8443856fb1675e68f05c6ccec"><div class="ttname"><a href="classlala_1_1_var_env.html#ab02488a8443856fb1675e68f05c6ccec">lala::VarEnv::variable_of</a></div><div class="ttdeci">CUDA NI thrust::optional&lt; const variable_type &amp; &gt; variable_of(const char *lv) const</div><div class="ttdef"><b>Definition</b> env.hpp:207</div></div>
-<div class="ttc" id="aclasslala_1_1_var_env_html_ab081512efec6a44cca0fb735b214bf79"><div class="ttname"><a href="classlala_1_1_var_env.html#ab081512efec6a44cca0fb735b214bf79">lala::VarEnv::num_vars</a></div><div class="ttdeci">CUDA size_t num_vars() const</div><div class="ttdef"><b>Definition</b> env.hpp:169</div></div>
+<div class="ttc" id="aclasslala_1_1_var_env_html_aa471ea898feeeeb599335970bdf987e9"><div class="ttname"><a href="classlala_1_1_var_env.html#aa471ea898feeeeb599335970bdf987e9">lala::VarEnv::operator[]</a></div><div class="ttdeci">CUDA const variable_type &amp; operator[](int i) const</div><div class="ttdef"><b>Definition</b> env.hpp:267</div></div>
+<div class="ttc" id="aclasslala_1_1_var_env_html_ab02488a8443856fb1675e68f05c6ccec"><div class="ttname"><a href="classlala_1_1_var_env.html#ab02488a8443856fb1675e68f05c6ccec">lala::VarEnv::variable_of</a></div><div class="ttdeci">CUDA NI thrust::optional&lt; const variable_type &amp; &gt; variable_of(const char *lv) const</div><div class="ttdef"><b>Definition</b> env.hpp:236</div></div>
+<div class="ttc" id="aclasslala_1_1_var_env_html_ab081512efec6a44cca0fb735b214bf79"><div class="ttname"><a href="classlala_1_1_var_env.html#ab081512efec6a44cca0fb735b214bf79">lala::VarEnv::num_vars</a></div><div class="ttdeci">CUDA size_t num_vars() const</div><div class="ttdef"><b>Definition</b> env.hpp:198</div></div>
 <div class="ttc" id="aclasslala_1_1_var_env_html_ab9fcf8252087465acec55baeb9419f90"><div class="ttname"><a href="classlala_1_1_var_env.html#ab9fcf8252087465acec55baeb9419f90">lala::VarEnv::name</a></div><div class="ttdeci">static constexpr const char * name</div><div class="ttdef"><b>Definition</b> env.hpp:61</div></div>
 <div class="ttc" id="aclasslala_1_1_var_env_html_abb18c8eb73c7d88761d941b6eabe1e36"><div class="ttname"><a href="classlala_1_1_var_env.html#abb18c8eb73c7d88761d941b6eabe1e36">lala::VarEnv::allocator_type</a></div><div class="ttdeci">Allocator allocator_type</div><div class="ttdef"><b>Definition</b> env.hpp:55</div></div>
-<div class="ttc" id="aclasslala_1_1_var_env_html_abfe4eed2f69f6b57e657e9a51fa5644f"><div class="ttname"><a href="classlala_1_1_var_env.html#abfe4eed2f69f6b57e657e9a51fa5644f">lala::VarEnv::num_vars_in</a></div><div class="ttdeci">CUDA size_t num_vars_in(AType aty) const</div><div class="ttdef"><b>Definition</b> env.hpp:173</div></div>
-<div class="ttc" id="aclasslala_1_1_var_env_html_aca4f1f72a4bab1d314c1e91b4d1e3f90"><div class="ttname"><a href="classlala_1_1_var_env.html#aca4f1f72a4bab1d314c1e91b4d1e3f90">lala::VarEnv::variable_of</a></div><div class="ttdeci">CUDA thrust::optional&lt; const variable_type &amp; &gt; variable_of(const battery::string&lt; Alloc2 &gt; &amp;lv) const</div><div class="ttdef"><b>Definition</b> env.hpp:217</div></div>
-<div class="ttc" id="aclasslala_1_1_var_env_html_ae0c76dc56b65f5e0489d5f3efb6ad714"><div class="ttname"><a href="classlala_1_1_var_env.html#ae0c76dc56b65f5e0489d5f3efb6ad714">lala::VarEnv::VarEnv</a></div><div class="ttdeci">CUDA VarEnv(const Allocator &amp;allocator)</div><div class="ttdef"><b>Definition</b> env.hpp:145</div></div>
+<div class="ttc" id="aclasslala_1_1_var_env_html_abfe4eed2f69f6b57e657e9a51fa5644f"><div class="ttname"><a href="classlala_1_1_var_env.html#abfe4eed2f69f6b57e657e9a51fa5644f">lala::VarEnv::num_vars_in</a></div><div class="ttdeci">CUDA size_t num_vars_in(AType aty) const</div><div class="ttdef"><b>Definition</b> env.hpp:202</div></div>
+<div class="ttc" id="aclasslala_1_1_var_env_html_aca4f1f72a4bab1d314c1e91b4d1e3f90"><div class="ttname"><a href="classlala_1_1_var_env.html#aca4f1f72a4bab1d314c1e91b4d1e3f90">lala::VarEnv::variable_of</a></div><div class="ttdeci">CUDA thrust::optional&lt; const variable_type &amp; &gt; variable_of(const battery::string&lt; Alloc2 &gt; &amp;lv) const</div><div class="ttdef"><b>Definition</b> env.hpp:247</div></div>
+<div class="ttc" id="aclasslala_1_1_var_env_html_ae0c76dc56b65f5e0489d5f3efb6ad714"><div class="ttname"><a href="classlala_1_1_var_env.html#ae0c76dc56b65f5e0489d5f3efb6ad714">lala::VarEnv::VarEnv</a></div><div class="ttdeci">CUDA VarEnv(const Allocator &amp;allocator)</div><div class="ttdef"><b>Definition</b> env.hpp:168</div></div>
 <div class="ttc" id="aclasslala_1_1_var_env_html_ae1b7cf4978d4c7fd20e69ca572312185"><div class="ttname"><a href="classlala_1_1_var_env.html#ae1b7cf4978d4c7fd20e69ca572312185">lala::VarEnv::extends_abstract_dom</a></div><div class="ttdeci">CUDA NI AType extends_abstract_dom()</div><div class="ttdef"><b>Definition</b> env.hpp:77</div></div>
-<div class="ttc" id="aclasslala_1_1_var_env_html_aeb75588dd07defab5093fd9eff8342a4"><div class="ttname"><a href="classlala_1_1_var_env.html#aeb75588dd07defab5093fd9eff8342a4">lala::VarEnv::name_of</a></div><div class="ttdeci">CUDA const bstring &amp; name_of(AVar av) const</div><div class="ttdef"><b>Definition</b> env.hpp:245</div></div>
-<div class="ttc" id="aclasslala_1_1_var_env_html_aef890360f5cfd50e69dc2fec7a99a137"><div class="ttname"><a href="classlala_1_1_var_env.html#aef890360f5cfd50e69dc2fec7a99a137">lala::VarEnv::sort_of</a></div><div class="ttdeci">CUDA const Sort&lt; Allocator &gt; &amp; sort_of(AVar av) const</div><div class="ttdef"><b>Definition</b> env.hpp:249</div></div>
-<div class="ttc" id="aclasslala_1_1_var_env_html_af3e3140ebd83eae6a8a4b977c6c3c07f"><div class="ttname"><a href="classlala_1_1_var_env.html#af3e3140ebd83eae6a8a4b977c6c3c07f">lala::VarEnv::snapshot</a></div><div class="ttdeci">CUDA NI snapshot_type snapshot() const</div><div class="ttdef"><b>Definition</b> env.hpp:259</div></div>
-<div class="ttc" id="aclasslala_1_1_var_env_html_afb1f36be814fba336939347535a9c52c"><div class="ttname"><a href="classlala_1_1_var_env.html#afb1f36be814fba336939347535a9c52c">lala::VarEnv::restore</a></div><div class="ttdeci">CUDA NI void restore(const snapshot_type &amp;snap)</div><div class="ttdef"><b>Definition</b> env.hpp:271</div></div>
-<div class="ttc" id="aclasslala_1_1_var_env_html_afb94db92bab89580a92319287b826c73"><div class="ttname"><a href="classlala_1_1_var_env.html#afb94db92bab89580a92319287b826c73">lala::VarEnv::contains</a></div><div class="ttdeci">CUDA bool contains(const battery::string&lt; Alloc2 &gt; &amp;lv) const</div><div class="ttdef"><b>Definition</b> env.hpp:222</div></div>
+<div class="ttc" id="aclasslala_1_1_var_env_html_aeb75588dd07defab5093fd9eff8342a4"><div class="ttname"><a href="classlala_1_1_var_env.html#aeb75588dd07defab5093fd9eff8342a4">lala::VarEnv::name_of</a></div><div class="ttdeci">CUDA const bstring &amp; name_of(AVar av) const</div><div class="ttdef"><b>Definition</b> env.hpp:275</div></div>
+<div class="ttc" id="aclasslala_1_1_var_env_html_aef890360f5cfd50e69dc2fec7a99a137"><div class="ttname"><a href="classlala_1_1_var_env.html#aef890360f5cfd50e69dc2fec7a99a137">lala::VarEnv::sort_of</a></div><div class="ttdeci">CUDA const Sort&lt; Allocator &gt; &amp; sort_of(AVar av) const</div><div class="ttdef"><b>Definition</b> env.hpp:279</div></div>
+<div class="ttc" id="aclasslala_1_1_var_env_html_af3e3140ebd83eae6a8a4b977c6c3c07f"><div class="ttname"><a href="classlala_1_1_var_env.html#af3e3140ebd83eae6a8a4b977c6c3c07f">lala::VarEnv::snapshot</a></div><div class="ttdeci">CUDA NI snapshot_type snapshot() const</div><div class="ttdef"><b>Definition</b> env.hpp:289</div></div>
+<div class="ttc" id="aclasslala_1_1_var_env_html_afb1f36be814fba336939347535a9c52c"><div class="ttname"><a href="classlala_1_1_var_env.html#afb1f36be814fba336939347535a9c52c">lala::VarEnv::restore</a></div><div class="ttdeci">CUDA NI void restore(const snapshot_type &amp;snap)</div><div class="ttdef"><b>Definition</b> env.hpp:301</div></div>
+<div class="ttc" id="aclasslala_1_1_var_env_html_afb94db92bab89580a92319287b826c73"><div class="ttname"><a href="classlala_1_1_var_env.html#afb94db92bab89580a92319287b826c73">lala::VarEnv::contains</a></div><div class="ttdeci">CUDA bool contains(const battery::string&lt; Alloc2 &gt; &amp;lv) const</div><div class="ttdef"><b>Definition</b> env.hpp:252</div></div>
 <div class="ttc" id="airesult_8hpp_html"><div class="ttname"><a href="iresult_8hpp.html">iresult.hpp</a></div></div>
 <div class="ttc" id="anamespacelala_html"><div class="ttname"><a href="namespacelala.html">lala</a></div><div class="ttdef"><b>Definition</b> abstract_deps.hpp:14</div></div>
 <div class="ttc" id="anamespacelala_html_a6c626918dd7c19ff046f5cebaabec18f"><div class="ttname"><a href="namespacelala.html#a6c626918dd7c19ff046f5cebaabec18f">lala::AType</a></div><div class="ttdeci">int AType</div><div class="ttdef"><b>Definition</b> sort.hpp:18</div></div>
-<div class="ttc" id="anamespacelala_html_ad61da309e0f805e38d1b86a1d9bf4b70"><div class="ttname"><a href="namespacelala.html#ad61da309e0f805e38d1b86a1d9bf4b70">lala::var_in</a></div><div class="ttdeci">CUDA const TFormula&lt; Allocator, ExtendedSig &gt; &amp; var_in(const TFormula&lt; Allocator, ExtendedSig &gt; &amp;f)</div><div class="ttdef"><b>Definition</b> algorithm.hpp:121</div></div>
+<div class="ttc" id="anamespacelala_html_ad61da309e0f805e38d1b86a1d9bf4b70"><div class="ttname"><a href="namespacelala.html#ad61da309e0f805e38d1b86a1d9bf4b70">lala::var_in</a></div><div class="ttdeci">CUDA const TFormula&lt; Allocator, ExtendedSig &gt; &amp; var_in(const TFormula&lt; Allocator, ExtendedSig &gt; &amp;f)</div><div class="ttdef"><b>Definition</b> algorithm.hpp:145</div></div>
 <div class="ttc" id="asort_8hpp_html_af5d67e1d1856b2c01653a0f9ab95d391"><div class="ttname"><a href="sort_8hpp.html#af5d67e1d1856b2c01653a0f9ab95d391">UNTYPED</a></div><div class="ttdeci">#define UNTYPED</div><div class="ttdef"><b>Definition</b> sort.hpp:21</div></div>
 <div class="ttc" id="astructlala_1_1_sort_html"><div class="ttname"><a href="structlala_1_1_sort.html">lala::Sort</a></div><div class="ttdef"><b>Definition</b> sort.hpp:26</div></div>
-<div class="ttc" id="astructlala_1_1_var_env_1_1snapshot__type_html"><div class="ttname"><a href="structlala_1_1_var_env_1_1snapshot__type.html">lala::VarEnv::snapshot_type</a></div><div class="ttdef"><b>Definition</b> env.hpp:253</div></div>
-<div class="ttc" id="astructlala_1_1_var_env_1_1snapshot__type_html_a22a3a1c662a6273f41a9f1d16f8ea609"><div class="ttname"><a href="structlala_1_1_var_env_1_1snapshot__type.html#a22a3a1c662a6273f41a9f1d16f8ea609">lala::VarEnv::snapshot_type::avar2lvar_snap</a></div><div class="ttdeci">bvector&lt; int &gt; avar2lvar_snap</div><div class="ttdef"><b>Definition</b> env.hpp:255</div></div>
-<div class="ttc" id="astructlala_1_1_var_env_1_1snapshot__type_html_ac81f01df45ebece4e1d7bef5a315ec90"><div class="ttname"><a href="structlala_1_1_var_env_1_1snapshot__type.html#ac81f01df45ebece4e1d7bef5a315ec90">lala::VarEnv::snapshot_type::lvars_snap</a></div><div class="ttdeci">bvector&lt; int &gt; lvars_snap</div><div class="ttdef"><b>Definition</b> env.hpp:254</div></div>
+<div class="ttc" id="astructlala_1_1_var_env_1_1snapshot__type_html"><div class="ttname"><a href="structlala_1_1_var_env_1_1snapshot__type.html">lala::VarEnv::snapshot_type</a></div><div class="ttdef"><b>Definition</b> env.hpp:283</div></div>
+<div class="ttc" id="astructlala_1_1_var_env_1_1snapshot__type_html_a22a3a1c662a6273f41a9f1d16f8ea609"><div class="ttname"><a href="structlala_1_1_var_env_1_1snapshot__type.html#a22a3a1c662a6273f41a9f1d16f8ea609">lala::VarEnv::snapshot_type::avar2lvar_snap</a></div><div class="ttdeci">bvector&lt; int &gt; avar2lvar_snap</div><div class="ttdef"><b>Definition</b> env.hpp:285</div></div>
+<div class="ttc" id="astructlala_1_1_var_env_1_1snapshot__type_html_ac81f01df45ebece4e1d7bef5a315ec90"><div class="ttname"><a href="structlala_1_1_var_env_1_1snapshot__type.html#ac81f01df45ebece4e1d7bef5a315ec90">lala::VarEnv::snapshot_type::lvars_snap</a></div><div class="ttdeci">bvector&lt; int &gt; lvars_snap</div><div class="ttdef"><b>Definition</b> env.hpp:284</div></div>
 <div class="ttc" id="astructlala_1_1_variable_html"><div class="ttname"><a href="structlala_1_1_variable.html">lala::Variable</a></div><div class="ttdef"><b>Definition</b> env.hpp:18</div></div>
 <div class="ttc" id="astructlala_1_1_variable_html_a00d0bf600c169366b637ef1d90d37fcf"><div class="ttname"><a href="structlala_1_1_variable.html#a00d0bf600c169366b637ef1d90d37fcf">lala::Variable::name</a></div><div class="ttdeci">bstring name</div><div class="ttdef"><b>Definition</b> env.hpp:23</div></div>
 <div class="ttc" id="astructlala_1_1_variable_html_a0937a883c3d422b1c354250153036981"><div class="ttname"><a href="structlala_1_1_variable.html#a0937a883c3d422b1c354250153036981">lala::Variable::Variable</a></div><div class="ttdeci">CUDA NI Variable(const Variable&lt; Alloc2 &gt; &amp;other, const Allocator &amp;allocator=Allocator())</div><div class="ttdef"><b>Definition</b> env.hpp:34</div></div>

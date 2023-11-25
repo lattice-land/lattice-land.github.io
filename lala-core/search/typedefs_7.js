@@ -6,7 +6,7 @@ var searchData=
   ['logic_5fbool_3',['logic_bool',['../namespacelala.html#a2397fa063de70fb2241dc9ea08c47800',1,'lala']]],
   ['logic_5fint_4',['logic_int',['../namespacelala.html#a303d30ab753875ab1fc49e3b4f195719',1,'lala']]],
   ['logic_5freal_5',['logic_real',['../namespacelala.html#a08adbd4b2483ca2b14db01ba8769ef93',1,'lala']]],
-  ['logic_5fset_6',['logic_set',['../namespacelala.html#aa6a2de27857c134650693ca016c9c057',1,'lala']]],
-  ['logicset_7',['LogicSet',['../classlala_1_1_t_formula.html#a2908cc921241cb7450bacb2c5d059cac',1,'lala::TFormula']]],
+  ['logic_5fset_6',['logic_set',['../namespacelala.html#a5d3475914a4dbd0a377ee399dd9adaa8',1,'lala']]],
+  ['logicset_7',['LogicSet',['../classlala_1_1_t_formula.html#acac756e8ab2736ba443860966941fa9e',1,'lala::TFormula']]],
   ['lvar_8',['LVar',['../namespacelala.html#acb9f389c51804929bfb3e6d682d77ff0',1,'lala']]]
 ];
