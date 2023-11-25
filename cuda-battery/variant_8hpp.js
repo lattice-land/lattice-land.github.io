@@ -1,7 +1,7 @@
 var variant_8hpp =
 [
-    [ "variant", "structbattery_1_1variant.html", "structbattery_1_1variant" ],
-    [ "get", "variant_8hpp.html#a2690835dac25686be6136f2da2c722f3", null ],
-    [ "get", "variant_8hpp.html#a6e81fa8938d53c54c343980856ffeebc", null ],
+    [ "battery::variant< Ts >", "structbattery_1_1variant.html", "structbattery_1_1variant" ],
+    [ "get", "variant_8hpp.html#a73be2fd2853d8ed6974f3e3cc489b44a", null ],
+    [ "get", "variant_8hpp.html#aa54e05a73d94275521f94901c9e7438b", null ],
     [ "operator==", "variant_8hpp.html#a530a0e80c119364e92b4a61ac61f9028", null ]
 ];

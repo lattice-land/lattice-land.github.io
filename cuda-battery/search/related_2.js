@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['shared_5fptr_279',['shared_ptr',['../classbattery_1_1shared__ptr.html#a62da843baac98ab0bba3cb204521b42f',1,'battery::shared_ptr']]],
-  ['string_280',['string',['../classbattery_1_1string.html#aaecd502d6cdb0a573da01975d30ff100',1,'battery::string']]]
+  ['operator_3d_3d_0',['operator==',['../classbattery_1_1string.html#a8d520b0716cd21d26ec504f3989d4665',1,'battery::string::operator=='],['../structbattery_1_1variant.html#afb51264e1f14db6768d5eebb0e936a83',1,'battery::variant::operator==']]]
 ];

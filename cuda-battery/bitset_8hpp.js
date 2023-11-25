@@ -1,7 +1,7 @@
 var bitset_8hpp =
 [
-    [ "bitset", "classbattery_1_1bitset.html", "classbattery_1_1bitset" ],
-    [ "operator&", "bitset_8hpp.html#a0d67c395708e5023f60fefb4b165750c", null ],
-    [ "operator|", "bitset_8hpp.html#ad0628a6bc608319d23fbb8c7f28f8907", null ],
-    [ "operator^", "bitset_8hpp.html#a774931ca37440ef09f85f35507267a9d", null ]
+    [ "battery::bitset< N, Mem, T >", "classbattery_1_1bitset.html", "classbattery_1_1bitset" ],
+    [ "operator&", "bitset_8hpp.html#af0806189654964376d8da385c83e9e1d", null ],
+    [ "operator|", "bitset_8hpp.html#a450dcf314b05fbc617195311a0ff68fd", null ],
+    [ "operator^", "bitset_8hpp.html#a0826cc3ae185c09190c47c2ef4b028cc", null ]
 ];
