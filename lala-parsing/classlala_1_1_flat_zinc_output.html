@@ -97,6 +97,7 @@ $(document).ready(function(){initNavTree('classlala_1_1_flat_zinc_output.html','
 
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#friends">Friends</a> &#124;
 <a href="classlala_1_1_flat_zinc_output-members.html">List of all members</a>  </div>
@@ -106,6 +107,11 @@ $(document).ready(function(){initNavTree('classlala_1_1_flat_zinc_output.html','
 
 <p><code>#include &lt;<a class="el" href="flatzinc__parser_8hpp_source.html">flatzinc_parser.hpp</a>&gt;</code></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlala_1_1_flat_zinc_output_1_1_simplifier_identity.html">SimplifierIdentity</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a5e20114234ff97385e5d471d80fc0b84" id="r_a5e20114234ff97385e5d471d80fc0b84"><td class="memItemLeft" align="right" valign="top">CUDA&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlala_1_1_flat_zinc_output.html#a5e20114234ff97385e5d471d80fc0b84">FlatZincOutput</a> (const Allocator &amp;alloc)</td></tr>
@@ -122,9 +128,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a73dea0c7e249b8941d8967c21e5333fc" id="r_a73dea0c7e249b8941d8967c21e5333fc"><td class="memTemplParams" colspan="2">template&lt;class Env , class A &gt; </td></tr>
 <tr class="memitem:a73dea0c7e249b8941d8967c21e5333fc"><td class="memTemplItemLeft" align="right" valign="top">CUDA void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classlala_1_1_flat_zinc_output.html#a73dea0c7e249b8941d8967c21e5333fc">print_variable</a> (AVar avar, const Env &amp;env, const A &amp;sol) const</td></tr>
 <tr class="separator:a73dea0c7e249b8941d8967c21e5333fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7e05d0f473da82286a856ece00fcdd25" id="r_a7e05d0f473da82286a856ece00fcdd25"><td class="memTemplParams" colspan="2">template&lt;class Env , class A &gt; </td></tr>
-<tr class="memitem:a7e05d0f473da82286a856ece00fcdd25"><td class="memTemplItemLeft" align="right" valign="top">CUDA void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classlala_1_1_flat_zinc_output.html#a7e05d0f473da82286a856ece00fcdd25">print_solution</a> (const Env &amp;env, const A &amp;sol) const</td></tr>
-<tr class="separator:a7e05d0f473da82286a856ece00fcdd25"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a279d3f1d07a8f3c91e02ba5f31fe7d7e" id="r_a279d3f1d07a8f3c91e02ba5f31fe7d7e"><td class="memTemplParams" colspan="2">template&lt;class Env , class A , class S &gt; </td></tr>
+<tr class="memitem:a279d3f1d07a8f3c91e02ba5f31fe7d7e"><td class="memTemplItemLeft" align="right" valign="top">CUDA void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classlala_1_1_flat_zinc_output.html#a279d3f1d07a8f3c91e02ba5f31fe7d7e">print_solution</a> (const Env &amp;env, const A &amp;sol, const S &amp;simplifier=<a class="el" href="classlala_1_1_flat_zinc_output_1_1_simplifier_identity.html">SimplifierIdentity</a>{}) const</td></tr>
+<tr class="separator:a279d3f1d07a8f3c91e02ba5f31fe7d7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="friends" name="friends"></a>
 Friends</h2></td></tr>
@@ -348,15 +354,15 @@ template&lt;class Env , class A &gt; </div>
 
 </div>
 </div>
-<a id="a7e05d0f473da82286a856ece00fcdd25" name="a7e05d0f473da82286a856ece00fcdd25"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7e05d0f473da82286a856ece00fcdd25">&#9670;&#160;</a></span>print_solution()</h2>
+<a id="a279d3f1d07a8f3c91e02ba5f31fe7d7e" name="a279d3f1d07a8f3c91e02ba5f31fe7d7e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a279d3f1d07a8f3c91e02ba5f31fe7d7e">&#9670;&#160;</a></span>print_solution()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;class Allocator &gt; </div>
 <div class="memtemplate">
-template&lt;class Env , class A &gt; </div>
+template&lt;class Env , class A , class S &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -371,7 +377,13 @@ template&lt;class Env , class A &gt; </div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const A &amp;&#160;</td>
-          <td class="paramname"><em>sol</em>&#160;</td>
+          <td class="paramname"><em>sol</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const S &amp;&#160;</td>
+          <td class="paramname"><em>simplifier</em> = <code><a class="el" href="classlala_1_1_flat_zinc_output_1_1_simplifier_identity.html">SimplifierIdentity</a>{}</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
