@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['dynamic_5fbitset_0',['dynamic_bitset',['../classbattery_1_1dynamic__bitset.html#ac86adfe6eba2c8a55eccf89d3eb627fb',1,'battery::dynamic_bitset']]]
+  ['bitset_0',['bitset',['../classbattery_1_1bitset.html#a565752049a2464912c6f2b10b682c69d',1,'battery::bitset']]]
 ];

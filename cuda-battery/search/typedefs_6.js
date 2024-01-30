@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['value_5ftype_0',['value_type',['../classbattery_1_1string.html#aab9dcbd051df87dae1dae47e693783cf',1,'battery::string::value_type'],['../classbattery_1_1vector.html#a4ee711261b29cfc6daa17b58934db7ad',1,'battery::vector::value_type']]]
+  ['this_5ftype_0',['this_type',['../classbattery_1_1bitset.html#a266e12ebede33ecc54bf010c62abc55c',1,'battery::bitset::this_type'],['../classbattery_1_1shared__ptr.html#a10c1541dce2662856113ec13a9a1dae3',1,'battery::shared_ptr::this_type'],['../classbattery_1_1string.html#aba96ec0840da0120ad6d90d06370b5e0',1,'battery::string::this_type'],['../classbattery_1_1unique__ptr.html#aef59b05d8425469d399c452b041f5411',1,'battery::unique_ptr::this_type'],['../classbattery_1_1vector.html#a82f393db01bacc2524a9a55aed54ba72',1,'battery::vector::this_type']]]
 ];

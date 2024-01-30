@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['read_5fonly_5fmemory_0',['read_only_memory',['../namespacebattery.html#a22ff3da8ce553868de9c2b8fe604fe3c',1,'battery']]]
+  ['pointer_0',['pointer',['../classbattery_1_1shared__ptr.html#ab70e94b553a018d0e5e7c101d683b6e7',1,'battery::shared_ptr::pointer'],['../classbattery_1_1unique__ptr.html#a461b8acfa79698b802e14caadd703f12',1,'battery::unique_ptr::pointer']]]
 ];

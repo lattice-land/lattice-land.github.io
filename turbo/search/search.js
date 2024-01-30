@@ -1,3 +1,9 @@
+
+
+
+
+
+
 /*
  @licstart  The following is the entire license notice for the JavaScript code in this file.
 
@@ -357,7 +363,7 @@ function SearchBox(name, resultsPath, extension)
         createResults(resultsPath);
         document.getElementById("NoMatches").style.display="none";
       }
- 
+
       if (idx!=-1) {
         searchResults.Search(searchValue);
       } else { // no file with search results => force empty search results

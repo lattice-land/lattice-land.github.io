@@ -1,5 +1,6 @@
 var structbattery_1_1variant =
 [
+    [ "variant", "structbattery_1_1variant.html#a1b054419554043083c9ada05b0f80cac", null ],
     [ "variant", "structbattery_1_1variant.html#ac075191f4cbc2214e61ba57b040e9cb5", null ],
     [ "variant", "structbattery_1_1variant.html#a533676c42c65f0e8612adae80e413160", null ],
     [ "~variant", "structbattery_1_1variant.html#a698685aabc56e7ccc6f10bbcbbed6eaf", null ],

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['pointer_0',['pointer',['../classbattery_1_1shared__ptr.html#ab70e94b553a018d0e5e7c101d683b6e7',1,'battery::shared_ptr::pointer'],['../classbattery_1_1unique__ptr.html#a461b8acfa79698b802e14caadd703f12',1,'battery::unique_ptr::pointer']]]
+  ['memory_5ftype_0',['memory_type',['../classbattery_1_1bitset.html#aa03280b3fcb94c70c6442ad9ade491ea',1,'battery::bitset::memory_type'],['../classbattery_1_1dynamic__bitset.html#a410909ba81ed80d99af27ffcef99a681',1,'battery::dynamic_bitset::memory_type']]]
 ];

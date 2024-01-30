@@ -1,8 +1,12 @@
 var classbattery_1_1bitset =
 [
+    [ "this_type", "classbattery_1_1bitset.html#a266e12ebede33ecc54bf010c62abc55c", null ],
+    [ "memory_type", "classbattery_1_1bitset.html#aa03280b3fcb94c70c6442ad9ade491ea", null ],
     [ "bitset", "classbattery_1_1bitset.html#a2db9274b17dbf81aebe5530b95e63f48", null ],
-    [ "bitset", "classbattery_1_1bitset.html#aeb3eeb4b8d14f1dec21b40e608fdbf7d", null ],
+    [ "bitset", "classbattery_1_1bitset.html#a128ba6ff1e4ddaf255dd6fc36ff0ef97", null ],
     [ "bitset", "classbattery_1_1bitset.html#a0d7af5eb0a0297c5430eb9e7849cdc3e", null ],
+    [ "bitset", "classbattery_1_1bitset.html#aaa157dcc26851f72d6f747da4d6f3bd2", null ],
+    [ "bitset", "classbattery_1_1bitset.html#aeb3eeb4b8d14f1dec21b40e608fdbf7d", null ],
     [ "test", "classbattery_1_1bitset.html#a048851383b16be4ad3b83b7a85f78f81", null ],
     [ "all", "classbattery_1_1bitset.html#a837e9976cb464bb936e0d9590dbbc175", null ],
     [ "any", "classbattery_1_1bitset.html#abc1fed1fe40f376e3fd002389ce4af1f", null ],
@@ -25,5 +29,6 @@ var classbattery_1_1bitset =
     [ "countr_zero", "classbattery_1_1bitset.html#a80a6ab35bc0484c0578997aa9e765039", null ],
     [ "countr_one", "classbattery_1_1bitset.html#a2ce2ed7f61326abb94778c0d7b444b54", null ],
     [ "print", "classbattery_1_1bitset.html#a862170424160c4c52f9bb9b5fbfd1e1f", null ],
-    [ "to_string", "classbattery_1_1bitset.html#acbec6c40aed0d721a0623ec145989600", null ]
+    [ "to_string", "classbattery_1_1bitset.html#acbec6c40aed0d721a0623ec145989600", null ],
+    [ "bitset", "classbattery_1_1bitset.html#a565752049a2464912c6f2b10b682c69d", null ]
 ];
