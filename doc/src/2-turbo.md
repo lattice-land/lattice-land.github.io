@@ -129,14 +129,17 @@ Back to Turbo, let's compare it to our its CPU-version and the baseline solvers:
 
 For future references, it is interesting to have an average of some speed and memory metrics across all problems:
 
-
 | Metrics | Average | Median |
 |---------|------------|-------------|
-| Nodes per seconds | 1246.77 | 35.07 |
+| Nodes per second | 1246.77 | 35.07 |
+| Fixpoint iterations per second | 10014.91 |	257.84 |
 | Fixpoint iterations per node | 8.48 | 7.11 |
 | IDLE SMs at timeout | 13 | |
 | Propagators memory | 16.41MB | 13.07MB |
 | Variables store memory | 167.78KB | 174.01KB |
+| #Problems at optimality | 5 | |
+| #Problems satisfiable | 27 | |
+| #Problems unknown | 3 | |
 
 When comparing the number of nodes per second, we can see that TurboGPU explores around 5 to 10 times more nodes per second than TurboCPU; showing a "purely computational gain" when using the GPU.
 Just 5x to 10x quicker is actually not that much quicker considering we have 64 streaming multiprocessors, and indicate we are under-using the parallel capacities of the GPU.
