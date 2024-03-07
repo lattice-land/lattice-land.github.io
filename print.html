@@ -90,9 +90,11 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="index.html"><strong aria-hidden="true">1.</strong> Lattice Land</a></li><li class="chapter-item expanded affix "><li class="part-title">CUDA Battery Library</li><li class="chapter-item expanded "><a href="1-cuda-battery.html"><strong aria-hidden="true">2.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="2-cuda-battery.html"><strong aria-hidden="true">3.</strong> Data from CPU to GPU</a></li><li class="chapter-item expanded "><a href="3-cuda-battery.html"><strong aria-hidden="true">4.</strong> CMake Project</a></li><li class="chapter-item expanded "><a href="4-cuda-battery.html"><strong aria-hidden="true">5.</strong> In-Kernel Allocation</a></li><li class="chapter-item expanded "><a href="5-cuda-battery.html"><strong aria-hidden="true">6.</strong> Shared Memory Allocator</a></li><li class="chapter-item expanded "><a href="6-cuda-battery.html"><strong aria-hidden="true">7.</strong> Caution</a></li><li class="chapter-item expanded affix "><li class="part-title">Parallel Lattice Programming</li><li class="chapter-item expanded affix "><li class="part-title">Abstract Constraint Reasoning</li><li class="chapter-item expanded affix "><li class="part-title">Parallel Abstract Constraint Reasoning</li><li class="chapter-item expanded affix "><li class="part-title">Turbo Technical Journal</li><li class="chapter-item expanded "><a href="1-turbo.html"><strong aria-hidden="true">8.</strong> Introducing Turbo</a></li><li class="chapter-item expanded "><a href="2-turbo.html"><strong aria-hidden="true">9.</strong> v1.0.1: Unoptimized Turbo</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="index.html"><strong aria-hidden="true">1.</strong> Lattice Land</a></li><li class="chapter-item expanded affix "><li class="part-title">CUDA Battery Library</li><li class="chapter-item expanded "><a href="1-cuda-battery.html"><strong aria-hidden="true">2.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="2-cuda-battery.html"><strong aria-hidden="true">3.</strong> Data from CPU to GPU</a></li><li class="chapter-item expanded "><a href="3-cuda-battery.html"><strong aria-hidden="true">4.</strong> CMake Project</a></li><li class="chapter-item expanded "><a href="4-cuda-battery.html"><strong aria-hidden="true">5.</strong> In-Kernel Allocation</a></li><li class="chapter-item expanded "><a href="5-cuda-battery.html"><strong aria-hidden="true">6.</strong> Shared Memory Allocator</a></li><li class="chapter-item expanded "><a href="6-cuda-battery.html"><strong aria-hidden="true">7.</strong> Caution</a></li><li class="chapter-item expanded affix "><li class="part-title">Parallel Lattice Programming</li><li class="chapter-item expanded affix "><li class="part-title">Abstract Constraint Reasoning</li><li class="chapter-item expanded affix "><li class="part-title">Parallel Abstract Constraint Reasoning</li><li class="chapter-item expanded affix "><li class="part-title">Turbo Technical Journal</li><li class="chapter-item expanded "><a href="1-turbo.html"><strong aria-hidden="true">8.</strong> Introducing Turbo</a></li><li class="chapter-item expanded "><a href="2-turbo.html"><strong aria-hidden="true">9.</strong> v1.0.1: Unoptimized Turbo</a></li><li class="chapter-item expanded "><a href="3-turbo.html"><strong aria-hidden="true">10.</strong> v1.1.{0-1}: Preprocessing</a></li><li class="chapter-item expanded "><a href="4-turbo.html"><strong aria-hidden="true">11.</strong> v1.1.2: (Dis)equality Propagator</a></li><li class="chapter-item expanded "><a href="5-turbo.html"><strong aria-hidden="true">12.</strong> v1.1.3: Warp Synchronization</a></li></ol>
             </div>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
         </nav>
 
         <!-- Track and set sidebar scroll position -->
@@ -192,7 +194,7 @@ See also the chapter <a href="1-cuda-battery.html">CUDA-Battery Library</a>.</li
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="introduction"><a class="header" href="#introduction">Introduction</a></h1>
 <p>The main objective of the CUDA battery library is to make it easier to develop software fully executing on the GPU.
-This is in contrast to applications where the CPU is the &quot;director&quot;, and the GPU is only there to execute small kernels performing specific parallel tasks.
+This is in contrast to applications where the CPU is the "director", and the GPU is only there to execute small kernels performing specific parallel tasks.
 We want to have the whole computation on the GPU when possible.
 Why you asked?
 Because it is more efficient as we avoid round-trips between CPU and GPU; although calling a kernel is very fast, the memory transfers are still costly.
@@ -302,7 +304,7 @@ Moreover, to follow good software engineering practice, these temporary structur
 This is the default allocation mode when declaring a variable in CUDA kernel, hence it does not need any support from this library.</p>
 <h2 id="block-local-memory"><a class="header" href="#block-local-memory">Block-local Memory</a></h2>
 <p>Block-local memory is a chunk of memory that is only accessed by the threads of a single block.
-To avoid any ambiguity: &quot;block-local memory&quot; is conceptual and might reside in global memory; it is not necessarily in shared memory.</p>
+To avoid any ambiguity: "block-local memory" is conceptual and might reside in global memory; it is not necessarily in shared memory.</p>
 <p>A simple use-case is when blocks need to work on different copies of an original array.
 Suppose <code>*v_ptr</code> is an array shared by all blocks.
 In the following kernel, we show how to use <code>battery::make_unique_block</code> to copy <code>*v_ptr</code> into a block-local vector <code>v_block</code>.</p>
@@ -322,7 +324,7 @@ Before you use this technique, keep reading because you might need to increase t
 <h2 id="avoiding-obscure-cuda-runtime-errors"><a class="header" href="#avoiding-obscure-cuda-runtime-errors">Avoiding Obscure CUDA Runtime Errors</a></h2>
 <p>Developing an entire system within a single kernel can easily lead to CUDA runtime error due to overflow of the allowed heap and stack memory.
 The heap memory is by-default limited to 8 MB for allocations taking place in the kernel.
-If you allocate more than 8 MB, which is not very difficult, you will run into an error of the style &quot;CUDA runtime error an illegal memory access was encountered&quot;.
+If you allocate more than 8 MB, which is not very difficult, you will run into an error of the style "CUDA runtime error an illegal memory access was encountered".
 In that case, you must increase the size of the heap, and this can be done as follows:</p>
 <pre><code class="language-c++">// Multiply by 10 the default value, so now we have 80MB.
 void increase_heap_size() {
@@ -330,7 +332,7 @@ void increase_heap_size() {
   cudaDeviceGetLimit(&amp;max_heap_size, cudaLimitMallocHeapSize);
   CUDAE(cudaDeviceSetLimit(cudaLimitMallocHeapSize, max_heap_size*10));
   cudaDeviceGetLimit(&amp;max_heap_size, cudaLimitMallocHeapSize);
-  printf(&quot;%%GPU_max_heap_size=%zu (%zuMB)\n&quot;, max_heap_size, max_heap_size/1000/1000);
+  printf("%%GPU_max_heap_size=%zu (%zuMB)\n", max_heap_size, max_heap_size/1000/1000);
 }
 
 int main() {
@@ -348,7 +350,7 @@ In that case you can increase the size of the stack as follows:</p>
   size_t max_stack_size = 1024;
   CUDAE(cudaDeviceSetLimit(cudaLimitStackSize, max_stack_size*10));
   cudaDeviceGetLimit(&amp;max_stack_size, cudaLimitStackSize);
-  printf(&quot;%%GPU_max_stack_size=%zu (%zuKB)\n&quot;, max_stack_size, max_stack_size/1000);
+  printf("%%GPU_max_stack_size=%zu (%zuKB)\n", max_stack_size, max_stack_size/1000);
 }
 </code></pre>
 <p>For information, the stack frames are stored in global memory, but the compiler will try its best to place them in the registers and caches when possible.</p>
@@ -450,7 +452,7 @@ The threads will end up competing for the caches, and it will generate many memo
 Memory transfers are usually the most costly operation, hence you try to avoid (or hide) them in a GPU; loading data from the global memory is about 10x slower than from the L1 cache.
 I am not saying it is impossible to do efficiently, but it seems quite complicated, especially when taking into account warps that are SIMD units of the GPUs (blocks of 32 threads), and thus must all have their data ready in the cache at the same time when executing.
 This is a hypothesis based on intuition and discussion with GPU experts, but it has not been verified experimentally.</p>
-<p>Instead of relying on a &quot;one subproblem per core&quot; design that is so commonly used in parallel constraint solvers, we can execute one subproblem per SM.
+<p>Instead of relying on a "one subproblem per core" design that is so commonly used in parallel constraint solvers, we can execute one subproblem per SM.
 And parallelism within an SM is achieved by parallelizing propagation!
 It is worth mentioning that no attempt to parallelize propagation resulted in a faster solver in comparison to simply parallelizing the search.
 In fact, no modern solver parallelizes propagation.
@@ -553,7 +555,7 @@ We run on the CPU mainly for debugging and comparative efficiency analysis.</p>
 <p>About the details of the experiments:</p>
 <ul>
 <li>Timeout: 5 minutes per instance (it is relatively small in order to quickly iterate and test new optimizations of Turbo).</li>
-<li>EPS (TurboGPU): generate 1024 subproblems (<code>-sub 10</code> for &quot;2^10&quot;).</li>
+<li>EPS (TurboGPU): generate 1024 subproblems (<code>-sub 10</code> for "2^10").</li>
 </ul>
 <p><em>Warning</em>: Before we start, let's get something straight: <em>the comparison between TurboGPU and other solver is relatively unfair.</em>
 In particular, because of EPS, TurboGPU uses breadth-first search at the top of the tree, and thus sometimes can get better bounds, while the others use depth-first search and might stay stuck in the left part of the search tree longer.
@@ -577,14 +579,18 @@ Back to Turbo, let's compare it to our its CPU-version and the baseline solvers:
 <img src="turbo-v1.0.1/turbogpu-vs-choco-noglobal.png" alt="TurboGPU vs Choco.noglobal" /></p>
 <p>For future references, it is interesting to have an average of some speed and memory metrics across all problems:</p>
 <div class="table-wrapper"><table><thead><tr><th>Metrics</th><th>Average</th><th>Median</th></tr></thead><tbody>
-<tr><td>Nodes per seconds</td><td>1246.77</td><td>35.07</td></tr>
+<tr><td>Nodes per second</td><td>1246.77</td><td>35.07</td></tr>
+<tr><td>Fixpoint iterations per second</td><td>10014.91</td><td>257.84</td></tr>
 <tr><td>Fixpoint iterations per node</td><td>8.48</td><td>7.11</td></tr>
 <tr><td>IDLE SMs at timeout</td><td>13</td><td></td></tr>
 <tr><td>Propagators memory</td><td>16.41MB</td><td>13.07MB</td></tr>
 <tr><td>Variables store memory</td><td>167.78KB</td><td>174.01KB</td></tr>
+<tr><td>#Problems at optimality</td><td>5</td><td></td></tr>
+<tr><td>#Problems satisfiable</td><td>27</td><td></td></tr>
+<tr><td>#Problems unknown</td><td>3</td><td></td></tr>
 </tbody></table>
 </div>
-<p>When comparing the number of nodes per second, we can see that TurboGPU explores around 5 to 10 times more nodes per second than TurboCPU; showing a &quot;purely computational gain&quot; when using the GPU.
+<p>When comparing the number of nodes per second, we can see that TurboGPU explores around 5 to 10 times more nodes per second than TurboCPU; showing a "purely computational gain" when using the GPU.
 Just 5x to 10x quicker is actually not that much quicker considering we have 64 streaming multiprocessors, and indicate we are under-using the parallel capacities of the GPU.
 In the future, I'll benchmark how efficiently Turbo is using the GPU using the profiling tools of NVIDIA.</p>
 <p><img src="turbo-v1.0.1/number-of-nodes-per-second.png" alt="TurboGPU nodes per second" /></p>
@@ -603,6 +609,196 @@ I think two important missing optimizations are:</p>
 <li>Disable propagators that are entailed.</li>
 </ol>
 <p>See you next time for more benchmarking!</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="v110-1-preprocessing"><a class="header" href="#v110-1-preprocessing">v1.1.{0-1}: Preprocessing</a></h1>
+<p><em>27 December 2023.</em> A simple definition of <em>preprocessing</em> is to prepare the constraint problem hence it can be solved more efficiently by the underlying solver.
+The goal of preprocessing is usually to eliminate fixed variables, eliminate satisfied constraints and simplify constraints, for instance by propagating the constants.
+In the context of GPU, there is an additional incentive to preprocessing: reducing the memory footprint in order to store the problem in the shared memory (L2 cache).
+For now, most of the problems are too large to be entirely stored in shared memory (store of variables and propagators), but the variables can be entirely stored in the shared memory for around 30% of the problems considered.
+We have implemented a simple preprocessing class called <code>Simplifier</code> (in lala-core).
+After propagating the root node, the preprocessor performs the following simplifications:</p>
+<ol>
+<li>Replace all assigned variables by the constant they are assigned to.</li>
+<li>Create equivalence classes among variables (by detecting <code>x = y</code> constraints), select a representative variable in each class, and replace all occurrences of the variables in the equivalence classes by their representative variables.</li>
+<li>Remove entailed constraints.</li>
+</ol>
+<p>The preprocessing algorithm is in theory suitable for parallel execution on GPU, but it is currently executed on the CPU.
+The reason is that we want to reduce the problem size to store the variables in the shared memory.
+But we must decide in which memory to put the variables before we start the GPU kernel; hence we would need to launch the preprocessing in a kernel, to return the data to the CPU and relaunch another kernel with the right shared memory size.
+There is a solution using CUDA dynamic parallelism, but I did not take the time to explore it yet!</p>
+<p>This simple preprocessing step doubles the raw efficiency of the solver as measured by the number of nodes explored per second.
+Indeed, reducing the problem leads to fewer propagators that need to be executed, which is observed by a reduction of the number of iterations to reach a fixpoint (-14% on average).
+But the additional speed is also explained by the variables store that has been cut by half on average and the propagators' memory decreased by 22%.
+It reduces the pressure on the L1 and L2 caches and more problems can be stored in the shared memory; in our case, one more problem can be stored in shared memory when simplifying.</p>
+<div class="table-wrapper"><table><thead><tr><th>Metrics</th><th>Average</th><th>Δ v1.0.1</th><th>Median</th><th>Δ v1.0.1</th></tr></thead><tbody>
+<tr><td>Nodes per seconds</td><td>2379.95</td><td>+91%</td><td>611.27</td><td>+1742%</td></tr>
+<tr><td>Fixpoint iterations per second</td><td>12303.02</td><td>+23%</td><td>2273.83</td><td>+882%</td></tr>
+<tr><td>Fixpoint iterations per node</td><td>7.31</td><td>-14%</td><td>5.9</td><td>-17%</td></tr>
+<tr><td>#Problems with IDLE SMs at timeout</td><td>9</td><td>13</td><td></td><td></td></tr>
+<tr><td>Propagators memory</td><td>12.65MB</td><td>-22%</td><td>7.79MB</td><td>-40%</td></tr>
+<tr><td>Variables store memory</td><td>72.29KB</td><td>-57%</td><td>84.1KB</td><td>-52%</td></tr>
+<tr><td>#Problems at optimality</td><td>10</td><td>5</td><td></td><td></td></tr>
+<tr><td>#Problems satisfiable</td><td>22</td><td>27</td><td></td><td></td></tr>
+<tr><td>#Problems unknown</td><td>3</td><td>3</td><td></td><td></td></tr>
+</tbody></table>
+</div>
+<p><img src="turbo-v1.1/turbogpu-v1.0.1-vs-turbogpu-v1.1.0.png" alt="TurboGPU-v1.0.1 vs TurboGPU-v1.1.0" /></p>
+<h2 id="v110b-increasing-the-number-of-subproblems"><a class="header" href="#v110b-increasing-the-number-of-subproblems">v1.1.0b Increasing the number of subproblems</a></h2>
+<p>By default, the number of subproblems created is 1024 (2^10) (option <code>-sub 10</code>).
+This choice is rather arbitrary, so I ran additional experiments to see if increasing that number could lead to better results.
+The answer is that it is quite hard to choose a good generic number, but overall 4096 (2^12) subproblems gave better results and is the new default for the future versions.</p>
+<div class="table-wrapper"><table><thead><tr><th>Metrics</th><th>Average</th><th>Δ v1.1.0</th><th>Median</th><th>Δ v1.1.0</th></tr></thead><tbody>
+<tr><td>Nodes per seconds</td><td>2529.68</td><td>+6%</td><td>809.31</td><td>+32%</td></tr>
+<tr><td>Fixpoint iterations per second</td><td>12449.48</td><td>+1%</td><td>3306.37</td><td>+45%</td></tr>
+<tr><td>Fixpoint iterations per node</td><td>6.77</td><td>-7%</td><td>5.19</td><td>-12%</td></tr>
+<tr><td>#Problems with IDLE SMs at timeout</td><td>7</td><td>9</td><td></td><td></td></tr>
+<tr><td>Propagators memory</td><td>12.65MB</td><td>0%</td><td>7.79MB</td><td>0%</td></tr>
+<tr><td>Variables store memory</td><td>72.29KB</td><td>0%</td><td>84.1KB</td><td>0%</td></tr>
+<tr><td>#Problems at optimality</td><td>11</td><td>10</td><td></td><td></td></tr>
+<tr><td>#Problems satisfiable</td><td>21</td><td>22</td><td></td><td></td></tr>
+<tr><td>#Problems unknown</td><td>3</td><td>3</td><td></td><td></td></tr>
+</tbody></table>
+</div>
+<p>In particular, we see that increasing the number of subproblems to 4096 contributes to a better average of nodes per second and to solving one more problem to optimality.
+With more subproblems, the advantage is not as clear, but it is definitely an experiment to try again on future versions of Turbo.</p>
+<p><img src="turbo-v1.1/turbogpu-v1.1.0-1024-vs-turbogpu-v1.1.0-4096.png" alt="TurboGPU-v1.1.0 vs TurboGPU-v1.1.0b" /></p>
+<h2 id="v111-partial-evaluation"><a class="header" href="#v111-partial-evaluation">v1.1.1 Partial evaluation</a></h2>
+<p>The version 1.1.1 brings partial evaluation of the logical formulas, essentially by aggregating constants and rewriting constraints with fewer operators.
+We fully evaluate the expressions without variables, using distributivity laws for addition and multiplication (e.g. in <code>4 + x + 1</code> we evaluate <code>4 + 1</code>).
+We apply some standard simplification laws:</p>
+<ul>
+<li>Propagating neutral and absorber elements (using identity and annihilator laws) of conjunction, disjunction, implication, equivalence, addition, subtraction, multiplication and division.</li>
+<li>Eliminating double arithmetic and logical negations.</li>
+</ul>
+<p>We also have a bunch of rules to simplify constraints that are generated by the MiniZinc to FlatZinc conversion (let <code>eval</code> be a function evaluating the constant expressions):</p>
+<ul>
+<li>Detecting equalities: <code>x + (-y) == 0</code> is rewritten to <code>x == y</code>.</li>
+<li>Detecting inequalities: <code>x + (-y) != 0</code> is rewritten to <code>x != y</code>.</li>
+<li>Aggregating constants: <code>x + i != j</code> is rewritten to <code>x != eval(j - i)</code>.</li>
+<li>Eliminating variable negation: <code>-x != j</code> is rewritten to <code>x != eval(-j)</code> (and similarly for <code>j != -x</code>).</li>
+</ul>
+<p>These rules could be generalized in the future.</p>
+<p>This simple optimization leads to another big leap in the number of nodes per second and reduces significantly the memory footprint of propagators.
+For the first time, there is a problem (nfc_24_4_2) that can be entirely stored in the shared memory (store of variables and propagators).
+However, the impact of being entirely in the shared memory is not very impressive, with "only" 42% more nodes per second in comparison to v1.1.0b, knowing the average is at 62%.
+We should validate experimentally if manually managing the shared memory is really worth it, or if the default caching policy of CUDA does a good enough job.</p>
+<div class="table-wrapper"><table><thead><tr><th>Metrics</th><th>Average</th><th>Δ v1.1.0b</th><th>Median</th><th>Δ v1.1.0b</th></tr></thead><tbody>
+<tr><td>Nodes per second</td><td>4087.42</td><td>+62%</td><td>976.72</td><td>+21%</td></tr>
+<tr><td>Fixpoint iterations per second</td><td>17837.83</td><td>+43%</td><td>3878.13</td><td>+17%</td></tr>
+<tr><td>Fixpoint iterations per node</td><td>6.79</td><td>+0.3%</td><td>5.17</td><td>-0.4%</td></tr>
+<tr><td>#Problems with IDLE SMs at timeout</td><td>8</td><td>7</td><td></td><td></td></tr>
+<tr><td>Propagators memory</td><td>10.34MB</td><td>-18%</td><td>7.39MB</td><td>-5%</td></tr>
+<tr><td>Variables store memory</td><td>72.29KB</td><td>0%</td><td>84.1KB</td><td>0%</td></tr>
+<tr><td>#Problems at optimality</td><td>11</td><td>10</td><td></td><td></td></tr>
+<tr><td>#Problems satisfiable</td><td>22</td><td>22</td><td></td><td></td></tr>
+<tr><td>#Problems unknown</td><td>2</td><td>3</td><td></td><td></td></tr>
+</tbody></table>
+</div>
+<h2 id="overall-standing"><a class="header" href="#overall-standing">Overall standing</a></h2>
+<p><img src="turbo-v1.1/overall-standing-v1.1.0.png" alt="Overall standing" /></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="v112-disequality-propagator"><a class="header" href="#v112-disequality-propagator">v1.1.2: (Dis)equality Propagator</a></h1>
+<p><em>07 March 2024.</em> When developing Turbo, I try to keep the number of propagators minimal as it reduces the code and eases the maintenance.
+The propagators are represented in an abstract domain called <em>propagators completion</em> (PC) which is essentially an encapsulation of a traditional propagators-based constraint solver inside an abstract domain.
+One of the peculiarities is that PC does not contain the store of variables but is parametrized by another abstract domain <code>A</code> that provides access to the variables.
+<code>A</code> can be an array of integer intervals or bitsets, as seen in traditional constraint solver, but can be more complicated such as an octagon abstract domain.
+This generic design also allows us to parametrize PC by the Cartesian product of any abstract domains, for instance to obtain mixed domains such as interval of integers and interval of floating-point numbers.
+It means that we have a single propagator for the constraint <code>x + y &lt;= 10</code> where <code>x</code> is an integer variable and <code>y</code> a real variable; this is in theory because Turbo does not support floating-point variables yet.
+The direct consequence of this abstraction is that we must develop generic propagator functions that do not know exactly the shape of the variables' domains.
+To achieve that, I have a lattice-based propagator of the form <code>t &gt;= u</code> where <code>t</code> is any term (e.g. <code>x + y</code> or <code>S ∪ T</code>), <code>u</code> is a lattice element such as an interval and <code>&gt;=</code> is the associated lattice ordering.
+Let <code>project(a, x)</code> be a function of the abstract domain <code>a</code> projecting the domain of the variable <code>x</code> and let's suppose the type of <code>project(a, x)</code> is the same as the type of <code>u</code>.
+For instance, if I write <code>x + y &gt;= [0..5]</code>, it means that <code>project(a, x) + project(a, y)</code> should be included in the interval <code>[0..5]</code> according to the interval ordering.
+From a logical perspective, it implements the constraints <code>x + y &gt;= 0</code> and <code>x + y &lt;= 5</code>.
+Using some generic lattice operations (essentially projection, ordering and join operator), we can perform the propagation of this constraint.
+If the underlying domain is an interval, it will achieve bound consistency, and if it is a bitset, it should achieve arc consistency; I say "should" because I did not formally prove that yet.</p>
+<p>This lattice-based propagator is quite compact because it can represent many primitive constraints, for instance:</p>
+<ul>
+<li><code>x == y</code> is <code>x - y &gt;= [0..0]</code>.</li>
+<li><code>x != y</code> is <code>x - y &gt;= [1.. ∞] \/ x - y &gt;= [-∞..-1]</code>.</li>
+<li><code>x + y &gt;= 1</code> is <code>x + y &gt;= [1..∞]</code>.</li>
+<li>...</li>
+</ul>
+<p>Therefore, we do not need one propagator per arithmetic comparison operator, but one propagator for all of them.
+However, this minimalism is problematic for the disequality propagator which is represented by a disjunction.
+Instead, we have implemented a dedicated propagator for disequality which does not rely on subtraction and disjunction.
+By duality, this propagator can also be used for propagating equality which avoids a subtraction operation.
+More fundamentally, for lattices that are pseudo-complemented (usually domains that support holes such as bitset), the disequality propagator is stronger than its disjunctive decomposition.</p>
+<p>Interestingly, this propagator does not help to explore more nodes per second, but it finds better objective values for more problems (see the pie diagram below).
+The number of nodes per second is due to an increase in the number of fixpoint iterations per nodes.
+As the propagation strength between the two propagators should be the same (at least for intervals), I'm not sure why it takes more iterations to reach the fixpoint.
+Finally, using these dedicated propagators reduces the propagators' memory in average, but the median increases.
+The benchmarking set consists of many instances of the RCPSP problem, for which using these propagators increases the memory.
+When discarding the RCPSP benchmarks, the median memory footprint of the propagators is actually reduced by a factor of 3, and the average memory is reduced by about 30%!
+I'm unsure which constraints of the RCPSP model lead to this issue, but due to the limited impact I decided not to investigate.</p>
+<div class="table-wrapper"><table><thead><tr><th>Metrics</th><th>Average</th><th>Δ v1.1.1</th><th>Median</th><th>Δ v1.1.1</th></tr></thead><tbody>
+<tr><td>Nodes per seconds</td><td>3778.83</td><td>-7%</td><td>1049.48</td><td>+7%</td></tr>
+<tr><td>Fixpoint iterations per second</td><td>16935.39</td><td>-5%</td><td>3847.91</td><td>-1%</td></tr>
+<tr><td>Fixpoint iterations per node</td><td>7.34</td><td>+7%</td><td>5.16</td><td>-0.01%</td></tr>
+<tr><td>#Problems with IDLE SMs at timeout</td><td>8</td><td>8</td><td></td><td></td></tr>
+<tr><td>Propagators memory</td><td>9.01MB</td><td>-13%</td><td>8.08MB</td><td>+9%</td></tr>
+<tr><td>Variables store memory</td><td>72.29KB</td><td>0%</td><td>84.1KB</td><td>0%</td></tr>
+<tr><td>#Problems at optimality</td><td>11</td><td>11</td><td></td><td></td></tr>
+<tr><td>#Problems satisfiable</td><td>22</td><td>22</td><td></td><td></td></tr>
+<tr><td>#Problems unknown</td><td>2</td><td>2</td><td></td><td></td></tr>
+</tbody></table>
+</div>
+<p><img src="turbo-v1.1/turbogpu-v1.1.1-vs-turbogpu-v1.1.2.png" alt="TurboGPU-v1.1.1 vs TurboGPU-v1.1.2" /></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="v113-warp-synchronization"><a class="header" href="#v113-warp-synchronization">v1.1.3: Warp Synchronization</a></h1>
+<p><em>07 March 2024.</em> By synchronizing the warps in the fixpoint loop, we increase by 13% the number of nodes per second.
+And by doing some CUDA magic tricks, we just added a single line of code!
+In Turbo, the propagators are called "refinement operators" and are essentially monotone function over a lattice structure, we will use both terms interchangeably.
+For instance, the octagon abstract domain consists of many small refinement operators implementing the Floyd-Warshall shortest path algorithm.
+We compute the fixpoint of the refinement operators over the abstract domain <code>a</code> in a loop.
+For the curious, the loop in version 1.1.2 is implemented as:</p>
+<pre><code class="language-cpp">for(size_t i = 1; changed[(i-1)%3] &amp;&amp; !is_top[(i-1)%3]; ++i) {
+  size_t n = a.num_refinements();
+  for (size_t t = group.thread_rank(); t &lt; n; t += group.num_threads()) {
+    a.refine(t, changed[i%3]);
+    if((t-group.thread_rank()) + group.num_threads() &lt; n) __syncwarp();
+  }
+  changed[(i+1)%3].dtell_bot(); // reinitialize changed for the next iteration.
+  is_top[i%3].tell(a.is_top());
+  is_top[i%3].tell(local::BInc{*stop});
+  __syncthreads();
+}
+</code></pre>
+<p>While at least one refinement operator changes <code>a</code> and we did not reach an inconsistent state we keep going.
+On each streaming multiprocessor, we have 64 processors (A5000 GPU), so we can at most execute 64 propagators in parallel at a time.
+However, CUDA allows us to over-commit and to execute more threads than processors available; we usually have 256 threads called a <em>block</em>.
+The inner loop iterates the propagators array, refining the first block (256 propagators), then the next block (256 more), etc.
+A block is further divided into <em>warps</em> of 32 threads each.
+This is important because the thread inside a warp must all execute the same instruction otherwise they will diverge.
+Suppose a <code>if c then P else Q</code> construction, if the condition is true for 5 threads and false for 27 threads, then the warps is split into two parts and <em>each part is executed sequentially</em>.
+For the propagators, it happens quite often that 32 successive propagators are not exactly the same.
+For instance, <code>x + y &lt;= k</code> and <code>x + y + z &lt;= k</code> would cause divergence.
+Even worst is <code>x * y &lt;= k</code> and <code>x * z &lt;= k</code> that can diverge due to interval multiplication which is not the same depending on the signs of the intervals' bounds.</p>
+<p>In CUDA, once threads have diverged, they are not merged back automatically.
+It is only when encountering a barrier such as <code>__syncthreads()</code> above that they are put back together.
+The optimization in version 1.1.3 is to synchronize the threads of each warp (<code>__syncwarp()</code>) after each iteration of the inner loop:</p>
+<pre><code class="language-cpp">for (size_t t = group.thread_rank(); t &lt; n; t += group.num_threads()) {
+  a.refine(t, changed[i%3]);
+  if((t-group.thread_rank()) + group.num_threads() &lt; n) __syncwarp();
+}
+</code></pre>
+<p>It leads to better parallelism since at each iteration we start with the full warp of 32 threads and not a warp already split by a previous iteration.
+The results show the efficiency of this approach.
+Interestingly, it also shows that we need more iterations to reach the fixpoint, which might be due to the fact that the propagators are running in a different order due to <code>__syncwarp()</code>.</p>
+<div class="table-wrapper"><table><thead><tr><th>Metrics</th><th>Average</th><th>Δ v1.1.2</th><th>Median</th><th>Δ v1.1.2</th></tr></thead><tbody>
+<tr><td>Nodes per seconds</td><td>4328.83</td><td>+13%</td><td>1240.06</td><td>+15%</td></tr>
+<tr><td>Fixpoint iterations per second</td><td>21347.57</td><td>+26%</td><td>6519.14</td><td>+69%</td></tr>
+<tr><td>Fixpoint iterations per node</td><td>8.61</td><td>+15%</td><td>5.31</td><td>+3%</td></tr>
+<tr><td>#Problems with IDLE SMs at timeout</td><td>9</td><td>8</td><td></td><td></td></tr>
+<tr><td>Propagators memory</td><td>9.01MB</td><td>0%</td><td>8.08MB</td><td>0%</td></tr>
+<tr><td>Variables store memory</td><td>72.29KB</td><td>0%</td><td>84.1KB</td><td>0%</td></tr>
+<tr><td>#Problems at optimality</td><td>11</td><td>11</td><td></td><td></td></tr>
+<tr><td>#Problems satisfiable</td><td>22</td><td>22</td><td></td><td></td></tr>
+<tr><td>#Problems unknown</td><td>2</td><td>2</td><td></td><td></td></tr>
+</tbody></table>
+</div>
+<p>There is many possible optimizations to improve the efficiency of the fixpoint loop, in particular to avoid thread divergence.
+I'm going next to try something very simple: to sort the propagators according to their structures, which should reduce divergence, we'll see!</p>
+<p>On the following pie charts, we notice that this version is strictly better than all others before, which validates the usefulness of our optimizations.</p>
+<p><img src="turbo-v1.1/turbogpu-v1.1.2-vs-turbogpu-v1.1.3.png" alt="TurboGPU-v1.1.2 vs TurboGPU-v1.1.3" />
+<img src="turbo-v1.1/turbogpu-v1.1.1-vs-turbogpu-v1.1.3.png" alt="TurboGPU-v1.1.1 vs TurboGPU-v1.1.3" />
+<img src="turbo-v1.1/turbogpu-v1.1.0-vs-turbogpu-v1.1.3.png" alt="TurboGPU-v1.1.0 vs TurboGPU-v1.1.3" /></p>
 
                     </main>
 

@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Introduction - Lattice Land Book</title>
+        <title>v1.1.3: Warp Synchronization - Lattice Land Book</title>
 
 
         <!-- Custom HTML head -->
@@ -89,7 +89,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="index.html"><strong aria-hidden="true">1.</strong> Lattice Land</a></li><li class="chapter-item expanded affix "><li class="part-title">CUDA Battery Library</li><li class="chapter-item expanded "><a href="1-cuda-battery.html" class="active"><strong aria-hidden="true">2.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="2-cuda-battery.html"><strong aria-hidden="true">3.</strong> Data from CPU to GPU</a></li><li class="chapter-item expanded "><a href="3-cuda-battery.html"><strong aria-hidden="true">4.</strong> CMake Project</a></li><li class="chapter-item expanded "><a href="4-cuda-battery.html"><strong aria-hidden="true">5.</strong> In-Kernel Allocation</a></li><li class="chapter-item expanded "><a href="5-cuda-battery.html"><strong aria-hidden="true">6.</strong> Shared Memory Allocator</a></li><li class="chapter-item expanded "><a href="6-cuda-battery.html"><strong aria-hidden="true">7.</strong> Caution</a></li><li class="chapter-item expanded affix "><li class="part-title">Parallel Lattice Programming</li><li class="chapter-item expanded affix "><li class="part-title">Abstract Constraint Reasoning</li><li class="chapter-item expanded affix "><li class="part-title">Parallel Abstract Constraint Reasoning</li><li class="chapter-item expanded affix "><li class="part-title">Turbo Technical Journal</li><li class="chapter-item expanded "><a href="1-turbo.html"><strong aria-hidden="true">8.</strong> Introducing Turbo</a></li><li class="chapter-item expanded "><a href="2-turbo.html"><strong aria-hidden="true">9.</strong> v1.0.1: Unoptimized Turbo</a></li><li class="chapter-item expanded "><a href="3-turbo.html"><strong aria-hidden="true">10.</strong> v1.1.{0-1}: Preprocessing</a></li><li class="chapter-item expanded "><a href="4-turbo.html"><strong aria-hidden="true">11.</strong> v1.1.2: (Dis)equality Propagator</a></li><li class="chapter-item expanded "><a href="5-turbo.html"><strong aria-hidden="true">12.</strong> v1.1.3: Warp Synchronization</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="index.html"><strong aria-hidden="true">1.</strong> Lattice Land</a></li><li class="chapter-item expanded affix "><li class="part-title">CUDA Battery Library</li><li class="chapter-item expanded "><a href="1-cuda-battery.html"><strong aria-hidden="true">2.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="2-cuda-battery.html"><strong aria-hidden="true">3.</strong> Data from CPU to GPU</a></li><li class="chapter-item expanded "><a href="3-cuda-battery.html"><strong aria-hidden="true">4.</strong> CMake Project</a></li><li class="chapter-item expanded "><a href="4-cuda-battery.html"><strong aria-hidden="true">5.</strong> In-Kernel Allocation</a></li><li class="chapter-item expanded "><a href="5-cuda-battery.html"><strong aria-hidden="true">6.</strong> Shared Memory Allocator</a></li><li class="chapter-item expanded "><a href="6-cuda-battery.html"><strong aria-hidden="true">7.</strong> Caution</a></li><li class="chapter-item expanded affix "><li class="part-title">Parallel Lattice Programming</li><li class="chapter-item expanded affix "><li class="part-title">Abstract Constraint Reasoning</li><li class="chapter-item expanded affix "><li class="part-title">Parallel Abstract Constraint Reasoning</li><li class="chapter-item expanded affix "><li class="part-title">Turbo Technical Journal</li><li class="chapter-item expanded "><a href="1-turbo.html"><strong aria-hidden="true">8.</strong> Introducing Turbo</a></li><li class="chapter-item expanded "><a href="2-turbo.html"><strong aria-hidden="true">9.</strong> v1.0.1: Unoptimized Turbo</a></li><li class="chapter-item expanded "><a href="3-turbo.html"><strong aria-hidden="true">10.</strong> v1.1.{0-1}: Preprocessing</a></li><li class="chapter-item expanded "><a href="4-turbo.html"><strong aria-hidden="true">11.</strong> v1.1.2: (Dis)equality Propagator</a></li><li class="chapter-item expanded "><a href="5-turbo.html" class="active"><strong aria-hidden="true">12.</strong> v1.1.3: Warp Synchronization</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -174,47 +174,73 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="introduction"><a class="header" href="#introduction">Introduction</a></h1>
-<p>The main objective of the CUDA battery library is to make it easier to develop software fully executing on the GPU.
-This is in contrast to applications where the CPU is the "director", and the GPU is only there to execute small kernels performing specific parallel tasks.
-We want to have the whole computation on the GPU when possible.
-Why you asked?
-Because it is more efficient as we avoid round-trips between CPU and GPU; although calling a kernel is very fast, the memory transfers are still costly.
-In the research project <a href="https://github.com/lattice-land">lattice-land</a>, we also explore pure GPU computation as a new paradigm where many small functions collaborate in parallel to reach a common goal.</p>
-<p>Developing systems in CUDA is a daunting task because the CUDA API is reminiscent of C programming, and it lacks modern C++ idioms and data structures.
-For instance, memory allocations and deallocations are managed by malloc/free variants, arrays are pointers and we do not have access to the C++ STL.
-Moreover, due to the specificities of the CUDA API, it is usually difficult to program a single function working on both the CPU and the GPU.
-Although it is rarely possible to have the exact same algorithm on both CPU and GPU, there are often algorithmic components that are shared.
-Having them both on CPU and GPU can help to verify the parallel version produces the same result as the sequential version, and it also allows us to benchmark CPU vs GPU.</p>
-<p>The <a href="https://github.com/lattice-land/cuda-battery">cuda-battery</a> library reimplements basic data structures from the STL in a way such that the same code runs on both CPU and GPU.
-One of the only technical differences between CPU and GPU is memory allocation.
-To overcome this difference, we provide various allocators that allocate memory in the CPU memory, unified memory, and GPU global and shared memory.
-The idea is then to parametrize your classes (through a C++ template) with an allocator type and, depending on whether you run your algorithm on the CPU or GPU, to instantiate it with a suited allocator type.
-Among the supported data structures, we have <code>vector</code>, <code>string</code>, <code>variant</code>, <code>tuple</code>, <code>unique_ptr</code>, <code>shared_ptr</code>, a variant of <code>bitset</code> and many utility functions.
-In addition to the STL, we provide an abstraction of the memory accesses to enable non-atomic (sequential) and atomic (parallel) read and write operations.
-The memory abstraction is necessary when writing code working on both GPU and CPU, but also when writing GPU parallel code that can work in global and shared memory, and at the thread, block, grid and multi-grid level.</p>
-<p>This library aims to be generic and usable in different kind of projects, but when a design decision needs to be made, it will be influenced by the needs of the project <a href="https://github.com/lattice-land">lattice-land</a>.</p>
-<p>Everything is under the namespace <code>battery::</code>.
-The Doxygen documentation is available <a href="cuda-battery/index.html">here</a>.
-Due to lack of time, these are often partial implementation of their STL counterpart, and there are sometimes (documented) differences.</p>
-<p>NVIDIA is developing <a href="https://nvidia.github.io/libcudacxx/">libcudacxx</a>, a version of the standard C++ library compatible with GPU, and with extensions specific to CUDA.
-<em>cuda-battery</em> can be seen as an extension of <em>libcudacxx</em>, and we intend to remove the data structures proposed here as soon as they become available in <em>libcudacxx</em>.
-Another well-known library is <a href="https://github.com/NVIDIA/thrust">thrust</a>, but it does not share the same goal since it hides the parallel computation inside the data structure, e.g. <code>reduce</code> on a <code>vector</code> is automatically parallelized on the GPU.</p>
-<p>Note that this tutorial does not introduce basic CUDA concepts: it is for (possibly beginners) CUDA programmers who want to simplify their code.
-For an introduction to CUDA, you can first refer to <a href="https://ulhpc-tutorials.readthedocs.io/en/latest/gpu/cuda2023/">this tutorial</a>.
-Finally, the full code of all examples given here is available in a <a href="https://github.com/lattice-land/cuda-battery/tree/v1.0.0/demo">demo project</a>.</p>
+                        <h1 id="v113-warp-synchronization"><a class="header" href="#v113-warp-synchronization">v1.1.3: Warp Synchronization</a></h1>
+<p><em>07 March 2024.</em> By synchronizing the warps in the fixpoint loop, we increase by 13% the number of nodes per second.
+And by doing some CUDA magic tricks, we just added a single line of code!
+In Turbo, the propagators are called "refinement operators" and are essentially monotone function over a lattice structure, we will use both terms interchangeably.
+For instance, the octagon abstract domain consists of many small refinement operators implementing the Floyd-Warshall shortest path algorithm.
+We compute the fixpoint of the refinement operators over the abstract domain <code>a</code> in a loop.
+For the curious, the loop in version 1.1.2 is implemented as:</p>
+<pre><code class="language-cpp">for(size_t i = 1; changed[(i-1)%3] &amp;&amp; !is_top[(i-1)%3]; ++i) {
+  size_t n = a.num_refinements();
+  for (size_t t = group.thread_rank(); t &lt; n; t += group.num_threads()) {
+    a.refine(t, changed[i%3]);
+    if((t-group.thread_rank()) + group.num_threads() &lt; n) __syncwarp();
+  }
+  changed[(i+1)%3].dtell_bot(); // reinitialize changed for the next iteration.
+  is_top[i%3].tell(a.is_top());
+  is_top[i%3].tell(local::BInc{*stop});
+  __syncthreads();
+}
+</code></pre>
+<p>While at least one refinement operator changes <code>a</code> and we did not reach an inconsistent state we keep going.
+On each streaming multiprocessor, we have 64 processors (A5000 GPU), so we can at most execute 64 propagators in parallel at a time.
+However, CUDA allows us to over-commit and to execute more threads than processors available; we usually have 256 threads called a <em>block</em>.
+The inner loop iterates the propagators array, refining the first block (256 propagators), then the next block (256 more), etc.
+A block is further divided into <em>warps</em> of 32 threads each.
+This is important because the thread inside a warp must all execute the same instruction otherwise they will diverge.
+Suppose a <code>if c then P else Q</code> construction, if the condition is true for 5 threads and false for 27 threads, then the warps is split into two parts and <em>each part is executed sequentially</em>.
+For the propagators, it happens quite often that 32 successive propagators are not exactly the same.
+For instance, <code>x + y &lt;= k</code> and <code>x + y + z &lt;= k</code> would cause divergence.
+Even worst is <code>x * y &lt;= k</code> and <code>x * z &lt;= k</code> that can diverge due to interval multiplication which is not the same depending on the signs of the intervals' bounds.</p>
+<p>In CUDA, once threads have diverged, they are not merged back automatically.
+It is only when encountering a barrier such as <code>__syncthreads()</code> above that they are put back together.
+The optimization in version 1.1.3 is to synchronize the threads of each warp (<code>__syncwarp()</code>) after each iteration of the inner loop:</p>
+<pre><code class="language-cpp">for (size_t t = group.thread_rank(); t &lt; n; t += group.num_threads()) {
+  a.refine(t, changed[i%3]);
+  if((t-group.thread_rank()) + group.num_threads() &lt; n) __syncwarp();
+}
+</code></pre>
+<p>It leads to better parallelism since at each iteration we start with the full warp of 32 threads and not a warp already split by a previous iteration.
+The results show the efficiency of this approach.
+Interestingly, it also shows that we need more iterations to reach the fixpoint, which might be due to the fact that the propagators are running in a different order due to <code>__syncwarp()</code>.</p>
+<div class="table-wrapper"><table><thead><tr><th>Metrics</th><th>Average</th><th>Δ v1.1.2</th><th>Median</th><th>Δ v1.1.2</th></tr></thead><tbody>
+<tr><td>Nodes per seconds</td><td>4328.83</td><td>+13%</td><td>1240.06</td><td>+15%</td></tr>
+<tr><td>Fixpoint iterations per second</td><td>21347.57</td><td>+26%</td><td>6519.14</td><td>+69%</td></tr>
+<tr><td>Fixpoint iterations per node</td><td>8.61</td><td>+15%</td><td>5.31</td><td>+3%</td></tr>
+<tr><td>#Problems with IDLE SMs at timeout</td><td>9</td><td>8</td><td></td><td></td></tr>
+<tr><td>Propagators memory</td><td>9.01MB</td><td>0%</td><td>8.08MB</td><td>0%</td></tr>
+<tr><td>Variables store memory</td><td>72.29KB</td><td>0%</td><td>84.1KB</td><td>0%</td></tr>
+<tr><td>#Problems at optimality</td><td>11</td><td>11</td><td></td><td></td></tr>
+<tr><td>#Problems satisfiable</td><td>22</td><td>22</td><td></td><td></td></tr>
+<tr><td>#Problems unknown</td><td>2</td><td>2</td><td></td><td></td></tr>
+</tbody></table>
+</div>
+<p>There is many possible optimizations to improve the efficiency of the fixpoint loop, in particular to avoid thread divergence.
+I'm going next to try something very simple: to sort the propagators according to their structures, which should reduce divergence, we'll see!</p>
+<p>On the following pie charts, we notice that this version is strictly better than all others before, which validates the usefulness of our optimizations.</p>
+<p><img src="turbo-v1.1/turbogpu-v1.1.2-vs-turbogpu-v1.1.3.png" alt="TurboGPU-v1.1.2 vs TurboGPU-v1.1.3" />
+<img src="turbo-v1.1/turbogpu-v1.1.1-vs-turbogpu-v1.1.3.png" alt="TurboGPU-v1.1.1 vs TurboGPU-v1.1.3" />
+<img src="turbo-v1.1/turbogpu-v1.1.0-vs-turbogpu-v1.1.3.png" alt="TurboGPU-v1.1.0 vs TurboGPU-v1.1.3" /></p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="4-turbo.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next prefetch" href="2-cuda-battery.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                                <i class="fa fa-angle-right"></i>
-                            </a>
 
                         <div style="clear: both"></div>
                     </nav>
@@ -222,13 +248,10 @@ Finally, the full code of all examples given here is available in a <a href="htt
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="4-turbo.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next prefetch" href="2-cuda-battery.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
-                        <i class="fa fa-angle-right"></i>
-                    </a>
             </nav>
 
         </div>

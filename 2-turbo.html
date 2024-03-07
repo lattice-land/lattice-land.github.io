@@ -89,9 +89,11 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="index.html"><strong aria-hidden="true">1.</strong> Lattice Land</a></li><li class="chapter-item expanded affix "><li class="part-title">CUDA Battery Library</li><li class="chapter-item expanded "><a href="1-cuda-battery.html"><strong aria-hidden="true">2.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="2-cuda-battery.html"><strong aria-hidden="true">3.</strong> Data from CPU to GPU</a></li><li class="chapter-item expanded "><a href="3-cuda-battery.html"><strong aria-hidden="true">4.</strong> CMake Project</a></li><li class="chapter-item expanded "><a href="4-cuda-battery.html"><strong aria-hidden="true">5.</strong> In-Kernel Allocation</a></li><li class="chapter-item expanded "><a href="5-cuda-battery.html"><strong aria-hidden="true">6.</strong> Shared Memory Allocator</a></li><li class="chapter-item expanded "><a href="6-cuda-battery.html"><strong aria-hidden="true">7.</strong> Caution</a></li><li class="chapter-item expanded affix "><li class="part-title">Parallel Lattice Programming</li><li class="chapter-item expanded affix "><li class="part-title">Abstract Constraint Reasoning</li><li class="chapter-item expanded affix "><li class="part-title">Parallel Abstract Constraint Reasoning</li><li class="chapter-item expanded affix "><li class="part-title">Turbo Technical Journal</li><li class="chapter-item expanded "><a href="1-turbo.html"><strong aria-hidden="true">8.</strong> Introducing Turbo</a></li><li class="chapter-item expanded "><a href="2-turbo.html" class="active"><strong aria-hidden="true">9.</strong> v1.0.1: Unoptimized Turbo</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="index.html"><strong aria-hidden="true">1.</strong> Lattice Land</a></li><li class="chapter-item expanded affix "><li class="part-title">CUDA Battery Library</li><li class="chapter-item expanded "><a href="1-cuda-battery.html"><strong aria-hidden="true">2.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="2-cuda-battery.html"><strong aria-hidden="true">3.</strong> Data from CPU to GPU</a></li><li class="chapter-item expanded "><a href="3-cuda-battery.html"><strong aria-hidden="true">4.</strong> CMake Project</a></li><li class="chapter-item expanded "><a href="4-cuda-battery.html"><strong aria-hidden="true">5.</strong> In-Kernel Allocation</a></li><li class="chapter-item expanded "><a href="5-cuda-battery.html"><strong aria-hidden="true">6.</strong> Shared Memory Allocator</a></li><li class="chapter-item expanded "><a href="6-cuda-battery.html"><strong aria-hidden="true">7.</strong> Caution</a></li><li class="chapter-item expanded affix "><li class="part-title">Parallel Lattice Programming</li><li class="chapter-item expanded affix "><li class="part-title">Abstract Constraint Reasoning</li><li class="chapter-item expanded affix "><li class="part-title">Parallel Abstract Constraint Reasoning</li><li class="chapter-item expanded affix "><li class="part-title">Turbo Technical Journal</li><li class="chapter-item expanded "><a href="1-turbo.html"><strong aria-hidden="true">8.</strong> Introducing Turbo</a></li><li class="chapter-item expanded "><a href="2-turbo.html" class="active"><strong aria-hidden="true">9.</strong> v1.0.1: Unoptimized Turbo</a></li><li class="chapter-item expanded "><a href="3-turbo.html"><strong aria-hidden="true">10.</strong> v1.1.{0-1}: Preprocessing</a></li><li class="chapter-item expanded "><a href="4-turbo.html"><strong aria-hidden="true">11.</strong> v1.1.2: (Dis)equality Propagator</a></li><li class="chapter-item expanded "><a href="5-turbo.html"><strong aria-hidden="true">12.</strong> v1.1.3: Warp Synchronization</a></li></ol>
             </div>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
         </nav>
 
         <!-- Track and set sidebar scroll position -->
@@ -266,7 +268,7 @@ We run on the CPU mainly for debugging and comparative efficiency analysis.</p>
 <p>About the details of the experiments:</p>
 <ul>
 <li>Timeout: 5 minutes per instance (it is relatively small in order to quickly iterate and test new optimizations of Turbo).</li>
-<li>EPS (TurboGPU): generate 1024 subproblems (<code>-sub 10</code> for &quot;2^10&quot;).</li>
+<li>EPS (TurboGPU): generate 1024 subproblems (<code>-sub 10</code> for "2^10").</li>
 </ul>
 <p><em>Warning</em>: Before we start, let's get something straight: <em>the comparison between TurboGPU and other solver is relatively unfair.</em>
 In particular, because of EPS, TurboGPU uses breadth-first search at the top of the tree, and thus sometimes can get better bounds, while the others use depth-first search and might stay stuck in the left part of the search tree longer.
@@ -290,14 +292,18 @@ Back to Turbo, let's compare it to our its CPU-version and the baseline solvers:
 <img src="turbo-v1.0.1/turbogpu-vs-choco-noglobal.png" alt="TurboGPU vs Choco.noglobal" /></p>
 <p>For future references, it is interesting to have an average of some speed and memory metrics across all problems:</p>
 <div class="table-wrapper"><table><thead><tr><th>Metrics</th><th>Average</th><th>Median</th></tr></thead><tbody>
-<tr><td>Nodes per seconds</td><td>1246.77</td><td>35.07</td></tr>
+<tr><td>Nodes per second</td><td>1246.77</td><td>35.07</td></tr>
+<tr><td>Fixpoint iterations per second</td><td>10014.91</td><td>257.84</td></tr>
 <tr><td>Fixpoint iterations per node</td><td>8.48</td><td>7.11</td></tr>
 <tr><td>IDLE SMs at timeout</td><td>13</td><td></td></tr>
 <tr><td>Propagators memory</td><td>16.41MB</td><td>13.07MB</td></tr>
 <tr><td>Variables store memory</td><td>167.78KB</td><td>174.01KB</td></tr>
+<tr><td>#Problems at optimality</td><td>5</td><td></td></tr>
+<tr><td>#Problems satisfiable</td><td>27</td><td></td></tr>
+<tr><td>#Problems unknown</td><td>3</td><td></td></tr>
 </tbody></table>
 </div>
-<p>When comparing the number of nodes per second, we can see that TurboGPU explores around 5 to 10 times more nodes per second than TurboCPU; showing a &quot;purely computational gain&quot; when using the GPU.
+<p>When comparing the number of nodes per second, we can see that TurboGPU explores around 5 to 10 times more nodes per second than TurboCPU; showing a "purely computational gain" when using the GPU.
 Just 5x to 10x quicker is actually not that much quicker considering we have 64 streaming multiprocessors, and indicate we are under-using the parallel capacities of the GPU.
 In the future, I'll benchmark how efficiently Turbo is using the GPU using the profiling tools of NVIDIA.</p>
 <p><img src="turbo-v1.0.1/number-of-nodes-per-second.png" alt="TurboGPU nodes per second" /></p>
@@ -325,6 +331,9 @@ I think two important missing optimizations are:</p>
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
+                            <a rel="next prefetch" href="3-turbo.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
 
                         <div style="clear: both"></div>
                     </nav>
@@ -336,6 +345,9 @@ I think two important missing optimizations are:</p>
                         <i class="fa fa-angle-left"></i>
                     </a>
 
+                    <a rel="next prefetch" href="3-turbo.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
             </nav>
 
         </div>
