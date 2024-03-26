@@ -57,9 +57,9 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"allocator_8hpp.html",
-"classbattery_1_1statistics__allocator.html#a994d5514c1fbefbd26ae1a34a54ce506",
-"namespacebattery.html#a534372d449e25aeaadf7055f392ac4be"
+"algorithm_8hpp.html",
+"classbattery_1_1statistics__allocator.html#a7a794eaf47035946650086ba4eb7dcf2",
+"namespacebattery.html#a4b042f6d9fb6628f803c03f7d282d1aa"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

@@ -1,5 +1,6 @@
 var dir_0f9b23599b40747f02a3580542ed218a =
 [
+    [ "algorithm.hpp", "algorithm_8hpp.html", "algorithm_8hpp" ],
     [ "allocator.hpp", "allocator_8hpp.html", "allocator_8hpp" ],
     [ "bitset.hpp", "bitset_8hpp.html", "bitset_8hpp" ],
     [ "dynamic_bitset.hpp", "dynamic__bitset_8hpp.html", "dynamic__bitset_8hpp" ],
