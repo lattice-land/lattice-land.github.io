@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['prop_5fallocator_5ftype_0',['prop_allocator_type',['../struct_abstract_domains.html#a83cbd890abd795757263dfff456840c2',1,'AbstractDomains']]]
+  ['listore_0',['LIStore',['../struct_abstract_domains.html#a1ab2170a315a7428892ce6e3310a72a9',1,'AbstractDomains']]]
 ];

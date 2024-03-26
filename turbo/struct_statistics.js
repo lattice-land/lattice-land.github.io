@@ -24,5 +24,9 @@ var struct_statistics =
     [ "eps_solved_subproblems", "struct_statistics.html#a48698a0fda28b0638cd187e974c0ec64", null ],
     [ "eps_skipped_subproblems", "struct_statistics.html#a5bd2c19483f31617b049a41690217835", null ],
     [ "num_blocks_done", "struct_statistics.html#a37b659551d0b1f473eb43b856cf96366", null ],
-    [ "fixpoint_iterations", "struct_statistics.html#a15596b3df0aa6aed1133d52896360ff6", null ]
+    [ "fixpoint_iterations", "struct_statistics.html#a15596b3df0aa6aed1133d52896360ff6", null ],
+    [ "eliminated_variables", "struct_statistics.html#a9a367d81bea5c7041f572d5013c0a2ba", null ],
+    [ "eliminated_formulas", "struct_statistics.html#abc3079e78aaab0c8f05b6827e804c6fd", null ],
+    [ "search_time", "struct_statistics.html#a51d6f87b0edc7a75979a7d4146a430da", null ],
+    [ "propagation_time", "struct_statistics.html#a61f13dc2fc0ae40c1d48736f5f880a7c", null ]
 ];

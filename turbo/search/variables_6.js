@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['interpretation_5fduration_0',['interpretation_duration',['../struct_statistics.html#a75511963214df2c75c82d1b4dac23736',1,'Statistics']]],
-  ['ipc_1',['ipc',['../struct_abstract_domains.html#a711e6fa9a2c1994a9ab794df4ed02fc5',1,'AbstractDomains']]]
+  ['hardware_0',['hardware',['../struct_configuration.html#abad3f19cfc64f899c767dde558782de5',1,'Configuration']]]
 ];

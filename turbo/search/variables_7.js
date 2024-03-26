@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['kernel_5fshutdown_5ftimeout_5fms_0',['kernel_shutdown_timeout_ms',['../struct_configuration.html#a8134f3dc5baa904a825d9afa3c4115b8',1,'Configuration']]]
+  ['interpretation_5fduration_0',['interpretation_duration',['../struct_statistics.html#a75511963214df2c75c82d1b4dac23736',1,'Statistics']]],
+  ['ipc_1',['ipc',['../struct_abstract_domains.html#a711e6fa9a2c1994a9ab794df4ed02fc5',1,'AbstractDomains']]]
 ];

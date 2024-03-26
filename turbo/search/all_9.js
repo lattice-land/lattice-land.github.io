@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['kernel_5fshutdown_5ftimeout_5fms_0',['kernel_shutdown_timeout_ms',['../struct_configuration.html#a8134f3dc5baa904a825d9afa3c4115b8',1,'Configuration']]]
+  ['join_0',['join',['../struct_abstract_domains.html#a4ba0f755a1d6f8b3634d903508c7d45f',1,'AbstractDomains::join()'],['../struct_statistics.html#a1a9b704b99cbbb4e8910ac530b06cc26',1,'Statistics::join()']]]
 ];

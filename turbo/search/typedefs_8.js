@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['universe_5ftype_0',['universe_type',['../struct_abstract_domains.html#abc9eee6857a4d90a369d1b04c02eaec0',1,'AbstractDomains']]]
+  ['this_5ftype_0',['this_type',['../struct_abstract_domains.html#a2f13dd74f45325ea9b9e2c221ae9a92a',1,'AbstractDomains']]]
 ];
