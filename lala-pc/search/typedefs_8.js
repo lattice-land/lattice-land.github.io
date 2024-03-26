@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['max_0',['Max',['../classlala_1_1pc_1_1_term.html#a5b96aa2914afc661f6502e1d74570ecf',1,'lala::pc::Term']]],
-  ['min_1',['Min',['../classlala_1_1pc_1_1_term.html#a47ac9d1f850a2990bb5b4e5ca5bb6da3',1,'lala::pc::Term']]],
-  ['mul_2',['Mul',['../classlala_1_1pc_1_1_term.html#a8efa6ec1da2a52adcce52c0616c22a75',1,'lala::pc::Term']]]
+  ['local_5funiverse_5ftype_0',['local_universe_type',['../classlala_1_1_p_c.html#a946c90f7241a5f485d499ceed3831187',1,'lala::PC']]]
 ];

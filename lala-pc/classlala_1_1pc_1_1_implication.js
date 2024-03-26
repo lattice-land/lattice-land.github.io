@@ -11,11 +11,12 @@ var classlala_1_1pc_1_1_implication =
     [ "Implication", "classlala_1_1pc_1_1_implication.html#a29dae9385fd375db832a80cb4bc4571e", null ],
     [ "ask", "classlala_1_1pc_1_1_implication.html#a3a32242b64d636b31ca51f2d9928a55b", null ],
     [ "nask", "classlala_1_1pc_1_1_implication.html#a1d8d339e2ee05d232ee43032e44aed89", null ],
-    [ "preprocess", "classlala_1_1pc_1_1_implication.html#a3fce1d98d966542469ebdaa22e671d32", null ],
-    [ "refine", "classlala_1_1pc_1_1_implication.html#a44e1aebb80bae7224252708768a0a6f3", null ],
-    [ "nrefine", "classlala_1_1pc_1_1_implication.html#a5c8f7d42ba0a1c8455565940183660f2", null ],
+    [ "preprocess", "classlala_1_1pc_1_1_implication.html#af4e2f1a61eb71124d5270a246f4ff6ad", null ],
+    [ "refine", "classlala_1_1pc_1_1_implication.html#a1d444119852cb4f937bd4a9548dde49d", null ],
+    [ "nrefine", "classlala_1_1pc_1_1_implication.html#ae0d4c86f3658706014c704dc37402151", null ],
     [ "is_top", "classlala_1_1pc_1_1_implication.html#a9ca31ca571a6112985f99eabee387a92", null ],
     [ "print", "classlala_1_1pc_1_1_implication.html#a6e8c17205341f61fa1bf37c65f02d9d8", null ],
     [ "deinterpret", "classlala_1_1pc_1_1_implication.html#a742060117ce3e9137027a250dc5cf4ca", null ],
+    [ "length", "classlala_1_1pc_1_1_implication.html#a8188e2cbb69008eaa3e5563109b86ab6", null ],
     [ "Implication", "classlala_1_1pc_1_1_implication.html#a792b16ef899bd19abca4766d09db97be", null ]
 ];

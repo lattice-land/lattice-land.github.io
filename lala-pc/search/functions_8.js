@@ -1,31 +1,4 @@
 var searchData=
 [
-  ['make_0',['make',['../classlala_1_1pc_1_1_term.html#a77341fb40046065546994f58c6ba0f32',1,'lala::pc::Term::make()'],['../classlala_1_1pc_1_1_formula.html#ac06cbaa46c8000099dc48f7c92760c19',1,'lala::pc::Formula::make()']]],
-  ['make_5fabs_1',['make_abs',['../classlala_1_1pc_1_1_term.html#a28df43028b0248561131f2fc18fb06ae',1,'lala::pc::Term']]],
-  ['make_5fadd_2',['make_add',['../classlala_1_1pc_1_1_term.html#ae823e4c8e4d765e128c2b73b584d2cb9',1,'lala::pc::Term']]],
-  ['make_5fbicond_3',['make_bicond',['../classlala_1_1pc_1_1_formula.html#aed6a54f5977f7429b86983cde56a7305',1,'lala::pc::Formula']]],
-  ['make_5fcdiv_4',['make_cdiv',['../classlala_1_1pc_1_1_term.html#a7b09f00f39f7cee49417e0a85d48908d',1,'lala::pc::Term']]],
-  ['make_5fconj_5',['make_conj',['../classlala_1_1pc_1_1_formula.html#acdcfb558980785161f0d088f93b2d81e',1,'lala::pc::Formula']]],
-  ['make_5fconstant_6',['make_constant',['../classlala_1_1pc_1_1_term.html#a09ca62d16dbe18f2d3503f79001ea3cd',1,'lala::pc::Term']]],
-  ['make_5fdisj_7',['make_disj',['../classlala_1_1pc_1_1_formula.html#ae333ce1bdc2ca6c4dd1336ef082fd924',1,'lala::pc::Formula']]],
-  ['make_5fediv_8',['make_ediv',['../classlala_1_1pc_1_1_term.html#a9f2af25f269443fd94311023482004b5',1,'lala::pc::Term']]],
-  ['make_5ffalse_9',['make_false',['../classlala_1_1pc_1_1_formula.html#a44431325fa954c4f8e67a9e3fb422780',1,'lala::pc::Formula']]],
-  ['make_5ffdiv_10',['make_fdiv',['../classlala_1_1pc_1_1_term.html#aa6540a36cb731f8653701c99265abf85',1,'lala::pc::Term']]],
-  ['make_5fformula_11',['make_formula',['../classlala_1_1pc_1_1_term.html#ac7e66c800fc83790955d77c52238658a',1,'lala::pc::Term']]],
-  ['make_5fimply_12',['make_imply',['../classlala_1_1pc_1_1_formula.html#a2dd5b21376928f861cd39380a6bf7137',1,'lala::pc::Formula']]],
-  ['make_5fmax_13',['make_max',['../classlala_1_1pc_1_1_term.html#a2e53e3650790d79bd9dc21165a7a4a0f',1,'lala::pc::Term']]],
-  ['make_5fmin_14',['make_min',['../classlala_1_1pc_1_1_term.html#a65fa28b40b9c26f0678f74b7c55e78b3',1,'lala::pc::Term']]],
-  ['make_5fmul_15',['make_mul',['../classlala_1_1pc_1_1_term.html#a5f4306408bbb492c19710cb8959e4dfc',1,'lala::pc::Term']]],
-  ['make_5fnaryadd_16',['make_naryadd',['../classlala_1_1pc_1_1_term.html#a89b1428cd31b9ef0af626ccdcb057ed8',1,'lala::pc::Term']]],
-  ['make_5fnarymul_17',['make_narymul',['../classlala_1_1pc_1_1_term.html#afb04f82a037b5391ad7a384d97a111fd',1,'lala::pc::Term']]],
-  ['make_5fneg_18',['make_neg',['../classlala_1_1pc_1_1_term.html#a80aad984b69ae0e32bcd853b6197cac3',1,'lala::pc::Term']]],
-  ['make_5fnlop_19',['make_nlop',['../classlala_1_1pc_1_1_formula.html#aac13b9165f3272ee7b7ff524eb7837a9',1,'lala::pc::Formula']]],
-  ['make_5fnvarlit_20',['make_nvarlit',['../classlala_1_1pc_1_1_formula.html#a38b9516c6b91bba9817e63286445ea14',1,'lala::pc::Formula']]],
-  ['make_5fplop_21',['make_plop',['../classlala_1_1pc_1_1_formula.html#aca3263f22e03f4b8fde907e3cb81a4d9',1,'lala::pc::Formula']]],
-  ['make_5fpvarlit_22',['make_pvarlit',['../classlala_1_1pc_1_1_formula.html#ad73687f7f5e60d7990f38bcf3edd4c73',1,'lala::pc::Formula']]],
-  ['make_5fsub_23',['make_sub',['../classlala_1_1pc_1_1_term.html#aa8cde908c258df6b183f2ba0eee625d8',1,'lala::pc::Term']]],
-  ['make_5ftdiv_24',['make_tdiv',['../classlala_1_1pc_1_1_term.html#a85b7bb14176f4176e7598fad21d79d95',1,'lala::pc::Term']]],
-  ['make_5ftrue_25',['make_true',['../classlala_1_1pc_1_1_formula.html#a12ce060a0a4761bdd397245ffaa420d2',1,'lala::pc::Formula']]],
-  ['make_5fvar_26',['make_var',['../classlala_1_1pc_1_1_term.html#ad6f5573a9ca37e0f7dbb1c02825ed1a4',1,'lala::pc::Term']]],
-  ['make_5fxor_27',['make_xor',['../classlala_1_1pc_1_1_formula.html#a580b609585eb94006cf8693ac2eba7d4',1,'lala::pc::Formula']]]
+  ['kind_0',['kind',['../classlala_1_1pc_1_1_formula.html#a84472f16c07b9330ea48227932c0672a',1,'lala::pc::Formula']]]
 ];

@@ -11,11 +11,12 @@ var classlala_1_1pc_1_1_disjunction =
     [ "Disjunction", "classlala_1_1pc_1_1_disjunction.html#a2c3d54d7e1a2a02f121a079af18176be", null ],
     [ "ask", "classlala_1_1pc_1_1_disjunction.html#a12084916881cf67f968db0b5b4783da1", null ],
     [ "nask", "classlala_1_1pc_1_1_disjunction.html#a6b0ef846fa2b875f11cbf33207bbcbb3", null ],
-    [ "preprocess", "classlala_1_1pc_1_1_disjunction.html#a793d94a871fe3c13b3b07f25a5dc2b93", null ],
-    [ "refine", "classlala_1_1pc_1_1_disjunction.html#aa4d1ed6100d5ac4638621613d51a747a", null ],
-    [ "nrefine", "classlala_1_1pc_1_1_disjunction.html#ad43638662310f4590a2472c33f6fe3b7", null ],
+    [ "preprocess", "classlala_1_1pc_1_1_disjunction.html#aa26013bc67636e1f46541ce8e41685a6", null ],
+    [ "refine", "classlala_1_1pc_1_1_disjunction.html#ad5dffda703c08a713641316996a84384", null ],
+    [ "nrefine", "classlala_1_1pc_1_1_disjunction.html#a900fd655f4fa4191b53105c0029f4f76", null ],
     [ "is_top", "classlala_1_1pc_1_1_disjunction.html#a6fa182a650363c03f8ad02aaba7242cb", null ],
     [ "print", "classlala_1_1pc_1_1_disjunction.html#aa6a2dab7e8de3bbaec9a167c1c0cee1c", null ],
     [ "deinterpret", "classlala_1_1pc_1_1_disjunction.html#a46d93a7ea6b5f728bd006b8d3720991a", null ],
+    [ "length", "classlala_1_1pc_1_1_disjunction.html#ab1e0ea90f22a1a1f7ed0eadf81440bbe", null ],
     [ "Disjunction", "classlala_1_1pc_1_1_disjunction.html#ad3499685da1e082a6224097c02ca6b18", null ]
 ];

@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['sub_5fsnap_0',['sub_snap',['../structlala_1_1_p_c_1_1snapshot__type.html#a7fdb69129b17088171cc2ce07d1fff41',1,'lala::PC::snapshot_type']]],
-  ['sub_5ftells_1',['sub_tells',['../structlala_1_1_p_c_1_1interpreted__type.html#abdb8d5655a45f86e8a3894069fbf37a8',1,'lala::PC::interpreted_type']]]
+  ['sequential_0',['sequential',['../classlala_1_1_p_c.html#ae3c097f92bf07798b795a78de1633ca6',1,'lala::PC']]],
+  ['sub_5fsnap_1',['sub_snap',['../structlala_1_1_p_c_1_1snapshot__type.html#a23168b8052759191515fa02fe7d8d520',1,'lala::PC::snapshot_type']]],
+  ['sub_5fvalue_2',['sub_value',['../structlala_1_1_p_c_1_1interpreted__type.html#a167ddc522d1132e254a2f8318e1fe2e3',1,'lala::PC::interpreted_type']]]
 ];

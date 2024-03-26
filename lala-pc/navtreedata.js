@@ -26,7 +26,11 @@ var NAVTREE =
 [
   [ "Lattice land propagators completion library", "index.html", [
     [ "Namespaces", "namespaces.html", [
-      [ "Namespace List", "namespaces.html", "namespaces_dup" ]
+      [ "Namespace List", "namespaces.html", "namespaces_dup" ],
+      [ "Namespace Members", "namespacemembers.html", [
+        [ "All", "namespacemembers.html", null ],
+        [ "Typedefs", "namespacemembers_type.html", null ]
+      ] ]
     ] ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
@@ -49,9 +53,9 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"classlala_1_1pc_1_1_exclusive_disjunction.html#a1ec53859aa4bae864a36ba818197795c",
-"classlala_1_1pc_1_1_p_lattice_order_predicate.html#ac7110312cf018c56d6f0f30ffdb0da80",
-"structlala_1_1_p_c_1_1snapshot__type.html"
+"classlala_1_1pc_1_1_disjunction.html#ab1e0ea90f22a1a1f7ed0eadf81440bbe",
+"classlala_1_1pc_1_1_n_lattice_order_predicate.html#a8cb5ac9c0bf5b7c3c549db346eeccd8a",
+"classlala_1_1pc_1_1_variable_literal.html#a433fabf8b92f39439be9b090cf1f9339"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

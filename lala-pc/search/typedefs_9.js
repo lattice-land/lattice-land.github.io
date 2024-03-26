@@ -1,8 +1,6 @@
 var searchData=
 [
-  ['naryadd_0',['NaryAdd',['../classlala_1_1pc_1_1_term.html#a9794f504fe05dd138c1ad314518b423a',1,'lala::pc::Term']]],
-  ['narymul_1',['NaryMul',['../classlala_1_1pc_1_1_term.html#a45ad44f5b5109cc5519a03891e5038c5',1,'lala::pc::Term']]],
-  ['neg_2',['Neg',['../classlala_1_1pc_1_1_term.html#acd305cff3b23b17aa0e3e734d6a8a1ff',1,'lala::pc::Term']]],
-  ['nlop_3',['NLOP',['../classlala_1_1pc_1_1_formula.html#a7753af92350bc2328c2585d9cd394836',1,'lala::pc::Formula']]],
-  ['nvarlit_4',['NVarLit',['../classlala_1_1pc_1_1_formula.html#a339b9fc11b286c0108048c2603be3587',1,'lala::pc::Formula']]]
+  ['max_0',['Max',['../classlala_1_1pc_1_1_term.html#a5b96aa2914afc661f6502e1d74570ecf',1,'lala::pc::Term']]],
+  ['min_1',['Min',['../classlala_1_1pc_1_1_term.html#a47ac9d1f850a2990bb5b4e5ca5bb6da3',1,'lala::pc::Term']]],
+  ['mul_2',['Mul',['../classlala_1_1pc_1_1_term.html#a8efa6ec1da2a52adcce52c0616c22a75',1,'lala::pc::Term']]]
 ];

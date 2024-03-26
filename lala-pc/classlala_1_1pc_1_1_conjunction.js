@@ -11,11 +11,12 @@ var classlala_1_1pc_1_1_conjunction =
     [ "Conjunction", "classlala_1_1pc_1_1_conjunction.html#a16fbca527e6fe1282d1746997afd7b75", null ],
     [ "ask", "classlala_1_1pc_1_1_conjunction.html#af1f5c1071872ac3df274eacb271e4449", null ],
     [ "nask", "classlala_1_1pc_1_1_conjunction.html#a2b81f681af45986c57a9823b3c53062f", null ],
-    [ "preprocess", "classlala_1_1pc_1_1_conjunction.html#afb82c72b6dbc47d887eed3f82ed4edb6", null ],
-    [ "refine", "classlala_1_1pc_1_1_conjunction.html#a6e42a8d5777ac391b4566be1261ebf3b", null ],
-    [ "nrefine", "classlala_1_1pc_1_1_conjunction.html#aee6e1cfe5a33a7d58e3a01dda1da0c89", null ],
+    [ "preprocess", "classlala_1_1pc_1_1_conjunction.html#a80ca444e59666f787e9c76030f720dcf", null ],
+    [ "refine", "classlala_1_1pc_1_1_conjunction.html#aebba30c7ef84788eebc65e095edc2ef0", null ],
+    [ "nrefine", "classlala_1_1pc_1_1_conjunction.html#a380530781aff4bc024f6e32a8c4d872d", null ],
     [ "is_top", "classlala_1_1pc_1_1_conjunction.html#abcd51ba62b975210b8050ef85536ff6c", null ],
     [ "print", "classlala_1_1pc_1_1_conjunction.html#acce4ddbc3b7091fee5bac04038305b83", null ],
     [ "deinterpret", "classlala_1_1pc_1_1_conjunction.html#a1bf7fb08a70883c3c2660fc51b5b3a23", null ],
+    [ "length", "classlala_1_1pc_1_1_conjunction.html#a8af7602bf38d060dc942c7eae093a31c", null ],
     [ "Conjunction", "classlala_1_1pc_1_1_conjunction.html#a7dbb62fabfe6bb13963c6dab95971fe5", null ]
 ];

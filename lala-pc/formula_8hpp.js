@@ -10,5 +10,7 @@ var formula_8hpp =
     [ "lala::pc::Biconditional< AD, Allocator >", "classlala_1_1pc_1_1_biconditional.html", "classlala_1_1pc_1_1_biconditional" ],
     [ "lala::pc::Implication< AD, Allocator >", "classlala_1_1pc_1_1_implication.html", "classlala_1_1pc_1_1_implication" ],
     [ "lala::pc::ExclusiveDisjunction< AD, Allocator >", "classlala_1_1pc_1_1_exclusive_disjunction.html", "classlala_1_1pc_1_1_exclusive_disjunction" ],
-    [ "lala::pc::Formula< AD, Allocator >", "classlala_1_1pc_1_1_formula.html", "classlala_1_1pc_1_1_formula" ]
+    [ "lala::pc::Equality< AD, Allocator, neg >", "classlala_1_1pc_1_1_equality.html", "classlala_1_1pc_1_1_equality" ],
+    [ "lala::pc::Formula< AD, Allocator >", "classlala_1_1pc_1_1_formula.html", "classlala_1_1pc_1_1_formula" ],
+    [ "Disequality", "formula_8hpp.html#aaeee86359eaa1ff112b3aeec24258075", null ]
 ];

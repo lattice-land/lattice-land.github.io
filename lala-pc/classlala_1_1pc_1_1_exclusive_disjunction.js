@@ -11,11 +11,12 @@ var classlala_1_1pc_1_1_exclusive_disjunction =
     [ "ExclusiveDisjunction", "classlala_1_1pc_1_1_exclusive_disjunction.html#a29122070a0f820725f4c7a1d696eadbf", null ],
     [ "ask", "classlala_1_1pc_1_1_exclusive_disjunction.html#a35047c08e324302668e203b810f9cec1", null ],
     [ "nask", "classlala_1_1pc_1_1_exclusive_disjunction.html#ae436cf36701bc981fa669ff3f0ce34b1", null ],
-    [ "preprocess", "classlala_1_1pc_1_1_exclusive_disjunction.html#a35efbffc2bdfa26b8f76bac3c3865fe7", null ],
-    [ "refine", "classlala_1_1pc_1_1_exclusive_disjunction.html#ab077886ae22f118da57829c2a4d32c2d", null ],
-    [ "nrefine", "classlala_1_1pc_1_1_exclusive_disjunction.html#ac09f2f1c104aa28cec71f2a834006a3b", null ],
+    [ "preprocess", "classlala_1_1pc_1_1_exclusive_disjunction.html#a144381912af16f82f24d558fbcf241ea", null ],
+    [ "refine", "classlala_1_1pc_1_1_exclusive_disjunction.html#a669ed7da87f4bcf21495eb7ebfdbb7e2", null ],
+    [ "nrefine", "classlala_1_1pc_1_1_exclusive_disjunction.html#a4ff6a904edff9418a098189e9a365cfa", null ],
     [ "is_top", "classlala_1_1pc_1_1_exclusive_disjunction.html#a3dd139962d337ef16f337186c81f3cb8", null ],
     [ "print", "classlala_1_1pc_1_1_exclusive_disjunction.html#a4cd7b7488b6fbebd1d3957910257284b", null ],
     [ "deinterpret", "classlala_1_1pc_1_1_exclusive_disjunction.html#acbc4a1ad558e2019b0a3a635822a4f55", null ],
+    [ "length", "classlala_1_1pc_1_1_exclusive_disjunction.html#adae901c9c39b389ce25dd7b57ff3401a", null ],
     [ "ExclusiveDisjunction", "classlala_1_1pc_1_1_exclusive_disjunction.html#a06fd117182c6f805753fd0f2a3fa5ff4", null ]
 ];

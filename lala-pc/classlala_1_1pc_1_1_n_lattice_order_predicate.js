@@ -10,7 +10,7 @@ var classlala_1_1pc_1_1_n_lattice_order_predicate =
     [ "NLatticeOrderPredicate", "classlala_1_1pc_1_1_n_lattice_order_predicate.html#aedee3d8bf3d98fa4f0ffb1909748a144", null ],
     [ "NLatticeOrderPredicate", "classlala_1_1pc_1_1_n_lattice_order_predicate.html#aebac22ffcf825b10a8bed3cb5af2945e", null ],
     [ "nask", "classlala_1_1pc_1_1_n_lattice_order_predicate.html#aecf9adb4b76bd9aec74c23a43e005e32", null ],
-    [ "nrefine", "classlala_1_1pc_1_1_n_lattice_order_predicate.html#a4490ad30290c25f60772892ee0b60162", null ],
-    [ "preprocess", "classlala_1_1pc_1_1_n_lattice_order_predicate.html#ad8512be552296889c6a070c86079e0bb", null ],
+    [ "nrefine", "classlala_1_1pc_1_1_n_lattice_order_predicate.html#a8cb5ac9c0bf5b7c3c549db346eeccd8a", null ],
+    [ "preprocess", "classlala_1_1pc_1_1_n_lattice_order_predicate.html#a66297805a565e6b0872d892f6ade6e59", null ],
     [ "NLatticeOrderPredicate", "classlala_1_1pc_1_1_n_lattice_order_predicate.html#a439d034ce327163ec0a805f36fe83bfd", null ]
 ];

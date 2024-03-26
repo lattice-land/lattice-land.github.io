@@ -19,12 +19,16 @@ var classlala_1_1pc_1_1_term =
     [ "Max", "classlala_1_1pc_1_1_term.html#a5b96aa2914afc661f6502e1d74570ecf", null ],
     [ "NaryAdd", "classlala_1_1pc_1_1_term.html#a9794f504fe05dd138c1ad314518b423a", null ],
     [ "NaryMul", "classlala_1_1pc_1_1_term.html#a45ad44f5b5109cc5519a03891e5038c5", null ],
+    [ "Term", "classlala_1_1pc_1_1_term.html#a0e28301de34ba226a69cc6935a67b60f", null ],
+    [ "Term", "classlala_1_1pc_1_1_term.html#a2e3216f2ca5341f1f2a58054e5a59ad7", null ],
     [ "Term", "classlala_1_1pc_1_1_term.html#a51c5a344f52ca11e45a178204053018c", null ],
+    [ "operator=", "classlala_1_1pc_1_1_term.html#aa39dc284f72ab178a435074db22445f5", null ],
     [ "is", "classlala_1_1pc_1_1_term.html#aa776e4cd0af598484e727fa3a18c922d", null ],
-    [ "tell", "classlala_1_1pc_1_1_term.html#a2f277ed8e0962d8be2928696d6d456ea", null ],
+    [ "tell", "classlala_1_1pc_1_1_term.html#acf99e34d2915d3d4e2a154e9b8ca7e35", null ],
     [ "project", "classlala_1_1pc_1_1_term.html#ab70601cc56158cc04a7fa70eb9539cfc", null ],
     [ "is_top", "classlala_1_1pc_1_1_term.html#a4aa9c3b1b459f62fa95901f1deab9b56", null ],
     [ "print", "classlala_1_1pc_1_1_term.html#a5702ec17737f940ca6a891876d4aa8d3", null ],
     [ "deinterpret", "classlala_1_1pc_1_1_term.html#a8b10c5d00c348779171de147c8126595", null ],
+    [ "length", "classlala_1_1pc_1_1_term.html#abb10084274fa014510ec925510bad6dc", null ],
     [ "Term", "classlala_1_1pc_1_1_term.html#a5f8937e627998eb072e36892e322da65", null ]
 ];

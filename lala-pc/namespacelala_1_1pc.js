@@ -6,6 +6,7 @@ var namespacelala_1_1pc =
     [ "Conjunction", "classlala_1_1pc_1_1_conjunction.html", "classlala_1_1pc_1_1_conjunction" ],
     [ "Constant", "classlala_1_1pc_1_1_constant.html", "classlala_1_1pc_1_1_constant" ],
     [ "Disjunction", "classlala_1_1pc_1_1_disjunction.html", "classlala_1_1pc_1_1_disjunction" ],
+    [ "Equality", "classlala_1_1pc_1_1_equality.html", "classlala_1_1pc_1_1_equality" ],
     [ "ExclusiveDisjunction", "classlala_1_1pc_1_1_exclusive_disjunction.html", "classlala_1_1pc_1_1_exclusive_disjunction" ],
     [ "False", "classlala_1_1pc_1_1_false.html", "classlala_1_1pc_1_1_false" ],
     [ "Formula", "classlala_1_1pc_1_1_formula.html", "classlala_1_1pc_1_1_formula" ],
@@ -23,5 +24,6 @@ var namespacelala_1_1pc =
     [ "True", "classlala_1_1pc_1_1_true.html", "classlala_1_1pc_1_1_true" ],
     [ "Unary", "classlala_1_1pc_1_1_unary.html", "classlala_1_1pc_1_1_unary" ],
     [ "Variable", "classlala_1_1pc_1_1_variable.html", "classlala_1_1pc_1_1_variable" ],
-    [ "VariableLiteral", "classlala_1_1pc_1_1_variable_literal.html", "classlala_1_1pc_1_1_variable_literal" ]
+    [ "VariableLiteral", "classlala_1_1pc_1_1_variable_literal.html", "classlala_1_1pc_1_1_variable_literal" ],
+    [ "Disequality", "namespacelala_1_1pc.html#aaeee86359eaa1ff112b3aeec24258075", null ]
 ];
