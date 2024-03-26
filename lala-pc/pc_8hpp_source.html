@@ -819,179 +819,183 @@ $(function(){initNavTree('pc_8hpp_source.html',''); initResizable(); });
 <div class="line"><a id="l00671" name="l00671"></a><span class="lineno">  671</span>        props.push_back(<a class="code hl_class" href="classlala_1_1pc_1_1_formula.html">formula_type</a>(t.<a class="code hl_variable" href="structlala_1_1_p_c_1_1interpreted__type.html#acd566c6f68d6b19a4ea72bc7d43beeeb">props</a>[i], <a class="code hl_function" href="classlala_1_1_p_c.html#a1b907e4da5dff6d2790330c7197138ae">get_allocator</a>()));</div>
 <div class="line"><a id="l00672" name="l00672"></a><span class="lineno">  672</span>        props[n + i].preprocess(*sub, has_changed);</div>
 <div class="line"><a id="l00673" name="l00673"></a><span class="lineno">  673</span>      }</div>
-<div class="line"><a id="l00674" name="l00674"></a><span class="lineno">  674</span>      battery::sort(props,</div>
-<div class="line"><a id="l00675" name="l00675"></a><span class="lineno">  675</span>        [&amp;](<span class="keyword">const</span> <a class="code hl_class" href="classlala_1_1pc_1_1_formula.html">formula_type</a>&amp; a, <span class="keyword">const</span> <a class="code hl_class" href="classlala_1_1pc_1_1_formula.html">formula_type</a>&amp; b) {</div>
-<div class="line"><a id="l00676" name="l00676"></a><span class="lineno">  676</span>          <span class="keywordflow">return</span> a.<a class="code hl_function" href="classlala_1_1pc_1_1_formula.html#a84472f16c07b9330ea48227932c0672a">kind</a>() &lt; b.<a class="code hl_function" href="classlala_1_1pc_1_1_formula.html#a84472f16c07b9330ea48227932c0672a">kind</a>();</div>
-<div class="line"><a id="l00677" name="l00677"></a><span class="lineno">  677</span>        });</div>
-<div class="line"><a id="l00678" name="l00678"></a><span class="lineno">  678</span>    }</div>
-<div class="line"><a id="l00679" name="l00679"></a><span class="lineno">  679</span>    <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
-<div class="line"><a id="l00680" name="l00680"></a><span class="lineno">  680</span>  }</div>
+<div class="line"><a id="l00674" name="l00674"></a><span class="lineno">  674</span>      battery::vector&lt;size_t&gt; lengths(props.size());</div>
+<div class="line"><a id="l00675" name="l00675"></a><span class="lineno">  675</span>      <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; props.size(); ++i) {</div>
+<div class="line"><a id="l00676" name="l00676"></a><span class="lineno">  676</span>        lengths[i] = props[i].length();</div>
+<div class="line"><a id="l00677" name="l00677"></a><span class="lineno">  677</span>      }</div>
+<div class="line"><a id="l00678" name="l00678"></a><span class="lineno">  678</span>      battery::sorti(props,</div>
+<div class="line"><a id="l00679" name="l00679"></a><span class="lineno">  679</span>        [&amp;](<span class="keywordtype">int</span> i, <span class="keywordtype">int</span> j) {</div>
+<div class="line"><a id="l00680" name="l00680"></a><span class="lineno">  680</span>          <span class="keywordflow">return</span> props[i].kind() &lt; props[j].kind() || (props[i].kind() == props[j].kind() &amp;&amp; lengths[i] &lt; lengths[j]);</div>
+<div class="line"><a id="l00681" name="l00681"></a><span class="lineno">  681</span>        });</div>
+<div class="line"><a id="l00682" name="l00682"></a><span class="lineno">  682</span>    }</div>
+<div class="line"><a id="l00683" name="l00683"></a><span class="lineno">  683</span>    <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a id="l00684" name="l00684"></a><span class="lineno">  684</span>  }</div>
 </div>
-<div class="line"><a id="l00681" name="l00681"></a><span class="lineno">  681</span> </div>
-<div class="line"><a id="l00682" name="l00682"></a><span class="lineno">  682</span>  <span class="keyword">template</span> &lt;<span class="keyword">class</span> Alloc2&gt;</div>
-<div class="foldopen" id="foldopen00683" data-start="{" data-end="}">
-<div class="line"><a id="l00683" name="l00683"></a><span class="lineno"><a class="line" href="classlala_1_1_p_c.html#a6e7ebed271b386f128740950d0b8bd4b">  683</a></span>  CUDA <a class="code hl_class" href="classlala_1_1_p_c.html">this_type</a>&amp; <a class="code hl_function" href="classlala_1_1_p_c.html#a6e7ebed271b386f128740950d0b8bd4b">tell</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structlala_1_1_p_c_1_1interpreted__type.html">tell_type&lt;Alloc2&gt;</a>&amp; t) {</div>
-<div class="line"><a id="l00684" name="l00684"></a><span class="lineno">  684</span>    local::BInc has_changed;</div>
-<div class="line"><a id="l00685" name="l00685"></a><span class="lineno">  685</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="classlala_1_1_p_c.html#a3e187205ac887590bbf829517dc39ff6">tell</a>(t, has_changed);</div>
-<div class="line"><a id="l00686" name="l00686"></a><span class="lineno">  686</span>  }</div>
+<div class="line"><a id="l00685" name="l00685"></a><span class="lineno">  685</span> </div>
+<div class="line"><a id="l00686" name="l00686"></a><span class="lineno">  686</span>  <span class="keyword">template</span> &lt;<span class="keyword">class</span> Alloc2&gt;</div>
+<div class="foldopen" id="foldopen00687" data-start="{" data-end="}">
+<div class="line"><a id="l00687" name="l00687"></a><span class="lineno"><a class="line" href="classlala_1_1_p_c.html#a6e7ebed271b386f128740950d0b8bd4b">  687</a></span>  CUDA <a class="code hl_class" href="classlala_1_1_p_c.html">this_type</a>&amp; <a class="code hl_function" href="classlala_1_1_p_c.html#a6e7ebed271b386f128740950d0b8bd4b">tell</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structlala_1_1_p_c_1_1interpreted__type.html">tell_type&lt;Alloc2&gt;</a>&amp; t) {</div>
+<div class="line"><a id="l00688" name="l00688"></a><span class="lineno">  688</span>    local::BInc has_changed;</div>
+<div class="line"><a id="l00689" name="l00689"></a><span class="lineno">  689</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="classlala_1_1_p_c.html#a3e187205ac887590bbf829517dc39ff6">tell</a>(t, has_changed);</div>
+<div class="line"><a id="l00690" name="l00690"></a><span class="lineno">  690</span>  }</div>
 </div>
-<div class="line"><a id="l00687" name="l00687"></a><span class="lineno">  687</span> </div>
-<div class="foldopen" id="foldopen00688" data-start="{" data-end="}">
-<div class="line"><a id="l00688" name="l00688"></a><span class="lineno"><a class="line" href="classlala_1_1_p_c.html#a014a1c2a7257c7a8064bcaa330283187">  688</a></span>  CUDA <a class="code hl_class" href="classlala_1_1_p_c.html">this_type</a>&amp; <a class="code hl_function" href="classlala_1_1_p_c.html#a014a1c2a7257c7a8064bcaa330283187">tell</a>(AVar x, <span class="keyword">const</span> <a class="code hl_typedef" href="classlala_1_1_p_c.html#a65b447c428d8003a9ccea091230303a8">universe_type</a>&amp; dom) {</div>
-<div class="line"><a id="l00689" name="l00689"></a><span class="lineno">  689</span>    sub-&gt;<a class="code hl_function" href="classlala_1_1_p_c.html#a3e187205ac887590bbf829517dc39ff6">tell</a>(x, dom);</div>
-<div class="line"><a id="l00690" name="l00690"></a><span class="lineno">  690</span>    <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
-<div class="line"><a id="l00691" name="l00691"></a><span class="lineno">  691</span>  }</div>
+<div class="line"><a id="l00691" name="l00691"></a><span class="lineno">  691</span> </div>
+<div class="foldopen" id="foldopen00692" data-start="{" data-end="}">
+<div class="line"><a id="l00692" name="l00692"></a><span class="lineno"><a class="line" href="classlala_1_1_p_c.html#a014a1c2a7257c7a8064bcaa330283187">  692</a></span>  CUDA <a class="code hl_class" href="classlala_1_1_p_c.html">this_type</a>&amp; <a class="code hl_function" href="classlala_1_1_p_c.html#a014a1c2a7257c7a8064bcaa330283187">tell</a>(AVar x, <span class="keyword">const</span> <a class="code hl_typedef" href="classlala_1_1_p_c.html#a65b447c428d8003a9ccea091230303a8">universe_type</a>&amp; dom) {</div>
+<div class="line"><a id="l00693" name="l00693"></a><span class="lineno">  693</span>    sub-&gt;<a class="code hl_function" href="classlala_1_1_p_c.html#a3e187205ac887590bbf829517dc39ff6">tell</a>(x, dom);</div>
+<div class="line"><a id="l00694" name="l00694"></a><span class="lineno">  694</span>    <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a id="l00695" name="l00695"></a><span class="lineno">  695</span>  }</div>
 </div>
-<div class="line"><a id="l00692" name="l00692"></a><span class="lineno">  692</span> </div>
-<div class="line"><a id="l00693" name="l00693"></a><span class="lineno">  693</span>  <span class="keyword">template</span> &lt;<span class="keyword">class</span> Mem&gt;</div>
-<div class="foldopen" id="foldopen00694" data-start="{" data-end="}">
-<div class="line"><a id="l00694" name="l00694"></a><span class="lineno"><a class="line" href="classlala_1_1_p_c.html#a90ba6509f2adbff36fa8b354f63ed56a">  694</a></span>  CUDA <a class="code hl_class" href="classlala_1_1_p_c.html">this_type</a>&amp; <a class="code hl_function" href="classlala_1_1_p_c.html#a90ba6509f2adbff36fa8b354f63ed56a">tell</a>(AVar x, <span class="keyword">const</span> <a class="code hl_typedef" href="classlala_1_1_p_c.html#a65b447c428d8003a9ccea091230303a8">universe_type</a>&amp; dom, BInc&lt;Mem&gt;&amp; has_changed) {</div>
-<div class="line"><a id="l00695" name="l00695"></a><span class="lineno">  695</span>    sub-&gt;<a class="code hl_function" href="classlala_1_1_p_c.html#a3e187205ac887590bbf829517dc39ff6">tell</a>(x, dom, has_changed);</div>
-<div class="line"><a id="l00696" name="l00696"></a><span class="lineno">  696</span>    <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
-<div class="line"><a id="l00697" name="l00697"></a><span class="lineno">  697</span>  }</div>
+<div class="line"><a id="l00696" name="l00696"></a><span class="lineno">  696</span> </div>
+<div class="line"><a id="l00697" name="l00697"></a><span class="lineno">  697</span>  <span class="keyword">template</span> &lt;<span class="keyword">class</span> Mem&gt;</div>
+<div class="foldopen" id="foldopen00698" data-start="{" data-end="}">
+<div class="line"><a id="l00698" name="l00698"></a><span class="lineno"><a class="line" href="classlala_1_1_p_c.html#a90ba6509f2adbff36fa8b354f63ed56a">  698</a></span>  CUDA <a class="code hl_class" href="classlala_1_1_p_c.html">this_type</a>&amp; <a class="code hl_function" href="classlala_1_1_p_c.html#a90ba6509f2adbff36fa8b354f63ed56a">tell</a>(AVar x, <span class="keyword">const</span> <a class="code hl_typedef" href="classlala_1_1_p_c.html#a65b447c428d8003a9ccea091230303a8">universe_type</a>&amp; dom, BInc&lt;Mem&gt;&amp; has_changed) {</div>
+<div class="line"><a id="l00699" name="l00699"></a><span class="lineno">  699</span>    sub-&gt;<a class="code hl_function" href="classlala_1_1_p_c.html#a3e187205ac887590bbf829517dc39ff6">tell</a>(x, dom, has_changed);</div>
+<div class="line"><a id="l00700" name="l00700"></a><span class="lineno">  700</span>    <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a id="l00701" name="l00701"></a><span class="lineno">  701</span>  }</div>
 </div>
-<div class="line"><a id="l00698" name="l00698"></a><span class="lineno">  698</span> </div>
-<div class="line"><a id="l00699" name="l00699"></a><span class="lineno">  699</span>  <span class="keyword">template</span> &lt;<span class="keyword">class</span> Alloc2&gt;</div>
-<div class="foldopen" id="foldopen00700" data-start="{" data-end="}">
-<div class="line"><a id="l00700" name="l00700"></a><span class="lineno"><a class="line" href="classlala_1_1_p_c.html#a79e5ca07804006e62e4d7ae50ada10e0">  700</a></span>  CUDA local::BInc <a class="code hl_function" href="classlala_1_1_p_c.html#a79e5ca07804006e62e4d7ae50ada10e0">ask</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structlala_1_1_p_c_1_1interpreted__type.html">ask_type&lt;Alloc2&gt;</a>&amp; t)<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00701" name="l00701"></a><span class="lineno">  701</span>    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; t.<a class="code hl_variable" href="structlala_1_1_p_c_1_1interpreted__type.html#acd566c6f68d6b19a4ea72bc7d43beeeb">props</a>.size(); ++i) {</div>
-<div class="line"><a id="l00702" name="l00702"></a><span class="lineno">  702</span>      <span class="keywordflow">if</span>(!t.<a class="code hl_variable" href="structlala_1_1_p_c_1_1interpreted__type.html#acd566c6f68d6b19a4ea72bc7d43beeeb">props</a>[i].ask(*sub)) {</div>
-<div class="line"><a id="l00703" name="l00703"></a><span class="lineno">  703</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00704" name="l00704"></a><span class="lineno">  704</span>      }</div>
-<div class="line"><a id="l00705" name="l00705"></a><span class="lineno">  705</span>    }</div>
-<div class="line"><a id="l00706" name="l00706"></a><span class="lineno">  706</span>    <span class="keywordflow">return</span> sub-&gt;ask(t.<a class="code hl_variable" href="structlala_1_1_p_c_1_1interpreted__type.html#a167ddc522d1132e254a2f8318e1fe2e3">sub_value</a>);</div>
-<div class="line"><a id="l00707" name="l00707"></a><span class="lineno">  707</span>  }</div>
-</div>
-<div class="line"><a id="l00708" name="l00708"></a><span class="lineno">  708</span> </div>
-<div class="foldopen" id="foldopen00709" data-start="{" data-end="}">
-<div class="line"><a id="l00709" name="l00709"></a><span class="lineno"><a class="line" href="classlala_1_1_p_c.html#a8ac46ee1fafe414e2006c2ae907e161a">  709</a></span>  CUDA <span class="keywordtype">size_t</span> <a class="code hl_function" href="classlala_1_1_p_c.html#a8ac46ee1fafe414e2006c2ae907e161a">num_refinements</a>()<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00710" name="l00710"></a><span class="lineno">  710</span>    <span class="keywordflow">return</span> props.size();</div>
+<div class="line"><a id="l00702" name="l00702"></a><span class="lineno">  702</span> </div>
+<div class="line"><a id="l00703" name="l00703"></a><span class="lineno">  703</span>  <span class="keyword">template</span> &lt;<span class="keyword">class</span> Alloc2&gt;</div>
+<div class="foldopen" id="foldopen00704" data-start="{" data-end="}">
+<div class="line"><a id="l00704" name="l00704"></a><span class="lineno"><a class="line" href="classlala_1_1_p_c.html#a79e5ca07804006e62e4d7ae50ada10e0">  704</a></span>  CUDA local::BInc <a class="code hl_function" href="classlala_1_1_p_c.html#a79e5ca07804006e62e4d7ae50ada10e0">ask</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structlala_1_1_p_c_1_1interpreted__type.html">ask_type&lt;Alloc2&gt;</a>&amp; t)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00705" name="l00705"></a><span class="lineno">  705</span>    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; t.<a class="code hl_variable" href="structlala_1_1_p_c_1_1interpreted__type.html#acd566c6f68d6b19a4ea72bc7d43beeeb">props</a>.size(); ++i) {</div>
+<div class="line"><a id="l00706" name="l00706"></a><span class="lineno">  706</span>      <span class="keywordflow">if</span>(!t.<a class="code hl_variable" href="structlala_1_1_p_c_1_1interpreted__type.html#acd566c6f68d6b19a4ea72bc7d43beeeb">props</a>[i].ask(*sub)) {</div>
+<div class="line"><a id="l00707" name="l00707"></a><span class="lineno">  707</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00708" name="l00708"></a><span class="lineno">  708</span>      }</div>
+<div class="line"><a id="l00709" name="l00709"></a><span class="lineno">  709</span>    }</div>
+<div class="line"><a id="l00710" name="l00710"></a><span class="lineno">  710</span>    <span class="keywordflow">return</span> sub-&gt;ask(t.<a class="code hl_variable" href="structlala_1_1_p_c_1_1interpreted__type.html#a167ddc522d1132e254a2f8318e1fe2e3">sub_value</a>);</div>
 <div class="line"><a id="l00711" name="l00711"></a><span class="lineno">  711</span>  }</div>
 </div>
 <div class="line"><a id="l00712" name="l00712"></a><span class="lineno">  712</span> </div>
-<div class="line"><a id="l00713" name="l00713"></a><span class="lineno">  713</span>  <span class="keyword">template</span> &lt;<span class="keyword">class</span> Mem&gt;</div>
-<div class="foldopen" id="foldopen00714" data-start="{" data-end="}">
-<div class="line"><a id="l00714" name="l00714"></a><span class="lineno"><a class="line" href="classlala_1_1_p_c.html#a9b8b87ad88928e5bfc2729d594a170eb">  714</a></span>  CUDA <span class="keywordtype">void</span> <a class="code hl_function" href="classlala_1_1_p_c.html#a9b8b87ad88928e5bfc2729d594a170eb">refine</a>(<span class="keywordtype">size_t</span> i, BInc&lt;Mem&gt;&amp; has_changed) {</div>
-<div class="line"><a id="l00715" name="l00715"></a><span class="lineno">  715</span>    assert(i &lt; <a class="code hl_function" href="classlala_1_1_p_c.html#a8ac46ee1fafe414e2006c2ae907e161a">num_refinements</a>());</div>
-<div class="line"><a id="l00716" name="l00716"></a><span class="lineno">  716</span>    <span class="keywordflow">if</span>(<a class="code hl_function" href="classlala_1_1_p_c.html#a702acca7ed494e416e6065a627073237">is_top</a>()) { <span class="keywordflow">return</span>; }</div>
-<div class="line"><a id="l00717" name="l00717"></a><span class="lineno">  717</span>    props[i].refine(*sub, has_changed);</div>
-<div class="line"><a id="l00718" name="l00718"></a><span class="lineno">  718</span>  }</div>
+<div class="foldopen" id="foldopen00713" data-start="{" data-end="}">
+<div class="line"><a id="l00713" name="l00713"></a><span class="lineno"><a class="line" href="classlala_1_1_p_c.html#a8ac46ee1fafe414e2006c2ae907e161a">  713</a></span>  CUDA <span class="keywordtype">size_t</span> <a class="code hl_function" href="classlala_1_1_p_c.html#a8ac46ee1fafe414e2006c2ae907e161a">num_refinements</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00714" name="l00714"></a><span class="lineno">  714</span>    <span class="keywordflow">return</span> props.size();</div>
+<div class="line"><a id="l00715" name="l00715"></a><span class="lineno">  715</span>  }</div>
 </div>
-<div class="line"><a id="l00719" name="l00719"></a><span class="lineno">  719</span> </div>
-<div class="line"><a id="l00720" name="l00720"></a><span class="lineno">  720</span>  <span class="comment">// Functions forwarded to the sub-domain `A`.</span></div>
-<div class="line"><a id="l00721" name="l00721"></a><span class="lineno">  721</span><span class="comment"></span> </div>
-<div class="line"><a id="l00722" name="l00722"></a><span class="lineno">  722</span><span class="comment">  /** `true` if the underlying abstract element is top, `false` otherwise. */</span></div>
-<div class="foldopen" id="foldopen00723" data-start="{" data-end="}">
-<div class="line"><a id="l00723" name="l00723"></a><span class="lineno"><a class="line" href="classlala_1_1_p_c.html#a702acca7ed494e416e6065a627073237">  723</a></span>  CUDA local::BInc <a class="code hl_function" href="classlala_1_1_p_c.html#a702acca7ed494e416e6065a627073237">is_top</a>()<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00724" name="l00724"></a><span class="lineno">  724</span>    <span class="keywordflow">return</span> sub-&gt;is_top();</div>
-<div class="line"><a id="l00725" name="l00725"></a><span class="lineno">  725</span>  }</div>
+<div class="line"><a id="l00716" name="l00716"></a><span class="lineno">  716</span> </div>
+<div class="line"><a id="l00717" name="l00717"></a><span class="lineno">  717</span>  <span class="keyword">template</span> &lt;<span class="keyword">class</span> Mem&gt;</div>
+<div class="foldopen" id="foldopen00718" data-start="{" data-end="}">
+<div class="line"><a id="l00718" name="l00718"></a><span class="lineno"><a class="line" href="classlala_1_1_p_c.html#a9b8b87ad88928e5bfc2729d594a170eb">  718</a></span>  CUDA <span class="keywordtype">void</span> <a class="code hl_function" href="classlala_1_1_p_c.html#a9b8b87ad88928e5bfc2729d594a170eb">refine</a>(<span class="keywordtype">size_t</span> i, BInc&lt;Mem&gt;&amp; has_changed) {</div>
+<div class="line"><a id="l00719" name="l00719"></a><span class="lineno">  719</span>    assert(i &lt; <a class="code hl_function" href="classlala_1_1_p_c.html#a8ac46ee1fafe414e2006c2ae907e161a">num_refinements</a>());</div>
+<div class="line"><a id="l00720" name="l00720"></a><span class="lineno">  720</span>    <span class="keywordflow">if</span>(<a class="code hl_function" href="classlala_1_1_p_c.html#a702acca7ed494e416e6065a627073237">is_top</a>()) { <span class="keywordflow">return</span>; }</div>
+<div class="line"><a id="l00721" name="l00721"></a><span class="lineno">  721</span>    props[i].refine(*sub, has_changed);</div>
+<div class="line"><a id="l00722" name="l00722"></a><span class="lineno">  722</span>  }</div>
 </div>
-<div class="line"><a id="l00726" name="l00726"></a><span class="lineno">  726</span><span class="comment"></span> </div>
-<div class="line"><a id="l00727" name="l00727"></a><span class="lineno">  727</span><span class="comment">  /** `true` if the underlying abstract element is bot and there is no refinement function, `false` otherwise. */</span></div>
-<div class="foldopen" id="foldopen00728" data-start="{" data-end="}">
-<div class="line"><a id="l00728" name="l00728"></a><span class="lineno"><a class="line" href="classlala_1_1_p_c.html#a4238cef38fad79db9bebd7b42868ad1f">  728</a></span>  CUDA local::BDec <a class="code hl_function" href="classlala_1_1_p_c.html#a4238cef38fad79db9bebd7b42868ad1f">is_bot</a>()<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00729" name="l00729"></a><span class="lineno">  729</span>    <span class="keywordflow">return</span> sub-&gt;is_bot() &amp;&amp; props.size() == 0;</div>
-<div class="line"><a id="l00730" name="l00730"></a><span class="lineno">  730</span>  }</div>
+<div class="line"><a id="l00723" name="l00723"></a><span class="lineno">  723</span> </div>
+<div class="line"><a id="l00724" name="l00724"></a><span class="lineno">  724</span>  <span class="comment">// Functions forwarded to the sub-domain `A`.</span></div>
+<div class="line"><a id="l00725" name="l00725"></a><span class="lineno">  725</span><span class="comment"></span> </div>
+<div class="line"><a id="l00726" name="l00726"></a><span class="lineno">  726</span><span class="comment">  /** `true` if the underlying abstract element is top, `false` otherwise. */</span></div>
+<div class="foldopen" id="foldopen00727" data-start="{" data-end="}">
+<div class="line"><a id="l00727" name="l00727"></a><span class="lineno"><a class="line" href="classlala_1_1_p_c.html#a702acca7ed494e416e6065a627073237">  727</a></span>  CUDA local::BInc <a class="code hl_function" href="classlala_1_1_p_c.html#a702acca7ed494e416e6065a627073237">is_top</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00728" name="l00728"></a><span class="lineno">  728</span>    <span class="keywordflow">return</span> sub-&gt;is_top();</div>
+<div class="line"><a id="l00729" name="l00729"></a><span class="lineno">  729</span>  }</div>
 </div>
-<div class="line"><a id="l00731" name="l00731"></a><span class="lineno">  731</span> </div>
+<div class="line"><a id="l00730" name="l00730"></a><span class="lineno">  730</span><span class="comment"></span> </div>
+<div class="line"><a id="l00731" name="l00731"></a><span class="lineno">  731</span><span class="comment">  /** `true` if the underlying abstract element is bot and there is no refinement function, `false` otherwise. */</span></div>
 <div class="foldopen" id="foldopen00732" data-start="{" data-end="}">
-<div class="line"><a id="l00732" name="l00732"></a><span class="lineno"><a class="line" href="classlala_1_1_p_c.html#ab15da122f79b0ced73783e1d272cebde">  732</a></span>  CUDA <span class="keyword">const</span> <a class="code hl_typedef" href="classlala_1_1_p_c.html#a65b447c428d8003a9ccea091230303a8">universe_type</a>&amp; <a class="code hl_function" href="classlala_1_1_p_c.html#ab15da122f79b0ced73783e1d272cebde">operator[]</a>(<span class="keywordtype">int</span> x)<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00733" name="l00733"></a><span class="lineno">  733</span>    <span class="keywordflow">return</span> (*sub)[x];</div>
+<div class="line"><a id="l00732" name="l00732"></a><span class="lineno"><a class="line" href="classlala_1_1_p_c.html#a4238cef38fad79db9bebd7b42868ad1f">  732</a></span>  CUDA local::BDec <a class="code hl_function" href="classlala_1_1_p_c.html#a4238cef38fad79db9bebd7b42868ad1f">is_bot</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00733" name="l00733"></a><span class="lineno">  733</span>    <span class="keywordflow">return</span> sub-&gt;is_bot() &amp;&amp; props.size() == 0;</div>
 <div class="line"><a id="l00734" name="l00734"></a><span class="lineno">  734</span>  }</div>
 </div>
 <div class="line"><a id="l00735" name="l00735"></a><span class="lineno">  735</span> </div>
 <div class="foldopen" id="foldopen00736" data-start="{" data-end="}">
-<div class="line"><a id="l00736" name="l00736"></a><span class="lineno"><a class="line" href="classlala_1_1_p_c.html#a7f1eb41aa3e2ad56ac592d81c066c72f">  736</a></span>  CUDA <span class="keyword">const</span> <a class="code hl_typedef" href="classlala_1_1_p_c.html#a65b447c428d8003a9ccea091230303a8">universe_type</a>&amp; <a class="code hl_function" href="classlala_1_1_p_c.html#a7f1eb41aa3e2ad56ac592d81c066c72f">project</a>(AVar x)<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00737" name="l00737"></a><span class="lineno">  737</span>    <span class="keywordflow">return</span> sub-&gt;project(x);</div>
+<div class="line"><a id="l00736" name="l00736"></a><span class="lineno"><a class="line" href="classlala_1_1_p_c.html#ab15da122f79b0ced73783e1d272cebde">  736</a></span>  CUDA <span class="keyword">const</span> <a class="code hl_typedef" href="classlala_1_1_p_c.html#a65b447c428d8003a9ccea091230303a8">universe_type</a>&amp; <a class="code hl_function" href="classlala_1_1_p_c.html#ab15da122f79b0ced73783e1d272cebde">operator[]</a>(<span class="keywordtype">int</span> x)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00737" name="l00737"></a><span class="lineno">  737</span>    <span class="keywordflow">return</span> (*sub)[x];</div>
 <div class="line"><a id="l00738" name="l00738"></a><span class="lineno">  738</span>  }</div>
 </div>
 <div class="line"><a id="l00739" name="l00739"></a><span class="lineno">  739</span> </div>
 <div class="foldopen" id="foldopen00740" data-start="{" data-end="}">
-<div class="line"><a id="l00740" name="l00740"></a><span class="lineno"><a class="line" href="classlala_1_1_p_c.html#a0861e868b5d54f011d689c026711390c">  740</a></span>  CUDA <span class="keywordtype">size_t</span> <a class="code hl_function" href="classlala_1_1_p_c.html#a0861e868b5d54f011d689c026711390c">vars</a>()<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00741" name="l00741"></a><span class="lineno">  741</span>    <span class="keywordflow">return</span> sub-&gt;vars();</div>
+<div class="line"><a id="l00740" name="l00740"></a><span class="lineno"><a class="line" href="classlala_1_1_p_c.html#a7f1eb41aa3e2ad56ac592d81c066c72f">  740</a></span>  CUDA <span class="keyword">const</span> <a class="code hl_typedef" href="classlala_1_1_p_c.html#a65b447c428d8003a9ccea091230303a8">universe_type</a>&amp; <a class="code hl_function" href="classlala_1_1_p_c.html#a7f1eb41aa3e2ad56ac592d81c066c72f">project</a>(AVar x)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00741" name="l00741"></a><span class="lineno">  741</span>    <span class="keywordflow">return</span> sub-&gt;project(x);</div>
 <div class="line"><a id="l00742" name="l00742"></a><span class="lineno">  742</span>  }</div>
 </div>
 <div class="line"><a id="l00743" name="l00743"></a><span class="lineno">  743</span> </div>
-<div class="line"><a id="l00744" name="l00744"></a><span class="lineno">  744</span>  <span class="keyword">template</span> &lt;<span class="keyword">class</span> Alloc2 = allocator_type&gt;</div>
-<div class="foldopen" id="foldopen00745" data-start="{" data-end="}">
-<div class="line"><a id="l00745" name="l00745"></a><span class="lineno"><a class="line" href="classlala_1_1_p_c.html#ad0ed6976b30e5a92c1157c3e4479d89e">  745</a></span>  CUDA <a class="code hl_struct" href="structlala_1_1_p_c_1_1snapshot__type.html">snapshot_type&lt;Alloc2&gt;</a> <a class="code hl_function" href="classlala_1_1_p_c.html#ad0ed6976b30e5a92c1157c3e4479d89e">snapshot</a>(<span class="keyword">const</span> Alloc2&amp; alloc = Alloc2())<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00746" name="l00746"></a><span class="lineno">  746</span>    <span class="keywordflow">return</span> <a class="code hl_struct" href="structlala_1_1_p_c_1_1snapshot__type.html">snapshot_type&lt;Alloc2&gt;</a>(props.size(), sub-&gt;snapshot(alloc));</div>
-<div class="line"><a id="l00747" name="l00747"></a><span class="lineno">  747</span>  }</div>
+<div class="foldopen" id="foldopen00744" data-start="{" data-end="}">
+<div class="line"><a id="l00744" name="l00744"></a><span class="lineno"><a class="line" href="classlala_1_1_p_c.html#a0861e868b5d54f011d689c026711390c">  744</a></span>  CUDA <span class="keywordtype">size_t</span> <a class="code hl_function" href="classlala_1_1_p_c.html#a0861e868b5d54f011d689c026711390c">vars</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00745" name="l00745"></a><span class="lineno">  745</span>    <span class="keywordflow">return</span> sub-&gt;vars();</div>
+<div class="line"><a id="l00746" name="l00746"></a><span class="lineno">  746</span>  }</div>
 </div>
-<div class="line"><a id="l00748" name="l00748"></a><span class="lineno">  748</span> </div>
-<div class="line"><a id="l00749" name="l00749"></a><span class="lineno">  749</span>  <span class="keyword">template</span> &lt;<span class="keyword">class</span> Alloc2&gt;</div>
-<div class="foldopen" id="foldopen00750" data-start="{" data-end="}">
-<div class="line"><a id="l00750" name="l00750"></a><span class="lineno"><a class="line" href="classlala_1_1_p_c.html#ae4f021acea093e476316a6ac9f8d66c9">  750</a></span>  CUDA <span class="keywordtype">void</span> <a class="code hl_function" href="classlala_1_1_p_c.html#ae4f021acea093e476316a6ac9f8d66c9">restore</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structlala_1_1_p_c_1_1snapshot__type.html">snapshot_type&lt;Alloc2&gt;</a>&amp; snap) {</div>
-<div class="line"><a id="l00751" name="l00751"></a><span class="lineno">  751</span>    <span class="keywordtype">size_t</span> n = props.size();</div>
-<div class="line"><a id="l00752" name="l00752"></a><span class="lineno">  752</span>    <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = snap.<a class="code hl_variable" href="structlala_1_1_p_c_1_1snapshot__type.html#ab71ee1d262a51b80a8b7665684d81344">num_props</a>; i &lt; n; ++i) {</div>
-<div class="line"><a id="l00753" name="l00753"></a><span class="lineno">  753</span>      props.pop_back();</div>
-<div class="line"><a id="l00754" name="l00754"></a><span class="lineno">  754</span>    }</div>
-<div class="line"><a id="l00755" name="l00755"></a><span class="lineno">  755</span>    sub-&gt;restore(snap.<a class="code hl_variable" href="structlala_1_1_p_c_1_1snapshot__type.html#a23168b8052759191515fa02fe7d8d520">sub_snap</a>);</div>
-<div class="line"><a id="l00756" name="l00756"></a><span class="lineno">  756</span>  }</div>
+<div class="line"><a id="l00747" name="l00747"></a><span class="lineno">  747</span> </div>
+<div class="line"><a id="l00748" name="l00748"></a><span class="lineno">  748</span>  <span class="keyword">template</span> &lt;<span class="keyword">class</span> Alloc2 = allocator_type&gt;</div>
+<div class="foldopen" id="foldopen00749" data-start="{" data-end="}">
+<div class="line"><a id="l00749" name="l00749"></a><span class="lineno"><a class="line" href="classlala_1_1_p_c.html#ad0ed6976b30e5a92c1157c3e4479d89e">  749</a></span>  CUDA <a class="code hl_struct" href="structlala_1_1_p_c_1_1snapshot__type.html">snapshot_type&lt;Alloc2&gt;</a> <a class="code hl_function" href="classlala_1_1_p_c.html#ad0ed6976b30e5a92c1157c3e4479d89e">snapshot</a>(<span class="keyword">const</span> Alloc2&amp; alloc = Alloc2())<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00750" name="l00750"></a><span class="lineno">  750</span>    <span class="keywordflow">return</span> <a class="code hl_struct" href="structlala_1_1_p_c_1_1snapshot__type.html">snapshot_type&lt;Alloc2&gt;</a>(props.size(), sub-&gt;snapshot(alloc));</div>
+<div class="line"><a id="l00751" name="l00751"></a><span class="lineno">  751</span>  }</div>
 </div>
-<div class="line"><a id="l00757" name="l00757"></a><span class="lineno">  757</span><span class="comment"></span> </div>
-<div class="line"><a id="l00758" name="l00758"></a><span class="lineno">  758</span><span class="comment">  /** An abstract element is extractable when it is not equal to top, if all propagators are entailed and if the underlying abstract element is extractable. */</span></div>
-<div class="line"><a id="l00759" name="l00759"></a><span class="lineno">  759</span>  <span class="keyword">template</span> &lt;<span class="keyword">class</span> ExtractionStrategy = NonAtomicExtraction&gt;</div>
-<div class="foldopen" id="foldopen00760" data-start="{" data-end="}">
-<div class="line"><a id="l00760" name="l00760"></a><span class="lineno"><a class="line" href="classlala_1_1_p_c.html#a74f07d99f5622fb2d90398937dbe8160">  760</a></span>  CUDA <span class="keywordtype">bool</span> <a class="code hl_function" href="classlala_1_1_p_c.html#a74f07d99f5622fb2d90398937dbe8160">is_extractable</a>(<span class="keyword">const</span> ExtractionStrategy&amp; strategy = ExtractionStrategy())<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00761" name="l00761"></a><span class="lineno">  761</span>    <span class="keywordflow">if</span>(<a class="code hl_function" href="classlala_1_1_p_c.html#a702acca7ed494e416e6065a627073237">is_top</a>()) {</div>
-<div class="line"><a id="l00762" name="l00762"></a><span class="lineno">  762</span>      <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00763" name="l00763"></a><span class="lineno">  763</span>    }</div>
-<div class="line"><a id="l00764" name="l00764"></a><span class="lineno">  764</span>    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; props.size(); ++i) {</div>
-<div class="line"><a id="l00765" name="l00765"></a><span class="lineno">  765</span>      <span class="keywordflow">if</span>(!props[i].<a class="code hl_function" href="classlala_1_1_p_c.html#a79e5ca07804006e62e4d7ae50ada10e0">ask</a>(*sub)) {</div>
-<div class="line"><a id="l00766" name="l00766"></a><span class="lineno">  766</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00767" name="l00767"></a><span class="lineno">  767</span>      }</div>
-<div class="line"><a id="l00768" name="l00768"></a><span class="lineno">  768</span>    }</div>
-<div class="line"><a id="l00769" name="l00769"></a><span class="lineno">  769</span>    <span class="keywordflow">return</span> sub-&gt;is_extractable(strategy);</div>
-<div class="line"><a id="l00770" name="l00770"></a><span class="lineno">  770</span>  }</div>
+<div class="line"><a id="l00752" name="l00752"></a><span class="lineno">  752</span> </div>
+<div class="line"><a id="l00753" name="l00753"></a><span class="lineno">  753</span>  <span class="keyword">template</span> &lt;<span class="keyword">class</span> Alloc2&gt;</div>
+<div class="foldopen" id="foldopen00754" data-start="{" data-end="}">
+<div class="line"><a id="l00754" name="l00754"></a><span class="lineno"><a class="line" href="classlala_1_1_p_c.html#ae4f021acea093e476316a6ac9f8d66c9">  754</a></span>  CUDA <span class="keywordtype">void</span> <a class="code hl_function" href="classlala_1_1_p_c.html#ae4f021acea093e476316a6ac9f8d66c9">restore</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structlala_1_1_p_c_1_1snapshot__type.html">snapshot_type&lt;Alloc2&gt;</a>&amp; snap) {</div>
+<div class="line"><a id="l00755" name="l00755"></a><span class="lineno">  755</span>    <span class="keywordtype">size_t</span> n = props.size();</div>
+<div class="line"><a id="l00756" name="l00756"></a><span class="lineno">  756</span>    <span class="keywordflow">for</span>(<span class="keywordtype">size_t</span> i = snap.<a class="code hl_variable" href="structlala_1_1_p_c_1_1snapshot__type.html#ab71ee1d262a51b80a8b7665684d81344">num_props</a>; i &lt; n; ++i) {</div>
+<div class="line"><a id="l00757" name="l00757"></a><span class="lineno">  757</span>      props.pop_back();</div>
+<div class="line"><a id="l00758" name="l00758"></a><span class="lineno">  758</span>    }</div>
+<div class="line"><a id="l00759" name="l00759"></a><span class="lineno">  759</span>    sub-&gt;restore(snap.<a class="code hl_variable" href="structlala_1_1_p_c_1_1snapshot__type.html#a23168b8052759191515fa02fe7d8d520">sub_snap</a>);</div>
+<div class="line"><a id="l00760" name="l00760"></a><span class="lineno">  760</span>  }</div>
 </div>
-<div class="line"><a id="l00771" name="l00771"></a><span class="lineno">  771</span><span class="comment"></span> </div>
-<div class="line"><a id="l00772" name="l00772"></a><span class="lineno">  772</span><span class="comment">  /** Extract the current element into `ua`.</span></div>
-<div class="line"><a id="l00773" name="l00773"></a><span class="lineno">  773</span><span class="comment">   * \pre `is_extractable()` must be `true`.</span></div>
-<div class="line"><a id="l00774" name="l00774"></a><span class="lineno">  774</span><span class="comment">   * For efficiency reason, if `B` is a propagator completion, the propagators are not copied in `ua`.</span></div>
-<div class="line"><a id="l00775" name="l00775"></a><span class="lineno">  775</span><span class="comment">   *   (It is OK, since they are entailed, they don&#39;t bring information anymore.) */</span></div>
-<div class="line"><a id="l00776" name="l00776"></a><span class="lineno">  776</span>  <span class="keyword">template</span> &lt;<span class="keyword">class</span> B&gt;</div>
-<div class="foldopen" id="foldopen00777" data-start="{" data-end="}">
-<div class="line"><a id="l00777" name="l00777"></a><span class="lineno"><a class="line" href="classlala_1_1_p_c.html#a7fb6c76fca395e6c7986cbdaaa6d2378">  777</a></span>  CUDA <span class="keywordtype">void</span> <a class="code hl_function" href="classlala_1_1_p_c.html#a7fb6c76fca395e6c7986cbdaaa6d2378">extract</a>(B&amp; ua)<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00778" name="l00778"></a><span class="lineno">  778</span>    <span class="keywordflow">if</span> <span class="keyword">constexpr</span>(impl::is_pc_like&lt;B&gt;::value) {</div>
-<div class="line"><a id="l00779" name="l00779"></a><span class="lineno">  779</span>      sub-&gt;extract(*ua.sub);</div>
-<div class="line"><a id="l00780" name="l00780"></a><span class="lineno">  780</span>    }</div>
-<div class="line"><a id="l00781" name="l00781"></a><span class="lineno">  781</span>    <span class="keywordflow">else</span> {</div>
-<div class="line"><a id="l00782" name="l00782"></a><span class="lineno">  782</span>      sub-&gt;extract(ua);</div>
-<div class="line"><a id="l00783" name="l00783"></a><span class="lineno">  783</span>    }</div>
-<div class="line"><a id="l00784" name="l00784"></a><span class="lineno">  784</span>  }</div>
+<div class="line"><a id="l00761" name="l00761"></a><span class="lineno">  761</span><span class="comment"></span> </div>
+<div class="line"><a id="l00762" name="l00762"></a><span class="lineno">  762</span><span class="comment">  /** An abstract element is extractable when it is not equal to top, if all propagators are entailed and if the underlying abstract element is extractable. */</span></div>
+<div class="line"><a id="l00763" name="l00763"></a><span class="lineno">  763</span>  <span class="keyword">template</span> &lt;<span class="keyword">class</span> ExtractionStrategy = NonAtomicExtraction&gt;</div>
+<div class="foldopen" id="foldopen00764" data-start="{" data-end="}">
+<div class="line"><a id="l00764" name="l00764"></a><span class="lineno"><a class="line" href="classlala_1_1_p_c.html#a74f07d99f5622fb2d90398937dbe8160">  764</a></span>  CUDA <span class="keywordtype">bool</span> <a class="code hl_function" href="classlala_1_1_p_c.html#a74f07d99f5622fb2d90398937dbe8160">is_extractable</a>(<span class="keyword">const</span> ExtractionStrategy&amp; strategy = ExtractionStrategy())<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00765" name="l00765"></a><span class="lineno">  765</span>    <span class="keywordflow">if</span>(<a class="code hl_function" href="classlala_1_1_p_c.html#a702acca7ed494e416e6065a627073237">is_top</a>()) {</div>
+<div class="line"><a id="l00766" name="l00766"></a><span class="lineno">  766</span>      <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00767" name="l00767"></a><span class="lineno">  767</span>    }</div>
+<div class="line"><a id="l00768" name="l00768"></a><span class="lineno">  768</span>    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; props.size(); ++i) {</div>
+<div class="line"><a id="l00769" name="l00769"></a><span class="lineno">  769</span>      <span class="keywordflow">if</span>(!props[i].<a class="code hl_function" href="classlala_1_1_p_c.html#a79e5ca07804006e62e4d7ae50ada10e0">ask</a>(*sub)) {</div>
+<div class="line"><a id="l00770" name="l00770"></a><span class="lineno">  770</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00771" name="l00771"></a><span class="lineno">  771</span>      }</div>
+<div class="line"><a id="l00772" name="l00772"></a><span class="lineno">  772</span>    }</div>
+<div class="line"><a id="l00773" name="l00773"></a><span class="lineno">  773</span>    <span class="keywordflow">return</span> sub-&gt;is_extractable(strategy);</div>
+<div class="line"><a id="l00774" name="l00774"></a><span class="lineno">  774</span>  }</div>
 </div>
-<div class="line"><a id="l00785" name="l00785"></a><span class="lineno">  785</span> </div>
-<div class="line"><a id="l00786" name="l00786"></a><span class="lineno">  786</span>  <span class="keyword">template</span>&lt;<span class="keyword">class</span> Env&gt;</div>
-<div class="foldopen" id="foldopen00787" data-start="{" data-end="}">
-<div class="line"><a id="l00787" name="l00787"></a><span class="lineno"><a class="line" href="classlala_1_1_p_c.html#ae2446dd26cdc0475a781e0f7dc68096d">  787</a></span>  CUDA NI TFormula&lt;typename Env::allocator_type&gt; <a class="code hl_function" href="classlala_1_1_p_c.html#ae2446dd26cdc0475a781e0f7dc68096d">deinterpret</a>(<span class="keyword">const</span> Env&amp; env)<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00788" name="l00788"></a><span class="lineno">  788</span>    <span class="keyword">using </span>F = TFormula&lt;typename Env::allocator_type&gt;;</div>
-<div class="line"><a id="l00789" name="l00789"></a><span class="lineno">  789</span>    F sub_f = sub-&gt;deinterpret(env);</div>
-<div class="line"><a id="l00790" name="l00790"></a><span class="lineno">  790</span>    <span class="keyword">typename</span> F::Sequence seq{env.get_allocator()};</div>
-<div class="line"><a id="l00791" name="l00791"></a><span class="lineno">  791</span>    <span class="keywordflow">if</span>(sub_f.is(F::Seq) &amp;&amp; sub_f.sig() == AND) {</div>
-<div class="line"><a id="l00792" name="l00792"></a><span class="lineno">  792</span>      <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; sub_f.seq().size(); ++i) {</div>
-<div class="line"><a id="l00793" name="l00793"></a><span class="lineno">  793</span>        seq.push_back(sub_f.seq(i));</div>
-<div class="line"><a id="l00794" name="l00794"></a><span class="lineno">  794</span>      }</div>
-<div class="line"><a id="l00795" name="l00795"></a><span class="lineno">  795</span>    }</div>
-<div class="line"><a id="l00796" name="l00796"></a><span class="lineno">  796</span>    <span class="keywordflow">else</span> {</div>
-<div class="line"><a id="l00797" name="l00797"></a><span class="lineno">  797</span>      seq.push_back(sub_f);</div>
-<div class="line"><a id="l00798" name="l00798"></a><span class="lineno">  798</span>    }</div>
-<div class="line"><a id="l00799" name="l00799"></a><span class="lineno">  799</span>    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; props.size(); ++i) {</div>
-<div class="line"><a id="l00800" name="l00800"></a><span class="lineno">  800</span>      seq.push_back(props[i].<a class="code hl_function" href="classlala_1_1_p_c.html#ae2446dd26cdc0475a781e0f7dc68096d">deinterpret</a>(env.get_allocator(), <a class="code hl_function" href="classlala_1_1_p_c.html#a0bf3886a47416bd3ae0ecbbfb5650b10">aty</a>()));</div>
-<div class="line"><a id="l00801" name="l00801"></a><span class="lineno">  801</span>      map_avar_to_lvar(seq.back(), env);</div>
+<div class="line"><a id="l00775" name="l00775"></a><span class="lineno">  775</span><span class="comment"></span> </div>
+<div class="line"><a id="l00776" name="l00776"></a><span class="lineno">  776</span><span class="comment">  /** Extract the current element into `ua`.</span></div>
+<div class="line"><a id="l00777" name="l00777"></a><span class="lineno">  777</span><span class="comment">   * \pre `is_extractable()` must be `true`.</span></div>
+<div class="line"><a id="l00778" name="l00778"></a><span class="lineno">  778</span><span class="comment">   * For efficiency reason, if `B` is a propagator completion, the propagators are not copied in `ua`.</span></div>
+<div class="line"><a id="l00779" name="l00779"></a><span class="lineno">  779</span><span class="comment">   *   (It is OK, since they are entailed, they don&#39;t bring information anymore.) */</span></div>
+<div class="line"><a id="l00780" name="l00780"></a><span class="lineno">  780</span>  <span class="keyword">template</span> &lt;<span class="keyword">class</span> B&gt;</div>
+<div class="foldopen" id="foldopen00781" data-start="{" data-end="}">
+<div class="line"><a id="l00781" name="l00781"></a><span class="lineno"><a class="line" href="classlala_1_1_p_c.html#a7fb6c76fca395e6c7986cbdaaa6d2378">  781</a></span>  CUDA <span class="keywordtype">void</span> <a class="code hl_function" href="classlala_1_1_p_c.html#a7fb6c76fca395e6c7986cbdaaa6d2378">extract</a>(B&amp; ua)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00782" name="l00782"></a><span class="lineno">  782</span>    <span class="keywordflow">if</span> <span class="keyword">constexpr</span>(impl::is_pc_like&lt;B&gt;::value) {</div>
+<div class="line"><a id="l00783" name="l00783"></a><span class="lineno">  783</span>      sub-&gt;extract(*ua.sub);</div>
+<div class="line"><a id="l00784" name="l00784"></a><span class="lineno">  784</span>    }</div>
+<div class="line"><a id="l00785" name="l00785"></a><span class="lineno">  785</span>    <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00786" name="l00786"></a><span class="lineno">  786</span>      sub-&gt;extract(ua);</div>
+<div class="line"><a id="l00787" name="l00787"></a><span class="lineno">  787</span>    }</div>
+<div class="line"><a id="l00788" name="l00788"></a><span class="lineno">  788</span>  }</div>
+</div>
+<div class="line"><a id="l00789" name="l00789"></a><span class="lineno">  789</span> </div>
+<div class="line"><a id="l00790" name="l00790"></a><span class="lineno">  790</span>  <span class="keyword">template</span>&lt;<span class="keyword">class</span> Env&gt;</div>
+<div class="foldopen" id="foldopen00791" data-start="{" data-end="}">
+<div class="line"><a id="l00791" name="l00791"></a><span class="lineno"><a class="line" href="classlala_1_1_p_c.html#ae2446dd26cdc0475a781e0f7dc68096d">  791</a></span>  CUDA NI TFormula&lt;typename Env::allocator_type&gt; <a class="code hl_function" href="classlala_1_1_p_c.html#ae2446dd26cdc0475a781e0f7dc68096d">deinterpret</a>(<span class="keyword">const</span> Env&amp; env)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00792" name="l00792"></a><span class="lineno">  792</span>    <span class="keyword">using </span>F = TFormula&lt;typename Env::allocator_type&gt;;</div>
+<div class="line"><a id="l00793" name="l00793"></a><span class="lineno">  793</span>    F sub_f = sub-&gt;deinterpret(env);</div>
+<div class="line"><a id="l00794" name="l00794"></a><span class="lineno">  794</span>    <span class="keyword">typename</span> F::Sequence seq{env.get_allocator()};</div>
+<div class="line"><a id="l00795" name="l00795"></a><span class="lineno">  795</span>    <span class="keywordflow">if</span>(sub_f.is(F::Seq) &amp;&amp; sub_f.sig() == AND) {</div>
+<div class="line"><a id="l00796" name="l00796"></a><span class="lineno">  796</span>      <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; sub_f.seq().size(); ++i) {</div>
+<div class="line"><a id="l00797" name="l00797"></a><span class="lineno">  797</span>        seq.push_back(sub_f.seq(i));</div>
+<div class="line"><a id="l00798" name="l00798"></a><span class="lineno">  798</span>      }</div>
+<div class="line"><a id="l00799" name="l00799"></a><span class="lineno">  799</span>    }</div>
+<div class="line"><a id="l00800" name="l00800"></a><span class="lineno">  800</span>    <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00801" name="l00801"></a><span class="lineno">  801</span>      seq.push_back(sub_f);</div>
 <div class="line"><a id="l00802" name="l00802"></a><span class="lineno">  802</span>    }</div>
-<div class="line"><a id="l00803" name="l00803"></a><span class="lineno">  803</span>    <span class="keywordflow">return</span> F::make_nary(AND, std::move(seq), <a class="code hl_function" href="classlala_1_1_p_c.html#a0bf3886a47416bd3ae0ecbbfb5650b10">aty</a>());</div>
-<div class="line"><a id="l00804" name="l00804"></a><span class="lineno">  804</span>  }</div>
+<div class="line"><a id="l00803" name="l00803"></a><span class="lineno">  803</span>    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; props.size(); ++i) {</div>
+<div class="line"><a id="l00804" name="l00804"></a><span class="lineno">  804</span>      seq.push_back(props[i].<a class="code hl_function" href="classlala_1_1_p_c.html#ae2446dd26cdc0475a781e0f7dc68096d">deinterpret</a>(env.get_allocator(), <a class="code hl_function" href="classlala_1_1_p_c.html#a0bf3886a47416bd3ae0ecbbfb5650b10">aty</a>()));</div>
+<div class="line"><a id="l00805" name="l00805"></a><span class="lineno">  805</span>      map_avar_to_lvar(seq.back(), env);</div>
+<div class="line"><a id="l00806" name="l00806"></a><span class="lineno">  806</span>    }</div>
+<div class="line"><a id="l00807" name="l00807"></a><span class="lineno">  807</span>    <span class="keywordflow">return</span> F::make_nary(AND, std::move(seq), <a class="code hl_function" href="classlala_1_1_p_c.html#a0bf3886a47416bd3ae0ecbbfb5650b10">aty</a>());</div>
+<div class="line"><a id="l00808" name="l00808"></a><span class="lineno">  808</span>  }</div>
 </div>
-<div class="line"><a id="l00805" name="l00805"></a><span class="lineno">  805</span>};</div>
+<div class="line"><a id="l00809" name="l00809"></a><span class="lineno">  809</span>};</div>
 </div>
-<div class="line"><a id="l00806" name="l00806"></a><span class="lineno">  806</span> </div>
-<div class="line"><a id="l00807" name="l00807"></a><span class="lineno">  807</span>}</div>
-<div class="line"><a id="l00808" name="l00808"></a><span class="lineno">  808</span> </div>
-<div class="line"><a id="l00809" name="l00809"></a><span class="lineno">  809</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00810" name="l00810"></a><span class="lineno">  810</span> </div>
+<div class="line"><a id="l00811" name="l00811"></a><span class="lineno">  811</span>}</div>
+<div class="line"><a id="l00812" name="l00812"></a><span class="lineno">  812</span> </div>
+<div class="line"><a id="l00813" name="l00813"></a><span class="lineno">  813</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aclasslala_1_1_p_c_html"><div class="ttname"><a href="classlala_1_1_p_c.html">lala::PC</a></div><div class="ttdef"><b>Definition</b> pc.hpp:38</div></div>
-<div class="ttc" id="aclasslala_1_1_p_c_html_a014a1c2a7257c7a8064bcaa330283187"><div class="ttname"><a href="classlala_1_1_p_c.html#a014a1c2a7257c7a8064bcaa330283187">lala::PC::tell</a></div><div class="ttdeci">CUDA this_type &amp; tell(AVar x, const universe_type &amp;dom)</div><div class="ttdef"><b>Definition</b> pc.hpp:688</div></div>
-<div class="ttc" id="aclasslala_1_1_p_c_html_a0861e868b5d54f011d689c026711390c"><div class="ttname"><a href="classlala_1_1_p_c.html#a0861e868b5d54f011d689c026711390c">lala::PC::vars</a></div><div class="ttdeci">CUDA size_t vars() const</div><div class="ttdef"><b>Definition</b> pc.hpp:740</div></div>
+<div class="ttc" id="aclasslala_1_1_p_c_html_a014a1c2a7257c7a8064bcaa330283187"><div class="ttname"><a href="classlala_1_1_p_c.html#a014a1c2a7257c7a8064bcaa330283187">lala::PC::tell</a></div><div class="ttdeci">CUDA this_type &amp; tell(AVar x, const universe_type &amp;dom)</div><div class="ttdef"><b>Definition</b> pc.hpp:692</div></div>
+<div class="ttc" id="aclasslala_1_1_p_c_html_a0861e868b5d54f011d689c026711390c"><div class="ttname"><a href="classlala_1_1_p_c.html#a0861e868b5d54f011d689c026711390c">lala::PC::vars</a></div><div class="ttdeci">CUDA size_t vars() const</div><div class="ttdef"><b>Definition</b> pc.hpp:744</div></div>
 <div class="ttc" id="aclasslala_1_1_p_c_html_a0bf3886a47416bd3ae0ecbbfb5650b10"><div class="ttname"><a href="classlala_1_1_p_c.html#a0bf3886a47416bd3ae0ecbbfb5650b10">lala::PC::aty</a></div><div class="ttdeci">CUDA AType aty() const</div><div class="ttdef"><b>Definition</b> pc.hpp:156</div></div>
 <div class="ttc" id="aclasslala_1_1_p_c_html_a139e35dab7a551c92c7738eff0ce87eb"><div class="ttname"><a href="classlala_1_1_p_c.html#a139e35dab7a551c92c7738eff0ce87eb">lala::PC::name</a></div><div class="ttdeci">static constexpr const char * name</div><div class="ttdef"><b>Definition</b> pc.hpp:83</div></div>
 <div class="ttc" id="aclasslala_1_1_p_c_html_a176f99e59ee2c29d8f4bc4bab672e3fc"><div class="ttname"><a href="classlala_1_1_p_c.html#a176f99e59ee2c29d8f4bc4bab672e3fc">lala::PC::sub_type</a></div><div class="ttdeci">A sub_type</div><div class="ttdef"><b>Definition</b> pc.hpp:40</div></div>
@@ -1002,43 +1006,42 @@ $(function(){initNavTree('pc_8hpp_source.html',''); initResizable(); });
 <div class="ttc" id="aclasslala_1_1_p_c_html_a2a5f6a165daed474dde7d809d4aa7f9c"><div class="ttname"><a href="classlala_1_1_p_c.html#a2a5f6a165daed474dde7d809d4aa7f9c">lala::PC::PC</a></div><div class="ttdeci">CUDA PC(PC &amp;&amp;other)</div><div class="ttdef"><b>Definition</b> pc.hpp:139</div></div>
 <div class="ttc" id="aclasslala_1_1_p_c_html_a3e187205ac887590bbf829517dc39ff6"><div class="ttname"><a href="classlala_1_1_p_c.html#a3e187205ac887590bbf829517dc39ff6">lala::PC::tell</a></div><div class="ttdeci">CUDA this_type &amp; tell(const tell_type&lt; Alloc2 &gt; &amp;t, BInc&lt; Mem &gt; &amp;has_changed)</div><div class="ttdef"><b>Definition</b> pc.hpp:664</div></div>
 <div class="ttc" id="aclasslala_1_1_p_c_html_a3fb0fe6062ff62a2cde6962902a534f3"><div class="ttname"><a href="classlala_1_1_p_c.html#a3fb0fe6062ff62a2cde6962902a534f3">lala::PC::sub_allocator_type</a></div><div class="ttdeci">typename A::allocator_type sub_allocator_type</div><div class="ttdef"><b>Definition</b> pc.hpp:44</div></div>
-<div class="ttc" id="aclasslala_1_1_p_c_html_a4238cef38fad79db9bebd7b42868ad1f"><div class="ttname"><a href="classlala_1_1_p_c.html#a4238cef38fad79db9bebd7b42868ad1f">lala::PC::is_bot</a></div><div class="ttdeci">CUDA local::BDec is_bot() const</div><div class="ttdef"><b>Definition</b> pc.hpp:728</div></div>
+<div class="ttc" id="aclasslala_1_1_p_c_html_a4238cef38fad79db9bebd7b42868ad1f"><div class="ttname"><a href="classlala_1_1_p_c.html#a4238cef38fad79db9bebd7b42868ad1f">lala::PC::is_bot</a></div><div class="ttdeci">CUDA local::BDec is_bot() const</div><div class="ttdef"><b>Definition</b> pc.hpp:732</div></div>
 <div class="ttc" id="aclasslala_1_1_p_c_html_a440a6852390751ed5fb27dece5f6662c"><div class="ttname"><a href="classlala_1_1_p_c.html#a440a6852390751ed5fb27dece5f6662c">lala::PC::interpret</a></div><div class="ttdeci">CUDA NI bool interpret(const F &amp;f, Env &amp;env, I &amp;intermediate, IDiagnostics &amp;diagnostics) const</div><div class="ttdef"><b>Definition</b> pc.hpp:615</div></div>
 <div class="ttc" id="aclasslala_1_1_p_c_html_a4c0ff3dd28a87c22493c43e8d40081be"><div class="ttname"><a href="classlala_1_1_p_c.html#a4c0ff3dd28a87c22493c43e8d40081be">lala::PC::top</a></div><div class="ttdeci">static CUDA this_type top(Env &amp;env, const allocator_type &amp;alloc=allocator_type(), const sub_allocator_type &amp;sub_alloc=sub_allocator_type())</div><div class="ttdef"><b>Definition</b> pc.hpp:188</div></div>
 <div class="ttc" id="aclasslala_1_1_p_c_html_a4d8cfd22b78dcbabe2314dcdaa27fde9"><div class="ttname"><a href="classlala_1_1_p_c.html#a4d8cfd22b78dcbabe2314dcdaa27fde9">lala::PC::formula_seq</a></div><div class="ttdeci">battery::vector&lt; pc::Formula&lt; A, Alloc &gt;, Alloc &gt; formula_seq</div><div class="ttdef"><b>Definition</b> pc.hpp:99</div></div>
 <div class="ttc" id="aclasslala_1_1_p_c_html_a65b447c428d8003a9ccea091230303a8"><div class="ttname"><a href="classlala_1_1_p_c.html#a65b447c428d8003a9ccea091230303a8">lala::PC::universe_type</a></div><div class="ttdeci">typename A::universe_type universe_type</div><div class="ttdef"><b>Definition</b> pc.hpp:41</div></div>
 <div class="ttc" id="aclasslala_1_1_p_c_html_a6e0a7a121bcc06b90813f153f084aea0"><div class="ttname"><a href="classlala_1_1_p_c.html#a6e0a7a121bcc06b90813f153f084aea0">lala::PC::preserve_meet</a></div><div class="ttdeci">static constexpr const bool preserve_meet</div><div class="ttdef"><b>Definition</b> pc.hpp:80</div></div>
-<div class="ttc" id="aclasslala_1_1_p_c_html_a6e7ebed271b386f128740950d0b8bd4b"><div class="ttname"><a href="classlala_1_1_p_c.html#a6e7ebed271b386f128740950d0b8bd4b">lala::PC::tell</a></div><div class="ttdeci">CUDA this_type &amp; tell(const tell_type&lt; Alloc2 &gt; &amp;t)</div><div class="ttdef"><b>Definition</b> pc.hpp:683</div></div>
-<div class="ttc" id="aclasslala_1_1_p_c_html_a702acca7ed494e416e6065a627073237"><div class="ttname"><a href="classlala_1_1_p_c.html#a702acca7ed494e416e6065a627073237">lala::PC::is_top</a></div><div class="ttdeci">CUDA local::BInc is_top() const</div><div class="ttdef"><b>Definition</b> pc.hpp:723</div></div>
+<div class="ttc" id="aclasslala_1_1_p_c_html_a6e7ebed271b386f128740950d0b8bd4b"><div class="ttname"><a href="classlala_1_1_p_c.html#a6e7ebed271b386f128740950d0b8bd4b">lala::PC::tell</a></div><div class="ttdeci">CUDA this_type &amp; tell(const tell_type&lt; Alloc2 &gt; &amp;t)</div><div class="ttdef"><b>Definition</b> pc.hpp:687</div></div>
+<div class="ttc" id="aclasslala_1_1_p_c_html_a702acca7ed494e416e6065a627073237"><div class="ttname"><a href="classlala_1_1_p_c.html#a702acca7ed494e416e6065a627073237">lala::PC::is_top</a></div><div class="ttdeci">CUDA local::BInc is_top() const</div><div class="ttdef"><b>Definition</b> pc.hpp:727</div></div>
 <div class="ttc" id="aclasslala_1_1_p_c_html_a70fabe2e9a86991ae6517ec7241205f2"><div class="ttname"><a href="classlala_1_1_p_c.html#a70fabe2e9a86991ae6517ec7241205f2">lala::PC::injective_concretization</a></div><div class="ttdeci">static constexpr const bool injective_concretization</div><div class="ttdef"><b>Definition</b> pc.hpp:81</div></div>
-<div class="ttc" id="aclasslala_1_1_p_c_html_a74f07d99f5622fb2d90398937dbe8160"><div class="ttname"><a href="classlala_1_1_p_c.html#a74f07d99f5622fb2d90398937dbe8160">lala::PC::is_extractable</a></div><div class="ttdeci">CUDA bool is_extractable(const ExtractionStrategy &amp;strategy=ExtractionStrategy()) const</div><div class="ttdef"><b>Definition</b> pc.hpp:760</div></div>
-<div class="ttc" id="aclasslala_1_1_p_c_html_a79e5ca07804006e62e4d7ae50ada10e0"><div class="ttname"><a href="classlala_1_1_p_c.html#a79e5ca07804006e62e4d7ae50ada10e0">lala::PC::ask</a></div><div class="ttdeci">CUDA local::BInc ask(const ask_type&lt; Alloc2 &gt; &amp;t) const</div><div class="ttdef"><b>Definition</b> pc.hpp:700</div></div>
+<div class="ttc" id="aclasslala_1_1_p_c_html_a74f07d99f5622fb2d90398937dbe8160"><div class="ttname"><a href="classlala_1_1_p_c.html#a74f07d99f5622fb2d90398937dbe8160">lala::PC::is_extractable</a></div><div class="ttdeci">CUDA bool is_extractable(const ExtractionStrategy &amp;strategy=ExtractionStrategy()) const</div><div class="ttdef"><b>Definition</b> pc.hpp:764</div></div>
+<div class="ttc" id="aclasslala_1_1_p_c_html_a79e5ca07804006e62e4d7ae50ada10e0"><div class="ttname"><a href="classlala_1_1_p_c.html#a79e5ca07804006e62e4d7ae50ada10e0">lala::PC::ask</a></div><div class="ttdeci">CUDA local::BInc ask(const ask_type&lt; Alloc2 &gt; &amp;t) const</div><div class="ttdef"><b>Definition</b> pc.hpp:704</div></div>
 <div class="ttc" id="aclasslala_1_1_p_c_html_a7b7d6f09cc67df517c738feab6142c76"><div class="ttname"><a href="classlala_1_1_p_c.html#a7b7d6f09cc67df517c738feab6142c76">lala::PC::is_totally_ordered</a></div><div class="ttdeci">static constexpr const bool is_totally_ordered</div><div class="ttdef"><b>Definition</b> pc.hpp:75</div></div>
-<div class="ttc" id="aclasslala_1_1_p_c_html_a7f1eb41aa3e2ad56ac592d81c066c72f"><div class="ttname"><a href="classlala_1_1_p_c.html#a7f1eb41aa3e2ad56ac592d81c066c72f">lala::PC::project</a></div><div class="ttdeci">CUDA const universe_type &amp; project(AVar x) const</div><div class="ttdef"><b>Definition</b> pc.hpp:736</div></div>
-<div class="ttc" id="aclasslala_1_1_p_c_html_a7fb6c76fca395e6c7986cbdaaa6d2378"><div class="ttname"><a href="classlala_1_1_p_c.html#a7fb6c76fca395e6c7986cbdaaa6d2378">lala::PC::extract</a></div><div class="ttdeci">CUDA void extract(B &amp;ua) const</div><div class="ttdef"><b>Definition</b> pc.hpp:777</div></div>
+<div class="ttc" id="aclasslala_1_1_p_c_html_a7f1eb41aa3e2ad56ac592d81c066c72f"><div class="ttname"><a href="classlala_1_1_p_c.html#a7f1eb41aa3e2ad56ac592d81c066c72f">lala::PC::project</a></div><div class="ttdeci">CUDA const universe_type &amp; project(AVar x) const</div><div class="ttdef"><b>Definition</b> pc.hpp:740</div></div>
+<div class="ttc" id="aclasslala_1_1_p_c_html_a7fb6c76fca395e6c7986cbdaaa6d2378"><div class="ttname"><a href="classlala_1_1_p_c.html#a7fb6c76fca395e6c7986cbdaaa6d2378">lala::PC::extract</a></div><div class="ttdeci">CUDA void extract(B &amp;ua) const</div><div class="ttdef"><b>Definition</b> pc.hpp:781</div></div>
 <div class="ttc" id="aclasslala_1_1_p_c_html_a85fd68ba673a79a2cfe628f644d8072f"><div class="ttname"><a href="classlala_1_1_p_c.html#a85fd68ba673a79a2cfe628f644d8072f">lala::PC::top</a></div><div class="ttdeci">static CUDA this_type top(AType atype=UNTYPED, AType atype_sub=UNTYPED, const allocator_type &amp;alloc=allocator_type(), const sub_allocator_type &amp;sub_alloc=sub_allocator_type())</div><div class="ttdef"><b>Definition</b> pc.hpp:169</div></div>
-<div class="ttc" id="aclasslala_1_1_p_c_html_a8ac46ee1fafe414e2006c2ae907e161a"><div class="ttname"><a href="classlala_1_1_p_c.html#a8ac46ee1fafe414e2006c2ae907e161a">lala::PC::num_refinements</a></div><div class="ttdeci">CUDA size_t num_refinements() const</div><div class="ttdef"><b>Definition</b> pc.hpp:709</div></div>
+<div class="ttc" id="aclasslala_1_1_p_c_html_a8ac46ee1fafe414e2006c2ae907e161a"><div class="ttname"><a href="classlala_1_1_p_c.html#a8ac46ee1fafe414e2006c2ae907e161a">lala::PC::num_refinements</a></div><div class="ttdeci">CUDA size_t num_refinements() const</div><div class="ttdef"><b>Definition</b> pc.hpp:713</div></div>
 <div class="ttc" id="aclasslala_1_1_p_c_html_a8bb9a6e8cb936af5258904d0c1d3d504"><div class="ttname"><a href="classlala_1_1_p_c.html#a8bb9a6e8cb936af5258904d0c1d3d504">lala::PC::interpret_tell</a></div><div class="ttdeci">CUDA NI bool interpret_tell(const F &amp;f, Env &amp;env, tell_type&lt; Alloc2 &gt; &amp;tell, IDiagnostics &amp;diagnostics) const</div><div class="ttdef"><b>Definition</b> pc.hpp:648</div></div>
-<div class="ttc" id="aclasslala_1_1_p_c_html_a90ba6509f2adbff36fa8b354f63ed56a"><div class="ttname"><a href="classlala_1_1_p_c.html#a90ba6509f2adbff36fa8b354f63ed56a">lala::PC::tell</a></div><div class="ttdeci">CUDA this_type &amp; tell(AVar x, const universe_type &amp;dom, BInc&lt; Mem &gt; &amp;has_changed)</div><div class="ttdef"><b>Definition</b> pc.hpp:694</div></div>
+<div class="ttc" id="aclasslala_1_1_p_c_html_a90ba6509f2adbff36fa8b354f63ed56a"><div class="ttname"><a href="classlala_1_1_p_c.html#a90ba6509f2adbff36fa8b354f63ed56a">lala::PC::tell</a></div><div class="ttdeci">CUDA this_type &amp; tell(AVar x, const universe_type &amp;dom, BInc&lt; Mem &gt; &amp;has_changed)</div><div class="ttdef"><b>Definition</b> pc.hpp:698</div></div>
 <div class="ttc" id="aclasslala_1_1_p_c_html_a946c90f7241a5f485d499ceed3831187"><div class="ttname"><a href="classlala_1_1_p_c.html#a946c90f7241a5f485d499ceed3831187">lala::PC::local_universe_type</a></div><div class="ttdeci">typename universe_type::local_type local_universe_type</div><div class="ttdef"><b>Definition</b> pc.hpp:42</div></div>
-<div class="ttc" id="aclasslala_1_1_p_c_html_a9b8b87ad88928e5bfc2729d594a170eb"><div class="ttname"><a href="classlala_1_1_p_c.html#a9b8b87ad88928e5bfc2729d594a170eb">lala::PC::refine</a></div><div class="ttdeci">CUDA void refine(size_t i, BInc&lt; Mem &gt; &amp;has_changed)</div><div class="ttdef"><b>Definition</b> pc.hpp:714</div></div>
+<div class="ttc" id="aclasslala_1_1_p_c_html_a9b8b87ad88928e5bfc2729d594a170eb"><div class="ttname"><a href="classlala_1_1_p_c.html#a9b8b87ad88928e5bfc2729d594a170eb">lala::PC::refine</a></div><div class="ttdeci">CUDA void refine(size_t i, BInc&lt; Mem &gt; &amp;has_changed)</div><div class="ttdef"><b>Definition</b> pc.hpp:718</div></div>
 <div class="ttc" id="aclasslala_1_1_p_c_html_aad80287a2bb1dbf74270d8b24deec861"><div class="ttname"><a href="classlala_1_1_p_c.html#aad80287a2bb1dbf74270d8b24deec861">lala::PC::allocator_type</a></div><div class="ttdeci">Allocator allocator_type</div><div class="ttdef"><b>Definition</b> pc.hpp:43</div></div>
-<div class="ttc" id="aclasslala_1_1_p_c_html_ab15da122f79b0ced73783e1d272cebde"><div class="ttname"><a href="classlala_1_1_p_c.html#ab15da122f79b0ced73783e1d272cebde">lala::PC::operator[]</a></div><div class="ttdeci">CUDA const universe_type &amp; operator[](int x) const</div><div class="ttdef"><b>Definition</b> pc.hpp:732</div></div>
+<div class="ttc" id="aclasslala_1_1_p_c_html_ab15da122f79b0ced73783e1d272cebde"><div class="ttname"><a href="classlala_1_1_p_c.html#ab15da122f79b0ced73783e1d272cebde">lala::PC::operator[]</a></div><div class="ttdeci">CUDA const universe_type &amp; operator[](int x) const</div><div class="ttdef"><b>Definition</b> pc.hpp:736</div></div>
 <div class="ttc" id="aclasslala_1_1_p_c_html_abdc75a9ee34fdd7a7a3b085292085d25"><div class="ttname"><a href="classlala_1_1_p_c.html#abdc75a9ee34fdd7a7a3b085292085d25">lala::PC::preserve_concrete_covers</a></div><div class="ttdeci">static constexpr const bool preserve_concrete_covers</div><div class="ttdef"><b>Definition</b> pc.hpp:82</div></div>
 <div class="ttc" id="aclasslala_1_1_p_c_html_abe643c164d2b2f4641004e90a144b740"><div class="ttname"><a href="classlala_1_1_p_c.html#abe643c164d2b2f4641004e90a144b740">lala::PC::PC</a></div><div class="ttdeci">CUDA PC(AType atype, sub_ptr sub, const allocator_type &amp;alloc=allocator_type{})</div><div class="ttdef"><b>Definition</b> pc.hpp:136</div></div>
 <div class="ttc" id="aclasslala_1_1_p_c_html_ac572b2b49820bb63a4dff3d0070db0b0"><div class="ttname"><a href="classlala_1_1_p_c.html#ac572b2b49820bb63a4dff3d0070db0b0">lala::PC::term_seq</a></div><div class="ttdeci">battery::vector&lt; pc::Term&lt; A, Alloc &gt;, Alloc &gt; term_seq</div><div class="ttdef"><b>Definition</b> pc.hpp:102</div></div>
 <div class="ttc" id="aclasslala_1_1_p_c_html_ac74064d80ab91d11707061d3f0016920"><div class="ttname"><a href="classlala_1_1_p_c.html#ac74064d80ab91d11707061d3f0016920">lala::PC::preserve_join</a></div><div class="ttdeci">static constexpr const bool preserve_join</div><div class="ttdef"><b>Definition</b> pc.hpp:79</div></div>
-<div class="ttc" id="aclasslala_1_1_p_c_html_ad0ed6976b30e5a92c1157c3e4479d89e"><div class="ttname"><a href="classlala_1_1_p_c.html#ad0ed6976b30e5a92c1157c3e4479d89e">lala::PC::snapshot</a></div><div class="ttdeci">CUDA snapshot_type&lt; Alloc2 &gt; snapshot(const Alloc2 &amp;alloc=Alloc2()) const</div><div class="ttdef"><b>Definition</b> pc.hpp:745</div></div>
+<div class="ttc" id="aclasslala_1_1_p_c_html_ad0ed6976b30e5a92c1157c3e4479d89e"><div class="ttname"><a href="classlala_1_1_p_c.html#ad0ed6976b30e5a92c1157c3e4479d89e">lala::PC::snapshot</a></div><div class="ttdeci">CUDA snapshot_type&lt; Alloc2 &gt; snapshot(const Alloc2 &amp;alloc=Alloc2()) const</div><div class="ttdef"><b>Definition</b> pc.hpp:749</div></div>
 <div class="ttc" id="aclasslala_1_1_p_c_html_ad1629f89797a8e3bc7ea357fe323ad4e"><div class="ttname"><a href="classlala_1_1_p_c.html#ad1629f89797a8e3bc7ea357fe323ad4e">lala::PC::is_abstract_universe</a></div><div class="ttdeci">static constexpr const bool is_abstract_universe</div><div class="ttdef"><b>Definition</b> pc.hpp:73</div></div>
 <div class="ttc" id="aclasslala_1_1_p_c_html_ad76a59f9fd0ab6dc605f78ef23d50a82"><div class="ttname"><a href="classlala_1_1_p_c.html#ad76a59f9fd0ab6dc605f78ef23d50a82">lala::PC::preserve_top</a></div><div class="ttdeci">static constexpr const bool preserve_top</div><div class="ttdef"><b>Definition</b> pc.hpp:78</div></div>
-<div class="ttc" id="aclasslala_1_1_p_c_html_ae2446dd26cdc0475a781e0f7dc68096d"><div class="ttname"><a href="classlala_1_1_p_c.html#ae2446dd26cdc0475a781e0f7dc68096d">lala::PC::deinterpret</a></div><div class="ttdeci">CUDA NI TFormula&lt; typename Env::allocator_type &gt; deinterpret(const Env &amp;env) const</div><div class="ttdef"><b>Definition</b> pc.hpp:787</div></div>
+<div class="ttc" id="aclasslala_1_1_p_c_html_ae2446dd26cdc0475a781e0f7dc68096d"><div class="ttname"><a href="classlala_1_1_p_c.html#ae2446dd26cdc0475a781e0f7dc68096d">lala::PC::deinterpret</a></div><div class="ttdeci">CUDA NI TFormula&lt; typename Env::allocator_type &gt; deinterpret(const Env &amp;env) const</div><div class="ttdef"><b>Definition</b> pc.hpp:791</div></div>
 <div class="ttc" id="aclasslala_1_1_p_c_html_ae3c097f92bf07798b795a78de1633ca6"><div class="ttname"><a href="classlala_1_1_p_c.html#ae3c097f92bf07798b795a78de1633ca6">lala::PC::sequential</a></div><div class="ttdeci">static constexpr const bool sequential</div><div class="ttdef"><b>Definition</b> pc.hpp:74</div></div>
-<div class="ttc" id="aclasslala_1_1_p_c_html_ae4f021acea093e476316a6ac9f8d66c9"><div class="ttname"><a href="classlala_1_1_p_c.html#ae4f021acea093e476316a6ac9f8d66c9">lala::PC::restore</a></div><div class="ttdeci">CUDA void restore(const snapshot_type&lt; Alloc2 &gt; &amp;snap)</div><div class="ttdef"><b>Definition</b> pc.hpp:750</div></div>
+<div class="ttc" id="aclasslala_1_1_p_c_html_ae4f021acea093e476316a6ac9f8d66c9"><div class="ttname"><a href="classlala_1_1_p_c.html#ae4f021acea093e476316a6ac9f8d66c9">lala::PC::restore</a></div><div class="ttdeci">CUDA void restore(const snapshot_type&lt; Alloc2 &gt; &amp;snap)</div><div class="ttdef"><b>Definition</b> pc.hpp:754</div></div>
 <div class="ttc" id="aclasslala_1_1_p_c_html_aec9efdcb9d42e5808d8b1350c01f81ac"><div class="ttname"><a href="classlala_1_1_p_c.html#aec9efdcb9d42e5808d8b1350c01f81ac">lala::PC::sub_ptr</a></div><div class="ttdeci">abstract_ptr&lt; sub_type &gt; sub_ptr</div><div class="ttdef"><b>Definition</b> pc.hpp:71</div></div>
 <div class="ttc" id="aclasslala_1_1_p_c_html_aedef8b8273dcd94ebdae455a11ee3bb5"><div class="ttname"><a href="classlala_1_1_p_c.html#aedef8b8273dcd94ebdae455a11ee3bb5">lala::PC::bot</a></div><div class="ttdeci">static CUDA this_type bot(Env &amp;env, const allocator_type &amp;alloc=allocator_type(), const sub_allocator_type &amp;sub_alloc=sub_allocator_type())</div><div class="ttdef"><b>Definition</b> pc.hpp:178</div></div>
 <div class="ttc" id="aclasslala_1_1_p_c_html_afbf224b87926262a45a951198f2b7cde"><div class="ttname"><a href="classlala_1_1_p_c.html#afbf224b87926262a45a951198f2b7cde">lala::PC::interpret_ask</a></div><div class="ttdeci">CUDA NI bool interpret_ask(const F &amp;f, const Env &amp;env, ask_type&lt; Alloc2 &gt; &amp;ask, IDiagnostics &amp;diagnostics) const</div><div class="ttdef"><b>Definition</b> pc.hpp:653</div></div>
 <div class="ttc" id="aclasslala_1_1pc_1_1_formula_html"><div class="ttname"><a href="classlala_1_1pc_1_1_formula.html">lala::pc::Formula</a></div><div class="ttdef"><b>Definition</b> formula.hpp:861</div></div>
-<div class="ttc" id="aclasslala_1_1pc_1_1_formula_html_a84472f16c07b9330ea48227932c0672a"><div class="ttname"><a href="classlala_1_1pc_1_1_formula.html#a84472f16c07b9330ea48227932c0672a">lala::pc::Formula::kind</a></div><div class="ttdeci">CUDA size_t kind() const</div><div class="ttdef"><b>Definition</b> formula.hpp:1009</div></div>
 <div class="ttc" id="aclasslala_1_1pc_1_1_term_html"><div class="ttname"><a href="classlala_1_1pc_1_1_term.html">lala::pc::Term&lt; A, allocator_type &gt;</a></div></div>
 <div class="ttc" id="aformula_8hpp_html"><div class="ttname"><a href="formula_8hpp.html">formula.hpp</a></div></div>
 <div class="ttc" id="anamespacelala_html"><div class="ttname"><a href="namespacelala.html">lala</a></div><div class="ttdef"><b>Definition</b> formula.hpp:8</div></div>
