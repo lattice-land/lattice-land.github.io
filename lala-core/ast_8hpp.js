@@ -2,7 +2,11 @@ var ast_8hpp =
 [
     [ "lala::AVar", "classlala_1_1_a_var.html", "classlala_1_1_a_var" ],
     [ "lala::TFormula< Allocator, ExtendedSig >", "classlala_1_1_t_formula.html", "classlala_1_1_t_formula" ],
-    [ "LVar", "ast_8hpp.html#acb9f389c51804929bfb3e6d682d77ff0", null ],
+    [ "LVar", "ast_8hpp.html#a8a2c3adc0efc7b60c27edd38dcad08ce", null ],
+    [ "IKind", "ast_8hpp.html#ac24a8d85a4dfb9ed5e5ffcd09a4c60ed", [
+      [ "ASK", "ast_8hpp.html#ac24a8d85a4dfb9ed5e5ffcd09a4c60eda9fb730caf1b2d638a1dcf747f0d4207d", null ],
+      [ "TELL", "ast_8hpp.html#ac24a8d85a4dfb9ed5e5ffcd09a4c60edaca29caf9aab7f5eb7b91a531650cb517", null ]
+    ] ],
     [ "Sig", "ast_8hpp.html#a4be41540c5051a480d0611a3e216b659", [
       [ "NEG", "ast_8hpp.html#a4be41540c5051a480d0611a3e216b659afd5c2ae3d5e7293327344b6c3485fc82", null ],
       [ "ABS", "ast_8hpp.html#a4be41540c5051a480d0611a3e216b659adc30e84e5ba6fbd73512392c6d37628e", null ],

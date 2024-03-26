@@ -1,8 +1,10 @@
 var structlala_1_1_v_store_1_1var__dom =
 [
-    [ "var_dom", "structlala_1_1_v_store_1_1var__dom.html#a7256cd199a5765ce80e74eb12478688c", null ],
-    [ "var_dom", "structlala_1_1_v_store_1_1var__dom.html#a2fee4465a8a746f0ed2b7d5b4dca76e9", null ],
-    [ "var_dom", "structlala_1_1_v_store_1_1var__dom.html#a1f5bfcafed88c741163bd09e89315db7", null ],
-    [ "idx", "structlala_1_1_v_store_1_1var__dom.html#acee2abf38bb201b2156df3c81556b4ff", null ],
-    [ "dom", "structlala_1_1_v_store_1_1var__dom.html#af3280fad748591675f2c637907319979", null ]
+    [ "var_dom", "structlala_1_1_v_store_1_1var__dom.html#a7e447813f6782368865ff0cc7889ba46", null ],
+    [ "var_dom", "structlala_1_1_v_store_1_1var__dom.html#a27984e4e08ea71ac1b60ef0a8b703ca4", null ],
+    [ "var_dom", "structlala_1_1_v_store_1_1var__dom.html#a030b7290072e49986f7988875cb66746", null ],
+    [ "var_dom", "structlala_1_1_v_store_1_1var__dom.html#a54e89821f77156669e6f72921448dcd6", null ],
+    [ "var_dom", "structlala_1_1_v_store_1_1var__dom.html#af203843f1867c1b1f65168dd5ff3cf62", null ],
+    [ "avar", "structlala_1_1_v_store_1_1var__dom.html#ab70ed1e7507a1eeed68679590e1ce114", null ],
+    [ "dom", "structlala_1_1_v_store_1_1var__dom.html#aebe9d8f8320c19aa00a40e40eaad9d8e", null ]
 ];

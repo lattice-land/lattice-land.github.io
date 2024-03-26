@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['nonatomicextraction_0',['NonAtomicExtraction',['../structlala_1_1_non_atomic_extraction.html',1,'lala']]]
+  ['idiagnostics_0',['IDiagnostics',['../classlala_1_1_i_diagnostics.html',1,'lala']]],
+  ['interval_1',['Interval',['../classlala_1_1_interval.html',1,'lala']]]
 ];

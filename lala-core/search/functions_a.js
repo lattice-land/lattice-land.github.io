@@ -1,7 +1,9 @@
 var searchData=
 [
-  ['lb_0',['lb',['../classlala_1_1_interval.html#afd7a700db84062e5b90cc46d6fa3613a',1,'lala::Interval']]],
+  ['lb_0',['lb',['../classlala_1_1_interval.html#ad20d830c52db43cfd7415cb22dfacc18',1,'lala::Interval::lb()'],['../classlala_1_1_interval.html#afd7a700db84062e5b90cc46d6fa3613a',1,'lala::Interval::lb() const'],['../classlala_1_1_n_bitset.html#a74a74ae0e7bb1de594cc95ee9a487587',1,'lala::NBitset::lb()']]],
   ['leq_5fk_1',['leq_k',['../classlala_1_1_primitive_upset.html#a9459cd26c2660c7115642f3384ab35ff',1,'lala::PrimitiveUpset']]],
   ['leq_5fof_5fconstant_2',['leq_of_constant',['../namespacelala.html#a99742669495aa20254d238796f3225f9',1,'lala']]],
-  ['lv_3',['lv',['../classlala_1_1_t_formula.html#a9d10a453aab7ffea2cc58d0285ae357f',1,'lala::TFormula']]]
+  ['listvarindex_3',['ListVarIndex',['../structlala_1_1_list_var_index.html#a76bebb92ae8815bedaada98647a22ba6',1,'lala::ListVarIndex::ListVarIndex(bvector&lt; variable_type &gt; *lvars)'],['../structlala_1_1_list_var_index.html#a3b7b7b31ada75c7d6eaf413d0c812199',1,'lala::ListVarIndex::ListVarIndex(this_type &amp;&amp;, bvector&lt; variable_type &gt; *lvars)'],['../structlala_1_1_list_var_index.html#a57d3ade2f0dbdb9087f2ba8d2b10e945',1,'lala::ListVarIndex::ListVarIndex(const this_type &amp;, bvector&lt; variable_type &gt; *lvars)'],['../structlala_1_1_list_var_index.html#ac3b036596ac08c11a849777c829e12ae',1,'lala::ListVarIndex::ListVarIndex(const ListVarIndex&lt; Alloc2 &gt; &amp;, bvector&lt; variable_type &gt; *lvars)']]],
+  ['lv_4',['lv',['../classlala_1_1_t_formula.html#a9d10a453aab7ffea2cc58d0285ae357f',1,'lala::TFormula']]],
+  ['lvar_5findex_5fof_5',['lvar_index_of',['../structlala_1_1_list_var_index.html#a2532174a8bab242de6be95d40c87d429',1,'lala::ListVarIndex::lvar_index_of()'],['../structlala_1_1_hash_map_var_index.html#a65bd72e71a220857a356a57d1d0c26f2',1,'lala::HashMapVarIndex::lvar_index_of()'],['../structlala_1_1_dispatch_index.html#a7028163b37329152a59cd161f30d0921',1,'lala::DispatchIndex::lvar_index_of()']]]
 ];

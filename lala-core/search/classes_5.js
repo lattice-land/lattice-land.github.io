@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['light_5fcopy_5ftag_0',['light_copy_tag',['../structlala_1_1_simplifier_1_1light__copy__tag.html',1,'lala::Simplifier']]]
+  ['hashmapvarindex_0',['HashMapVarIndex',['../structlala_1_1_hash_map_var_index.html',1,'lala']]]
 ];

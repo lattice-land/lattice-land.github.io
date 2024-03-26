@@ -20,6 +20,7 @@ var structlala_1_1_sort =
     [ "is_real", "structlala_1_1_sort.html#a3b22ba33fd21e2d77a9ce3bb6a0eea3f", null ],
     [ "is_set", "structlala_1_1_sort.html#ac3d89ce14c2a3abd3316109e6b50231f", null ],
     [ "print", "structlala_1_1_sort.html#a8ed785d07d093c70638a65f6733df21e", null ],
+    [ "print_value", "structlala_1_1_sort.html#a76e183a55f37f10405dbfbc24ba0d041", null ],
     [ "tag", "structlala_1_1_sort.html#a7c4bf378ba36b0047d024580932643ff", null ],
     [ "sub", "structlala_1_1_sort.html#a5cd8085353a2224de724de679053a521", null ]
 ];

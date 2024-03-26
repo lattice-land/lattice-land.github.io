@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['error_5ftype_0',['error_type',['../classlala_1_1_i_result.html#a669f60ee8f40812f8eb4b92a1f1a7e37',1,'lala::IResult']]],
-  ['existential_1',['Existential',['../classlala_1_1_t_formula.html#a8092cf5a2d0f5ba2204b39dd7f170f24',1,'lala::TFormula']]]
+  ['existential_0',['Existential',['../classlala_1_1_t_formula.html#afacc82efef6ba1e0ca60408f25e3adc5',1,'lala::TFormula']]]
 ];

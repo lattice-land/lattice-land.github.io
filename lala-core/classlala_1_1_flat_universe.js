@@ -6,7 +6,6 @@ var classlala_1_1_flat_universe =
     [ "this_type", "classlala_1_1_flat_universe.html#ab4adfb625625eeab9e6035657a627d43", null ],
     [ "this_type2", "classlala_1_1_flat_universe.html#a0ce332ad66a0537cf3f6c459fc759b85", null ],
     [ "local_type", "classlala_1_1_flat_universe.html#a82bf7fc891c2153a27a51a3f38cf6a84", null ],
-    [ "iresult", "classlala_1_1_flat_universe.html#ad499689c09af7a8e6d7142c8272a6f74", null ],
     [ "FlatUniverse", "classlala_1_1_flat_universe.html#a885f2c211a54c57ce0d29b1a2f5270f6", null ],
     [ "FlatUniverse", "classlala_1_1_flat_universe.html#ae1e92102447296461acf82a379ee3e69", null ],
     [ "FlatUniverse", "classlala_1_1_flat_universe.html#acb0c67b3880e73263182358dff79a5d8", null ],

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['simplifier_0',['Simplifier',['../classlala_1_1_simplifier.html#abb7b1b8372ac24e438139ebc86dc99c4',1,'lala::Simplifier']]]
+  ['primitiveupset_0',['PrimitiveUpset',['../classlala_1_1_primitive_upset.html#a1387b700171717b2cc5752e0a20530ae',1,'lala::PrimitiveUpset']]]
 ];

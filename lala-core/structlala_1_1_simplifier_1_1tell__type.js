@@ -1,7 +1,7 @@
 var structlala_1_1_simplifier_1_1tell__type =
 [
-    [ "tell_type", "structlala_1_1_simplifier_1_1tell__type.html#afc72a4355118b7061db52990e2b19ae4", null ],
-    [ "num_vars", "structlala_1_1_simplifier_1_1tell__type.html#a9e2c13d23fb792eea89dc329e57578f5", null ],
-    [ "formulas", "structlala_1_1_simplifier_1_1tell__type.html#a07568612538e36e6879549f9b4e245a5", null ],
-    [ "env", "structlala_1_1_simplifier_1_1tell__type.html#a9030d196d043168b271796900f955916", null ]
+    [ "tell_type", "structlala_1_1_simplifier_1_1tell__type.html#a03855804bd6ab023de98f31e692b8a62", null ],
+    [ "num_vars", "structlala_1_1_simplifier_1_1tell__type.html#aa75cd7e90aa06ec94778fd5e5efb4774", null ],
+    [ "formulas", "structlala_1_1_simplifier_1_1tell__type.html#ab4bf4b6381a4c9bf85ae3bb0a508e1ab", null ],
+    [ "env", "structlala_1_1_simplifier_1_1tell__type.html#ab0efd84ec919273bdd0c8514a13ed905", null ]
 ];

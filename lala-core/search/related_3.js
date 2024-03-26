@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['primitiveupset_0',['PrimitiveUpset',['../classlala_1_1_primitive_upset.html#a1387b700171717b2cc5752e0a20530ae',1,'lala::PrimitiveUpset']]]
+  ['nbitset_0',['NBitset',['../classlala_1_1_n_bitset.html#a21fccbc2412e78bb100010aed83d515b',1,'lala::NBitset']]]
 ];

@@ -1,7 +1,8 @@
 var searchData=
 [
-  ['bdec_0',['bdec',['../namespacelala.html#a4169f8a3afcf847048a0e7e7c264e63e',1,'lala::BDec'],['../namespacelala_1_1local.html#aed8faf316d9893d0564e921f01bc2a8a',1,'lala::local::BDec']]],
-  ['binc_1',['binc',['../namespacelala.html#ab9c6c9e83275d6897edbb527e58f8cdf',1,'lala::BInc'],['../namespacelala_1_1local.html#a109c711964a92ad6022df74636de1391',1,'lala::local::BInc']]],
-  ['bstring_2',['bstring',['../structlala_1_1_variable.html#a0cc8874e34bcbf3382162df822b0ab51',1,'lala::Variable::bstring'],['../classlala_1_1_var_env.html#a9b5bbc8fcf5fae35e003a733a0df0506',1,'lala::VarEnv::bstring']]],
-  ['bvector_3',['bvector',['../structlala_1_1_variable.html#ac53fa4d3fd6ba4c5822feb40cf7afbf2',1,'lala::Variable::bvector'],['../classlala_1_1_var_env.html#a922e74bccb84ac197ff681ec0ac32822',1,'lala::VarEnv::bvector']]]
+  ['bdec_0',['BDec',['../namespacelala.html#a8015da9d523ceb1371109fcb14c2a6c1',1,'lala::BDec'],['../namespacelala_1_1local.html#a64681d6bec77810465735368c433c632',1,'lala::local::BDec']]],
+  ['binc_1',['BInc',['../namespacelala.html#a02f0d412b744eb7d4f746e82eb48cf38',1,'lala::BInc'],['../namespacelala_1_1local.html#a41cfb87c2046b0c46574ee865d45cf52',1,'lala::local::BInc']]],
+  ['bitset_5ftype_2',['bitset_type',['../classlala_1_1_n_bitset.html#a1af8d8be901eb3204a388b31b0039b15',1,'lala::NBitset']]],
+  ['bstring_3',['bstring',['../structlala_1_1_variable.html#a0cc8874e34bcbf3382162df822b0ab51',1,'lala::Variable::bstring'],['../structlala_1_1_list_var_index.html#a22de34f83adb5befe54886f5b0d026cf',1,'lala::ListVarIndex::bstring'],['../structlala_1_1_hash_map_var_index.html#a1ef5aaeadc44bc0affe1e34f67335a29',1,'lala::HashMapVarIndex::bstring'],['../structlala_1_1_dispatch_index.html#a8691e29fd294f650b1532877fa7be9f6',1,'lala::DispatchIndex::bstring'],['../classlala_1_1_var_env.html#a9b5bbc8fcf5fae35e003a733a0df0506',1,'lala::VarEnv::bstring']]],
+  ['bvector_4',['bvector',['../structlala_1_1_variable.html#ac53fa4d3fd6ba4c5822feb40cf7afbf2',1,'lala::Variable::bvector'],['../structlala_1_1_list_var_index.html#ae54e0c21c357d0dd8244ed9594866ac1',1,'lala::ListVarIndex::bvector'],['../structlala_1_1_hash_map_var_index.html#a3b2fbccc95feaf324d87d98ff244156f',1,'lala::HashMapVarIndex::bvector'],['../structlala_1_1_dispatch_index.html#a9e22d79670a2f0d37f39ebfc572cbd1f',1,'lala::DispatchIndex::bvector'],['../classlala_1_1_var_env.html#a922e74bccb84ac197ff681ec0ac32822',1,'lala::VarEnv::bvector']]]
 ];
