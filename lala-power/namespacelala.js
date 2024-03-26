@@ -4,6 +4,8 @@ var namespacelala =
     [ "Branch", "classlala_1_1_branch.html", "classlala_1_1_branch" ],
     [ "SearchTree", "classlala_1_1_search_tree.html", "classlala_1_1_search_tree" ],
     [ "SplitStrategy", "classlala_1_1_split_strategy.html", "classlala_1_1_split_strategy" ],
+    [ "Table", "classlala_1_1_table.html", "classlala_1_1_table" ],
+    [ "Tables", "classlala_1_1_tables.html", "classlala_1_1_tables" ],
     [ "VariableOrder", "namespacelala.html#a587db5b120e4ed2e5d0fffaf51256941", [
       [ "INPUT_ORDER", "namespacelala.html#a587db5b120e4ed2e5d0fffaf51256941a3464ff2e27eedf9343ef4a332155a60b", null ],
       [ "FIRST_FAIL", "namespacelala.html#a587db5b120e4ed2e5d0fffaf51256941a6de43da36a15d9bbce1895c724b01eaa", null ],

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['x_0',['x',['../structlala_1_1_b_a_b_1_1tell__type.html#ada8349687c7028d006f88f493dd99402',1,'lala::BAB::tell_type']]]
+  ['optimization_5fmode_0',['optimization_mode',['../structlala_1_1_b_a_b_1_1tell__type.html#a164bead6388032eceb8a8efbb36bc6b5',1,'lala::BAB::tell_type']]]
 ];

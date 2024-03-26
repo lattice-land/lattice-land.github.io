@@ -1,4 +1,7 @@
 var searchData=
 [
-  ['get_5fallocator_0',['get_allocator',['../classlala_1_1_b_a_b.html#a269310af74a1427381d60bfbab3d1644',1,'lala::BAB::get_allocator()'],['../classlala_1_1_search_tree.html#a5d9c8f003c084b9bc545facd0a16e7b3',1,'lala::SearchTree::get_allocator()'],['../classlala_1_1_split_strategy.html#a298e70854daa1d89ab1b97538d8dcd01',1,'lala::SplitStrategy::get_allocator()']]]
+  ['flatten_0',['flatten',['../classlala_1_1_table.html#afea7d11ba027479732bc680ec3d240e0',1,'lala::Table::flatten()'],['../classlala_1_1_tables.html#ac594ea93986b819afbdde82057f864d8',1,'lala::Tables::flatten()']]],
+  ['flatten_5fand_1',['flatten_and',['../classlala_1_1_table.html#afdde5bfd1df1fc7de55765b14ebc4b76',1,'lala::Table::flatten_and()'],['../classlala_1_1_tables.html#ac0c722539e7f25cd1d042fa07ea725a3',1,'lala::Tables::flatten_and()']]],
+  ['flatten_5for_2',['flatten_or',['../classlala_1_1_table.html#adc50ad28336367104aba26a271f9f16c',1,'lala::Table::flatten_or()'],['../classlala_1_1_tables.html#a78886e5c5b12223d30b0f9b0adab3fb0',1,'lala::Tables::flatten_or()']]],
+  ['flatten_5ftable_3',['flatten_table',['../classlala_1_1_table.html#a57aed5e1a25ba8f730ab8c715b2fa9e9',1,'lala::Table']]]
 ];
