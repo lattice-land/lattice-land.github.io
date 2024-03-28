@@ -99,6 +99,7 @@ $(function(){initNavTree('classbattery_1_1statistics__allocator.html',''); initR
 
 <div class="header">
   <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="classbattery_1_1statistics__allocator-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">battery::statistics_allocator&lt; Allocator, InternalAllocator &gt; Class Template Reference</div></div>
@@ -107,6 +108,11 @@ $(function(){initNavTree('classbattery_1_1statistics__allocator.html',''); initR
 
 <p><code>#include &lt;<a class="el" href="allocator_8hpp_source.html">allocator.hpp</a>&gt;</code></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:a881f9585d731c7836a0b1e932a961159" id="r_a881f9585d731c7836a0b1e932a961159"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a881f9585d731c7836a0b1e932a961159">this_type</a> = <a class="el" href="classbattery_1_1statistics__allocator.html">statistics_allocator</a>&lt;Allocator, InternalAllocator&gt;</td></tr>
+<tr class="separator:a881f9585d731c7836a0b1e932a961159"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a0e44ecdcde5f757acd8213fab559f875" id="r_a0e44ecdcde5f757acd8213fab559f875"><td class="memItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> <a class="el" href="utility_8hpp.html#a860bedb684529775463fa3a6cb467efa">NI</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0e44ecdcde5f757acd8213fab559f875">statistics_allocator</a> (const <a class="el" href="classbattery_1_1statistics__allocator.html">statistics_allocator</a> &amp;other)</td></tr>
@@ -125,7 +131,26 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a142cba1058499974191021e9561be2f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8977f3dedaddf754b600797b74fae109" id="r_a8977f3dedaddf754b600797b74fae109"><td class="memItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8977f3dedaddf754b600797b74fae109">total_bytes_allocated</a> () const</td></tr>
 <tr class="separator:a8977f3dedaddf754b600797b74fae109"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a540b5b47d08489d194f1b8b5a4c46740" id="r_a540b5b47d08489d194f1b8b5a4c46740"><td class="memItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a540b5b47d08489d194f1b8b5a4c46740">operator==</a> (const <a class="el" href="#a881f9585d731c7836a0b1e932a961159">this_type</a> &amp;rhs) const</td></tr>
+<tr class="separator:a540b5b47d08489d194f1b8b5a4c46740"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="a881f9585d731c7836a0b1e932a961159" name="a881f9585d731c7836a0b1e932a961159"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a881f9585d731c7836a0b1e932a961159">&#9670;&#160;</a></span>this_type</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Allocator , class InternalAllocator  = Allocator&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="classbattery_1_1statistics__allocator.html">battery::statistics_allocator</a>&lt; Allocator, InternalAllocator &gt;::this_type = <a class="el" href="classbattery_1_1statistics__allocator.html">statistics_allocator</a>&lt;Allocator, InternalAllocator&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a0e44ecdcde5f757acd8213fab559f875" name="a0e44ecdcde5f757acd8213fab559f875"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0e44ecdcde5f757acd8213fab559f875">&#9670;&#160;</a></span>statistics_allocator() <span class="overload">[1/2]</span></h2>
@@ -336,6 +361,33 @@ template&lt;class Allocator , class InternalAllocator  = Allocator&gt; </div>
           <td class="memname"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> size_t <a class="el" href="classbattery_1_1statistics__allocator.html">battery::statistics_allocator</a>&lt; Allocator, InternalAllocator &gt;::total_bytes_allocated </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a540b5b47d08489d194f1b8b5a4c46740" name="a540b5b47d08489d194f1b8b5a4c46740"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a540b5b47d08489d194f1b8b5a4c46740">&#9670;&#160;</a></span>operator==()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Allocator , class InternalAllocator  = Allocator&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> bool <a class="el" href="classbattery_1_1statistics__allocator.html">battery::statistics_allocator</a>&lt; Allocator, InternalAllocator &gt;::operator== </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="#a881f9585d731c7836a0b1e932a961159">this_type</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>rhs</em></span></td><td>)</td>
           <td> const</td>
         </tr>
       </table>

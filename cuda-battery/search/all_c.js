@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['pointer_0',['pointer',['../classbattery_1_1shared__ptr.html#ab70e94b553a018d0e5e7c101d683b6e7',1,'battery::shared_ptr::pointer'],['../classbattery_1_1unique__ptr.html#a461b8acfa79698b802e14caadd703f12',1,'battery::unique_ptr::pointer']]],
+  ['pointer_0',['pointer',['../classbattery_1_1root__ptr.html#a76c08dae64ef32b6f7cd6b2261304308',1,'battery::root_ptr::pointer'],['../classbattery_1_1shared__ptr.html#ab70e94b553a018d0e5e7c101d683b6e7',1,'battery::shared_ptr::pointer'],['../classbattery_1_1unique__ptr.html#a461b8acfa79698b802e14caadd703f12',1,'battery::unique_ptr::pointer']]],
   ['pool_5fallocator_1',['pool_allocator',['../classbattery_1_1pool__allocator.html',1,'battery::pool_allocator'],['../classbattery_1_1pool__allocator.html#aa6d6cd933ebdd6ef4c8dde00e3ad441a',1,'battery::pool_allocator::pool_allocator(const pool_allocator &amp;other)'],['../classbattery_1_1pool__allocator.html#a48f133484d22075e1fd73bb3185e8a1a',1,'battery::pool_allocator::pool_allocator(unsigned char *mem, size_t capacity, size_t alignment=alignof(std::max_align_t))']]],
   ['pop_5fback_2',['pop_back',['../classbattery_1_1vector.html#a9123f1b6e819e880efd3c56476f7f728',1,'battery::vector']]],
   ['popcount_3',['popcount',['../namespacebattery.html#a8c1a14fa1ba345d137b7c80953297ccc',1,'battery']]],

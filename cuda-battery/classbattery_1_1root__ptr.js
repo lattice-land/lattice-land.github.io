@@ -1,0 +1,28 @@
+var classbattery_1_1root__ptr =
+[
+    [ "element_type", "classbattery_1_1root__ptr.html#a36b25afc0d1231ac5b4005d3f917f7e0", null ],
+    [ "pointer", "classbattery_1_1root__ptr.html#a76c08dae64ef32b6f7cd6b2261304308", null ],
+    [ "allocator_type", "classbattery_1_1root__ptr.html#aa6a27c0047482abfc302122276e2aa35", null ],
+    [ "this_type", "classbattery_1_1root__ptr.html#a63f4ec22ad5e1fd095eea810f5b2437b", null ],
+    [ "root_ptr", "classbattery_1_1root__ptr.html#aa951a0b02c96b4a12c50480481a99cd2", null ],
+    [ "root_ptr", "classbattery_1_1root__ptr.html#a34d50e89bf701e7e088f92c252fd8c39", null ],
+    [ "root_ptr", "classbattery_1_1root__ptr.html#a756e67c37a961f01643b5609aa383776", null ],
+    [ "root_ptr", "classbattery_1_1root__ptr.html#ac769fa607c2cf5cadfc3ca8f580beab9", null ],
+    [ "root_ptr", "classbattery_1_1root__ptr.html#a56d38f6626f19309a34511a2915ef342", null ],
+    [ "root_ptr", "classbattery_1_1root__ptr.html#a9e1057cea42fa3092364b4d25b4615cc", null ],
+    [ "~root_ptr", "classbattery_1_1root__ptr.html#a6e0585d234cc156ca8e52c2148101795", null ],
+    [ "swap", "classbattery_1_1root__ptr.html#ac918b70cb11e9f1e4229495343cd5a99", null ],
+    [ "operator=", "classbattery_1_1root__ptr.html#aa086bff87997b3f6acd5d0227e7a9355", null ],
+    [ "operator=", "classbattery_1_1root__ptr.html#a4673587f3b0531161444aab1197903d6", null ],
+    [ "operator=", "classbattery_1_1root__ptr.html#af94dccaaba9f5334704d303ede604a63", null ],
+    [ "operator=", "classbattery_1_1root__ptr.html#a07afb53f14add56cdb64c3965c94e5b8", null ],
+    [ "release", "classbattery_1_1root__ptr.html#aa53add45dc166218e12832402c06ae74", null ],
+    [ "reset", "classbattery_1_1root__ptr.html#a8a2c0806b593c4c2748a99c0c8de0f53", null ],
+    [ "get", "classbattery_1_1root__ptr.html#ab6d9fb483cfae035f0872353e0d807bc", null ],
+    [ "get_allocator", "classbattery_1_1root__ptr.html#a2f6fcd209c999384b97b404d1c1c7e06", null ],
+    [ "is_root", "classbattery_1_1root__ptr.html#a5b9eb2d92ca2603adf5eda3a903a700a", null ],
+    [ "operator bool", "classbattery_1_1root__ptr.html#a8866b37661acd28becfc28d9a1546937", null ],
+    [ "operator*", "classbattery_1_1root__ptr.html#abb7e3cc57ae9ccf66116aff81f84b4cf", null ],
+    [ "operator->", "classbattery_1_1root__ptr.html#aea4cd21c5723a542c2e3bb3ed32eaf52", null ],
+    [ "root_ptr", "classbattery_1_1root__ptr.html#aeafbd1324187fa40a5df2a39c3e35727", null ]
+];

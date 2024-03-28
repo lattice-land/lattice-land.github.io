@@ -120,6 +120,8 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbattery_1_1pool__allocator.html">pool_allocator</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbattery_1_1root__ptr.html">root_ptr</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbattery_1_1shared__ptr.html">shared_ptr</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classbattery_1_1standard__allocator.html">standard_allocator</a></td></tr>
@@ -168,6 +170,12 @@ Functions</h2></td></tr>
 <tr class="memitem:a30afd61a09f73ea6a6692da2267a8f20" id="r_a30afd61a09f73ea6a6692da2267a8f20"><td class="memTemplParams" colspan="2">template&lt;class Mem , class Alloc , class T &gt; </td></tr>
 <tr class="memitem:a30afd61a09f73ea6a6692da2267a8f20"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> constexpr <a class="el" href="classbattery_1_1dynamic__bitset.html">dynamic_bitset</a>&lt; Mem, Alloc, T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a30afd61a09f73ea6a6692da2267a8f20">operator^</a> (const <a class="el" href="classbattery_1_1dynamic__bitset.html">dynamic_bitset</a>&lt; Mem, Alloc, T &gt; &amp;lhs, const <a class="el" href="classbattery_1_1dynamic__bitset.html">dynamic_bitset</a>&lt; Mem, Alloc, T &gt; &amp;rhs)</td></tr>
 <tr class="separator:a30afd61a09f73ea6a6692da2267a8f20"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a47b678e18c761ca80bd9481c43faa63c" id="r_a47b678e18c761ca80bd9481c43faa63c"><td class="memTemplParams" colspan="2">template&lt;class T , class Alloc , class... Args&gt; </td></tr>
+<tr class="memitem:a47b678e18c761ca80bd9481c43faa63c"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> <a class="el" href="utility_8hpp.html#a860bedb684529775463fa3a6cb467efa">NI</a> <a class="el" href="classbattery_1_1root__ptr.html">root_ptr</a>&lt; T, Alloc &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a47b678e18c761ca80bd9481c43faa63c">allocate_root</a> (const Alloc &amp;alloc, Args &amp;&amp;... args)</td></tr>
+<tr class="separator:a47b678e18c761ca80bd9481c43faa63c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad7b3cdf8a15ca157faba5b4a19cd482e" id="r_ad7b3cdf8a15ca157faba5b4a19cd482e"><td class="memTemplParams" colspan="2">template&lt;class T , class Alloc , class... Args&gt; </td></tr>
+<tr class="memitem:ad7b3cdf8a15ca157faba5b4a19cd482e"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> <a class="el" href="classbattery_1_1root__ptr.html">root_ptr</a>&lt; T, Alloc &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ad7b3cdf8a15ca157faba5b4a19cd482e">make_root</a> (Args &amp;&amp;... args)</td></tr>
+<tr class="separator:ad7b3cdf8a15ca157faba5b4a19cd482e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad39e1be9a722728743293cf55e20009f" id="r_ad39e1be9a722728743293cf55e20009f"><td class="memTemplParams" colspan="2">template&lt;class T , class Alloc , class... Args&gt; </td></tr>
 <tr class="memitem:ad39e1be9a722728743293cf55e20009f"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> <a class="el" href="utility_8hpp.html#a860bedb684529775463fa3a6cb467efa">NI</a> <a class="el" href="classbattery_1_1shared__ptr.html">shared_ptr</a>&lt; T, Alloc &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ad39e1be9a722728743293cf55e20009f">allocate_shared</a> (const Alloc &amp;alloc, Args &amp;&amp;... args)</td></tr>
 <tr class="separator:ad39e1be9a722728743293cf55e20009f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -616,6 +624,49 @@ template&lt;class Mem , class Alloc , class T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<a id="a47b678e18c761ca80bd9481c43faa63c" name="a47b678e18c761ca80bd9481c43faa63c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a47b678e18c761ca80bd9481c43faa63c">&#9670;&#160;</a></span>allocate_root()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T , class Alloc , class... Args&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> <a class="el" href="utility_8hpp.html#a860bedb684529775463fa3a6cb467efa">NI</a> <a class="el" href="classbattery_1_1root__ptr.html">root_ptr</a>&lt; T, Alloc &gt; battery::allocate_root </td>
+          <td>(</td>
+          <td class="paramtype">const Alloc &amp;</td>          <td class="paramname"><span class="paramname"><em>alloc</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Args &amp;&amp;...</td>          <td class="paramname"><span class="paramname"><em>args</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad7b3cdf8a15ca157faba5b4a19cd482e" name="ad7b3cdf8a15ca157faba5b4a19cd482e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad7b3cdf8a15ca157faba5b4a19cd482e">&#9670;&#160;</a></span>make_root()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T , class Alloc , class... Args&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> <a class="el" href="classbattery_1_1root__ptr.html">root_ptr</a>&lt; T, Alloc &gt; battery::make_root </td>
+          <td>(</td>
+          <td class="paramtype">Args &amp;&amp;...</td>          <td class="paramname"><span class="paramname"><em>args</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Similar to <code>allocate_root</code> but with an default-constructed allocator. </p>
 
 </div>
 </div>

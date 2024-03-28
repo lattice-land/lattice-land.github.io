@@ -11,5 +11,6 @@ var classbattery_1_1pool__allocator =
     [ "capacity", "classbattery_1_1pool__allocator.html#ad0c4251617512c5ecc69b13689134efa", null ],
     [ "num_deallocations", "classbattery_1_1pool__allocator.html#afc015fad5ef8742afc69cab8e83d4882", null ],
     [ "num_allocations", "classbattery_1_1pool__allocator.html#aa171725b3e30029f66f96edc5567dc56", null ],
-    [ "unaligned_wasted_bytes", "classbattery_1_1pool__allocator.html#a958c31f074f5a6be04a65cfc14149881", null ]
+    [ "unaligned_wasted_bytes", "classbattery_1_1pool__allocator.html#a958c31f074f5a6be04a65cfc14149881", null ],
+    [ "operator==", "classbattery_1_1pool__allocator.html#aa30197fc8c814772f2c0b395ebbb603e", null ]
 ];

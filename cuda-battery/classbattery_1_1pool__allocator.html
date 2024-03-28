@@ -133,6 +133,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aa171725b3e30029f66f96edc5567dc56"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a958c31f074f5a6be04a65cfc14149881" id="r_a958c31f074f5a6be04a65cfc14149881"><td class="memItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a958c31f074f5a6be04a65cfc14149881">unaligned_wasted_bytes</a> () const</td></tr>
 <tr class="separator:a958c31f074f5a6be04a65cfc14149881"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa30197fc8c814772f2c0b395ebbb603e" id="r_aa30197fc8c814772f2c0b395ebbb603e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa30197fc8c814772f2c0b395ebbb603e">operator==</a> (const <a class="el" href="classbattery_1_1pool__allocator.html">pool_allocator</a> &amp;rhs) const</td></tr>
+<tr class="separator:aa30197fc8c814772f2c0b395ebbb603e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>An allocator allocating memory from a pool of memory. The memory can for instance be the CUDA shared memory. This allocator is incomplete as it never frees the memory allocated. It allocates a control block using the "normal" <code>operator new</code>, where the address to the pool, its capacity and current offset are stored. </p>
@@ -435,6 +437,31 @@ Public Member Functions</h2></td></tr>
           <td class="memname"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> size_t battery::pool_allocator::unaligned_wasted_bytes </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa30197fc8c814772f2c0b395ebbb603e" name="aa30197fc8c814772f2c0b395ebbb603e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa30197fc8c814772f2c0b395ebbb603e">&#9670;&#160;</a></span>operator==()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a> bool battery::pool_allocator::operator== </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classbattery_1_1pool__allocator.html">pool_allocator</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>rhs</em></span></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
