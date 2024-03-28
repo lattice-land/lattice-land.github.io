@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['tag_0',['tag',['../structlala_1_1_sort.html#a7c4bf378ba36b0047d024580932643ff',1,'lala::Sort']]],
-  ['tag_1',['Tag',['../structlala_1_1_sort.html#a267f9fffa9f58fd4365285c11724129b',1,'lala::Sort']]],
+  ['tag_0',['Tag',['../structlala_1_1_sort.html#a267f9fffa9f58fd4365285c11724129b',1,'lala::Sort']]],
+  ['tag_1',['tag',['../structlala_1_1_sort.html#a7c4bf378ba36b0047d024580932643ff',1,'lala::Sort']]],
   ['tan_2',['TAN',['../namespacelala.html#a4be41540c5051a480d0611a3e216b659ad0a0aa9bca52b9d2e9fad534f2eae951',1,'lala']]],
   ['tanh_3',['TANH',['../namespacelala.html#a4be41540c5051a480d0611a3e216b659a22a8a8d4854fa5fe79d0acb66c33866a',1,'lala']]],
   ['tdiv_4',['TDIV',['../namespacelala.html#a4be41540c5051a480d0611a3e216b659ab5eab66ba0c0ae03ec8a337f8b2165af',1,'lala']]],

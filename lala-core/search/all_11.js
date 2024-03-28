@@ -1,9 +1,9 @@
 var searchData=
 [
-  ['s_0',['S',['../classlala_1_1_t_formula.html#a81b66402069b1fd23f7f2b0cd8bdab23',1,'lala::TFormula']]],
-  ['s_1',['s',['../classlala_1_1_t_formula.html#abfaef4e760b401b34ee155820dde6b0c',1,'lala::TFormula::s() const'],['../classlala_1_1_t_formula.html#a471c2c6ca18db3b0e6878700a786ca38',1,'lala::TFormula::s()']]],
-  ['seq_2',['Seq',['../classlala_1_1_t_formula.html#a043705f96b24196ab2406ad00880b338',1,'lala::TFormula']]],
-  ['seq_3',['seq',['../classlala_1_1_t_formula.html#a705f804835ee505e17af86588601fa7a',1,'lala::TFormula::seq() const'],['../classlala_1_1_t_formula.html#ad5f4b014b6bc6076301ae083a8c6c0d1',1,'lala::TFormula::seq(size_t i) const'],['../classlala_1_1_t_formula.html#acc070e25ceb37e5fdeff0cdd3fc3f3fa',1,'lala::TFormula::seq()'],['../classlala_1_1_t_formula.html#a939a94d8bb90324c60b88cdd663ba70c',1,'lala::TFormula::seq(size_t i)']]],
+  ['s_0',['s',['../classlala_1_1_t_formula.html#abfaef4e760b401b34ee155820dde6b0c',1,'lala::TFormula::s() const'],['../classlala_1_1_t_formula.html#a471c2c6ca18db3b0e6878700a786ca38',1,'lala::TFormula::s()']]],
+  ['s_1',['S',['../classlala_1_1_t_formula.html#a81b66402069b1fd23f7f2b0cd8bdab23',1,'lala::TFormula']]],
+  ['seq_2',['seq',['../classlala_1_1_t_formula.html#a705f804835ee505e17af86588601fa7a',1,'lala::TFormula::seq() const'],['../classlala_1_1_t_formula.html#ad5f4b014b6bc6076301ae083a8c6c0d1',1,'lala::TFormula::seq(size_t i) const'],['../classlala_1_1_t_formula.html#acc070e25ceb37e5fdeff0cdd3fc3f3fa',1,'lala::TFormula::seq()'],['../classlala_1_1_t_formula.html#a939a94d8bb90324c60b88cdd663ba70c',1,'lala::TFormula::seq(size_t i)']]],
+  ['seq_3',['Seq',['../classlala_1_1_t_formula.html#a043705f96b24196ab2406ad00880b338',1,'lala::TFormula']]],
   ['sequence_4',['Sequence',['../classlala_1_1_t_formula.html#a1121e3bec55d97bd7ea7944c64e8f98a',1,'lala::TFormula']]],
   ['sequential_5',['sequential',['../classlala_1_1_cartesian_product.html#a7f8d473b849bead10adeff433ec1f3c4',1,'lala::CartesianProduct::sequential'],['../classlala_1_1_interval.html#a1bd3006e975f28d42f2852ce5e4cdcd6',1,'lala::Interval::sequential'],['../classlala_1_1_simplifier.html#ae837160408fbe710848b8f320105f335',1,'lala::Simplifier::sequential'],['../classlala_1_1_flat_universe.html#a8ba01ebd072800914d526f4793f573af',1,'lala::FlatUniverse::sequential'],['../classlala_1_1_n_bitset.html#ad9c34f1a9fc7814faba32efc8670fea1',1,'lala::NBitset::sequential'],['../classlala_1_1_primitive_upset.html#af4859c28979a855bad1a9231eb3131da',1,'lala::PrimitiveUpset::sequential'],['../classlala_1_1_v_store.html#a2e76f47ea103745383d7a3f8f446f7bf',1,'lala::VStore::sequential']]],
   ['set_6',['Set',['../structlala_1_1_sort.html#a267f9fffa9f58fd4365285c11724129ba8ddc8bf73c868d9c373c47bf11855b5b',1,'lala::Sort']]],

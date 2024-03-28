@@ -4,7 +4,7 @@ var searchData=
   ['abs_1',['ABS',['../namespacelala.html#a4be41540c5051a480d0611a3e216b659adc30e84e5ba6fbd73512392c6d37628e',1,'lala']]],
   ['abstract_5fdeps_2ehpp_2',['abstract_deps.hpp',['../abstract__deps_8hpp.html',1,'']]],
   ['abstract_5fptr_3',['abstract_ptr',['../namespacelala.html#a91627a807540978fdae230d4457d6805',1,'lala']]],
-  ['abstractdeps_4',['AbstractDeps',['../classlala_1_1_abstract_deps.html',1,'lala::AbstractDeps&lt; Allocators &gt;'],['../classlala_1_1_abstract_deps.html#ae8123e936e8ea2a35f48badb34327110',1,'lala::AbstractDeps::AbstractDeps()']]],
+  ['abstractdeps_4',['AbstractDeps',['../classlala_1_1_abstract_deps.html',1,'lala::AbstractDeps&lt; Allocators &gt;'],['../classlala_1_1_abstract_deps.html#a1dd031885fe3bd0b3dd8a99f4562123d',1,'lala::AbstractDeps::AbstractDeps(bool shared_copy, const Allocators &amp;... allocators)'],['../classlala_1_1_abstract_deps.html#ae8123e936e8ea2a35f48badb34327110',1,'lala::AbstractDeps::AbstractDeps(const Allocators &amp;... allocators)']]],
   ['acos_5',['ACOS',['../namespacelala.html#a4be41540c5051a480d0611a3e216b659a19024bcd76c587a161cef23cd281700d',1,'lala']]],
   ['acosh_6',['ACOSH',['../namespacelala.html#a4be41540c5051a480d0611a3e216b659a57a98fd738a535ae66fbcdbefa3656cd',1,'lala']]],
   ['add_7',['add',['../classlala_1_1_interval.html#a929dcc5e31c37f5a1c965d9db01ac321',1,'lala::Interval']]],
@@ -29,9 +29,10 @@ var searchData=
   ['atoms_26',['atoms',['../structlala_1_1_non_atomic_extraction.html#a3826b819c9cd62ebcfddefce37c7875e',1,'lala::NonAtomicExtraction::atoms'],['../structlala_1_1_atomic_extraction.html#abcf2fc1bdf4b396115f246f47c7b0276',1,'lala::AtomicExtraction::atoms']]],
   ['aty_27',['aty',['../classlala_1_1_a_var.html#a18d80c5e7ea9fac6d6ec9da00ea0e5a4',1,'lala::AVar::aty()'],['../classlala_1_1_simplifier.html#a95732ff0fed5203e615336919d35f02d',1,'lala::Simplifier::aty()'],['../classlala_1_1_v_store.html#a2c0cc0aa74e143054796a5c027ebd1ef',1,'lala::VStore::aty()']]],
   ['atype_28',['AType',['../namespacelala.html#a2b9e4be0630d656d38a75c914de03c40',1,'lala']]],
-  ['avar_29',['AVar',['../classlala_1_1_a_var.html',1,'lala::AVar'],['../classlala_1_1_a_var.html#abd01838134cca1f0a4e6b72ef07178f3',1,'lala::AVar::AVar()'],['../classlala_1_1_a_var.html#a248d83da4a41de2cea02f756ad5b8b3d',1,'lala::AVar::AVar(const AVar &amp;)=default'],['../classlala_1_1_a_var.html#ac1fb3854752bc8598e1bcdf529745127',1,'lala::AVar::AVar(AVar &amp;&amp;)=default'],['../classlala_1_1_a_var.html#a4c6686386e47fb2a2b84c52e43f889c3',1,'lala::AVar::AVar(AType atype, int var_id)'],['../classlala_1_1_a_var.html#a1a085366b5503918f175bdea85729dff',1,'lala::AVar::AVar(AType atype, size_t var_id)']]],
+  ['avar_29',['AVar',['../classlala_1_1_a_var.html',1,'lala']]],
   ['avar_30',['avar',['../structlala_1_1_v_store_1_1var__dom.html#ab70ed1e7507a1eeed68679590e1ce114',1,'lala::VStore::var_dom']]],
-  ['avar2lvar_5fsnap_31',['avar2lvar_snap',['../structlala_1_1_var_env_1_1snapshot__type.html#a501b047cf39140df5470bf30e9afc823',1,'lala::VarEnv::snapshot_type']]],
-  ['avar_5fof_32',['avar_of',['../structlala_1_1_variable.html#a1de5042cce0d0acdc5b8087a00d76e07',1,'lala::Variable']]],
-  ['avars_33',['avars',['../structlala_1_1_variable.html#ae3b764b23836ed89a5662320f3ddaf07',1,'lala::Variable']]]
+  ['avar_31',['AVar',['../classlala_1_1_a_var.html#abd01838134cca1f0a4e6b72ef07178f3',1,'lala::AVar::AVar()'],['../classlala_1_1_a_var.html#a248d83da4a41de2cea02f756ad5b8b3d',1,'lala::AVar::AVar(const AVar &amp;)=default'],['../classlala_1_1_a_var.html#ac1fb3854752bc8598e1bcdf529745127',1,'lala::AVar::AVar(AVar &amp;&amp;)=default'],['../classlala_1_1_a_var.html#a4c6686386e47fb2a2b84c52e43f889c3',1,'lala::AVar::AVar(AType atype, int var_id)'],['../classlala_1_1_a_var.html#a1a085366b5503918f175bdea85729dff',1,'lala::AVar::AVar(AType atype, size_t var_id)']]],
+  ['avar2lvar_5fsnap_32',['avar2lvar_snap',['../structlala_1_1_var_env_1_1snapshot__type.html#a501b047cf39140df5470bf30e9afc823',1,'lala::VarEnv::snapshot_type']]],
+  ['avar_5fof_33',['avar_of',['../structlala_1_1_variable.html#a1de5042cce0d0acdc5b8087a00d76e07',1,'lala::Variable']]],
+  ['avars_34',['avars',['../structlala_1_1_variable.html#ae3b764b23836ed89a5662320f3ddaf07',1,'lala::Variable']]]
 ];

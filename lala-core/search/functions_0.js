@@ -1,7 +1,7 @@
 var searchData=
 [
   ['abs_0',['abs',['../classlala_1_1_interval.html#a1ba56cfcc9fc23f77dc1b310f953bfe6',1,'lala::Interval::abs()'],['../classlala_1_1_n_bitset.html#a844736451b32ad9c0314c617f88e2854',1,'lala::NBitset::abs()']]],
-  ['abstractdeps_1',['AbstractDeps',['../classlala_1_1_abstract_deps.html#ae8123e936e8ea2a35f48badb34327110',1,'lala::AbstractDeps']]],
+  ['abstractdeps_1',['AbstractDeps',['../classlala_1_1_abstract_deps.html#a1dd031885fe3bd0b3dd8a99f4562123d',1,'lala::AbstractDeps::AbstractDeps(bool shared_copy, const Allocators &amp;... allocators)'],['../classlala_1_1_abstract_deps.html#ae8123e936e8ea2a35f48badb34327110',1,'lala::AbstractDeps::AbstractDeps(const Allocators &amp;... allocators)']]],
   ['add_2',['add',['../classlala_1_1_interval.html#a929dcc5e31c37f5a1c965d9db01ac321',1,'lala::Interval']]],
   ['add_5fsuberror_3',['add_suberror',['../classlala_1_1_i_diagnostics.html#af5ccaae74fd269c651888c074dad3af6',1,'lala::IDiagnostics']]],
   ['additive_5finverse_4',['additive_inverse',['../classlala_1_1_interval.html#a077febb4c689e538ca466583d25fe37d',1,'lala::Interval::additive_inverse()'],['../classlala_1_1_n_bitset.html#aa677542377ee38bb4b114ead96d75f95',1,'lala::NBitset::additive_inverse()']]],

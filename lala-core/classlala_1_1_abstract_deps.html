@@ -118,10 +118,14 @@ Public Types</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a1dd031885fe3bd0b3dd8a99f4562123d" id="r_a1dd031885fe3bd0b3dd8a99f4562123d"><td class="memItemLeft" align="right" valign="top">CUDA&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1dd031885fe3bd0b3dd8a99f4562123d">AbstractDeps</a> (bool shared_copy, const Allocators &amp;... allocators)</td></tr>
+<tr class="separator:a1dd031885fe3bd0b3dd8a99f4562123d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae8123e936e8ea2a35f48badb34327110" id="r_ae8123e936e8ea2a35f48badb34327110"><td class="memItemLeft" align="right" valign="top">CUDA&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae8123e936e8ea2a35f48badb34327110">AbstractDeps</a> (const Allocators &amp;... allocators)</td></tr>
 <tr class="separator:ae8123e936e8ea2a35f48badb34327110"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8eec2727ded3a2134e205e948b7ebe29" id="r_a8eec2727ded3a2134e205e948b7ebe29"><td class="memItemLeft" align="right" valign="top">CUDA size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8eec2727ded3a2134e205e948b7ebe29">size</a> () const</td></tr>
 <tr class="separator:a8eec2727ded3a2134e205e948b7ebe29"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a97ae32eb0a88a4a951958ae2363218e3" id="r_a97ae32eb0a88a4a951958ae2363218e3"><td class="memItemLeft" align="right" valign="top">CUDA bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a97ae32eb0a88a4a951958ae2363218e3">is_shared_copy</a> () const</td></tr>
+<tr class="separator:a97ae32eb0a88a4a951958ae2363218e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a23ca182b6e553ae09e5acd7f39400b47" id="r_a23ca182b6e553ae09e5acd7f39400b47"><td class="memTemplParams" colspan="2">template&lt;class A &gt; </td></tr>
 <tr class="memitem:a23ca182b6e553ae09e5acd7f39400b47"><td class="memTemplItemLeft" align="right" valign="top">CUDA <a class="el" href="namespacelala.html#a91627a807540978fdae230d4457d6805">abstract_ptr</a>&lt; A &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a23ca182b6e553ae09e5acd7f39400b47">extract</a> (<a class="el" href="namespacelala.html#a2b9e4be0630d656d38a75c914de03c40">AType</a> aty)</td></tr>
 <tr class="separator:a23ca182b6e553ae09e5acd7f39400b47"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -175,8 +179,39 @@ template&lt;class... Allocators&gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a1dd031885fe3bd0b3dd8a99f4562123d" name="a1dd031885fe3bd0b3dd8a99f4562123d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1dd031885fe3bd0b3dd8a99f4562123d">&#9670;&#160;</a></span>AbstractDeps() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class... Allocators&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">CUDA <a class="el" href="classlala_1_1_abstract_deps.html">lala::AbstractDeps</a>&lt; Allocators &gt;::AbstractDeps </td>
+          <td>(</td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>shared_copy</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Allocators &amp;...</td>          <td class="paramname"><span class="paramname"><em>allocators</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="ae8123e936e8ea2a35f48badb34327110" name="ae8123e936e8ea2a35f48badb34327110"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae8123e936e8ea2a35f48badb34327110">&#9670;&#160;</a></span>AbstractDeps()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ae8123e936e8ea2a35f48badb34327110">&#9670;&#160;</a></span>AbstractDeps() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -216,6 +251,33 @@ template&lt;class... Allocators&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">CUDA size_t <a class="el" href="classlala_1_1_abstract_deps.html">lala::AbstractDeps</a>&lt; Allocators &gt;::size </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a97ae32eb0a88a4a951958ae2363218e3" name="a97ae32eb0a88a4a951958ae2363218e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a97ae32eb0a88a4a951958ae2363218e3">&#9670;&#160;</a></span>is_shared_copy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class... Allocators&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">CUDA bool <a class="el" href="classlala_1_1_abstract_deps.html">lala::AbstractDeps</a>&lt; Allocators &gt;::is_shared_copy </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"></span></td><td>)</td>
           <td> const</td>

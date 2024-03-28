@@ -157,77 +157,96 @@ $(function(){initNavTree('abstract__deps_8hpp_source.html',''); initResizable();
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>  <a class="code hl_typedef" href="classlala_1_1_abstract_deps.html#af4eb988b26cbd136e33153ab988bc143">allocators_type</a> allocators;</div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>  battery::vector&lt;battery::unique_ptr&lt;dep_erasure, allocator_type&gt;, <a class="code hl_typedef" href="classlala_1_1_abstract_deps.html#a346af0162fea2970adbac5a026f1f296">allocator_type</a>&gt; deps;</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="keyword">public</span>:</div>
-<div class="foldopen" id="foldopen00052" data-start="{" data-end="}">
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="classlala_1_1_abstract_deps.html#ae8123e936e8ea2a35f48badb34327110">   52</a></span>  CUDA <a class="code hl_function" href="classlala_1_1_abstract_deps.html#ae8123e936e8ea2a35f48badb34327110">AbstractDeps</a>(<span class="keyword">const</span> Allocators&amp;... allocators)</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>  : allocators(allocators...)</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>  , deps(<a class="code hl_namespace" href="namespacebattery.html">battery</a>::get&lt;0&gt;(this-&gt;allocators))</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>  {}</div>
-</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="comment"></span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="comment">  /** If the hierarchy to be copied is the root of the search tree, the children can share some elements with the root.</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="comment">   * For instance, this is the case of propagators in `PC`.</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="comment">   * This enables to share data among GPU blocks to avoid duplicating similar data, and to ease the contention on L2 cache. */</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>  <span class="keywordtype">bool</span> shared_copy;</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="keyword">public</span>:</div>
 <div class="foldopen" id="foldopen00057" data-start="{" data-end="}">
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="classlala_1_1_abstract_deps.html#a8eec2727ded3a2134e205e948b7ebe29">   57</a></span>  CUDA <span class="keywordtype">size_t</span> <a class="code hl_function" href="classlala_1_1_abstract_deps.html#a8eec2727ded3a2134e205e948b7ebe29">size</a>()<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="keywordflow">return</span> deps.size();</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>  }</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="classlala_1_1_abstract_deps.html#a1dd031885fe3bd0b3dd8a99f4562123d">   57</a></span>  CUDA <a class="code hl_function" href="classlala_1_1_abstract_deps.html#a1dd031885fe3bd0b3dd8a99f4562123d">AbstractDeps</a>(<span class="keywordtype">bool</span> shared_copy, <span class="keyword">const</span> Allocators&amp;... allocators)</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>  : shared_copy(shared_copy)</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>  , allocators(allocators...)</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>  , deps(<a class="code hl_namespace" href="namespacebattery.html">battery</a>::get&lt;0&gt;(this-&gt;allocators))</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>  {}</div>
 </div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>  <span class="keyword">template</span>&lt;<span class="keyword">class</span> A&gt;</div>
-<div class="foldopen" id="foldopen00062" data-start="{" data-end="}">
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="classlala_1_1_abstract_deps.html#a23ca182b6e553ae09e5acd7f39400b47">   62</a></span>  CUDA <a class="code hl_typedef" href="namespacelala.html#a91627a807540978fdae230d4457d6805">abstract_ptr&lt;A&gt;</a> <a class="code hl_function" href="classlala_1_1_abstract_deps.html#a23ca182b6e553ae09e5acd7f39400b47">extract</a>(<a class="code hl_typedef" href="namespacelala.html#a2b9e4be0630d656d38a75c914de03c40">AType</a> aty) {</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    assert(aty != <a class="code hl_define" href="sort_8hpp.html#af5d67e1d1856b2c01653a0f9ab95d391">UNTYPED</a>);</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    assert(deps.size() &gt; aty);</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    assert(deps[aty]);</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>dep_holder&lt;A&gt;*<span class="keyword">&gt;</span>(deps[aty].get())-&gt;a;</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>  }</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="foldopen" id="foldopen00063" data-start="{" data-end="}">
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="classlala_1_1_abstract_deps.html#ae8123e936e8ea2a35f48badb34327110">   63</a></span>  CUDA <a class="code hl_function" href="classlala_1_1_abstract_deps.html#ae8123e936e8ea2a35f48badb34327110">AbstractDeps</a>(<span class="keyword">const</span> Allocators&amp;... allocators)</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>  : <a class="code hl_class" href="classlala_1_1_abstract_deps.html">AbstractDeps</a>(false, allocators...) {}</div>
 </div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>  <span class="keyword">template</span>&lt;<span class="keyword">class</span> A2, <span class="keyword">class</span> A&gt;</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="foldopen" id="foldopen00066" data-start="{" data-end="}">
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="classlala_1_1_abstract_deps.html#a8eec2727ded3a2134e205e948b7ebe29">   66</a></span>  CUDA <span class="keywordtype">size_t</span> <a class="code hl_function" href="classlala_1_1_abstract_deps.html#a8eec2727ded3a2134e205e948b7ebe29">size</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <span class="keywordflow">return</span> deps.size();</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>  }</div>
+</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
 <div class="foldopen" id="foldopen00070" data-start="{" data-end="}">
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="classlala_1_1_abstract_deps.html#a821ca88cdf291f9fe6d42458175ee24d">   70</a></span>  CUDA NI <a class="code hl_typedef" href="namespacelala.html#a91627a807540978fdae230d4457d6805">abstract_ptr&lt;A2&gt;</a> <a class="code hl_function" href="classlala_1_1_abstract_deps.html#a821ca88cdf291f9fe6d42458175ee24d">clone</a>(<span class="keyword">const</span> <a class="code hl_typedef" href="namespacelala.html#a91627a807540978fdae230d4457d6805">abstract_ptr&lt;A&gt;</a>&amp; a)</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>  {</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <span class="keyword">auto</span> to_alloc = battery::get&lt;typename A2::allocator_type&gt;(allocators);</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <span class="keywordflow">if</span>(!a) {</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>      <span class="keywordflow">return</span> <a class="code hl_typedef" href="namespacelala.html#a91627a807540978fdae230d4457d6805">abstract_ptr&lt;A2&gt;</a>{to_alloc};</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    }</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    assert(a-&gt;aty() != <a class="code hl_define" href="sort_8hpp.html#af5d67e1d1856b2c01653a0f9ab95d391">UNTYPED</a>); <span class="comment">// Abstract domain must all have a unique identifier to be copied.</span></div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    <span class="comment">// If the dependency is not in the list, we copy it and add it.</span></div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <span class="keywordflow">if</span>(deps.size() &lt;= a-&gt;aty() || !<span class="keyword">static_cast&lt;</span><span class="keywordtype">bool</span><span class="keyword">&gt;</span>(deps[a-&gt;aty()])) {</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>      deps.resize(battery::max((<span class="keywordtype">int</span>)deps.size(), a-&gt;aty()+1));</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>      <a class="code hl_typedef" href="classlala_1_1_abstract_deps.html#a346af0162fea2970adbac5a026f1f296">allocator_type</a> internal_alloc = battery::get&lt;0&gt;(allocators);</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>      A2* a2 = <span class="keyword">static_cast&lt;</span>A2*<span class="keyword">&gt;</span>(to_alloc.allocate(<span class="keyword">sizeof</span>(A2)));</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>      <span class="keyword">new</span>(a2) A2(*a, *<span class="keyword">this</span>);</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>      dep_holder&lt;A2&gt;* dep_hold = <span class="keyword">static_cast&lt;</span>dep_holder&lt;A2&gt;*<span class="keyword">&gt;</span>(internal_alloc.allocate(<span class="keyword">sizeof</span>(dep_holder&lt;A2&gt;)));</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>      <span class="keyword">new</span>(dep_hold) dep_holder&lt;A2&gt;(a2);</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>      deps[a-&gt;aty()] = battery::unique_ptr&lt;dep_erasure, allocator_type&gt;(</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        dep_hold, internal_alloc);</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>      <span class="comment">// NOTE: Since we are copying a DAG, `A(*a, *this)` or one of its dependency cannot create `deps[a-&gt;aty()]`.</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="classlala_1_1_abstract_deps.html#a97ae32eb0a88a4a951958ae2363218e3">   70</a></span>  CUDA <span class="keywordtype">bool</span> <a class="code hl_function" href="classlala_1_1_abstract_deps.html#a97ae32eb0a88a4a951958ae2363218e3">is_shared_copy</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <span class="keywordflow">return</span> shared_copy;</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>  }</div>
+</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>  <span class="keyword">template</span>&lt;<span class="keyword">class</span> A&gt;</div>
+<div class="foldopen" id="foldopen00075" data-start="{" data-end="}">
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="classlala_1_1_abstract_deps.html#a23ca182b6e553ae09e5acd7f39400b47">   75</a></span>  CUDA <a class="code hl_typedef" href="namespacelala.html#a91627a807540978fdae230d4457d6805">abstract_ptr&lt;A&gt;</a> <a class="code hl_function" href="classlala_1_1_abstract_deps.html#a23ca182b6e553ae09e5acd7f39400b47">extract</a>(<a class="code hl_typedef" href="namespacelala.html#a2b9e4be0630d656d38a75c914de03c40">AType</a> aty) {</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    assert(aty != <a class="code hl_define" href="sort_8hpp.html#af5d67e1d1856b2c01653a0f9ab95d391">UNTYPED</a>);</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    assert(deps.size() &gt; aty);</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    assert(deps[aty]);</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>dep_holder&lt;A&gt;*<span class="keyword">&gt;</span>(deps[aty].get())-&gt;a;</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>  }</div>
+</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>  <span class="keyword">template</span>&lt;<span class="keyword">class</span> A2, <span class="keyword">class</span> A&gt;</div>
+<div class="foldopen" id="foldopen00083" data-start="{" data-end="}">
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno"><a class="line" href="classlala_1_1_abstract_deps.html#a821ca88cdf291f9fe6d42458175ee24d">   83</a></span>  CUDA NI <a class="code hl_typedef" href="namespacelala.html#a91627a807540978fdae230d4457d6805">abstract_ptr&lt;A2&gt;</a> <a class="code hl_function" href="classlala_1_1_abstract_deps.html#a821ca88cdf291f9fe6d42458175ee24d">clone</a>(<span class="keyword">const</span> <a class="code hl_typedef" href="namespacelala.html#a91627a807540978fdae230d4457d6805">abstract_ptr&lt;A&gt;</a>&amp; a)</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>  {</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <span class="keyword">auto</span> to_alloc = battery::get&lt;typename A2::allocator_type&gt;(allocators);</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    <span class="keywordflow">if</span>(!a) {</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>      <span class="keywordflow">return</span> <a class="code hl_typedef" href="namespacelala.html#a91627a807540978fdae230d4457d6805">abstract_ptr&lt;A2&gt;</a>{to_alloc};</div>
 <div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    }</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    <span class="keywordflow">return</span> extract&lt;A2&gt;(a-&gt;aty());</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>  }</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    assert(a-&gt;aty() != <a class="code hl_define" href="sort_8hpp.html#af5d67e1d1856b2c01653a0f9ab95d391">UNTYPED</a>); <span class="comment">// Abstract domain must all have a unique identifier to be copied.</span></div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <span class="comment">// If the dependency is not in the list, we copy it and add it.</span></div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    <span class="keywordflow">if</span>(deps.size() &lt;= a-&gt;aty() || !<span class="keyword">static_cast&lt;</span><span class="keywordtype">bool</span><span class="keyword">&gt;</span>(deps[a-&gt;aty()])) {</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>      deps.resize(battery::max((<span class="keywordtype">int</span>)deps.size(), a-&gt;aty()+1));</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>      <a class="code hl_typedef" href="classlala_1_1_abstract_deps.html#a346af0162fea2970adbac5a026f1f296">allocator_type</a> internal_alloc = battery::get&lt;0&gt;(allocators);</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>      A2* a2 = <span class="keyword">static_cast&lt;</span>A2*<span class="keyword">&gt;</span>(to_alloc.allocate(<span class="keyword">sizeof</span>(A2)));</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>      <span class="keyword">new</span>(a2) A2(*a, *<span class="keyword">this</span>);</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>      dep_holder&lt;A2&gt;* dep_hold = <span class="keyword">static_cast&lt;</span>dep_holder&lt;A2&gt;*<span class="keyword">&gt;</span>(internal_alloc.allocate(<span class="keyword">sizeof</span>(dep_holder&lt;A2&gt;)));</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>      <span class="keyword">new</span>(dep_hold) dep_holder&lt;A2&gt;(a2);</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>      deps[a-&gt;aty()] = battery::unique_ptr&lt;dep_erasure, allocator_type&gt;(</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>        dep_hold, internal_alloc);</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>      <span class="comment">// NOTE: Since we are copying a DAG, `A(*a, *this)` or one of its dependency cannot create `deps[a-&gt;aty()]`.</span></div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    }</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    <span class="keywordflow">return</span> extract&lt;A2&gt;(a-&gt;aty());</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>  }</div>
 </div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>  <span class="keyword">template</span> &lt;<span class="keyword">class</span> Alloc&gt;</div>
-<div class="foldopen" id="foldopen00093" data-start="{" data-end="}">
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno"><a class="line" href="classlala_1_1_abstract_deps.html#a10114e224184a0a46a3c7d9232a34594">   93</a></span>  CUDA Alloc <a class="code hl_function" href="classlala_1_1_abstract_deps.html#a10114e224184a0a46a3c7d9232a34594">get_allocator</a>()<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    <span class="keywordflow">return</span> battery::get&lt;Alloc&gt;(allocators);</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>  }</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>  <span class="keyword">template</span> &lt;<span class="keyword">class</span> Alloc&gt;</div>
+<div class="foldopen" id="foldopen00106" data-start="{" data-end="}">
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno"><a class="line" href="classlala_1_1_abstract_deps.html#a10114e224184a0a46a3c7d9232a34594">  106</a></span>  CUDA Alloc <a class="code hl_function" href="classlala_1_1_abstract_deps.html#a10114e224184a0a46a3c7d9232a34594">get_allocator</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    <span class="keywordflow">return</span> battery::get&lt;Alloc&gt;(allocators);</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>  }</div>
 </div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>};</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>};</div>
 </div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>}</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>}</div>
 </div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aast_8hpp_html"><div class="ttname"><a href="ast_8hpp.html">ast.hpp</a></div></div>
 <div class="ttc" id="aclasslala_1_1_abstract_deps_html"><div class="ttname"><a href="classlala_1_1_abstract_deps.html">lala::AbstractDeps</a></div><div class="ttdef"><b>Definition</b> abstract_deps.hpp:28</div></div>
-<div class="ttc" id="aclasslala_1_1_abstract_deps_html_a10114e224184a0a46a3c7d9232a34594"><div class="ttname"><a href="classlala_1_1_abstract_deps.html#a10114e224184a0a46a3c7d9232a34594">lala::AbstractDeps::get_allocator</a></div><div class="ttdeci">CUDA Alloc get_allocator() const</div><div class="ttdef"><b>Definition</b> abstract_deps.hpp:93</div></div>
-<div class="ttc" id="aclasslala_1_1_abstract_deps_html_a23ca182b6e553ae09e5acd7f39400b47"><div class="ttname"><a href="classlala_1_1_abstract_deps.html#a23ca182b6e553ae09e5acd7f39400b47">lala::AbstractDeps::extract</a></div><div class="ttdeci">CUDA abstract_ptr&lt; A &gt; extract(AType aty)</div><div class="ttdef"><b>Definition</b> abstract_deps.hpp:62</div></div>
+<div class="ttc" id="aclasslala_1_1_abstract_deps_html_a10114e224184a0a46a3c7d9232a34594"><div class="ttname"><a href="classlala_1_1_abstract_deps.html#a10114e224184a0a46a3c7d9232a34594">lala::AbstractDeps::get_allocator</a></div><div class="ttdeci">CUDA Alloc get_allocator() const</div><div class="ttdef"><b>Definition</b> abstract_deps.hpp:106</div></div>
+<div class="ttc" id="aclasslala_1_1_abstract_deps_html_a1dd031885fe3bd0b3dd8a99f4562123d"><div class="ttname"><a href="classlala_1_1_abstract_deps.html#a1dd031885fe3bd0b3dd8a99f4562123d">lala::AbstractDeps::AbstractDeps</a></div><div class="ttdeci">CUDA AbstractDeps(bool shared_copy, const Allocators &amp;... allocators)</div><div class="ttdef"><b>Definition</b> abstract_deps.hpp:57</div></div>
+<div class="ttc" id="aclasslala_1_1_abstract_deps_html_a23ca182b6e553ae09e5acd7f39400b47"><div class="ttname"><a href="classlala_1_1_abstract_deps.html#a23ca182b6e553ae09e5acd7f39400b47">lala::AbstractDeps::extract</a></div><div class="ttdeci">CUDA abstract_ptr&lt; A &gt; extract(AType aty)</div><div class="ttdef"><b>Definition</b> abstract_deps.hpp:75</div></div>
 <div class="ttc" id="aclasslala_1_1_abstract_deps_html_a346af0162fea2970adbac5a026f1f296"><div class="ttname"><a href="classlala_1_1_abstract_deps.html#a346af0162fea2970adbac5a026f1f296">lala::AbstractDeps::allocator_type</a></div><div class="ttdeci">typename battery::tuple_element&lt; 0, battery::tuple&lt; Allocators... &gt; &gt;::type allocator_type</div><div class="ttdef"><b>Definition</b> abstract_deps.hpp:34</div></div>
-<div class="ttc" id="aclasslala_1_1_abstract_deps_html_a821ca88cdf291f9fe6d42458175ee24d"><div class="ttname"><a href="classlala_1_1_abstract_deps.html#a821ca88cdf291f9fe6d42458175ee24d">lala::AbstractDeps::clone</a></div><div class="ttdeci">CUDA NI abstract_ptr&lt; A2 &gt; clone(const abstract_ptr&lt; A &gt; &amp;a)</div><div class="ttdef"><b>Definition</b> abstract_deps.hpp:70</div></div>
-<div class="ttc" id="aclasslala_1_1_abstract_deps_html_a8eec2727ded3a2134e205e948b7ebe29"><div class="ttname"><a href="classlala_1_1_abstract_deps.html#a8eec2727ded3a2134e205e948b7ebe29">lala::AbstractDeps::size</a></div><div class="ttdeci">CUDA size_t size() const</div><div class="ttdef"><b>Definition</b> abstract_deps.hpp:57</div></div>
-<div class="ttc" id="aclasslala_1_1_abstract_deps_html_ae8123e936e8ea2a35f48badb34327110"><div class="ttname"><a href="classlala_1_1_abstract_deps.html#ae8123e936e8ea2a35f48badb34327110">lala::AbstractDeps::AbstractDeps</a></div><div class="ttdeci">CUDA AbstractDeps(const Allocators &amp;... allocators)</div><div class="ttdef"><b>Definition</b> abstract_deps.hpp:52</div></div>
+<div class="ttc" id="aclasslala_1_1_abstract_deps_html_a821ca88cdf291f9fe6d42458175ee24d"><div class="ttname"><a href="classlala_1_1_abstract_deps.html#a821ca88cdf291f9fe6d42458175ee24d">lala::AbstractDeps::clone</a></div><div class="ttdeci">CUDA NI abstract_ptr&lt; A2 &gt; clone(const abstract_ptr&lt; A &gt; &amp;a)</div><div class="ttdef"><b>Definition</b> abstract_deps.hpp:83</div></div>
+<div class="ttc" id="aclasslala_1_1_abstract_deps_html_a8eec2727ded3a2134e205e948b7ebe29"><div class="ttname"><a href="classlala_1_1_abstract_deps.html#a8eec2727ded3a2134e205e948b7ebe29">lala::AbstractDeps::size</a></div><div class="ttdeci">CUDA size_t size() const</div><div class="ttdef"><b>Definition</b> abstract_deps.hpp:66</div></div>
+<div class="ttc" id="aclasslala_1_1_abstract_deps_html_a97ae32eb0a88a4a951958ae2363218e3"><div class="ttname"><a href="classlala_1_1_abstract_deps.html#a97ae32eb0a88a4a951958ae2363218e3">lala::AbstractDeps::is_shared_copy</a></div><div class="ttdeci">CUDA bool is_shared_copy() const</div><div class="ttdef"><b>Definition</b> abstract_deps.hpp:70</div></div>
+<div class="ttc" id="aclasslala_1_1_abstract_deps_html_ae8123e936e8ea2a35f48badb34327110"><div class="ttname"><a href="classlala_1_1_abstract_deps.html#ae8123e936e8ea2a35f48badb34327110">lala::AbstractDeps::AbstractDeps</a></div><div class="ttdeci">CUDA AbstractDeps(const Allocators &amp;... allocators)</div><div class="ttdef"><b>Definition</b> abstract_deps.hpp:63</div></div>
 <div class="ttc" id="aclasslala_1_1_abstract_deps_html_af4eb988b26cbd136e33153ab988bc143"><div class="ttname"><a href="classlala_1_1_abstract_deps.html#af4eb988b26cbd136e33153ab988bc143">lala::AbstractDeps::allocators_type</a></div><div class="ttdeci">battery::tuple&lt; Allocators... &gt; allocators_type</div><div class="ttdef"><b>Definition</b> abstract_deps.hpp:33</div></div>
 <div class="ttc" id="aclasslala_1_1_abstract_deps_html_afcad846bdb3072170a83d70ee85f97cf"><div class="ttname"><a href="classlala_1_1_abstract_deps.html#afcad846bdb3072170a83d70ee85f97cf">lala::AbstractDeps::n</a></div><div class="ttdeci">static constexpr size_t n</div><div class="ttdef"><b>Definition</b> abstract_deps.hpp:30</div></div>
 <div class="ttc" id="anamespacebattery_html"><div class="ttname"><a href="namespacebattery.html">battery</a></div><div class="ttdef"><b>Definition</b> ast.hpp:210</div></div>

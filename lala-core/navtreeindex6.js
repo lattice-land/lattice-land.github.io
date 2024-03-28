@@ -1,5 +1,9 @@
 var NAVTREEINDEX6 =
 {
+"structlala_1_1_variable.html#a1de5042cce0d0acdc5b8087a00d76e07":[0,0,1,27,6],
+"structlala_1_1_variable.html#a1de5042cce0d0acdc5b8087a00d76e07":[1,0,0,26,6],
+"structlala_1_1_variable.html#a3c733530c5d5304b264473f1a4646651":[1,0,0,26,4],
+"structlala_1_1_variable.html#a3c733530c5d5304b264473f1a4646651":[0,0,1,27,4],
 "structlala_1_1_variable.html#a8089b36c2570cea7c4ced6895fdfd893":[0,0,1,27,5],
 "structlala_1_1_variable.html#a8089b36c2570cea7c4ced6895fdfd893":[1,0,0,26,5],
 "structlala_1_1_variable.html#a80ff406a0ed6e23c941a385743abd7b1":[1,0,0,26,3],
