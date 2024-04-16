@@ -299,7 +299,7 @@ $(function(){initNavTree('utility_8hpp_source.html',''); initResizable(); });
 <div class="foldopen" id="foldopen00175" data-start="{" data-end="};">
 <div class="line"><a id="l00175" name="l00175"></a><span class="lineno"><a class="line" href="structbattery_1_1limits.html">  175</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structbattery_1_1limits.html">limits</a> {</div>
 <div class="foldopen" id="foldopen00176" data-start="{" data-end="}">
-<div class="line"><a id="l00176" name="l00176"></a><span class="lineno"><a class="line" href="structbattery_1_1limits.html#ab00a3dc953a5582e4db58dfc0cc47b70">  176</a></span>  <span class="keyword">static</span> <span class="keyword">constexpr</span> T <a class="code hl_function" href="structbattery_1_1limits.html#ab00a3dc953a5582e4db58dfc0cc47b70">bot</a>() {</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno"><a class="line" href="structbattery_1_1limits.html#a68662a9c236633884d1a2ba9d7af8e4f">  176</a></span>  <span class="keyword">static</span> <span class="keyword">constexpr</span> T <a class="code hl_function" href="structbattery_1_1limits.html#a68662a9c236633884d1a2ba9d7af8e4f">neg_inf</a>() {</div>
 <div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>    <span class="keywordflow">if</span> <span class="keyword">constexpr</span> (std::is_floating_point&lt;T&gt;()) {</div>
 <div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>      <span class="keywordflow">return</span> -std::numeric_limits&lt;T&gt;::infinity();</div>
 <div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>    }</div>
@@ -307,7 +307,7 @@ $(function(){initNavTree('utility_8hpp_source.html',''); initResizable(); });
 <div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>  }</div>
 </div>
 <div class="foldopen" id="foldopen00182" data-start="{" data-end="}">
-<div class="line"><a id="l00182" name="l00182"></a><span class="lineno"><a class="line" href="structbattery_1_1limits.html#a925f7147114769421b1b75eda6b6bcd2">  182</a></span>  <span class="keyword">static</span> <span class="keyword">constexpr</span> T <a class="code hl_function" href="structbattery_1_1limits.html#a925f7147114769421b1b75eda6b6bcd2">top</a>() {</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno"><a class="line" href="structbattery_1_1limits.html#ad8762a129927ff4a2b688bd1ba9f4d58">  182</a></span>  <span class="keyword">static</span> <span class="keyword">constexpr</span> T <a class="code hl_function" href="structbattery_1_1limits.html#ad8762a129927ff4a2b688bd1ba9f4d58">inf</a>() {</div>
 <div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>    <span class="keywordflow">if</span> <span class="keyword">constexpr</span> (std::is_floating_point&lt;T&gt;()) {</div>
 <div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>      <span class="keywordflow">return</span> std::numeric_limits&lt;T&gt;::infinity();</div>
 <div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>    }</div>
@@ -319,11 +319,11 @@ $(function(){initNavTree('utility_8hpp_source.html',''); initResizable(); });
 <div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span> </div>
 <div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span><span class="preprocessor">#define MAP_LIMITS(x, From, To) \</span></div>
 <div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span><span class="preprocessor">  if(x == 0) { return 0; } \</span></div>
-<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span><span class="preprocessor">  if(x == limits&lt;From&gt;::bot()) {\</span></div>
-<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span><span class="preprocessor">    return limits&lt;To&gt;::bot();   \</span></div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span><span class="preprocessor">  if(x == limits&lt;From&gt;::neg_inf()) {\</span></div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span><span class="preprocessor">    return limits&lt;To&gt;::neg_inf();   \</span></div>
 <div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span><span class="preprocessor">  }                             \</span></div>
-<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span><span class="preprocessor">  if(x == limits&lt;From&gt;::top()) {\</span></div>
-<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span><span class="preprocessor">    return limits&lt;To&gt;::top();   \</span></div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span><span class="preprocessor">  if(x == limits&lt;From&gt;::inf()) {\</span></div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span><span class="preprocessor">    return limits&lt;To&gt;::inf();   \</span></div>
 <div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span><span class="preprocessor">  }</span></div>
 <div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span><span class="comment"></span> </div>
 <div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span><span class="comment">/** Cast the variable `x` from type `From` to type `To` following upper rounding rule (cast in the direction of infinity).</span></div>
@@ -940,8 +940,8 @@ $(function(){initNavTree('utility_8hpp_source.html',''); initResizable(); });
 <div class="ttc" id="anamespacebattery_html_aef4bce5334d65b518b926687da59fe47"><div class="ttname"><a href="namespacebattery.html#aef4bce5334d65b518b926687da59fe47">battery::ipow</a></div><div class="ttdeci">CUDA NI constexpr T ipow(T a, T b)</div><div class="ttdef"><b>Definition</b> utility.hpp:520</div></div>
 <div class="ttc" id="anamespacebattery_html_afcd66af23b18a2a96fe8b1c1be0240a5"><div class="ttname"><a href="namespacebattery.html#afcd66af23b18a2a96fe8b1c1be0240a5">battery::cdiv</a></div><div class="ttdeci">CUDA constexpr T cdiv(T x, T y)</div><div class="ttdef"><b>Definition</b> utility.hpp:680</div></div>
 <div class="ttc" id="astructbattery_1_1limits_html"><div class="ttname"><a href="structbattery_1_1limits.html">battery::limits</a></div><div class="ttdef"><b>Definition</b> utility.hpp:175</div></div>
-<div class="ttc" id="astructbattery_1_1limits_html_a925f7147114769421b1b75eda6b6bcd2"><div class="ttname"><a href="structbattery_1_1limits.html#a925f7147114769421b1b75eda6b6bcd2">battery::limits::top</a></div><div class="ttdeci">static constexpr T top()</div><div class="ttdef"><b>Definition</b> utility.hpp:182</div></div>
-<div class="ttc" id="astructbattery_1_1limits_html_ab00a3dc953a5582e4db58dfc0cc47b70"><div class="ttname"><a href="structbattery_1_1limits.html#ab00a3dc953a5582e4db58dfc0cc47b70">battery::limits::bot</a></div><div class="ttdeci">static constexpr T bot()</div><div class="ttdef"><b>Definition</b> utility.hpp:176</div></div>
+<div class="ttc" id="astructbattery_1_1limits_html_a68662a9c236633884d1a2ba9d7af8e4f"><div class="ttname"><a href="structbattery_1_1limits.html#a68662a9c236633884d1a2ba9d7af8e4f">battery::limits::neg_inf</a></div><div class="ttdeci">static constexpr T neg_inf()</div><div class="ttdef"><b>Definition</b> utility.hpp:176</div></div>
+<div class="ttc" id="astructbattery_1_1limits_html_ad8762a129927ff4a2b688bd1ba9f4d58"><div class="ttname"><a href="structbattery_1_1limits.html#ad8762a129927ff4a2b688bd1ba9f4d58">battery::limits::inf</a></div><div class="ttdeci">static constexpr T inf()</div><div class="ttdef"><b>Definition</b> utility.hpp:182</div></div>
 <div class="ttc" id="autility_8hpp_html_a349736e1a667f8fd24cf653ab5ffc12c"><div class="ttname"><a href="utility_8hpp.html#a349736e1a667f8fd24cf653ab5ffc12c">CONSTEXPR_NEXTAFTER</a></div><div class="ttdeci">#define CONSTEXPR_NEXTAFTER</div><div class="ttdef"><b>Definition</b> utility.hpp:150</div></div>
 <div class="ttc" id="autility_8hpp_html_a7b01e29f669d6beed251f1b2a547ca93"><div class="ttname"><a href="utility_8hpp.html#a7b01e29f669d6beed251f1b2a547ca93">CUDA</a></div><div class="ttdeci">#define CUDA</div><div class="ttdef"><b>Definition</b> utility.hpp:59</div></div>
 <div class="ttc" id="autility_8hpp_html_a860bedb684529775463fa3a6cb467efa"><div class="ttname"><a href="utility_8hpp.html#a860bedb684529775463fa3a6cb467efa">NI</a></div><div class="ttdeci">#define NI</div><div class="ttdef"><b>Definition</b> utility.hpp:62</div></div>

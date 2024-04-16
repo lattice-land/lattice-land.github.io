@@ -109,17 +109,17 @@ $(function(){initNavTree('structbattery_1_1limits.html',''); initResizable(); })
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:ab00a3dc953a5582e4db58dfc0cc47b70" id="r_ab00a3dc953a5582e4db58dfc0cc47b70"><td class="memItemLeft" align="right" valign="top">static constexpr T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab00a3dc953a5582e4db58dfc0cc47b70">bot</a> ()</td></tr>
-<tr class="separator:ab00a3dc953a5582e4db58dfc0cc47b70"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a925f7147114769421b1b75eda6b6bcd2" id="r_a925f7147114769421b1b75eda6b6bcd2"><td class="memItemLeft" align="right" valign="top">static constexpr T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a925f7147114769421b1b75eda6b6bcd2">top</a> ()</td></tr>
-<tr class="separator:a925f7147114769421b1b75eda6b6bcd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a68662a9c236633884d1a2ba9d7af8e4f" id="r_a68662a9c236633884d1a2ba9d7af8e4f"><td class="memItemLeft" align="right" valign="top">static constexpr T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a68662a9c236633884d1a2ba9d7af8e4f">neg_inf</a> ()</td></tr>
+<tr class="separator:a68662a9c236633884d1a2ba9d7af8e4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad8762a129927ff4a2b688bd1ba9f4d58" id="r_ad8762a129927ff4a2b688bd1ba9f4d58"><td class="memItemLeft" align="right" valign="top">static constexpr T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad8762a129927ff4a2b688bd1ba9f4d58">inf</a> ()</td></tr>
+<tr class="separator:ad8762a129927ff4a2b688bd1ba9f4d58"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;class T&gt;<br />
 struct battery::limits&lt; T &gt;</div><p><code>limits</code> is a structure to get "infinity points" of primitive types including integers. For floating-point numbers, we use their built-in representation of infinity. For integers, we use the minimal and maximal values of the underlying type to represent infinities. When converting using <code>ru_cast</code> and <code>rd_cast</code>, the infinities will be preserved across types. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="ab00a3dc953a5582e4db58dfc0cc47b70" name="ab00a3dc953a5582e4db58dfc0cc47b70"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab00a3dc953a5582e4db58dfc0cc47b70">&#9670;&#160;</a></span>bot()</h2>
+<a id="a68662a9c236633884d1a2ba9d7af8e4f" name="a68662a9c236633884d1a2ba9d7af8e4f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68662a9c236633884d1a2ba9d7af8e4f">&#9670;&#160;</a></span>neg_inf()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -130,7 +130,7 @@ template&lt;class T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static constexpr T <a class="el" href="structbattery_1_1limits.html">battery::limits</a>&lt; T &gt;::bot </td>
+          <td class="memname">static constexpr T <a class="el" href="structbattery_1_1limits.html">battery::limits</a>&lt; T &gt;::neg_inf </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"></span></td><td>)</td>
           <td></td>
@@ -145,8 +145,8 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
-<a id="a925f7147114769421b1b75eda6b6bcd2" name="a925f7147114769421b1b75eda6b6bcd2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a925f7147114769421b1b75eda6b6bcd2">&#9670;&#160;</a></span>top()</h2>
+<a id="ad8762a129927ff4a2b688bd1ba9f4d58" name="ad8762a129927ff4a2b688bd1ba9f4d58"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad8762a129927ff4a2b688bd1ba9f4d58">&#9670;&#160;</a></span>inf()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -157,7 +157,7 @@ template&lt;class T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static constexpr T <a class="el" href="structbattery_1_1limits.html">battery::limits</a>&lt; T &gt;::top </td>
+          <td class="memname">static constexpr T <a class="el" href="structbattery_1_1limits.html">battery::limits</a>&lt; T &gt;::inf </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"></span></td><td>)</td>
           <td></td>
