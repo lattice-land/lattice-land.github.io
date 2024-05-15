@@ -11,14 +11,18 @@
 - [Shared Memory Allocator](5-cuda-battery.md)
 - [Caution](6-cuda-battery.md)
 
-# Parallel Lattice Programming
+<!-- # Parallel Lattice Programming -->
 <!--
 * [Minimum Algorithm](minimum.md)
 * [Floyd-Warshall Algorithm](floyd-warshall.md) -->
 
-# Abstract Constraint Reasoning
+<!-- # Abstract Constraint Reasoning
 
-# Parallel Abstract Constraint Reasoning
+# Parallel Abstract Constraint Reasoning -->
+
+# Seminars
+
+* [Abstract Interpretation Workshop (2024)](abstract-week.md)
 
 # Turbo Technical Journal
 
