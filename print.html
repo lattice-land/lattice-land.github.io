@@ -435,16 +435,18 @@ We cannot even scratch the surface here, and this library does not provide much 
 Nevertheless, it is possible to write such algorithms in CUDA using <a href="https://nvidia.github.io/libcudacxx/extended_api/synchronization_primitives.html">atomics and synchronization primitives</a>.
 To use them well, I would advise to take a class (or <a href="https://arxiv.org/abs/1701.00854">read a book</a>) on parallel programming and memory consistency models.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="abstract-interpretation-workshop"><a class="header" href="#abstract-interpretation-workshop">Abstract Interpretation Workshop</a></h1>
-<p>Hello! During a full week in June, we gather to study together <em>abstract interpretation</em> from its theoretical foundation (order theory) to its latest applications (constraint programming, neural network verification).
-Abstract interpretation is a formal theory of software verification invented by Patrick Cousot in the seventies to detect bugs in programs statically ("at compile-time") and directly on the source code (not on a model of the program).
-The main contribution of abstract interpretation is to overapproximate the semantics of a program: violations of properties are always discovered, but we sometimes obtain false-positive.
+<p>Hello! During a full week in June, we gather together to study <em>abstract interpretation</em> from its theoretical foundation (lattice theory) to its latest applications (constraint programming, neural network verification).</p>
+<p>Abstract interpretation is a formal theory of software verification invented by Patrick Cousot in the seventies to detect bugs in programs statically ("at compile-time") and directly on the source code (not on a model of the program).
+The main contribution of abstract interpretation is to overapproximate the semantics of a program: violations of properties are always discovered, but we sometimes obtain false-positives.
 The mathematical framework of abstract interpretation is rich and the papers in the field are complicated for beginners.
-During this week, we take our time to understand the main ingredients of abstract interpretation.</p>
-<!--
-This framework of approximation turns out to be very general and goes beyond program verification.
-It was recently applied to constraint reasoning and neural network verification, two topics we will introduce this week. -->
+During this week, we take our time to understand and digest the main ingredients of abstract interpretation.</p>
+<p>Further, this framework of approximation turns out to be very general and goes beyond program verification.
+It was recently applied to constraint reasoning and neural network verification, two topics we also discuss during the week.</p>
+<p>PS: Dear PhD students, this workshop <em>does not</em> grant ECTS (but you will still learn something!).</p>
+<h2 id="registration"><a class="header" href="#registration">Registration</a></h2>
+<p>To have an idea if the rooms are big enough and avoid running out of coffee, please <a href="https://forms.office.com/e/VLTf7ziA5h">register here</a>.</p>
 <h2 id="schedule"><a class="header" href="#schedule">Schedule</a></h2>
-<p>Week of the 17th June 2024.</p>
+<p>Week of the 17th June 2024. The coffee (from Jolt coffee shop, mmh, delicious) will be offered every day at 10:30AM :-)</p>
 <ul>
 <li>Monday:
 <ul>
@@ -477,34 +479,100 @@ It was recently applied to constraint reasoning and neural network verification,
 </ul>
 </li>
 </ul>
-<h2 id="detailed-sessions"><a class="header" href="#detailed-sessions">Detailed sessions</a></h2>
+<h2 id="speakers"><a class="header" href="#speakers">Speakers</a></h2>
+<img src="pierre.jpg" alt="isolated" width="160" style="border-radius: 50%;"/>
+<img src="bruno.jpg" alt="isolated" width="160" style="border-radius: 50%;"/>
+<img src="thibault.jpg" alt="isolated" width="160" style="border-radius: 50%;"/>
+<img src="manuel.jpg" alt="isolated" width="160" style="border-radius: 50%;"/>
+<img src="yinung.jpg" alt="isolated" width="160" style="border-radius: 50%;"/>
+<p>Pierre Talbot (research scientist) ▪ Bruno Teheux (associate professor) ▪ Thibault Falque (postdoctoral researcher) ▪ Manuel Combarro (PhD candidate) ▪ Yi-Nung Tsao (PhD candidate)</p>
+<h2 id="detailed-program"><a class="header" href="#detailed-program">Detailed Program</a></h2>
+<p>Find below a detailed description of each session with keywords.</p>
 <h3 id="introduction-to-lattice-theory"><a class="header" href="#introduction-to-lattice-theory">Introduction to Lattice Theory</a></h3>
 <p>Partial order ▪ Lattice ▪ Monotone functions ▪ Cartesian product ▪ Complete lattice ▪ Fixpoint ▪ Galois connection</p>
+<p>Recommended prerequisite: None.</p>
 <p>The goal of these two lectures is to have a first grasp of the mathematical theory underlying abstract interpretation.
 On the first day, we study partial order and lattices, properties of functions over lattices and several lattice constructions such as products and powerset.
 On the second day, we overview more advanced concepts such as fixpoint and Galois connection which are particularly useful in abstract interpretation.</p>
 <h3 id="introduction-to-abstract-interpretation"><a class="header" href="#introduction-to-abstract-interpretation">Introduction to Abstract Interpretation</a></h3>
 <p>Syntax ▪ Reachability semantics ▪ Chaotic iterations ▪ Abstract domains ▪ Widening ▪ Reduced products</p>
+<p>Recommended prerequisite: <em>Introduction to Lattice Theory</em>.</p>
 <p>The goal is to understand how we can use lattice theory to overapproximate the semantics of program and certify the absence of bugs.
-We start by reviewing existing verification techniques (e.g., model checking, theorem proving) and discuss the position of abstract interpretation in this landscape.
-The talk will rely on the concepts learned in the two first days</p>
+We start by reviewing existing verification techniques (e.g., model checking, theorem proving) and discuss the position of abstract interpretation in this landscape.</p>
 <h3 id="introduction-to-constraint-programming"><a class="header" href="#introduction-to-constraint-programming">Introduction to Constraint Programming</a></h3>
+<p>Constraint satisfaction problem ▪ Constraint modelling ▪ Propagation ▪ Consistency ▪ Search ▪ Minizinc</p>
+<p>Recommended prerequisite: None.</p>
+<p>Constraint programming is a powerful paradigm to model problems in terms of constraints over variables.
+This declarative paradigm solves many practical problems including scheduling, vehicle routing or biology problems, as well as more unusual problems such as in musical composition.
+Constraint programming describes <em>what</em> the problem is, whereas procedural approaches describe <em>how</em> a problem is solved.
+The programmer declares the constraints of its problem, and relies on a generic constraint solver to obtain a solution.
+In this talk, we formally define what is a constraint satisfaction problem (CSP) and the underlying solving procedure.
+Further, this session will be interactive and time will be allocated so you can try to model and solve your own combinatorial problem in the Minizinc constraint modelling language!</p>
 <h3 id="abstract-constraint-programming"><a class="header" href="#abstract-constraint-programming">Abstract Constraint Programming</a></h3>
-<p>This talk presents a new research field!</p>
+<p>Abstract satisfaction ▪ Solver cooperation ▪ Propagator completion ▪ Table abstract domain</p>
+<p>Recommended prerequisites: <em>Introduction to Lattice Theory</em>, <em>Introduction to Abstract Interpretation</em>, <em>Introduction to Constraint Programming</em>.</p>
+<p>This talk presents a recent research field!</p>
 <p>Combinatorial optimization is a large field of research aiming at finding (best) solutions of logical formulas.
-Although this goal is clearly defined, there are different approaches that are better on different problems (including linear programming, SAT, constraint programming, answer set programming).
-The theoretical frameworks developed in each community is very different and makes solver cooperation hard to achieve.
-Abstract interpretation can provide a unified theory of constraint reasoning by abstracting each solving technique in abstract domains.
-It already has been applied to linear solvers, SAT and SMT solvers, although much work remains to be done to obtain efficient solvers.
-In this talk, we will present our latest research on the abstract interpretation of constraint programming.</p>
+There are many research communities working separately on reasoning procedures that work well on different kinds of problems (essentially depending on the underlying domain of discourse and logic predicates).
+For instances, linear programming solvers are the best to solve linear equations over real numbers but has more difficulty over integers and are unable to deal with non-linearity.
+SAT solvers can solve very large Boolean formulas but problems can be hard to express compactly when only Boolean variables are available.
+Constraint programming is a general approach to constraint solving but this generality makes it slower the classes of problem mentioned above.
+The issue is that each approach is based on different theoretical foundation which makes solver cooperation hard to achieve.
+We believe abstract interpretation can provide a unified theory of constraint reasoning by abstracting each solving approach in abstract domains, that can then be combined with different products.
+The first step is to cast the theory of each approach in the framework of abstract interpretation.
+It has already been started for linear solvers, SAT and constraint programming solvers.
+In this talk, we focus on the constraint programming approach and present our latest research on this topic.</p>
 <h3 id="octagon-abstract-domain"><a class="header" href="#octagon-abstract-domain">Octagon Abstract Domain</a></h3>
+<p>Octagon ▪ Temporal constraints ▪ Scheduling problems</p>
+<p>Recommended prerequisites: <em>Abstract Constraint Programming</em>.</p>
+<p>An octagon is an abstract domain able to reason over conjunction of temporal constraints which are restricted linear equation of the form <code>±x ± y ≤ k</code> where <code>x,y</code> are variables and <code>k</code> a constant.
+Octagons offer a particularly interesting compromise between expressiveness and efficiency since they can compute the solutions of a set of temporal constraints in cubic time using the Floyd Warshall shortest path algorithm.
+We explain octagon in the context of abstract constraint programming and show how it can enhance solver performance, particularly in scheduling problems.
+We also discuss a particular case of reduced product between the propagator completion and octagon abstract domains.</p>
 <h3 id="introduction-to-neural-network-verification-by-abstract-interpretation"><a class="header" href="#introduction-to-neural-network-verification-by-abstract-interpretation">Introduction to Neural Network Verification by Abstract Interpretation</a></h3>
+<p>Neural network verification ▪ Robustness metrics ▪ Zonotope abstract domain</p>
+<p>Recommended prerequisites: <em>Introduction to Lattice Theory</em>, <em>Introduction to Abstract Interpretation</em>.</p>
+<p>This talk presents a recent research field!</p>
+<p>Neural networks have become powerful and popular machine learning techniques in recent years.
+There are many safety-critical applications based on neural networks, such as autonomous driving systems.
+However, they can be vulnerable to adversarial examples, which are instances with imperceptible perturbations that can lead to incorrect results from neural networks.
+Therefore, in these safety applications, if any adversarial examples exist, the neural network may make wrong decisions, potentially causing serious consequences.
+Nowadays, many algorithms and frameworks have been proposed to verify the robustness of neural networks.
+In this talk, we will introduce how to use abstract interpretation to evaluate the robustness of neural networks.
+Additionally, we will provide a simple example to demonstrate how to construct a zonotope, which is one of the abstract domains, to verify neural networks.</p>
 <h3 id="parallel-lattice-programming"><a class="header" href="#parallel-lattice-programming">Parallel Lattice Programming</a></h3>
+<p>GPU ▪ Asynchronous iterations ▪ Concurrent constraint programming ▪ Memory consistency ▪ Parallel graph algorithms</p>
+<p>Recommended prerequisites: <em>Introduction to Lattice Theory</em>.</p>
+<p>This talk presents a recent research field!</p>
+<p>We introduce a programming language in which data are lattices, programs are monotone functions, and the execution model is a fixpoint loop.
+The peculiarity of this language is to have a native parallel operator (P || Q) but no sequence operator (P;Q).
+Due to its lattice execution model, data races are natively supported (they do not modify the final results), no deadlock can occur, and the implementation is lock-free.
+We study several algorithms that can be written in this paradigm including a sorting algorithm and the Floyd-Warshall shortest path algorithm.
+We discuss how this paradigm was applied to write Turbo, a constraint solver based on abstract interpretation that fully executes on the GPU.</p>
 <h2 id="references"><a class="header" href="#references">References</a></h2>
+<p>Here are some references relevant to the various sessions:</p>
+<h3 id="books"><a class="header" href="#books">Books</a></h3>
 <ul>
 <li>Davey, Brian A., and Hilary A. Priestley. <em>Introduction to Lattices and Order</em>. Cambridge University Press, 2002.</li>
-<li>Cousot, Patrick. <em>Principles of Abstract Interpretation</em>. MIT Press, 2021.</li>
+<li>Cousot, Patrick. <em>Principles of Abstract Interpretation.</em> MIT Press, 2021.</li>
+<li>Apt, Krzysztof. <em>Principles of Constraint Programming.</em> Cambridge University Press, 2003.</li>
+<li>Aws Albarghouthi, <em>Introduction to Neural Network Verification</em>. Foundations and Trends® in Programming Languages (2021).</li>
+<li>Changliu Liu, Tomer Arnon, Christopher Lazarus, Christopher Strong, Clark Barrett and Mykel J. Kochenderfer, <em>Algorithms for Verifying Deep Neural Networks</em>. Foundations and Trends® in Optimization (2021).</li>
 </ul>
+<h3 id="selected-papers"><a class="header" href="#selected-papers">Selected Papers</a></h3>
+<ul>
+<li>D'Silva, Vijay, Leopold Haller, and Daniel Kroening. <em>Abstract Satisfaction</em>. POPL 2014.</li>
+<li>Miné, Antoine. <em>The Octagon Abstract Domain.</em> Higher-order and symbolic computation (2006).</li>
+</ul>
+<h3 id="our-papers"><a class="header" href="#our-papers">Our Papers</a></h3>
+<ul>
+<li>Talbot, Pierre, Frédéric Pinel, and Pascal Bouvry. <em>A Variant of Concurrent Constraint Programming on GPU.</em> AAAI 2022.</li>
+<li>Talbot, Pierre, Éric Monfroy, and Charlotte Truchet. <em>Modular Constraint Solver Cooperation via Abstract Interpretation.</em> Theory and Practice of Logic Programming (2020).</li>
+<li>Talbot, Pierre, David Cachera, Eric Monfroy, and Charlotte Truchet. <em>Combining Constraint Languages via Abstract Interpretation.</em> ICTAI 2019.</li>
+</ul>
+<h2 id="sponsors"><a class="header" href="#sponsors">Sponsors</a></h2>
+<p>This project occurs in the context of the project COMOC (ref. C21/IS/16101289), 2021-2025.
+We thank the Luxembourg National Research Fund (FNR) for this opportunity.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="turbo"><a class="header" href="#turbo">Turbo</a></h1>
 <p>(For a concise introduction to GPU programming, you can check out my <a href="https://ulhpc-tutorials.readthedocs.io/en/latest/gpu/cuda2023/">tutorial</a> and go through the slides; it is especially useful to know the CUDA vocabulary).</p>
 <p><em>30 August 2023.</em> Turbo is a constraint solver running entirely on the GPU with an architecture based on abstract domains.
@@ -882,13 +950,16 @@ I'm going next to try something very simple: to sort the propagators according t
 <ul>
 <li><a href="http://hyc.io">Pierre Talbot</a>, research scientist.</li>
 <li><a href="https://www.uni.lu/snt-en/people/thibault-falque/">Thibault Falque</a>, postdoctoral researcher.</li>
+<li><a href="https://www.uni.lu/fstm-en/people/yi-nung-tsao/">Yi-Nung Tsao</a>, PhD candidate.</li>
 </ul>
+<img src="pierre.jpg" alt="isolated" width="180" style="border-radius: 50%;"/>
+<img src="thibault.jpg" alt="isolated" width="180" style="border-radius: 50%;"/>
+<img src="yinung.jpg" alt="isolated" width="180" style="border-radius: 50%;"/>
 <h2 id="our-sponsors"><a class="header" href="#our-sponsors">Our Sponsors</a></h2>
-<ul>
-<li>Luxembourg National Research Fund (FNR), project COMOC (ref. C21/IS/16101289), 2021-2025.</li>
-</ul>
-<p><img src="FNR.png" alt="FNR" /></p>
-<p><img src="unilu.svg" alt="Unilu" /></p>
+<p>This project occurs in the context of the project COMOC (ref. C21/IS/16101289), 2021-2025.
+We thank the Luxembourg National Research Fund (FNR) for this opportunity.</p>
+<img src="FNR.png" alt="isolated" width="300"/>
+<img src="unilu.svg" alt="isolated" width="200"/>
 
                     </main>
 
