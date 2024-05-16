@@ -44,7 +44,7 @@ Week of the 17th June 2024. The coffee (from Jolt coffee shop, mmh, delicious) w
 <img src="manuel.jpg" alt="isolated" width="160" style="border-radius: 50%;"/>
 <img src="yinung.jpg" alt="isolated" width="160" style="border-radius: 50%;"/>
 
-Pierre Talbot (research scientist) ▪ Bruno Teheux (associate professor) ▪ Thibault Falque (postdoctoral researcher) ▪ Manuel Combarro (PhD candidate) ▪ Yi-Nung Tsao (PhD candidate)
+Pierre Talbot (research scientist) ▪ Bruno Teheux (assistant professor) ▪ Thibault Falque (postdoctoral researcher) ▪ Manuel Combarro (PhD candidate) ▪ Yi-Nung Tsao (PhD candidate)
 
 ## Detailed Program
 
