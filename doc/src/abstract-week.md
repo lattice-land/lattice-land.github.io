@@ -44,7 +44,7 @@ Week of the 17th June 2024. The coffee (from Jolt coffee shop, mmh, delicious) w
 <img src="manuel.jpg" alt="isolated" width="160" style="border-radius: 50%;"/>
 <img src="yinung.jpg" alt="isolated" width="160" style="border-radius: 50%;"/>
 
-Pierre Talbot (research scientist) ▪ Bruno Teheux (associate professor) ▪ Thibault Falque (postdoctoral researcher) ▪ Manuel Combarro (PhD candidate) ▪ Yi-Nung Tsao (PhD candidate)
+Pierre Talbot (research scientist) ▪ Bruno Teheux (assistant professor) ▪ Thibault Falque (postdoctoral researcher) ▪ Manuel Combarro (PhD candidate) ▪ Yi-Nung Tsao (PhD candidate)
 
 ## Detailed Program
 
@@ -161,6 +161,7 @@ Here are some references relevant to the various sessions:
 
 ### Our Papers
 
+* Manuel Combarro Simón, Pierre Talbot, Grégoire Danoy, Jedrzej Musial, Mohammed Alswaitti, and Pascal Bouvry. _Constraint Model for the Satellite Image Mosaic Selection Problem._ CP 2023.
 * Talbot, Pierre, Frédéric Pinel, and Pascal Bouvry. _A Variant of Concurrent Constraint Programming on GPU._ AAAI 2022.
 * Talbot, Pierre, Éric Monfroy, and Charlotte Truchet. _Modular Constraint Solver Cooperation via Abstract Interpretation._ Theory and Practice of Logic Programming (2020).
 * Talbot, Pierre, David Cachera, Eric Monfroy, and Charlotte Truchet. _Combining Constraint Languages via Abstract Interpretation._ ICTAI 2019.

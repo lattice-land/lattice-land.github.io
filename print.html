@@ -1,48 +1,49 @@
 <!DOCTYPE HTML>
-<html lang="en" class="light" dir="ltr">
+<html lang="en" class="sidebar-visible no-js light">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
         <title>Lattice Land Book</title>
-        <meta name="robots" content="noindex">
-
+                <meta name="robots" content="noindex" />
+                
 
         <!-- Custom HTML head -->
         
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="theme-color" content="#ffffff">
+        <meta name="theme-color" content="#ffffff" />
 
-        <link rel="icon" href="favicon.svg">
-        <link rel="shortcut icon" href="favicon.png">
-        <link rel="stylesheet" href="css/variables.css">
+                <link rel="icon" href="favicon.svg">
+                        <link rel="shortcut icon" href="favicon.png">
+                <link rel="stylesheet" href="css/variables.css">
         <link rel="stylesheet" href="css/general.css">
         <link rel="stylesheet" href="css/chrome.css">
-        <link rel="stylesheet" href="css/print.css" media="print">
-
+                <link rel="stylesheet" href="css/print.css" media="print">
+        
         <!-- Fonts -->
         <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
-        <link rel="stylesheet" href="fonts/fonts.css">
-
+                <link rel="stylesheet" href="fonts/fonts.css">
+        
         <!-- Highlight.js Stylesheets -->
         <link rel="stylesheet" href="highlight.css">
         <link rel="stylesheet" href="tomorrow-night.css">
         <link rel="stylesheet" href="ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
-        <link rel="stylesheet" href="custom.css">
-
-    </head>
-    <body class="sidebar-visible no-js">
-    <div id="body-container">
+                <link rel="stylesheet" href="custom.css">
+        
+            </head>
+    <body>
         <!-- Provide site root to javascript -->
-        <script>
+        <script type="text/javascript">
             var path_to_root = "";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
 
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
-        <script>
+        <script type="text/javascript">
             try {
                 var theme = localStorage.getItem('mdbook-theme');
                 var sidebar = localStorage.getItem('mdbook-sidebar');
@@ -58,102 +59,71 @@
         </script>
 
         <!-- Set the theme before any content is loaded, prevents flash -->
-        <script>
+        <script type="text/javascript">
             var theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
             var html = document.querySelector('html');
+            html.classList.remove('no-js')
             html.classList.remove('light')
             html.classList.add(theme);
-            var body = document.querySelector('body');
-            body.classList.remove('no-js')
-            body.classList.add('js');
+            html.classList.add('js');
         </script>
 
-        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
-
         <!-- Hide / unhide sidebar before it is displayed -->
-        <script>
-            var body = document.querySelector('body');
-            var sidebar = null;
-            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
-            } else {
-                sidebar = 'hidden';
             }
-            sidebar_toggle.checked = sidebar === 'visible';
-            body.classList.remove('sidebar-visible');
-            body.classList.add("sidebar-" + sidebar);
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="index.html"><strong aria-hidden="true">1.</strong> Lattice Land</a></li><li class="chapter-item expanded affix "><li class="part-title">CUDA Battery Library</li><li class="chapter-item expanded "><a href="1-cuda-battery.html"><strong aria-hidden="true">2.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="2-cuda-battery.html"><strong aria-hidden="true">3.</strong> Data from CPU to GPU</a></li><li class="chapter-item expanded "><a href="3-cuda-battery.html"><strong aria-hidden="true">4.</strong> CMake Project</a></li><li class="chapter-item expanded "><a href="4-cuda-battery.html"><strong aria-hidden="true">5.</strong> In-Kernel Allocation</a></li><li class="chapter-item expanded "><a href="5-cuda-battery.html"><strong aria-hidden="true">6.</strong> Shared Memory Allocator</a></li><li class="chapter-item expanded "><a href="6-cuda-battery.html"><strong aria-hidden="true">7.</strong> Caution</a></li><li class="chapter-item expanded affix "><li class="part-title">Seminars</li><li class="chapter-item expanded "><a href="abstract-week.html"><strong aria-hidden="true">8.</strong> Abstract Interpretation Workshop (2024)</a></li><li class="chapter-item expanded affix "><li class="part-title">Turbo Technical Journal</li><li class="chapter-item expanded "><a href="1-turbo.html"><strong aria-hidden="true">9.</strong> Introducing Turbo</a></li><li class="chapter-item expanded "><a href="2-turbo.html"><strong aria-hidden="true">10.</strong> v1.0.1: Unoptimized Turbo</a></li><li class="chapter-item expanded "><a href="3-turbo.html"><strong aria-hidden="true">11.</strong> v1.1.{0-1}: Preprocessing</a></li><li class="chapter-item expanded "><a href="4-turbo.html"><strong aria-hidden="true">12.</strong> v1.1.2: (Dis)equality Propagator</a></li><li class="chapter-item expanded "><a href="5-turbo.html"><strong aria-hidden="true">13.</strong> v1.1.3: Warp Synchronization</a></li><li class="chapter-item expanded affix "><li class="part-title">About</li><li class="chapter-item expanded "><a href="about.html"><strong aria-hidden="true">14.</strong> About</a></li></ol>
-            </div>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
-                <div class="sidebar-resize-indicator"></div>
-            </div>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="index.html"><strong aria-hidden="true">1.</strong> Lattice Land</a></li><li class="chapter-item expanded affix "><li class="part-title">CUDA Battery Library</li><li class="chapter-item expanded "><a href="1-cuda-battery.html"><strong aria-hidden="true">2.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="2-cuda-battery.html"><strong aria-hidden="true">3.</strong> Data from CPU to GPU</a></li><li class="chapter-item expanded "><a href="3-cuda-battery.html"><strong aria-hidden="true">4.</strong> CMake Project</a></li><li class="chapter-item expanded "><a href="4-cuda-battery.html"><strong aria-hidden="true">5.</strong> In-Kernel Allocation</a></li><li class="chapter-item expanded "><a href="5-cuda-battery.html"><strong aria-hidden="true">6.</strong> Shared Memory Allocator</a></li><li class="chapter-item expanded "><a href="6-cuda-battery.html"><strong aria-hidden="true">7.</strong> Caution</a></li><li class="chapter-item expanded affix "><li class="part-title">Seminars</li><li class="chapter-item expanded "><a href="abstract-week.html"><strong aria-hidden="true">8.</strong> Abstract Interpretation Workshop (2024)</a></li><li class="chapter-item expanded affix "><li class="part-title">Turbo Technical Journal</li><li class="chapter-item expanded "><a href="1-turbo.html"><strong aria-hidden="true">9.</strong> Introducing Turbo</a></li><li class="chapter-item expanded "><a href="2-turbo.html"><strong aria-hidden="true">10.</strong> v1.0.1: Unoptimized Turbo</a></li><li class="chapter-item expanded "><a href="3-turbo.html"><strong aria-hidden="true">11.</strong> v1.1.{0-1}: Preprocessing</a></li><li class="chapter-item expanded "><a href="4-turbo.html"><strong aria-hidden="true">12.</strong> v1.1.2: (Dis)equality Propagator</a></li><li class="chapter-item expanded "><a href="5-turbo.html"><strong aria-hidden="true">13.</strong> v1.1.3: Warp Synchronization</a></li><li class="chapter-item expanded affix "><li class="part-title">About</li><li class="chapter-item expanded "><a href="about.html"><strong aria-hidden="true">14.</strong> About</a></li></ol>            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
-
-        <!-- Track and set sidebar scroll position -->
-        <script>
-            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
-            sidebarScrollbox.addEventListener('click', function(e) {
-                if (e.target.tagName === 'A') {
-                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
-                }
-            }, { passive: true });
-            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
-            sessionStorage.removeItem('sidebar-scroll');
-            if (sidebarScrollTop) {
-                // preserve sidebar scroll position when navigating via links within sidebar
-                sidebarScrollbox.scrollTop = sidebarScrollTop;
-            } else {
-                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
-                var activeSection = document.querySelector('#sidebar .active');
-                if (activeSection) {
-                    activeSection.scrollIntoView({ block: 'center' });
-                }
-            }
-        </script>
 
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                                <div id="menu-bar-hover-placeholder"></div>
-                <div id="menu-bar" class="menu-bar sticky">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
                     <div class="left-buttons">
-                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
                             <i class="fa fa-bars"></i>
-                        </label>
+                        </button>
                         <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
                             <i class="fa fa-paint-brush"></i>
                         </button>
                         <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
                         </ul>
-                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                                <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                             <i class="fa fa-search"></i>
                         </button>
-                    </div>
+                                            </div>
 
                     <h1 class="menu-title">Lattice Land Book</h1>
 
                     <div class="right-buttons">
-                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                                                <a href="print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
-
+                                                                        
                     </div>
                 </div>
 
-                <div id="search-wrapper" class="hidden">
+                                <div id="search-wrapper" class="hidden">
                     <form id="searchbar-outer" class="searchbar-outer">
                         <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
                     </form>
@@ -163,9 +133,9 @@
                         </ul>
                     </div>
                 </div>
-
+                
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
-                <script>
+                <script type="text/javascript">
                     document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
                     document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
                     Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
@@ -194,7 +164,7 @@ See also the chapter <a href="1-cuda-battery.html">CUDA-Battery Library</a>.</li
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="introduction"><a class="header" href="#introduction">Introduction</a></h1>
 <p>The main objective of the CUDA battery library is to make it easier to develop software fully executing on the GPU.
-This is in contrast to applications where the CPU is the "director", and the GPU is only there to execute small kernels performing specific parallel tasks.
+This is in contrast to applications where the CPU is the &quot;director&quot;, and the GPU is only there to execute small kernels performing specific parallel tasks.
 We want to have the whole computation on the GPU when possible.
 Why you asked?
 Because it is more efficient as we avoid round-trips between CPU and GPU; although calling a kernel is very fast, the memory transfers are still costly.
@@ -304,7 +274,7 @@ Moreover, to follow good software engineering practice, these temporary structur
 This is the default allocation mode when declaring a variable in CUDA kernel, hence it does not need any support from this library.</p>
 <h2 id="block-local-memory"><a class="header" href="#block-local-memory">Block-local Memory</a></h2>
 <p>Block-local memory is a chunk of memory that is only accessed by the threads of a single block.
-To avoid any ambiguity: "block-local memory" is conceptual and might reside in global memory; it is not necessarily in shared memory.</p>
+To avoid any ambiguity: &quot;block-local memory&quot; is conceptual and might reside in global memory; it is not necessarily in shared memory.</p>
 <p>A simple use-case is when blocks need to work on different copies of an original array.
 Suppose <code>*v_ptr</code> is an array shared by all blocks.
 In the following kernel, we show how to use <code>battery::make_unique_block</code> to copy <code>*v_ptr</code> into a block-local vector <code>v_block</code>.</p>
@@ -324,7 +294,7 @@ Before you use this technique, keep reading because you might need to increase t
 <h2 id="avoiding-obscure-cuda-runtime-errors"><a class="header" href="#avoiding-obscure-cuda-runtime-errors">Avoiding Obscure CUDA Runtime Errors</a></h2>
 <p>Developing an entire system within a single kernel can easily lead to CUDA runtime error due to overflow of the allowed heap and stack memory.
 The heap memory is by-default limited to 8 MB for allocations taking place in the kernel.
-If you allocate more than 8 MB, which is not very difficult, you will run into an error of the style "CUDA runtime error an illegal memory access was encountered".
+If you allocate more than 8 MB, which is not very difficult, you will run into an error of the style &quot;CUDA runtime error an illegal memory access was encountered&quot;.
 In that case, you must increase the size of the heap, and this can be done as follows:</p>
 <pre><code class="language-c++">// Multiply by 10 the default value, so now we have 80MB.
 void increase_heap_size() {
@@ -332,7 +302,7 @@ void increase_heap_size() {
   cudaDeviceGetLimit(&amp;max_heap_size, cudaLimitMallocHeapSize);
   CUDAE(cudaDeviceSetLimit(cudaLimitMallocHeapSize, max_heap_size*10));
   cudaDeviceGetLimit(&amp;max_heap_size, cudaLimitMallocHeapSize);
-  printf("%%GPU_max_heap_size=%zu (%zuMB)\n", max_heap_size, max_heap_size/1000/1000);
+  printf(&quot;%%GPU_max_heap_size=%zu (%zuMB)\n&quot;, max_heap_size, max_heap_size/1000/1000);
 }
 
 int main() {
@@ -350,7 +320,7 @@ In that case you can increase the size of the stack as follows:</p>
   size_t max_stack_size = 1024;
   CUDAE(cudaDeviceSetLimit(cudaLimitStackSize, max_stack_size*10));
   cudaDeviceGetLimit(&amp;max_stack_size, cudaLimitStackSize);
-  printf("%%GPU_max_stack_size=%zu (%zuKB)\n", max_stack_size, max_stack_size/1000);
+  printf(&quot;%%GPU_max_stack_size=%zu (%zuKB)\n&quot;, max_stack_size, max_stack_size/1000);
 }
 </code></pre>
 <p>For information, the stack frames are stored in global memory, but the compiler will try its best to place them in the registers and caches when possible.</p>
@@ -436,7 +406,7 @@ Nevertheless, it is possible to write such algorithms in CUDA using <a href="htt
 To use them well, I would advise to take a class (or <a href="https://arxiv.org/abs/1701.00854">read a book</a>) on parallel programming and memory consistency models.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="abstract-interpretation-workshop"><a class="header" href="#abstract-interpretation-workshop">Abstract Interpretation Workshop</a></h1>
 <p>Hello! During a full week in June, we gather together to study <em>abstract interpretation</em> from its theoretical foundation (lattice theory) to its latest applications (constraint programming, neural network verification).</p>
-<p>Abstract interpretation is a formal theory of software verification invented by Patrick Cousot in the seventies to detect bugs in programs statically ("at compile-time") and directly on the source code (not on a model of the program).
+<p>Abstract interpretation is a formal theory of software verification invented by Patrick Cousot in the seventies to detect bugs in programs statically (&quot;at compile-time&quot;) and directly on the source code (not on a model of the program).
 The main contribution of abstract interpretation is to overapproximate the semantics of a program: violations of properties are always discovered, but we sometimes obtain false-positives.
 The mathematical framework of abstract interpretation is rich and the papers in the field are complicated for beginners.
 During this week, we take our time to understand and digest the main ingredients of abstract interpretation.</p>
@@ -485,7 +455,7 @@ It was recently applied to constraint reasoning and neural network verification,
 <img src="thibault.jpg" alt="isolated" width="160" style="border-radius: 50%;"/>
 <img src="manuel.jpg" alt="isolated" width="160" style="border-radius: 50%;"/>
 <img src="yinung.jpg" alt="isolated" width="160" style="border-radius: 50%;"/>
-<p>Pierre Talbot (research scientist) ▪ Bruno Teheux (associate professor) ▪ Thibault Falque (postdoctoral researcher) ▪ Manuel Combarro (PhD candidate) ▪ Yi-Nung Tsao (PhD candidate)</p>
+<p>Pierre Talbot (research scientist) ▪ Bruno Teheux (assistant professor) ▪ Thibault Falque (postdoctoral researcher) ▪ Manuel Combarro (PhD candidate) ▪ Yi-Nung Tsao (PhD candidate)</p>
 <h2 id="detailed-program"><a class="header" href="#detailed-program">Detailed Program</a></h2>
 <p>Find below a detailed description of each session with keywords.</p>
 <h3 id="introduction-to-lattice-theory"><a class="header" href="#introduction-to-lattice-theory">Introduction to Lattice Theory</a></h3>
@@ -566,6 +536,7 @@ We discuss how this paradigm was applied to write Turbo, a constraint solver bas
 </ul>
 <h3 id="our-papers"><a class="header" href="#our-papers">Our Papers</a></h3>
 <ul>
+<li>Manuel Combarro Simón, Pierre Talbot, Grégoire Danoy, Jedrzej Musial, Mohammed Alswaitti, and Pascal Bouvry. <em>Constraint Model for the Satellite Image Mosaic Selection Problem.</em> CP 2023.</li>
 <li>Talbot, Pierre, Frédéric Pinel, and Pascal Bouvry. <em>A Variant of Concurrent Constraint Programming on GPU.</em> AAAI 2022.</li>
 <li>Talbot, Pierre, Éric Monfroy, and Charlotte Truchet. <em>Modular Constraint Solver Cooperation via Abstract Interpretation.</em> Theory and Practice of Logic Programming (2020).</li>
 <li>Talbot, Pierre, David Cachera, Eric Monfroy, and Charlotte Truchet. <em>Combining Constraint Languages via Abstract Interpretation.</em> ICTAI 2019.</li>
@@ -591,7 +562,7 @@ The threads will end up competing for the caches, and it will generate many memo
 Memory transfers are usually the most costly operation, hence you try to avoid (or hide) them in a GPU; loading data from the global memory is about 10x slower than from the L1 cache.
 I am not saying it is impossible to do efficiently, but it seems quite complicated, especially when taking into account warps that are SIMD units of the GPUs (blocks of 32 threads), and thus must all have their data ready in the cache at the same time when executing.
 This is a hypothesis based on intuition and discussion with GPU experts, but it has not been verified experimentally.</p>
-<p>Instead of relying on a "one subproblem per core" design that is so commonly used in parallel constraint solvers, we can execute one subproblem per SM.
+<p>Instead of relying on a &quot;one subproblem per core&quot; design that is so commonly used in parallel constraint solvers, we can execute one subproblem per SM.
 And parallelism within an SM is achieved by parallelizing propagation!
 It is worth mentioning that no attempt to parallelize propagation resulted in a faster solver in comparison to simply parallelizing the search.
 In fact, no modern solver parallelizes propagation.
@@ -657,7 +628,7 @@ In the following table, I describe the problems of the benchmarking suite (<code
 <li>RCPSP: Minimize makespan of tasks under resources constraints.</li>
 <li>Spot 5: Select a subset of photograph to be taken maximizing a weight.</li>
 </ul>
-<div class="table-wrapper"><table><thead><tr><th>Problem</th><th>#Inst</th><th>Kind</th><th>Global Constraints</th><th>Shape</th></tr></thead><tbody>
+<table><thead><tr><th>Problem</th><th>#Inst</th><th>Kind</th><th>Global Constraints</th><th>Shape</th></tr></thead><tbody>
 <tr><td>Wordpress</td><td>1</td><td>Allocation</td><td>None</td><td>Many <code>sum()()</code>.</td></tr>
 <tr><td>ACCAP</td><td>2</td><td>Allocation</td><td><code>diffn</code> (1)</td><td>Precedence constraints.</td></tr>
 <tr><td>Tower</td><td>1</td><td>Allocation</td><td>None</td><td></td></tr>
@@ -673,7 +644,6 @@ In the following table, I describe the problems of the benchmarking suite (<code
 <tr><td>RCPSP</td><td>18</td><td>Scheduling</td><td><code>cumulative</code></td><td>Precedence constraints, disjunctions.</td></tr>
 <tr><td>Spot 5</td><td>1</td><td>Ad-hoc</td><td><code>table</code></td><td></td></tr>
 </tbody></table>
-</div>
 <h3 id="analysis"><a class="header" href="#analysis">Analysis</a></h3>
 <p>The primary goal of our initial benchmarking session is to gauge how Turbo measures up against contemporary, state-of-the-art constraint solvers (spoiler: there's room for improvement).
 In order to assess the efficiency of Turbo, I compared it against Choco and Or-Tools:</p>
@@ -694,7 +664,7 @@ We run on the CPU mainly for debugging and comparative efficiency analysis.</p>
 <p>About the details of the experiments:</p>
 <ul>
 <li>Timeout: 5 minutes per instance (it is relatively small in order to quickly iterate and test new optimizations of Turbo).</li>
-<li>EPS (TurboGPU): generate 1024 subproblems (<code>-sub 10</code> for "2^10").</li>
+<li>EPS (TurboGPU): generate 1024 subproblems (<code>-sub 10</code> for &quot;2^10&quot;).</li>
 </ul>
 <p><em>Warning</em>: Before we start, let's get something straight: <em>the comparison between TurboGPU and other solver is relatively unfair.</em>
 In particular, because of EPS, TurboGPU uses breadth-first search at the top of the tree, and thus sometimes can get better bounds, while the others use depth-first search and might stay stuck in the left part of the search tree longer.
@@ -717,7 +687,7 @@ Back to Turbo, let's compare it to our its CPU-version and the baseline solvers:
 <img src="turbo-v1.0.1/turbogpu-vs-choco.png" alt="TurboGPU vs Choco" />
 <img src="turbo-v1.0.1/turbogpu-vs-choco-noglobal.png" alt="TurboGPU vs Choco.noglobal" /></p>
 <p>For future references, it is interesting to have an average of some speed and memory metrics across all problems:</p>
-<div class="table-wrapper"><table><thead><tr><th>Metrics</th><th>Average</th><th>Median</th></tr></thead><tbody>
+<table><thead><tr><th>Metrics</th><th>Average</th><th>Median</th></tr></thead><tbody>
 <tr><td>Nodes per second</td><td>1246.77</td><td>35.07</td></tr>
 <tr><td>Fixpoint iterations per second</td><td>10014.91</td><td>257.84</td></tr>
 <tr><td>Fixpoint iterations per node</td><td>8.48</td><td>7.11</td></tr>
@@ -728,8 +698,7 @@ Back to Turbo, let's compare it to our its CPU-version and the baseline solvers:
 <tr><td>#Problems satisfiable</td><td>27</td><td></td></tr>
 <tr><td>#Problems unknown</td><td>3</td><td></td></tr>
 </tbody></table>
-</div>
-<p>When comparing the number of nodes per second, we can see that TurboGPU explores around 5 to 10 times more nodes per second than TurboCPU; showing a "purely computational gain" when using the GPU.
+<p>When comparing the number of nodes per second, we can see that TurboGPU explores around 5 to 10 times more nodes per second than TurboCPU; showing a &quot;purely computational gain&quot; when using the GPU.
 Just 5x to 10x quicker is actually not that much quicker considering we have 64 streaming multiprocessors, and indicate we are under-using the parallel capacities of the GPU.
 In the future, I'll benchmark how efficiently Turbo is using the GPU using the profiling tools of NVIDIA.</p>
 <p><img src="turbo-v1.0.1/number-of-nodes-per-second.png" alt="TurboGPU nodes per second" /></p>
@@ -768,7 +737,7 @@ There is a solution using CUDA dynamic parallelism, but I did not take the time 
 Indeed, reducing the problem leads to fewer propagators that need to be executed, which is observed by a reduction of the number of iterations to reach a fixpoint (-14% on average).
 But the additional speed is also explained by the variables store that has been cut by half on average and the propagators' memory decreased by 22%.
 It reduces the pressure on the L1 and L2 caches and more problems can be stored in the shared memory; in our case, one more problem can be stored in shared memory when simplifying.</p>
-<div class="table-wrapper"><table><thead><tr><th>Metrics</th><th>Average</th><th>Δ v1.0.1</th><th>Median</th><th>Δ v1.0.1</th></tr></thead><tbody>
+<table><thead><tr><th>Metrics</th><th>Average</th><th>Δ v1.0.1</th><th>Median</th><th>Δ v1.0.1</th></tr></thead><tbody>
 <tr><td>Nodes per seconds</td><td>2379.95</td><td>+91%</td><td>611.27</td><td>+1742%</td></tr>
 <tr><td>Fixpoint iterations per second</td><td>12303.02</td><td>+23%</td><td>2273.83</td><td>+882%</td></tr>
 <tr><td>Fixpoint iterations per node</td><td>7.31</td><td>-14%</td><td>5.9</td><td>-17%</td></tr>
@@ -779,13 +748,12 @@ It reduces the pressure on the L1 and L2 caches and more problems can be stored 
 <tr><td>#Problems satisfiable</td><td>22</td><td>27</td><td></td><td></td></tr>
 <tr><td>#Problems unknown</td><td>3</td><td>3</td><td></td><td></td></tr>
 </tbody></table>
-</div>
 <p><img src="turbo-v1.1/turbogpu-v1.0.1-vs-turbogpu-v1.1.0.png" alt="TurboGPU-v1.0.1 vs TurboGPU-v1.1.0" /></p>
 <h2 id="v110b-increasing-the-number-of-subproblems"><a class="header" href="#v110b-increasing-the-number-of-subproblems">v1.1.0b Increasing the number of subproblems</a></h2>
 <p>By default, the number of subproblems created is 1024 (2^10) (option <code>-sub 10</code>).
 This choice is rather arbitrary, so I ran additional experiments to see if increasing that number could lead to better results.
 The answer is that it is quite hard to choose a good generic number, but overall 4096 (2^12) subproblems gave better results and is the new default for the future versions.</p>
-<div class="table-wrapper"><table><thead><tr><th>Metrics</th><th>Average</th><th>Δ v1.1.0</th><th>Median</th><th>Δ v1.1.0</th></tr></thead><tbody>
+<table><thead><tr><th>Metrics</th><th>Average</th><th>Δ v1.1.0</th><th>Median</th><th>Δ v1.1.0</th></tr></thead><tbody>
 <tr><td>Nodes per seconds</td><td>2529.68</td><td>+6%</td><td>809.31</td><td>+32%</td></tr>
 <tr><td>Fixpoint iterations per second</td><td>12449.48</td><td>+1%</td><td>3306.37</td><td>+45%</td></tr>
 <tr><td>Fixpoint iterations per node</td><td>6.77</td><td>-7%</td><td>5.19</td><td>-12%</td></tr>
@@ -796,7 +764,6 @@ The answer is that it is quite hard to choose a good generic number, but overall
 <tr><td>#Problems satisfiable</td><td>21</td><td>22</td><td></td><td></td></tr>
 <tr><td>#Problems unknown</td><td>3</td><td>3</td><td></td><td></td></tr>
 </tbody></table>
-</div>
 <p>In particular, we see that increasing the number of subproblems to 4096 contributes to a better average of nodes per second and to solving one more problem to optimality.
 With more subproblems, the advantage is not as clear, but it is definitely an experiment to try again on future versions of Turbo.</p>
 <p><img src="turbo-v1.1/turbogpu-v1.1.0-1024-vs-turbogpu-v1.1.0-4096.png" alt="TurboGPU-v1.1.0 vs TurboGPU-v1.1.0b" /></p>
@@ -818,9 +785,9 @@ We apply some standard simplification laws:</p>
 <p>These rules could be generalized in the future.</p>
 <p>This simple optimization leads to another big leap in the number of nodes per second and reduces significantly the memory footprint of propagators.
 For the first time, there is a problem (nfc_24_4_2) that can be entirely stored in the shared memory (store of variables and propagators).
-However, the impact of being entirely in the shared memory is not very impressive, with "only" 42% more nodes per second in comparison to v1.1.0b, knowing the average is at 62%.
+However, the impact of being entirely in the shared memory is not very impressive, with &quot;only&quot; 42% more nodes per second in comparison to v1.1.0b, knowing the average is at 62%.
 We should validate experimentally if manually managing the shared memory is really worth it, or if the default caching policy of CUDA does a good enough job.</p>
-<div class="table-wrapper"><table><thead><tr><th>Metrics</th><th>Average</th><th>Δ v1.1.0b</th><th>Median</th><th>Δ v1.1.0b</th></tr></thead><tbody>
+<table><thead><tr><th>Metrics</th><th>Average</th><th>Δ v1.1.0b</th><th>Median</th><th>Δ v1.1.0b</th></tr></thead><tbody>
 <tr><td>Nodes per second</td><td>4087.42</td><td>+62%</td><td>976.72</td><td>+21%</td></tr>
 <tr><td>Fixpoint iterations per second</td><td>17837.83</td><td>+43%</td><td>3878.13</td><td>+17%</td></tr>
 <tr><td>Fixpoint iterations per node</td><td>6.79</td><td>+0.3%</td><td>5.17</td><td>-0.4%</td></tr>
@@ -831,7 +798,6 @@ We should validate experimentally if manually managing the shared memory is real
 <tr><td>#Problems satisfiable</td><td>22</td><td>22</td><td></td><td></td></tr>
 <tr><td>#Problems unknown</td><td>2</td><td>3</td><td></td><td></td></tr>
 </tbody></table>
-</div>
 <h2 id="overall-standing"><a class="header" href="#overall-standing">Overall standing</a></h2>
 <p><img src="turbo-v1.1/overall-standing-v1.1.0.png" alt="Overall standing" /></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="v112-disequality-propagator"><a class="header" href="#v112-disequality-propagator">v1.1.2: (Dis)equality Propagator</a></h1>
@@ -847,7 +813,7 @@ Let <code>project(a, x)</code> be a function of the abstract domain <code>a</cod
 For instance, if I write <code>x + y &gt;= [0..5]</code>, it means that <code>project(a, x) + project(a, y)</code> should be included in the interval <code>[0..5]</code> according to the interval ordering.
 From a logical perspective, it implements the constraints <code>x + y &gt;= 0</code> and <code>x + y &lt;= 5</code>.
 Using some generic lattice operations (essentially projection, ordering and join operator), we can perform the propagation of this constraint.
-If the underlying domain is an interval, it will achieve bound consistency, and if it is a bitset, it should achieve arc consistency; I say "should" because I did not formally prove that yet.</p>
+If the underlying domain is an interval, it will achieve bound consistency, and if it is a bitset, it should achieve arc consistency; I say &quot;should&quot; because I did not formally prove that yet.</p>
 <p>This lattice-based propagator is quite compact because it can represent many primitive constraints, for instance:</p>
 <ul>
 <li><code>x == y</code> is <code>x - y &gt;= [0..0]</code>.</li>
@@ -867,7 +833,7 @@ Finally, using these dedicated propagators reduces the propagators' memory in av
 The benchmarking set consists of many instances of the RCPSP problem, for which using these propagators increases the memory.
 When discarding the RCPSP benchmarks, the median memory footprint of the propagators is actually reduced by a factor of 3, and the average memory is reduced by about 30%!
 I'm unsure which constraints of the RCPSP model lead to this issue, but due to the limited impact I decided not to investigate.</p>
-<div class="table-wrapper"><table><thead><tr><th>Metrics</th><th>Average</th><th>Δ v1.1.1</th><th>Median</th><th>Δ v1.1.1</th></tr></thead><tbody>
+<table><thead><tr><th>Metrics</th><th>Average</th><th>Δ v1.1.1</th><th>Median</th><th>Δ v1.1.1</th></tr></thead><tbody>
 <tr><td>Nodes per seconds</td><td>3778.83</td><td>-7%</td><td>1049.48</td><td>+7%</td></tr>
 <tr><td>Fixpoint iterations per second</td><td>16935.39</td><td>-5%</td><td>3847.91</td><td>-1%</td></tr>
 <tr><td>Fixpoint iterations per node</td><td>7.34</td><td>+7%</td><td>5.16</td><td>-0.01%</td></tr>
@@ -878,12 +844,11 @@ I'm unsure which constraints of the RCPSP model lead to this issue, but due to t
 <tr><td>#Problems satisfiable</td><td>22</td><td>22</td><td></td><td></td></tr>
 <tr><td>#Problems unknown</td><td>2</td><td>2</td><td></td><td></td></tr>
 </tbody></table>
-</div>
 <p><img src="turbo-v1.1/turbogpu-v1.1.1-vs-turbogpu-v1.1.2.png" alt="TurboGPU-v1.1.1 vs TurboGPU-v1.1.2" /></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="v113-warp-synchronization"><a class="header" href="#v113-warp-synchronization">v1.1.3: Warp Synchronization</a></h1>
 <p><em>07 March 2024.</em> We increase by 13% the number of nodes per second by adding a single line of CUDA code.
 The trick is to synchronize the warps in the fixpoint loop to reunite threads that have diverged.</p>
-<p>In Turbo, the propagators are called "refinement operators" and are essentially monotone function over a lattice structure, we will use both terms interchangeably.
+<p>In Turbo, the propagators are called &quot;refinement operators&quot; and are essentially monotone function over a lattice structure, we will use both terms interchangeably.
 For instance, the octagon abstract domain consists of many small refinement operators implementing the Floyd-Warshall shortest path algorithm.
 We compute the fixpoint of the refinement operators over the abstract domain <code>a</code> in a fixpoint loop.
 For the curious, the loop in version 1.1.2 is implemented as:</p>
@@ -908,7 +873,7 @@ In Turbo, we obtained the best results by quadrupling the number of cores, to ob
 This group of threads is called a <em>block</em>.
 The CUDA scheduler is scheduling groups of 32 threads called <em>warps</em> instead of scheduling individual threads.
 A block of 256 threads is thus made of 8 warps, and due to the number of cores, there are only 2 warps at any moment that are executed together.
-When talking about GPU, it is common to hear that the GPU "can only execute in parallel the same instructions with different data" (SIMD parallelism).
+When talking about GPU, it is common to hear that the GPU &quot;can only execute in parallel the same instructions with different data&quot; (SIMD parallelism).
 But this is only true at the level of a warp, for 32 threads.
 Two warps can execute completely different instructions without any penalty.
 Now, let's look at what happens if two threads within a warp execute two different instructions.
@@ -927,7 +892,7 @@ The optimization in version 1.1.3 is to synchronize the threads of each warp (<c
 <p>It leads to better parallelism since at each iteration we start with the full warp of 32 threads and not a warp already split by a previous iteration.
 The results show the efficiency of this approach.
 Interestingly, it also shows that we need more iterations to reach the fixpoint, which might be due to the fact that the propagators are running in a different order due to <code>__syncwarp()</code>.</p>
-<div class="table-wrapper"><table><thead><tr><th>Metrics</th><th>Average</th><th>Δ v1.1.2</th><th>Median</th><th>Δ v1.1.2</th></tr></thead><tbody>
+<table><thead><tr><th>Metrics</th><th>Average</th><th>Δ v1.1.2</th><th>Median</th><th>Δ v1.1.2</th></tr></thead><tbody>
 <tr><td>Nodes per seconds</td><td>4328.83</td><td>+13%</td><td>1240.06</td><td>+15%</td></tr>
 <tr><td>Fixpoint iterations per second</td><td>21347.57</td><td>+26%</td><td>6519.14</td><td>+69%</td></tr>
 <tr><td>Fixpoint iterations per node</td><td>8.61</td><td>+15%</td><td>5.31</td><td>+3%</td></tr>
@@ -938,7 +903,6 @@ Interestingly, it also shows that we need more iterations to reach the fixpoint,
 <tr><td>#Problems satisfiable</td><td>22</td><td>22</td><td></td><td></td></tr>
 <tr><td>#Problems unknown</td><td>2</td><td>2</td><td></td><td></td></tr>
 </tbody></table>
-</div>
 <p>There are many possible optimizations to improve the efficiency of the fixpoint loop, in particular to avoid thread divergence.
 I'm going next to try something very simple: to sort the propagators according to their structures, which should reduce divergence, we'll see!</p>
 <p>The following pie charts show that the version v1.1.3 is strictly better than all others before, which validate the usefulness of our optimizations.</p>
@@ -965,43 +929,42 @@ We thank the Luxembourg National Research Fund (FNR) for this opportunity.</p>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-
-
+                        
+                        
                         <div style="clear: both"></div>
                     </nav>
                 </div>
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-
-            </nav>
+                
+                            </nav>
 
         </div>
 
-
-
-
-        <script>
+        
+        
+        
+                <script type="text/javascript">
             window.playground_copyable = true;
         </script>
-
-
-        <script src="elasticlunr.min.js"></script>
-        <script src="mark.min.js"></script>
-        <script src="searcher.js"></script>
-
-        <script src="clipboard.min.js"></script>
-        <script src="highlight.js"></script>
-        <script src="book.js"></script>
+        
+        
+                <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
 
         <!-- Custom JS scripts -->
-
-        <script>
+        
+                        <script type="text/javascript">
         window.addEventListener('load', function() {
             window.setTimeout(window.print, 100);
         });
         </script>
-
-    </div>
+                
     </body>
 </html>
