@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['ones_0',['ones',['../classbattery_1_1bitset.html#ae1b77ea3536f2af12d6f09156b9a374d',1,'battery::bitset']]],
-  ['ones_1',['ONES',['../dynamic__bitset_8hpp.html#a55ead18ae83ed081acdd195a593d0bc3',1,'dynamic_bitset.hpp']]],
+  ['ones_0',['ONES',['../dynamic__bitset_8hpp.html#a55ead18ae83ed081acdd195a593d0bc3',1,'dynamic_bitset.hpp']]],
+  ['ones_1',['ones',['../classbattery_1_1bitset.html#ae1b77ea3536f2af12d6f09156b9a374d',1,'battery::bitset']]],
   ['operator_20bool_2',['operator bool',['../classbattery_1_1root__ptr.html#a8866b37661acd28becfc28d9a1546937',1,'battery::root_ptr::operator bool()'],['../classbattery_1_1shared__ptr.html#a7fa65a00202661085bd6144abf4f7321',1,'battery::shared_ptr::operator bool()'],['../classbattery_1_1unique__ptr.html#ae41ba99c8938252c303f9dc7791907fe',1,'battery::unique_ptr::operator bool()']]],
   ['operator_20delete_3',['operator delete',['../allocator_8hpp.html#a63099a92325007898b0cbd5981ef1736',1,'operator delete(void *ptr, battery::pool_allocator &amp;p):&#160;allocator.hpp'],['../allocator_8hpp.html#af84b7183a6198885578e7d8622adc8ee',1,'operator delete(void *ptr, battery::standard_allocator &amp;p):&#160;allocator.hpp']]],
   ['operator_20new_4',['operator new',['../allocator_8hpp.html#a10b36bda772147187f9346cd320c5635',1,'operator new(size_t bytes, battery::pool_allocator &amp;p):&#160;allocator.hpp'],['../allocator_8hpp.html#a6a53db3c8c991b735dd17fc0a8207d83',1,'operator new(size_t bytes, battery::standard_allocator &amp;p):&#160;allocator.hpp']]],

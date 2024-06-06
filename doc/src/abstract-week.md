@@ -14,7 +14,7 @@ PS: Dear PhD students, this workshop *does not* grant ECTS (but you will still l
 
 ## Registration
 
-To have an idea if the rooms are big enough and avoid running out of coffee, please [register here](https://forms.office.com/e/VLTf7ziA5h).
+To have an idea if the rooms are big enough and to avoid running out of coffee, please [register here](https://forms.office.com/e/VLTf7ziA5h).
 
 ## Schedule
 
