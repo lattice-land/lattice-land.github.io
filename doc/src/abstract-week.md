@@ -2,7 +2,7 @@
 
 Hello! During a full week in June, we gather together to study _abstract interpretation_ from its theoretical foundation (lattice theory) to its latest applications (constraint programming, neural network verification).
 
-Abstract interpretation is a formal theory of software verification invented by Patrick Cousot in the seventies to detect bugs in programs statically ("at compile-time") and directly on the source code (not on a model of the program).
+Abstract interpretation is a formal theory of software verification invented by Radhia and Patrick Cousot in the seventies to detect bugs in programs statically ("at compile-time") and directly on the source code (not on a model of the program).
 The main contribution of abstract interpretation is to overapproximate the semantics of a program: violations of properties are always discovered, but we sometimes obtain false-positives.
 The mathematical framework of abstract interpretation is rich and the papers in the field are complicated for beginners.
 During this week, we take our time to understand and digest the main ingredients of abstract interpretation.
@@ -18,7 +18,8 @@ To have an idea if the rooms are big enough and to avoid running out of coffee, 
 
 ## Schedule
 
-Week of the 17th June 2024. The coffee (from Jolt coffee shop, mmh, delicious) will be offered every day at 10:30AM :-)
+Week of the 17th June 2024. The coffee (from Jolt coffee shop, mmh, delicious) and pastries will be offered every morning :-)
+For the brave ones coming to the practice sessions on Monday and Tuesday, coffee and pastries are offered again!
 
 * Monday:
   * 09:00-10:30 (MNO 1.050): _Introduction to Lattice Theory (part 1)_, Bruno Teheux.
