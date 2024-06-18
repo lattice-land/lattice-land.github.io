@@ -25,7 +25,7 @@ For the brave ones coming to the practice sessions on Monday and Tuesday, coffee
   * 09:00-10:30 (MNO 1.050): _Introduction to Lattice Theory (part 1)_, Bruno Teheux, [slides](abstract-week-2024/slides-session-1-lattice-theory.pdf).
   * 14:00-16:00 (MNO 1.010): Practice session, [exercises](abstract-week-2024/exercises-session-1-lattice-theory.pdf).
 * Tuesday:
-  * 09:00-10:30 (MNO 1.020): _Introduction to Lattice Theory (part 2)_, Bruno Teheux.
+  * 09:00-10:30 (MNO 1.020): _Introduction to Lattice Theory (part 2)_, Bruno Teheux, [slides](abstract-week-2024/slides-session-2-lattice-theory.pdf).
   * 14:00-16:00 (MNO 1.010): Practice session.
 * Wednesday (MNO 1.050):
   * 9:00-10:30: _Introduction to Abstract Interpretation_, Pierre Talbot.
