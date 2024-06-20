@@ -31,8 +31,8 @@ For the brave ones coming to the practice sessions on Monday and Tuesday, coffee
   * 9:00-10:30: _Introduction to Abstract Interpretation_, Pierre Talbot, [slides](abstract-week-2024/slides-session-3-abstract-interpretation.pdf).
   * 11:00-13:00: _Introduction to Constraint Programming_, Manuel Combarro, [slides](abstract-week-2024/slides-session-4-introduction-to-constraint-programming.pdf), [N-queens.mzn](abstract-week-2024/N-queens.mzn), [N-queens-alldifferent.mzn](abstract-week-2024/N-queens_alldifferent.mzn).
 * Thursday (MNO 1.040):
-  * 9:00-10:30: _Abstract Constraint Programming_, Pierre Talbot.
-  * 11:00-12:00: _Octagon Abstract Domain_, Thibault Falque.
+  * 9:00-10:30: _Abstract Constraint Programming_, Pierre Talbot, [slides](abstract-week-2024/slides-session-5-abstract-constraint-programming.pdf).
+  * 11:00-12:00: _Octagon Abstract Domain_, Thibault Falque, [slides](abstract-week-2024/slides-session-6-octagon-abstract-domain.pdf).
 * Friday (MNO 1.010):
   * 9:00-10:30: _Introduction to Neural Network Verification by Abstract Interpretation_, Yi-Nung Tsao.
   * 11:00-12:00: _Parallel Lattice Programming_, Pierre Talbot.
