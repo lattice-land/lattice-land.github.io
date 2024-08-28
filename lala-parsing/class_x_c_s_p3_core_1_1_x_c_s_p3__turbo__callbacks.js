@@ -1,7 +1,6 @@
 var class_x_c_s_p3_core_1_1_x_c_s_p3__turbo__callbacks =
 [
-    [ "F", "class_x_c_s_p3_core_1_1_x_c_s_p3__turbo__callbacks.html#a165ec5bae5b7c8ade6d370a81a6b5431", null ],
-    [ "XCSP3_turbo_callbacks", "class_x_c_s_p3_core_1_1_x_c_s_p3__turbo__callbacks.html#a4a96c82f0d9849d1c035c8d110a30517", null ],
+    [ "XCSP3_turbo_callbacks", "class_x_c_s_p3_core_1_1_x_c_s_p3__turbo__callbacks.html#a6d861dacb8b90f2e77dfae76f6134d82", null ],
     [ "beginInstance", "class_x_c_s_p3_core_1_1_x_c_s_p3__turbo__callbacks.html#ae5fac43fc0d37e86a4eabbb9ab3ea678", null ],
     [ "endInstance", "class_x_c_s_p3_core_1_1_x_c_s_p3__turbo__callbacks.html#abf45f36e3b848cc2a41fb2234d4305d7", null ],
     [ "beginVariables", "class_x_c_s_p3_core_1_1_x_c_s_p3__turbo__callbacks.html#ae37d7a51f33d5e670b094ae60bee654f", null ],
@@ -69,6 +68,7 @@ var class_x_c_s_p3_core_1_1_x_c_s_p3__turbo__callbacks =
     [ "buildConstraintMaximum", "class_x_c_s_p3_core_1_1_x_c_s_p3__turbo__callbacks.html#ad1643d05813f1cddbf0d183afa0971e8", null ],
     [ "buildConstraintElement", "class_x_c_s_p3_core_1_1_x_c_s_p3__turbo__callbacks.html#a68ff48e5ff56f425db541a0f38ed5e53", null ],
     [ "buildConstraintElement", "class_x_c_s_p3_core_1_1_x_c_s_p3__turbo__callbacks.html#a87fd0f2d8f017bdac7d823a0fc899495", null ],
+    [ "buildConstraintElement", "class_x_c_s_p3_core_1_1_x_c_s_p3__turbo__callbacks.html#af2ae0840081b66dd14015c13b2718bd5", null ],
     [ "buildConstraintElement", "class_x_c_s_p3_core_1_1_x_c_s_p3__turbo__callbacks.html#a7c8b0bcaf4e3254360a788c4a29553d0", null ],
     [ "buildConstraintElement", "class_x_c_s_p3_core_1_1_x_c_s_p3__turbo__callbacks.html#a2a827d5207a7d1c1c944e07de3d8605c", null ],
     [ "buildConstraintElement", "class_x_c_s_p3_core_1_1_x_c_s_p3__turbo__callbacks.html#a16f4bb6d533667450a3c7aa1a49fb8e1", null ],
@@ -82,6 +82,7 @@ var class_x_c_s_p3_core_1_1_x_c_s_p3__turbo__callbacks =
     [ "buildConstraintNoOverlap", "class_x_c_s_p3_core_1_1_x_c_s_p3__turbo__callbacks.html#a4ecc165e8498c27114594eef53b2cc26", null ],
     [ "buildConstraintNoOverlap", "class_x_c_s_p3_core_1_1_x_c_s_p3__turbo__callbacks.html#af7c6871eaa402d0193ccbc0a7dd053bc", null ],
     [ "buildConstraintNoOverlap", "class_x_c_s_p3_core_1_1_x_c_s_p3__turbo__callbacks.html#a29ce83c343bfe1b5e207d00d25ba1394", null ],
+    [ "buildConstraintCumulative", "class_x_c_s_p3_core_1_1_x_c_s_p3__turbo__callbacks.html#a304f1d5fb4dc17e6739e1aaa381f6c20", null ],
     [ "buildConstraintInstantiation", "class_x_c_s_p3_core_1_1_x_c_s_p3__turbo__callbacks.html#a055877002d0cfc9a26fc6b87c87bfe6c", null ],
     [ "buildConstraintClause", "class_x_c_s_p3_core_1_1_x_c_s_p3__turbo__callbacks.html#addfb495238d15f1f49b0fb7d93adc72e", null ],
     [ "buildConstraintCircuit", "class_x_c_s_p3_core_1_1_x_c_s_p3__turbo__callbacks.html#aeaabfaa3cdfba643947311c485614b90", null ],
@@ -91,8 +92,10 @@ var class_x_c_s_p3_core_1_1_x_c_s_p3__turbo__callbacks =
     [ "buildObjectiveMaximizeExpression", "class_x_c_s_p3_core_1_1_x_c_s_p3__turbo__callbacks.html#ad5302844ba5f9b42916c9a50b99b90f3", null ],
     [ "buildObjectiveMinimizeVariable", "class_x_c_s_p3_core_1_1_x_c_s_p3__turbo__callbacks.html#a80a6663869c1997451638d5f76aa45a2", null ],
     [ "buildObjectiveMaximizeVariable", "class_x_c_s_p3_core_1_1_x_c_s_p3__turbo__callbacks.html#a04b7817cd17a28897aec7dc73a7de7aa", null ],
+    [ "buildObjective", "class_x_c_s_p3_core_1_1_x_c_s_p3__turbo__callbacks.html#a8ea16baf773c2761fc9eb51c5bc7e9a0", null ],
     [ "buildObjectiveMinimize", "class_x_c_s_p3_core_1_1_x_c_s_p3__turbo__callbacks.html#a88549bdb99e0018d77828e360386a8a7", null ],
     [ "buildObjectiveMaximize", "class_x_c_s_p3_core_1_1_x_c_s_p3__turbo__callbacks.html#a4cf1c918d84a49a6f296946b1235b214", null ],
+    [ "buildObjective", "class_x_c_s_p3_core_1_1_x_c_s_p3__turbo__callbacks.html#ab6bbf48bdb5eda90f70b2bab4e30685e", null ],
     [ "buildObjectiveMinimize", "class_x_c_s_p3_core_1_1_x_c_s_p3__turbo__callbacks.html#a0e41d3d6eeaee08d4a171fb84e02b4cc", null ],
     [ "buildObjectiveMaximize", "class_x_c_s_p3_core_1_1_x_c_s_p3__turbo__callbacks.html#abd781a2fcf27e61bca6f5fbae2c0990a", null ],
     [ "buildAnnotationDecision", "class_x_c_s_p3_core_1_1_x_c_s_p3__turbo__callbacks.html#ae375f34e67ef9215145e241177a1fc8d", null ],
@@ -101,5 +104,5 @@ var class_x_c_s_p3_core_1_1_x_c_s_p3__turbo__callbacks =
     [ "build_formula", "class_x_c_s_p3_core_1_1_x_c_s_p3__turbo__callbacks.html#abfa6415afbd00cf06f88c4fc93edf7c0", null ],
     [ "canonize", "class_x_c_s_p3_core_1_1_x_c_s_p3__turbo__callbacks.html#a34864c2b3d3976708e5630a49668cb28", null ],
     [ "debug", "class_x_c_s_p3_core_1_1_x_c_s_p3__turbo__callbacks.html#a57407dae1d9273468e8acf8c8bdd705a", null ],
-    [ "output", "class_x_c_s_p3_core_1_1_x_c_s_p3__turbo__callbacks.html#a85545f03b6c7d8dbbe8465f4529bd0c1", null ]
+    [ "output", "class_x_c_s_p3_core_1_1_x_c_s_p3__turbo__callbacks.html#a8d8cfb352549fac501bc5265e9115510", null ]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['flatzincoutput_0',['FlatZincOutput',['../classlala_1_1_flat_zinc_output.html#a2c2514ed8043a61354165f83dd0eea7c',1,'lala::FlatZincOutput']]]
+  ['solveroutput_0',['SolverOutput',['../classlala_1_1_solver_output.html#af23e8255c42c841e7f3c73a013d1db12',1,'lala::SolverOutput']]]
 ];

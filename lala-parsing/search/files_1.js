@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['xcsp3_5fparser_2ehpp_0',['XCSP3_parser.hpp',['../_x_c_s_p3__parser_8hpp.html',1,'']]]
+  ['solver_5foutput_2ehpp_0',['solver_output.hpp',['../solver__output_8hpp.html',1,'']]]
 ];

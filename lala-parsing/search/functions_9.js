@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['xcsp3_5fturbo_5fcallbacks_0',['XCSP3_turbo_callbacks',['../class_x_c_s_p3_core_1_1_x_c_s_p3__turbo__callbacks.html#a4a96c82f0d9849d1c035c8d110a30517',1,'XCSP3Core::XCSP3_turbo_callbacks']]]
+  ['solveroutput_0',['SolverOutput',['../classlala_1_1_solver_output.html#a36dd8ed0e700c0a4f857b70fddfeecfb',1,'lala::SolverOutput::SolverOutput(const Allocator &amp;alloc)'],['../classlala_1_1_solver_output.html#a0dd11e50d6e2f724cbc98db819435a5e',1,'lala::SolverOutput::SolverOutput(const Allocator &amp;alloc, OutputType outputType)'],['../classlala_1_1_solver_output.html#a6618127d49f31bdca615518508b16bce',1,'lala::SolverOutput::SolverOutput(SolverOutput &amp;&amp;)=default'],['../classlala_1_1_solver_output.html#a0932ced84c948ae853c77885f3c9bf48',1,'lala::SolverOutput::SolverOutput(const SolverOutput&lt; Alloc2 &gt; &amp;other, const Allocator &amp;allocator=Allocator{})']]]
 ];
