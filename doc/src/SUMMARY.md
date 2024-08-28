@@ -31,6 +31,8 @@
 * [v1.1.{0-1}: Preprocessing](3-turbo.md)
 * [v1.1.2: (Dis)equality Propagator](4-turbo.md)
 * [v1.1.3: Warp Synchronization](5-turbo.md)
+* [v1.1.{4-5}: Sorting Propagators](6-turbo.md)
+* [v1.1.{6-7}: Sharing Propagators](7-turbo.md)
 
 # About
 

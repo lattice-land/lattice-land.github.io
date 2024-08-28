@@ -90,7 +90,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="index.html"><strong aria-hidden="true">1.</strong> Lattice Land</a></li><li class="chapter-item expanded affix "><li class="part-title">CUDA Battery Library</li><li class="chapter-item expanded "><a href="1-cuda-battery.html"><strong aria-hidden="true">2.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="2-cuda-battery.html"><strong aria-hidden="true">3.</strong> Data from CPU to GPU</a></li><li class="chapter-item expanded "><a href="3-cuda-battery.html"><strong aria-hidden="true">4.</strong> CMake Project</a></li><li class="chapter-item expanded "><a href="4-cuda-battery.html"><strong aria-hidden="true">5.</strong> In-Kernel Allocation</a></li><li class="chapter-item expanded "><a href="5-cuda-battery.html"><strong aria-hidden="true">6.</strong> Shared Memory Allocator</a></li><li class="chapter-item expanded "><a href="6-cuda-battery.html"><strong aria-hidden="true">7.</strong> Caution</a></li><li class="chapter-item expanded affix "><li class="part-title">Seminars</li><li class="chapter-item expanded "><a href="abstract-week.html"><strong aria-hidden="true">8.</strong> Abstract Interpretation Workshop (2024)</a></li><li class="chapter-item expanded affix "><li class="part-title">Turbo Technical Journal</li><li class="chapter-item expanded "><a href="1-turbo.html"><strong aria-hidden="true">9.</strong> Introducing Turbo</a></li><li class="chapter-item expanded "><a href="2-turbo.html"><strong aria-hidden="true">10.</strong> v1.0.1: Unoptimized Turbo</a></li><li class="chapter-item expanded "><a href="3-turbo.html"><strong aria-hidden="true">11.</strong> v1.1.{0-1}: Preprocessing</a></li><li class="chapter-item expanded "><a href="4-turbo.html"><strong aria-hidden="true">12.</strong> v1.1.2: (Dis)equality Propagator</a></li><li class="chapter-item expanded "><a href="5-turbo.html"><strong aria-hidden="true">13.</strong> v1.1.3: Warp Synchronization</a></li><li class="chapter-item expanded affix "><li class="part-title">About</li><li class="chapter-item expanded "><a href="about.html"><strong aria-hidden="true">14.</strong> About</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded "><a href="index.html"><strong aria-hidden="true">1.</strong> Lattice Land</a></li><li class="chapter-item expanded affix "><li class="part-title">CUDA Battery Library</li><li class="chapter-item expanded "><a href="1-cuda-battery.html"><strong aria-hidden="true">2.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="2-cuda-battery.html"><strong aria-hidden="true">3.</strong> Data from CPU to GPU</a></li><li class="chapter-item expanded "><a href="3-cuda-battery.html"><strong aria-hidden="true">4.</strong> CMake Project</a></li><li class="chapter-item expanded "><a href="4-cuda-battery.html"><strong aria-hidden="true">5.</strong> In-Kernel Allocation</a></li><li class="chapter-item expanded "><a href="5-cuda-battery.html"><strong aria-hidden="true">6.</strong> Shared Memory Allocator</a></li><li class="chapter-item expanded "><a href="6-cuda-battery.html"><strong aria-hidden="true">7.</strong> Caution</a></li><li class="chapter-item expanded affix "><li class="part-title">Seminars</li><li class="chapter-item expanded "><a href="abstract-week.html"><strong aria-hidden="true">8.</strong> Abstract Interpretation Workshop (2024)</a></li><li class="chapter-item expanded affix "><li class="part-title">Turbo Technical Journal</li><li class="chapter-item expanded "><a href="1-turbo.html"><strong aria-hidden="true">9.</strong> Introducing Turbo</a></li><li class="chapter-item expanded "><a href="2-turbo.html"><strong aria-hidden="true">10.</strong> v1.0.1: Unoptimized Turbo</a></li><li class="chapter-item expanded "><a href="3-turbo.html"><strong aria-hidden="true">11.</strong> v1.1.{0-1}: Preprocessing</a></li><li class="chapter-item expanded "><a href="4-turbo.html"><strong aria-hidden="true">12.</strong> v1.1.2: (Dis)equality Propagator</a></li><li class="chapter-item expanded "><a href="5-turbo.html"><strong aria-hidden="true">13.</strong> v1.1.3: Warp Synchronization</a></li><li class="chapter-item expanded "><a href="6-turbo.html"><strong aria-hidden="true">14.</strong> v1.1.{4-5}: Sorting Propagators</a></li><li class="chapter-item expanded "><a href="7-turbo.html"><strong aria-hidden="true">15.</strong> v1.1.{6-7}: Sharing Propagators</a></li><li class="chapter-item expanded affix "><li class="part-title">About</li><li class="chapter-item expanded "><a href="about.html"><strong aria-hidden="true">16.</strong> About</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
@@ -870,20 +870,22 @@ The benchmarking set consists of many instances of the RCPSP problem, for which 
 When discarding the RCPSP benchmarks, the median memory footprint of the propagators is actually reduced by a factor of 3, and the average memory is reduced by about 30%!
 I'm unsure which constraints of the RCPSP model lead to this issue, but due to the limited impact I decided not to investigate.</p>
 <div class="table-wrapper"><table><thead><tr><th>Metrics</th><th>Average</th><th>Δ v1.1.1</th><th>Median</th><th>Δ v1.1.1</th></tr></thead><tbody>
-<tr><td>Nodes per seconds</td><td>3778.83</td><td>-7%</td><td>1049.48</td><td>+7%</td></tr>
+<tr><td>Nodes per seconds</td><td>3778.83</td><td>-8%</td><td>1049.48</td><td>+7%</td></tr>
 <tr><td>Fixpoint iterations per second</td><td>16935.39</td><td>-5%</td><td>3847.91</td><td>-1%</td></tr>
-<tr><td>Fixpoint iterations per node</td><td>7.34</td><td>+7%</td><td>5.16</td><td>-0.01%</td></tr>
+<tr><td>Fixpoint iterations per node</td><td>7.34</td><td>+8%</td><td>5.16</td><td>0%</td></tr>
 <tr><td>#Problems with IDLE SMs at timeout</td><td>8</td><td>8</td><td></td><td></td></tr>
 <tr><td>Propagators memory</td><td>9.01MB</td><td>-13%</td><td>8.08MB</td><td>+9%</td></tr>
-<tr><td>Variables store memory</td><td>72.29KB</td><td>0%</td><td>84.1KB</td><td>0%</td></tr>
+<tr><td>Variables store memory</td><td>72.29KB</td><td>0%</td><td>84.10KB</td><td>0%</td></tr>
 <tr><td>#Problems at optimality</td><td>11</td><td>11</td><td></td><td></td></tr>
 <tr><td>#Problems satisfiable</td><td>22</td><td>22</td><td></td><td></td></tr>
 <tr><td>#Problems unknown</td><td>2</td><td>2</td><td></td><td></td></tr>
+<tr><td>#Problem with store in shared memory</td><td>10</td><td>10</td><td></td><td></td></tr>
+<tr><td>#Problem with prop in shared memory</td><td>1</td><td>1</td><td></td><td></td></tr>
 </tbody></table>
 </div>
 <p><img src="turbo-v1.1/turbogpu-v1.1.1-vs-turbogpu-v1.1.2.png" alt="TurboGPU-v1.1.1 vs TurboGPU-v1.1.2" /></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="v113-warp-synchronization"><a class="header" href="#v113-warp-synchronization">v1.1.3: Warp Synchronization</a></h1>
-<p><em>07 March 2024.</em> We increase by 13% the number of nodes per second by adding a single line of CUDA code.
+<p><em>07 March 2024.</em> We increase by 15% the number of nodes per second by adding a single line of CUDA code.
 The trick is to synchronize the warps in the fixpoint loop to reunite threads that have diverged.</p>
 <p>In Turbo, the propagators are called "refinement operators" and are essentially monotone function over a lattice structure, we will use both terms interchangeably.
 For instance, the octagon abstract domain consists of many small refinement operators implementing the Floyd-Warshall shortest path algorithm.
@@ -930,15 +932,17 @@ The optimization in version 1.1.3 is to synchronize the threads of each warp (<c
 The results show the efficiency of this approach.
 Interestingly, it also shows that we need more iterations to reach the fixpoint, which might be due to the fact that the propagators are running in a different order due to <code>__syncwarp()</code>.</p>
 <div class="table-wrapper"><table><thead><tr><th>Metrics</th><th>Average</th><th>Δ v1.1.2</th><th>Median</th><th>Δ v1.1.2</th></tr></thead><tbody>
-<tr><td>Nodes per seconds</td><td>4328.83</td><td>+13%</td><td>1240.06</td><td>+15%</td></tr>
+<tr><td>Nodes per seconds</td><td>4328.83</td><td>+15%</td><td>1240.06</td><td>+18%</td></tr>
 <tr><td>Fixpoint iterations per second</td><td>21347.57</td><td>+26%</td><td>6519.14</td><td>+69%</td></tr>
-<tr><td>Fixpoint iterations per node</td><td>8.61</td><td>+15%</td><td>5.31</td><td>+3%</td></tr>
+<tr><td>Fixpoint iterations per node</td><td>8.60</td><td>+17%</td><td>5.31</td><td>+3%</td></tr>
 <tr><td>#Problems with IDLE SMs at timeout</td><td>9</td><td>8</td><td></td><td></td></tr>
 <tr><td>Propagators memory</td><td>9.01MB</td><td>0%</td><td>8.08MB</td><td>0%</td></tr>
-<tr><td>Variables store memory</td><td>72.29KB</td><td>0%</td><td>84.1KB</td><td>0%</td></tr>
+<tr><td>Variables store memory</td><td>72.29KB</td><td>0%</td><td>84.10KB</td><td>0%</td></tr>
 <tr><td>#Problems at optimality</td><td>11</td><td>11</td><td></td><td></td></tr>
 <tr><td>#Problems satisfiable</td><td>22</td><td>22</td><td></td><td></td></tr>
 <tr><td>#Problems unknown</td><td>2</td><td>2</td><td></td><td></td></tr>
+<tr><td>#Problem with store in shared memory</td><td>10</td><td>10</td><td></td><td></td></tr>
+<tr><td>#Problem with prop in shared memory</td><td>1</td><td>1</td><td></td><td></td></tr>
 </tbody></table>
 </div>
 <p>There are many possible optimizations to improve the efficiency of the fixpoint loop, in particular to avoid thread divergence.
@@ -947,6 +951,104 @@ I'm going next to try something very simple: to sort the propagators according t
 <p><img src="turbo-v1.1/turbogpu-v1.1.2-vs-turbogpu-v1.1.3.png" alt="TurboGPU-v1.1.2 vs TurboGPU-v1.1.3" />
 <img src="turbo-v1.1/turbogpu-v1.1.1-vs-turbogpu-v1.1.3.png" alt="TurboGPU-v1.1.1 vs TurboGPU-v1.1.3" />
 <img src="turbo-v1.1/turbogpu-v1.1.0-vs-turbogpu-v1.1.3.png" alt="TurboGPU-v1.1.0 vs TurboGPU-v1.1.3" /></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="v114-5-sorting-propagators"><a class="header" href="#v114-5-sorting-propagators">v1.1.{4-5}: Sorting Propagators</a></h1>
+<p><em>28 August 2024.</em> We perform two experiments to reduce thread divergence by sorting propagators, for the reasons mentioned in the <a href="5-turbo.html">previous post</a>.
+Given a list of propagators representing constraints, we sort on the syntactic shape of the constraint:</p>
+<ul>
+<li>v1.1.4: Sort on the symbol of the outermost predicate of the formula, e.g. <code>x &lt; y</code> is equal to <code>z + y &lt; x * x</code>, but less than <code>x &lt;= y</code> for an arbitrary ordering between &lt; and &lt;=.</li>
+<li>v1.1.5: Lexicographic sort on the first predicate symbol followed by the length of the formula, e.g. <code>length(x &lt; y) = 2 &lt; 3 = length(z + y &lt; x * x)</code>.</li>
+</ul>
+<p>These are quite simple solutions to reduce divergence while avoiding spending too much time on a sorting algorithm specialized to minimize divergence.
+The results are not impressive, and it shows that thread divergence is perhaps not the biggest bottleneck of Turbo.
+Nevertheless, given how cheap this optimization is, I decided to keep it.
+Note that on some benchmarks where the propagators are very unsorted (e.g. <code>gfd_schedule</code>), sorting increases by 50% the number of nodes explored.</p>
+<h2 id="results-v114"><a class="header" href="#results-v114">Results v1.1.4</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Metrics</th><th>Average</th><th>Δ v1.1.3</th><th>Median</th><th>Δ v1.1.3</th></tr></thead><tbody>
+<tr><td>Nodes per seconds</td><td>4439.68</td><td>+3%</td><td>1236.87</td><td>0%</td></tr>
+<tr><td>Fixpoint iterations per second</td><td>21659.62</td><td>+1%</td><td>6492.20</td><td>0%</td></tr>
+<tr><td>Fixpoint iterations per node</td><td>8.69</td><td>+1%</td><td>5.07</td><td>-5%</td></tr>
+<tr><td>#Problems with IDLE SMs at timeout</td><td>9</td><td>9</td><td></td><td></td></tr>
+<tr><td>Propagators memory</td><td>9.01MB</td><td>0%</td><td>8.08MB</td><td>0%</td></tr>
+<tr><td>Variables store memory</td><td>72.29KB</td><td>0%</td><td>84.10KB</td><td>0%</td></tr>
+<tr><td>#Problems at optimality</td><td>11</td><td>11</td><td></td><td></td></tr>
+<tr><td>#Problems satisfiable</td><td>22</td><td>22</td><td></td><td></td></tr>
+<tr><td>#Problems unknown</td><td>2</td><td>2</td><td></td><td></td></tr>
+<tr><td>#Problem with store in shared memory</td><td>10</td><td>10</td><td></td><td></td></tr>
+<tr><td>#Problem with prop in shared memory</td><td>1</td><td>1</td><td></td><td></td></tr>
+</tbody></table>
+</div>
+<p><img src="turbo-v1.1/turbogpu-v1.1.3-vs-turbogpu-v1.1.4.png" alt="TurboGPU-v1.1.3 vs TurboGPU-v1.1.4" /></p>
+<h2 id="results-v115"><a class="header" href="#results-v115">Results v1.1.5</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Metrics</th><th>Average</th><th>Δ v1.1.3</th><th>Median</th><th>Δ v1.1.3</th></tr></thead><tbody>
+<tr><td>Nodes per seconds</td><td>4513.37</td><td>+4%</td><td>1243.61</td><td>0%</td></tr>
+<tr><td>Fixpoint iterations per second</td><td>21787.61</td><td>+2%</td><td>6612.26</td><td>+1%</td></tr>
+<tr><td>Fixpoint iterations per node</td><td>8.50</td><td>-1%</td><td>5.38</td><td>+1%</td></tr>
+<tr><td>#Problems with IDLE SMs at timeout</td><td>9</td><td>9</td><td></td><td></td></tr>
+<tr><td>Propagators memory</td><td>9.01MB</td><td>0%</td><td>8.08MB</td><td>0%</td></tr>
+<tr><td>Variables store memory</td><td>72.29KB</td><td>0%</td><td>84.10KB</td><td>0%</td></tr>
+<tr><td>#Problems at optimality</td><td>11</td><td>11</td><td></td><td></td></tr>
+<tr><td>#Problems satisfiable</td><td>22</td><td>22</td><td></td><td></td></tr>
+<tr><td>#Problems unknown</td><td>2</td><td>2</td><td></td><td></td></tr>
+<tr><td>#Problem with store in shared memory</td><td>10</td><td>10</td><td></td><td></td></tr>
+<tr><td>#Problem with prop in shared memory</td><td>1</td><td>1</td><td></td><td></td></tr>
+</tbody></table>
+</div>
+<p><img src="turbo-v1.1/turbogpu-v1.1.3-vs-turbogpu-v1.1.5.png" alt="TurboGPU-v1.1.3 vs TurboGPU-v1.1.5" /></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="v116-sharing-propagators"><a class="header" href="#v116-sharing-propagators">v1.1.6: Sharing Propagators</a></h1>
+<p><em>28 August 2024.</em> Each subproblem is currently solved independently in a CUDA block, and the solver state is duplicated on each block.
+The propagators are never modified during solving and thus, can safely be shared among the blocks.
+Considering the propagators consume on average 9MB (hence 64*9 = 576MB for all blocks) and the L2 cache is only 4MB (on my A5000 card), the data transfers between the global memory and the L2 cache only because of the propagators are quite intense.
+In version 1.1.6, I share the propagators among the blocks using a new pointer type called <code>root_ptr</code> (from <a href="https://github.com/lattice-land/cuda-battery">cuda-battery</a>).
+A more classical <code>shared_ptr</code> is not safe to use to share data among blocks because the references counter is not protected against concurrent accesses, which can happen when two blocks call the copy constructor or the destructor of the shared pointer at the same time.
+And this can lead to a segmentation fault.
+The new <code>root_ptr</code> consider that the first owner of the pointer is the one that will also destroy it, which has the advantage of not required a references counter.
+Of course, it is the responsibility of the programmer to delete the pointer after all blocks have terminated.</p>
+<p>Once again, and similarly to the version 1.1.5, the improvement is not as great as expected with only 5% more nodes explored on average.</p>
+<div class="table-wrapper"><table><thead><tr><th>Metrics</th><th>Average</th><th>Δ v1.1.5</th><th>Median</th><th>Δ v1.1.5</th></tr></thead><tbody>
+<tr><td>Nodes per seconds</td><td>4758.85</td><td>+5%</td><td>1287.70</td><td>+4%</td></tr>
+<tr><td>Fixpoint iterations per second</td><td>23376.47</td><td>+7%</td><td>7228.01</td><td>+9%</td></tr>
+<tr><td>Fixpoint iterations per node</td><td>8.74</td><td>+3%</td><td>5.39</td><td>0%</td></tr>
+<tr><td>#Problems with IDLE SMs at timeout</td><td>9</td><td>9</td><td></td><td></td></tr>
+<tr><td>Propagators memory</td><td>9.01MB</td><td>0%</td><td>8.08MB</td><td>0%</td></tr>
+<tr><td>Variables store memory</td><td>72.29KB</td><td>0%</td><td>84.10KB</td><td>0%</td></tr>
+<tr><td>#Problems at optimality</td><td>11</td><td>11</td><td></td><td></td></tr>
+<tr><td>#Problems satisfiable</td><td>22</td><td>22</td><td></td><td></td></tr>
+<tr><td>#Problems unknown</td><td>2</td><td>2</td><td></td><td></td></tr>
+<tr><td>#Problem with store in shared memory</td><td>10</td><td>10</td><td></td><td></td></tr>
+<tr><td>#Problem with prop in shared memory</td><td>1</td><td>1</td><td></td><td></td></tr>
+</tbody></table>
+</div>
+<p><img src="turbo-v1.1/turbogpu-v1.1.5-vs-turbogpu-v1.1.6.png" alt="TurboGPU-v1.1.5 vs TurboGPU-v1.1.6" /></p>
+<h2 id="v117-changing-the-eps-search-strategy-bonus"><a class="header" href="#v117-changing-the-eps-search-strategy-bonus">v1.1.7: Changing the EPS Search Strategy (Bonus)</a></h2>
+<p>For fun and profits, I try to change the EPS search strategy to improve the benchmarks in a cheap and easy way.
+It happens that selecting the smallest value of the smallest domain (first-fail) is a bit better than performing a bisection.</p>
+<div class="table-wrapper"><table><thead><tr><th>Metrics</th><th>Average</th><th>Δ v1.1.6</th><th>Median</th><th>Δ v1.1.6</th></tr></thead><tbody>
+<tr><td>Nodes per seconds</td><td>4527.37</td><td>-5%</td><td>1287.14</td><td>0%</td></tr>
+<tr><td>Fixpoint iterations per second</td><td>25015.74</td><td>+7%</td><td>7100.85</td><td>-2%</td></tr>
+<tr><td>Fixpoint iterations per node</td><td>8.93</td><td>+2%</td><td>5.39</td><td>0%</td></tr>
+<tr><td>#Problems with IDLE SMs at timeout</td><td>9</td><td>9</td><td></td><td></td></tr>
+<tr><td>Propagators memory</td><td>9.01MB</td><td>0%</td><td>8.08MB</td><td>0%</td></tr>
+<tr><td>Variables store memory</td><td>72.29KB</td><td>0%</td><td>84.10KB</td><td>0%</td></tr>
+<tr><td>#Problems at optimality</td><td>11</td><td>11</td><td></td><td></td></tr>
+<tr><td>#Problems satisfiable</td><td>22</td><td>22</td><td></td><td></td></tr>
+<tr><td>#Problems unknown</td><td>2</td><td>2</td><td></td><td></td></tr>
+<tr><td>#Problem with store in shared memory</td><td>10</td><td>10</td><td></td><td></td></tr>
+<tr><td>#Problem with prop in shared memory</td><td>1</td><td>1</td><td></td><td></td></tr>
+</tbody></table>
+</div>
+<p><img src="turbo-v1.1/turbogpu-v1.1.6-vs-turbogpu-v1.1.7.png" alt="TurboGPU-v1.1.6 vs TurboGPU-v1.1.7" /></p>
+<h2 id="summary-v11"><a class="header" href="#summary-v11">Summary v1.1</a></h2>
+<p>The CUDA optimizations performed in the versions 1.1.* did not help to get amazing gain in performance.
+The best optimization was the preprocessing of the problem (v1.1.1) which has actually nothing to do with GPUs.</p>
+<p>After a quick chat with Nvidia engineers that could have a look at a profiling report of Turbo, we identified that the main bottleneck is the high number of registers needed by each block.
+Turbo is a full application with thousands of lines of code and the call to a single propagator is deep in the functions stack.
+When the first version of Turbo was developed for the AAAI-2022 paper, it was very simple in terms of capabilities and could only manage scheduling problems.
+We now manage any kind of discrete constraints, and the solver is based on <em>abstract interpretation</em>, the abstract domain architecture has a cost due to various abstractions.
+Before we reach the code required for a thread to execute a propagator, we find many local variables on the way that might need to be stored in register.
+Clearly, the code is not suited at all for a GPU architecture, it could even be surprising it works "that well".</p>
+<p>In the next versions 1.2.*, we are going to focus on splitting the kernel into smaller kernels, perhaps doing the search on the CPU and only the propagation loop on the GPU.
+Doing it all on the GPU was mainly to reduce data transfers, but clearly, with only 4527 nodes explored per second, the data bandwidth is far from being the bottleneck.</p>
+<p><img src="turbo-v1.1/overall-standing-v1.1.png" alt="Overall Standing v1.1" /></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="about"><a class="header" href="#about">About</a></h1>
 <p>The lattice land project is developed at the University of Luxembourg by a wonderful team:</p>
 <ul>

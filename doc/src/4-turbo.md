@@ -36,15 +36,17 @@ When discarding the RCPSP benchmarks, the median memory footprint of the propaga
 I'm unsure which constraints of the RCPSP model lead to this issue, but due to the limited impact I decided not to investigate.
 
 | Metrics | Average | Δ v1.1.1 | Median | Δ v1.1.1 |
-|---------|---------|----------|--------|---------|
-| Nodes per seconds | 3778.83 | -7% | 1049.48 | +7% |
+|---------|---------|----------|--------|----------|
+| Nodes per seconds | 3778.83 | -8% | 1049.48 | +7% |
 | Fixpoint iterations per second | 16935.39 | -5% | 3847.91 | -1% |
-| Fixpoint iterations per node | 7.34 | +7% | 5.16 | -0.01% |
-| #Problems with IDLE SMs at timeout | 8 | 8 |||
- Propagators memory | 9.01MB | -13% | 8.08MB | +9% |
-| Variables store memory | 72.29KB | 0% | 84.1KB | 0%|
-| #Problems at optimality | 11 | 11 | ||
-| #Problems satisfiable | 22 | 22 | ||
-| #Problems unknown | 2 | 2 | ||
+| Fixpoint iterations per node | 7.34 | +8% | 5.16 | 0% |
+| #Problems with IDLE SMs at timeout | 8 | 8 | |
+| Propagators memory | 9.01MB | -13% | 8.08MB | +9% |
+| Variables store memory | 72.29KB | 0% | 84.10KB | 0% |
+| #Problems at optimality | 11 | 11 | |
+| #Problems satisfiable | 22 | 22 | |
+| #Problems unknown | 2 | 2 | |
+| #Problem with store in shared memory | 10 | 10 | |
+| #Problem with prop in shared memory | 1 | 1 | |
 
 ![TurboGPU-v1.1.1 vs TurboGPU-v1.1.2](turbo-v1.1/turbogpu-v1.1.1-vs-turbogpu-v1.1.2.png)

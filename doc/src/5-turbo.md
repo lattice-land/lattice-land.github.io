@@ -1,6 +1,6 @@
 # v1.1.3: Warp Synchronization
 
-_07 March 2024._ We increase by 13% the number of nodes per second by adding a single line of CUDA code.
+_07 March 2024._ We increase by 15% the number of nodes per second by adding a single line of CUDA code.
 The trick is to synchronize the warps in the fixpoint loop to reunite threads that have diverged.
 
 In Turbo, the propagators are called "refinement operators" and are essentially monotone function over a lattice structure, we will use both terms interchangeably.
@@ -56,16 +56,18 @@ The results show the efficiency of this approach.
 Interestingly, it also shows that we need more iterations to reach the fixpoint, which might be due to the fact that the propagators are running in a different order due to `__syncwarp()`.
 
 | Metrics | Average | Δ v1.1.2 | Median | Δ v1.1.2 |
-|---------|---------|----------|--------|---------|
-| Nodes per seconds | 4328.83 | +13% | 1240.06 | +15% |
+|---------|---------|----------|--------|----------|
+| Nodes per seconds | 4328.83 | +15% | 1240.06 | +18% |
 | Fixpoint iterations per second | 21347.57 | +26% | 6519.14 | +69% |
-| Fixpoint iterations per node | 8.61 | +15% | 5.31 | +3% |
-| #Problems with IDLE SMs at timeout | 9 | 8 |||
+| Fixpoint iterations per node | 8.60 | +17% | 5.31 | +3% |
+| #Problems with IDLE SMs at timeout | 9 | 8 | |
 | Propagators memory | 9.01MB | 0% | 8.08MB | 0% |
-| Variables store memory | 72.29KB | 0% | 84.1KB | 0%|
-| #Problems at optimality | 11 | 11 | ||
-| #Problems satisfiable | 22 | 22 | ||
-| #Problems unknown | 2 | 2 | ||
+| Variables store memory | 72.29KB | 0% | 84.10KB | 0% |
+| #Problems at optimality | 11 | 11 | |
+| #Problems satisfiable | 22 | 22 | |
+| #Problems unknown | 2 | 2 | |
+| #Problem with store in shared memory | 10 | 10 | |
+| #Problem with prop in shared memory | 1 | 1 | |
 
 There are many possible optimizations to improve the efficiency of the fixpoint loop, in particular to avoid thread divergence.
 I'm going next to try something very simple: to sort the propagators according to their structures, which should reduce divergence, we'll see!
