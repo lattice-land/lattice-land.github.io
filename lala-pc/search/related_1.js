@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['conjunction_0',['Conjunction',['../classlala_1_1pc_1_1_conjunction.html#a7dbb62fabfe6bb13963c6dab95971fe5',1,'lala::pc::Conjunction']]],
-  ['constant_1',['Constant',['../classlala_1_1pc_1_1_constant.html#a76dd66d9197f7f84c4cd2db13c0c23d3',1,'lala::pc::Constant']]]
+  ['biconditional_0',['Biconditional',['../classlala_1_1pc_1_1_biconditional.html#a50fe39a60058fe7eb54557113faf81a3',1,'lala::pc::Biconditional']]],
+  ['binary_1',['Binary',['../classlala_1_1pc_1_1_binary.html#ad2b6a220a7475140da49dfa40b49d689',1,'lala::pc::Binary']]]
 ];

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['disjunction_0',['Disjunction',['../classlala_1_1pc_1_1_disjunction.html#ad3499685da1e082a6224097c02ca6b18',1,'lala::pc::Disjunction']]]
+  ['conjunction_0',['Conjunction',['../classlala_1_1pc_1_1_conjunction.html#a7dbb62fabfe6bb13963c6dab95971fe5',1,'lala::pc::Conjunction']]],
+  ['constant_1',['Constant',['../classlala_1_1pc_1_1_constant.html#a76dd66d9197f7f84c4cd2db13c0c23d3',1,'lala::pc::Constant']]]
 ];

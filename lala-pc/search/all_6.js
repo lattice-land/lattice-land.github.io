@@ -6,5 +6,6 @@ var searchData=
   ['groupdiv_3',['GroupDiv',['../structlala_1_1pc_1_1_group_div.html',1,'lala::pc']]],
   ['groupminmax_4',['GroupMinMax',['../structlala_1_1pc_1_1_group_min_max.html',1,'lala::pc']]],
   ['groupmul_5',['GroupMul',['../structlala_1_1pc_1_1_group_mul.html',1,'lala::pc']]],
-  ['groupsub_6',['GroupSub',['../structlala_1_1pc_1_1_group_sub.html',1,'lala::pc']]]
+  ['groupsub_6',['GroupSub',['../structlala_1_1pc_1_1_group_sub.html',1,'lala::pc']]],
+  ['gt_7',['Gt',['../classlala_1_1pc_1_1_formula.html#a826e0f081c6bbd0165e2da0a91347afd',1,'lala::pc::Formula']]]
 ];

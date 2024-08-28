@@ -12,7 +12,7 @@ These are quite simple solutions to reduce divergence while avoiding spending to
 
 | Metrics | Average | Δ v1.1.3 | Median | Δ v1.1.3 |
 |---------|---------|----------|--------|---------|
-| Nodes per seconds | 4439.67  4328.83 | +13% | 1240.06 | +15% |
+| Nodes per seconds | 4439.67  | +3% | 1236.87 1240.06 | +15% |
 | Fixpoint iterations per second | 21347.57 | +26% | 6519.14 | +69% |
 | Fixpoint iterations per node | 8.61 | +15% | 5.31 | +3% |
 | #Problems with IDLE SMs at timeout | 9 | 8 |||

@@ -1,6 +1,7 @@
 var namespacelala_1_1pc =
 [
     [ "AbsOp", "structlala_1_1pc_1_1_abs_op.html", "structlala_1_1pc_1_1_abs_op" ],
+    [ "AbstractElement", "classlala_1_1pc_1_1_abstract_element.html", "classlala_1_1pc_1_1_abstract_element" ],
     [ "Biconditional", "classlala_1_1pc_1_1_biconditional.html", "classlala_1_1pc_1_1_biconditional" ],
     [ "Binary", "classlala_1_1pc_1_1_binary.html", "classlala_1_1pc_1_1_binary" ],
     [ "Conjunction", "classlala_1_1pc_1_1_conjunction.html", "classlala_1_1pc_1_1_conjunction" ],
@@ -16,14 +17,15 @@ var namespacelala_1_1pc =
     [ "GroupMul", "structlala_1_1pc_1_1_group_mul.html", "structlala_1_1pc_1_1_group_mul" ],
     [ "GroupSub", "structlala_1_1pc_1_1_group_sub.html", "structlala_1_1pc_1_1_group_sub" ],
     [ "Implication", "classlala_1_1pc_1_1_implication.html", "classlala_1_1pc_1_1_implication" ],
+    [ "Inequality", "classlala_1_1pc_1_1_inequality.html", "classlala_1_1pc_1_1_inequality" ],
     [ "Nary", "classlala_1_1pc_1_1_nary.html", "classlala_1_1pc_1_1_nary" ],
     [ "NegOp", "structlala_1_1pc_1_1_neg_op.html", "structlala_1_1pc_1_1_neg_op" ],
-    [ "NLatticeOrderPredicate", "classlala_1_1pc_1_1_n_lattice_order_predicate.html", "classlala_1_1pc_1_1_n_lattice_order_predicate" ],
-    [ "PLatticeOrderPredicate", "classlala_1_1pc_1_1_p_lattice_order_predicate.html", "classlala_1_1pc_1_1_p_lattice_order_predicate" ],
     [ "Term", "classlala_1_1pc_1_1_term.html", "classlala_1_1pc_1_1_term" ],
     [ "True", "classlala_1_1pc_1_1_true.html", "classlala_1_1pc_1_1_true" ],
     [ "Unary", "classlala_1_1pc_1_1_unary.html", "classlala_1_1pc_1_1_unary" ],
     [ "Variable", "classlala_1_1pc_1_1_variable.html", "classlala_1_1pc_1_1_variable" ],
     [ "VariableLiteral", "classlala_1_1pc_1_1_variable_literal.html", "classlala_1_1pc_1_1_variable_literal" ],
-    [ "Disequality", "namespacelala_1_1pc.html#aaeee86359eaa1ff112b3aeec24258075", null ]
+    [ "Disequality", "namespacelala_1_1pc.html#aaeee86359eaa1ff112b3aeec24258075", null ],
+    [ "InequalityGT", "namespacelala_1_1pc.html#aac08dc2b9fde4a5fddd5a585652deb2c", null ],
+    [ "InequalityLEQ", "namespacelala_1_1pc.html#a23bd56ff45edb193e122382e4593ab93", null ]
 ];
