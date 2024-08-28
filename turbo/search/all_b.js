@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['must_5fquit_0',['must_quit',['../common__solving_8hpp.html#aceec23d67eb8f6c24010f377a52aee98',1,'common_solving.hpp']]]
+  ['noatomics_0',['noatomics',['../struct_configuration.html#a9647a52870c879b3b9a03c0e0b5cc725',1,'Configuration']]],
+  ['nodes_1',['nodes',['../struct_statistics.html#abbcb20755134a0cab9adebbe6ee321ab',1,'Statistics']]],
+  ['num_5fblocks_5fdone_2',['num_blocks_done',['../struct_statistics.html#a37b659551d0b1f473eb43b856cf96366',1,'Statistics']]]
 ];

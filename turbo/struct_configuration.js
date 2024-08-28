@@ -16,6 +16,8 @@ var struct_configuration =
     [ "print_statistics", "struct_configuration.html#ad4b8d3dc5fa618691241f82ca0407d06", null ],
     [ "verbose_solving", "struct_configuration.html#a339e1d8e3df826f7eb6f3dbed59adeb5", null ],
     [ "print_ast", "struct_configuration.html#a2e1d83ae5ce1588efe89ff65b9220460", null ],
+    [ "only_global_memory", "struct_configuration.html#aae1fab75cbb6561fa2d07eb7ed8c8b97", null ],
+    [ "noatomics", "struct_configuration.html#a9647a52870c879b3b9a03c0e0b5cc725", null ],
     [ "timeout_ms", "struct_configuration.html#a551421ac989bd6fed56f7e09de7618e2", null ],
     [ "or_nodes", "struct_configuration.html#a6400dfba9cd09ea3050d18c71c8d47fb", null ],
     [ "and_nodes", "struct_configuration.html#ad71c1fc1db14a57e26417c6bd4ffb402", null ],

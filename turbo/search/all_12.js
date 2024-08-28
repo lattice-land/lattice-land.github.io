@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['variables_0',['variables',['../struct_statistics.html#addf157a3464b41f04afc7230a11cbd31',1,'Statistics']]],
-  ['verbose_5fsolving_1',['verbose_solving',['../struct_configuration.html#a339e1d8e3df826f7eb6f3dbed59adeb5',1,'Configuration']]],
-  ['version_2',['version',['../struct_configuration.html#af7e3e8bb8ca188b62a09524337b039d1',1,'Configuration']]]
+  ['xcsp3_0',['XCSP3',['../config_8hpp.html#a7a1886da996cfe677c935435eff2adeba70558403a305ad2a078a17745ada5184',1,'config.hpp']]]
 ];

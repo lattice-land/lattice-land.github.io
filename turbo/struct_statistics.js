@@ -4,7 +4,7 @@ var struct_statistics =
     [ "Statistics", "struct_statistics.html#a5dca1c8763b1c0b99f79231222cd5264", null ],
     [ "Statistics", "struct_statistics.html#a960c9f31af8acc795f77470db0eb2e36", null ],
     [ "Statistics", "struct_statistics.html#a373d1164676eee45df96058ed57ad6d8", null ],
-    [ "join", "struct_statistics.html#a1a9b704b99cbbb4e8910ac530b06cc26", null ],
+    [ "meet", "struct_statistics.html#a5fd3217d98ad055c0eea2a5f5d95f0d5", null ],
     [ "print_mzn_statistics", "struct_statistics.html#a35047830ce5d2509f8b83882bb103847", null ],
     [ "print_mzn_end_stats", "struct_statistics.html#a8e69c949bceefdd5a1e2c3ed2841fce0", null ],
     [ "print_mzn_objective", "struct_statistics.html#a500f20883ce3dcf1d839a514bebc1d1e", null ],
