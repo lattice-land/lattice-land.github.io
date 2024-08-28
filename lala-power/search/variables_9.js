@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['val_5forder_0',['val_order',['../structlala_1_1_split_strategy_1_1strategy__type.html#a223a3f0a73c2abe88e52f5de5868fba9',1,'lala::SplitStrategy::strategy_type']]],
-  ['var_5forder_1',['var_order',['../structlala_1_1_split_strategy_1_1strategy__type.html#ae9b0cfcee1edddc0edc77eb5d36682d7',1,'lala::SplitStrategy::strategy_type']]],
-  ['vars_2',['vars',['../structlala_1_1_split_strategy_1_1strategy__type.html#a55fcee910c3835df4bb36f82150cd16f',1,'lala::SplitStrategy::strategy_type']]]
+  ['tell_5ftable_0',['tell_table',['../structlala_1_1_table_1_1tell__type.html#af74f82730081f0f27cf8dfe31874562c',1,'lala::Table::tell_type']]],
+  ['tell_5ftables_1',['tell_tables',['../structlala_1_1_tables_1_1tell__type.html#a35b8bcde81b4b370bb272d59b0200611',1,'lala::Tables::tell_type']]],
+  ['total_5fcells_2',['total_cells',['../structlala_1_1_tables_1_1snapshot__type.html#af0d3218b34e538b97bce4d20f51a9b82',1,'lala::Tables::snapshot_type']]]
 ];

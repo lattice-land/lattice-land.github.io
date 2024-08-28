@@ -14,6 +14,7 @@ var classlala_1_1_tables =
     [ "sub_ptr", "classlala_1_1_tables.html#a8bb23ba7b9c279c4273420fdb3df7019", null ],
     [ "this_type", "classlala_1_1_tables.html#a13093780c27bc80d5955b935f19f6095", null ],
     [ "table_type", "classlala_1_1_tables.html#a6ff544a6c6478048a0d99fa6fac9ce87", null ],
+    [ "table_headers", "classlala_1_1_tables.html#a2819ec458a0ec9cb95aeb601c3be9147", null ],
     [ "table_collection_type", "classlala_1_1_tables.html#a108788ab38b798a62cdd614be4d05a33", null ],
     [ "bitset_type", "classlala_1_1_tables.html#af5c9f8f4a5ae3e2b25ef82782ba29c0c", null ],
     [ "Tables", "classlala_1_1_tables.html#ab7bbf6848b143ffd5765f294811bd53c", null ],

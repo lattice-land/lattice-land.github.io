@@ -18,8 +18,7 @@ var classlala_1_1_split_strategy =
     [ "reset", "classlala_1_1_split_strategy.html#abf5102e67676c60dd2c5f1c824fe8a61", null ],
     [ "interpret_tell", "classlala_1_1_split_strategy.html#a5701a608e86f61d00d92da1422dada37", null ],
     [ "interpret", "classlala_1_1_split_strategy.html#aca52a84a98ed6f11941bfe21b947a261", null ],
-    [ "tell", "classlala_1_1_split_strategy.html#a6df12534456163ffb93da5b8b66dfd66", null ],
-    [ "tell", "classlala_1_1_split_strategy.html#afad6f27fbb20913ac95c0f856f8400b1", null ],
+    [ "deduce", "classlala_1_1_split_strategy.html#a52e569d01883f0d52a767961361c5267", null ],
     [ "split", "classlala_1_1_split_strategy.html#ad0b0f2530754be67a738417aa59ce8f7", null ],
     [ "num_strategies", "classlala_1_1_split_strategy.html#adda9aae4a42e22db8b98958ad17c03d5", null ],
     [ "SplitStrategy", "classlala_1_1_split_strategy.html#a4e6bcb207ff4f3f520b5092c1edc55d7", null ]
