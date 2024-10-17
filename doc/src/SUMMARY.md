@@ -34,6 +34,7 @@
 * [v1.1.{4-5}: Sorting Propagators](6-turbo.md)
 * [v1.1.{6-7}: Sharing Propagators](7-turbo.md)
 * [v1.2.0: Refactoring](8-turbo.md)
+* [Open Hackathon](9-turbo.md)
 
 # About
 
