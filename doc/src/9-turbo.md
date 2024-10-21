@@ -30,7 +30,10 @@ The algorithm consists of two parts:
 During the dive and solve operations, the propagation step is always executed on the GPU, by calling a kernel parametrized with a single block.
 
 To execute this algorithm on multiple blocks, we create `N` CPU threads that will explore in parallel different `path` and solve different subproblems.
-The file `` documents this algorithm in detail.
+The file `https://github.com/ptal/turbo/blob/v1.2.1/include/hybrid_dive_and_solve.hpp` documents this algorithm in more detail.
+
+
+... benchmarks result on Helios and on my desktop to compare to come...
 
 ## How to compile and run Turbo on Helios
 
