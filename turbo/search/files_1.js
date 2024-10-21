@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['gpu_5fsolving_2ehpp_0',['gpu_solving.hpp',['../gpu__solving_8hpp.html',1,'']]]
+  ['gpu_5fdive_5fand_5fsolve_2ehpp_0',['gpu_dive_and_solve.hpp',['../gpu__dive__and__solve_8hpp.html',1,'']]]
 ];

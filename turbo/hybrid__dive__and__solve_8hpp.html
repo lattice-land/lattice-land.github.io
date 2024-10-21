@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Turbo Constraint Solver: include/statistics.hpp File Reference</title>
+<title>Turbo Constraint Solver: include/hybrid_dive_and_solve.hpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -77,7 +77,7 @@ $(function() {
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(function(){initNavTree('statistics_8hpp.html',''); initResizable(true); });
+$(function(){initNavTree('hybrid__dive__and__solve_8hpp.html',''); initResizable(true); });
 /* @license-end */
 </script>
 <div id="doc-content">
@@ -104,56 +104,38 @@ $(function(){initNavTree('statistics_8hpp.html',''); initResizable(true); });
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
 <a href="#func-members">Functions</a>  </div>
-  <div class="headertitle"><div class="title">statistics.hpp File Reference</div></div>
+  <div class="headertitle"><div class="title">hybrid_dive_and_solve.hpp File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;chrono&gt;</code><br />
-<code>#include &lt;algorithm&gt;</code><br />
-<code>#include &quot;battery/utility.hpp&quot;</code><br />
-<code>#include &quot;battery/allocator.hpp&quot;</code><br />
-<code>#include &quot;lala/logic/ast.hpp&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="common__solving_8hpp_source.html">common_solving.hpp</a>&quot;</code><br />
+<code>#include &lt;mutex&gt;</code><br />
+<code>#include &lt;thread&gt;</code><br />
 </div>
-<p><a href="statistics_8hpp_source.html">Go to the source code of this file.</a></p>
+<p><a href="hybrid__dive__and__solve_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_statistics.html">Statistics</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:aa706e08664f7a52ec805a8257bcfb593" id="r_aa706e08664f7a52ec805a8257bcfb593"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa706e08664f7a52ec805a8257bcfb593">print_memory_statistics</a> (const char *key, size_t bytes)</td></tr>
-<tr class="separator:aa706e08664f7a52ec805a8257bcfb593"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab002d8e461e9e10df5c63ee20a3e33a6" id="r_ab002d8e461e9e10df5c63ee20a3e33a6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab002d8e461e9e10df5c63ee20a3e33a6">hybrid_dive_and_solve</a> (const <a class="el" href="struct_configuration.html">Configuration</a>&lt; battery::standard_allocator &gt; &amp;config)</td></tr>
+<tr class="separator:ab002d8e461e9e10df5c63ee20a3e33a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="aa706e08664f7a52ec805a8257bcfb593" name="aa706e08664f7a52ec805a8257bcfb593"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa706e08664f7a52ec805a8257bcfb593">&#9670;&#160;</a></span>print_memory_statistics()</h2>
+<a id="ab002d8e461e9e10df5c63ee20a3e33a6" name="ab002d8e461e9e10df5c63ee20a3e33a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab002d8e461e9e10df5c63ee20a3e33a6">&#9670;&#160;</a></span>hybrid_dive_and_solve()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void print_memory_statistics </td>
+          <td class="memname">void hybrid_dive_and_solve </td>
           <td>(</td>
-          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>key</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">const <a class="el" href="struct_configuration.html">Configuration</a>&lt; battery::standard_allocator &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>config</em></span></td><td>)</td>
           <td></td>
-          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>bytes</em></span>&#160;)</td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
+<p>"Dive and solve" is a new algorithm to parallelize the standard "propagate and search" algorithm of constraint programming. Given a depth <code>d</code>, we create <code>2^d</code> subproblems that we solve in parallel. We create as many CPU threads as blocks on the GPU (option <code>config.or_nodes</code>). A CPU thread takes the next subproblem available and run the "propagate and search" algorithm on it. The CPU thread offloads the propagation to the GPU, but take care of splitting and backtracking in the search tree, as well as maintaining the best bound found, and the statistics. Therefore, a kernel with only 1 block is executed each time we propagate a node. Since many CPU threads execute in parallel, there are many kernels running in parallel.</p>
+<p>We call a task solving a subproblem a "cube" (this loosely follows the terminology of SAT solving with "cube and conquer"). By CPU cube, we refer to the local state of a CPU thread for solving a subproblem. By GPU cube, we refer to the local state of a GPU block for solving a subproblem. Note that at each moment, there are at most <code>config.or_nodes</code> cubes active in parallel. This is the point of entry, we preprocess the problem, create the threads solving the problem, wait for their completion or an interruption, merge and print the statistics. </p>
 
 </div>
 </div>
@@ -162,7 +144,7 @@ Functions</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="statistics_8hpp.html">statistics.hpp</a></li>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="hybrid__dive__and__solve_8hpp.html">hybrid_dive_and_solve.hpp</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.12.0 </li>
   </ul>
 </div>

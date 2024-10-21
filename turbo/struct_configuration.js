@@ -7,6 +7,7 @@ var struct_configuration =
     [ "Configuration", "struct_configuration.html#a8d5e36178e3bb0180d06b7b29b66d98d", null ],
     [ "operator=", "struct_configuration.html#a67256dda74357a71d29badb79029767f", null ],
     [ "print_commandline", "struct_configuration.html#ab26cab83eec7511813d66fd21c715ba5", null ],
+    [ "name_of_arch", "struct_configuration.html#adc780cfdd04e45250e746a980ecb84b9", null ],
     [ "print_mzn_statistics", "struct_configuration.html#a326f93187848c69b41a34008ad16233a", null ],
     [ "input_format", "struct_configuration.html#a152b71b8113b11f5a7e79e22eb08b6f9", null ],
     [ "print_intermediate_solutions", "struct_configuration.html#a1e28a838055718bee138fc096d43696e", null ],

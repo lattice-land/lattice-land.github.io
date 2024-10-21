@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['on_5ffailed_5fnode_0',['on_failed_node',['../struct_abstract_domains.html#a83c68e8983fe058fcd5137f12e47ae73',1,'AbstractDomains']]],
-  ['on_5fnode_1',['on_node',['../struct_abstract_domains.html#a3ce563dd8c3c32d880632c11f2e5754f',1,'AbstractDomains']]],
-  ['on_5fsolution_5fnode_2',['on_solution_node',['../struct_abstract_domains.html#a391ddbddc47c3fff8a47cb2ba5ffd7d4',1,'AbstractDomains']]],
-  ['operator_3d_3',['operator=',['../struct_unique_alloc.html#a827b2ff1f1b476dbd28d87f3a68f4988',1,'UniqueAlloc::operator=()'],['../struct_configuration.html#a67256dda74357a71d29badb79029767f',1,'Configuration::operator=()']]]
+  ['meet_0',['meet',['../struct_abstract_domains.html#a38e81d5be425dbbce5cf371ddac7c6f8',1,'AbstractDomains::meet()'],['../struct_statistics.html#a5fd3217d98ad055c0eea2a5f5d95f0d5',1,'Statistics::meet()']]],
+  ['must_5fquit_1',['must_quit',['../common__solving_8hpp.html#aceec23d67eb8f6c24010f377a52aee98',1,'common_solving.hpp']]]
 ];

@@ -5,7 +5,8 @@ var config_8hpp =
     [ "STACK_KB", "config_8hpp.html#a191cdaa6b3f8705486b711b3f741f38a", null ],
     [ "Arch", "config_8hpp.html#a0ac03ab06a859320a9072002bdf3aa0f", [
       [ "CPU", "config_8hpp.html#a0ac03ab06a859320a9072002bdf3aa0fa2b55387dd066c5bac646ac61543d152d", null ],
-      [ "GPU", "config_8hpp.html#a0ac03ab06a859320a9072002bdf3aa0fa52f9ec21735243ad9917cda3ca077d32", null ]
+      [ "GPU", "config_8hpp.html#a0ac03ab06a859320a9072002bdf3aa0fa52f9ec21735243ad9917cda3ca077d32", null ],
+      [ "HYBRID", "config_8hpp.html#a0ac03ab06a859320a9072002bdf3aa0fa3bf07fe8ac3883060b1558113ba248d4", null ]
     ] ],
     [ "InputFormat", "config_8hpp.html#a7a1886da996cfe677c935435eff2adeb", [
       [ "XCSP3", "config_8hpp.html#a7a1886da996cfe677c935435eff2adeba70558403a305ad2a078a17745ada5184", null ],

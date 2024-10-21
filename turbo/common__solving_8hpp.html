@@ -152,9 +152,9 @@ Classes</h2></td></tr>
 Typedefs</h2></td></tr>
 <tr class="memitem:ab7cbd01c4c671c527f582fffb1125923" id="r_ab7cbd01c4c671c527f582fffb1125923"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab7cbd01c4c671c527f582fffb1125923">Itv</a> = Interval&lt;local::ZLB&gt;</td></tr>
 <tr class="separator:ab7cbd01c4c671c527f582fffb1125923"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4a393e73ebfad249676663f44068c54f" id="r_a4a393e73ebfad249676663f44068c54f"><td class="memTemplParams" colspan="2">template&lt;class Universe &gt; </td></tr>
-<tr class="memitem:a4a393e73ebfad249676663f44068c54f"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a4a393e73ebfad249676663f44068c54f">CP</a></td></tr>
-<tr class="separator:a4a393e73ebfad249676663f44068c54f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a665465ed7601f9d0f594e28fcd24b6c1" id="r_a665465ed7601f9d0f594e28fcd24b6c1"><td class="memTemplParams" colspan="2">template&lt;class Universe , class Allocator  = battery::standard_allocator&gt; </td></tr>
+<tr class="memitem:a665465ed7601f9d0f594e28fcd24b6c1"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a665465ed7601f9d0f594e28fcd24b6c1">CP</a></td></tr>
+<tr class="separator:a665465ed7601f9d0f594e28fcd24b6c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
@@ -181,24 +181,24 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a4a393e73ebfad249676663f44068c54f" name="a4a393e73ebfad249676663f44068c54f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4a393e73ebfad249676663f44068c54f">&#9670;&#160;</a></span>CP</h2>
+<a id="a665465ed7601f9d0f594e28fcd24b6c1" name="a665465ed7601f9d0f594e28fcd24b6c1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a665465ed7601f9d0f594e28fcd24b6c1">&#9670;&#160;</a></span>CP</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;class Universe &gt; </div>
+template&lt;class Universe , class Allocator  = battery::standard_allocator&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="#a4a393e73ebfad249676663f44068c54f">CP</a></td>
+          <td class="memname">using <a class="el" href="#a665465ed7601f9d0f594e28fcd24b6c1">CP</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line"> <a class="code hl_struct" href="struct_abstract_domains.html">AbstractDomains</a>&lt;Universe,</div>
-<div class="line">  battery::statistics_allocator&lt;battery::standard_allocator&gt;,</div>
-<div class="line">  battery::statistics_allocator&lt;UniqueLightAlloc&lt;battery::standard_allocator, 0&gt;&gt;,</div>
-<div class="line">  battery::statistics_allocator&lt;UniqueLightAlloc&lt;battery::standard_allocator, 1&gt;&gt;&gt;</div>
-<div class="ttc" id="astruct_abstract_domains_html"><div class="ttname"><a href="struct_abstract_domains.html">AbstractDomains</a></div><div class="ttdef"><b>Definition</b> common_solving.hpp:154</div></div>
+<div class="line">  battery::statistics_allocator&lt;Allocator&gt;,</div>
+<div class="line">  battery::statistics_allocator&lt;UniqueLightAlloc&lt;Allocator, 0&gt;&gt;,</div>
+<div class="line">  battery::statistics_allocator&lt;UniqueLightAlloc&lt;Allocator, 1&gt;&gt;&gt;</div>
+<div class="ttc" id="astruct_abstract_domains_html"><div class="ttname"><a href="struct_abstract_domains.html">AbstractDomains</a></div><div class="ttdef"><b>Definition</b> common_solving.hpp:156</div></div>
 </div><!-- fragment -->
 </div>
 </div>
