@@ -112,204 +112,207 @@ $(function(){initNavTree('solver__output_8hpp_source.html',''); initResizable(tr
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#ifndef OUTPUT_H</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#define OUTPUT_H</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacelala.html">lala</a> {</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;functional&gt;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;peglib.h&gt;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;lala/logic/ast.hpp&gt;</span></div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
-<div class="foldopen" id="foldopen00011" data-start="{" data-end="};">
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="namespacelala.html#aae8635bfcecff989b186ebc28acf46b6">   11</a></span><span class="keyword">enum class</span> <a class="code hl_enumeration" href="namespacelala.html#aae8635bfcecff989b186ebc28acf46b6">OutputType</a> {</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>  <a class="code hl_enumvalue" href="namespacelala.html#aae8635bfcecff989b186ebc28acf46b6a1c75bff6c484e0eb1a5629a545d4ba1e">XCSP</a>,</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>  <a class="code hl_enumvalue" href="namespacelala.html#aae8635bfcecff989b186ebc28acf46b6a4c0bad1aa63a8ee4fca843704d2ee436">FLATZINC</a></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>};</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacelala.html">lala</a> {</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="foldopen" id="foldopen00014" data-start="{" data-end="};">
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="namespacelala.html#aae8635bfcecff989b186ebc28acf46b6">   14</a></span><span class="keyword">enum class</span> <a class="code hl_enumeration" href="namespacelala.html#aae8635bfcecff989b186ebc28acf46b6">OutputType</a> {</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>  <a class="code hl_enumvalue" href="namespacelala.html#aae8635bfcecff989b186ebc28acf46b6a1c75bff6c484e0eb1a5629a545d4ba1e">XCSP</a>,</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>  <a class="code hl_enumvalue" href="namespacelala.html#aae8635bfcecff989b186ebc28acf46b6a4c0bad1aa63a8ee4fca843704d2ee436">FLATZINC</a></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>};</div>
 </div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keyword">template</span>&lt;<span class="keyword">class</span> Allocator&gt;</div>
-<div class="foldopen" id="foldopen00018" data-start="{" data-end="};">
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="classlala_1_1_solver_output.html">   18</a></span><span class="keyword">class </span><a class="code hl_class" href="classlala_1_1_solver_output.html">SolverOutput</a> {</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>  <span class="keyword">using </span>bstring = battery::string&lt;Allocator&gt;;</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>  <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt; <span class="keyword">using </span>bvector = battery::vector&lt;T, Allocator&gt;;</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>  <span class="keyword">using </span>array_dim_t = bvector&lt;battery::tuple&lt;size_t,size_t&gt;&gt;;</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>  <span class="keyword">using </span>F = TFormula&lt;Allocator&gt;;</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>  bvector&lt;bstring&gt; output_vars;</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>  <span class="comment">// For each array, we store its output dimension characteristics and the list of the variables in the array.</span></div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>  bvector&lt;battery::tuple&lt;bstring, array_dim_t, bvector&lt;bstring&gt;&gt;&gt; output_arrays;</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>  <a class="code hl_enumeration" href="namespacelala.html#aae8635bfcecff989b186ebc28acf46b6">OutputType</a> type;</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>  std::string join_str(<span class="keyword">const</span> bvector&lt;bstring&gt;&amp; vec, <span class="keyword">const</span> std::string&amp; separator,  std::function&lt;std::string(<span class="keyword">const</span> bstring&amp;)&gt; toString)<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    std::string result;</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; vec.size(); ++i) {</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>      result += toString(vec[i]);</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>      <span class="keywordflow">if</span> (i &lt; vec.size() - 1) {</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        result += separator;</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>      }</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    }</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <span class="keywordflow">return</span> result;</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>  }</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>  <span class="keyword">template</span> &lt;<span class="keyword">class</span> Alloc2&gt;</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="classlala_1_1_solver_output.html#af23e8255c42c841e7f3c73a013d1db12">   43</a></span>  <span class="keyword">friend</span> <span class="keyword">class </span><a class="code hl_class" href="classlala_1_1_solver_output.html">SolverOutput</a>;</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
-<div class="foldopen" id="foldopen00045" data-start="{" data-end="}">
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="classlala_1_1_solver_output.html#a36dd8ed0e700c0a4f857b70fddfeecfb">   45</a></span>  CUDA <a class="code hl_function" href="classlala_1_1_solver_output.html#a36dd8ed0e700c0a4f857b70fddfeecfb">SolverOutput</a>(<span class="keyword">const</span> Allocator&amp; alloc)</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    : output_vars(alloc)</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    , output_arrays(alloc),type(<a class="code hl_enumeration" href="namespacelala.html#aae8635bfcecff989b186ebc28acf46b6">OutputType</a>::<a class="code hl_enumvalue" href="namespacelala.html#aae8635bfcecff989b186ebc28acf46b6a4c0bad1aa63a8ee4fca843704d2ee436">FLATZINC</a>)</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>  {}</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="keyword">template</span>&lt;<span class="keyword">class</span> Allocator&gt;</div>
+<div class="foldopen" id="foldopen00021" data-start="{" data-end="};">
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="classlala_1_1_solver_output.html">   21</a></span><span class="keyword">class </span><a class="code hl_class" href="classlala_1_1_solver_output.html">SolverOutput</a> {</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>  <span class="keyword">using </span>bstring = battery::string&lt;Allocator&gt;;</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>  <span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt; <span class="keyword">using </span>bvector = battery::vector&lt;T, Allocator&gt;;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>  <span class="keyword">using </span>array_dim_t = bvector&lt;battery::tuple&lt;size_t,size_t&gt;&gt;;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>  <span class="keyword">using </span>F = TFormula&lt;Allocator&gt;;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>  bvector&lt;bstring&gt; output_vars;</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>  <span class="comment">// For each array, we store its output dimension characteristics and the list of the variables in the array.</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>  bvector&lt;battery::tuple&lt;bstring, array_dim_t, bvector&lt;bstring&gt;&gt;&gt; output_arrays;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>  <a class="code hl_enumeration" href="namespacelala.html#aae8635bfcecff989b186ebc28acf46b6">OutputType</a> type;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>  std::string join_str(<span class="keyword">const</span> bvector&lt;bstring&gt;&amp; vec, <span class="keyword">const</span> std::string&amp; separator,  std::function&lt;std::string(<span class="keyword">const</span> bstring&amp;)&gt; toString)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    std::string result;</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; vec.size(); ++i) {</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>      result += toString(vec[i]);</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>      <span class="keywordflow">if</span> (i &lt; vec.size() - 1) {</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        result += separator;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>      }</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    }</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keywordflow">return</span> result;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>  }</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>  <span class="keyword">template</span> &lt;<span class="keyword">class</span> Alloc2&gt;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="classlala_1_1_solver_output.html#af23e8255c42c841e7f3c73a013d1db12">   46</a></span>  <span class="keyword">friend</span> <span class="keyword">class </span><a class="code hl_class" href="classlala_1_1_solver_output.html">SolverOutput</a>;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="foldopen" id="foldopen00048" data-start="{" data-end="}">
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="classlala_1_1_solver_output.html#a36dd8ed0e700c0a4f857b70fddfeecfb">   48</a></span>  CUDA <a class="code hl_function" href="classlala_1_1_solver_output.html#a36dd8ed0e700c0a4f857b70fddfeecfb">SolverOutput</a>(<span class="keyword">const</span> Allocator&amp; alloc)</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    : output_vars(alloc)</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    , output_arrays(alloc),type(<a class="code hl_enumeration" href="namespacelala.html#aae8635bfcecff989b186ebc28acf46b6">OutputType</a>::<a class="code hl_enumvalue" href="namespacelala.html#aae8635bfcecff989b186ebc28acf46b6a4c0bad1aa63a8ee4fca843704d2ee436">FLATZINC</a>)</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>  {}</div>
 </div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
-<div class="foldopen" id="foldopen00050" data-start="{" data-end="}">
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="classlala_1_1_solver_output.html#a0dd11e50d6e2f724cbc98db819435a5e">   50</a></span>  CUDA <a class="code hl_function" href="classlala_1_1_solver_output.html#a0dd11e50d6e2f724cbc98db819435a5e">SolverOutput</a>(<span class="keyword">const</span> Allocator&amp; alloc,<a class="code hl_enumeration" href="namespacelala.html#aae8635bfcecff989b186ebc28acf46b6">OutputType</a> outputType)</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>      : output_vars(alloc)</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>      , output_arrays(alloc),type(outputType)</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>  {}</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="foldopen" id="foldopen00053" data-start="{" data-end="}">
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="classlala_1_1_solver_output.html#a0dd11e50d6e2f724cbc98db819435a5e">   53</a></span>  CUDA <a class="code hl_function" href="classlala_1_1_solver_output.html#a0dd11e50d6e2f724cbc98db819435a5e">SolverOutput</a>(<span class="keyword">const</span> Allocator&amp; alloc,<a class="code hl_enumeration" href="namespacelala.html#aae8635bfcecff989b186ebc28acf46b6">OutputType</a> outputType)</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>      : output_vars(alloc)</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>      , output_arrays(alloc),type(outputType)</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>  {}</div>
 </div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="classlala_1_1_solver_output.html#a6618127d49f31bdca615518508b16bce">   55</a></span>  <a class="code hl_function" href="classlala_1_1_solver_output.html#a6618127d49f31bdca615518508b16bce">SolverOutput</a>(<a class="code hl_class" href="classlala_1_1_solver_output.html">SolverOutput</a>&amp;&amp;) = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="classlala_1_1_solver_output.html#af18a742f937fd50897670be8809474fb">   56</a></span>  <a class="code hl_class" href="classlala_1_1_solver_output.html">SolverOutput&lt;Allocator&gt;</a>&amp; <a class="code hl_function" href="classlala_1_1_solver_output.html#af18a742f937fd50897670be8809474fb">operator=</a>(<span class="keyword">const</span> <a class="code hl_class" href="classlala_1_1_solver_output.html">SolverOutput&lt;Allocator&gt;</a>&amp;) = <span class="keywordflow">default</span>;</div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>  <span class="keyword">template</span> &lt;<span class="keyword">class</span> Alloc&gt;</div>
-<div class="foldopen" id="foldopen00059" data-start="{" data-end="}">
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="classlala_1_1_solver_output.html#a8575578c33c7e513576881469a884faa">   59</a></span>  CUDA <a class="code hl_class" href="classlala_1_1_solver_output.html">SolverOutput&lt;Allocator&gt;</a>&amp; <a class="code hl_function" href="classlala_1_1_solver_output.html#a8575578c33c7e513576881469a884faa">operator=</a>(<span class="keyword">const</span> <a class="code hl_class" href="classlala_1_1_solver_output.html">SolverOutput&lt;Alloc&gt;</a>&amp; other) {</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    output_vars = other.output_vars;</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    output_arrays = other.output_arrays;</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    type = other.type;</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>  }</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="classlala_1_1_solver_output.html#a6618127d49f31bdca615518508b16bce">   58</a></span>  <a class="code hl_function" href="classlala_1_1_solver_output.html#a6618127d49f31bdca615518508b16bce">SolverOutput</a>(<a class="code hl_class" href="classlala_1_1_solver_output.html">SolverOutput</a>&amp;&amp;) = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="classlala_1_1_solver_output.html#af18a742f937fd50897670be8809474fb">   59</a></span>  <a class="code hl_class" href="classlala_1_1_solver_output.html">SolverOutput&lt;Allocator&gt;</a>&amp; <a class="code hl_function" href="classlala_1_1_solver_output.html#af18a742f937fd50897670be8809474fb">operator=</a>(<span class="keyword">const</span> <a class="code hl_class" href="classlala_1_1_solver_output.html">SolverOutput&lt;Allocator&gt;</a>&amp;) = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>  <span class="keyword">template</span> &lt;<span class="keyword">class</span> Alloc&gt;</div>
+<div class="foldopen" id="foldopen00062" data-start="{" data-end="}">
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="classlala_1_1_solver_output.html#a8575578c33c7e513576881469a884faa">   62</a></span>  CUDA <a class="code hl_class" href="classlala_1_1_solver_output.html">SolverOutput&lt;Allocator&gt;</a>&amp; <a class="code hl_function" href="classlala_1_1_solver_output.html#a8575578c33c7e513576881469a884faa">operator=</a>(<span class="keyword">const</span> <a class="code hl_class" href="classlala_1_1_solver_output.html">SolverOutput&lt;Alloc&gt;</a>&amp; other) {</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    output_vars = other.output_vars;</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    output_arrays = other.output_arrays;</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    type = other.type;</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>  }</div>
 </div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>  <span class="keyword">template</span>&lt;<span class="keyword">class</span> Alloc2&gt;</div>
-<div class="foldopen" id="foldopen00067" data-start="{" data-end="}">
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="classlala_1_1_solver_output.html#a0932ced84c948ae853c77885f3c9bf48">   67</a></span>  CUDA <a class="code hl_function" href="classlala_1_1_solver_output.html#a0932ced84c948ae853c77885f3c9bf48">SolverOutput</a>(<span class="keyword">const</span> <a class="code hl_class" href="classlala_1_1_solver_output.html">SolverOutput&lt;Alloc2&gt;</a>&amp; other, <span class="keyword">const</span> Allocator&amp; allocator = Allocator{})</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    : output_vars(other.output_vars, allocator)</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    , output_arrays(other.output_arrays, allocator),type(other.type)</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>  {}</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>  <span class="keyword">template</span>&lt;<span class="keyword">class</span> Alloc2&gt;</div>
+<div class="foldopen" id="foldopen00070" data-start="{" data-end="}">
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="classlala_1_1_solver_output.html#a0932ced84c948ae853c77885f3c9bf48">   70</a></span>  CUDA <a class="code hl_function" href="classlala_1_1_solver_output.html#a0932ced84c948ae853c77885f3c9bf48">SolverOutput</a>(<span class="keyword">const</span> <a class="code hl_class" href="classlala_1_1_solver_output.html">SolverOutput&lt;Alloc2&gt;</a>&amp; other, <span class="keyword">const</span> Allocator&amp; allocator = Allocator{})</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    : output_vars(other.output_vars, allocator)</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    , output_arrays(other.output_arrays, allocator),type(other.type)</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>  {}</div>
 </div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
-<div class="foldopen" id="foldopen00072" data-start="{" data-end="}">
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="classlala_1_1_solver_output.html#ac2bed79c2dc9c5b707f376cf634465ed">   72</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classlala_1_1_solver_output.html#ac2bed79c2dc9c5b707f376cf634465ed">add_array_var</a>(<span class="keyword">const</span> std::string&amp; name, <span class="keyword">const</span> bstring&amp; var_name, <span class="keyword">const</span> peg::SemanticValues&amp; sv) {</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <span class="keywordtype">int</span> idx = -1;</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <span class="keyword">auto</span> array_name = bstring(name.data());</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; output_arrays.size(); ++i) {</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>      <span class="keywordflow">if</span>(battery::get&lt;0&gt;(output_arrays[i]) == array_name) {</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        idx = i;</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>        <span class="keywordflow">break</span>;</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>      }</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    }</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    <span class="keywordflow">if</span>(idx == -1) {</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>      output_arrays.push_back(battery::make_tuple&lt;bstring, array_dim_t, bvector&lt;bstring&gt;&gt;(bstring(array_name), {}, {}));</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>      idx = <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(output_arrays.size()) - 1;</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>      <span class="comment">// Add the dimension of the array.</span></div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>      <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; sv.size(); ++i) {</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        <span class="keyword">auto</span> range = std::any_cast&lt;F&gt;(sv[i]);</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> j = 0; j &lt; range.s().size(); ++j) {</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>          <span class="keyword">const</span> <span class="keyword">auto</span>&amp; itv = range.s()[j];</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>          battery::get&lt;1&gt;(output_arrays[idx]).push_back(battery::make_tuple(battery::get&lt;0&gt;(itv).z(), battery::get&lt;1&gt;(itv).z()));</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>        }</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>      }</div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    }</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    battery::get&lt;2&gt;(output_arrays[idx]).push_back(var_name);</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>  }</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="foldopen" id="foldopen00075" data-start="{" data-end="}">
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="classlala_1_1_solver_output.html#ac2bed79c2dc9c5b707f376cf634465ed">   75</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classlala_1_1_solver_output.html#ac2bed79c2dc9c5b707f376cf634465ed">add_array_var</a>(<span class="keyword">const</span> std::string&amp; name, <span class="keyword">const</span> bstring&amp; var_name, <span class="keyword">const</span> peg::SemanticValues&amp; sv) {</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <span class="keywordtype">int</span> idx = -1;</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    <span class="keyword">auto</span> array_name = bstring(name.data());</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; output_arrays.size(); ++i) {</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>      <span class="keywordflow">if</span>(battery::get&lt;0&gt;(output_arrays[i]) == array_name) {</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        idx = i;</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>      }</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    }</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <span class="keywordflow">if</span>(idx == -1) {</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>      output_arrays.push_back(battery::make_tuple&lt;bstring, array_dim_t, bvector&lt;bstring&gt;&gt;(bstring(array_name), {}, {}));</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>      idx = <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(output_arrays.size()) - 1;</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>      <span class="comment">// Add the dimension of the array.</span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>      <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; sv.size(); ++i) {</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>        <span class="keyword">auto</span> range = std::any_cast&lt;F&gt;(sv[i]);</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> j = 0; j &lt; range.s().size(); ++j) {</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>          <span class="keyword">const</span> <span class="keyword">auto</span>&amp; itv = range.s()[j];</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>          battery::get&lt;1&gt;(output_arrays[idx]).push_back(battery::make_tuple(battery::get&lt;0&gt;(itv).z(), battery::get&lt;1&gt;(itv).z()));</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>        }</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>      }</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    }</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    battery::get&lt;2&gt;(output_arrays[idx]).push_back(var_name);</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>  }</div>
 </div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
-<div class="foldopen" id="foldopen00096" data-start="{" data-end="}">
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno"><a class="line" href="classlala_1_1_solver_output.html#a14b12c754311acc177ebda0bac551ebd">   96</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classlala_1_1_solver_output.html#a14b12c754311acc177ebda0bac551ebd">add_var</a>(<span class="keyword">const</span> bstring&amp; var_name) {</div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    output_vars.push_back(var_name);</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>  }</div>
-</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
 <div class="foldopen" id="foldopen00099" data-start="{" data-end="}">
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno"><a class="line" href="classlala_1_1_solver_output.html#aec7bb4f33f3dba3f17db25e8abaf2d17">   99</a></span>  bvector&lt;bstring&gt; <a class="code hl_function" href="classlala_1_1_solver_output.html#aec7bb4f33f3dba3f17db25e8abaf2d17">getOutputVars</a>(){</div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    <span class="keywordflow">return</span> output_vars;</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno"><a class="line" href="classlala_1_1_solver_output.html#a14b12c754311acc177ebda0bac551ebd">   99</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classlala_1_1_solver_output.html#a14b12c754311acc177ebda0bac551ebd">add_var</a>(<span class="keyword">const</span> bstring&amp; var_name) {</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    output_vars.push_back(var_name);</div>
 <div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>  }</div>
 </div>
-<div class="foldopen" id="foldopen00102" data-start="{" data-end="};">
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno"><a class="line" href="classlala_1_1_solver_output_1_1_simplifier_identity.html">  102</a></span>  <span class="keyword">class </span><a class="code hl_class" href="classlala_1_1_solver_output_1_1_simplifier_identity.html">SimplifierIdentity</a> {</div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    <span class="keyword">template</span> &lt;<span class="keyword">class</span> Alloc, <span class="keyword">class</span> B, <span class="keyword">class</span> Env&gt;</div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    CUDA <span class="keywordtype">void</span> print_variable(<span class="keyword">const</span> LVar&lt;Alloc&gt;&amp; vname, <span class="keyword">const</span> Env&amp; benv, <span class="keyword">const</span> B&amp; b)<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>      <span class="keyword">const</span> <span class="keyword">auto</span>&amp; x = *(benv.variable_of(vname));</div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>      x.sort.print_value(b.project(x.avars[0]));</div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    }</div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>  };</div>
+<div class="foldopen" id="foldopen00102" data-start="{" data-end="}">
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno"><a class="line" href="classlala_1_1_solver_output.html#aec7bb4f33f3dba3f17db25e8abaf2d17">  102</a></span>  bvector&lt;bstring&gt; <a class="code hl_function" href="classlala_1_1_solver_output.html#aec7bb4f33f3dba3f17db25e8abaf2d17">getOutputVars</a>(){</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    <span class="keywordflow">return</span> output_vars;</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>  }</div>
 </div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>  <span class="keyword">template</span> &lt;<span class="keyword">class</span> Env, <span class="keyword">class</span> A, <span class="keyword">class</span> S&gt;</div>
-<div class="foldopen" id="foldopen00111" data-start="{" data-end="}">
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno"><a class="line" href="classlala_1_1_solver_output.html#ac8171c1e27e3454bfce9fe5254021fd2">  111</a></span>  CUDA <span class="keywordtype">void</span> <a class="code hl_function" href="classlala_1_1_solver_output.html#ac8171c1e27e3454bfce9fe5254021fd2">print_solution_flat_zinc</a>(<span class="keyword">const</span> Env&amp; env, <span class="keyword">const</span> A&amp; sol, <span class="keyword">const</span> S&amp; simplifier = <a class="code hl_class" href="classlala_1_1_solver_output_1_1_simplifier_identity.html">SimplifierIdentity</a>{}) <span class="keyword">const</span> {</div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; output_vars.size(); ++i) {</div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>      printf(<span class="stringliteral">&quot;%s=&quot;</span>, output_vars[i].data());</div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>      simplifier.print_variable(output_vars[i], env, sol);</div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>      printf(<span class="stringliteral">&quot;;\n&quot;</span>);</div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    }</div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; output_arrays.size(); ++i) {</div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>      <span class="keyword">const</span> <span class="keyword">auto</span>&amp; dims = battery::get&lt;1&gt;(output_arrays[i]);</div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>      <span class="keyword">const</span> <span class="keyword">auto</span>&amp; array_vars = battery::get&lt;2&gt;(output_arrays[i]);</div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>      printf(<span class="stringliteral">&quot;%s=array%&quot;</span> PRIu64 <span class="stringliteral">&quot;d(&quot;</span>, battery::get&lt;0&gt;(output_arrays[i]).data(), dims.size());</div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>      <span class="keywordflow">for</span>(<span class="keywordtype">int</span> j = 0; j &lt; dims.size(); ++j) {</div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>        printf(<span class="stringliteral">&quot;%&quot;</span> PRIu64 <span class="stringliteral">&quot;..%&quot;</span> PRIu64 <span class="stringliteral">&quot;,&quot;</span>, battery::get&lt;0&gt;(dims[j]), battery::get&lt;1&gt;(dims[j]));</div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>      }</div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>      printf(<span class="stringliteral">&quot;[&quot;</span>);</div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>      <span class="keywordflow">for</span>(<span class="keywordtype">int</span> j = 0; j &lt; array_vars.size(); ++j) {</div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>        simplifier.print_variable(array_vars[j], env, sol);</div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>        <span class="keywordflow">if</span>(j+1 != array_vars.size()) {</div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>          printf(<span class="stringliteral">&quot;,&quot;</span>);</div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>        }</div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>      }</div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>      printf(<span class="stringliteral">&quot;]);\n&quot;</span>);</div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    }</div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>  }</div>
+<div class="foldopen" id="foldopen00105" data-start="{" data-end="};">
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno"><a class="line" href="classlala_1_1_solver_output_1_1_simplifier_identity.html">  105</a></span>  <span class="keyword">class </span><a class="code hl_class" href="classlala_1_1_solver_output_1_1_simplifier_identity.html">SimplifierIdentity</a> {</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    <span class="keyword">template</span> &lt;<span class="keyword">class</span> Alloc, <span class="keyword">class</span> B, <span class="keyword">class</span> Env&gt;</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    CUDA <span class="keywordtype">void</span> print_variable(<span class="keyword">const</span> LVar&lt;Alloc&gt;&amp; vname, <span class="keyword">const</span> Env&amp; benv, <span class="keyword">const</span> B&amp; b)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>      <span class="keyword">const</span> <span class="keyword">auto</span>&amp; x = *(benv.variable_of(vname));</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>      x.sort.print_value(b.project(x.avars[0]));</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    }</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>  };</div>
 </div>
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span> </div>
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>  <span class="keyword">template</span>&lt;<span class="keyword">class</span> Env, <span class="keyword">class</span> A, <span class="keyword">class</span> S&gt;</div>
-<div class="foldopen" id="foldopen00136" data-start="{" data-end="}">
-<div class="line"><a id="l00136" name="l00136"></a><span class="lineno"><a class="line" href="classlala_1_1_solver_output.html#a8c64698ef49350cf1ad8ff8e859a4983">  136</a></span>  CUDA <span class="keywordtype">void</span> <a class="code hl_function" href="classlala_1_1_solver_output.html#a8c64698ef49350cf1ad8ff8e859a4983">print_solution_xml</a>(<span class="keyword">const</span> Env&amp; env, <span class="keyword">const</span> A&amp; sol, <span class="keyword">const</span> S&amp; simplifier = <a class="code hl_class" href="classlala_1_1_solver_output_1_1_simplifier_identity.html">SimplifierIdentity</a>{}) <span class="keyword">const</span> {</div>
-<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>    <span class="keyword">auto</span> vars = join_str(output_vars, <span class="stringliteral">&quot; &quot;</span>, [](<span class="keyword">const</span> bstring&amp; s) -&gt; std::string { <span class="keywordflow">return</span> s.data(); });</div>
-<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>    printf(<span class="stringliteral">&quot;v &lt;instantiation&gt; &lt;list&gt;%s&lt;/list&gt; &lt;values&gt;&quot;</span>, vars.c_str());</div>
-<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; output_vars.size(); ++i) {</div>
-<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>      simplifier.print_variable(output_vars[i], env, sol);</div>
-<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>      <span class="keywordflow">if</span>(i+1 != output_vars.size()) {</div>
-<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>        printf(<span class="stringliteral">&quot; &quot;</span>);</div>
-<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>      }</div>
-<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>    }</div>
-<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>    printf(<span class="stringliteral">&quot;&lt;/values&gt; &lt;/instantiation&gt;\n&quot;</span>);</div>
-<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>  }</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>  <span class="keyword">template</span> &lt;<span class="keyword">class</span> Env, <span class="keyword">class</span> A, <span class="keyword">class</span> S&gt;</div>
+<div class="foldopen" id="foldopen00114" data-start="{" data-end="}">
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno"><a class="line" href="classlala_1_1_solver_output.html#ac8171c1e27e3454bfce9fe5254021fd2">  114</a></span>  CUDA <span class="keywordtype">void</span> <a class="code hl_function" href="classlala_1_1_solver_output.html#ac8171c1e27e3454bfce9fe5254021fd2">print_solution_flat_zinc</a>(<span class="keyword">const</span> Env&amp; env, <span class="keyword">const</span> A&amp; sol, <span class="keyword">const</span> S&amp; simplifier = <a class="code hl_class" href="classlala_1_1_solver_output_1_1_simplifier_identity.html">SimplifierIdentity</a>{}) <span class="keyword">const</span> {</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; output_vars.size(); ++i) {</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>      printf(<span class="stringliteral">&quot;%s=&quot;</span>, output_vars[i].data());</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>      simplifier.print_variable(output_vars[i], env, sol);</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>      printf(<span class="stringliteral">&quot;;\n&quot;</span>);</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    }</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; output_arrays.size(); ++i) {</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>      <span class="keyword">const</span> <span class="keyword">auto</span>&amp; dims = battery::get&lt;1&gt;(output_arrays[i]);</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>      <span class="keyword">const</span> <span class="keyword">auto</span>&amp; array_vars = battery::get&lt;2&gt;(output_arrays[i]);</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>      printf(<span class="stringliteral">&quot;%s=array%&quot;</span> PRIu64 <span class="stringliteral">&quot;d(&quot;</span>, battery::get&lt;0&gt;(output_arrays[i]).data(), dims.size());</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>      <span class="keywordflow">for</span>(<span class="keywordtype">int</span> j = 0; j &lt; dims.size(); ++j) {</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>        printf(<span class="stringliteral">&quot;%&quot;</span> PRIu64 <span class="stringliteral">&quot;..%&quot;</span> PRIu64 <span class="stringliteral">&quot;,&quot;</span>, battery::get&lt;0&gt;(dims[j]), battery::get&lt;1&gt;(dims[j]));</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>      }</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>      printf(<span class="stringliteral">&quot;[&quot;</span>);</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>      <span class="keywordflow">for</span>(<span class="keywordtype">int</span> j = 0; j &lt; array_vars.size(); ++j) {</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>        simplifier.print_variable(array_vars[j], env, sol);</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>        <span class="keywordflow">if</span>(j+1 != array_vars.size()) {</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>          printf(<span class="stringliteral">&quot;,&quot;</span>);</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>        }</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>      }</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>      printf(<span class="stringliteral">&quot;]);\n&quot;</span>);</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>    }</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>  }</div>
 </div>
-<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span> </div>
-<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span> </div>
-<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span> </div>
-<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>  <span class="keyword">template</span> &lt;<span class="keyword">class</span> Env, <span class="keyword">class</span> A, <span class="keyword">class</span> S&gt;</div>
-<div class="foldopen" id="foldopen00151" data-start="{" data-end="}">
-<div class="line"><a id="l00151" name="l00151"></a><span class="lineno"><a class="line" href="classlala_1_1_solver_output.html#a5fc957f44516229491594a215f8b4d1a">  151</a></span>  CUDA <span class="keywordtype">void</span> <a class="code hl_function" href="classlala_1_1_solver_output.html#a5fc957f44516229491594a215f8b4d1a">print_solution</a>(<span class="keyword">const</span> Env&amp; env, <span class="keyword">const</span> A&amp; sol, <span class="keyword">const</span> S&amp; simplifier = <a class="code hl_class" href="classlala_1_1_solver_output_1_1_simplifier_identity.html">SimplifierIdentity</a>{}) <span class="keyword">const</span> {</div>
-<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>    <span class="keywordflow">if</span>(type == <a class="code hl_enumvalue" href="namespacelala.html#aae8635bfcecff989b186ebc28acf46b6a4c0bad1aa63a8ee4fca843704d2ee436">OutputType::FLATZINC</a>) {</div>
-<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>      <a class="code hl_function" href="classlala_1_1_solver_output.html#ac8171c1e27e3454bfce9fe5254021fd2">print_solution_flat_zinc</a>(env, sol, simplifier);</div>
-<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>    }<span class="keywordflow">else</span>{</div>
-<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>      <a class="code hl_function" href="classlala_1_1_solver_output.html#a8c64698ef49350cf1ad8ff8e859a4983">print_solution_xml</a>(env, sol, simplifier);</div>
-<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>    }</div>
-<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>  }</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span> </div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>  <span class="keyword">template</span>&lt;<span class="keyword">class</span> Env, <span class="keyword">class</span> A, <span class="keyword">class</span> S&gt;</div>
+<div class="foldopen" id="foldopen00139" data-start="{" data-end="}">
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno"><a class="line" href="classlala_1_1_solver_output.html#a8c64698ef49350cf1ad8ff8e859a4983">  139</a></span>  CUDA <span class="keywordtype">void</span> <a class="code hl_function" href="classlala_1_1_solver_output.html#a8c64698ef49350cf1ad8ff8e859a4983">print_solution_xml</a>(<span class="keyword">const</span> Env&amp; env, <span class="keyword">const</span> A&amp; sol, <span class="keyword">const</span> S&amp; simplifier = <a class="code hl_class" href="classlala_1_1_solver_output_1_1_simplifier_identity.html">SimplifierIdentity</a>{}) <span class="keyword">const</span> {</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>    <span class="keyword">auto</span> vars = join_str(output_vars, <span class="stringliteral">&quot; &quot;</span>, [](<span class="keyword">const</span> bstring&amp; s) -&gt; std::string { <span class="keywordflow">return</span> s.data(); });</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>    printf(<span class="stringliteral">&quot;v &lt;instantiation&gt; &lt;list&gt;%s&lt;/list&gt; &lt;values&gt;&quot;</span>, vars.c_str());</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; output_vars.size(); ++i) {</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>      simplifier.print_variable(output_vars[i], env, sol);</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>      <span class="keywordflow">if</span>(i+1 != output_vars.size()) {</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>        printf(<span class="stringliteral">&quot; &quot;</span>);</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>      }</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>    }</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>    printf(<span class="stringliteral">&quot;&lt;/values&gt; &lt;/instantiation&gt;\n&quot;</span>);</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>  }</div>
 </div>
-<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span> </div>
-<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>};</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span> </div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span> </div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span> </div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>  <span class="keyword">template</span> &lt;<span class="keyword">class</span> Env, <span class="keyword">class</span> A, <span class="keyword">class</span> S&gt;</div>
+<div class="foldopen" id="foldopen00154" data-start="{" data-end="}">
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno"><a class="line" href="classlala_1_1_solver_output.html#a5fc957f44516229491594a215f8b4d1a">  154</a></span>  CUDA <span class="keywordtype">void</span> <a class="code hl_function" href="classlala_1_1_solver_output.html#a5fc957f44516229491594a215f8b4d1a">print_solution</a>(<span class="keyword">const</span> Env&amp; env, <span class="keyword">const</span> A&amp; sol, <span class="keyword">const</span> S&amp; simplifier = <a class="code hl_class" href="classlala_1_1_solver_output_1_1_simplifier_identity.html">SimplifierIdentity</a>{}) <span class="keyword">const</span> {</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>    <span class="keywordflow">if</span>(type == <a class="code hl_enumvalue" href="namespacelala.html#aae8635bfcecff989b186ebc28acf46b6a4c0bad1aa63a8ee4fca843704d2ee436">OutputType::FLATZINC</a>) {</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>      <a class="code hl_function" href="classlala_1_1_solver_output.html#ac8171c1e27e3454bfce9fe5254021fd2">print_solution_flat_zinc</a>(env, sol, simplifier);</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>    }<span class="keywordflow">else</span>{</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>      <a class="code hl_function" href="classlala_1_1_solver_output.html#a8c64698ef49350cf1ad8ff8e859a4983">print_solution_xml</a>(env, sol, simplifier);</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>    }</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>  }</div>
 </div>
-<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span> </div>
-<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>} <span class="comment">// namespace lala</span></div>
-<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span><span class="preprocessor">#endif </span><span class="comment">//OUTPUT_H</span></div>
-<div class="ttc" id="aclasslala_1_1_solver_output_1_1_simplifier_identity_html"><div class="ttname"><a href="classlala_1_1_solver_output_1_1_simplifier_identity.html">lala::SolverOutput::SimplifierIdentity</a></div><div class="ttdef"><b>Definition</b> solver_output.hpp:102</div></div>
-<div class="ttc" id="aclasslala_1_1_solver_output_html"><div class="ttname"><a href="classlala_1_1_solver_output.html">lala::SolverOutput</a></div><div class="ttdef"><b>Definition</b> solver_output.hpp:18</div></div>
-<div class="ttc" id="aclasslala_1_1_solver_output_html_a0932ced84c948ae853c77885f3c9bf48"><div class="ttname"><a href="classlala_1_1_solver_output.html#a0932ced84c948ae853c77885f3c9bf48">lala::SolverOutput::SolverOutput</a></div><div class="ttdeci">CUDA SolverOutput(const SolverOutput&lt; Alloc2 &gt; &amp;other, const Allocator &amp;allocator=Allocator{})</div><div class="ttdef"><b>Definition</b> solver_output.hpp:67</div></div>
-<div class="ttc" id="aclasslala_1_1_solver_output_html_a0dd11e50d6e2f724cbc98db819435a5e"><div class="ttname"><a href="classlala_1_1_solver_output.html#a0dd11e50d6e2f724cbc98db819435a5e">lala::SolverOutput::SolverOutput</a></div><div class="ttdeci">CUDA SolverOutput(const Allocator &amp;alloc, OutputType outputType)</div><div class="ttdef"><b>Definition</b> solver_output.hpp:50</div></div>
-<div class="ttc" id="aclasslala_1_1_solver_output_html_a14b12c754311acc177ebda0bac551ebd"><div class="ttname"><a href="classlala_1_1_solver_output.html#a14b12c754311acc177ebda0bac551ebd">lala::SolverOutput::add_var</a></div><div class="ttdeci">void add_var(const bstring &amp;var_name)</div><div class="ttdef"><b>Definition</b> solver_output.hpp:96</div></div>
-<div class="ttc" id="aclasslala_1_1_solver_output_html_a36dd8ed0e700c0a4f857b70fddfeecfb"><div class="ttname"><a href="classlala_1_1_solver_output.html#a36dd8ed0e700c0a4f857b70fddfeecfb">lala::SolverOutput::SolverOutput</a></div><div class="ttdeci">CUDA SolverOutput(const Allocator &amp;alloc)</div><div class="ttdef"><b>Definition</b> solver_output.hpp:45</div></div>
-<div class="ttc" id="aclasslala_1_1_solver_output_html_a5fc957f44516229491594a215f8b4d1a"><div class="ttname"><a href="classlala_1_1_solver_output.html#a5fc957f44516229491594a215f8b4d1a">lala::SolverOutput::print_solution</a></div><div class="ttdeci">CUDA void print_solution(const Env &amp;env, const A &amp;sol, const S &amp;simplifier=SimplifierIdentity{}) const</div><div class="ttdef"><b>Definition</b> solver_output.hpp:151</div></div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span> </div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>};</div>
+</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span> </div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>} <span class="comment">// namespace lala</span></div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span><span class="preprocessor">#endif </span><span class="comment">//OUTPUT_H</span></div>
+<div class="ttc" id="aclasslala_1_1_solver_output_1_1_simplifier_identity_html"><div class="ttname"><a href="classlala_1_1_solver_output_1_1_simplifier_identity.html">lala::SolverOutput::SimplifierIdentity</a></div><div class="ttdef"><b>Definition</b> solver_output.hpp:105</div></div>
+<div class="ttc" id="aclasslala_1_1_solver_output_html"><div class="ttname"><a href="classlala_1_1_solver_output.html">lala::SolverOutput</a></div><div class="ttdef"><b>Definition</b> solver_output.hpp:21</div></div>
+<div class="ttc" id="aclasslala_1_1_solver_output_html_a0932ced84c948ae853c77885f3c9bf48"><div class="ttname"><a href="classlala_1_1_solver_output.html#a0932ced84c948ae853c77885f3c9bf48">lala::SolverOutput::SolverOutput</a></div><div class="ttdeci">CUDA SolverOutput(const SolverOutput&lt; Alloc2 &gt; &amp;other, const Allocator &amp;allocator=Allocator{})</div><div class="ttdef"><b>Definition</b> solver_output.hpp:70</div></div>
+<div class="ttc" id="aclasslala_1_1_solver_output_html_a0dd11e50d6e2f724cbc98db819435a5e"><div class="ttname"><a href="classlala_1_1_solver_output.html#a0dd11e50d6e2f724cbc98db819435a5e">lala::SolverOutput::SolverOutput</a></div><div class="ttdeci">CUDA SolverOutput(const Allocator &amp;alloc, OutputType outputType)</div><div class="ttdef"><b>Definition</b> solver_output.hpp:53</div></div>
+<div class="ttc" id="aclasslala_1_1_solver_output_html_a14b12c754311acc177ebda0bac551ebd"><div class="ttname"><a href="classlala_1_1_solver_output.html#a14b12c754311acc177ebda0bac551ebd">lala::SolverOutput::add_var</a></div><div class="ttdeci">void add_var(const bstring &amp;var_name)</div><div class="ttdef"><b>Definition</b> solver_output.hpp:99</div></div>
+<div class="ttc" id="aclasslala_1_1_solver_output_html_a36dd8ed0e700c0a4f857b70fddfeecfb"><div class="ttname"><a href="classlala_1_1_solver_output.html#a36dd8ed0e700c0a4f857b70fddfeecfb">lala::SolverOutput::SolverOutput</a></div><div class="ttdeci">CUDA SolverOutput(const Allocator &amp;alloc)</div><div class="ttdef"><b>Definition</b> solver_output.hpp:48</div></div>
+<div class="ttc" id="aclasslala_1_1_solver_output_html_a5fc957f44516229491594a215f8b4d1a"><div class="ttname"><a href="classlala_1_1_solver_output.html#a5fc957f44516229491594a215f8b4d1a">lala::SolverOutput::print_solution</a></div><div class="ttdeci">CUDA void print_solution(const Env &amp;env, const A &amp;sol, const S &amp;simplifier=SimplifierIdentity{}) const</div><div class="ttdef"><b>Definition</b> solver_output.hpp:154</div></div>
 <div class="ttc" id="aclasslala_1_1_solver_output_html_a6618127d49f31bdca615518508b16bce"><div class="ttname"><a href="classlala_1_1_solver_output.html#a6618127d49f31bdca615518508b16bce">lala::SolverOutput::SolverOutput</a></div><div class="ttdeci">SolverOutput(SolverOutput &amp;&amp;)=default</div></div>
-<div class="ttc" id="aclasslala_1_1_solver_output_html_a8575578c33c7e513576881469a884faa"><div class="ttname"><a href="classlala_1_1_solver_output.html#a8575578c33c7e513576881469a884faa">lala::SolverOutput::operator=</a></div><div class="ttdeci">CUDA SolverOutput&lt; Allocator &gt; &amp; operator=(const SolverOutput&lt; Alloc &gt; &amp;other)</div><div class="ttdef"><b>Definition</b> solver_output.hpp:59</div></div>
-<div class="ttc" id="aclasslala_1_1_solver_output_html_a8c64698ef49350cf1ad8ff8e859a4983"><div class="ttname"><a href="classlala_1_1_solver_output.html#a8c64698ef49350cf1ad8ff8e859a4983">lala::SolverOutput::print_solution_xml</a></div><div class="ttdeci">CUDA void print_solution_xml(const Env &amp;env, const A &amp;sol, const S &amp;simplifier=SimplifierIdentity{}) const</div><div class="ttdef"><b>Definition</b> solver_output.hpp:136</div></div>
-<div class="ttc" id="aclasslala_1_1_solver_output_html_ac2bed79c2dc9c5b707f376cf634465ed"><div class="ttname"><a href="classlala_1_1_solver_output.html#ac2bed79c2dc9c5b707f376cf634465ed">lala::SolverOutput::add_array_var</a></div><div class="ttdeci">void add_array_var(const std::string &amp;name, const bstring &amp;var_name, const peg::SemanticValues &amp;sv)</div><div class="ttdef"><b>Definition</b> solver_output.hpp:72</div></div>
-<div class="ttc" id="aclasslala_1_1_solver_output_html_ac8171c1e27e3454bfce9fe5254021fd2"><div class="ttname"><a href="classlala_1_1_solver_output.html#ac8171c1e27e3454bfce9fe5254021fd2">lala::SolverOutput::print_solution_flat_zinc</a></div><div class="ttdeci">CUDA void print_solution_flat_zinc(const Env &amp;env, const A &amp;sol, const S &amp;simplifier=SimplifierIdentity{}) const</div><div class="ttdef"><b>Definition</b> solver_output.hpp:111</div></div>
-<div class="ttc" id="aclasslala_1_1_solver_output_html_aec7bb4f33f3dba3f17db25e8abaf2d17"><div class="ttname"><a href="classlala_1_1_solver_output.html#aec7bb4f33f3dba3f17db25e8abaf2d17">lala::SolverOutput::getOutputVars</a></div><div class="ttdeci">bvector&lt; bstring &gt; getOutputVars()</div><div class="ttdef"><b>Definition</b> solver_output.hpp:99</div></div>
+<div class="ttc" id="aclasslala_1_1_solver_output_html_a8575578c33c7e513576881469a884faa"><div class="ttname"><a href="classlala_1_1_solver_output.html#a8575578c33c7e513576881469a884faa">lala::SolverOutput::operator=</a></div><div class="ttdeci">CUDA SolverOutput&lt; Allocator &gt; &amp; operator=(const SolverOutput&lt; Alloc &gt; &amp;other)</div><div class="ttdef"><b>Definition</b> solver_output.hpp:62</div></div>
+<div class="ttc" id="aclasslala_1_1_solver_output_html_a8c64698ef49350cf1ad8ff8e859a4983"><div class="ttname"><a href="classlala_1_1_solver_output.html#a8c64698ef49350cf1ad8ff8e859a4983">lala::SolverOutput::print_solution_xml</a></div><div class="ttdeci">CUDA void print_solution_xml(const Env &amp;env, const A &amp;sol, const S &amp;simplifier=SimplifierIdentity{}) const</div><div class="ttdef"><b>Definition</b> solver_output.hpp:139</div></div>
+<div class="ttc" id="aclasslala_1_1_solver_output_html_ac2bed79c2dc9c5b707f376cf634465ed"><div class="ttname"><a href="classlala_1_1_solver_output.html#ac2bed79c2dc9c5b707f376cf634465ed">lala::SolverOutput::add_array_var</a></div><div class="ttdeci">void add_array_var(const std::string &amp;name, const bstring &amp;var_name, const peg::SemanticValues &amp;sv)</div><div class="ttdef"><b>Definition</b> solver_output.hpp:75</div></div>
+<div class="ttc" id="aclasslala_1_1_solver_output_html_ac8171c1e27e3454bfce9fe5254021fd2"><div class="ttname"><a href="classlala_1_1_solver_output.html#ac8171c1e27e3454bfce9fe5254021fd2">lala::SolverOutput::print_solution_flat_zinc</a></div><div class="ttdeci">CUDA void print_solution_flat_zinc(const Env &amp;env, const A &amp;sol, const S &amp;simplifier=SimplifierIdentity{}) const</div><div class="ttdef"><b>Definition</b> solver_output.hpp:114</div></div>
+<div class="ttc" id="aclasslala_1_1_solver_output_html_aec7bb4f33f3dba3f17db25e8abaf2d17"><div class="ttname"><a href="classlala_1_1_solver_output.html#aec7bb4f33f3dba3f17db25e8abaf2d17">lala::SolverOutput::getOutputVars</a></div><div class="ttdeci">bvector&lt; bstring &gt; getOutputVars()</div><div class="ttdef"><b>Definition</b> solver_output.hpp:102</div></div>
 <div class="ttc" id="aclasslala_1_1_solver_output_html_af18a742f937fd50897670be8809474fb"><div class="ttname"><a href="classlala_1_1_solver_output.html#af18a742f937fd50897670be8809474fb">lala::SolverOutput::operator=</a></div><div class="ttdeci">SolverOutput&lt; Allocator &gt; &amp; operator=(const SolverOutput&lt; Allocator &gt; &amp;)=default</div></div>
 <div class="ttc" id="anamespacelala_html"><div class="ttname"><a href="namespacelala.html">lala</a></div><div class="ttdef"><b>Definition</b> flatzinc_parser.hpp:21</div></div>
-<div class="ttc" id="anamespacelala_html_aae8635bfcecff989b186ebc28acf46b6"><div class="ttname"><a href="namespacelala.html#aae8635bfcecff989b186ebc28acf46b6">lala::OutputType</a></div><div class="ttdeci">OutputType</div><div class="ttdef"><b>Definition</b> solver_output.hpp:11</div></div>
+<div class="ttc" id="anamespacelala_html_aae8635bfcecff989b186ebc28acf46b6"><div class="ttname"><a href="namespacelala.html#aae8635bfcecff989b186ebc28acf46b6">lala::OutputType</a></div><div class="ttdeci">OutputType</div><div class="ttdef"><b>Definition</b> solver_output.hpp:14</div></div>
 <div class="ttc" id="anamespacelala_html_aae8635bfcecff989b186ebc28acf46b6a1c75bff6c484e0eb1a5629a545d4ba1e"><div class="ttname"><a href="namespacelala.html#aae8635bfcecff989b186ebc28acf46b6a1c75bff6c484e0eb1a5629a545d4ba1e">lala::OutputType::XCSP</a></div><div class="ttdeci">@ XCSP</div></div>
 <div class="ttc" id="anamespacelala_html_aae8635bfcecff989b186ebc28acf46b6a4c0bad1aa63a8ee4fca843704d2ee436"><div class="ttname"><a href="namespacelala.html#aae8635bfcecff989b186ebc28acf46b6a4c0bad1aa63a8ee4fca843704d2ee436">lala::OutputType::FLATZINC</a></div><div class="ttdeci">@ FLATZINC</div></div>
 </div><!-- fragment --></div><!-- contents -->

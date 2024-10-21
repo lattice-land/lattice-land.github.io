@@ -23,7 +23,14 @@ It also explains how this algorithm is executed on parallel on GPU.
 We keep the same algorithm as full-GPU Turbo but only performs the propagation on the GPU.
 The algorithm consists of two parts:
 
-1. `dive`:
+1. `dive(root, path)`: From the root of the search tree, commit to the path given to reach a node `subroot` at a fixed depth.
+2. `solve(subroot)`: Solve the subproblem `subroot` by propagate and search.
+3. When a subproblem has been completely explored, we take a new path to explore if any is left.
+
+During the dive and solve operations, the propagation step is always executed on the GPU, by calling a kernel parametrized with a single block.
+
+To execute this algorithm on multiple blocks, we create `N` CPU threads that will explore in parallel different `path` and solve different subproblems.
+The file `` documents this algorithm in detail.
 
 ## How to compile and run Turbo on Helios
 
