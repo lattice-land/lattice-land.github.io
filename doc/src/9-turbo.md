@@ -17,7 +17,51 @@ This is the version 1.2.1 of Turbo, against which we will compare the progresses
 
 ## Turbo v1.2.1: Hybrid Dive and Solve Algorithm
 
-If you don't know the "propagate-and-search" algorithm of constraint programming, please watch [this video](http://hyc.io/videos/aaai2022.mp4) I made for a conference, starting at 5'30''.
+If you don't know the "propagate-and-search" algorithm of constraint programming, please watch [this video](http://hyc.io/videos/aaai2022.mp4) I made for a conference (thanks Covid), starting at 5'30''.
+It also explains how this algorithm is executed on parallel on GPU.
 
 We keep the same algorithm as full-GPU Turbo but only performs the propagation on the GPU.
+The algorithm consists of two parts:
+
+1. `dive`:
+
+## How to compile and run Turbo on Helios
+
+First, download the project and its dependencies:
+
+```
+mkdir lattice-land
+cd lattice-land
+git clone git@github.com:NVIDIA/cccl.git
+git clone git@github.com:xcsp3team/XCSP3-CPP-Parser.git
+git clone git@github.com:ptal/cpp-peglib.git
+git clone git@github.com:lattice-land/cuda-battery.git
+git clone git@github.com:lattice-land/lala-core.git
+git clone git@github.com:lattice-land/lattice-land.github.io.git
+git clone git@github.com:lattice-land/lala-pc.git
+git clone git@github.com:lattice-land/lala-power.git
+git clone git@github.com:lattice-land/lala-parsing.git
+git clone git@github.com:lattice-land/.github.git
+git clone --recursive git@github.com:lattice-land/bench.git
+git clone --recursive git@github.com:ptal/turbo.git
+```
+
+Next, go on the Helios branch of Turbo:
+
+```
+cd lattice-land/turbo
+git checkout helios
+```
+
+To compile:
+
+```
+sbatch compile-helios.sh helios.sh
+```
+
+And to run on an example:
+
+```
+sbatch run-helios.sh helio.sh
+```
 

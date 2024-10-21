@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['nbitset_2ehpp_0',['nbitset.hpp',['../nbitset_8hpp.html',1,'']]]
+  ['logic_2ehpp_0',['logic.hpp',['../logic_8hpp.html',1,'']]]
 ];

@@ -11,7 +11,7 @@ var structlala_1_1_hash_map_var_index =
     [ "HashMapVarIndex", "structlala_1_1_hash_map_var_index.html#aef30ccca7b77e8fe4b1cfbc1a0a3c840", null ],
     [ "operator=", "structlala_1_1_hash_map_var_index.html#ad5455d746c9b824a5e294f089a7bce19", null ],
     [ "operator=", "structlala_1_1_hash_map_var_index.html#a5cb98427c3522125fc13c3082f3e5189", null ],
-    [ "lvar_index_of", "structlala_1_1_hash_map_var_index.html#a65bd72e71a220857a356a57d1d0c26f2", null ],
+    [ "lvar_index_of", "structlala_1_1_hash_map_var_index.html#a780de4ac65c4bec54fcbfd50f9260ddb", null ],
     [ "push_back", "structlala_1_1_hash_map_var_index.html#a14fae4bd8013eef25d3bf4d8ea19bb1b", null ],
     [ "erase", "structlala_1_1_hash_map_var_index.html#ad1528dbf2ceef0da1eb7dbad58c6d6cb", null ],
     [ "set_lvars", "structlala_1_1_hash_map_var_index.html#aa10d7a06a95ddf31314dfcedf26c52cf", null ],

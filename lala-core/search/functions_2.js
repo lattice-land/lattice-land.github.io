@@ -5,6 +5,7 @@ var searchData=
   ['complement_2',['complement',['../classlala_1_1_n_bitset.html#ad2002d620116f7c4bd73233572fe6618',1,'lala::NBitset']]],
   ['contains_3',['contains',['../classlala_1_1_var_env.html#afb94db92bab89580a92319287b826c73',1,'lala::VarEnv::contains(const battery::string&lt; Alloc2 &gt; &amp;lv) const'],['../classlala_1_1_var_env.html#a3ce2e6884718dfaac5ab413243601b03',1,'lala::VarEnv::contains(const char *lv) const'],['../classlala_1_1_var_env.html#a893da90eda0d93db9b54c4848c9c1918',1,'lala::VarEnv::contains(AVar av) const']]],
   ['converse_5fcomparison_4',['converse_comparison',['../namespacelala.html#a37723381538b58c397b57008bcc7671b',1,'lala']]],
-  ['create_5fand_5finterpret_5fand_5ftell_5',['create_and_interpret_and_tell',['../namespacelala.html#aa6334729ccf128a1381a39f7f1c8a17f',1,'lala']]],
-  ['cut_6',['cut',['../classlala_1_1_i_diagnostics.html#a15e332758bd90859d4ec4023629f7378',1,'lala::IDiagnostics']]]
+  ['copy_5fto_5',['copy_to',['../classlala_1_1_v_store.html#a1e39fdd5d9cef6942829d1fb025b3dec',1,'lala::VStore']]],
+  ['create_5fand_5finterpret_5fand_5ftell_6',['create_and_interpret_and_tell',['../namespacelala.html#aa6334729ccf128a1381a39f7f1c8a17f',1,'lala']]],
+  ['cut_7',['cut',['../classlala_1_1_i_diagnostics.html#a15e332758bd90859d4ec4023629f7378',1,'lala::IDiagnostics']]]
 ];

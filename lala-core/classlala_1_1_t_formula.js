@@ -20,7 +20,7 @@ var classlala_1_1_t_formula =
     [ "type", "classlala_1_1_t_formula.html#ab88351e87b250a2594d0c7281bf7e5a6", null ],
     [ "type_as", "classlala_1_1_t_formula.html#a9cd1a3176f4118a146b47469e8aeceec", null ],
     [ "is_untyped", "classlala_1_1_t_formula.html#ac128f5b11fde944aa4a78b4dfbcbf3c6", null ],
-    [ "sort", "classlala_1_1_t_formula.html#a0ac01ca6e7ae35fa209eddf4d402bd7f", null ],
+    [ "sort", "classlala_1_1_t_formula.html#a7638ca613cef0e46bfd297af1bebca7f", null ],
     [ "index", "classlala_1_1_t_formula.html#aec31f0a8fef752af4031b8669f674400", null ],
     [ "is", "classlala_1_1_t_formula.html#a8e526efa378ab8f4a4516561e0c6504a", null ],
     [ "is_true", "classlala_1_1_t_formula.html#a680c244196d3f2fe1e960f49ff562f23", null ],

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['nbitset_0',['NBitset',['../classlala_1_1_n_bitset.html',1,'lala']]],
-  ['nonatomicextraction_1',['NonAtomicExtraction',['../structlala_1_1_non_atomic_extraction.html',1,'lala']]]
+  ['light_5fcopy_5ftag_0',['light_copy_tag',['../structlala_1_1_simplifier_1_1light__copy__tag.html',1,'lala::Simplifier']]],
+  ['listvarindex_1',['ListVarIndex',['../structlala_1_1_list_var_index.html',1,'lala']]]
 ];

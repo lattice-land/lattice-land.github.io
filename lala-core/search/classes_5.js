@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['hashmapvarindex_0',['HashMapVarIndex',['../structlala_1_1_hash_map_var_index.html',1,'lala']]]
+  ['gaussseideliteration_0',['GaussSeidelIteration',['../classlala_1_1_gauss_seidel_iteration.html',1,'lala']]]
 ];

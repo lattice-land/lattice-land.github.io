@@ -13,15 +13,14 @@ var algorithm_8hpp =
     [ "num_quantified_vars", "algorithm_8hpp.html#a595c82a412e489c8ca65997a3ce2a199", null ],
     [ "type_of_conjunction", "algorithm_8hpp.html#a93ff80f41d2a60ce49d9d969792f3818", null ],
     [ "extract_ty", "algorithm_8hpp.html#a814b7acfb675818f3775fe2ca64c5059", null ],
-    [ "negate", "algorithm_8hpp.html#aba112137663498d2a8c6c4bf498bb983", null ],
-    [ "de_morgan_law", "algorithm_8hpp.html#a5030adf5e752c070491a95b5c8150541", null ],
-    [ "negate_eq", "algorithm_8hpp.html#aab732b6700d33357c722014d770761c1", null ],
+    [ "negate", "algorithm_8hpp.html#a61c82f922a369376733ac1ceb63f2ecc", null ],
+    [ "de_morgan_law", "algorithm_8hpp.html#a2caa21841419c6fd7f24ec5e8e615b26", null ],
+    [ "negate_eq", "algorithm_8hpp.html#a058f21dcd4bdfdb672fdf29d9be8bdc2", null ],
     [ "negate_arithmetic_comparison", "algorithm_8hpp.html#ad13b1cbdaf671ada055fcddffa64786e", null ],
     [ "is_arithmetic_comparison", "algorithm_8hpp.html#a46b8c9e53b51af981665045ab0ef5789", null ],
     [ "is_set_comparison", "algorithm_8hpp.html#af5ec9df0db7364e9a1d4a6cf55133bc0", null ],
     [ "is_comparison", "algorithm_8hpp.html#aa96505876a4dc4a73e9dcac1df80ba16", null ],
     [ "converse_comparison", "algorithm_8hpp.html#a37723381538b58c397b57008bcc7671b", null ],
-    [ "move_constants_on_rhs", "algorithm_8hpp.html#a16fbc50bc2d3462ef777a93bab8d31cd", null ],
     [ "map_avar_to_lvar", "algorithm_8hpp.html#a1c3a823ec9c5e512892e628d8311c543", null ],
     [ "eval", "algorithm_8hpp.html#ae6506d073b2c1165fa92bffeae6fd4bf", null ]
 ];

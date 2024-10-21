@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['cartesianproduct_0',['CartesianProduct',['../classlala_1_1_cartesian_product.html#a2a595f7d8a334b17a0f8c0bd8924ae9b',1,'lala::CartesianProduct']]]
+  ['arithbound_0',['ArithBound',['../classlala_1_1_arith_bound.html#af62292c34a61264a456185167712354c',1,'lala::ArithBound']]]
 ];

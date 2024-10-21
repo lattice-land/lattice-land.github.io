@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['cartesian_5fproduct_2ehpp_0',['cartesian_product.hpp',['../cartesian__product_8hpp.html',1,'']]]
+  ['b_2ehpp_0',['b.hpp',['../b_8hpp.html',1,'']]]
 ];
