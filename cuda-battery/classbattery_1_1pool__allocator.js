@@ -1,8 +1,11 @@
 var classbattery_1_1pool__allocator =
 [
+    [ "pool_allocator", "classbattery_1_1pool__allocator.html#a8110f3f1261406a360ee339285c7553b", null ],
     [ "pool_allocator", "classbattery_1_1pool__allocator.html#aa6d6cd933ebdd6ef4c8dde00e3ad441a", null ],
+    [ "pool_allocator", "classbattery_1_1pool__allocator.html#ad2b765dae488cd6a5abb33c1d80d6e5d", null ],
     [ "pool_allocator", "classbattery_1_1pool__allocator.html#a48f133484d22075e1fd73bb3185e8a1a", null ],
     [ "~pool_allocator", "classbattery_1_1pool__allocator.html#a06303d2df0d02737083552b298615068", null ],
+    [ "operator=", "classbattery_1_1pool__allocator.html#aadbf18bbeca657bd6a167214a1c55ad9", null ],
     [ "align_at", "classbattery_1_1pool__allocator.html#ab4fd5000109638d0b5acec882b6665e5", null ],
     [ "allocate", "classbattery_1_1pool__allocator.html#a6a7dd0c1ab3b1211b1a0465aa9d83731", null ],
     [ "deallocate", "classbattery_1_1pool__allocator.html#a3a52a302349801db8410c48c174b6a1d", null ],
