@@ -1,5 +1,7 @@
 var NAVTREEINDEX1 =
 {
+"classlala_1_1pc_1_1_disjunction.html":[0,0,0,0,6],
+"classlala_1_1pc_1_1_disjunction.html":[1,0,0,0,6],
 "classlala_1_1pc_1_1_disjunction.html#a0ada11e6302c985638745534bba05425":[0,0,0,0,6,3],
 "classlala_1_1pc_1_1_disjunction.html#a0ada11e6302c985638745534bba05425":[1,0,0,0,6,3],
 "classlala_1_1pc_1_1_disjunction.html#a1a333b2840075fa8462d037dc1882424":[0,0,0,0,6,12],
@@ -247,7 +249,5 @@ var NAVTREEINDEX1 =
 "classlala_1_1pc_1_1_inequality.html#a0b13ad63d97965d4bd34cdf815401847":[0,0,0,0,17,1],
 "classlala_1_1pc_1_1_inequality.html#a0b13ad63d97965d4bd34cdf815401847":[1,0,0,0,17,1],
 "classlala_1_1pc_1_1_inequality.html#a12418d8fb7bc10345fa99af630664ab5":[0,0,0,0,17,10],
-"classlala_1_1pc_1_1_inequality.html#a12418d8fb7bc10345fa99af630664ab5":[1,0,0,0,17,10],
-"classlala_1_1pc_1_1_inequality.html#a1c719c51587590a28eb9f5457b0780c1":[0,0,0,0,17,7],
-"classlala_1_1pc_1_1_inequality.html#a1c719c51587590a28eb9f5457b0780c1":[1,0,0,0,17,7]
+"classlala_1_1pc_1_1_inequality.html#a12418d8fb7bc10345fa99af630664ab5":[1,0,0,0,17,10]
 };

@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['name_0',['name',['../classlala_1_1_p_c.html#a139e35dab7a551c92c7738eff0ce87eb',1,'lala::PC']]],
-  ['num_5fprops_1',['num_props',['../structlala_1_1_p_c_1_1snapshot__type.html#ab71ee1d262a51b80a8b7665684d81344',1,'lala::PC::snapshot_type']]]
+  ['function_5fsymbol_0',['function_symbol',['../structlala_1_1pc_1_1_neg_op.html#ac2ea0d91ae999c557c225e588cf15cf5',1,'lala::pc::NegOp::function_symbol'],['../structlala_1_1pc_1_1_abs_op.html#a37d19e4341663764e1b7470f6f6aa025',1,'lala::pc::AbsOp::function_symbol']]]
 ];

@@ -24,6 +24,7 @@ var classlala_1_1_p_c =
     [ "deduce", "classlala_1_1_p_c.html#a439479d9f1dd08debbe9bd8d7fafa453", null ],
     [ "embed", "classlala_1_1_p_c.html#ac7a47c9b075409e5e59592f14434a61e", null ],
     [ "ask", "classlala_1_1_p_c.html#aeb96e204ffb8c1d5224fecd552c53536", null ],
+    [ "ask", "classlala_1_1_p_c.html#a9c84a4cc11fc5b5f75d594e54fcece90", null ],
     [ "num_deductions", "classlala_1_1_p_c.html#a86081b3b54fdbefb3bacfc21d21f533c", null ],
     [ "deduce", "classlala_1_1_p_c.html#a1a8b0fec6b62b672fd4a84be8e98a12f", null ],
     [ "is_bot", "classlala_1_1_p_c.html#aad060de1def8eccf776fe8e275f9fbe2", null ],

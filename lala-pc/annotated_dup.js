@@ -29,5 +29,6 @@ var annotated_dup =
         [ "VariableLiteral", "classlala_1_1pc_1_1_variable_literal.html", "classlala_1_1pc_1_1_variable_literal" ]
       ] ],
       [ "PC", "classlala_1_1_p_c.html", "classlala_1_1_p_c" ]
-    ] ]
+    ] ],
+    [ "PC2", "struct_p_c2.html", "struct_p_c2" ]
 ];
