@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['getoutputvars_0',['getOutputVars',['../classlala_1_1_solver_output.html#aec7bb4f33f3dba3f17db25e8abaf2d17',1,'lala::SolverOutput']]]
+  ['num_5fconstraints_0',['num_constraints',['../class_x_c_s_p3_core_1_1_x_c_s_p3__turbo__callbacks.html#ac8573c5b680ad86bb2435cd04b02453e',1,'XCSP3Core::XCSP3_turbo_callbacks']]],
+  ['num_5fvariables_1',['num_variables',['../class_x_c_s_p3_core_1_1_x_c_s_p3__turbo__callbacks.html#a6d6eee2d7e7903d0aa1c313e39c44bfb',1,'XCSP3Core::XCSP3_turbo_callbacks']]]
 ];

@@ -9,7 +9,6 @@ var classlala_1_1_solver_output =
     [ "operator=", "classlala_1_1_solver_output.html#a8575578c33c7e513576881469a884faa", null ],
     [ "add_array_var", "classlala_1_1_solver_output.html#ac2bed79c2dc9c5b707f376cf634465ed", null ],
     [ "add_var", "classlala_1_1_solver_output.html#a14b12c754311acc177ebda0bac551ebd", null ],
-    [ "getOutputVars", "classlala_1_1_solver_output.html#aec7bb4f33f3dba3f17db25e8abaf2d17", null ],
     [ "print_solution_flat_zinc", "classlala_1_1_solver_output.html#ac8171c1e27e3454bfce9fe5254021fd2", null ],
     [ "print_solution_xml", "classlala_1_1_solver_output.html#a8c64698ef49350cf1ad8ff8e859a4983", null ],
     [ "print_solution", "classlala_1_1_solver_output.html#a5fc957f44516229491594a215f8b4d1a", null ],

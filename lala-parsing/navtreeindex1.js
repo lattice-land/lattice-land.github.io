@@ -1,10 +1,8 @@
 var NAVTREEINDEX1 =
 {
-"classlala_1_1_solver_output.html#aec7bb4f33f3dba3f17db25e8abaf2d17":[1,0,0,0,9],
-"classlala_1_1_solver_output.html#af18a742f937fd50897670be8809474fb":[0,0,0,0,5],
 "classlala_1_1_solver_output.html#af18a742f937fd50897670be8809474fb":[1,0,0,0,5],
-"classlala_1_1_solver_output.html#af23e8255c42c841e7f3c73a013d1db12":[0,0,0,0,13],
-"classlala_1_1_solver_output.html#af23e8255c42c841e7f3c73a013d1db12":[1,0,0,0,13],
+"classlala_1_1_solver_output.html#af23e8255c42c841e7f3c73a013d1db12":[0,0,0,0,12],
+"classlala_1_1_solver_output.html#af23e8255c42c841e7f3c73a013d1db12":[1,0,0,0,12],
 "classlala_1_1_solver_output_1_1_simplifier_identity.html":[0,0,0,0,0],
 "classlala_1_1_solver_output_1_1_simplifier_identity.html":[1,0,0,0,0],
 "dir_22ec94e099ac4ca178246c6ac98c2d99.html":[2,0,0,0],
