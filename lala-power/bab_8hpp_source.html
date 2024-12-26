@@ -375,7 +375,7 @@ $(function(){initNavTree('bab_8hpp_source.html',''); initResizable(true); });
 <div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>    Univ2 bound2 = store2.project(x);</div>
 <div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>    <span class="comment">// When minimizing, the best bound is getting smaller and smaller.</span></div>
 <div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>    <span class="keywordflow">if</span>(<a class="code hl_function" href="classlala_1_1_b_a_b.html#a0f7184a6e2b783cc8325fdfb1d229813">is_minimization</a>()) {</div>
-<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>      <span class="keywordflow">return</span> (!bound1.is_top() &amp;&amp; bound2.is_top()) || bound1.lb() &gt; bound2.lb();</div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>      <span class="keywordflow">return</span> (!bound1.is_top() &amp;&amp; bound2.is_top()) || bound1.lb() &gt; bound2.lb(); <span class="comment">// note that `&gt;` reflects the order of LB.</span></div>
 <div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>    }</div>
 <div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>    <span class="comment">// And dually for maximization.</span></div>
 <div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>    <span class="keywordflow">else</span> {</div>
