@@ -65,9 +65,9 @@ The superchip GH200 equipping Helios has a CPU with 72 cores and a H200 GPU with
 On the desktop:
 * We confirm v1.2.1 is very slow.
 * The version v1.2.0 fully executing on GPU and v1.2.2 hybrid (64 blocks) are on-par in terms of average nodes-per-second.
-*
+* Thanks to the smaller kernel, we can now increase the number of blocks, and the version v1.2.2 with 128 blocks show an interesting speed-up.
 
-On the first version  The raw power of GH200 is excellent since it
+The raw power of GH200 is excellent since it more than triples the number of nodes-per-second explored.
 
 | Name                                   | Architecture | Average nodes-per-second | #Problems at optimality | #Problems SAT | #Problems unknown |
 |:---------------------------------------|--------------|-----------------------:|------------------:|--------------:|------------------:|

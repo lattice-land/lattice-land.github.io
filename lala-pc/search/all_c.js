@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['name_0',['name',['../classlala_1_1_p_c.html#a139e35dab7a551c92c7738eff0ce87eb',1,'lala::PC']]],
+  ['name_0',['name',['../classlala_1_1_p_c.html#a139e35dab7a551c92c7738eff0ce87eb',1,'lala::PC::name'],['../classlala_1_1_p_i_r.html#a83a5e8742b20c753a0f461191d530762',1,'lala::PIR::name']]],
   ['nary_1',['Nary',['../classlala_1_1pc_1_1_nary.html',1,'lala::pc::Nary&lt; Combinator &gt;'],['../classlala_1_1pc_1_1_nary.html#ab9d5d36bedbd710405e26ea6f4898464',1,'lala::pc::Nary::Nary'],['../classlala_1_1pc_1_1_nary.html#aca1f18121b1c7ccd7bd749052e7eb225',1,'lala::pc::Nary::Nary(battery::vector&lt; sub_type, allocator_type &gt; &amp;&amp;terms)'],['../classlala_1_1pc_1_1_nary.html#a1011ddb6d134eb41e79bf15cee54aacc',1,'lala::pc::Nary::Nary(this_type &amp;&amp;other)'],['../classlala_1_1pc_1_1_nary.html#a16c35eb8ff974ec6c795d229cfdafd88',1,'lala::pc::Nary::Nary(const Nary&lt; Combinator2 &gt; &amp;other, const allocator_type &amp;allocator)']]],
   ['naryadd_2',['NaryAdd',['../classlala_1_1pc_1_1_term.html#a9794f504fe05dd138c1ad314518b423a',1,'lala::pc::Term']]],
   ['narymul_3',['NaryMul',['../classlala_1_1pc_1_1_term.html#a45ad44f5b5109cc5519a03891e5038c5',1,'lala::pc::Term']]],
@@ -8,7 +8,8 @@ var searchData=
   ['neg_5',['Neg',['../classlala_1_1pc_1_1_term.html#acd305cff3b23b17aa0e3e734d6a8a1ff',1,'lala::pc::Term']]],
   ['negop_6',['NegOp',['../structlala_1_1pc_1_1_neg_op.html',1,'lala::pc']]],
   ['neq_7',['Neq',['../classlala_1_1pc_1_1_formula.html#af1573b1b33629c98d8e147cb8a0c5ec2',1,'lala::pc::Formula']]],
-  ['num_5fdeductions_8',['num_deductions',['../classlala_1_1_p_c.html#a86081b3b54fdbefb3bacfc21d21f533c',1,'lala::PC']]],
-  ['num_5fprops_9',['num_props',['../structlala_1_1_p_c_1_1snapshot__type.html#ab71ee1d262a51b80a8b7665684d81344',1,'lala::PC::snapshot_type']]],
-  ['nvarlit_10',['NVarLit',['../classlala_1_1pc_1_1_formula.html#a339b9fc11b286c0108048c2603be3587',1,'lala::pc::Formula']]]
+  ['num_5fbytecodes_8',['num_bytecodes',['../structlala_1_1_p_i_r_1_1snapshot__type.html#a3d2a542cde1609ca9dc8f5b31d887f4b',1,'lala::PIR::snapshot_type']]],
+  ['num_5fdeductions_9',['num_deductions',['../classlala_1_1_p_c.html#a86081b3b54fdbefb3bacfc21d21f533c',1,'lala::PC::num_deductions()'],['../classlala_1_1_p_i_r.html#a268997c590e42e11f211256e7140ae25',1,'lala::PIR::num_deductions()']]],
+  ['num_5fprops_10',['num_props',['../structlala_1_1_p_c_1_1snapshot__type.html#ab71ee1d262a51b80a8b7665684d81344',1,'lala::PC::snapshot_type']]],
+  ['nvarlit_11',['NVarLit',['../classlala_1_1pc_1_1_formula.html#a339b9fc11b286c0108048c2603be3587',1,'lala::pc::Formula']]]
 ];

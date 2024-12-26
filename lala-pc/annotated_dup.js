@@ -28,7 +28,8 @@ var annotated_dup =
         [ "Variable", "classlala_1_1pc_1_1_variable.html", "classlala_1_1pc_1_1_variable" ],
         [ "VariableLiteral", "classlala_1_1pc_1_1_variable_literal.html", "classlala_1_1pc_1_1_variable_literal" ]
       ] ],
-      [ "PC", "classlala_1_1_p_c.html", "classlala_1_1_p_c" ]
-    ] ],
-    [ "PC2", "struct_p_c2.html", "struct_p_c2" ]
+      [ "bytecode_type", "structlala_1_1bytecode__type.html", "structlala_1_1bytecode__type" ],
+      [ "PC", "classlala_1_1_p_c.html", "classlala_1_1_p_c" ],
+      [ "PIR", "classlala_1_1_p_i_r.html", "classlala_1_1_p_i_r" ]
+    ] ]
 ];
