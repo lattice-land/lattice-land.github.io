@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['vstore_2ehpp_0',['vstore.hpp',['../vstore_8hpp.html',1,'']]]
+  ['ternarize_2ehpp_0',['ternarize.hpp',['../ternarize_8hpp.html',1,'']]]
 ];

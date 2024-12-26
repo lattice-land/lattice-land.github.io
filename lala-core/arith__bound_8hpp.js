@@ -11,7 +11,7 @@ var arith__bound_8hpp =
     [ "FUB", "arith__bound_8hpp.html#a0d7deb30350a63fe286a3cf67b31fd65", null ],
     [ "project_fun", "arith__bound_8hpp.html#a4a8490aa25a4cc0da52f96a42f15ad70", null ],
     [ "project_fun", "arith__bound_8hpp.html#aaf205cdf4c3b33d9ea65f971b991d889", null ],
-    [ "dual", "arith__bound_8hpp.html#a253331b314cef4226fc0b5f0436a9787", null ],
+    [ "dual_bound", "arith__bound_8hpp.html#a13220e6c748485a1cfdf6951bb616a25", null ],
     [ "fjoin", "arith__bound_8hpp.html#ab5d9e032cb1c165afd1a2bd792418185", null ],
     [ "fmeet", "arith__bound_8hpp.html#a2199dc533c06a5054adee13df82c87b4", null ],
     [ "operator<", "arith__bound_8hpp.html#a10012e10c6cd87d477ac7b58d8692d9c", null ],

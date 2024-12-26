@@ -360,7 +360,7 @@ $(function(){initNavTree('simplifier_8hpp_source.html',''); initResizable(true);
 <div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>    <span class="keyword">const</span> <span class="keyword">auto</span>&amp; u = sub-&gt;project(to_sub_var(i));</div>
 <div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>    <span class="keywordtype">size_t</span> j = equivalence_classes[i];</div>
 <div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>    <a class="code hl_typedef" href="namespacelala_1_1local.html#ae1dbdea88ccb59298d935bba5d3e1843">local::B</a> has_changed = constants[j].meet(u);</div>
-<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>    <span class="keywordflow">if</span>(!constants[j].<a class="code hl_function" href="classlala_1_1_simplifier.html#a571f08f4176a8d149dd439af80d1279a">is_bot</a>() &amp;&amp; constants[j].lb() == <a class="code hl_function" href="namespacelala.html#a253331b314cef4226fc0b5f0436a9787">dual&lt;typename universe_type::LB&gt;</a>(constants[j].ub())) {</div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>    <span class="keywordflow">if</span>(!constants[j].<a class="code hl_function" href="classlala_1_1_simplifier.html#a571f08f4176a8d149dd439af80d1279a">is_bot</a>() &amp;&amp; constants[j].lb().value() == constants[j].ub().value()) {</div>
 <div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>      has_changed |= eliminate(eliminated_variables, j);</div>
 <div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>    }</div>
 <div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>    <span class="keywordflow">return</span> has_changed;</div>
@@ -382,129 +382,130 @@ $(function(){initNavTree('simplifier_8hpp_source.html',''); initResizable(true);
 <div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>      IDiagnostics diagnostics;</div>
 <div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>      <span class="keyword">typename</span> sub_type::template ask_type&lt;allocator_type&gt; ask;</div>
 <div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span><span class="preprocessor">#ifdef _MSC_VER </span><span class="comment">// Avoid MSVC compiler bug. See https://stackoverflow.com/questions/77144003/use-of-template-keyword-before-dependent-template-name</span></div>
-<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>      <span class="keywordflow">if</span>(sub-&gt;interpret_ask(formulas[i], env, ask, diagnostics)) {</div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>      <span class="keywordflow">if</span>(sub-&gt;interpret_ask(formulas[i], env, ask, diagnostics))</div>
 <div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span><span class="preprocessor">#else</span></div>
-<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>      <span class="keywordflow">if</span>(sub-&gt;template interpret_ask(formulas[i], env, ask, diagnostics)) {</div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>      <span class="keywordflow">if</span>(sub-&gt;template interpret_ask(formulas[i], env, ask, diagnostics))</div>
 <div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>        <span class="keywordflow">if</span>(sub-&gt;ask(ask)) {</div>
-<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>          <span class="keywordflow">return</span> eliminate(eliminated_formulas, i);</div>
-<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>        }</div>
-<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>      }</div>
-<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>      <span class="comment">// Replace assigned variables by constants.</span></div>
-<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>      <span class="comment">// Note that since everything is in a fixed point loop, both the constant and the equivalence class might be updated later on.</span></div>
-<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>      <span class="comment">// This is one of the reasons we cannot update `formulas` in-place: we would not be able to update the constant a second time (since the variable would be eliminated).</span></div>
-<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>      <span class="keyword">auto</span> f = formulas[i].map([&amp;](<span class="keyword">const</span> F&amp; f, <span class="keyword">const</span> F&amp; parent) {</div>
-<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>        <span class="keywordflow">if</span>(f.is_variable()) {</div>
-<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>          AVar x = var_of(f);</div>
-<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>          <span class="keywordflow">if</span>(eliminated_variables.test(x.vid())) {</div>
-<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>            <span class="keyword">auto</span> k = constants[x.vid()].template <a class="code hl_function" href="classlala_1_1_simplifier.html#ac60f902bedc0215768e1dfd1e4257c9b">deinterpret&lt;F&gt;</a>();</div>
-<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>            <span class="keywordflow">if</span>(env[x].sort.is_bool() &amp;&amp; k.is(F::Z) &amp;&amp; parent.is_logical()) {</div>
-<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>              <span class="keywordflow">return</span> k.z() == 0 ? F::make_false() : F::make_true();</div>
-<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>            }</div>
-<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>            <span class="keywordflow">return</span> std::move(k);</div>
-<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>          }</div>
-<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>          <span class="keywordflow">else</span> <span class="keywordflow">if</span>(equivalence_classes[x.vid()] != x.vid()) {</div>
-<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>            <span class="keywordflow">return</span> F::make_lvar(<a class="code hl_define" href="sort_8hpp.html#af5d67e1d1856b2c01653a0f9ab95d391">UNTYPED</a>, env.<a class="code hl_function" href="classlala_1_1_var_env.html#aeb75588dd07defab5093fd9eff8342a4">name_of</a>(AVar{aty(), equivalence_classes[x.vid()]}));</div>
-<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>          }</div>
-<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span>          <span class="keywordflow">return</span> f.map_atype(<a class="code hl_define" href="sort_8hpp.html#af5d67e1d1856b2c01653a0f9ab95d391">UNTYPED</a>);</div>
-<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>        }</div>
-<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>        <span class="keywordflow">return</span> f;</div>
-<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span>      });</div>
-<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>      f = <a class="code hl_function" href="namespacelala.html#ae6506d073b2c1165fa92bffeae6fd4bf">eval</a>(f);</div>
-<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>      <span class="keywordflow">if</span>(f.is_true()) {</div>
-<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span>        <span class="keywordflow">return</span> eliminate(eliminated_formulas, i);</div>
-<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span>      }</div>
-<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span>      <span class="keywordflow">if</span>(f != simplified_formulas[i]) {</div>
-<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span>        simplified_formulas[i] = f;</div>
-<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span>        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>      }</div>
-<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span>      <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>    }</div>
-<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>  }</div>
-<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span> </div>
-<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span><span class="keyword">public</span>:<span class="comment"></span></div>
-<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span><span class="comment">  /** We have one deduction operator per variable and one per constraint in the interpreted formula. */</span></div>
-<div class="foldopen" id="foldopen00292" data-start="{" data-end="}">
-<div class="line"><a id="l00292" name="l00292"></a><span class="lineno"><a class="line" href="classlala_1_1_simplifier.html#ab7be7af8bd461a15a2091d27bbc299e0">  292</a></span>  CUDA <span class="keywordtype">size_t</span> <a class="code hl_function" href="classlala_1_1_simplifier.html#ab7be7af8bd461a15a2091d27bbc299e0">num_deductions</a>()<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span>    <span class="keywordflow">return</span> constants.size() + formulas.size();</div>
-<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span>  }</div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>      {</div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>        <span class="keywordflow">if</span>(sub-&gt;ask(ask)) {</div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>          <span class="keywordflow">return</span> eliminate(eliminated_formulas, i);</div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>        }</div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>      }</div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>      <span class="comment">// Replace assigned variables by constants.</span></div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>      <span class="comment">// Note that since everything is in a fixed point loop, both the constant and the equivalence class might be updated later on.</span></div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>      <span class="comment">// This is one of the reasons we cannot update `formulas` in-place: we would not be able to update the constant a second time (since the variable would be eliminated).</span></div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>      <span class="keyword">auto</span> f = formulas[i].map([&amp;](<span class="keyword">const</span> F&amp; f, <span class="keyword">const</span> F&amp; parent) {</div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>        <span class="keywordflow">if</span>(f.is_variable()) {</div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>          AVar x = var_of(f);</div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>          <span class="keywordflow">if</span>(eliminated_variables.test(x.vid())) {</div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>            <span class="keyword">auto</span> k = constants[x.vid()].template <a class="code hl_function" href="classlala_1_1_simplifier.html#ac60f902bedc0215768e1dfd1e4257c9b">deinterpret&lt;F&gt;</a>();</div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>            <span class="keywordflow">if</span>(env[x].sort.is_bool() &amp;&amp; k.is(F::Z) &amp;&amp; parent.is_logical()) {</div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>              <span class="keywordflow">return</span> k.z() == 0 ? F::make_false() : F::make_true();</div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>            }</div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>            <span class="keywordflow">return</span> std::move(k);</div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>          }</div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>          <span class="keywordflow">else</span> <span class="keywordflow">if</span>(equivalence_classes[x.vid()] != x.vid()) {</div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>            <span class="keywordflow">return</span> F::make_lvar(<a class="code hl_define" href="sort_8hpp.html#af5d67e1d1856b2c01653a0f9ab95d391">UNTYPED</a>, env.<a class="code hl_function" href="classlala_1_1_var_env.html#aeb75588dd07defab5093fd9eff8342a4">name_of</a>(AVar{aty(), equivalence_classes[x.vid()]}));</div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span>          }</div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>          <span class="keywordflow">return</span> f.map_atype(<a class="code hl_define" href="sort_8hpp.html#af5d67e1d1856b2c01653a0f9ab95d391">UNTYPED</a>);</div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>        }</div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span>        <span class="keywordflow">return</span> f;</div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>      });</div>
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>      f = <a class="code hl_function" href="namespacelala.html#ae6506d073b2c1165fa92bffeae6fd4bf">eval</a>(f);</div>
+<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span>      <span class="keywordflow">if</span>(f.is_true()) {</div>
+<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span>        <span class="keywordflow">return</span> eliminate(eliminated_formulas, i);</div>
+<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span>      }</div>
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span>      <span class="keywordflow">if</span>(f != simplified_formulas[i]) {</div>
+<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span>        simplified_formulas[i] = f;</div>
+<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span>      }</div>
+<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>      <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>    }</div>
+<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span>  }</div>
+<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span> </div>
+<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span><span class="keyword">public</span>:<span class="comment"></span></div>
+<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span><span class="comment">  /** We have one deduction operator per variable and one per constraint in the interpreted formula. */</span></div>
+<div class="foldopen" id="foldopen00293" data-start="{" data-end="}">
+<div class="line"><a id="l00293" name="l00293"></a><span class="lineno"><a class="line" href="classlala_1_1_simplifier.html#ab7be7af8bd461a15a2091d27bbc299e0">  293</a></span>  CUDA <span class="keywordtype">size_t</span> <a class="code hl_function" href="classlala_1_1_simplifier.html#ab7be7af8bd461a15a2091d27bbc299e0">num_deductions</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span>    <span class="keywordflow">return</span> constants.size() + formulas.size();</div>
+<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span>  }</div>
 </div>
-<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span> </div>
-<div class="foldopen" id="foldopen00296" data-start="{" data-end="}">
-<div class="line"><a id="l00296" name="l00296"></a><span class="lineno"><a class="line" href="classlala_1_1_simplifier.html#a26b92ca27c3d7390f2065102db574b61">  296</a></span>  CUDA <a class="code hl_class" href="classlala_1_1_b.html">local::B</a> <a class="code hl_function" href="classlala_1_1_simplifier.html#a26b92ca27c3d7390f2065102db574b61">deduce</a>(<span class="keywordtype">size_t</span> i) {</div>
-<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span>    assert(i &lt; <a class="code hl_function" href="classlala_1_1_simplifier.html#ab7be7af8bd461a15a2091d27bbc299e0">num_deductions</a>());</div>
-<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span>    <span class="keywordflow">if</span>(i &lt; constants.size()) {</div>
-<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span>      <span class="keywordflow">return</span> vdeduce(i);</div>
-<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span>    }</div>
-<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span>    <span class="keywordflow">else</span> {</div>
-<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span>      <span class="keywordflow">return</span> cons_deduce(i - constants.size());</div>
-<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span>    }</div>
-<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span>  }</div>
+<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span> </div>
+<div class="foldopen" id="foldopen00297" data-start="{" data-end="}">
+<div class="line"><a id="l00297" name="l00297"></a><span class="lineno"><a class="line" href="classlala_1_1_simplifier.html#a26b92ca27c3d7390f2065102db574b61">  297</a></span>  CUDA <a class="code hl_class" href="classlala_1_1_b.html">local::B</a> <a class="code hl_function" href="classlala_1_1_simplifier.html#a26b92ca27c3d7390f2065102db574b61">deduce</a>(<span class="keywordtype">size_t</span> i) {</div>
+<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span>    assert(i &lt; <a class="code hl_function" href="classlala_1_1_simplifier.html#ab7be7af8bd461a15a2091d27bbc299e0">num_deductions</a>());</div>
+<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span>    <span class="keywordflow">if</span>(i &lt; constants.size()) {</div>
+<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span>      <span class="keywordflow">return</span> vdeduce(i);</div>
+<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span>    }</div>
+<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span>    <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span>      <span class="keywordflow">return</span> cons_deduce(i - constants.size());</div>
+<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span>    }</div>
+<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span>  }</div>
 </div>
-<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span> </div>
-<div class="foldopen" id="foldopen00306" data-start="{" data-end="}">
-<div class="line"><a id="l00306" name="l00306"></a><span class="lineno"><a class="line" href="classlala_1_1_simplifier.html#a85e607537b1a4428dbea353064a93840">  306</a></span>  CUDA <span class="keywordtype">size_t</span> <a class="code hl_function" href="classlala_1_1_simplifier.html#a85e607537b1a4428dbea353064a93840">num_eliminated_variables</a>()<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span>    <span class="keywordtype">size_t</span> keep = 0;</div>
-<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span>    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; equivalence_classes.size(); ++i) {</div>
-<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span>      <span class="keywordflow">if</span>(equivalence_classes[i] == i &amp;&amp; !eliminated_variables.test(i)) {</div>
-<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span>        ++keep;</div>
-<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span>      }</div>
-<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span>    }</div>
-<div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span>    <span class="keywordflow">return</span> equivalence_classes.size() - keep;</div>
-<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span>  }</div>
+<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span> </div>
+<div class="foldopen" id="foldopen00307" data-start="{" data-end="}">
+<div class="line"><a id="l00307" name="l00307"></a><span class="lineno"><a class="line" href="classlala_1_1_simplifier.html#a85e607537b1a4428dbea353064a93840">  307</a></span>  CUDA <span class="keywordtype">size_t</span> <a class="code hl_function" href="classlala_1_1_simplifier.html#a85e607537b1a4428dbea353064a93840">num_eliminated_variables</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span>    <span class="keywordtype">size_t</span> keep = 0;</div>
+<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span>    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; equivalence_classes.size(); ++i) {</div>
+<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span>      <span class="keywordflow">if</span>(equivalence_classes[i] == i &amp;&amp; !eliminated_variables.test(i)) {</div>
+<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span>        ++keep;</div>
+<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span>      }</div>
+<div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span>    }</div>
+<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span>    <span class="keywordflow">return</span> equivalence_classes.size() - keep;</div>
+<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span>  }</div>
 </div>
-<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span> </div>
-<div class="foldopen" id="foldopen00316" data-start="{" data-end="}">
-<div class="line"><a id="l00316" name="l00316"></a><span class="lineno"><a class="line" href="classlala_1_1_simplifier.html#ad4079bfffb058052e0db7c07c6a72636">  316</a></span>  CUDA <span class="keywordtype">size_t</span> <a class="code hl_function" href="classlala_1_1_simplifier.html#ad4079bfffb058052e0db7c07c6a72636">num_eliminated_formulas</a>()<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span>    <span class="keywordflow">return</span> eliminated_formulas.count();</div>
-<div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span>  }</div>
+<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span> </div>
+<div class="foldopen" id="foldopen00317" data-start="{" data-end="}">
+<div class="line"><a id="l00317" name="l00317"></a><span class="lineno"><a class="line" href="classlala_1_1_simplifier.html#ad4079bfffb058052e0db7c07c6a72636">  317</a></span>  CUDA <span class="keywordtype">size_t</span> <a class="code hl_function" href="classlala_1_1_simplifier.html#ad4079bfffb058052e0db7c07c6a72636">num_eliminated_formulas</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span>    <span class="keywordflow">return</span> eliminated_formulas.count();</div>
+<div class="line"><a id="l00319" name="l00319"></a><span class="lineno">  319</span>  }</div>
 </div>
-<div class="line"><a id="l00319" name="l00319"></a><span class="lineno">  319</span> </div>
-<div class="foldopen" id="foldopen00320" data-start="{" data-end="}">
-<div class="line"><a id="l00320" name="l00320"></a><span class="lineno"><a class="line" href="classlala_1_1_simplifier.html#ac60f902bedc0215768e1dfd1e4257c9b">  320</a></span>  CUDA NI <a class="code hl_class" href="classlala_1_1_t_formula.html">TFormula&lt;allocator_type&gt;</a> <a class="code hl_function" href="classlala_1_1_simplifier.html#ac60f902bedc0215768e1dfd1e4257c9b">deinterpret</a>() {</div>
-<div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span>    <span class="keyword">using </span>F = <a class="code hl_class" href="classlala_1_1_t_formula.html">TFormula&lt;allocator_type&gt;</a>;</div>
-<div class="line"><a id="l00322" name="l00322"></a><span class="lineno">  322</span>    <span class="keyword">typename</span> F::Sequence seq(<a class="code hl_function" href="classlala_1_1_simplifier.html#a1344d55bbc870ae2148ec5ec4bcd2465">get_allocator</a>());</div>
-<div class="line"><a id="l00323" name="l00323"></a><span class="lineno">  323</span> </div>
-<div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span>    <span class="keywordflow">if</span>(<a class="code hl_function" href="classlala_1_1_simplifier.html#a571f08f4176a8d149dd439af80d1279a">is_bot</a>()) {</div>
-<div class="line"><a id="l00325" name="l00325"></a><span class="lineno">  325</span>      <span class="keywordflow">return</span> F::make_false();</div>
-<div class="line"><a id="l00326" name="l00326"></a><span class="lineno">  326</span>    }</div>
-<div class="line"><a id="l00327" name="l00327"></a><span class="lineno">  327</span> </div>
-<div class="line"><a id="l00328" name="l00328"></a><span class="lineno">  328</span>    <span class="comment">// A representative variable is eliminated if all variables in its equivalence class must be eliminated.</span></div>
-<div class="line"><a id="l00329" name="l00329"></a><span class="lineno">  329</span>    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; equivalence_classes.size(); ++i) {</div>
-<div class="line"><a id="l00330" name="l00330"></a><span class="lineno">  330</span>      eliminated_variables.set(equivalence_classes[i], eliminated_variables.test(equivalence_classes[i]) &amp;&amp; eliminated_variables.test(i));</div>
-<div class="line"><a id="l00331" name="l00331"></a><span class="lineno">  331</span>    }</div>
-<div class="line"><a id="l00332" name="l00332"></a><span class="lineno">  332</span> </div>
-<div class="line"><a id="l00333" name="l00333"></a><span class="lineno">  333</span>    <span class="comment">// Deinterpret the existential quantifiers (only one per equivalence classes), and the domain of each variable.</span></div>
-<div class="line"><a id="l00334" name="l00334"></a><span class="lineno">  334</span>    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; equivalence_classes.size(); ++i) {</div>
-<div class="line"><a id="l00335" name="l00335"></a><span class="lineno">  335</span>      <span class="keywordflow">if</span>(equivalence_classes[i] == i &amp;&amp; !eliminated_variables.test(i)) {</div>
-<div class="line"><a id="l00336" name="l00336"></a><span class="lineno">  336</span>        <span class="keyword">const</span> <span class="keyword">auto</span>&amp; x = env[<a class="code hl_class" href="classlala_1_1_a_var.html">AVar</a>{<a class="code hl_function" href="classlala_1_1_simplifier.html#a95732ff0fed5203e615336919d35f02d">aty</a>(), i}];</div>
-<div class="line"><a id="l00337" name="l00337"></a><span class="lineno">  337</span>        seq.push_back(F::make_exists(<a class="code hl_define" href="sort_8hpp.html#af5d67e1d1856b2c01653a0f9ab95d391">UNTYPED</a>, x.name, x.sort));</div>
-<div class="line"><a id="l00338" name="l00338"></a><span class="lineno">  338</span>        <span class="keyword">auto</span> domain_constraint = constants[i].deinterpret(<a class="code hl_class" href="classlala_1_1_a_var.html">AVar</a>(<a class="code hl_function" href="classlala_1_1_simplifier.html#a95732ff0fed5203e615336919d35f02d">aty</a>(), i), env, <a class="code hl_function" href="classlala_1_1_simplifier.html#a1344d55bbc870ae2148ec5ec4bcd2465">get_allocator</a>());</div>
-<div class="line"><a id="l00339" name="l00339"></a><span class="lineno">  339</span>        <a class="code hl_function" href="namespacelala.html#a1c3a823ec9c5e512892e628d8311c543">map_avar_to_lvar</a>(domain_constraint, env, <span class="keyword">true</span>);</div>
-<div class="line"><a id="l00340" name="l00340"></a><span class="lineno">  340</span>        seq.push_back(domain_constraint);</div>
-<div class="line"><a id="l00341" name="l00341"></a><span class="lineno">  341</span>      }</div>
-<div class="line"><a id="l00342" name="l00342"></a><span class="lineno">  342</span>    }</div>
-<div class="line"><a id="l00343" name="l00343"></a><span class="lineno">  343</span> </div>
-<div class="line"><a id="l00344" name="l00344"></a><span class="lineno">  344</span>    <span class="comment">// Deinterpret the simplified formulas.</span></div>
-<div class="line"><a id="l00345" name="l00345"></a><span class="lineno">  345</span>    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; simplified_formulas.size(); ++i) {</div>
-<div class="line"><a id="l00346" name="l00346"></a><span class="lineno">  346</span>      <span class="keywordflow">if</span>(!eliminated_formulas.test(i)) {</div>
-<div class="line"><a id="l00347" name="l00347"></a><span class="lineno">  347</span>        seq.push_back(simplified_formulas[i]);</div>
-<div class="line"><a id="l00348" name="l00348"></a><span class="lineno">  348</span>      }</div>
-<div class="line"><a id="l00349" name="l00349"></a><span class="lineno">  349</span>    }</div>
-<div class="line"><a id="l00350" name="l00350"></a><span class="lineno">  350</span>    <span class="keywordflow">if</span>(seq.size() == 0) {</div>
-<div class="line"><a id="l00351" name="l00351"></a><span class="lineno">  351</span>      <span class="keywordflow">return</span> F::make_true();</div>
-<div class="line"><a id="l00352" name="l00352"></a><span class="lineno">  352</span>    }</div>
-<div class="line"><a id="l00353" name="l00353"></a><span class="lineno">  353</span>    <span class="keywordflow">else</span> {</div>
-<div class="line"><a id="l00354" name="l00354"></a><span class="lineno">  354</span>      <span class="keywordflow">return</span> F::make_nary(<a class="code hl_enumvalue" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659ad1c7a8b98bec59dc3f6ac28209040e8e">AND</a>, std::move(seq));</div>
-<div class="line"><a id="l00355" name="l00355"></a><span class="lineno">  355</span>    }</div>
-<div class="line"><a id="l00356" name="l00356"></a><span class="lineno">  356</span>  }</div>
+<div class="line"><a id="l00320" name="l00320"></a><span class="lineno">  320</span> </div>
+<div class="foldopen" id="foldopen00321" data-start="{" data-end="}">
+<div class="line"><a id="l00321" name="l00321"></a><span class="lineno"><a class="line" href="classlala_1_1_simplifier.html#ac60f902bedc0215768e1dfd1e4257c9b">  321</a></span>  CUDA NI <a class="code hl_class" href="classlala_1_1_t_formula.html">TFormula&lt;allocator_type&gt;</a> <a class="code hl_function" href="classlala_1_1_simplifier.html#ac60f902bedc0215768e1dfd1e4257c9b">deinterpret</a>() {</div>
+<div class="line"><a id="l00322" name="l00322"></a><span class="lineno">  322</span>    <span class="keyword">using </span>F = <a class="code hl_class" href="classlala_1_1_t_formula.html">TFormula&lt;allocator_type&gt;</a>;</div>
+<div class="line"><a id="l00323" name="l00323"></a><span class="lineno">  323</span>    <span class="keyword">typename</span> F::Sequence seq(<a class="code hl_function" href="classlala_1_1_simplifier.html#a1344d55bbc870ae2148ec5ec4bcd2465">get_allocator</a>());</div>
+<div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span> </div>
+<div class="line"><a id="l00325" name="l00325"></a><span class="lineno">  325</span>    <span class="keywordflow">if</span>(<a class="code hl_function" href="classlala_1_1_simplifier.html#a571f08f4176a8d149dd439af80d1279a">is_bot</a>()) {</div>
+<div class="line"><a id="l00326" name="l00326"></a><span class="lineno">  326</span>      <span class="keywordflow">return</span> F::make_false();</div>
+<div class="line"><a id="l00327" name="l00327"></a><span class="lineno">  327</span>    }</div>
+<div class="line"><a id="l00328" name="l00328"></a><span class="lineno">  328</span> </div>
+<div class="line"><a id="l00329" name="l00329"></a><span class="lineno">  329</span>    <span class="comment">// A representative variable is eliminated if all variables in its equivalence class must be eliminated.</span></div>
+<div class="line"><a id="l00330" name="l00330"></a><span class="lineno">  330</span>    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; equivalence_classes.size(); ++i) {</div>
+<div class="line"><a id="l00331" name="l00331"></a><span class="lineno">  331</span>      eliminated_variables.set(equivalence_classes[i], eliminated_variables.test(equivalence_classes[i]) &amp;&amp; eliminated_variables.test(i));</div>
+<div class="line"><a id="l00332" name="l00332"></a><span class="lineno">  332</span>    }</div>
+<div class="line"><a id="l00333" name="l00333"></a><span class="lineno">  333</span> </div>
+<div class="line"><a id="l00334" name="l00334"></a><span class="lineno">  334</span>    <span class="comment">// Deinterpret the existential quantifiers (only one per equivalence classes), and the domain of each variable.</span></div>
+<div class="line"><a id="l00335" name="l00335"></a><span class="lineno">  335</span>    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; equivalence_classes.size(); ++i) {</div>
+<div class="line"><a id="l00336" name="l00336"></a><span class="lineno">  336</span>      <span class="keywordflow">if</span>(equivalence_classes[i] == i &amp;&amp; !eliminated_variables.test(i)) {</div>
+<div class="line"><a id="l00337" name="l00337"></a><span class="lineno">  337</span>        <span class="keyword">const</span> <span class="keyword">auto</span>&amp; x = env[<a class="code hl_class" href="classlala_1_1_a_var.html">AVar</a>{<a class="code hl_function" href="classlala_1_1_simplifier.html#a95732ff0fed5203e615336919d35f02d">aty</a>(), i}];</div>
+<div class="line"><a id="l00338" name="l00338"></a><span class="lineno">  338</span>        seq.push_back(F::make_exists(<a class="code hl_define" href="sort_8hpp.html#af5d67e1d1856b2c01653a0f9ab95d391">UNTYPED</a>, x.name, x.sort));</div>
+<div class="line"><a id="l00339" name="l00339"></a><span class="lineno">  339</span>        <span class="keyword">auto</span> domain_constraint = constants[i].deinterpret(<a class="code hl_class" href="classlala_1_1_a_var.html">AVar</a>(<a class="code hl_function" href="classlala_1_1_simplifier.html#a95732ff0fed5203e615336919d35f02d">aty</a>(), i), env, <a class="code hl_function" href="classlala_1_1_simplifier.html#a1344d55bbc870ae2148ec5ec4bcd2465">get_allocator</a>());</div>
+<div class="line"><a id="l00340" name="l00340"></a><span class="lineno">  340</span>        <a class="code hl_function" href="namespacelala.html#a1c3a823ec9c5e512892e628d8311c543">map_avar_to_lvar</a>(domain_constraint, env, <span class="keyword">true</span>);</div>
+<div class="line"><a id="l00341" name="l00341"></a><span class="lineno">  341</span>        seq.push_back(domain_constraint);</div>
+<div class="line"><a id="l00342" name="l00342"></a><span class="lineno">  342</span>      }</div>
+<div class="line"><a id="l00343" name="l00343"></a><span class="lineno">  343</span>    }</div>
+<div class="line"><a id="l00344" name="l00344"></a><span class="lineno">  344</span> </div>
+<div class="line"><a id="l00345" name="l00345"></a><span class="lineno">  345</span>    <span class="comment">// Deinterpret the simplified formulas.</span></div>
+<div class="line"><a id="l00346" name="l00346"></a><span class="lineno">  346</span>    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; simplified_formulas.size(); ++i) {</div>
+<div class="line"><a id="l00347" name="l00347"></a><span class="lineno">  347</span>      <span class="keywordflow">if</span>(!eliminated_formulas.test(i)) {</div>
+<div class="line"><a id="l00348" name="l00348"></a><span class="lineno">  348</span>        seq.push_back(simplified_formulas[i]);</div>
+<div class="line"><a id="l00349" name="l00349"></a><span class="lineno">  349</span>      }</div>
+<div class="line"><a id="l00350" name="l00350"></a><span class="lineno">  350</span>    }</div>
+<div class="line"><a id="l00351" name="l00351"></a><span class="lineno">  351</span>    <span class="keywordflow">if</span>(seq.size() == 0) {</div>
+<div class="line"><a id="l00352" name="l00352"></a><span class="lineno">  352</span>      <span class="keywordflow">return</span> F::make_true();</div>
+<div class="line"><a id="l00353" name="l00353"></a><span class="lineno">  353</span>    }</div>
+<div class="line"><a id="l00354" name="l00354"></a><span class="lineno">  354</span>    <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00355" name="l00355"></a><span class="lineno">  355</span>      <span class="keywordflow">return</span> F::make_nary(<a class="code hl_enumvalue" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659ad1c7a8b98bec59dc3f6ac28209040e8e">AND</a>, std::move(seq));</div>
+<div class="line"><a id="l00356" name="l00356"></a><span class="lineno">  356</span>    }</div>
+<div class="line"><a id="l00357" name="l00357"></a><span class="lineno">  357</span>  }</div>
 </div>
-<div class="line"><a id="l00357" name="l00357"></a><span class="lineno">  357</span>};</div>
+<div class="line"><a id="l00358" name="l00358"></a><span class="lineno">  358</span>};</div>
 </div>
-<div class="line"><a id="l00358" name="l00358"></a><span class="lineno">  358</span> </div>
-<div class="line"><a id="l00359" name="l00359"></a><span class="lineno">  359</span>} <span class="comment">// namespace lala</span></div>
-<div class="line"><a id="l00360" name="l00360"></a><span class="lineno">  360</span> </div>
-<div class="line"><a id="l00361" name="l00361"></a><span class="lineno">  361</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00359" name="l00359"></a><span class="lineno">  359</span> </div>
+<div class="line"><a id="l00360" name="l00360"></a><span class="lineno">  360</span>} <span class="comment">// namespace lala</span></div>
+<div class="line"><a id="l00361" name="l00361"></a><span class="lineno">  361</span> </div>
+<div class="line"><a id="l00362" name="l00362"></a><span class="lineno">  362</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aabstract__deps_8hpp_html"><div class="ttname"><a href="abstract__deps_8hpp.html">abstract_deps.hpp</a></div></div>
 <div class="ttc" id="aarith__bound_8hpp_html"><div class="ttname"><a href="arith__bound_8hpp.html">arith_bound.hpp</a></div></div>
 <div class="ttc" id="aclasslala_1_1_a_var_html"><div class="ttname"><a href="classlala_1_1_a_var.html">lala::AVar</a></div><div class="ttdef"><b>Definition</b> ast.hpp:38</div></div>
@@ -514,7 +515,7 @@ $(function(){initNavTree('simplifier_8hpp_source.html',''); initResizable(true);
 <div class="ttc" id="aclasslala_1_1_simplifier_html"><div class="ttname"><a href="classlala_1_1_simplifier.html">lala::Simplifier</a></div><div class="ttdef"><b>Definition</b> simplifier.hpp:24</div></div>
 <div class="ttc" id="aclasslala_1_1_simplifier_html_a1344d55bbc870ae2148ec5ec4bcd2465"><div class="ttname"><a href="classlala_1_1_simplifier.html#a1344d55bbc870ae2148ec5ec4bcd2465">lala::Simplifier::get_allocator</a></div><div class="ttdeci">CUDA allocator_type get_allocator() const</div><div class="ttdef"><b>Definition</b> simplifier.hpp:98</div></div>
 <div class="ttc" id="aclasslala_1_1_simplifier_html_a15a0c09a9269412c67983b3d3d24a66b"><div class="ttname"><a href="classlala_1_1_simplifier.html#a15a0c09a9269412c67983b3d3d24a66b">lala::Simplifier::preserve_bot</a></div><div class="ttdeci">static constexpr const bool preserve_bot</div><div class="ttdef"><b>Definition</b> simplifier.hpp:37</div></div>
-<div class="ttc" id="aclasslala_1_1_simplifier_html_a26b92ca27c3d7390f2065102db574b61"><div class="ttname"><a href="classlala_1_1_simplifier.html#a26b92ca27c3d7390f2065102db574b61">lala::Simplifier::deduce</a></div><div class="ttdeci">CUDA local::B deduce(size_t i)</div><div class="ttdef"><b>Definition</b> simplifier.hpp:296</div></div>
+<div class="ttc" id="aclasslala_1_1_simplifier_html_a26b92ca27c3d7390f2065102db574b61"><div class="ttname"><a href="classlala_1_1_simplifier.html#a26b92ca27c3d7390f2065102db574b61">lala::Simplifier::deduce</a></div><div class="ttdeci">CUDA local::B deduce(size_t i)</div><div class="ttdef"><b>Definition</b> simplifier.hpp:297</div></div>
 <div class="ttc" id="aclasslala_1_1_simplifier_html_a2a281d7bffdfb0437e011b855e8a091a"><div class="ttname"><a href="classlala_1_1_simplifier.html#a2a281d7bffdfb0437e011b855e8a091a">lala::Simplifier::Simplifier</a></div><div class="ttdeci">CUDA Simplifier(this_type &amp;&amp;other)</div><div class="ttdef"><b>Definition</b> simplifier.hpp:79</div></div>
 <div class="ttc" id="aclasslala_1_1_simplifier_html_a2bfd5a5748b3d9bf62b8d514038a2f93"><div class="ttname"><a href="classlala_1_1_simplifier.html#a2bfd5a5748b3d9bf62b8d514038a2f93">lala::Simplifier::deduce</a></div><div class="ttdeci">CUDA bool deduce(tell_type&lt; Alloc2 &gt; &amp;&amp;t)</div><div class="ttdef"><b>Definition</b> simplifier.hpp:152</div></div>
 <div class="ttc" id="aclasslala_1_1_simplifier_html_a2f69859a415214850d61e38a9b0dca21"><div class="ttname"><a href="classlala_1_1_simplifier.html#a2f69859a415214850d61e38a9b0dca21">lala::Simplifier::allocator_type</a></div><div class="ttdeci">Allocator allocator_type</div><div class="ttdef"><b>Definition</b> simplifier.hpp:26</div></div>
@@ -524,7 +525,7 @@ $(function(){initNavTree('simplifier_8hpp_source.html',''); initResizable(true);
 <div class="ttc" id="aclasslala_1_1_simplifier_html_a571f08f4176a8d149dd439af80d1279a"><div class="ttname"><a href="classlala_1_1_simplifier.html#a571f08f4176a8d149dd439af80d1279a">lala::Simplifier::is_bot</a></div><div class="ttdeci">CUDA local::B is_bot() const</div><div class="ttdef"><b>Definition</b> simplifier.hpp:107</div></div>
 <div class="ttc" id="aclasslala_1_1_simplifier_html_a66713ef425d04420225a04a4a7f64821"><div class="ttname"><a href="classlala_1_1_simplifier.html#a66713ef425d04420225a04a4a7f64821">lala::Simplifier::injective_concretization</a></div><div class="ttdeci">static constexpr const bool injective_concretization</div><div class="ttdef"><b>Definition</b> simplifier.hpp:41</div></div>
 <div class="ttc" id="aclasslala_1_1_simplifier_html_a7f3c8597089870976ac8d972cd0868c5"><div class="ttname"><a href="classlala_1_1_simplifier.html#a7f3c8597089870976ac8d972cd0868c5">lala::Simplifier::interpret_tell</a></div><div class="ttdeci">CUDA NI bool interpret_tell(const F &amp;f, Env &amp;env, tell_type&lt; Alloc2 &gt; &amp;tell, IDiagnostics &amp;diagnostics) const</div><div class="ttdef"><b>Definition</b> simplifier.hpp:128</div></div>
-<div class="ttc" id="aclasslala_1_1_simplifier_html_a85e607537b1a4428dbea353064a93840"><div class="ttname"><a href="classlala_1_1_simplifier.html#a85e607537b1a4428dbea353064a93840">lala::Simplifier::num_eliminated_variables</a></div><div class="ttdeci">CUDA size_t num_eliminated_variables() const</div><div class="ttdef"><b>Definition</b> simplifier.hpp:306</div></div>
+<div class="ttc" id="aclasslala_1_1_simplifier_html_a85e607537b1a4428dbea353064a93840"><div class="ttname"><a href="classlala_1_1_simplifier.html#a85e607537b1a4428dbea353064a93840">lala::Simplifier::num_eliminated_variables</a></div><div class="ttdeci">CUDA size_t num_eliminated_variables() const</div><div class="ttdef"><b>Definition</b> simplifier.hpp:307</div></div>
 <div class="ttc" id="aclasslala_1_1_simplifier_html_a8a6619eb60f73f0bbd0ce022f0d49876"><div class="ttname"><a href="classlala_1_1_simplifier.html#a8a6619eb60f73f0bbd0ce022f0d49876">lala::Simplifier::formula_sequence</a></div><div class="ttdeci">battery::vector&lt; TFormula&lt; allocator_type &gt;, allocator_type &gt; formula_sequence</div><div class="ttdef"><b>Definition</b> simplifier.hpp:48</div></div>
 <div class="ttc" id="aclasslala_1_1_simplifier_html_a8f06bab1a14accca38ac6a0be0322e06"><div class="ttname"><a href="classlala_1_1_simplifier.html#a8f06bab1a14accca38ac6a0be0322e06">lala::Simplifier::interpret</a></div><div class="ttdeci">CUDA bool interpret(const F &amp;f, Env &amp;env, tell_type&lt; Alloc2 &gt; &amp;tell, IDiagnostics &amp;diagnostics) const</div><div class="ttdef"><b>Definition</b> simplifier.hpp:146</div></div>
 <div class="ttc" id="aclasslala_1_1_simplifier_html_a95732ff0fed5203e615336919d35f02d"><div class="ttname"><a href="classlala_1_1_simplifier.html#a95732ff0fed5203e615336919d35f02d">lala::Simplifier::aty</a></div><div class="ttdeci">CUDA AType aty() const</div><div class="ttdef"><b>Definition</b> simplifier.hpp:102</div></div>
@@ -532,19 +533,19 @@ $(function(){initNavTree('simplifier_8hpp_source.html',''); initResizable(true);
 <div class="ttc" id="aclasslala_1_1_simplifier_html_aaf0599d281aa89f51dbbbbb61b9c7a4f"><div class="ttname"><a href="classlala_1_1_simplifier.html#aaf0599d281aa89f51dbbbbb61b9c7a4f">lala::Simplifier::name</a></div><div class="ttdeci">static constexpr const char * name</div><div class="ttdef"><b>Definition</b> simplifier.hpp:43</div></div>
 <div class="ttc" id="aclasslala_1_1_simplifier_html_aafac25689caeca980a3e8226277e2494"><div class="ttname"><a href="classlala_1_1_simplifier.html#aafac25689caeca980a3e8226277e2494">lala::Simplifier::is_abstract_universe</a></div><div class="ttdeci">static constexpr const bool is_abstract_universe</div><div class="ttdef"><b>Definition</b> simplifier.hpp:33</div></div>
 <div class="ttc" id="aclasslala_1_1_simplifier_html_ab4350a0ff6e22b4a3246e258cb759ad0"><div class="ttname"><a href="classlala_1_1_simplifier.html#ab4350a0ff6e22b4a3246e258cb759ad0">lala::Simplifier::is_totally_ordered</a></div><div class="ttdeci">static constexpr const bool is_totally_ordered</div><div class="ttdef"><b>Definition</b> simplifier.hpp:35</div></div>
-<div class="ttc" id="aclasslala_1_1_simplifier_html_ab7be7af8bd461a15a2091d27bbc299e0"><div class="ttname"><a href="classlala_1_1_simplifier.html#ab7be7af8bd461a15a2091d27bbc299e0">lala::Simplifier::num_deductions</a></div><div class="ttdeci">CUDA size_t num_deductions() const</div><div class="ttdef"><b>Definition</b> simplifier.hpp:292</div></div>
+<div class="ttc" id="aclasslala_1_1_simplifier_html_ab7be7af8bd461a15a2091d27bbc299e0"><div class="ttname"><a href="classlala_1_1_simplifier.html#ab7be7af8bd461a15a2091d27bbc299e0">lala::Simplifier::num_deductions</a></div><div class="ttdeci">CUDA size_t num_deductions() const</div><div class="ttdef"><b>Definition</b> simplifier.hpp:293</div></div>
 <div class="ttc" id="aclasslala_1_1_simplifier_html_abc8de4dbd739bace1c3a1b3ecf358301"><div class="ttname"><a href="classlala_1_1_simplifier.html#abc8de4dbd739bace1c3a1b3ecf358301">lala::Simplifier::sub_allocator_type</a></div><div class="ttdeci">typename sub_type::allocator_type sub_allocator_type</div><div class="ttdef"><b>Definition</b> simplifier.hpp:28</div></div>
 <div class="ttc" id="aclasslala_1_1_simplifier_html_ac403c2c0d49b4b8eb4f95a11845f51cd"><div class="ttname"><a href="classlala_1_1_simplifier.html#ac403c2c0d49b4b8eb4f95a11845f51cd">lala::Simplifier::memory_type</a></div><div class="ttdeci">typename universe_type::memory_type memory_type</div><div class="ttdef"><b>Definition</b> simplifier.hpp:30</div></div>
-<div class="ttc" id="aclasslala_1_1_simplifier_html_ac60f902bedc0215768e1dfd1e4257c9b"><div class="ttname"><a href="classlala_1_1_simplifier.html#ac60f902bedc0215768e1dfd1e4257c9b">lala::Simplifier::deinterpret</a></div><div class="ttdeci">CUDA NI TFormula&lt; allocator_type &gt; deinterpret()</div><div class="ttdef"><b>Definition</b> simplifier.hpp:320</div></div>
+<div class="ttc" id="aclasslala_1_1_simplifier_html_ac60f902bedc0215768e1dfd1e4257c9b"><div class="ttname"><a href="classlala_1_1_simplifier.html#ac60f902bedc0215768e1dfd1e4257c9b">lala::Simplifier::deinterpret</a></div><div class="ttdeci">CUDA NI TFormula&lt; allocator_type &gt; deinterpret()</div><div class="ttdef"><b>Definition</b> simplifier.hpp:321</div></div>
 <div class="ttc" id="aclasslala_1_1_simplifier_html_ac87b643603b96d9ce301d75ef8f8189c"><div class="ttname"><a href="classlala_1_1_simplifier.html#ac87b643603b96d9ce301d75ef8f8189c">lala::Simplifier::Simplifier</a></div><div class="ttdeci">CUDA Simplifier(AType atype, abstract_ptr&lt; sub_type &gt; sub, const allocator_type &amp;alloc=allocator_type())</div><div class="ttdef"><b>Definition</b> simplifier.hpp:70</div></div>
-<div class="ttc" id="aclasslala_1_1_simplifier_html_ad4079bfffb058052e0db7c07c6a72636"><div class="ttname"><a href="classlala_1_1_simplifier.html#ad4079bfffb058052e0db7c07c6a72636">lala::Simplifier::num_eliminated_formulas</a></div><div class="ttdeci">CUDA size_t num_eliminated_formulas() const</div><div class="ttdef"><b>Definition</b> simplifier.hpp:316</div></div>
+<div class="ttc" id="aclasslala_1_1_simplifier_html_ad4079bfffb058052e0db7c07c6a72636"><div class="ttname"><a href="classlala_1_1_simplifier.html#ad4079bfffb058052e0db7c07c6a72636">lala::Simplifier::num_eliminated_formulas</a></div><div class="ttdeci">CUDA size_t num_eliminated_formulas() const</div><div class="ttdef"><b>Definition</b> simplifier.hpp:317</div></div>
 <div class="ttc" id="aclasslala_1_1_simplifier_html_adaf14cbf086bc30ab3dcab69b004f260"><div class="ttname"><a href="classlala_1_1_simplifier.html#adaf14cbf086bc30ab3dcab69b004f260">lala::Simplifier::print_variable</a></div><div class="ttdeci">CUDA void print_variable(const LVar&lt; Alloc &gt; &amp;vname, const Env &amp;benv, const Abs &amp;b) const</div><div class="ttdef"><b>Definition</b> simplifier.hpp:200</div></div>
 <div class="ttc" id="aclasslala_1_1_simplifier_html_ae6774b7c3d904da74bf2be12650eaaad"><div class="ttname"><a href="classlala_1_1_simplifier.html#ae6774b7c3d904da74bf2be12650eaaad">lala::Simplifier::Simplifier</a></div><div class="ttdeci">CUDA Simplifier(const Simplifier&lt; A2, Alloc2 &gt; &amp;other, light_copy_tag tag, abstract_ptr&lt; sub_type &gt; sub, const allocator_type &amp;alloc=allocator_type())</div><div class="ttdef"><b>Definition</b> simplifier.hpp:90</div></div>
 <div class="ttc" id="aclasslala_1_1_simplifier_html_ae837160408fbe710848b8f320105f335"><div class="ttname"><a href="classlala_1_1_simplifier.html#ae837160408fbe710848b8f320105f335">lala::Simplifier::sequential</a></div><div class="ttdeci">static constexpr const bool sequential</div><div class="ttdef"><b>Definition</b> simplifier.hpp:34</div></div>
 <div class="ttc" id="aclasslala_1_1_simplifier_html_ae981645f4452da0960c5347d73900ee4"><div class="ttname"><a href="classlala_1_1_simplifier.html#ae981645f4452da0960c5347d73900ee4">lala::Simplifier::universe_type</a></div><div class="ttdeci">typename sub_type::universe_type universe_type</div><div class="ttdef"><b>Definition</b> simplifier.hpp:29</div></div>
 <div class="ttc" id="aclasslala_1_1_simplifier_html_aed13b5b9ecf662e8a57582edfd1feace"><div class="ttname"><a href="classlala_1_1_simplifier.html#aed13b5b9ecf662e8a57582edfd1feace">lala::Simplifier::preserve_concrete_covers</a></div><div class="ttdeci">static constexpr const bool preserve_concrete_covers</div><div class="ttdef"><b>Definition</b> simplifier.hpp:42</div></div>
 <div class="ttc" id="aclasslala_1_1_simplifier_html_aee7aa39815ab5d71df232e7fd9842aa4"><div class="ttname"><a href="classlala_1_1_simplifier.html#aee7aa39815ab5d71df232e7fd9842aa4">lala::Simplifier::preserve_meet</a></div><div class="ttdeci">static constexpr const bool preserve_meet</div><div class="ttdef"><b>Definition</b> simplifier.hpp:40</div></div>
-<div class="ttc" id="aclasslala_1_1_t_formula_html"><div class="ttname"><a href="classlala_1_1_t_formula.html">lala::TFormula</a></div><div class="ttdef"><b>Definition</b> ast.hpp:234</div></div>
+<div class="ttc" id="aclasslala_1_1_t_formula_html"><div class="ttname"><a href="classlala_1_1_t_formula.html">lala::TFormula</a></div><div class="ttdef"><b>Definition</b> ast.hpp:247</div></div>
 <div class="ttc" id="aclasslala_1_1_var_env_html"><div class="ttname"><a href="classlala_1_1_var_env.html">lala::VarEnv</a></div><div class="ttdef"><b>Definition</b> env.hpp:264</div></div>
 <div class="ttc" id="aclasslala_1_1_var_env_html_ae6a2310b4e8ef3a343a9718369e62d0e"><div class="ttname"><a href="classlala_1_1_var_env.html#ae6a2310b4e8ef3a343a9718369e62d0e">lala::VarEnv::variable_of</a></div><div class="ttdeci">CUDA NI std::optional&lt; std::reference_wrapper&lt; const variable_type &gt; &gt; variable_of(const char *lv) const</div><div class="ttdef"><b>Definition</b> env.hpp:457</div></div>
 <div class="ttc" id="aclasslala_1_1_var_env_html_aeb75588dd07defab5093fd9eff8342a4"><div class="ttname"><a href="classlala_1_1_var_env.html#aeb75588dd07defab5093fd9eff8342a4">lala::VarEnv::name_of</a></div><div class="ttdeci">CUDA const bstring &amp; name_of(AVar av) const</div><div class="ttdef"><b>Definition</b> env.hpp:496</div></div>
@@ -552,14 +553,13 @@ $(function(){initNavTree('simplifier_8hpp_source.html',''); initResizable(true);
 <div class="ttc" id="anamespacelala_1_1local_html_acc404f8e5da2565b2b8c4735cef673b3"><div class="ttname"><a href="namespacelala_1_1local.html#acc404f8e5da2565b2b8c4735cef673b3">lala::local::ZUB</a></div><div class="ttdeci">::lala::ZUB&lt; int, battery::local_memory &gt; ZUB</div><div class="ttdef"><b>Definition</b> arith_bound.hpp:69</div></div>
 <div class="ttc" id="anamespacelala_1_1local_html_ae1dbdea88ccb59298d935bba5d3e1843"><div class="ttname"><a href="namespacelala_1_1local.html#ae1dbdea88ccb59298d935bba5d3e1843">lala::local::B</a></div><div class="ttdeci">::lala::B&lt;::battery::local_memory &gt; B</div><div class="ttdef"><b>Definition</b> b.hpp:12</div></div>
 <div class="ttc" id="anamespacelala_html"><div class="ttname"><a href="namespacelala.html">lala</a></div><div class="ttdef"><b>Definition</b> abstract_deps.hpp:14</div></div>
-<div class="ttc" id="anamespacelala_html_a1c3a823ec9c5e512892e628d8311c543"><div class="ttname"><a href="namespacelala.html#a1c3a823ec9c5e512892e628d8311c543">lala::map_avar_to_lvar</a></div><div class="ttdeci">CUDA NI void map_avar_to_lvar(F &amp;f, const Env &amp;env, bool erase_type=false)</div><div class="ttdef"><b>Definition</b> algorithm.hpp:398</div></div>
-<div class="ttc" id="anamespacelala_html_a253331b314cef4226fc0b5f0436a9787"><div class="ttname"><a href="namespacelala.html#a253331b314cef4226fc0b5f0436a9787">lala::dual</a></div><div class="ttdeci">CUDA constexpr LDual dual(const L &amp;x)</div><div class="ttdef"><b>Definition</b> arith_bound.hpp:110</div></div>
+<div class="ttc" id="anamespacelala_html_a1c3a823ec9c5e512892e628d8311c543"><div class="ttname"><a href="namespacelala.html#a1c3a823ec9c5e512892e628d8311c543">lala::map_avar_to_lvar</a></div><div class="ttdeci">CUDA NI void map_avar_to_lvar(F &amp;f, const Env &amp;env, bool erase_type=false)</div><div class="ttdef"><b>Definition</b> algorithm.hpp:416</div></div>
 <div class="ttc" id="anamespacelala_html_a2b9e4be0630d656d38a75c914de03c40"><div class="ttname"><a href="namespacelala.html#a2b9e4be0630d656d38a75c914de03c40">lala::AType</a></div><div class="ttdeci">int AType</div><div class="ttdef"><b>Definition</b> sort.hpp:18</div></div>
 <div class="ttc" id="anamespacelala_html_a4be41540c5051a480d0611a3e216b659ad1c7a8b98bec59dc3f6ac28209040e8e"><div class="ttname"><a href="namespacelala.html#a4be41540c5051a480d0611a3e216b659ad1c7a8b98bec59dc3f6ac28209040e8e">lala::AND</a></div><div class="ttdeci">@ AND</div><div class="ttdoc">Unary arithmetic function symbols.</div><div class="ttdef"><b>Definition</b> ast.hpp:114</div></div>
 <div class="ttc" id="anamespacelala_html_a704b489e2f66fc4666a9d9d5dd07f0a5"><div class="ttname"><a href="namespacelala.html#a704b489e2f66fc4666a9d9d5dd07f0a5">lala::is_var_equality</a></div><div class="ttdeci">CUDA NI bool is_var_equality(const TFormula&lt; Allocator, ExtendedSig &gt; &amp;f)</div><div class="ttdef"><b>Definition</b> algorithm.hpp:32</div></div>
 <div class="ttc" id="anamespacelala_html_a8a2c3adc0efc7b60c27edd38dcad08ce"><div class="ttname"><a href="namespacelala.html#a8a2c3adc0efc7b60c27edd38dcad08ce">lala::LVar</a></div><div class="ttdeci">battery::string&lt; Allocator &gt; LVar</div><div class="ttdef"><b>Definition</b> ast.hpp:25</div></div>
 <div class="ttc" id="anamespacelala_html_a91627a807540978fdae230d4457d6805"><div class="ttname"><a href="namespacelala.html#a91627a807540978fdae230d4457d6805">lala::abstract_ptr</a></div><div class="ttdeci">battery::shared_ptr&lt; A, typename A::allocator_type &gt; abstract_ptr</div><div class="ttdef"><b>Definition</b> abstract_deps.hpp:17</div></div>
-<div class="ttc" id="anamespacelala_html_ae6506d073b2c1165fa92bffeae6fd4bf"><div class="ttname"><a href="namespacelala.html#ae6506d073b2c1165fa92bffeae6fd4bf">lala::eval</a></div><div class="ttdeci">CUDA NI F eval(const F &amp;f)</div><div class="ttdef"><b>Definition</b> algorithm.hpp:774</div></div>
+<div class="ttc" id="anamespacelala_html_ae6506d073b2c1165fa92bffeae6fd4bf"><div class="ttname"><a href="namespacelala.html#ae6506d073b2c1165fa92bffeae6fd4bf">lala::eval</a></div><div class="ttdeci">CUDA NI F eval(const F &amp;f)</div><div class="ttdef"><b>Definition</b> algorithm.hpp:792</div></div>
 <div class="ttc" id="asort_8hpp_html_af5d67e1d1856b2c01653a0f9ab95d391"><div class="ttname"><a href="sort_8hpp.html#af5d67e1d1856b2c01653a0f9ab95d391">UNTYPED</a></div><div class="ttdeci">#define UNTYPED</div><div class="ttdef"><b>Definition</b> sort.hpp:21</div></div>
 <div class="ttc" id="astructlala_1_1_simplifier_1_1light__copy__tag_html"><div class="ttname"><a href="structlala_1_1_simplifier_1_1light__copy__tag.html">lala::Simplifier::light_copy_tag</a></div><div class="ttdef"><b>Definition</b> simplifier.hpp:86</div></div>
 <div class="ttc" id="astructlala_1_1_simplifier_1_1tell__type_html"><div class="ttname"><a href="structlala_1_1_simplifier_1_1tell__type.html">lala::Simplifier::tell_type</a></div><div class="ttdef"><b>Definition</b> simplifier.hpp:117</div></div>

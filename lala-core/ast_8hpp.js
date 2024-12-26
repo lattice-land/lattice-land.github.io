@@ -77,6 +77,9 @@ var ast_8hpp =
     [ "is_division", "ast_8hpp.html#ab39552615f718c4f45eece484b13baa8", null ],
     [ "is_modulo", "ast_8hpp.html#adcf455317064ad356964a272138df9b5", null ],
     [ "is_associative", "ast_8hpp.html#a4ad1145d2bc437a38928e69fc17af113", null ],
+    [ "is_arithmetic_comparison", "ast_8hpp.html#ae770235d66f994055668b25659b3a09b", null ],
+    [ "is_logical", "ast_8hpp.html#acdc444940e57359518e263fe981802f1", null ],
+    [ "is_predicate", "ast_8hpp.html#aa7b3ffaf98b726d568ededadf6a340f8", null ],
     [ "print", "ast_8hpp.html#ae10b07a3758fa9b4c6b79d976097ef9f", null ],
     [ "operator==", "ast_8hpp.html#aa035eb336900b61d13e7f0dbc517d334", null ]
 ];

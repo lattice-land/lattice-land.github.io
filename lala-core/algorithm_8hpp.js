@@ -9,8 +9,9 @@ var algorithm_8hpp =
     [ "leq_of_constant", "algorithm_8hpp.html#a99742669495aa20254d238796f3225f9", null ],
     [ "var_in", "algorithm_8hpp.html#ad61da309e0f805e38d1b86a1d9bf4b70", null ],
     [ "num_vars", "algorithm_8hpp.html#ac68fae34e298f9dc08e81209a98dea89", null ],
-    [ "num_quantified_vars", "algorithm_8hpp.html#a7ea742778e40b41e47d53e2f205b7f33", null ],
-    [ "num_quantified_vars", "algorithm_8hpp.html#a595c82a412e489c8ca65997a3ce2a199", null ],
+    [ "num_quantified_vars", "algorithm_8hpp.html#a66dda4c39e820cfd39e75737378d033e", null ],
+    [ "num_quantified_vars", "algorithm_8hpp.html#a6fdf54773f9858c9ef2b06b250f3a0c3", null ],
+    [ "num_constraints", "algorithm_8hpp.html#a3749d6ff27c5005bbbe560ede8ee98a0", null ],
     [ "type_of_conjunction", "algorithm_8hpp.html#a93ff80f41d2a60ce49d9d969792f3818", null ],
     [ "extract_ty", "algorithm_8hpp.html#a814b7acfb675818f3775fe2ca64c5059", null ],
     [ "negate", "algorithm_8hpp.html#a61c82f922a369376733ac1ceb63f2ecc", null ],
@@ -22,5 +23,8 @@ var algorithm_8hpp =
     [ "is_comparison", "algorithm_8hpp.html#aa96505876a4dc4a73e9dcac1df80ba16", null ],
     [ "converse_comparison", "algorithm_8hpp.html#a37723381538b58c397b57008bcc7671b", null ],
     [ "map_avar_to_lvar", "algorithm_8hpp.html#a1c3a823ec9c5e512892e628d8311c543", null ],
-    [ "eval", "algorithm_8hpp.html#ae6506d073b2c1165fa92bffeae6fd4bf", null ]
+    [ "eval", "algorithm_8hpp.html#ae6506d073b2c1165fa92bffeae6fd4bf", null ],
+    [ "normalize", "algorithm_8hpp.html#a505158a64e90b36755f6e84b5db6b987", null ],
+    [ "decompose_in_constraint", "algorithm_8hpp.html#af1aed9c4d9ba677f7255545ffa2f7df3", null ],
+    [ "decompose_arith_neq_constraint", "algorithm_8hpp.html#ab77aa301355868d2d9458857ea2946a8", null ]
 ];

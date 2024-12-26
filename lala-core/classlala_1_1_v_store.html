@@ -198,6 +198,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a245f6b4a071db30091eb714d6a2397f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8f3d33d8385cad76c5b40ea08361f9cb" id="r_a8f3d33d8385cad76c5b40ea08361f9cb"><td class="memItemLeft" align="right" valign="top">CUDA const <a class="el" href="#a6aa6f686a32cf610325253ac2be3b51f">universe_type</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8f3d33d8385cad76c5b40ea08361f9cb">operator[]</a> (int x) const</td></tr>
 <tr class="separator:a8f3d33d8385cad76c5b40ea08361f9cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2d47d8f3f83739af6abf1bca4098709" id="r_ac2d47d8f3f83739af6abf1bca4098709"><td class="memItemLeft" align="right" valign="top">CUDA const <a class="el" href="#a6aa6f686a32cf610325253ac2be3b51f">universe_type</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac2d47d8f3f83739af6abf1bca4098709">operator[]</a> (<a class="el" href="classlala_1_1_a_var.html">AVar</a> x) const</td></tr>
+<tr class="separator:ac2d47d8f3f83739af6abf1bca4098709"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa16ceff91c486f410beba9fdc92ecf5c" id="r_aa16ceff91c486f410beba9fdc92ecf5c"><td class="memItemLeft" align="right" valign="top">CUDA void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa16ceff91c486f410beba9fdc92ecf5c">meet_bot</a> ()</td></tr>
 <tr class="separator:aa16ceff91c486f410beba9fdc92ecf5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a851c63a2061fb3a599a19cf0e96b53e4" id="r_a851c63a2061fb3a599a19cf0e96b53e4"><td class="memItemLeft" align="right" valign="top">CUDA bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a851c63a2061fb3a599a19cf0e96b53e4">embed</a> (int x, const <a class="el" href="#a6aa6f686a32cf610325253ac2be3b51f">universe_type</a> &amp;dom)</td></tr>
@@ -1208,7 +1210,7 @@ template&lt;class U , class Allocator &gt; </div>
 </div>
 </div>
 <a id="a8f3d33d8385cad76c5b40ea08361f9cb" name="a8f3d33d8385cad76c5b40ea08361f9cb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8f3d33d8385cad76c5b40ea08361f9cb">&#9670;&#160;</a></span>operator[]()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f3d33d8385cad76c5b40ea08361f9cb">&#9670;&#160;</a></span>operator[]() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1232,6 +1234,33 @@ template&lt;class U , class Allocator &gt; </div>
 </table>
 </div><div class="memdoc">
 <p>This projection must stay const, otherwise the user might tell new information in the universe, but we need to know in case we reach <code>top</code>. </p>
+
+</div>
+</div>
+<a id="ac2d47d8f3f83739af6abf1bca4098709" name="ac2d47d8f3f83739af6abf1bca4098709"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2d47d8f3f83739af6abf1bca4098709">&#9670;&#160;</a></span>operator[]() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class U , class Allocator &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">CUDA const <a class="el" href="#a6aa6f686a32cf610325253ac2be3b51f">universe_type</a> &amp; <a class="el" href="classlala_1_1_v_store.html">lala::VStore</a>&lt; U, Allocator &gt;::operator[] </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classlala_1_1_a_var.html">AVar</a></td>          <td class="paramname"><span class="paramname"><em>x</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>

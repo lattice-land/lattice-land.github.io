@@ -8,6 +8,7 @@ var annotated_dup =
       [ "B", "classlala_1_1_b.html", null ],
       [ "CartesianProduct", "classlala_1_1_cartesian_product.html", "classlala_1_1_cartesian_product" ],
       [ "DispatchIndex", "structlala_1_1_dispatch_index.html", "structlala_1_1_dispatch_index" ],
+      [ "FixpointSubsetCPU", "classlala_1_1_fixpoint_subset_c_p_u.html", "classlala_1_1_fixpoint_subset_c_p_u" ],
       [ "FlatUniverse", "classlala_1_1_flat_universe.html", "classlala_1_1_flat_universe" ],
       [ "GaussSeidelIteration", "classlala_1_1_gauss_seidel_iteration.html", "classlala_1_1_gauss_seidel_iteration" ],
       [ "HashMapVarIndex", "structlala_1_1_hash_map_var_index.html", "structlala_1_1_hash_map_var_index" ],

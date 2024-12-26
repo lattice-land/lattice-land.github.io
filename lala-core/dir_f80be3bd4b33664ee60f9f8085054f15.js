@@ -5,5 +5,6 @@ var dir_f80be3bd4b33664ee60f9f8085054f15 =
     [ "diagnostics.hpp", "diagnostics_8hpp.html", "diagnostics_8hpp" ],
     [ "env.hpp", "env_8hpp.html", "env_8hpp" ],
     [ "logic.hpp", "logic_8hpp.html", null ],
-    [ "sort.hpp", "sort_8hpp.html", "sort_8hpp" ]
+    [ "sort.hpp", "sort_8hpp.html", "sort_8hpp" ],
+    [ "ternarize.hpp", "ternarize_8hpp.html", "ternarize_8hpp" ]
 ];

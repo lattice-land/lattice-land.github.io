@@ -201,6 +201,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a13d96bb1321825f22820936188e6c091"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a891d0b4445162300c3e7731989f2417d" id="r_a891d0b4445162300c3e7731989f2417d"><td class="memItemLeft" align="right" valign="top">CUDA NI bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a891d0b4445162300c3e7731989f2417d">is_logical</a> () const</td></tr>
 <tr class="separator:a891d0b4445162300c3e7731989f2417d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad23a5a52870128fac9acffa77ee55d34" id="r_ad23a5a52870128fac9acffa77ee55d34"><td class="memItemLeft" align="right" valign="top">CUDA NI bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad23a5a52870128fac9acffa77ee55d34">is_predicate</a> () const</td></tr>
+<tr class="separator:ad23a5a52870128fac9acffa77ee55d34"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad13a4177ca2a0f514bd440d2eab308a8" id="r_ad13a4177ca2a0f514bd440d2eab308a8"><td class="memItemLeft" align="right" valign="top">CUDA NI bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad13a4177ca2a0f514bd440d2eab308a8">is_comparison</a> () const</td></tr>
+<tr class="separator:ad13a4177ca2a0f514bd440d2eab308a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ade5035cd5c4cb571443499997664cb0c" id="r_ade5035cd5c4cb571443499997664cb0c"><td class="memItemLeft" align="right" valign="top">CUDA const ExtendedSig &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ade5035cd5c4cb571443499997664cb0c">esig</a> () const</td></tr>
 <tr class="separator:ade5035cd5c4cb571443499997664cb0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a705f804835ee505e17af86588601fa7a" id="r_a705f804835ee505e17af86588601fa7a"><td class="memItemLeft" align="right" valign="top">CUDA const <a class="el" href="#a1121e3bec55d97bd7ea7944c64e8f98a">Sequence</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a705f804835ee505e17af86588601fa7a">seq</a> () const</td></tr>
@@ -415,8 +419,8 @@ template&lt;class Allocator , class ExtendedSig  = battery::string&lt;Allocator&
 <div class="line">    battery::tuple&lt;Sig, Sequence&gt;,</div>
 <div class="line">    battery::tuple&lt;ExtendedSig, Sequence&gt;</div>
 <div class="line">  &gt;</div>
-<div class="ttc" id="aclasslala_1_1_t_formula_html_acac756e8ab2736ba443860966941fa9e"><div class="ttname"><a href="#acac756e8ab2736ba443860966941fa9e">lala::TFormula::LogicSet</a></div><div class="ttdeci">logic_set&lt; this_type &gt; LogicSet</div><div class="ttdef"><b>Definition</b> ast.hpp:240</div></div>
-<div class="ttc" id="aclasslala_1_1_t_formula_html_afacc82efef6ba1e0ca60408f25e3adc5"><div class="ttname"><a href="#afacc82efef6ba1e0ca60408f25e3adc5">lala::TFormula::Existential</a></div><div class="ttdeci">battery::tuple&lt; LVar&lt; Allocator &gt;, Sort&lt; Allocator &gt; &gt; Existential</div><div class="ttdef"><b>Definition</b> ast.hpp:239</div></div>
+<div class="ttc" id="aclasslala_1_1_t_formula_html_acac756e8ab2736ba443860966941fa9e"><div class="ttname"><a href="#acac756e8ab2736ba443860966941fa9e">lala::TFormula::LogicSet</a></div><div class="ttdeci">logic_set&lt; this_type &gt; LogicSet</div><div class="ttdef"><b>Definition</b> ast.hpp:253</div></div>
+<div class="ttc" id="aclasslala_1_1_t_formula_html_afacc82efef6ba1e0ca60408f25e3adc5"><div class="ttname"><a href="#afacc82efef6ba1e0ca60408f25e3adc5">lala::TFormula::Existential</a></div><div class="ttdeci">battery::tuple&lt; LVar&lt; Allocator &gt;, Sort&lt; Allocator &gt; &gt; Existential</div><div class="ttdef"><b>Definition</b> ast.hpp:252</div></div>
 <div class="ttc" id="anamespacelala_html_a68c6e8de482686b5f51bfab62709080b"><div class="ttname"><a href="namespacelala.html#a68c6e8de482686b5f51bfab62709080b">lala::logic_real</a></div><div class="ttdeci">battery::tuple&lt; double, double &gt; logic_real</div><div class="ttdef"><b>Definition</b> sort.hpp:119</div></div>
 <div class="ttc" id="anamespacelala_html_a6b5e8c539e0b34bc5a59e90593ede563"><div class="ttname"><a href="namespacelala.html#a6b5e8c539e0b34bc5a59e90593ede563">lala::logic_int</a></div><div class="ttdeci">long long int logic_int</div><div class="ttdef"><b>Definition</b> sort.hpp:114</div></div>
 <div class="ttc" id="anamespacelala_html_a72cdb1d38b9fce25dd5791e40cc8bd14"><div class="ttname"><a href="namespacelala.html#a72cdb1d38b9fce25dd5791e40cc8bd14">lala::logic_bool</a></div><div class="ttdeci">bool logic_bool</div><div class="ttdef"><b>Definition</b> sort.hpp:109</div></div>
@@ -1828,6 +1832,60 @@ template&lt;class Allocator , class ExtendedSig  = battery::string&lt;Allocator&
       <table class="memname">
         <tr>
           <td class="memname">CUDA NI bool <a class="el" href="classlala_1_1_t_formula.html">lala::TFormula</a>&lt; Allocator, ExtendedSig &gt;::is_logical </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad23a5a52870128fac9acffa77ee55d34" name="ad23a5a52870128fac9acffa77ee55d34"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad23a5a52870128fac9acffa77ee55d34">&#9670;&#160;</a></span>is_predicate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Allocator , class ExtendedSig  = battery::string&lt;Allocator&gt;&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">CUDA NI bool <a class="el" href="classlala_1_1_t_formula.html">lala::TFormula</a>&lt; Allocator, ExtendedSig &gt;::is_predicate </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad13a4177ca2a0f514bd440d2eab308a8" name="ad13a4177ca2a0f514bd440d2eab308a8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad13a4177ca2a0f514bd440d2eab308a8">&#9670;&#160;</a></span>is_comparison()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Allocator , class ExtendedSig  = battery::string&lt;Allocator&gt;&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">CUDA NI bool <a class="el" href="classlala_1_1_t_formula.html">lala::TFormula</a>&lt; Allocator, ExtendedSig &gt;::is_comparison </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td> const</td>

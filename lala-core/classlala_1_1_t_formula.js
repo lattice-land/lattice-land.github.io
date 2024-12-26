@@ -39,6 +39,8 @@ var classlala_1_1_t_formula =
     [ "exists", "classlala_1_1_t_formula.html#aec4fe3af94c87d4321da70b3f9080c8f", null ],
     [ "sig", "classlala_1_1_t_formula.html#a13d96bb1321825f22820936188e6c091", null ],
     [ "is_logical", "classlala_1_1_t_formula.html#a891d0b4445162300c3e7731989f2417d", null ],
+    [ "is_predicate", "classlala_1_1_t_formula.html#ad23a5a52870128fac9acffa77ee55d34", null ],
+    [ "is_comparison", "classlala_1_1_t_formula.html#ad13a4177ca2a0f514bd440d2eab308a8", null ],
     [ "esig", "classlala_1_1_t_formula.html#ade5035cd5c4cb571443499997664cb0c", null ],
     [ "seq", "classlala_1_1_t_formula.html#a705f804835ee505e17af86588601fa7a", null ],
     [ "seq", "classlala_1_1_t_formula.html#ad5f4b014b6bc6076301ae083a8c6c0d1", null ],

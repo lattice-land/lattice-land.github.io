@@ -30,6 +30,7 @@ var classlala_1_1_v_store =
     [ "project", "classlala_1_1_v_store.html#a4efce47f74ce4ef6700c5c22856d005d", null ],
     [ "project", "classlala_1_1_v_store.html#a245f6b4a071db30091eb714d6a2397f5", null ],
     [ "operator[]", "classlala_1_1_v_store.html#a8f3d33d8385cad76c5b40ea08361f9cb", null ],
+    [ "operator[]", "classlala_1_1_v_store.html#ac2d47d8f3f83739af6abf1bca4098709", null ],
     [ "meet_bot", "classlala_1_1_v_store.html#aa16ceff91c486f410beba9fdc92ecf5c", null ],
     [ "embed", "classlala_1_1_v_store.html#a851c63a2061fb3a599a19cf0e96b53e4", null ],
     [ "embed", "classlala_1_1_v_store.html#a5c67508bb36c069269a82375196456da", null ],
