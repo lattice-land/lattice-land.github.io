@@ -1,6 +1,6 @@
 var classbattery_1_1pool__allocator =
 [
-    [ "pool_allocator", "classbattery_1_1pool__allocator.html#a8110f3f1261406a360ee339285c7553b", null ],
+    [ "pool_allocator", "classbattery_1_1pool__allocator.html#a553e27e397abe31c184b17dd70296001", null ],
     [ "pool_allocator", "classbattery_1_1pool__allocator.html#aa6d6cd933ebdd6ef4c8dde00e3ad441a", null ],
     [ "pool_allocator", "classbattery_1_1pool__allocator.html#ad2b765dae488cd6a5abb33c1d80d6e5d", null ],
     [ "pool_allocator", "classbattery_1_1pool__allocator.html#a48f133484d22075e1fd73bb3185e8a1a", null ],
