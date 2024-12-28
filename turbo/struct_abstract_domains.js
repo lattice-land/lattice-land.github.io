@@ -5,7 +5,7 @@ var struct_abstract_domains =
     [ "universe_type", "struct_abstract_domains.html#abc9eee6857a4d90a369d1b04c02eaec0", null ],
     [ "LIStore", "struct_abstract_domains.html#a1ab2170a315a7428892ce6e3310a72a9", null ],
     [ "IStore", "struct_abstract_domains.html#abcf4e43f3e49ca0cd11104dc28d6ecab", null ],
-    [ "IPC", "struct_abstract_domains.html#a7198c7d77b14a808ccdc5bf33537ea2a", null ],
+    [ "IPC", "struct_abstract_domains.html#abcd054de892df21eba49c329a187d789", null ],
     [ "ISimplifier", "struct_abstract_domains.html#a6dced372de738ecc301d1ff2fb266fa9", null ],
     [ "Split", "struct_abstract_domains.html#a920e2e3271a96fc3c8819388812d8b04", null ],
     [ "IST", "struct_abstract_domains.html#a09c320b2800de80f496d219cbe975b9d", null ],
@@ -52,5 +52,5 @@ var struct_abstract_domains =
     [ "env", "struct_abstract_domains.html#a62fc12b44ede84aa94e13b2c7664bbb6", null ],
     [ "solver_output", "struct_abstract_domains.html#ab66edf856f207fdd8fdbdc014a8db521", null ],
     [ "config", "struct_abstract_domains.html#a0aa5ac01e4f4a2a8b2811edca6eb8ef9", null ],
-    [ "stats", "struct_abstract_domains.html#ab65b9fdeb0354773c837a82d88532796", null ]
+    [ "stats", "struct_abstract_domains.html#a4079f4eda90c5a3162357423aedae435", null ]
 ];

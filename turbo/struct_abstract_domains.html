@@ -130,13 +130,13 @@ Public Types</h2></td></tr>
 <tr class="separator:a1ab2170a315a7428892ce6e3310a72a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abcf4e43f3e49ca0cd11104dc28d6ecab" id="r_abcf4e43f3e49ca0cd11104dc28d6ecab"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abcf4e43f3e49ca0cd11104dc28d6ecab">IStore</a> = VStore&lt;Universe, StoreAllocator&gt;</td></tr>
 <tr class="separator:abcf4e43f3e49ca0cd11104dc28d6ecab"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7198c7d77b14a808ccdc5bf33537ea2a" id="r_a7198c7d77b14a808ccdc5bf33537ea2a"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7198c7d77b14a808ccdc5bf33537ea2a">IPC</a> = PC&lt;<a class="el" href="#abcf4e43f3e49ca0cd11104dc28d6ecab">IStore</a>, PropAllocator&gt;</td></tr>
-<tr class="separator:a7198c7d77b14a808ccdc5bf33537ea2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6dced372de738ecc301d1ff2fb266fa9" id="r_a6dced372de738ecc301d1ff2fb266fa9"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6dced372de738ecc301d1ff2fb266fa9">ISimplifier</a> = Simplifier&lt;<a class="el" href="#a7198c7d77b14a808ccdc5bf33537ea2a">IPC</a>, BasicAllocator&gt;</td></tr>
+<tr class="memitem:abcd054de892df21eba49c329a187d789" id="r_abcd054de892df21eba49c329a187d789"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abcd054de892df21eba49c329a187d789">IPC</a> = PIR&lt;<a class="el" href="#abcf4e43f3e49ca0cd11104dc28d6ecab">IStore</a>, PropAllocator&gt;</td></tr>
+<tr class="separator:abcd054de892df21eba49c329a187d789"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6dced372de738ecc301d1ff2fb266fa9" id="r_a6dced372de738ecc301d1ff2fb266fa9"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6dced372de738ecc301d1ff2fb266fa9">ISimplifier</a> = Simplifier&lt;<a class="el" href="#abcd054de892df21eba49c329a187d789">IPC</a>, BasicAllocator&gt;</td></tr>
 <tr class="separator:a6dced372de738ecc301d1ff2fb266fa9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a920e2e3271a96fc3c8819388812d8b04" id="r_a920e2e3271a96fc3c8819388812d8b04"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a920e2e3271a96fc3c8819388812d8b04">Split</a> = SplitStrategy&lt;<a class="el" href="#a7198c7d77b14a808ccdc5bf33537ea2a">IPC</a>, BasicAllocator&gt;</td></tr>
+<tr class="memitem:a920e2e3271a96fc3c8819388812d8b04" id="r_a920e2e3271a96fc3c8819388812d8b04"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a920e2e3271a96fc3c8819388812d8b04">Split</a> = SplitStrategy&lt;<a class="el" href="#abcd054de892df21eba49c329a187d789">IPC</a>, BasicAllocator&gt;</td></tr>
 <tr class="separator:a920e2e3271a96fc3c8819388812d8b04"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a09c320b2800de80f496d219cbe975b9d" id="r_a09c320b2800de80f496d219cbe975b9d"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a09c320b2800de80f496d219cbe975b9d">IST</a> = SearchTree&lt;<a class="el" href="#a7198c7d77b14a808ccdc5bf33537ea2a">IPC</a>, <a class="el" href="#a920e2e3271a96fc3c8819388812d8b04">Split</a>, BasicAllocator&gt;</td></tr>
+<tr class="memitem:a09c320b2800de80f496d219cbe975b9d" id="r_a09c320b2800de80f496d219cbe975b9d"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a09c320b2800de80f496d219cbe975b9d">IST</a> = SearchTree&lt;<a class="el" href="#abcd054de892df21eba49c329a187d789">IPC</a>, <a class="el" href="#a920e2e3271a96fc3c8819388812d8b04">Split</a>, BasicAllocator&gt;</td></tr>
 <tr class="separator:a09c320b2800de80f496d219cbe975b9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a374ae37f6bde54f0ab3e350ab8d344e7" id="r_a374ae37f6bde54f0ab3e350ab8d344e7"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a374ae37f6bde54f0ab3e350ab8d344e7">IBAB</a> = BAB&lt;<a class="el" href="#a09c320b2800de80f496d219cbe975b9d">IST</a>, <a class="el" href="#a1ab2170a315a7428892ce6e3310a72a9">LIStore</a>&gt;</td></tr>
 <tr class="separator:a374ae37f6bde54f0ab3e350ab8d344e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -218,7 +218,7 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a1cafafcffd4f73c00729aef4e3abff3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6163aae266ebdf3370b3fedc63c150a3" id="r_a6163aae266ebdf3370b3fedc63c150a3"><td class="memItemLeft" align="right" valign="top">abstract_ptr&lt; <a class="el" href="#abcf4e43f3e49ca0cd11104dc28d6ecab">IStore</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6163aae266ebdf3370b3fedc63c150a3">store</a></td></tr>
 <tr class="separator:a6163aae266ebdf3370b3fedc63c150a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a711e6fa9a2c1994a9ab794df4ed02fc5" id="r_a711e6fa9a2c1994a9ab794df4ed02fc5"><td class="memItemLeft" align="right" valign="top">abstract_ptr&lt; <a class="el" href="#a7198c7d77b14a808ccdc5bf33537ea2a">IPC</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a711e6fa9a2c1994a9ab794df4ed02fc5">ipc</a></td></tr>
+<tr class="memitem:a711e6fa9a2c1994a9ab794df4ed02fc5" id="r_a711e6fa9a2c1994a9ab794df4ed02fc5"><td class="memItemLeft" align="right" valign="top">abstract_ptr&lt; <a class="el" href="#abcd054de892df21eba49c329a187d789">IPC</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a711e6fa9a2c1994a9ab794df4ed02fc5">ipc</a></td></tr>
 <tr class="separator:a711e6fa9a2c1994a9ab794df4ed02fc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a974e142698e0e9d991a32191eb5e9ebe" id="r_a974e142698e0e9d991a32191eb5e9ebe"><td class="memItemLeft" align="right" valign="top">abstract_ptr&lt; <a class="el" href="#a6dced372de738ecc301d1ff2fb266fa9">ISimplifier</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a974e142698e0e9d991a32191eb5e9ebe">simplifier</a></td></tr>
 <tr class="separator:a974e142698e0e9d991a32191eb5e9ebe"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -238,8 +238,8 @@ Public Attributes</h2></td></tr>
 <tr class="separator:ab66edf856f207fdd8fdbdc014a8db521"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0aa5ac01e4f4a2a8b2811edca6eb8ef9" id="r_a0aa5ac01e4f4a2a8b2811edca6eb8ef9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_configuration.html">Configuration</a>&lt; BasicAllocator &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0aa5ac01e4f4a2a8b2811edca6eb8ef9">config</a></td></tr>
 <tr class="separator:a0aa5ac01e4f4a2a8b2811edca6eb8ef9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab65b9fdeb0354773c837a82d88532796" id="r_ab65b9fdeb0354773c837a82d88532796"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_statistics.html">Statistics</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab65b9fdeb0354773c837a82d88532796">stats</a></td></tr>
-<tr class="separator:ab65b9fdeb0354773c837a82d88532796"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4079f4eda90c5a3162357423aedae435" id="r_a4079f4eda90c5a3162357423aedae435"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_statistics.html">Statistics</a>&lt; BasicAllocator &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4079f4eda90c5a3162357423aedae435">stats</a></td></tr>
+<tr class="separator:a4079f4eda90c5a3162357423aedae435"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;class Universe, class BasicAllocator, class PropAllocator, class StoreAllocator&gt;<br />
@@ -299,8 +299,8 @@ template&lt;class Universe , class BasicAllocator , class PropAllocator , class 
 
 </div>
 </div>
-<a id="a7198c7d77b14a808ccdc5bf33537ea2a" name="a7198c7d77b14a808ccdc5bf33537ea2a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7198c7d77b14a808ccdc5bf33537ea2a">&#9670;&#160;</a></span>IPC</h2>
+<a id="abcd054de892df21eba49c329a187d789" name="abcd054de892df21eba49c329a187d789"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abcd054de892df21eba49c329a187d789">&#9670;&#160;</a></span>IPC</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -308,7 +308,7 @@ template&lt;class Universe , class BasicAllocator , class PropAllocator , class 
 template&lt;class Universe , class BasicAllocator , class PropAllocator , class StoreAllocator &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="struct_abstract_domains.html">AbstractDomains</a>&lt; Universe, BasicAllocator, PropAllocator, StoreAllocator &gt;::IPC = PC&lt;<a class="el" href="#abcf4e43f3e49ca0cd11104dc28d6ecab">IStore</a>, PropAllocator&gt;</td>
+          <td class="memname">using <a class="el" href="struct_abstract_domains.html">AbstractDomains</a>&lt; Universe, BasicAllocator, PropAllocator, StoreAllocator &gt;::IPC = PIR&lt;<a class="el" href="#abcf4e43f3e49ca0cd11104dc28d6ecab">IStore</a>, PropAllocator&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -324,7 +324,7 @@ template&lt;class Universe , class BasicAllocator , class PropAllocator , class 
 template&lt;class Universe , class BasicAllocator , class PropAllocator , class StoreAllocator &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="struct_abstract_domains.html">AbstractDomains</a>&lt; Universe, BasicAllocator, PropAllocator, StoreAllocator &gt;::ISimplifier = Simplifier&lt;<a class="el" href="#a7198c7d77b14a808ccdc5bf33537ea2a">IPC</a>, BasicAllocator&gt;</td>
+          <td class="memname">using <a class="el" href="struct_abstract_domains.html">AbstractDomains</a>&lt; Universe, BasicAllocator, PropAllocator, StoreAllocator &gt;::ISimplifier = Simplifier&lt;<a class="el" href="#abcd054de892df21eba49c329a187d789">IPC</a>, BasicAllocator&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -340,7 +340,7 @@ template&lt;class Universe , class BasicAllocator , class PropAllocator , class 
 template&lt;class Universe , class BasicAllocator , class PropAllocator , class StoreAllocator &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="struct_abstract_domains.html">AbstractDomains</a>&lt; Universe, BasicAllocator, PropAllocator, StoreAllocator &gt;::Split = SplitStrategy&lt;<a class="el" href="#a7198c7d77b14a808ccdc5bf33537ea2a">IPC</a>, BasicAllocator&gt;</td>
+          <td class="memname">using <a class="el" href="struct_abstract_domains.html">AbstractDomains</a>&lt; Universe, BasicAllocator, PropAllocator, StoreAllocator &gt;::Split = SplitStrategy&lt;<a class="el" href="#abcd054de892df21eba49c329a187d789">IPC</a>, BasicAllocator&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -356,7 +356,7 @@ template&lt;class Universe , class BasicAllocator , class PropAllocator , class 
 template&lt;class Universe , class BasicAllocator , class PropAllocator , class StoreAllocator &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="struct_abstract_domains.html">AbstractDomains</a>&lt; Universe, BasicAllocator, PropAllocator, StoreAllocator &gt;::IST = SearchTree&lt;<a class="el" href="#a7198c7d77b14a808ccdc5bf33537ea2a">IPC</a>, <a class="el" href="#a920e2e3271a96fc3c8819388812d8b04">Split</a>, BasicAllocator&gt;</td>
+          <td class="memname">using <a class="el" href="struct_abstract_domains.html">AbstractDomains</a>&lt; Universe, BasicAllocator, PropAllocator, StoreAllocator &gt;::IST = SearchTree&lt;<a class="el" href="#abcd054de892df21eba49c329a187d789">IPC</a>, <a class="el" href="#a920e2e3271a96fc3c8819388812d8b04">Split</a>, BasicAllocator&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1247,7 +1247,7 @@ template&lt;class Universe , class BasicAllocator , class PropAllocator , class 
 template&lt;class Universe , class BasicAllocator , class PropAllocator , class StoreAllocator &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">abstract_ptr&lt;<a class="el" href="#a7198c7d77b14a808ccdc5bf33537ea2a">IPC</a>&gt; <a class="el" href="struct_abstract_domains.html">AbstractDomains</a>&lt; Universe, BasicAllocator, PropAllocator, StoreAllocator &gt;::ipc</td>
+          <td class="memname">abstract_ptr&lt;<a class="el" href="#abcd054de892df21eba49c329a187d789">IPC</a>&gt; <a class="el" href="struct_abstract_domains.html">AbstractDomains</a>&lt; Universe, BasicAllocator, PropAllocator, StoreAllocator &gt;::ipc</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1398,8 +1398,8 @@ template&lt;class Universe , class BasicAllocator , class PropAllocator , class 
 
 </div>
 </div>
-<a id="ab65b9fdeb0354773c837a82d88532796" name="ab65b9fdeb0354773c837a82d88532796"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab65b9fdeb0354773c837a82d88532796">&#9670;&#160;</a></span>stats</h2>
+<a id="a4079f4eda90c5a3162357423aedae435" name="a4079f4eda90c5a3162357423aedae435"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4079f4eda90c5a3162357423aedae435">&#9670;&#160;</a></span>stats</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1407,7 +1407,7 @@ template&lt;class Universe , class BasicAllocator , class PropAllocator , class 
 template&lt;class Universe , class BasicAllocator , class PropAllocator , class StoreAllocator &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="struct_statistics.html">Statistics</a> <a class="el" href="struct_abstract_domains.html">AbstractDomains</a>&lt; Universe, BasicAllocator, PropAllocator, StoreAllocator &gt;::stats</td>
+          <td class="memname"><a class="el" href="struct_statistics.html">Statistics</a>&lt;BasicAllocator&gt; <a class="el" href="struct_abstract_domains.html">AbstractDomains</a>&lt; Universe, BasicAllocator, PropAllocator, StoreAllocator &gt;::stats</td>
         </tr>
       </table>
 </div><div class="memdoc">

@@ -105,6 +105,7 @@ $(function(){initNavTree('statistics_8hpp.html',''); initResizable(true); });
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
+<a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">statistics.hpp File Reference</div></div>
 </div><!--header-->
@@ -119,14 +120,72 @@ $(function(){initNavTree('statistics_8hpp.html',''); initResizable(true); });
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_statistics.html">Statistics</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_timing_statistics.html">TimingStatistics&lt; Allocator &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_statistics.html">Statistics&lt; Allocator &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:a6e0035edd58cc6ca8c94b5f9723a0d80" id="r_a6e0035edd58cc6ca8c94b5f9723a0d80"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6e0035edd58cc6ca8c94b5f9723a0d80">Timer</a> { <br />
+&#160;&#160;<a class="el" href="#a6e0035edd58cc6ca8c94b5f9723a0d80a7905c9b3eda793da18fade6e791b2183">OVERALL</a>
+, <a class="el" href="#a6e0035edd58cc6ca8c94b5f9723a0d80a17894b976b627f708a2c7c58cea8f56e">PREPROCESSING</a>
+, <a class="el" href="#a6e0035edd58cc6ca8c94b5f9723a0d80abf61c5b43708f01f5a198843f93e521a">SOLVE</a>
+, <a class="el" href="#a6e0035edd58cc6ca8c94b5f9723a0d80a0f544d682c3a664870f025f48c4b04b5">SEARCH</a>
+, <br />
+&#160;&#160;<a class="el" href="#a6e0035edd58cc6ca8c94b5f9723a0d80a433c1649ecd09dc6e8c965d31f830f89">FIXPOINT</a>
+, <a class="el" href="#a6e0035edd58cc6ca8c94b5f9723a0d80a0cba79c41fc527a8e78600934dc7c3c6">TRANSFER_CPU2GPU</a>
+, <a class="el" href="#a6e0035edd58cc6ca8c94b5f9723a0d80a41dda7a604badd52fe521cb713e7a39f">TRANSFER_GPU2CPU</a>
+, <a class="el" href="#a6e0035edd58cc6ca8c94b5f9723a0d80a79bde01db3ccc1f5ff856a11a34c20df">SELECT_FP_FUNCTIONS</a>
+, <br />
+&#160;&#160;<a class="el" href="#a6e0035edd58cc6ca8c94b5f9723a0d80a1122e495306c2edb5df9eb2a65953676">WAIT_CPU</a>
+, <a class="el" href="#a6e0035edd58cc6ca8c94b5f9723a0d80a345c2df90fed0e74ea3c8926e13e5f12">DIVE</a>
+, <a class="el" href="#a6e0035edd58cc6ca8c94b5f9723a0d80a69325ca2fcd2163bfcee098542d55a50">NUM_TIMERS</a>
+<br />
+ }</td></tr>
+<tr class="separator:a6e0035edd58cc6ca8c94b5f9723a0d80"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:aa706e08664f7a52ec805a8257bcfb593" id="r_aa706e08664f7a52ec805a8257bcfb593"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa706e08664f7a52ec805a8257bcfb593">print_memory_statistics</a> (const char *key, size_t bytes)</td></tr>
 <tr class="separator:aa706e08664f7a52ec805a8257bcfb593"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Enumeration Type Documentation</h2>
+<a id="a6e0035edd58cc6ca8c94b5f9723a0d80" name="a6e0035edd58cc6ca8c94b5f9723a0d80"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e0035edd58cc6ca8c94b5f9723a0d80">&#9670;&#160;</a></span>Timer</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#a6e0035edd58cc6ca8c94b5f9723a0d80">Timer</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a6e0035edd58cc6ca8c94b5f9723a0d80a7905c9b3eda793da18fade6e791b2183" name="a6e0035edd58cc6ca8c94b5f9723a0d80a7905c9b3eda793da18fade6e791b2183"></a>OVERALL&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a6e0035edd58cc6ca8c94b5f9723a0d80a17894b976b627f708a2c7c58cea8f56e" name="a6e0035edd58cc6ca8c94b5f9723a0d80a17894b976b627f708a2c7c58cea8f56e"></a>PREPROCESSING&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a6e0035edd58cc6ca8c94b5f9723a0d80abf61c5b43708f01f5a198843f93e521a" name="a6e0035edd58cc6ca8c94b5f9723a0d80abf61c5b43708f01f5a198843f93e521a"></a>SOLVE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a6e0035edd58cc6ca8c94b5f9723a0d80a0f544d682c3a664870f025f48c4b04b5" name="a6e0035edd58cc6ca8c94b5f9723a0d80a0f544d682c3a664870f025f48c4b04b5"></a>SEARCH&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a6e0035edd58cc6ca8c94b5f9723a0d80a433c1649ecd09dc6e8c965d31f830f89" name="a6e0035edd58cc6ca8c94b5f9723a0d80a433c1649ecd09dc6e8c965d31f830f89"></a>FIXPOINT&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a6e0035edd58cc6ca8c94b5f9723a0d80a0cba79c41fc527a8e78600934dc7c3c6" name="a6e0035edd58cc6ca8c94b5f9723a0d80a0cba79c41fc527a8e78600934dc7c3c6"></a>TRANSFER_CPU2GPU&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a6e0035edd58cc6ca8c94b5f9723a0d80a41dda7a604badd52fe521cb713e7a39f" name="a6e0035edd58cc6ca8c94b5f9723a0d80a41dda7a604badd52fe521cb713e7a39f"></a>TRANSFER_GPU2CPU&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a6e0035edd58cc6ca8c94b5f9723a0d80a79bde01db3ccc1f5ff856a11a34c20df" name="a6e0035edd58cc6ca8c94b5f9723a0d80a79bde01db3ccc1f5ff856a11a34c20df"></a>SELECT_FP_FUNCTIONS&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a6e0035edd58cc6ca8c94b5f9723a0d80a1122e495306c2edb5df9eb2a65953676" name="a6e0035edd58cc6ca8c94b5f9723a0d80a1122e495306c2edb5df9eb2a65953676"></a>WAIT_CPU&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a6e0035edd58cc6ca8c94b5f9723a0d80a345c2df90fed0e74ea3c8926e13e5f12" name="a6e0035edd58cc6ca8c94b5f9723a0d80a345c2df90fed0e74ea3c8926e13e5f12"></a>DIVE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a6e0035edd58cc6ca8c94b5f9723a0d80a69325ca2fcd2163bfcee098542d55a50" name="a6e0035edd58cc6ca8c94b5f9723a0d80a69325ca2fcd2163bfcee098542d55a50"></a>NUM_TIMERS&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+</div>
+</div>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="aa706e08664f7a52ec805a8257bcfb593" name="aa706e08664f7a52ec805a8257bcfb593"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa706e08664f7a52ec805a8257bcfb593">&#9670;&#160;</a></span>print_memory_statistics()</h2>

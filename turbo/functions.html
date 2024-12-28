@@ -109,8 +109,7 @@ $(function(){initNavTree('functions.html',''); initResizable(true); });
 <li>AbstractDomains()&#160;:&#160;<a class="el" href="struct_abstract_domains.html#a26ae2a151554c75523e017d3bf867bd7">AbstractDomains&lt; Universe, BasicAllocator, PropAllocator, StoreAllocator &gt;</a></li>
 <li>allocate()&#160;:&#160;<a class="el" href="struct_abstract_domains.html#a3027683bc187b661dc58f043307442f1">AbstractDomains&lt; Universe, BasicAllocator, PropAllocator, StoreAllocator &gt;</a>, <a class="el" href="struct_unique_alloc.html#a97c5590310f861dfb863d3db9d779004">UniqueAlloc&lt; Alloc, n &gt;</a>, <a class="el" href="struct_unique_light_alloc.html#a67e4526fea27e07e7987541fe081715b">UniqueLightAlloc&lt; Alloc, n &gt;</a></li>
 <li>allocator&#160;:&#160;<a class="el" href="struct_unique_alloc.html#a9489dd338e874a94daa2b2d3f7f24756">UniqueAlloc&lt; Alloc, n &gt;</a></li>
-<li>allocator_type&#160;:&#160;<a class="el" href="struct_configuration.html#ac2d1955935cd2fe035069e66849dce46">Configuration&lt; Allocator &gt;</a></li>
-<li>and_nodes&#160;:&#160;<a class="el" href="struct_configuration.html#ad71c1fc1db14a57e26417c6bd4ffb402">Configuration&lt; Allocator &gt;</a></li>
+<li>allocator_type&#160;:&#160;<a class="el" href="struct_configuration.html#ac2d1955935cd2fe035069e66849dce46">Configuration&lt; Allocator &gt;</a>, <a class="el" href="struct_statistics.html#a25a17eb9c5c3f19ce9b14a1c433c2f91">Statistics&lt; Allocator &gt;</a>, <a class="el" href="struct_timing_statistics.html#a7bdb1bb002e965ee11cde34634266a2d">TimingStatistics&lt; Allocator &gt;</a></li>
 <li>arch&#160;:&#160;<a class="el" href="struct_configuration.html#a3814e00344dfdf6e0f0f1509eb0c4a3d">Configuration&lt; Allocator &gt;</a></li>
 </ul>
 
@@ -126,32 +125,31 @@ $(function(){initNavTree('functions.html',''); initResizable(true); });
 <h3><a id="index_c" name="index_c"></a>- c -</h3><ul>
 <li>config&#160;:&#160;<a class="el" href="struct_abstract_domains.html#a0aa5ac01e4f4a2a8b2811edca6eb8ef9">AbstractDomains&lt; Universe, BasicAllocator, PropAllocator, StoreAllocator &gt;</a></li>
 <li>Configuration()&#160;:&#160;<a class="el" href="struct_configuration.html#a8122f8caac2315fd8622fec79325e1f6">Configuration&lt; Allocator &gt;</a></li>
-<li>constraints&#160;:&#160;<a class="el" href="struct_statistics.html#a42b5622d3db68722e2edc9fc7fb757c1">Statistics</a></li>
+<li>constraints&#160;:&#160;<a class="el" href="struct_statistics.html#a53fda000b05e2e449e30ecc69e41a192">Statistics&lt; Allocator &gt;</a></li>
 </ul>
 
 
 <h3><a id="index_d" name="index_d"></a>- d -</h3><ul>
 <li>deallocate()&#160;:&#160;<a class="el" href="struct_abstract_domains.html#a18c88dc0660c4e4deb6a374cef4b83ce">AbstractDomains&lt; Universe, BasicAllocator, PropAllocator, StoreAllocator &gt;</a>, <a class="el" href="struct_unique_alloc.html#a1f1a2cd8e553fccdea0c43d9d313ad0b">UniqueAlloc&lt; Alloc, n &gt;</a>, <a class="el" href="struct_unique_light_alloc.html#aea28e2925d68c5916cd590184b217614">UniqueLightAlloc&lt; Alloc, n &gt;</a></li>
-<li>depth_max&#160;:&#160;<a class="el" href="struct_statistics.html#a0ba0e681750f3c2fcef1f157ac16965f">Statistics</a></li>
-<li>duration&#160;:&#160;<a class="el" href="struct_statistics.html#adf2b9251ea4af19944cd7dbb3606e5d1">Statistics</a></li>
+<li>depth_max&#160;:&#160;<a class="el" href="struct_statistics.html#afe4fc899b4e0bfead131062b9f903eac">Statistics&lt; Allocator &gt;</a></li>
 </ul>
 
 
 <h3><a id="index_e" name="index_e"></a>- e -</h3><ul>
-<li>eliminated_formulas&#160;:&#160;<a class="el" href="struct_statistics.html#abc3079e78aaab0c8f05b6827e804c6fd">Statistics</a></li>
-<li>eliminated_variables&#160;:&#160;<a class="el" href="struct_statistics.html#a9a367d81bea5c7041f572d5013c0a2ba">Statistics</a></li>
+<li>eliminated_formulas&#160;:&#160;<a class="el" href="struct_statistics.html#adc8a85cd903cc74174b2d35570523037">Statistics&lt; Allocator &gt;</a></li>
+<li>eliminated_variables&#160;:&#160;<a class="el" href="struct_statistics.html#a7f8dd62036a4b239a5744a313cd663ce">Statistics&lt; Allocator &gt;</a></li>
 <li>env&#160;:&#160;<a class="el" href="struct_abstract_domains.html#a62fc12b44ede84aa94e13b2c7664bbb6">AbstractDomains&lt; Universe, BasicAllocator, PropAllocator, StoreAllocator &gt;</a></li>
-<li>eps_num_subproblems&#160;:&#160;<a class="el" href="struct_statistics.html#a04d4f1ad39b4c2cbba880b1695c46da5">Statistics</a></li>
-<li>eps_skipped_subproblems&#160;:&#160;<a class="el" href="struct_statistics.html#a5bd2c19483f31617b049a41690217835">Statistics</a></li>
-<li>eps_solved_subproblems&#160;:&#160;<a class="el" href="struct_statistics.html#a48698a0fda28b0638cd187e974c0ec64">Statistics</a></li>
+<li>eps_num_subproblems&#160;:&#160;<a class="el" href="struct_statistics.html#aa10ea3e1d3275ffc30d2752da7aa1809">Statistics&lt; Allocator &gt;</a></li>
+<li>eps_skipped_subproblems&#160;:&#160;<a class="el" href="struct_statistics.html#a0a49c5fa6a3064492f5495652ab99ab9">Statistics&lt; Allocator &gt;</a></li>
+<li>eps_solved_subproblems&#160;:&#160;<a class="el" href="struct_statistics.html#a1871b1e12e6d3984c2d583520e6ea678">Statistics&lt; Allocator &gt;</a></li>
 <li>eps_split&#160;:&#160;<a class="el" href="struct_abstract_domains.html#a97518fa291a8d0e4e8a868de3ae13dd2">AbstractDomains&lt; Universe, BasicAllocator, PropAllocator, StoreAllocator &gt;</a></li>
-<li>exhaustive&#160;:&#160;<a class="el" href="struct_statistics.html#afcf97dcde2e073aa0942cbe445cc2c37">Statistics</a></li>
+<li>exhaustive&#160;:&#160;<a class="el" href="struct_statistics.html#a6c261eb556dce6a5a9fc7cd0db7a2425">Statistics&lt; Allocator &gt;</a></li>
 </ul>
 
 
 <h3><a id="index_f" name="index_f"></a>- f -</h3><ul>
-<li>fails&#160;:&#160;<a class="el" href="struct_statistics.html#a063cf6a180152133c77b7e86996b6221">Statistics</a></li>
-<li>fixpoint_iterations&#160;:&#160;<a class="el" href="struct_statistics.html#a15596b3df0aa6aed1133d52896360ff6">Statistics</a></li>
+<li>fails&#160;:&#160;<a class="el" href="struct_statistics.html#a695df106c37e284cf9a0e8a318f852e6">Statistics&lt; Allocator &gt;</a></li>
+<li>fixpoint_iterations&#160;:&#160;<a class="el" href="struct_statistics.html#a10f70590e70f4e81b4919c78a04b0483">Statistics&lt; Allocator &gt;</a></li>
 <li>FormulaPtr&#160;:&#160;<a class="el" href="struct_abstract_domains.html#a4f51c83ceea59c4b696dca4c7175adea">AbstractDomains&lt; Universe, BasicAllocator, PropAllocator, StoreAllocator &gt;</a></li>
 <li>free_search&#160;:&#160;<a class="el" href="struct_configuration.html#aab077c8003da4937bfc417c0e03e9282">Configuration&lt; Allocator &gt;</a></li>
 </ul>
@@ -166,8 +164,7 @@ $(function(){initNavTree('functions.html',''); initResizable(true); });
 <li>IBAB&#160;:&#160;<a class="el" href="struct_abstract_domains.html#a374ae37f6bde54f0ab3e350ab8d344e7">AbstractDomains&lt; Universe, BasicAllocator, PropAllocator, StoreAllocator &gt;</a></li>
 <li>input_format()&#160;:&#160;<a class="el" href="struct_configuration.html#a152b71b8113b11f5a7e79e22eb08b6f9">Configuration&lt; Allocator &gt;</a></li>
 <li>interpret()&#160;:&#160;<a class="el" href="struct_abstract_domains.html#a1849c23d962a7b543ebff49bfba9585b">AbstractDomains&lt; Universe, BasicAllocator, PropAllocator, StoreAllocator &gt;</a></li>
-<li>interpretation_duration&#160;:&#160;<a class="el" href="struct_statistics.html#a75511963214df2c75c82d1b4dac23736">Statistics</a></li>
-<li>IPC&#160;:&#160;<a class="el" href="struct_abstract_domains.html#a7198c7d77b14a808ccdc5bf33537ea2a">AbstractDomains&lt; Universe, BasicAllocator, PropAllocator, StoreAllocator &gt;</a></li>
+<li>IPC&#160;:&#160;<a class="el" href="struct_abstract_domains.html#abcd054de892df21eba49c329a187d789">AbstractDomains&lt; Universe, BasicAllocator, PropAllocator, StoreAllocator &gt;</a></li>
 <li>ipc&#160;:&#160;<a class="el" href="struct_abstract_domains.html#a711e6fa9a2c1994a9ab794df4ed02fc5">AbstractDomains&lt; Universe, BasicAllocator, PropAllocator, StoreAllocator &gt;</a></li>
 <li>is_printing_intermediate_sol()&#160;:&#160;<a class="el" href="struct_abstract_domains.html#a676414b8422f5d17286263767eaeca51">AbstractDomains&lt; Universe, BasicAllocator, PropAllocator, StoreAllocator &gt;</a></li>
 <li>ISimplifier&#160;:&#160;<a class="el" href="struct_abstract_domains.html#a6dced372de738ecc301d1ff2fb266fa9">AbstractDomains&lt; Universe, BasicAllocator, PropAllocator, StoreAllocator &gt;</a></li>
@@ -182,15 +179,14 @@ $(function(){initNavTree('functions.html',''); initResizable(true); });
 
 
 <h3><a id="index_m" name="index_m"></a>- m -</h3><ul>
-<li>meet()&#160;:&#160;<a class="el" href="struct_abstract_domains.html#a38e81d5be425dbbce5cf371ddac7c6f8">AbstractDomains&lt; Universe, BasicAllocator, PropAllocator, StoreAllocator &gt;</a>, <a class="el" href="struct_statistics.html#a5fd3217d98ad055c0eea2a5f5d95f0d5">Statistics</a></li>
+<li>meet()&#160;:&#160;<a class="el" href="struct_abstract_domains.html#a38e81d5be425dbbce5cf371ddac7c6f8">AbstractDomains&lt; Universe, BasicAllocator, PropAllocator, StoreAllocator &gt;</a>, <a class="el" href="struct_statistics.html#aaad333ad9b35b6bdc9e2c84f6c1ca862">Statistics&lt; Allocator &gt;</a>, <a class="el" href="struct_timing_statistics.html#a3a1245f15e075db517082840a872173b">TimingStatistics&lt; Allocator &gt;</a></li>
 </ul>
 
 
 <h3><a id="index_n" name="index_n"></a>- n -</h3><ul>
 <li>name_of_arch()&#160;:&#160;<a class="el" href="struct_configuration.html#adc780cfdd04e45250e746a980ecb84b9">Configuration&lt; Allocator &gt;</a></li>
-<li>noatomics&#160;:&#160;<a class="el" href="struct_configuration.html#a9647a52870c879b3b9a03c0e0b5cc725">Configuration&lt; Allocator &gt;</a></li>
-<li>nodes&#160;:&#160;<a class="el" href="struct_statistics.html#abbcb20755134a0cab9adebbe6ee321ab">Statistics</a></li>
-<li>num_blocks_done&#160;:&#160;<a class="el" href="struct_statistics.html#a37b659551d0b1f473eb43b856cf96366">Statistics</a></li>
+<li>nodes&#160;:&#160;<a class="el" href="struct_statistics.html#a368ef129a8ac56816509374fdae65369">Statistics&lt; Allocator &gt;</a></li>
+<li>num_blocks_done&#160;:&#160;<a class="el" href="struct_statistics.html#a63e822c96a840cda4ce2cac52056a3ec">Statistics&lt; Allocator &gt;</a></li>
 </ul>
 
 
@@ -200,7 +196,7 @@ $(function(){initNavTree('functions.html',''); initResizable(true); });
 <li>on_solution_node()&#160;:&#160;<a class="el" href="struct_abstract_domains.html#a391ddbddc47c3fff8a47cb2ba5ffd7d4">AbstractDomains&lt; Universe, BasicAllocator, PropAllocator, StoreAllocator &gt;</a></li>
 <li>only_global_memory&#160;:&#160;<a class="el" href="struct_configuration.html#aae1fab75cbb6561fa2d07eb7ed8c8b97">Configuration&lt; Allocator &gt;</a></li>
 <li>operator=()&#160;:&#160;<a class="el" href="struct_configuration.html#a67256dda74357a71d29badb79029767f">Configuration&lt; Allocator &gt;</a>, <a class="el" href="struct_unique_alloc.html#a827b2ff1f1b476dbd28d87f3a68f4988">UniqueAlloc&lt; Alloc, n &gt;</a></li>
-<li>optimization&#160;:&#160;<a class="el" href="struct_statistics.html#afb9b27a993738c2ba527f25af7e2d31e">Statistics</a></li>
+<li>optimization&#160;:&#160;<a class="el" href="struct_statistics.html#a606a956342a4283a3801fb2fda8c2af3">Statistics&lt; Allocator &gt;</a></li>
 <li>or_nodes&#160;:&#160;<a class="el" href="struct_configuration.html#a6400dfba9cd09ea3050d18c71c8d47fb">Configuration&lt; Allocator &gt;</a></li>
 </ul>
 
@@ -213,34 +209,37 @@ $(function(){initNavTree('functions.html',''); initResizable(true); });
 <li>print_commandline()&#160;:&#160;<a class="el" href="struct_configuration.html#ab26cab83eec7511813d66fd21c715ba5">Configuration&lt; Allocator &gt;</a></li>
 <li>print_final_solution()&#160;:&#160;<a class="el" href="struct_abstract_domains.html#a1ba9490f8b7b9a1f9058ca5c7352c1e7">AbstractDomains&lt; Universe, BasicAllocator, PropAllocator, StoreAllocator &gt;</a></li>
 <li>print_intermediate_solutions&#160;:&#160;<a class="el" href="struct_configuration.html#a1e28a838055718bee138fc096d43696e">Configuration&lt; Allocator &gt;</a></li>
-<li>print_mzn_end_stats()&#160;:&#160;<a class="el" href="struct_statistics.html#a8e69c949bceefdd5a1e2c3ed2841fce0">Statistics</a></li>
-<li>print_mzn_final_separator()&#160;:&#160;<a class="el" href="struct_statistics.html#a9fd368a3d013805efc2edb61345ccad4">Statistics</a></li>
-<li>print_mzn_objective()&#160;:&#160;<a class="el" href="struct_statistics.html#a500f20883ce3dcf1d839a514bebc1d1e">Statistics</a></li>
-<li>print_mzn_separator()&#160;:&#160;<a class="el" href="struct_statistics.html#ae7ef2f3873851b56337402bf906f665c">Statistics</a></li>
-<li>print_mzn_statistics()&#160;:&#160;<a class="el" href="struct_abstract_domains.html#af512dd0701e97987346dbc2cb2319922">AbstractDomains&lt; Universe, BasicAllocator, PropAllocator, StoreAllocator &gt;</a>, <a class="el" href="struct_configuration.html#a326f93187848c69b41a34008ad16233a">Configuration&lt; Allocator &gt;</a>, <a class="el" href="struct_statistics.html#a35047830ce5d2509f8b83882bb103847">Statistics</a></li>
+<li>print_mzn_end_stats()&#160;:&#160;<a class="el" href="struct_statistics.html#a39037307cf8a9f4495f94e4c31390b44">Statistics&lt; Allocator &gt;</a></li>
+<li>print_mzn_final_separator()&#160;:&#160;<a class="el" href="struct_statistics.html#a594cfa44cd495289abdfb0dbe14696b6">Statistics&lt; Allocator &gt;</a></li>
+<li>print_mzn_objective()&#160;:&#160;<a class="el" href="struct_statistics.html#aeae70c781e0e744924e545b27c74dbe6">Statistics&lt; Allocator &gt;</a></li>
+<li>print_mzn_separator()&#160;:&#160;<a class="el" href="struct_statistics.html#abd9f0c5badf94c240a703ff94cac9bd0">Statistics&lt; Allocator &gt;</a></li>
+<li>print_mzn_statistics()&#160;:&#160;<a class="el" href="struct_abstract_domains.html#af512dd0701e97987346dbc2cb2319922">AbstractDomains&lt; Universe, BasicAllocator, PropAllocator, StoreAllocator &gt;</a>, <a class="el" href="struct_configuration.html#a326f93187848c69b41a34008ad16233a">Configuration&lt; Allocator &gt;</a>, <a class="el" href="struct_statistics.html#acc2dfb1a24c8cd351ccb16e0cdd0e2d9">Statistics&lt; Allocator &gt;</a></li>
 <li>print_solution()&#160;:&#160;<a class="el" href="struct_abstract_domains.html#ad390e307245412ec0baee7f802d56b6d">AbstractDomains&lt; Universe, BasicAllocator, PropAllocator, StoreAllocator &gt;</a></li>
+<li>print_stat()&#160;:&#160;<a class="el" href="struct_statistics.html#a9c84dfdb1c98cb0094f658961aaa64db">Statistics&lt; Allocator &gt;</a></li>
 <li>print_statistics&#160;:&#160;<a class="el" href="struct_configuration.html#ad4b8d3dc5fa618691241f82ca0407d06">Configuration&lt; Allocator &gt;</a></li>
+<li>print_timing_stat()&#160;:&#160;<a class="el" href="struct_statistics.html#a3225bdbad86ed6d1e5f039d11e351a86">Statistics&lt; Allocator &gt;</a></li>
 <li>problem_path&#160;:&#160;<a class="el" href="struct_configuration.html#a0cb163b34ca0cb8d9dca2e65345e5ab6">Configuration&lt; Allocator &gt;</a></li>
 <li>prop_allocator&#160;:&#160;<a class="el" href="struct_abstract_domains.html#abbced67ac6f10ece988f632e1bc9b34c">AbstractDomains&lt; Universe, BasicAllocator, PropAllocator, StoreAllocator &gt;</a></li>
 <li>prop_allocator_type&#160;:&#160;<a class="el" href="struct_abstract_domains.html#a83cbd890abd795757263dfff456840c2">AbstractDomains&lt; Universe, BasicAllocator, PropAllocator, StoreAllocator &gt;</a></li>
-<li>propagation_time&#160;:&#160;<a class="el" href="struct_statistics.html#a61f13dc2fc0ae40c1d48736f5f880a7c">Statistics</a></li>
 <li>prune()&#160;:&#160;<a class="el" href="struct_abstract_domains.html#ad7562ff2c8012de46d646d81e6de1ea2">AbstractDomains&lt; Universe, BasicAllocator, PropAllocator, StoreAllocator &gt;</a></li>
 </ul>
 
 
 <h3><a id="index_s" name="index_s"></a>- s -</h3><ul>
-<li>search_time&#160;:&#160;<a class="el" href="struct_statistics.html#a51d6f87b0edc7a75979a7d4146a430da">Statistics</a></li>
 <li>search_tree&#160;:&#160;<a class="el" href="struct_abstract_domains.html#a82c62abcf9b5ffe9f98c25a5a4f70681">AbstractDomains&lt; Universe, BasicAllocator, PropAllocator, StoreAllocator &gt;</a></li>
 <li>simplifier&#160;:&#160;<a class="el" href="struct_abstract_domains.html#a974e142698e0e9d991a32191eb5e9ebe">AbstractDomains&lt; Universe, BasicAllocator, PropAllocator, StoreAllocator &gt;</a></li>
-<li>solutions&#160;:&#160;<a class="el" href="struct_statistics.html#ac0448a72f46c728d676ff93a13ddf86e">Statistics</a></li>
+<li>simplify&#160;:&#160;<a class="el" href="struct_configuration.html#a26490ac1c9e77e7a5860a980ab836b46">Configuration&lt; Allocator &gt;</a></li>
+<li>solutions&#160;:&#160;<a class="el" href="struct_statistics.html#a8cd7b54b348f52447b90d992998f165c">Statistics&lt; Allocator &gt;</a></li>
 <li>solver_output&#160;:&#160;<a class="el" href="struct_abstract_domains.html#ab66edf856f207fdd8fdbdc014a8db521">AbstractDomains&lt; Universe, BasicAllocator, PropAllocator, StoreAllocator &gt;</a></li>
 <li>Split&#160;:&#160;<a class="el" href="struct_abstract_domains.html#a920e2e3271a96fc3c8819388812d8b04">AbstractDomains&lt; Universe, BasicAllocator, PropAllocator, StoreAllocator &gt;</a></li>
 <li>split&#160;:&#160;<a class="el" href="struct_abstract_domains.html#aac6c0700cf3580a858e00fac362c9d6d">AbstractDomains&lt; Universe, BasicAllocator, PropAllocator, StoreAllocator &gt;</a></li>
 <li>stack_kb&#160;:&#160;<a class="el" href="struct_configuration.html#a7bf2a5f05f6e8b1ebcfabcb786bea386">Configuration&lt; Allocator &gt;</a></li>
-<li>Statistics()&#160;:&#160;<a class="el" href="struct_statistics.html#abb63a0cc480576b9724083512e28e9bb">Statistics</a></li>
-<li>stats&#160;:&#160;<a class="el" href="struct_abstract_domains.html#ab65b9fdeb0354773c837a82d88532796">AbstractDomains&lt; Universe, BasicAllocator, PropAllocator, StoreAllocator &gt;</a></li>
+<li>start_timer_host()&#160;:&#160;<a class="el" href="struct_statistics.html#a7a0a40e3f4918320fb35639b0a950be1">Statistics&lt; Allocator &gt;</a>, <a class="el" href="struct_timing_statistics.html#aac00c6d4380618407190d26ffb814c45">TimingStatistics&lt; Allocator &gt;</a></li>
+<li>Statistics&#160;:&#160;<a class="el" href="struct_statistics.html#a7d7510ab418eb11bc4b18d5a85ba7ff4">Statistics&lt; Allocator &gt;</a></li>
+<li>stats&#160;:&#160;<a class="el" href="struct_abstract_domains.html#a4079f4eda90c5a3162357423aedae435">AbstractDomains&lt; Universe, BasicAllocator, PropAllocator, StoreAllocator &gt;</a></li>
 <li>stop_after_n_nodes&#160;:&#160;<a class="el" href="struct_configuration.html#a02b9174886f673d82253debae3e21f8b">Configuration&lt; Allocator &gt;</a></li>
 <li>stop_after_n_solutions&#160;:&#160;<a class="el" href="struct_configuration.html#a6a5fed44ea1cc3940c1eae011015a75f">Configuration&lt; Allocator &gt;</a></li>
+<li>stop_timer()&#160;:&#160;<a class="el" href="struct_statistics.html#a866543508ce34abedb14f49af164c078">Statistics&lt; Allocator &gt;</a>, <a class="el" href="struct_timing_statistics.html#a5d5b4f792822fa141ff24fd27da044fd">TimingStatistics&lt; Allocator &gt;</a></li>
 <li>store&#160;:&#160;<a class="el" href="struct_abstract_domains.html#a6163aae266ebdf3370b3fedc63c150a3">AbstractDomains&lt; Universe, BasicAllocator, PropAllocator, StoreAllocator &gt;</a></li>
 <li>store_allocator&#160;:&#160;<a class="el" href="struct_abstract_domains.html#a1cafafcffd4f73c00729aef4e3abff3d">AbstractDomains&lt; Universe, BasicAllocator, PropAllocator, StoreAllocator &gt;</a></li>
 <li>store_allocator_type&#160;:&#160;<a class="el" href="struct_abstract_domains.html#ac1001cedd4745e2265ce6dc539582835">AbstractDomains&lt; Universe, BasicAllocator, PropAllocator, StoreAllocator &gt;</a></li>
@@ -250,7 +249,11 @@ $(function(){initNavTree('functions.html',''); initResizable(true); });
 
 <h3><a id="index_t" name="index_t"></a>- t -</h3><ul>
 <li>this_type&#160;:&#160;<a class="el" href="struct_abstract_domains.html#a2f13dd74f45325ea9b9e2c221ae9a92a">AbstractDomains&lt; Universe, BasicAllocator, PropAllocator, StoreAllocator &gt;</a></li>
+<li>time_ms_of()&#160;:&#160;<a class="el" href="struct_statistics.html#a6ff6489ec4ae1a5c3c5633593ba52984">Statistics&lt; Allocator &gt;</a>, <a class="el" href="struct_timing_statistics.html#aa762d94692e343ead15a17410453e956">TimingStatistics&lt; Allocator &gt;</a></li>
+<li>time_of()&#160;:&#160;<a class="el" href="struct_timing_statistics.html#ab9cfc6816109fa20e51fe8e722c9cfef">TimingStatistics&lt; Allocator &gt;</a></li>
 <li>timeout_ms&#160;:&#160;<a class="el" href="struct_configuration.html#a551421ac989bd6fed56f7e09de7618e2">Configuration&lt; Allocator &gt;</a></li>
+<li>timers&#160;:&#160;<a class="el" href="struct_statistics.html#a2f998684fbd702bb270fb215af81b192">Statistics&lt; Allocator &gt;</a></li>
+<li>TimingStatistics&#160;:&#160;<a class="el" href="struct_timing_statistics.html#a5ea6883281e40d2d31874bc6b2e9c53a">TimingStatistics&lt; Allocator &gt;</a></li>
 <li>type_and_interpret()&#160;:&#160;<a class="el" href="struct_abstract_domains.html#a092ab66f78fd89cf173f34c6d89574f1">AbstractDomains&lt; Universe, BasicAllocator, PropAllocator, StoreAllocator &gt;</a></li>
 <li>typing()&#160;:&#160;<a class="el" href="struct_abstract_domains.html#a135205874c1299310449ea5903e29366">AbstractDomains&lt; Universe, BasicAllocator, PropAllocator, StoreAllocator &gt;</a></li>
 </ul>
@@ -260,11 +263,12 @@ $(function(){initNavTree('functions.html',''); initResizable(true); });
 <li>UniqueAlloc()&#160;:&#160;<a class="el" href="struct_unique_alloc.html#a9d92b44dde0c187068093f722e125f5a">UniqueAlloc&lt; Alloc, n &gt;</a></li>
 <li>universe_type&#160;:&#160;<a class="el" href="struct_abstract_domains.html#abc9eee6857a4d90a369d1b04c02eaec0">AbstractDomains&lt; Universe, BasicAllocator, PropAllocator, StoreAllocator &gt;</a></li>
 <li>update_solution_stats()&#160;:&#160;<a class="el" href="struct_abstract_domains.html#ab9e82fedabb22eabaa760d0c526d8fa2">AbstractDomains&lt; Universe, BasicAllocator, PropAllocator, StoreAllocator &gt;</a></li>
+<li>update_timer()&#160;:&#160;<a class="el" href="struct_statistics.html#a7e43cc34ec33533d875ab085d1e0ce93">Statistics&lt; Allocator &gt;</a>, <a class="el" href="struct_timing_statistics.html#a89baab977fd4bc0f98b23bf335c01f5b">TimingStatistics&lt; Allocator &gt;</a></li>
 </ul>
 
 
 <h3><a id="index_v" name="index_v"></a>- v -</h3><ul>
-<li>variables&#160;:&#160;<a class="el" href="struct_statistics.html#addf157a3464b41f04afc7230a11cbd31">Statistics</a></li>
+<li>variables&#160;:&#160;<a class="el" href="struct_statistics.html#a8a46fc0092e09e1090ebbe518896dbd9">Statistics&lt; Allocator &gt;</a></li>
 <li>verbose_solving&#160;:&#160;<a class="el" href="struct_configuration.html#a339e1d8e3df826f7eb6f3dbed59adeb5">Configuration&lt; Allocator &gt;</a></li>
 <li>version&#160;:&#160;<a class="el" href="struct_configuration.html#af7e3e8bb8ca188b62a09524337b039d1">Configuration&lt; Allocator &gt;</a></li>
 </ul>

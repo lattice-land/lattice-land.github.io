@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['flatzinc_0',['FLATZINC',['../config_8hpp.html#a7a1886da996cfe677c935435eff2adeba4c0bad1aa63a8ee4fca843704d2ee436',1,'config.hpp']]]
+  ['dive_0',['DIVE',['../statistics_8hpp.html#a6e0035edd58cc6ca8c94b5f9723a0d80a345c2df90fed0e74ea3c8926e13e5f12',1,'statistics.hpp']]]
 ];
