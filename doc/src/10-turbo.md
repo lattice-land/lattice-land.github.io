@@ -1,11 +1,11 @@
 # v1.2.4: Ternary Normal Form
 
-_27 December 2024_ During the hackathon with Nvidia, we profiled the code and found out that the representation of propagators was problematic.
+_27 December 2024_ During the hackathon with Nvidia, we profiled the code and discovered that the representation of propagators was problematic.
 Let's take an example with the constraint `x * x + y < 5` which is internally represented by the following AST:
 
 <img src="turbo-v1.2/propagator_tree.png" alt="isolated" width="250"/>
 
-Because the constraints can be of any arity and arbitrarily deep, we have no choice but to represent this tree with pointers and dynamic memory allocation.
+Because the constraints can have any arity and be arbitrarily deep, we have no choice but to represent this tree with pointers and dynamic memory allocation.
 In Turbo, we used [variant](https://en.cppreference.com/w/cpp/utility/variant) and [shared_ptr](https://en.cppreference.com/w/cpp/memory/shared_ptr) to represent propagators.
 The propagators are executed using a switch statement of the following form:
 ```cpp
@@ -23,7 +23,7 @@ In the profiling report, it is shown that `switch(term.index())` generates a lot
 Previously, we have reduced divergent branches by sorting propagators with the same shape (see [sorting propagators](https://lattice-land.github.io/6-turbo.html)).
 But the main issue was the uncoalesced accesses to the propagators.
 
-To solve this issue, we propose to decompose the problem into constraints that can be represented without pointers (fixed depth) and that are small (to enable coalesced memory load).
+To address this, we propose decomposing the problem into constraints that can be represented without pointers (fixed depth) and that are small (to enable coalesced memory load).
 For this purpose, we introduce a new problem decomposition call the _ternary normal form_ (TNF) where all propagators are of the form `x = y <op> z` with `x,y,z` variables.
 Furthermore, we take a minimal set of operators that includes the arithmetic operators `+,-,*,/,min,max` and two comparison operators `<=, =`.
 All the other constraints are rewritten into those operators.
@@ -50,10 +50,9 @@ struct bytecode_type {
 
 ## Problems in Ternary Normal Form
 
-One obvious disadvantage of this approach is the increased number of temporary variables and constraints.
-The increase in the number of constraints is relatively low and stable across problems (between 1x and 4x).
-However, the increase in the number of variables ranges between 1x and 139x (on Wordpress).
-We should investigate this in the future to reduce the number of generated variables.
+One obvious drawback of this approach is the increased number of temporary variables and constraints.
+While the increase in the number of constraints is relatively low and stable across problems (between 1x and 4x), the increase in the number of variables ranges between 1x and 139x in the case of the Wordpress problem.
+This variability warrants further investigation in the future to explore ways of reducing the number of generated variables.
 
 | Problem | Data | #Vars | #Vars (TNF) | #Constraints | #Constraints (TNF) |
 |----------|------|-------|-------------|--------------|--------------------|
@@ -86,21 +85,20 @@ The following table compares hybrid v1.2.3 and hybrid v1.2.4, both with 128 bloc
 | Propagators memory | 19.91 | -80% | 15 | 0.85MB | -90% | 0.42MB | -89% |
 | Variables store memory | 100.00 | +656% | 0 | 402.75KB | +718% | 208.20KB | +1844% |
 
-Let us analyze the speedup of this new version v1.2.4.
+Let's analyze the speedup of this new version v1.2.4.
 The number of fixpoint iterations per second has increased by 254% which is a very large gain.
-However, the increase in nodes per second is only 29%, also only on 11/16 problems.
-There are two reasons behind this mismatch:
+However, the increase in nodes per second is only 29%, and it increases in only 11 out of 16 problems.
+There are two reasons behind this discrepancy:
 
-1. The convergence of the fixpoint loop is two times slower than in v1.2.3, probably due to the fact we did not sort the TNF propagators properly.
-On all 16 problems, the new version always needs more iterations to converge than in v1.2.3.
-2. The increase in variables leads to fewer problem being stored in shared memory: only 3/16 in comparison to 11/16 before.
+1. The convergence of the fixpoint loop is two times slower than in v1.2.3, likely due to improper sorting of the TNF propagators.
+In all 16 problems, the new version requires more iterations to converge compared to v1.2.3.
+2. The increase in variables results in fewer problem being stored in shared memory: only 3 out of 16 in comparison to 11 out of 16 before.
 
-The first point is somewhat compensated by the number of fixpoint iteration per second which almost double.
-It shows the effectiveness of the TNF for GPU architecture.
-Perhaps more surprisingly, the memory footprint of the propagators is much lower than in v1.2.3, with an average decrease of 80%.
-Although we have more propagators, each one takes only 16 bytes whereas, in the propagator representation of v1.2.3 we had the overhead of the shared pointer and variant data structures.
+The first point is somewhat mitigated by the number of fixpoint iterations per second which almost double, demonstrating the effectiveness of TNF for GPU architecture.
+Perhaps more surprisingly, the memory footprint of the propagators is much lower than in v1.2.3, with an average reduction of 80%.
+Although we have more propagators, each one requires only 16 bytes, as opposed to v1.2.3, where propagator representation involved additional overhead from the shared pointer and variant data structures.
 
-As for the full GPU version, we notice a similar behavior (we compare against full GPU v1.2.0 because v1.2.{1-3} were only improvement on the hybrid version):
+As for the full GPU version, we notice a similar behavior (we compare against full GPU v1.2.0 because v1.2.{1-3} were only modifying the hybrid version):
 
 | Metrics | Normalized average [0,100] | Δ v1.2.0 | #best (_/16) | Average | Δ v1.2.0 | Median | Δ v1.2.0 |
 |---------|----------------------------|----------|--------------|---------|----------|--------|----------|
@@ -112,7 +110,39 @@ As for the full GPU version, we notice a similar behavior (we compare against fu
 
 ## Profiling
 
-The hackathon reminded me that we should always guide the next improvement according to what the profiler says.
-Obviously, it is a known principle but so easy to forget...
+The hackathon reminded me that we should always prioritize the next improvement based on what the profiler reveals.
+While this is a well-known principle, it's easy to forget.
 
-I equipped the code with new
+During the hackathon, we mainly used the tool `ncu` to profile our kernels.
+It creates a report that can be visualized with `ncu-ui` and provides various metrics, such as the overall utilization of the SMs, the number of uncoalesced accesses and their locations in the code, the L1/L2 cache hit rates, warp state statistics, and more.
+It was in this report we identified the issues with the previous AST-based representation of the propagators.
+Among the remaining issues, the report tells us that warps are spending most of their time waiting on `__syncthreads()` barriers or global memory loads.
+
+Beyond those low-level GPU optimizations, we can also examine the overall behavior of the constraint solver to identify which parts of the algorithm need further optimization.
+To achieve this, we equipped Turbo with time counters to track where most of the time is spent in the code.
+Let's first focus on the full GPU architecture (`-arch gpu`).
+
+![Turbo GPU v1.2.4 Time Profile](turbo-v1.2/turbogpu-v1.2.4-time-profile.png)
+
+Clearly, the preprocessing time and the time spent eliminating the entailed propagators (from v1.2.3) are negligible.
+The orange section represents the propagation time, and the green section represents the search time.
+Prior to optimizing the propagation, the search accounted for about 10-20% of the total time.
+However, it has now become a clear candidate for further optimization.
+In the full GPU architecture, the search is handled by a single GPU thread which is why it is quite slow.
+
+Next, we look at the hybrid architecture (`-or 128 -arch hybrid`).
+
+![Turbo Hybrid v1.2.4 Time Profile (128 blocks)](turbo-v1.2/turbohybrid128-v1.2.4-time-profile.png)
+
+Firstly, it is clear that searching on the CPU and memory transfers are not (yet) the bottleneck of the hybrid algorithm.
+The time spent in the fixpoint loop is somewhat similar to the full-GPU architecture.
+The main difference is the significant amount of time spent waiting for the CPU, as represented by the red section.
+One possible explanation is that we have too many CPU threads, while the CPU has few cores (only 10).
+To confirm this hypothesis, we should test this version on the GH200, which is powered by a 72-cores ARM CPU.
+
+Based on these charts, there are at least two opportunities to improve efficiency:
+1. Continue optimizing the fixpoint loop (this would benefit both architectures, and potentially provide even greater improvements for the hybrid architecture on a CPU with many cores).
+2. Parallelize the search (this would benefit only the full-GPU architecture).
+
+From a research perspective it is more interesting to focus on the fixpoint loop parallelization.
+Furthermore, improving the full-GPU version---which does not compile on modern GPUs---is less exciting.

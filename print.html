@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="en" class="light" dir="ltr">
+<html lang="en" class="light sidebar-visible" dir="ltr">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
@@ -8,7 +8,7 @@
 
 
         <!-- Custom HTML head -->
-        
+
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff">
@@ -32,15 +32,17 @@
         <!-- Custom theme stylesheets -->
         <link rel="stylesheet" href="custom.css">
 
-    </head>
-    <body class="sidebar-visible no-js">
-    <div id="body-container">
+
         <!-- Provide site root to javascript -->
         <script>
             var path_to_root = "";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
-
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script>
             try {
@@ -62,19 +64,16 @@
             var theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
-            var html = document.querySelector('html');
+            const html = document.documentElement;
             html.classList.remove('light')
             html.classList.add(theme);
-            var body = document.querySelector('body');
-            body.classList.remove('no-js')
-            body.classList.add('js');
+            html.classList.add("js");
         </script>
 
         <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
 
         <!-- Hide / unhide sidebar before it is displayed -->
         <script>
-            var body = document.querySelector('body');
             var sidebar = null;
             var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
@@ -84,45 +83,25 @@
                 sidebar = 'hidden';
             }
             sidebar_toggle.checked = sidebar === 'visible';
-            body.classList.remove('sidebar-visible');
-            body.classList.add("sidebar-" + sidebar);
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="index.html"><strong aria-hidden="true">1.</strong> Lattice Land</a></li><li class="chapter-item expanded affix "><li class="part-title">CUDA Battery Library</li><li class="chapter-item expanded "><a href="1-cuda-battery.html"><strong aria-hidden="true">2.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="2-cuda-battery.html"><strong aria-hidden="true">3.</strong> Data from CPU to GPU</a></li><li class="chapter-item expanded "><a href="3-cuda-battery.html"><strong aria-hidden="true">4.</strong> CMake Project</a></li><li class="chapter-item expanded "><a href="4-cuda-battery.html"><strong aria-hidden="true">5.</strong> In-Kernel Allocation</a></li><li class="chapter-item expanded "><a href="5-cuda-battery.html"><strong aria-hidden="true">6.</strong> Shared Memory Allocator</a></li><li class="chapter-item expanded "><a href="6-cuda-battery.html"><strong aria-hidden="true">7.</strong> Caution</a></li><li class="chapter-item expanded affix "><li class="part-title">Seminars</li><li class="chapter-item expanded "><a href="abstract-week.html"><strong aria-hidden="true">8.</strong> Abstract Interpretation Workshop (2024)</a></li><li class="chapter-item expanded affix "><li class="part-title">Turbo Technical Journal</li><li class="chapter-item expanded "><a href="1-turbo.html"><strong aria-hidden="true">9.</strong> Introducing Turbo</a></li><li class="chapter-item expanded "><a href="2-turbo.html"><strong aria-hidden="true">10.</strong> v1.0.1: Unoptimized Turbo</a></li><li class="chapter-item expanded "><a href="3-turbo.html"><strong aria-hidden="true">11.</strong> v1.1.{0-1}: Preprocessing</a></li><li class="chapter-item expanded "><a href="4-turbo.html"><strong aria-hidden="true">12.</strong> v1.1.2: (Dis)equality Propagator</a></li><li class="chapter-item expanded "><a href="5-turbo.html"><strong aria-hidden="true">13.</strong> v1.1.3: Warp Synchronization</a></li><li class="chapter-item expanded "><a href="6-turbo.html"><strong aria-hidden="true">14.</strong> v1.1.{4-5}: Sorting Propagators</a></li><li class="chapter-item expanded "><a href="7-turbo.html"><strong aria-hidden="true">15.</strong> v1.1.{6-7}: Sharing Propagators</a></li><li class="chapter-item expanded "><a href="8-turbo.html"><strong aria-hidden="true">16.</strong> v1.2.0: Refactoring</a></li><li class="chapter-item expanded "><a href="9-turbo.html"><strong aria-hidden="true">17.</strong> Open Hackathon</a></li><li class="chapter-item expanded affix "><li class="part-title">About</li><li class="chapter-item expanded "><a href="about.html"><strong aria-hidden="true">18.</strong> About</a></li></ol>
-            </div>
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
             </div>
         </nav>
 
-        <!-- Track and set sidebar scroll position -->
-        <script>
-            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
-            sidebarScrollbox.addEventListener('click', function(e) {
-                if (e.target.tagName === 'A') {
-                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
-                }
-            }, { passive: true });
-            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
-            sessionStorage.removeItem('sidebar-scroll');
-            if (sidebarScrollTop) {
-                // preserve sidebar scroll position when navigating via links within sidebar
-                sidebarScrollbox.scrollTop = sidebarScrollTop;
-            } else {
-                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
-                var activeSection = document.querySelector('#sidebar .active');
-                if (activeSection) {
-                    activeSection.scrollIntoView({ block: 'center' });
-                }
-            }
-        </script>
-
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar-hover-placeholder"></div>
                 <div id="menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
                         <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
@@ -1179,62 +1158,286 @@ Here’s the plan moving forward:</p>
 <li>Improve the propagators abstract domain to disable entailed propagators.</li>
 <li>Minimize thread divergence by applying a binary decomposition to all constraints.</li>
 </ol>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="open-hackathon"><a class="header" href="#open-hackathon">Open Hackathon</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="v12123-open-hackathon"><a class="header" href="#v12123-open-hackathon">v1.2.{1,2,3}: Open Hackathon</a></h1>
 <p><em>17 October 2024</em> We are participating in the <a href="https://www.openhackathons.org/s/siteevent/a0C5e000009W8MqEAK/se000307?p=4OVal7qBAY6%2FFLWHyETbkwh66SClhyelBl79%2FR1tID1ERZR9ly9oZEseBU%2B%2FQOAe%2B1PJ%2BAdY%2F%2F62bDJM0SlZYg%3D%3D">Poland Open Hackathon</a>.
-This page will summarize our progresses and experience.
-The hackathon is spread over 2 weeks starting by a meeting on 15 October to explain the GH200 architecture that equip the <a href="https://www.cyfronet.pl/en/19951,artykul,helios_supercomputer.html">Helios HPC</a>, how to connect and run jobs on it, and then discuss with our mentors.
-Among the mentors, we are lucky to have an engineer from Nvidia working on <a href="https://developer.nvidia.com/blog/record-breaking-nvidia-cuopt-algorithms-deliver-route-optimization-solutions-100x-faster/">cuOpt</a> and a new secret <a href="https://developer.nvidia.com/blog/accelerate-large-linear-programming-problems-with-nvidia-cuopt/">linear programming solver</a>.
-During the meeting, I try to compile Turbo on the HPC and... boom, <code>nvcc</code> is killed by the memory manager because it is using too much memory.
+This page summarizes our progresses and experience.
+The hackathon spans 2 weeks, beginning with a meeting on 15 October to explain the GH200 architecture that powers the <a href="https://www.cyfronet.pl/en/19951,artykul,helios_supercomputer.html">Helios HPC</a>, how to connect and run jobs on it, and then discuss with our mentors: Akif Çördük (Nvidia), Alice Boucher (Nvidia), Michel Herrera Sanchez.
+Among the mentors, we are fortunate to have two engineers from Nvidia working on <a href="https://developer.nvidia.com/blog/record-breaking-nvidia-cuopt-algorithms-deliver-route-optimization-solutions-100x-faster/">cuOpt</a> and a <a href="https://developer.nvidia.com/blog/accelerate-large-linear-programming-problems-with-nvidia-cuopt/">linear programming solver</a>.</p>
+<p>During the first meeting, I try to compile Turbo on the Helios HPC and... boom, <code>nvcc</code> is killed by the memory manager due to excessive memory usage.
 I encountered a similar problem last year and reported the bug to Nvidia.
-The bug is still opened, but by adding <code>__noinline__</code> attributes in key places, I could work around it and compile it.
-It seems that for <code>sm_90</code> architectures, the compiler is again doing very aggressive optimizations, and Turbo is just too large for it.
-By putting the full solver in a single kernel, we avoid the memory transfers between the CPU and GPU, but even when the code is compiling, the bottleneck is the high number of registers per thread and the size of the kernel.
-The next meeting is on 22 October, for the whole day.
-Without a code that is compiling, it is going to be hard to profile and optimize anything...
-After a few days, I managed to develop a new hybrid algorithm where only the propagation loop is on the GPU, and the search is on the CPU.
-It is now compiling fine on Helios.
-This is the version 1.2.1 of Turbo, against which we will compare the progresses made during this Hackathon.</p>
-<h2 id="turbo-v121-hybrid-dive-and-solve-algorithm"><a class="header" href="#turbo-v121-hybrid-dive-and-solve-algorithm">Turbo v1.2.1: Hybrid Dive and Solve Algorithm</a></h2>
-<p>If you don't know the "propagate-and-search" algorithm of constraint programming, please watch <a href="http://hyc.io/videos/aaai2022.mp4">this video</a> I made for a conference (thanks Covid), starting at 5'30''.
-It also explains how this algorithm is executed on parallel on GPU.</p>
-<p>We keep the same algorithm as full-GPU Turbo but only performs the propagation on the GPU.
+The bug was closed as "will not fix", citing that our kernel is simply too large and needed to be split into smaller kernels.
+By adding <code>__noinline__</code> attributes in key places, I could work around the bug and compile it on <code>sm_70</code> and <code>sm_86</code> architectures.
+It seems that for <code>sm_90</code> architectures (of the GH200), the compiler is again doing very aggressive optimizations, and Turbo is just too large for it.</p>
+<p>Although the full GPU version avoids memory transfers between the CPU and GPU, we still hit other bottlenecks due to the kernel's size such as high register pressure.
+The next meeting is planned on 22 October, for the whole day, and our code is not compiling---not the best start for this hackathon.
+After a few days, I developed a new hybrid algorithm where the propagation loop runs on the GPU, and the search runs on the CPU.
+This solution successfully compiles on Helios.</p>
+<p>The main event takes place online on 28, 29 and 30 of October and each time we stayed connected online and discussed with the mentors as needed from around 9AM to 3 or 4PM.</p>
+<p>Let's see an executive summary of this hackathon:</p>
+<ul>
+<li><em>15 October 2024</em>: Turbo 1.2.0 is not compiling on Helios (ptxas is memkill).
+<ul>
+<li>Reason: Kernel is too large.</li>
+</ul>
+</li>
+<li><em>22 October 2024</em>: New design with a smaller kernel (Turbo v1.2.1).
+<ul>
+<li>The CPU controls the search loop, a kernel is run each time we propagate.</li>
+<li>Use <code>N</code> CPU threads, each launching a kernel with 1 block using stream.</li>
+<li>Compiling, but too slow, too many streams (only <code>1628</code> nodes per second...).</li>
+</ul>
+</li>
+<li><em>28 October 2024</em>: New design with a persistent kernel (v1.2.2).
+<ul>
+<li><code>N</code> CPU threads communicate with <code>N</code> blocks of a persistent kernel.</li>
+<li>Compiling, on-par with the full GPU version.</li>
+</ul>
+</li>
+<li><em>30 October 2024</em>: Deactivation of entailed propagators (v1.2.3).
+<ul>
+<li>Use <a href="https://nvidia.github.io/cccl/cub/api/classcub_1_1BlockScan.html">CUB scan</a> to deactivate propagators that are entailed during search.</li>
+<li>Obtained 10% speed-up.</li>
+</ul>
+</li>
+</ul>
+<h2 id="hybrid-dive-and-solve-algorithm-v122"><a class="header" href="#hybrid-dive-and-solve-algorithm-v122">Hybrid Dive and Solve Algorithm (v1.2.2)</a></h2>
+<p>If you don't know the "propagate-and-search" algorithm of constraint programming, please watch <a href="https://youtu.be/vAzGmkOJveY">this video</a> I made for the AAAI conference (thanks Covid), starting at 5'30'' (if you are familiar with GPUs).
+It also explains how this algorithm is executed in parallel on GPU.</p>
+<p>We keep the same algorithm as full-GPU Turbo (option <code>-arch=gpu</code>) but only performs the propagation on the GPU (option <code>-arch=hybrid</code>).
 The algorithm consists of two parts:</p>
 <ol>
 <li><code>dive(root, path)</code>: From the root of the search tree, commit to the path given to reach a node <code>subroot</code> at a fixed depth.</li>
 <li><code>solve(subroot)</code>: Solve the subproblem <code>subroot</code> by propagate and search.</li>
-<li>When a subproblem has been completely explored, we take a new path to explore if any is left.</li>
+<li>When a subproblem has been completely explored, we take a new path to explore if there is any remaining.</li>
 </ol>
-<p>During the dive and solve operations, the propagation step is always executed on the GPU, by calling a kernel parametrized with a single block.</p>
-<p>To execute this algorithm on multiple blocks, we create <code>N</code> CPU threads that will explore in parallel different <code>path</code> and solve different subproblems.
-The file <code>https://github.com/ptal/turbo/blob/v1.2.1/include/hybrid_dive_and_solve.hpp</code> documents this algorithm in more detail.</p>
-<p>... benchmarks result on Helios and on my desktop to compare to come...</p>
-<h2 id="how-to-compile-and-run-turbo-on-helios"><a class="header" href="#how-to-compile-and-run-turbo-on-helios">How to compile and run Turbo on Helios</a></h2>
-<p>First, download the project and its dependencies:</p>
-<pre><code>mkdir lattice-land
-cd lattice-land
-git clone git@github.com:NVIDIA/cccl.git
-git clone git@github.com:xcsp3team/XCSP3-CPP-Parser.git
-git clone git@github.com:ptal/cpp-peglib.git
-git clone git@github.com:lattice-land/cuda-battery.git
-git clone git@github.com:lattice-land/lala-core.git
-git clone git@github.com:lattice-land/lattice-land.github.io.git
-git clone git@github.com:lattice-land/lala-pc.git
-git clone git@github.com:lattice-land/lala-power.git
-git clone git@github.com:lattice-land/lala-parsing.git
-git clone git@github.com:lattice-land/.github.git
-git clone --recursive git@github.com:lattice-land/bench.git
-git clone --recursive git@github.com:ptal/turbo.git
+<p>During the dive and solve operations, the propagation step is always executed on the GPU.
+Starting from version 1.2.2, we execute a single kernel and each CPU thread interacts with a single block of that persistent kernel.
+We compare the full-GPU architecture and this hybrid architecture in the following table (this is on my desktop computer (RTX A5000) due to 1.2.0 not compiling on Helios).</p>
+<div class="table-wrapper"><table><thead><tr><th>Metrics</th><th>Normalized average [0,100]</th><th>Δ v1.2.0</th><th>#best (_/16)</th><th>Average</th><th>Δ v1.2.0</th><th>Median</th><th>Δ v1.2.0</th></tr></thead><tbody>
+<tr><td>Nodes per second</td><td>93.93</td><td>-4%</td><td>7</td><td>10271.03</td><td>-1%</td><td>2519.29</td><td>-19%</td></tr>
+<tr><td>Fixpoint iterations per second</td><td>95.76</td><td>-2%</td><td>7</td><td>60155.16</td><td>-1%</td><td>31502.75</td><td>-1%</td></tr>
+<tr><td>Fixpoint iterations per node</td><td>99.76</td><td>+2%</td><td>6</td><td>16.77</td><td>+15%</td><td>9.00</td><td>0%</td></tr>
+</tbody></table>
+</div>
+<p>The hybrid version is slightly less efficient than with the full-GPU version, but considering the number of round-trips between the CPU and GPU I was expecting worst results.
+Nonetheless, because the kernel is now smaller, we can execute more blocks in parallel.
+With 128 blocks, we surpass the version v1.2.0 as shown in the following table.</p>
+<div class="table-wrapper"><table><thead><tr><th>Metrics</th><th>Normalized average [0,100]</th><th>Δ v1.2.0</th><th>#best (_/16)</th><th>Average</th><th>Δ v1.2.0</th><th>Median</th><th>Δ v1.2.0</th></tr></thead><tbody>
+<tr><td>Nodes per second</td><td>94.97</td><td>+5%</td><td>8</td><td>13475.41</td><td>+29%</td><td>3029.66</td><td>-2%</td></tr>
+<tr><td>Fixpoint iterations per second</td><td>94.53</td><td>+4%</td><td>8</td><td>81399.98</td><td>+33%</td><td>33540.01</td><td>+5%</td></tr>
+<tr><td>Fixpoint iterations per node</td><td>97.39</td><td>0%</td><td>11</td><td>15.43</td><td>+5%</td><td>9.20</td><td>+2%</td></tr>
+</tbody></table>
+</div>
+<p>In terms of the best objectives found, the hybrid version performs better with 64 blocks than with 128 blocks.
+Indeed, with 128 blocks, we explore a wider search tree at the cost of exploring fewer nodes per block.
+It is known as the exploration-exploitation dilemma.
+Until we implement better search strategies and test with a longer timeout, I prefer to stick to the nodes per second metric in order to compare the raw efficiency.</p>
+<p><img src="turbo-v1.2/turbogpu-v1.2.0-vs-turbohybrid64-v1.2.2.png" alt="TurboGPU-v1.2.0 vs TurboHybrid64-v1.2.2" />
+<img src="turbo-v1.2/turbogpu-v1.2.0-vs-turbohybrid128-v1.2.2.png" alt="TurboGPU-v1.2.0 vs TurboHybrid128-v1.2.2" /></p>
+<h2 id="deactivation-of-entailed-propagators-and-no-atomic-v123"><a class="header" href="#deactivation-of-entailed-propagators-and-no-atomic-v123">Deactivation of Entailed Propagators and No Atomic (v1.2.3)</a></h2>
+<p>A frequent optimization is to avoid calling propagators that are entailed in the fixpoint loop.
+To illustrate with a simple example, if <code>x=[1,3]</code>, we know for certain that <code>x &gt; 0</code> is satisfied and will remain satisfy for the rest of the exploration of the current subtree.
+Therefore, the propagator implementing <code>x &gt; 0</code> no longer needs to be executed.</p>
+<p>To deactivate entailed propagators, we maintain an array <code>vector&lt;int&gt; indexes</code> giving the indexes of the propagators not yet entailed.
+The fixpoint loop can be easily modified to iterate over <code>indexes</code> instead of iterating from <code>0</code> to <code>P</code> where <code>P</code> is the number of propagators.</p>
+<p>Furthermore, it is easy to verify in parallel that each propagator is entailed, as this is a read-only check.
+We can assign each thread to one propagator to check the entailment.
+This step produces a mask <code>vector&lt;bool&gt; mask</code> representing which propagators are still active.
+The challenging part is to create the new array <code>indexes</code> representing that subset in parallel.
+This is a known problem in GPU programming and the scan algorithm (aka. prefix sum) allows to parallelize this step and to copy into a new array <code>indexes2</code> only the values <code>indexes[i]</code> such that <code>mask[indexes[i]]</code> is <code>true</code>.</p>
+<p>This version comes with a more important optimization.
+It is actually known that tearing on integers is not possible in CUDA (i.e., a thread writing half of an integer while the other thread write the other half).
+Although it is not formally documented, much code relies on load/store atomicity of primitive types according to our mentors.
+Therefore, we can safely remove the atomic unlike what I concluded in the <a href="https://lattice-land.github.io/8-turbo.html">v1.2.0 post</a>.</p>
+<p>This optimization proves very useful with a 17% increase in nodes per second with 64 blocks, and a 28% increase with 128 blocks.
+Previously, removing atomic variables accounted for a 13% increase, which is likely a key factor in this speed-up. Deactivating propagators does not hurt, but seems to be less critical than other optimizations.</p>
+<p>(<code>-or 64 -arch hybrid</code>)</p>
+<div class="table-wrapper"><table><thead><tr><th>Metrics</th><th>Normalized average [0,100]</th><th>Δ v1.2.2</th><th>#best (_/16)</th><th>Average</th><th>Δ v1.2.2</th><th>Median</th><th>Δ v1.2.2</th></tr></thead><tbody>
+<tr><td>Nodes per second</td><td>99.59</td><td>+17%</td><td>14</td><td>11786.66</td><td>+15%</td><td>3252.29</td><td>+29%</td></tr>
+<tr><td>Fixpoint iterations per second</td><td>100.00</td><td>+24%</td><td>16</td><td>81532.87</td><td>+36%</td><td>43905.01</td><td>+39%</td></tr>
+<tr><td>Fixpoint iterations per node</td><td>99.08</td><td>+5%</td><td>4</td><td>18.60</td><td>+11%</td><td>9.10</td><td>+1%</td></tr>
+</tbody></table>
+</div>
+<p>(<code>-or 128 -arch hybrid</code>)</p>
+<div class="table-wrapper"><table><thead><tr><th>Metrics</th><th>Normalized average [0,100]</th><th>Δ v1.2.2</th><th>#best (_/16)</th><th>Average</th><th>Δ v1.2.2</th><th>Median</th><th>Δ v1.2.2</th></tr></thead><tbody>
+<tr><td>Nodes per second</td><td>99.96</td><td>+28%</td><td>15</td><td>18543.27</td><td>+38%</td><td>4082.88</td><td>+35%</td></tr>
+<tr><td>Fixpoint iterations per second</td><td>100.00</td><td>+35%</td><td>16</td><td>129459.21</td><td>+59%</td><td>48995.62</td><td>+46%</td></tr>
+<tr><td>Fixpoint iterations per node</td><td>98.94</td><td>+5%</td><td>4</td><td>17.00</td><td>+10%</td><td>9.19</td><td>0%</td></tr>
+</tbody></table>
+</div>
+<p>This new version also dominates the previous one in terms of objective found.
+Further, we almost close the gap with the full GPU version v1.2.0 which remains better on only one problem.</p>
+<p><img src="turbo-v1.2/turbohybrid64-v1.2.2-vs-turbohybrid64-v1.2.3.png" alt="TurboHybrid64-v1.2.2 vs TurboHybrid64-v1.2.3" />
+<img src="turbo-v1.2/turbohybrid128-v1.2.2-vs-turbohybrid128-v1.2.3.png" alt="TurboHybrid128-v1.2.2 vs TurboHybrid128-v1.2.3" />
+<img src="turbo-v1.2/turbogpu-v1.2.0-vs-turbohybrid128-v1.2.3.png" alt="TurboGPU-v1.2.0 vs TurboHybrid128-v1.2.3" /></p>
+<h2 id="helios-benchmarks"><a class="header" href="#helios-benchmarks">Helios Benchmarks</a></h2>
+<p>We tested the new versions on Helios which is equipped with a superchip GH200 consisting of a CPU of 72 cores and a H200 GPU with 132 SMs whereas my desktop has a CPU with 10 cores and a RTX A5000 GPU with 64 SMs.
+The speedup observed with the GH200 demonstrates excellent scalability.
+Doubling the number of SMs effectively doubles the number of nodes per second.
+The following table compares the hybrid versions with 1 block per SM on my desktop and Helios.</p>
+<div class="table-wrapper"><table><thead><tr><th>Metrics</th><th>Normalized average [0,100]</th><th>Δ v1.2.2</th><th>#best (_/16)</th><th>Average</th><th>Δ v1.2.2</th><th>Median</th><th>Δ v1.2.2</th></tr></thead><tbody>
+<tr><td>Nodes per second</td><td>100.00</td><td>+128%</td><td>16</td><td>33232.29</td><td>+224%</td><td>7796.88</td><td>+209%</td></tr>
+<tr><td>Fixpoint iterations per second</td><td>100.00</td><td>+137%</td><td>16</td><td>184996.45</td><td>+208%</td><td>69359.75</td><td>+120%</td></tr>
+<tr><td>Fixpoint iterations per node</td><td>98.32</td><td>+4%</td><td>6</td><td>19.11</td><td>+14%</td><td>10.03</td><td>+11%</td></tr>
+</tbody></table>
+</div>
+<p>We have more than a linear scaling, probably due to the larger L1 cache and other improvement in the H200 GPU.
+We further improve the nodes per second metric by using 2 blocks per SM (264 blocks).</p>
+<div class="table-wrapper"><table><thead><tr><th>Metrics</th><th>Normalized average [0,100]</th><th>Δ v1.2.2</th><th>#best (_/16)</th><th>Average</th><th>Δ v1.2.2</th><th>Median</th><th>Δ v1.2.2</th></tr></thead><tbody>
+<tr><td>Nodes per second</td><td>99.83</td><td>+21%</td><td>14</td><td>40330.87</td><td>+21%</td><td>9945.53</td><td>+28%</td></tr>
+<tr><td>Fixpoint iterations per second</td><td>98.86</td><td>+18%</td><td>15</td><td>258809.97</td><td>+40%</td><td>78749.49</td><td>+14%</td></tr>
+<tr><td>Fixpoint iterations per node</td><td>97.30</td><td>-2%</td><td>10</td><td>18.38</td><td>-4%</td><td>9.37</td><td>-7%</td></tr>
+</tbody></table>
+</div>
+<p>Finally, the version 1.2.3 gives an additional speedup, comparable than the one obtained on my desktop, as shown in the next table.</p>
+<div class="table-wrapper"><table><thead><tr><th>Metrics</th><th>Normalized average [0,100]</th><th>Δ v1.2.2</th><th>#best (_/16)</th><th>Average</th><th>Δ v1.2.2</th><th>Median</th><th>Δ v1.2.2</th></tr></thead><tbody>
+<tr><td>Nodes per second</td><td>99.70</td><td>+26%</td><td>14</td><td>45520.83</td><td>+13%</td><td>15676.14</td><td>+58%</td></tr>
+<tr><td>Fixpoint iterations per second</td><td>100.00</td><td>+36%</td><td>16</td><td>360362.70</td><td>+39%</td><td>116916.62</td><td>+48%</td></tr>
+<tr><td>Fixpoint iterations per node</td><td>98.97</td><td>+7%</td><td>4</td><td>20.17</td><td>+10%</td><td>10.45</td><td>+12%</td></tr>
+</tbody></table>
+</div>
+<h2 id="summary-hackathon"><a class="header" href="#summary-hackathon">Summary Hackathon</a></h2>
+<p>This hackathon was highly productive.
+It allowed me to verify the correctness of the persistent kernel design (v1.2.2) and to use CUB to eliminate entailed propagators (v1.2.3).
+More importantly, I discussed the overall design of Turbo, addressing the overly generic approach (code working both on CPU and GPU, using modern C++ patterns, etc.) which hindered performance.</p>
+<p>During the three days, we also discussed a new design of propagators and the result will be in a post-hackathon version 1.2.4, so stay tuned!</p>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: left">short_uid</th><th style="text-align: right">avg_nodes_per_second</th><th style="text-align: right">problem_optimal</th><th style="text-align: right">problem_sat</th><th style="text-align: right">problem_unknown</th></tr></thead><tbody>
+<tr><td style="text-align: left">turbo.hybrid_GH200_1.2.3_4096_264</td><td style="text-align: right">45520.8</td><td style="text-align: right">0</td><td style="text-align: right">14</td><td style="text-align: right">2</td></tr>
+<tr><td style="text-align: left">turbo.hybrid_GH200_1.2.2_4096_264</td><td style="text-align: right">40330.9</td><td style="text-align: right">0</td><td style="text-align: right">14</td><td style="text-align: right">2</td></tr>
+<tr><td style="text-align: left">turbo.hybrid_GH200_1.2.3_4096_132</td><td style="text-align: right">36589.3</td><td style="text-align: right">0</td><td style="text-align: right">14</td><td style="text-align: right">2</td></tr>
+<tr><td style="text-align: left">turbo.hybrid_GH200_1.2.2_4096_132</td><td style="text-align: right">33232.3</td><td style="text-align: right">0</td><td style="text-align: right">14</td><td style="text-align: right">2</td></tr>
+<tr><td style="text-align: left">turbo.hybrid_RTXA5000_1.2.3_4096_128</td><td style="text-align: right">18543.3</td><td style="text-align: right">0</td><td style="text-align: right">14</td><td style="text-align: right">2</td></tr>
+<tr><td style="text-align: left">turbo.hybrid_RTXA5000_1.2.2_4096_128</td><td style="text-align: right">13475.4</td><td style="text-align: right">0</td><td style="text-align: right">14</td><td style="text-align: right">2</td></tr>
+<tr><td style="text-align: left">turbo.hybrid_RTXA5000_1.2.3_4096_64</td><td style="text-align: right">11786.7</td><td style="text-align: right">0</td><td style="text-align: right">14</td><td style="text-align: right">2</td></tr>
+<tr><td style="text-align: left">turbo.gpu_RTXA5000_1.2.0_4096_64_noatomics</td><td style="text-align: right">11684.4</td><td style="text-align: right">0</td><td style="text-align: right">14</td><td style="text-align: right">2</td></tr>
+<tr><td style="text-align: left">turbo.gpu_RTXA5000_1.2.0_4096_64</td><td style="text-align: right">10412.7</td><td style="text-align: right">0</td><td style="text-align: right">14</td><td style="text-align: right">2</td></tr>
+<tr><td style="text-align: left">turbo.hybrid_RTXA5000_1.2.2_hybrid_4096_64</td><td style="text-align: right">10271</td><td style="text-align: right">0</td><td style="text-align: right">14</td><td style="text-align: right">2</td></tr>
+<tr><td style="text-align: left">turbo.hybrid_RTXA5000_1.2.1_hybrid_4096_64</td><td style="text-align: right">1628.89</td><td style="text-align: right">0</td><td style="text-align: right">14</td><td style="text-align: right">2</td></tr>
+</tbody></table>
+</div><div style="break-before: page; page-break-before: always;"></div><h1 id="v124-ternary-normal-form"><a class="header" href="#v124-ternary-normal-form">v1.2.4: Ternary Normal Form</a></h1>
+<p><em>27 December 2024</em> During the hackathon with Nvidia, we profiled the code and discovered that the representation of propagators was problematic.
+Let's take an example with the constraint <code>x * x + y &lt; 5</code> which is internally represented by the following AST:</p>
+<img src="turbo-v1.2/propagator_tree.png" alt="isolated" width="250"/>
+<p>Because the constraints can have any arity and be arbitrarily deep, we have no choice but to represent this tree with pointers and dynamic memory allocation.
+In Turbo, we used <a href="https://en.cppreference.com/w/cpp/utility/variant">variant</a> and <a href="https://en.cppreference.com/w/cpp/memory/shared_ptr">shared_ptr</a> to represent propagators.
+The propagators are executed using a switch statement of the following form:</p>
+<pre><code class="language-cpp">switch(term.index()) {
+  case IVar:
+  case IConstant:
+  case INeg:
+  case IAdd:
+  case ISub:
+  case IMul:
+  // ...
 </code></pre>
-<p>Next, go on the Helios branch of Turbo:</p>
-<pre><code>cd lattice-land/turbo
-git checkout helios
+<p>In the profiling report, it is shown that <code>switch(term.index())</code> generates a lot of uncoalesced accesses.
+Previously, we have reduced divergent branches by sorting propagators with the same shape (see <a href="https://lattice-land.github.io/6-turbo.html">sorting propagators</a>).
+But the main issue was the uncoalesced accesses to the propagators.</p>
+<p>To address this, we propose decomposing the problem into constraints that can be represented without pointers (fixed depth) and that are small (to enable coalesced memory load).
+For this purpose, we introduce a new problem decomposition call the <em>ternary normal form</em> (TNF) where all propagators are of the form <code>x = y &lt;op&gt; z</code> with <code>x,y,z</code> variables.
+Furthermore, we take a minimal set of operators that includes the arithmetic operators <code>+,-,*,/,min,max</code> and two comparison operators <code>&lt;=, =</code>.
+All the other constraints are rewritten into those operators.
+The constraint <code>x * x + y &lt; z</code> in TNF is:</p>
+<pre><code>t1 = x * x
+t2 = t1 * y
+ONE = (t2 &lt;= z)
 </code></pre>
-<p>To compile:</p>
-<pre><code>sbatch compile-helios.sh helios.sh
+<p>Where <code>t1,t2,ONE</code> are new variables where <code>ONE</code> is initialized to <code>1</code>.
+Note that the symbol <code>=</code> is relational, hence using <code>ONE = (t2 &lt;= z)</code> forces the constraint on the right to be true.
+This is called a "reified constraint" in the jargon of constraint programming, but in TNF it has the same representation as any other constraint.
+TNF allows us to represent compactly a propagator using:</p>
+<pre><code class="language-cpp">struct bytecode_type {
+  Sig op;
+  AVar x;
+  AVar y;
+  AVar z;
+};
 </code></pre>
-<p>And to run on an example:</p>
-<pre><code>sbatch run-helios.sh helio.sh
-</code></pre>
+<p><code>AVar</code> is an integer representing the index of the variable in the store and <code>Sig</code> is also an integer representing the operator.</p>
+<h2 id="problems-in-ternary-normal-form"><a class="header" href="#problems-in-ternary-normal-form">Problems in Ternary Normal Form</a></h2>
+<p>One obvious drawback of this approach is the increased number of temporary variables and constraints.
+While the increase in the number of constraints is relatively low and stable across problems (between 1x and 4x), the increase in the number of variables ranges between 1x and 139x in the case of the Wordpress problem.
+This variability warrants further investigation in the future to explore ways of reducing the number of generated variables.</p>
+<div class="table-wrapper"><table><thead><tr><th>Problem</th><th>Data</th><th>#Vars</th><th>#Vars (TNF)</th><th>#Constraints</th><th>#Constraints (TNF)</th></tr></thead><tbody>
+<tr><td>team-assignment</td><td>data3_5_31</td><td>15932.0</td><td>35445.0 (x2.22)</td><td>25684.0</td><td>45197.0 (x1.76)</td></tr>
+<tr><td>generalized-peacable-queens</td><td>n8_q3</td><td>2940.0</td><td>20186.0 (x6.87)</td><td>8273.0</td><td>25519.0 (x3.08)</td></tr>
+<tr><td>spot5</td><td>404</td><td>1112.0</td><td>22053.0 (x19.83)</td><td>8124.0</td><td>29065.0 (x3.58)</td></tr>
+<tr><td>nfc</td><td>24_4_2</td><td>169.0</td><td>527.0 (x3.12)</td><td>222.0</td><td>580.0 (x2.61)</td></tr>
+<tr><td>blocks-world</td><td>16-4-5</td><td>49447.0</td><td>109068.0 (x2.21)</td><td>73421.0</td><td>133042.0 (x1.81)</td></tr>
+<tr><td>triangular</td><td>n39</td><td>3863.0</td><td>207966.0 (x53.84)</td><td>105136.0</td><td>309239.0 (x2.94)</td></tr>
+<tr><td>accap</td><td>accap_a4_f30_t15</td><td>530.0</td><td>2319.0 (x4.38)</td><td>993.0</td><td>2782.0 (x2.80)</td></tr>
+<tr><td>tower</td><td>100_100_20_100-04</td><td>12547.0</td><td>38559.0 (x3.07)</td><td>23257.0</td><td>49269.0 (x2.12)</td></tr>
+<tr><td>roster-sickness</td><td>small-4</td><td>4980.0</td><td>7978.0 (x1.60)</td><td>6067.0</td><td>9116.0 (x1.50)</td></tr>
+<tr><td>accap</td><td>accap_a40_f800_t180</td><td>28494.0</td><td>147451.0 (x5.17)</td><td>58616.0</td><td>177573.0 (x3.03)</td></tr>
+<tr><td>diameterc-mst</td><td>c_v20_a190_d4</td><td>3045.0</td><td>7336.0 (x2.41)</td><td>6962.0</td><td>11253.0 (x1.62)</td></tr>
+<tr><td>triangular</td><td>n10</td><td>267.0</td><td>1370.0 (x5.13)</td><td>765.0</td><td>1868.0 (x2.44)</td></tr>
+<tr><td>wordpress</td><td>Wordpress7_Offers500</td><td>667.0</td><td>92695.0 (x138.97)</td><td>30893.0</td><td>122921.0 (x3.98)</td></tr>
+<tr><td>roster-sickness</td><td>large-2</td><td>22952.0</td><td>29840.0 (x1.30)</td><td>25693.0</td><td>32653.0 (x1.27)</td></tr>
+<tr><td>stripboard</td><td>common-emitter-simple</td><td>2123.0</td><td>14581.0 (x6.87)</td><td>4563.0</td><td>17093.0 (x3.75)</td></tr>
+<tr><td>gfd-schedule</td><td>n55f2d50m30k3_10124</td><td>32604.0</td><td>67749.0 (x2.08)</td><td>54575.0</td><td>89720.0 (x1.64)</td></tr>
+</tbody></table>
+</div>
+<h2 id="benchmarks"><a class="header" href="#benchmarks">Benchmarks</a></h2>
+<p>The following table compares hybrid v1.2.3 and hybrid v1.2.4, both with 128 blocks.</p>
+<div class="table-wrapper"><table><thead><tr><th>Metrics</th><th>Normalized average [0,100]</th><th>Δ v1.2.3</th><th>#best (_/16)</th><th>Average</th><th>Δ v1.2.3</th><th>Median</th><th>Δ v1.2.3</th></tr></thead><tbody>
+<tr><td>Nodes per second</td><td>83.75</td><td>+29%</td><td>11</td><td>21808.77</td><td>+18%</td><td>6061.18</td><td>+48%</td></tr>
+<tr><td>Fixpoint iterations per second</td><td>100.00</td><td>+254%</td><td>16</td><td>845483.88</td><td>+553%</td><td>143327.93</td><td>+193%</td></tr>
+<tr><td>Fixpoint iterations per node</td><td>100.00</td><td>+187%</td><td>0</td><td>40.45</td><td>+138%</td><td>22.76</td><td>+148%</td></tr>
+<tr><td>Propagators memory</td><td>19.91</td><td>-80%</td><td>15</td><td>0.85MB</td><td>-90%</td><td>0.42MB</td><td>-89%</td></tr>
+<tr><td>Variables store memory</td><td>100.00</td><td>+656%</td><td>0</td><td>402.75KB</td><td>+718%</td><td>208.20KB</td><td>+1844%</td></tr>
+</tbody></table>
+</div>
+<p>Let's analyze the speedup of this new version v1.2.4.
+The number of fixpoint iterations per second has increased by 254% which is a very large gain.
+However, the increase in nodes per second is only 29%, and it increases in only 11 out of 16 problems.
+There are two reasons behind this discrepancy:</p>
+<ol>
+<li>The convergence of the fixpoint loop is two times slower than in v1.2.3, likely due to improper sorting of the TNF propagators.
+In all 16 problems, the new version requires more iterations to converge compared to v1.2.3.</li>
+<li>The increase in variables results in fewer problem being stored in shared memory: only 3 out of 16 in comparison to 11 out of 16 before.</li>
+</ol>
+<p>The first point is somewhat mitigated by the number of fixpoint iterations per second which almost double, demonstrating the effectiveness of TNF for GPU architecture.
+Perhaps more surprisingly, the memory footprint of the propagators is much lower than in v1.2.3, with an average reduction of 80%.
+Although we have more propagators, each one requires only 16 bytes, as opposed to v1.2.3, where propagator representation involved additional overhead from the shared pointer and variant data structures.</p>
+<p>As for the full GPU version, we notice a similar behavior (we compare against full GPU v1.2.0 because v1.2.{1-3} were only modifying the hybrid version):</p>
+<div class="table-wrapper"><table><thead><tr><th>Metrics</th><th>Normalized average [0,100]</th><th>Δ v1.2.0</th><th>#best (_/16)</th><th>Average</th><th>Δ v1.2.0</th><th>Median</th><th>Δ v1.2.0</th></tr></thead><tbody>
+<tr><td>Nodes per second</td><td>89.02</td><td>+28%</td><td>12</td><td>14467.35</td><td>+24%</td><td>5583.57</td><td>+50%</td></tr>
+<tr><td>Fixpoint iterations per second</td><td>100.00</td><td>+315%</td><td>16</td><td>510492.99</td><td>+586%</td><td>136773.93</td><td>+238%</td></tr>
+<tr><td>Fixpoint iterations per node</td><td>100.00</td><td>+203%</td><td>0</td><td>40.47</td><td>+167%</td><td>24.07</td><td>+162%</td></tr>
+<tr><td>Propagators memory</td><td>19.91</td><td>-80%</td><td>15</td><td>1.03MB</td><td>-90%</td><td>0.51MB</td><td>-89%</td></tr>
+<tr><td>Variables store memory</td><td>100.00</td><td>+630%</td><td>0</td><td>402.93KB</td><td>+715%</td><td>208.39KB</td><td>+1813%</td></tr>
+</tbody></table>
+</div>
+<h2 id="profiling"><a class="header" href="#profiling">Profiling</a></h2>
+<p>The hackathon reminded me that we should always prioritize the next improvement based on what the profiler reveals.
+While this is a well-known principle, it's easy to forget.</p>
+<p>During the hackathon, we mainly used the tool <code>ncu</code> to profile our kernels.
+It creates a report that can be visualized with <code>ncu-ui</code> and provides various metrics, such as the overall utilization of the SMs, the number of uncoalesced accesses and their locations in the code, the L1/L2 cache hit rates, warp state statistics, and more.
+It was in this report we identified the issues with the previous AST-based representation of the propagators.
+Among the remaining issues, the report tells us that warps are spending most of their time waiting on <code>__syncthreads()</code> barriers or global memory loads.</p>
+<p>Beyond those low-level GPU optimizations, we can also examine the overall behavior of the constraint solver to identify which parts of the algorithm need further optimization.
+To achieve this, we equipped Turbo with time counters to track where most of the time is spent in the code.
+Let's first focus on the full GPU architecture (<code>-arch gpu</code>).</p>
+<p><img src="turbo-v1.2/turbogpu-v1.2.4-time-profile.png" alt="Turbo GPU v1.2.4 Time Profile" /></p>
+<p>Clearly, the preprocessing time and the time spent eliminating the entailed propagators (from v1.2.3) are negligible.
+The orange section represents the propagation time, and the green section represents the search time.
+Prior to optimizing the propagation, the search accounted for about 10-20% of the total time.
+However, it has now become a clear candidate for further optimization.
+In the full GPU architecture, the search is handled by a single GPU thread which is why it is quite slow.</p>
+<p>Next, we look at the hybrid architecture (<code>-or 128 -arch hybrid</code>).</p>
+<p><img src="turbo-v1.2/turbohybrid128-v1.2.4-time-profile.png" alt="Turbo Hybrid v1.2.4 Time Profile (128 blocks)" /></p>
+<p>Firstly, it is clear that searching on the CPU and memory transfers are not (yet) the bottleneck of the hybrid algorithm.
+The time spent in the fixpoint loop is somewhat similar to the full-GPU architecture.
+The main difference is the significant amount of time spent waiting for the CPU, as represented by the red section.
+One possible explanation is that we have too many CPU threads, while the CPU has few cores (only 10).
+To confirm this hypothesis, we should test this version on the GH200, which is powered by a 72-cores ARM CPU.</p>
+<p>Based on these charts, there are at least two opportunities to improve efficiency:</p>
+<ol>
+<li>Continue optimizing the fixpoint loop (this would benefit both architectures, and potentially provide even greater improvements for the hybrid architecture on a CPU with many cores).</li>
+<li>Parallelize the search (this would benefit only the full-GPU architecture).</li>
+</ol>
+<p>From a research perspective it is more interesting to focus on the fixpoint loop parallelization.
+Furthermore, improving the full-GPU version---which does not compile on modern GPUs---is less exciting.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="about"><a class="header" href="#about">About</a></h1>
 <p>The lattice land project is developed at the University of Luxembourg by a wonderful team:</p>
 <ul>
