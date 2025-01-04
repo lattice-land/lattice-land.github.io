@@ -21,6 +21,7 @@ var classlala_1_1_p_i_r =
     [ "interpret_ask", "classlala_1_1_p_i_r.html#aa6c107df0b00bbaf8fb423c1e6acc899", null ],
     [ "deduce", "classlala_1_1_p_i_r.html#afd47762dbe5caf43c0cd4ee5bfea847d", null ],
     [ "embed", "classlala_1_1_p_i_r.html#aab65c271fb39cb861f527bcd5e4c689b", null ],
+    [ "load_deduce", "classlala_1_1_p_i_r.html#a0bf9eb665369e47d5d47b682f4fe42dc", null ],
     [ "ask", "classlala_1_1_p_i_r.html#af07ecd256b1e6156dd86eb94a7decb46", null ],
     [ "ask", "classlala_1_1_p_i_r.html#a4b3c99e56e539fe2a6bd6277623f66b4", null ],
     [ "num_deductions", "classlala_1_1_p_i_r.html#a268997c590e42e11f211256e7140ae25", null ],

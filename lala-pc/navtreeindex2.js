@@ -1,5 +1,7 @@
 var NAVTREEINDEX2 =
 {
+"classlala_1_1pc_1_1_formula.html#a925db37b59281ec0f49694a673656091":[0,0,0,0,10,26],
+"classlala_1_1pc_1_1_formula.html#a925db37b59281ec0f49694a673656091":[1,0,0,0,10,26],
 "classlala_1_1pc_1_1_formula.html#aa878f651730cc5f816b5d65470a7a132":[0,0,0,0,10,19],
 "classlala_1_1pc_1_1_formula.html#aa878f651730cc5f816b5d65470a7a132":[1,0,0,0,10,19],
 "classlala_1_1pc_1_1_formula.html#aa89572dbac7517ab8769d6d1a793aa65":[0,0,0,0,10,31],
@@ -247,7 +249,5 @@ var NAVTREEINDEX2 =
 "classlala_1_1pc_1_1_unary.html#af2f2e38f542dfd1fc822b19a19fcdd2e":[0,0,0,0,22,10],
 "classlala_1_1pc_1_1_unary.html#af2f2e38f542dfd1fc822b19a19fcdd2e":[1,0,0,0,22,10],
 "classlala_1_1pc_1_1_variable.html":[0,0,0,0,23],
-"classlala_1_1pc_1_1_variable.html":[1,0,0,0,23],
-"classlala_1_1pc_1_1_variable.html#a0a8e1b4083216c4fa2162bcb48432b4e":[0,0,0,0,23,3],
-"classlala_1_1pc_1_1_variable.html#a0a8e1b4083216c4fa2162bcb48432b4e":[1,0,0,0,23,3]
+"classlala_1_1pc_1_1_variable.html":[1,0,0,0,23]
 };
