@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['memory_0',['memory',['../classbattery_1_1memory.html',1,'battery']]]
+  ['limits_0',['limits',['../structbattery_1_1limits.html',1,'battery']]]
 ];

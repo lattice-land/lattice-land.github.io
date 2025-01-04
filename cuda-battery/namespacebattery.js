@@ -2,6 +2,7 @@ var namespacebattery =
 [
     [ "atomic_memory", "classbattery_1_1atomic__memory.html", "classbattery_1_1atomic__memory" ],
     [ "bitset", "classbattery_1_1bitset.html", "classbattery_1_1bitset" ],
+    [ "copyable_atomic", "classbattery_1_1copyable__atomic.html", "classbattery_1_1copyable__atomic" ],
     [ "dynamic_bitset", "classbattery_1_1dynamic__bitset.html", "classbattery_1_1dynamic__bitset" ],
     [ "limits", "structbattery_1_1limits.html", null ],
     [ "memory", "classbattery_1_1memory.html", "classbattery_1_1memory" ],

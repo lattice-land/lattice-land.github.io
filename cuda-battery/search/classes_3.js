@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['limits_0',['limits',['../structbattery_1_1limits.html',1,'battery']]]
+  ['dynamic_5fbitset_0',['dynamic_bitset',['../classbattery_1_1dynamic__bitset.html',1,'battery']]]
 ];

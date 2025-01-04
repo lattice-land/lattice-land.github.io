@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['root_5fptr_0',['root_ptr',['../classbattery_1_1root__ptr.html',1,'battery']]]
+  ['pool_5fallocator_0',['pool_allocator',['../classbattery_1_1pool__allocator.html',1,'battery']]]
 ];
