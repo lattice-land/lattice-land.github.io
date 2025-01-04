@@ -1,5 +1,11 @@
 var NAVTREEINDEX6 =
 {
+"structlala_1_1_sort.html#a267f9fffa9f58fd4365285c11724129ba687c5aef38205e57a8482ae6a20531c3":[1,0,0,23,2,0],
+"structlala_1_1_sort.html#a267f9fffa9f58fd4365285c11724129ba8989f82c154434d068d4f62cdd351977":[0,0,1,24,2,1],
+"structlala_1_1_sort.html#a267f9fffa9f58fd4365285c11724129ba8989f82c154434d068d4f62cdd351977":[1,0,0,23,2,1],
+"structlala_1_1_sort.html#a267f9fffa9f58fd4365285c11724129ba8ddc8bf73c868d9c373c47bf11855b5b":[0,0,1,24,2,3],
+"structlala_1_1_sort.html#a267f9fffa9f58fd4365285c11724129ba8ddc8bf73c868d9c373c47bf11855b5b":[1,0,0,23,2,3],
+"structlala_1_1_sort.html#a267f9fffa9f58fd4365285c11724129bad8d6c82b617470daeb524706d8ad1ff6":[0,0,1,24,2,2],
 "structlala_1_1_sort.html#a267f9fffa9f58fd4365285c11724129bad8d6c82b617470daeb524706d8ad1ff6":[1,0,0,23,2,2],
 "structlala_1_1_sort.html#a30f9695ed83b3800076c88f1f1a540f0":[0,0,1,24,5],
 "structlala_1_1_sort.html#a30f9695ed83b3800076c88f1f1a540f0":[1,0,0,23,5],

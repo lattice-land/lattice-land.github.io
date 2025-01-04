@@ -352,15 +352,12 @@ Functions</h2></td></tr>
 <tr class="memitem:aa6334729ccf128a1381a39f7f1c8a17f" id="r_aa6334729ccf128a1381a39f7f1c8a17f"><td class="memTemplParams" colspan="2">template&lt;class A , bool diagnose = false, class F , class Env , class TellAlloc  = typename A::allocator_type&gt; </td></tr>
 <tr class="memitem:aa6334729ccf128a1381a39f7f1c8a17f"><td class="memTemplItemLeft" align="right" valign="top">CUDA std::optional&lt; A &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#aa6334729ccf128a1381a39f7f1c8a17f">create_and_interpret_and_tell</a> (const F &amp;f, Env &amp;env, <a class="el" href="classlala_1_1_i_diagnostics.html">IDiagnostics</a> &amp;diagnostics, typename A::allocator_type alloc=typename A::allocator_type{}, TellAlloc tell_alloc=TellAlloc{})</td></tr>
 <tr class="separator:aa6334729ccf128a1381a39f7f1c8a17f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac2d15ad8d7e0974c7b2bb1a88c3f3277" id="r_ac2d15ad8d7e0974c7b2bb1a88c3f3277"><td class="memTemplParams" colspan="2">template&lt;class L , class K &gt; </td></tr>
-<tr class="memitem:ac2d15ad8d7e0974c7b2bb1a88c3f3277"><td class="memTemplItemLeft" align="right" valign="top">CUDA constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ac2d15ad8d7e0974c7b2bb1a88c3f3277">meet</a> (const <a class="el" href="classlala_1_1_interval.html">Interval</a>&lt; L &gt; &amp;, const <a class="el" href="classlala_1_1_interval.html">Interval</a>&lt; K &gt; &amp;)</td></tr>
-<tr class="separator:ac2d15ad8d7e0974c7b2bb1a88c3f3277"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac485671cf0aa58bb6ade85356ff8ddcb" id="r_ac485671cf0aa58bb6ade85356ff8ddcb"><td class="memTemplParams" colspan="2">template&lt;class L , class K &gt; </td></tr>
-<tr class="memitem:ac485671cf0aa58bb6ade85356ff8ddcb"><td class="memTemplItemLeft" align="right" valign="top">CUDA constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ac485671cf0aa58bb6ade85356ff8ddcb">fjoin</a> (const <a class="el" href="classlala_1_1_interval.html">Interval</a>&lt; L &gt; &amp;a, const <a class="el" href="classlala_1_1_interval.html">Interval</a>&lt; K &gt; &amp;b)</td></tr>
-<tr class="separator:ac485671cf0aa58bb6ade85356ff8ddcb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4d16f226d295bee37e4c44482fa8c732" id="r_a4d16f226d295bee37e4c44482fa8c732"><td class="memTemplParams" colspan="2">template&lt;class L , class K &gt; </td></tr>
-<tr class="memitem:a4d16f226d295bee37e4c44482fa8c732"><td class="memTemplItemLeft" align="right" valign="top">CUDA constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a4d16f226d295bee37e4c44482fa8c732">fmeet</a> (const <a class="el" href="classlala_1_1_interval.html">Interval</a>&lt; L &gt; &amp;a, const <a class="el" href="classlala_1_1_interval.html">Interval</a>&lt; K &gt; &amp;b)</td></tr>
-<tr class="separator:a4d16f226d295bee37e4c44482fa8c732"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a098d0ca4113ea1c2c15a7116936524de" id="r_a098d0ca4113ea1c2c15a7116936524de"><td class="memTemplParams" colspan="2">template&lt;class L , class K &gt; </td></tr>
+<tr class="memitem:a098d0ca4113ea1c2c15a7116936524de"><td class="memTemplItemLeft" align="right" valign="top">CUDA constexpr <a class="el" href="classlala_1_1_interval.html">Interval</a>&lt; typename L::local_type &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a098d0ca4113ea1c2c15a7116936524de">fjoin</a> (const <a class="el" href="classlala_1_1_interval.html">Interval</a>&lt; L &gt; &amp;a, const <a class="el" href="classlala_1_1_interval.html">Interval</a>&lt; K &gt; &amp;b)</td></tr>
+<tr class="separator:a098d0ca4113ea1c2c15a7116936524de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ea96158c9231d519aa856b35a7ecf38" id="r_a3ea96158c9231d519aa856b35a7ecf38"><td class="memTemplParams" colspan="2">template&lt;class L , class K &gt; </td></tr>
+<tr class="memitem:a3ea96158c9231d519aa856b35a7ecf38"><td class="memTemplItemLeft" align="right" valign="top">CUDA constexpr <a class="el" href="classlala_1_1_interval.html">Interval</a>&lt; typename L::local_type &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a3ea96158c9231d519aa856b35a7ecf38">fmeet</a> (const <a class="el" href="classlala_1_1_interval.html">Interval</a>&lt; L &gt; &amp;a, const <a class="el" href="classlala_1_1_interval.html">Interval</a>&lt; K &gt; &amp;b)</td></tr>
+<tr class="separator:a3ea96158c9231d519aa856b35a7ecf38"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3d436ce98ff7d08515c9b113594c006b" id="r_a3d436ce98ff7d08515c9b113594c006b"><td class="memTemplParams" colspan="2">template&lt;class L , class K &gt; </td></tr>
 <tr class="memitem:a3d436ce98ff7d08515c9b113594c006b"><td class="memTemplItemLeft" align="right" valign="top">CUDA constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a3d436ce98ff7d08515c9b113594c006b">operator&lt;</a> (const <a class="el" href="classlala_1_1_interval.html">Interval</a>&lt; L &gt; &amp;a, const <a class="el" href="classlala_1_1_interval.html">Interval</a>&lt; K &gt; &amp;b)</td></tr>
 <tr class="separator:a3d436ce98ff7d08515c9b113594c006b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1426,8 +1423,8 @@ template&lt;class A , bool diagnose = false, class F , class Env , class TellAll
 
 </div>
 </div>
-<a id="ac2d15ad8d7e0974c7b2bb1a88c3f3277" name="ac2d15ad8d7e0974c7b2bb1a88c3f3277"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac2d15ad8d7e0974c7b2bb1a88c3f3277">&#9670;&#160;</a></span>meet()</h2>
+<a id="a098d0ca4113ea1c2c15a7116936524de" name="a098d0ca4113ea1c2c15a7116936524de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a098d0ca4113ea1c2c15a7116936524de">&#9670;&#160;</a></span>fjoin() <span class="overload">[2/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1438,38 +1435,7 @@ template&lt;class L , class K &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">CUDA constexpr auto lala::meet </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="classlala_1_1_interval.html">Interval</a>&lt; L &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="classlala_1_1_interval.html">Interval</a>&lt; K &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ac485671cf0aa58bb6ade85356ff8ddcb" name="ac485671cf0aa58bb6ade85356ff8ddcb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac485671cf0aa58bb6ade85356ff8ddcb">&#9670;&#160;</a></span>fjoin() <span class="overload">[2/6]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class L , class K &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">CUDA constexpr auto lala::fjoin </td>
+          <td class="memname">CUDA constexpr <a class="el" href="classlala_1_1_interval.html">Interval</a>&lt; typename L::local_type &gt; lala::fjoin </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="classlala_1_1_interval.html">Interval</a>&lt; L &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>a</em></span>, </td>
         </tr>
@@ -1488,8 +1454,8 @@ template&lt;class L , class K &gt; </div>
 
 </div>
 </div>
-<a id="a4d16f226d295bee37e4c44482fa8c732" name="a4d16f226d295bee37e4c44482fa8c732"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4d16f226d295bee37e4c44482fa8c732">&#9670;&#160;</a></span>fmeet() <span class="overload">[2/6]</span></h2>
+<a id="a3ea96158c9231d519aa856b35a7ecf38" name="a3ea96158c9231d519aa856b35a7ecf38"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3ea96158c9231d519aa856b35a7ecf38">&#9670;&#160;</a></span>fmeet() <span class="overload">[2/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1500,7 +1466,7 @@ template&lt;class L , class K &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">CUDA constexpr auto lala::fmeet </td>
+          <td class="memname">CUDA constexpr <a class="el" href="classlala_1_1_interval.html">Interval</a>&lt; typename L::local_type &gt; lala::fmeet </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="classlala_1_1_interval.html">Interval</a>&lt; L &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>a</em></span>, </td>
         </tr>

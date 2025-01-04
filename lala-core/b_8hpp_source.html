@@ -226,7 +226,7 @@ $(function(){initNavTree('b_8hpp_source.html',''); initResizable(true); });
 <div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span><span class="comment">   * \return `true` if the value has changed, `false` otherwise.</span></div>
 <div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span><span class="comment">   */</span></div>
 <div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>  <span class="keyword">template</span>&lt;<span class="keyword">class</span> M1&gt;</div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>  CUDA <span class="keyword">constexpr</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="namespacelala.html#ac2d15ad8d7e0974c7b2bb1a88c3f3277">meet</a>(<span class="keyword">const</span> this_type2&lt;M1&gt;&amp; other) {</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>  CUDA <span class="keyword">constexpr</span> <span class="keywordtype">bool</span> meet(<span class="keyword">const</span> this_type2&lt;M1&gt;&amp; other) {</div>
 <div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    <span class="keywordflow">if</span>(value() &amp;&amp; !other.value()) {</div>
 <div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>      memory_type::store(val, <span class="keyword">false</span>);</div>
 <div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>      <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
@@ -238,8 +238,8 @@ $(function(){initNavTree('b_8hpp_source.html',''); initResizable(true); });
 <div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    <span class="keywordflow">return</span> join(<a class="code hl_typedef" href="namespacelala_1_1local.html#ae1dbdea88ccb59298d935bba5d3e1843">local::B</a>(other));</div>
 <div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>  }</div>
 <div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span> </div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>  CUDA <span class="keyword">constexpr</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="namespacelala.html#ac2d15ad8d7e0974c7b2bb1a88c3f3277">meet</a>(value_type other) {</div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespacelala.html#ac2d15ad8d7e0974c7b2bb1a88c3f3277">meet</a>(<a class="code hl_typedef" href="namespacelala_1_1local.html#ae1dbdea88ccb59298d935bba5d3e1843">local::B</a>(other));</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>  CUDA <span class="keyword">constexpr</span> <span class="keywordtype">bool</span> meet(value_type other) {</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    <span class="keywordflow">return</span> meet(<a class="code hl_typedef" href="namespacelala_1_1local.html#ae1dbdea88ccb59298d935bba5d3e1843">local::B</a>(other));</div>
 <div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>  }</div>
 <div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span><span class="comment"></span> </div>
 <div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span><span class="comment">  /** Print the current element.</span></div>
@@ -255,7 +255,7 @@ $(function(){initNavTree('b_8hpp_source.html',''); initResizable(true); });
 <div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>  }</div>
 <div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span> </div>
 <div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>  CUDA <span class="keyword">constexpr</span> this_type&amp; operator&amp;= (<span class="keyword">const</span> this_type&amp; other) {</div>
-<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>    <a class="code hl_function" href="namespacelala.html#ac2d15ad8d7e0974c7b2bb1a88c3f3277">meet</a>(other);</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>    meet(other);</div>
 <div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>    <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
 <div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>  }</div>
 <div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span> </div>
@@ -265,7 +265,7 @@ $(function(){initNavTree('b_8hpp_source.html',''); initResizable(true); });
 <div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>  }</div>
 <div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span> </div>
 <div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>  CUDA <span class="keyword">constexpr</span> this_type&amp; operator&amp;= (value_type other) {</div>
-<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>    <a class="code hl_function" href="namespacelala.html#ac2d15ad8d7e0974c7b2bb1a88c3f3277">meet</a>(other);</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>    meet(other);</div>
 <div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>    <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
 <div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>  }</div>
 <div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span> </div>
@@ -318,11 +318,10 @@ $(function(){initNavTree('b_8hpp_source.html',''); initResizable(true); });
 <div class="ttc" id="anamespacebattery_html_ae10b07a3758fa9b4c6b79d976097ef9f"><div class="ttname"><a href="namespacebattery.html#ae10b07a3758fa9b4c6b79d976097ef9f">battery::print</a></div><div class="ttdeci">CUDA NI void print(const lala::Sig &amp;sig)</div><div class="ttdef"><b>Definition</b> ast.hpp:225</div></div>
 <div class="ttc" id="anamespacelala_1_1local_html_ae1dbdea88ccb59298d935bba5d3e1843"><div class="ttname"><a href="namespacelala_1_1local.html#ae1dbdea88ccb59298d935bba5d3e1843">lala::local::B</a></div><div class="ttdeci">::lala::B&lt;::battery::local_memory &gt; B</div><div class="ttdef"><b>Definition</b> b.hpp:12</div></div>
 <div class="ttc" id="anamespacelala_html"><div class="ttname"><a href="namespacelala.html">lala</a></div><div class="ttdef"><b>Definition</b> abstract_deps.hpp:14</div></div>
-<div class="ttc" id="anamespacelala_html_a04d25524e24ca7311659d66cb013d1c3"><div class="ttname"><a href="namespacelala.html#a04d25524e24ca7311659d66cb013d1c3">lala::operator&lt;&lt;</a></div><div class="ttdeci">std::ostream &amp; operator&lt;&lt;(std::ostream &amp;s, const CartesianProduct&lt; A, As... &gt; &amp;cp)</div><div class="ttdef"><b>Definition</b> cartesian_product.hpp:530</div></div>
-<div class="ttc" id="anamespacelala_html_a44314d29734db79278128b688836bcb5"><div class="ttname"><a href="namespacelala.html#a44314d29734db79278128b688836bcb5">lala::operator==</a></div><div class="ttdeci">CUDA constexpr bool operator==(const CartesianProduct&lt; As... &gt; &amp;a, const CartesianProduct&lt; Bs... &gt; &amp;b)</div><div class="ttdef"><b>Definition</b> cartesian_product.hpp:503</div></div>
-<div class="ttc" id="anamespacelala_html_aa909139c7fbbea78476539a48bb989e9"><div class="ttname"><a href="namespacelala.html#aa909139c7fbbea78476539a48bb989e9">lala::operator&lt;</a></div><div class="ttdeci">CUDA constexpr bool operator&lt;(const CartesianProduct&lt; As... &gt; &amp;a, const CartesianProduct&lt; Bs... &gt; &amp;b)</div><div class="ttdef"><b>Definition</b> cartesian_product.hpp:484</div></div>
-<div class="ttc" id="anamespacelala_html_ab4632875e493f8e8dce9f43d1d2d0387"><div class="ttname"><a href="namespacelala.html#ab4632875e493f8e8dce9f43d1d2d0387">lala::operator&gt;</a></div><div class="ttdeci">CUDA constexpr bool operator&gt;(const CartesianProduct&lt; As... &gt; &amp;a, const CartesianProduct&lt; Bs... &gt; &amp;b)</div><div class="ttdef"><b>Definition</b> cartesian_product.hpp:497</div></div>
-<div class="ttc" id="anamespacelala_html_ac2d15ad8d7e0974c7b2bb1a88c3f3277"><div class="ttname"><a href="namespacelala.html#ac2d15ad8d7e0974c7b2bb1a88c3f3277">lala::meet</a></div><div class="ttdeci">CUDA constexpr auto meet(const Interval&lt; L &gt; &amp;, const Interval&lt; K &gt; &amp;)</div></div>
+<div class="ttc" id="anamespacelala_html_a04d25524e24ca7311659d66cb013d1c3"><div class="ttname"><a href="namespacelala.html#a04d25524e24ca7311659d66cb013d1c3">lala::operator&lt;&lt;</a></div><div class="ttdeci">std::ostream &amp; operator&lt;&lt;(std::ostream &amp;s, const CartesianProduct&lt; A, As... &gt; &amp;cp)</div><div class="ttdef"><b>Definition</b> cartesian_product.hpp:531</div></div>
+<div class="ttc" id="anamespacelala_html_a44314d29734db79278128b688836bcb5"><div class="ttname"><a href="namespacelala.html#a44314d29734db79278128b688836bcb5">lala::operator==</a></div><div class="ttdeci">CUDA constexpr bool operator==(const CartesianProduct&lt; As... &gt; &amp;a, const CartesianProduct&lt; Bs... &gt; &amp;b)</div><div class="ttdef"><b>Definition</b> cartesian_product.hpp:504</div></div>
+<div class="ttc" id="anamespacelala_html_aa909139c7fbbea78476539a48bb989e9"><div class="ttname"><a href="namespacelala.html#aa909139c7fbbea78476539a48bb989e9">lala::operator&lt;</a></div><div class="ttdeci">CUDA constexpr bool operator&lt;(const CartesianProduct&lt; As... &gt; &amp;a, const CartesianProduct&lt; Bs... &gt; &amp;b)</div><div class="ttdef"><b>Definition</b> cartesian_product.hpp:485</div></div>
+<div class="ttc" id="anamespacelala_html_ab4632875e493f8e8dce9f43d1d2d0387"><div class="ttname"><a href="namespacelala.html#ab4632875e493f8e8dce9f43d1d2d0387">lala::operator&gt;</a></div><div class="ttdeci">CUDA constexpr bool operator&gt;(const CartesianProduct&lt; As... &gt; &amp;a, const CartesianProduct&lt; Bs... &gt; &amp;b)</div><div class="ttdef"><b>Definition</b> cartesian_product.hpp:498</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

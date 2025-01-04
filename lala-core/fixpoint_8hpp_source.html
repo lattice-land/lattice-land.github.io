@@ -342,7 +342,7 @@ $(function(){initNavTree('fixpoint_8hpp_source.html',''); initResizable(true); }
 <div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>    <span class="keywordflow">for</span>(i = 1; changed[(i-1)%3] &amp;&amp; !stop[(i-1)%3]; ++i) {</div>
 <div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>      changed[i%3].join(iterate(n, f));</div>
 <div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>      <span class="keywordflow">if</span>(is_thread0()) {</div>
-<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>        changed[(i+1)%3].<a class="code hl_function" href="namespacelala.html#ac2d15ad8d7e0974c7b2bb1a88c3f3277">meet</a>(<span class="keyword">false</span>); <span class="comment">// reinitialize changed for the next iteration.</span></div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>        changed[(i+1)%3].meet(<span class="keyword">false</span>); <span class="comment">// reinitialize changed for the next iteration.</span></div>
 <div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>        stop[i%3].join(must_stop());</div>
 <div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>      }</div>
 <div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>      barrier();</div>
@@ -710,7 +710,6 @@ $(function(){initNavTree('fixpoint_8hpp_source.html',''); initResizable(true); }
 <div class="ttc" id="aclasslala_1_1_gauss_seidel_iteration_html_ab04980dcd514af2a31deff3a9c197070"><div class="ttname"><a href="classlala_1_1_gauss_seidel_iteration.html#ab04980dcd514af2a31deff3a9c197070">lala::GaussSeidelIteration::fixpoint</a></div><div class="ttdeci">CUDA size_t fixpoint(size_t n, const F &amp;f, const StopFun &amp;must_stop)</div><div class="ttdef"><b>Definition</b> fixpoint.hpp:60</div></div>
 <div class="ttc" id="alogic_8hpp_html"><div class="ttname"><a href="logic_8hpp.html">logic.hpp</a></div></div>
 <div class="ttc" id="anamespacelala_html"><div class="ttname"><a href="namespacelala.html">lala</a></div><div class="ttdef"><b>Definition</b> abstract_deps.hpp:14</div></div>
-<div class="ttc" id="anamespacelala_html_ac2d15ad8d7e0974c7b2bb1a88c3f3277"><div class="ttname"><a href="namespacelala.html#ac2d15ad8d7e0974c7b2bb1a88c3f3277">lala::meet</a></div><div class="ttdeci">CUDA constexpr auto meet(const Interval&lt; L &gt; &amp;, const Interval&lt; K &gt; &amp;)</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

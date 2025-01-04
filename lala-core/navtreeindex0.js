@@ -206,6 +206,8 @@ var NAVTREEINDEX0 =
 "classlala_1_1_arith_bound.html#a1adb6946c9617e8af27277822869c568":[1,0,0,1,6],
 "classlala_1_1_arith_bound.html#a1e415a97de5b7163f7bf7faee86fcb3f":[0,0,1,2,25],
 "classlala_1_1_arith_bound.html#a1e415a97de5b7163f7bf7faee86fcb3f":[1,0,0,1,25],
+"classlala_1_1_arith_bound.html#a207b9bc974bea69a6ff05f2e0f270c03":[0,0,1,2,12],
+"classlala_1_1_arith_bound.html#a207b9bc974bea69a6ff05f2e0f270c03":[1,0,0,1,12],
 "classlala_1_1_arith_bound.html#a230de086de1b115836eec95039adf37e":[0,0,1,2,14],
 "classlala_1_1_arith_bound.html#a230de086de1b115836eec95039adf37e":[1,0,0,1,14],
 "classlala_1_1_arith_bound.html#a23a76b53c320842adec4b1875670b30e":[0,0,1,2,28],
@@ -220,10 +222,10 @@ var NAVTREEINDEX0 =
 "classlala_1_1_arith_bound.html#a43b627ac92167643ceef536700ba0dc0":[1,0,0,1,17],
 "classlala_1_1_arith_bound.html#a472b4a6b1b2cf6ab22769645105e94b7":[0,0,1,2,11],
 "classlala_1_1_arith_bound.html#a472b4a6b1b2cf6ab22769645105e94b7":[1,0,0,1,11],
+"classlala_1_1_arith_bound.html#a5278ba3e233944f98c78243f6f208e57":[0,0,1,2,16],
+"classlala_1_1_arith_bound.html#a5278ba3e233944f98c78243f6f208e57":[1,0,0,1,16],
 "classlala_1_1_arith_bound.html#a594e68bfbda80a82e002bd86b20fa58e":[0,0,1,2,26],
 "classlala_1_1_arith_bound.html#a594e68bfbda80a82e002bd86b20fa58e":[1,0,0,1,26],
-"classlala_1_1_arith_bound.html#a6b1087e2a1a0dad63c9fdac8c184ef28":[0,0,1,2,16],
-"classlala_1_1_arith_bound.html#a6b1087e2a1a0dad63c9fdac8c184ef28":[1,0,0,1,16],
 "classlala_1_1_arith_bound.html#a6d9d08d79ee03b2d557da2b37d475052":[0,0,1,2,13],
 "classlala_1_1_arith_bound.html#a6d9d08d79ee03b2d557da2b37d475052":[1,0,0,1,13],
 "classlala_1_1_arith_bound.html#a80b6b0e0d24b358887b4e641de3081f1":[0,0,1,2,3],
@@ -247,7 +249,5 @@ var NAVTREEINDEX0 =
 "classlala_1_1_arith_bound.html#aa4b3864d2d412aaaac3ec147cf2036c6":[0,0,1,2,8],
 "classlala_1_1_arith_bound.html#aa4b3864d2d412aaaac3ec147cf2036c6":[1,0,0,1,8],
 "classlala_1_1_arith_bound.html#ab0f879d68d664514900a6acecc5e11e3":[0,0,1,2,5],
-"classlala_1_1_arith_bound.html#ab0f879d68d664514900a6acecc5e11e3":[1,0,0,1,5],
-"classlala_1_1_arith_bound.html#aba08b10e012836072cfee1e6d71e8006":[0,0,1,2,33],
-"classlala_1_1_arith_bound.html#aba08b10e012836072cfee1e6d71e8006":[1,0,0,1,33]
+"classlala_1_1_arith_bound.html#ab0f879d68d664514900a6acecc5e11e3":[1,0,0,1,5]
 };

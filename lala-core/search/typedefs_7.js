@@ -1,14 +1,4 @@
 var searchData=
 [
-  ['lb_0',['LB',['../classlala_1_1_interval.html#a4addbf280c8cd6ad02982beb8bc50f90',1,'lala::Interval::LB'],['../classlala_1_1_n_bitset.html#ad0cfc1c667b067ee6c4c6bb359e87f97',1,'lala::NBitset::LB']]],
-  ['local_5fflat_5ftype_1',['local_flat_type',['../classlala_1_1_arith_bound.html#aa4b3864d2d412aaaac3ec147cf2036c6',1,'lala::ArithBound']]],
-  ['local_5ftype_2',['local_type',['../classlala_1_1_cartesian_product.html#abfd3a4fe7949c8aec751c5d6ed70bd59',1,'lala::CartesianProduct::local_type'],['../classlala_1_1_interval.html#a814b4bce11d3cde75fa2ad2db54994a7',1,'lala::Interval::local_type'],['../classlala_1_1_arith_bound.html#a1adb6946c9617e8af27277822869c568',1,'lala::ArithBound::local_type'],['../classlala_1_1_flat_universe.html#a82bf7fc891c2153a27a51a3f38cf6a84',1,'lala::FlatUniverse::local_type'],['../classlala_1_1_n_bitset.html#ac65aaa7ba1848aad7d90660d17314fea',1,'lala::NBitset::local_type']]],
-  ['local_5funiverse_3',['local_universe',['../classlala_1_1_v_store.html#a78ed6bcff683cb7d93f29f0e5d06e916',1,'lala::VStore']]],
-  ['logic_5fbool_4',['logic_bool',['../namespacelala.html#a72cdb1d38b9fce25dd5791e40cc8bd14',1,'lala']]],
-  ['logic_5fint_5',['logic_int',['../namespacelala.html#a6b5e8c539e0b34bc5a59e90593ede563',1,'lala']]],
-  ['logic_5freal_6',['logic_real',['../namespacelala.html#a68c6e8de482686b5f51bfab62709080b',1,'lala']]],
-  ['logic_5fset_7',['logic_set',['../namespacelala.html#a09cb772dc141687e1737e8fe9253f525',1,'lala']]],
-  ['logicset_8',['LogicSet',['../classlala_1_1_t_formula.html#acac756e8ab2736ba443860966941fa9e',1,'lala::TFormula']]],
-  ['lower_5fbound_5ftype_9',['lower_bound_type',['../structlala_1_1_pre_f_l_b.html#a48dd71d2810a2c38aed902b8060b298a',1,'lala::PreFLB::lower_bound_type'],['../structlala_1_1_pre_f_u_b.html#ad618669353716fb756c2c73213cda86e',1,'lala::PreFUB::lower_bound_type'],['../structlala_1_1_pre_z_l_b.html#a44c6ce247cd3389b5aa510cd89dde4a0',1,'lala::PreZLB::lower_bound_type'],['../structlala_1_1_pre_z_u_b.html#a972bdc1ef1ec9ca0c140361ccedefb9c',1,'lala::PreZUB::lower_bound_type']]],
-  ['lvar_10',['LVar',['../namespacelala.html#a8a2c3adc0efc7b60c27edd38dcad08ce',1,'lala']]]
+  ['memory_5ftype_0',['memory_type',['../classlala_1_1_cartesian_product.html#ab90d89eb1b69a86d6f15cdcd00d26bc9',1,'lala::CartesianProduct::memory_type'],['../classlala_1_1_interval.html#a5a5936c9e572c1daad9e41743c02ce94',1,'lala::Interval::memory_type'],['../classlala_1_1_simplifier.html#ac403c2c0d49b4b8eb4f95a11845f51cd',1,'lala::Simplifier::memory_type'],['../classlala_1_1_arith_bound.html#a23dffea410d0e77ce8fb4f69c46f7c62',1,'lala::ArithBound::memory_type'],['../classlala_1_1_flat_universe.html#a407266f3bf1643f765819e2ff2f474a8',1,'lala::FlatUniverse::memory_type'],['../classlala_1_1_n_bitset.html#abc4c05ae7eaacd76920ee508bdaf60fa',1,'lala::NBitset::memory_type']]]
 ];
