@@ -5,6 +5,7 @@ var common__solving_8hpp =
     [ "AbstractDomains< Universe, BasicAllocator, PropAllocator, StoreAllocator >", "struct_abstract_domains.html", "struct_abstract_domains" ],
     [ "AbstractDomains< Universe, BasicAllocator, PropAllocator, StoreAllocator >::tag_copy_cons", "struct_abstract_domains_1_1tag__copy__cons.html", null ],
     [ "AbstractDomains< Universe, BasicAllocator, PropAllocator, StoreAllocator >::tag_gpu_block_copy", "struct_abstract_domains_1_1tag__gpu__block__copy.html", null ],
+    [ "AbstractDomains< Universe, BasicAllocator, PropAllocator, StoreAllocator >::vstat", "struct_abstract_domains_1_1vstat.html", "struct_abstract_domains_1_1vstat" ],
     [ "Itv", "common__solving_8hpp.html#ab7cbd01c4c671c527f582fffb1125923", null ],
     [ "CP", "common__solving_8hpp.html#a665465ed7601f9d0f594e28fcd24b6c1", null ],
     [ "block_signal_ctrlc", "common__solving_8hpp.html#ad04619f00eb1d7deacc6f2326f0ace5e", null ],

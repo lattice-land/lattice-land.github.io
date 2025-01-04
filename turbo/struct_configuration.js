@@ -19,6 +19,7 @@ var struct_configuration =
     [ "print_ast", "struct_configuration.html#a2e1d83ae5ce1588efe89ff65b9220460", null ],
     [ "only_global_memory", "struct_configuration.html#aae1fab75cbb6561fa2d07eb7ed8c8b97", null ],
     [ "simplify", "struct_configuration.html#a26490ac1c9e77e7a5860a980ab836b46", null ],
+    [ "network_analysis", "struct_configuration.html#abc65b4f3828ae49e3486f4e075bc87be", null ],
     [ "timeout_ms", "struct_configuration.html#a551421ac989bd6fed56f7e09de7618e2", null ],
     [ "or_nodes", "struct_configuration.html#a6400dfba9cd09ea3050d18c71c8d47fb", null ],
     [ "subproblems_power", "struct_configuration.html#afb757200eb840ef0b0c908827ab77d88", null ],

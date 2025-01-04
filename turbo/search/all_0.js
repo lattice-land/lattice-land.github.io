@@ -4,6 +4,7 @@ var searchData=
   ['allocate_1',['allocate',['../struct_unique_alloc.html#a97c5590310f861dfb863d3db9d779004',1,'UniqueAlloc::allocate()'],['../struct_unique_light_alloc.html#a67e4526fea27e07e7987541fe081715b',1,'UniqueLightAlloc::allocate()'],['../struct_abstract_domains.html#a3027683bc187b661dc58f043307442f1',1,'AbstractDomains::allocate()']]],
   ['allocator_2',['allocator',['../struct_unique_alloc.html#a9489dd338e874a94daa2b2d3f7f24756',1,'UniqueAlloc']]],
   ['allocator_5ftype_3',['allocator_type',['../struct_configuration.html#ac2d1955935cd2fe035069e66849dce46',1,'Configuration::allocator_type'],['../struct_timing_statistics.html#a7bdb1bb002e965ee11cde34634266a2d',1,'TimingStatistics::allocator_type'],['../struct_statistics.html#a25a17eb9c5c3f19ce9b14a1c433c2f91',1,'Statistics::allocator_type']]],
-  ['arch_4',['Arch',['../config_8hpp.html#a0ac03ab06a859320a9072002bdf3aa0f',1,'config.hpp']]],
-  ['arch_5',['arch',['../struct_configuration.html#a3814e00344dfdf6e0f0f1509eb0c4a3d',1,'Configuration']]]
+  ['analyze_5fpir_4',['analyze_pir',['../struct_abstract_domains.html#ad4a6c57ac3828b96672c9bf3d0c5d45c',1,'AbstractDomains']]],
+  ['arch_5',['Arch',['../config_8hpp.html#a0ac03ab06a859320a9072002bdf3aa0f',1,'config.hpp']]],
+  ['arch_6',['arch',['../struct_configuration.html#a3814e00344dfdf6e0f0f1509eb0c4a3d',1,'Configuration']]]
 ];

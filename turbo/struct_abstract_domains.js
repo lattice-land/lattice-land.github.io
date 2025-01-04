@@ -2,6 +2,7 @@ var struct_abstract_domains =
 [
     [ "tag_copy_cons", "struct_abstract_domains_1_1tag__copy__cons.html", null ],
     [ "tag_gpu_block_copy", "struct_abstract_domains_1_1tag__gpu__block__copy.html", null ],
+    [ "vstat", "struct_abstract_domains_1_1vstat.html", "struct_abstract_domains_1_1vstat" ],
     [ "universe_type", "struct_abstract_domains.html#abc9eee6857a4d90a369d1b04c02eaec0", null ],
     [ "LIStore", "struct_abstract_domains.html#a1ab2170a315a7428892ce6e3310a72a9", null ],
     [ "IStore", "struct_abstract_domains.html#abcf4e43f3e49ca0cd11104dc28d6ecab", null ],
@@ -27,6 +28,7 @@ var struct_abstract_domains =
     [ "prepare_simplifier", "struct_abstract_domains.html#a2d4aa4bba1a424ab90d697970a40cbbb", null ],
     [ "type_and_interpret", "struct_abstract_domains.html#a092ab66f78fd89cf173f34c6d89574f1", null ],
     [ "prepare_solver", "struct_abstract_domains.html#a6eea39fdb1991a1d910c277a50f284d1", null ],
+    [ "analyze_pir", "struct_abstract_domains.html#ad4a6c57ac3828b96672c9bf3d0c5d45c", null ],
     [ "preprocess", "struct_abstract_domains.html#a9ab2a88ebb928131d7392df6c2613ddc", null ],
     [ "on_node", "struct_abstract_domains.html#a3ce563dd8c3c32d880632c11f2e5754f", null ],
     [ "is_printing_intermediate_sol", "struct_abstract_domains.html#a676414b8422f5d17286263767eaeca51", null ],
