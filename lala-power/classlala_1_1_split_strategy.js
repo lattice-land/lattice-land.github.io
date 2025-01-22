@@ -13,7 +13,7 @@ var classlala_1_1_split_strategy =
     [ "SplitStrategy", "classlala_1_1_split_strategy.html#a4261c77fb711202f868d26cefe13afec", null ],
     [ "aty", "classlala_1_1_split_strategy.html#aa4a30b25dc0ca36ec75fb2279f9ee190", null ],
     [ "get_allocator", "classlala_1_1_split_strategy.html#a298e70854daa1d89ab1b97538d8dcd01", null ],
-    [ "snapshot", "classlala_1_1_split_strategy.html#aa28170f4fbf137c382ca86d37ac83c3a", null ],
+    [ "snapshot", "classlala_1_1_split_strategy.html#aae011c787436535786c0cb7dfdb323b9", null ],
     [ "restore", "classlala_1_1_split_strategy.html#acc8db2d7e3cfbfef97ae3af757568eb0", null ],
     [ "reset", "classlala_1_1_split_strategy.html#abf5102e67676c60dd2c5f1c824fe8a61", null ],
     [ "interpret_tell", "classlala_1_1_split_strategy.html#a5701a608e86f61d00d92da1422dada37", null ],

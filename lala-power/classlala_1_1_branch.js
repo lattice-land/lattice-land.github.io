@@ -8,11 +8,11 @@ var classlala_1_1_branch =
     [ "Branch", "classlala_1_1_branch.html#aa28fac63f01189bc6518ab9f5dc32837", null ],
     [ "Branch", "classlala_1_1_branch.html#a26cba44a3cf38b929a3b096a6e706c25", null ],
     [ "size", "classlala_1_1_branch.html#a00b790d0c7ff4fe7474958d13eac0dbe", null ],
-    [ "next", "classlala_1_1_branch.html#ad92dd0ed800058c481ae1d94e037822d", null ],
-    [ "operator[]", "classlala_1_1_branch.html#a24845640d59d4608670201e5f41bddaf", null ],
+    [ "next", "classlala_1_1_branch.html#a69848349009e2e917da019052417f8ff", null ],
+    [ "operator[]", "classlala_1_1_branch.html#a0aadf3c67c9cd62c792d2d28a931b9dd", null ],
     [ "has_next", "classlala_1_1_branch.html#ab0cc87dc3c78c3b03c973c6aeb6f2bd2", null ],
     [ "prune", "classlala_1_1_branch.html#a6791bdb7b42f0ecb144c0106459b3db6", null ],
     [ "is_pruned", "classlala_1_1_branch.html#a8a2b4a8f76f2d1efe3d5b4419d60d5ef", null ],
-    [ "current", "classlala_1_1_branch.html#a398e8fbc93cad0f71f07fe933edf6706", null ],
+    [ "current", "classlala_1_1_branch.html#a2b1cd858ed8adadce138f7e06ad2570f", null ],
     [ "Branch", "classlala_1_1_branch.html#adf9b625959dbc17e03c4b44b35dd9ef8", null ]
 ];

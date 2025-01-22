@@ -20,7 +20,7 @@ var classlala_1_1_search_tree =
     [ "is_singleton", "classlala_1_1_search_tree.html#ae3b5ca4db0a7708c568fc96bf4e2ef77", null ],
     [ "is_top", "classlala_1_1_search_tree.html#ad128fa2f76bd7ae73f4583d10428d6c8", null ],
     [ "is_bot", "classlala_1_1_search_tree.html#a1e3547bf7bc8006dbf265e66d0169b70", null ],
-    [ "snapshot", "classlala_1_1_search_tree.html#ad22064e2773d06821f04bfc558e53dc5", null ],
+    [ "snapshot", "classlala_1_1_search_tree.html#ae5f59664d1f7779a77f4599d29b7953a", null ],
     [ "restore", "classlala_1_1_search_tree.html#a3bdd3e5c8ad493bfa881c48791f23f0a", null ],
     [ "interpret_tell", "classlala_1_1_search_tree.html#a6153448b09cc0a29c498ca1e7daaa3af", null ],
     [ "interpret_ask", "classlala_1_1_search_tree.html#a585c93a7d479c2f757ff1e2c1a6bbab6", null ],
