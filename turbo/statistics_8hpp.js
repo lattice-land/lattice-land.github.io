@@ -1,7 +1,7 @@
 var statistics_8hpp =
 [
-    [ "TimingStatistics< Allocator >", "struct_timing_statistics.html", "struct_timing_statistics" ],
-    [ "Statistics< Allocator >", "struct_statistics.html", "struct_statistics" ],
+    [ "TimingStatistics", "struct_timing_statistics.html", "struct_timing_statistics" ],
+    [ "Statistics", "struct_statistics.html", "struct_statistics" ],
     [ "Timer", "statistics_8hpp.html#a6e0035edd58cc6ca8c94b5f9723a0d80", [
       [ "OVERALL", "statistics_8hpp.html#a6e0035edd58cc6ca8c94b5f9723a0d80a7905c9b3eda793da18fade6e791b2183", null ],
       [ "PREPROCESSING", "statistics_8hpp.html#a6e0035edd58cc6ca8c94b5f9723a0d80a17894b976b627f708a2c7c58cea8f56e", null ],

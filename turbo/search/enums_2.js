@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['timer_0',['Timer',['../statistics_8hpp.html#a6e0035edd58cc6ca8c94b5f9723a0d80',1,'statistics.hpp']]]
+  ['inputformat_298',['InputFormat',['../config_8hpp.html#a7a1886da996cfe677c935435eff2adeb',1,'config.hpp']]]
 ];
