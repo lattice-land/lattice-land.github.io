@@ -14,7 +14,7 @@ var classlala_1_1pc_1_1_biconditional =
     [ "deduce", "classlala_1_1pc_1_1_biconditional.html#ae1318de8a882a856570d14fe07fd5997", null ],
     [ "contradeduce", "classlala_1_1pc_1_1_biconditional.html#ac3f650a9f26e0b3c67d3640f620b8e73", null ],
     [ "print", "classlala_1_1pc_1_1_biconditional.html#a183fa7a988480e1b9be0968f8a3e7fb9", null ],
-    [ "deinterpret", "classlala_1_1pc_1_1_biconditional.html#aeba57187b1ff0b9e5ab8869ea878ffe4", null ],
+    [ "deinterpret", "classlala_1_1pc_1_1_biconditional.html#a513de1cb7867359dfa691af1a700d109", null ],
     [ "length", "classlala_1_1pc_1_1_biconditional.html#a55a8a1ec9b704b0fbc2bb3b18289de15", null ],
     [ "Biconditional", "classlala_1_1pc_1_1_biconditional.html#a50fe39a60058fe7eb54557113faf81a3", null ]
 ];
