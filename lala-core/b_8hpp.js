@@ -1,4 +1,4 @@
 var b_8hpp =
 [
-    [ "B", "b_8hpp.html#ae1dbdea88ccb59298d935bba5d3e1843", null ]
+    [ "B", "b_8hpp.html#a41aab129767430c7ec1557da582c168b", null ]
 ];

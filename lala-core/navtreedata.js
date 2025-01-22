@@ -45,7 +45,7 @@ var NAVTREE =
         [ "Typedefs", "functions_type.html", null ],
         [ "Enumerations", "functions_enum.html", null ],
         [ "Enumerator", "functions_eval.html", null ],
-        [ "Related Symbols", "functions_rela.html", null ]
+        [ "Related Functions", "functions_rela.html", null ]
       ] ]
     ] ],
     [ "Files", "files.html", [
@@ -61,12 +61,10 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "__pre__sinc_8hpp.html",
-"classlala_1_1_arith_bound.html#aba08b10e012836072cfee1e6d71e8006",
-"classlala_1_1_interval.html#a5bd9004c0736d50ebb4fcaabd233048a",
-"classlala_1_1_t_formula.html#a705f804835ee505e17af86588601fa7a",
-"dir_22ec94e099ac4ca178246c6ac98c2d99.html",
-"namespacelala.html#ad33f36a358eb1db17dc852e6bb2bf314",
-"structlala_1_1_sort.html#a267f9fffa9f58fd4365285c11724129ba687c5aef38205e57a8482ae6a20531c3"
+"classlala_1_1_fixpoint_subset_c_p_u.html#a3bfa49080f205755a0bfd0a09b543b44",
+"classlala_1_1_v_store.html#a2e6239f39c39f1a7dd67373da811349d",
+"namespacelala.html#a4be41540c5051a480d0611a3e216b659ace4bb6cc757a876bcae29d7afb344480",
+"structlala_1_1_sort.html#a76e183a55f37f10405dbfbc24ba0d041"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

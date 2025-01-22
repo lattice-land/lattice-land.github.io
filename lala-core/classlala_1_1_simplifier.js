@@ -24,6 +24,6 @@ var classlala_1_1_simplifier =
     [ "deduce", "classlala_1_1_simplifier.html#a26b92ca27c3d7390f2065102db574b61", null ],
     [ "num_eliminated_variables", "classlala_1_1_simplifier.html#a85e607537b1a4428dbea353064a93840", null ],
     [ "num_eliminated_formulas", "classlala_1_1_simplifier.html#ad4079bfffb058052e0db7c07c6a72636", null ],
-    [ "deinterpret", "classlala_1_1_simplifier.html#ac60f902bedc0215768e1dfd1e4257c9b", null ],
+    [ "deinterpret", "classlala_1_1_simplifier.html#a0257d3a32bf90543014d4f8386aa5866", null ],
     [ "Simplifier", "classlala_1_1_simplifier.html#abb7b1b8372ac24e438139ebc86dc99c4", null ]
 ];

@@ -1,10 +1,10 @@
 var nbitset_8hpp =
 [
-    [ "lala::NBitset< N, Mem, T >", "classlala_1_1_n_bitset.html", "classlala_1_1_n_bitset" ],
-    [ "fjoin", "nbitset_8hpp.html#a08574b94fd313aa150af3def34853156", null ],
-    [ "fmeet", "nbitset_8hpp.html#a72b20f603ae44ad4108e4adf9229125a", null ],
-    [ "operator<", "nbitset_8hpp.html#a1711a87beb817da46277646f641fe45f", null ],
-    [ "operator>", "nbitset_8hpp.html#a10f9c5c46728f0aa2d051bb944b54d12", null ],
-    [ "operator==", "nbitset_8hpp.html#a1e53df1bee8511ee593c619415ad7918", null ],
-    [ "operator<<", "nbitset_8hpp.html#a92a8e2806de947f10ee1aaa3e8b1fb4b", null ]
+    [ "NBitset", "classlala_1_1_n_bitset.html", "classlala_1_1_n_bitset" ],
+    [ "fjoin", "nbitset_8hpp.html#ac073e87bc30d52a9329b59939cce2392", null ],
+    [ "fmeet", "nbitset_8hpp.html#a85bd6c20fd135c37a166cf466824aa02", null ],
+    [ "operator<", "nbitset_8hpp.html#aca4afb1e07ef7fded7169167039a9f3e", null ],
+    [ "operator>", "nbitset_8hpp.html#a1a9288ef392ccc3f0ebb6c3cf7dc2dec", null ],
+    [ "operator==", "nbitset_8hpp.html#a04bec15dd642120a7e93033c3ebaeeaf", null ],
+    [ "operator<<", "nbitset_8hpp.html#a7828840d9064772b024638e0e9aba5ce", null ]
 ];
