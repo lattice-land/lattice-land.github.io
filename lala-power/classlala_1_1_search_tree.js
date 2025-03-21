@@ -32,5 +32,13 @@ var classlala_1_1_search_tree =
     [ "project", "classlala_1_1_search_tree.html#a8ccf0ac4cc11688422575bf78a2b88a0", null ],
     [ "project", "classlala_1_1_search_tree.html#af5e925ec8007f254507c5f26fce0171e", null ],
     [ "depth", "classlala_1_1_search_tree.html#a16af5ccbb9c744bc8d661d037e563a05", null ],
-    [ "SearchTree", "classlala_1_1_search_tree.html#af8f9b572d0b4bef0e8a0e34d5e9b20a4", null ]
+    [ "push", "classlala_1_1_search_tree.html#a0ae72fdfe31f9d25cd7490e02cbc2dc2", null ],
+    [ "pop", "classlala_1_1_search_tree.html#ad8e690783b6513a5cdc691b8cdf23c69", null ],
+    [ "commit_left", "classlala_1_1_search_tree.html#ab39de4d13c8e2ec1bfa4dc8cf53ee154", null ],
+    [ "commit_right", "classlala_1_1_search_tree.html#ab3790537ae94b1077021cadcfd66fc50", null ],
+    [ "backtrack", "classlala_1_1_search_tree.html#a09b41b5e2e06808e94428744a4af6b98", null ],
+    [ "deduce_root", "classlala_1_1_search_tree.html#a050b0fc24b79894d28de974f97f46790", null ],
+    [ "replay", "classlala_1_1_search_tree.html#ad0db2d9e4ec18311e1d93f01f7768be3", null ],
+    [ "SearchTree", "classlala_1_1_search_tree.html#af8f9b572d0b4bef0e8a0e34d5e9b20a4", null ],
+    [ "split", "classlala_1_1_search_tree.html#a87c21a9b5e8648d73cac02a994c9845c", null ]
 ];

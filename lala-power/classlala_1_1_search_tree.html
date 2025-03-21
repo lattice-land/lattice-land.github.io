@@ -92,6 +92,7 @@ $(document).ready(function(){initNavTree('classlala_1_1_search_tree.html',''); i
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="#friends">Friends</a> &#124;
 <a href="classlala_1_1_search_tree-members.html">List of all members</a>  </div>
@@ -137,7 +138,7 @@ Public Types</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:acc9c74bd5bce37812b548aaf66380120"><td class="memItemLeft" align="right" valign="top">CUDA&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlala_1_1_search_tree.html#acc9c74bd5bce37812b548aaf66380120">SearchTree</a> (AType uid, <a class="el" href="classlala_1_1_search_tree.html#abf2ab714537c6ee5f06a7c53f47e8c9a">sub_ptr</a> a, <a class="el" href="classlala_1_1_search_tree.html#ab67f1fdea2df4e25456b93ce163d288d">split_ptr</a> split, const <a class="el" href="classlala_1_1_search_tree.html#acbe05fc124f05707a65f5e27b15c4267">allocator_type</a> &amp;alloc=<a class="el" href="classlala_1_1_search_tree.html#acbe05fc124f05707a65f5e27b15c4267">allocator_type</a>())</td></tr>
+<tr class="memitem:acc9c74bd5bce37812b548aaf66380120"><td class="memItemLeft" align="right" valign="top">CUDA&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlala_1_1_search_tree.html#acc9c74bd5bce37812b548aaf66380120">SearchTree</a> (AType uid, <a class="el" href="classlala_1_1_search_tree.html#abf2ab714537c6ee5f06a7c53f47e8c9a">sub_ptr</a> a, <a class="el" href="classlala_1_1_search_tree.html#ab67f1fdea2df4e25456b93ce163d288d">split_ptr</a> <a class="el" href="classlala_1_1_search_tree.html#a87c21a9b5e8648d73cac02a994c9845c">split</a>, const <a class="el" href="classlala_1_1_search_tree.html#acbe05fc124f05707a65f5e27b15c4267">allocator_type</a> &amp;alloc=<a class="el" href="classlala_1_1_search_tree.html#acbe05fc124f05707a65f5e27b15c4267">allocator_type</a>())</td></tr>
 <tr class="separator:acc9c74bd5bce37812b548aaf66380120"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae16f5570ef3de93751b8830226d3b41d"><td class="memTemplParams" colspan="2">template&lt;class A2 , class S2 , class Alloc2 , class... Allocators&gt; </td></tr>
 <tr class="memitem:ae16f5570ef3de93751b8830226d3b41d"><td class="memTemplItemLeft" align="right" valign="top">CUDA NI&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classlala_1_1_search_tree.html#ae16f5570ef3de93751b8830226d3b41d">SearchTree</a> (const <a class="el" href="classlala_1_1_search_tree.html">SearchTree</a>&lt; A2, S2, Alloc2 &gt; &amp;other, AbstractDeps&lt; Allocators... &gt; &amp;deps)</td></tr>
@@ -185,6 +186,25 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:af5e925ec8007f254507c5f26fce0171e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a16af5ccbb9c744bc8d661d037e563a05"><td class="memItemLeft" align="right" valign="top">CUDA size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlala_1_1_search_tree.html#a16af5ccbb9c744bc8d661d037e563a05">depth</a> () const</td></tr>
 <tr class="separator:a16af5ccbb9c744bc8d661d037e563a05"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ae72fdfe31f9d25cd7490e02cbc2dc2"><td class="memItemLeft" align="right" valign="top">CUDA bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlala_1_1_search_tree.html#a0ae72fdfe31f9d25cd7490e02cbc2dc2">push</a> (<a class="el" href="classlala_1_1_search_tree.html#a4e048bf4073e67b7db6d335c41c16137">branch_type</a> &amp;&amp;branch)</td></tr>
+<tr class="separator:a0ae72fdfe31f9d25cd7490e02cbc2dc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad8e690783b6513a5cdc691b8cdf23c69"><td class="memItemLeft" align="right" valign="top">CUDA bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlala_1_1_search_tree.html#ad8e690783b6513a5cdc691b8cdf23c69">pop</a> (bool pruned)</td></tr>
+<tr class="separator:ad8e690783b6513a5cdc691b8cdf23c69"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab39de4d13c8e2ec1bfa4dc8cf53ee154"><td class="memItemLeft" align="right" valign="top">CUDA bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlala_1_1_search_tree.html#ab39de4d13c8e2ec1bfa4dc8cf53ee154">commit_left</a> ()</td></tr>
+<tr class="separator:ab39de4d13c8e2ec1bfa4dc8cf53ee154"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3790537ae94b1077021cadcfd66fc50"><td class="memItemLeft" align="right" valign="top">CUDA bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlala_1_1_search_tree.html#ab3790537ae94b1077021cadcfd66fc50">commit_right</a> ()</td></tr>
+<tr class="separator:ab3790537ae94b1077021cadcfd66fc50"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a09b41b5e2e06808e94428744a4af6b98"><td class="memItemLeft" align="right" valign="top">CUDA bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlala_1_1_search_tree.html#a09b41b5e2e06808e94428744a4af6b98">backtrack</a> ()</td></tr>
+<tr class="separator:a09b41b5e2e06808e94428744a4af6b98"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a050b0fc24b79894d28de974f97f46790"><td class="memItemLeft" align="right" valign="top">CUDA bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlala_1_1_search_tree.html#a050b0fc24b79894d28de974f97f46790">deduce_root</a> ()</td></tr>
+<tr class="separator:a050b0fc24b79894d28de974f97f46790"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad0db2d9e4ec18311e1d93f01f7768be3"><td class="memItemLeft" align="right" valign="top">CUDA bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlala_1_1_search_tree.html#ad0db2d9e4ec18311e1d93f01f7768be3">replay</a> ()</td></tr>
+<tr class="separator:ad0db2d9e4ec18311e1d93f01f7768be3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:a87c21a9b5e8648d73cac02a994c9845c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classlala_1_1_search_tree.html#ab67f1fdea2df4e25456b93ce163d288d">split_ptr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlala_1_1_search_tree.html#a87c21a9b5e8648d73cac02a994c9845c">split</a></td></tr>
+<tr class="separator:a87c21a9b5e8648d73cac02a994c9845c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
 Static Public Attributes</h2></td></tr>
@@ -1053,6 +1073,204 @@ template&lt;class A , class Split , class Allocator  = typename A::allocator_typ
 
 </div>
 </div>
+<a id="a0ae72fdfe31f9d25cd7490e02cbc2dc2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ae72fdfe31f9d25cd7490e02cbc2dc2">&#9670;&nbsp;</a></span>push()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class A , class Split , class Allocator  = typename A::allocator_type&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">CUDA bool <a class="el" href="classlala_1_1_search_tree.html">lala::SearchTree</a>&lt; A, Split, Allocator &gt;::push </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classlala_1_1_search_tree.html#a4e048bf4073e67b7db6d335c41c16137">branch_type</a> &amp;&amp;&#160;</td>
+          <td class="paramname"><em>branch</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if the current node is pruned, and <code>false</code> if a new branch was pushed. </dd></dl>
+
+</div>
+</div>
+<a id="ad8e690783b6513a5cdc691b8cdf23c69"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad8e690783b6513a5cdc691b8cdf23c69">&#9670;&nbsp;</a></span>pop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class A , class Split , class Allocator  = typename A::allocator_type&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">CUDA bool <a class="el" href="classlala_1_1_search_tree.html">lala::SearchTree</a>&lt; A, Split, Allocator &gt;::pop </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>pruned</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>If the current node was pruned, we need to backtrack, otherwise we just consider the next node along the branch. </p>
+
+</div>
+</div>
+<a id="ab39de4d13c8e2ec1bfa4dc8cf53ee154"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab39de4d13c8e2ec1bfa4dc8cf53ee154">&#9670;&nbsp;</a></span>commit_left()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class A , class Split , class Allocator  = typename A::allocator_type&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">CUDA bool <a class="el" href="classlala_1_1_search_tree.html">lala::SearchTree</a>&lt; A, Split, Allocator &gt;::commit_left </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Given the current node, commit to the node on the left. If we are on the root node, we save a snapshot of root before committing to the left node. </p>
+
+</div>
+</div>
+<a id="ab3790537ae94b1077021cadcfd66fc50"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab3790537ae94b1077021cadcfd66fc50">&#9670;&nbsp;</a></span>commit_right()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class A , class Split , class Allocator  = typename A::allocator_type&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">CUDA bool <a class="el" href="classlala_1_1_search_tree.html">lala::SearchTree</a>&lt; A, Split, Allocator &gt;::commit_right </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>We explore the next node of the search tree available (after we backtracked, so it cannot be a left node). </p>
+
+</div>
+</div>
+<a id="a09b41b5e2e06808e94428744a4af6b98"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a09b41b5e2e06808e94428744a4af6b98">&#9670;&nbsp;</a></span>backtrack()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class A , class Split , class Allocator  = typename A::allocator_type&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">CUDA bool <a class="el" href="classlala_1_1_search_tree.html">lala::SearchTree</a>&lt; A, Split, Allocator &gt;::backtrack </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Goes from the current node to root. </p>
+
+</div>
+</div>
+<a id="a050b0fc24b79894d28de974f97f46790"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a050b0fc24b79894d28de974f97f46790">&#9670;&nbsp;</a></span>deduce_root()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class A , class Split , class Allocator  = typename A::allocator_type&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">CUDA bool <a class="el" href="classlala_1_1_search_tree.html">lala::SearchTree</a>&lt; A, Split, Allocator &gt;::deduce_root </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>We do not always have access to the root node, so formulas that are added to the search tree are kept in <code>root_tell</code>. During backtracking, root is available through <code>a</code>, and we add to root the formulas stored until now, so they become automatically available to the remaining nodes in the search tree. </p>
+
+</div>
+</div>
+<a id="ad0db2d9e4ec18311e1d93f01f7768be3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad0db2d9e4ec18311e1d93f01f7768be3">&#9670;&nbsp;</a></span>replay()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class A , class Split , class Allocator  = typename A::allocator_type&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">CUDA bool <a class="el" href="classlala_1_1_search_tree.html">lala::SearchTree</a>&lt; A, Split, Allocator &gt;::replay </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Goes from <code>root</code> to the new node to be explored. </p>
+
+</div>
+</div>
 <h2 class="groupheader">Friends And Related Function Documentation</h2>
 <a id="af8f9b572d0b4bef0e8a0e34d5e9b20a4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af8f9b572d0b4bef0e8a0e34d5e9b20a4">&#9670;&nbsp;</a></span>SearchTree</h2>
@@ -1317,6 +1535,22 @@ template&lt;class A , class Split , class Allocator  = typename A::allocator_typ
 <span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
   </tr>
 </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a87c21a9b5e8648d73cac02a994c9845c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a87c21a9b5e8648d73cac02a994c9845c">&#9670;&nbsp;</a></span>split</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class A , class Split , class Allocator  = typename A::allocator_type&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classlala_1_1_search_tree.html#ab67f1fdea2df4e25456b93ce163d288d">split_ptr</a> <a class="el" href="classlala_1_1_search_tree.html">lala::SearchTree</a>&lt; A, Split, Allocator &gt;::split</td>
+        </tr>
+      </table>
 </div><div class="memdoc">
 
 </div>
