@@ -37,6 +37,7 @@ var classlala_1_1_p_i_r =
     [ "restore", "classlala_1_1_p_i_r.html#ad6f4ee5e74ae621cd334fdad0310247f", null ],
     [ "is_extractable", "classlala_1_1_p_i_r.html#aa814b9c6b958a635ea065ebe0fc30ebd", null ],
     [ "extract", "classlala_1_1_p_i_r.html#adf352ef22da97cbd642582b5cc4382b6", null ],
+    [ "deinterpret", "classlala_1_1_p_i_r.html#a15253215124c7ef02f58904dc56b7f2d", null ],
     [ "deinterpret", "classlala_1_1_p_i_r.html#ad7e5369f001d243647a8e7fd2cb5957e", null ],
     [ "deinterpret", "classlala_1_1_p_i_r.html#a30cd75751ea6a9d979dced5b81c6ae51", null ],
     [ "PIR", "classlala_1_1_p_i_r.html#a009d7b10b1dd00b4eff1e919a8537a07", null ]

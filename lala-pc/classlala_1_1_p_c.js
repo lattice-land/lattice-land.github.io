@@ -26,6 +26,7 @@ var classlala_1_1_p_c =
     [ "ask", "classlala_1_1_p_c.html#aeb96e204ffb8c1d5224fecd552c53536", null ],
     [ "ask", "classlala_1_1_p_c.html#ac2a6f15a65ef42f63a08e5c70ef52188", null ],
     [ "num_deductions", "classlala_1_1_p_c.html#a6f54d09f9a7a7a4e55015977f0a183e3", null ],
+    [ "load_deduce", "classlala_1_1_p_c.html#a66fdcfd97d90ad138893bff8e4d4835f", null ],
     [ "deduce", "classlala_1_1_p_c.html#ae7759cddf1e27d0368ad5d2b0f9eba80", null ],
     [ "is_bot", "classlala_1_1_p_c.html#aad060de1def8eccf776fe8e275f9fbe2", null ],
     [ "is_top", "classlala_1_1_p_c.html#aad0800c47a6d5117293c0de69979412c", null ],
@@ -37,6 +38,7 @@ var classlala_1_1_p_c =
     [ "restore", "classlala_1_1_p_c.html#ae4f021acea093e476316a6ac9f8d66c9", null ],
     [ "is_extractable", "classlala_1_1_p_c.html#a74f07d99f5622fb2d90398937dbe8160", null ],
     [ "extract", "classlala_1_1_p_c.html#a7fb6c76fca395e6c7986cbdaaa6d2378", null ],
+    [ "deinterpret", "classlala_1_1_p_c.html#add651affca7897e26a311ee451418bcc", null ],
     [ "deinterpret", "classlala_1_1_p_c.html#ae5851efcffaa39b6c3e948437d94dd88", null ],
     [ "deinterpret", "classlala_1_1_p_c.html#acc23d8b32a5c837da74b6c56928b218e", null ],
     [ "PC", "classlala_1_1_p_c.html#aa75ccac8f1abff5d2868e936da050144", null ]
