@@ -90,13 +90,15 @@ $(document).ready(function(){initNavTree('common__solving_8hpp.html',''); initRe
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
+<a href="#define-members">Macros</a> &#124;
 <a href="#typedef-members">Typedefs</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">common_solving.hpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;algorithm&gt;</code><br />
+<div class="textblock"><code>#include &lt;atomic&gt;</code><br />
+<code>#include &lt;algorithm&gt;</code><br />
 <code>#include &lt;chrono&gt;</code><br />
 <code>#include &lt;thread&gt;</code><br />
 <code>#include &lt;csignal&gt;</code><br />
@@ -133,36 +135,113 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_abstract_domains_1_1tag__gpu__block__copy.html">AbstractDomains&lt; Universe, BasicAllocator, PropAllocator, StoreAllocator &gt;::tag_gpu_block_copy</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_abstract_domains_1_1vstat.html">AbstractDomains&lt; Universe, BasicAllocator, PropAllocator, StoreAllocator &gt;::vstat</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a1cfedbdd4ea1f117b23e6eb3fe4d1bb4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="common__solving_8hpp.html#a1cfedbdd4ea1f117b23e6eb3fe4d1bb4">TURBO_ITV_BITS</a>&#160;&#160;&#160;32</td></tr>
+<tr class="separator:a1cfedbdd4ea1f117b23e6eb3fe4d1bb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f86942485f6b615baa815a07e9819f1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="common__solving_8hpp.html#a0f86942485f6b615baa815a07e9819f1">STR_</a>(x)&#160;&#160;&#160;#x</td></tr>
+<tr class="separator:a0f86942485f6b615baa815a07e9819f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18d295a837ac71add5578860b55e5502"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="common__solving_8hpp.html#a18d295a837ac71add5578860b55e5502">STR</a>(x)&#160;&#160;&#160;<a class="el" href="common__solving_8hpp.html#a0f86942485f6b615baa815a07e9819f1">STR_</a>(x)</td></tr>
+<tr class="separator:a18d295a837ac71add5578860b55e5502"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:ab7cbd01c4c671c527f582fffb1125923"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="common__solving_8hpp.html#ab7cbd01c4c671c527f582fffb1125923">Itv</a> = Interval&lt; local::ZLB &gt;</td></tr>
-<tr class="separator:ab7cbd01c4c671c527f582fffb1125923"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a754d626fc8c2d53c939b65ddb30748cd"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="common__solving_8hpp.html#a754d626fc8c2d53c939b65ddb30748cd">bound_value_type</a> = int</td></tr>
+<tr class="separator:a754d626fc8c2d53c939b65ddb30748cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a966a2ced54ee4b3a3259c28649c1fa39"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="common__solving_8hpp.html#a966a2ced54ee4b3a3259c28649c1fa39">Itv</a> = Interval&lt; ZLB&lt; <a class="el" href="common__solving_8hpp.html#a754d626fc8c2d53c939b65ddb30748cd">bound_value_type</a>, battery::local_memory &gt; &gt;</td></tr>
+<tr class="separator:a966a2ced54ee4b3a3259c28649c1fa39"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad59f9d22ada02729720be68fa03064b7"><td class="memTemplParams" colspan="2">template&lt;class Universe , class Allocator  = battery::standard_allocator&gt; </td></tr>
 <tr class="memitem:ad59f9d22ada02729720be68fa03064b7"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="common__solving_8hpp.html#ad59f9d22ada02729720be68fa03064b7">CP</a> = <a class="el" href="struct_abstract_domains.html">AbstractDomains</a>&lt; Universe, battery::statistics_allocator&lt; Allocator &gt;, battery::statistics_allocator&lt; <a class="el" href="struct_unique_light_alloc.html">UniqueLightAlloc</a>&lt; Allocator, 0 &gt; &gt;, battery::statistics_allocator&lt; <a class="el" href="struct_unique_light_alloc.html">UniqueLightAlloc</a>&lt; Allocator, 1 &gt; &gt;&gt;</td></tr>
 <tr class="separator:ad59f9d22ada02729720be68fa03064b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:af675374954cdabdf63d036fe3c12d348"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="common__solving_8hpp.html#af675374954cdabdf63d036fe3c12d348">signal_handler</a> (int signum)</td></tr>
+<tr class="separator:af675374954cdabdf63d036fe3c12d348"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad04619f00eb1d7deacc6f2326f0ace5e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="common__solving_8hpp.html#ad04619f00eb1d7deacc6f2326f0ace5e">block_signal_ctrlc</a> ()</td></tr>
 <tr class="separator:ad04619f00eb1d7deacc6f2326f0ace5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aceec23d67eb8f6c24010f377a52aee98"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="common__solving_8hpp.html#aceec23d67eb8f6c24010f377a52aee98">must_quit</a> ()</td></tr>
-<tr class="separator:aceec23d67eb8f6c24010f377a52aee98"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5758d84e8eb657679e1a48490704f19b"><td class="memTemplParams" colspan="2">template&lt;class A &gt; </td></tr>
+<tr class="memitem:a5758d84e8eb657679e1a48490704f19b"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="common__solving_8hpp.html#a5758d84e8eb657679e1a48490704f19b">must_quit</a> (A &amp;a)</td></tr>
+<tr class="separator:a5758d84e8eb657679e1a48490704f19b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae74627056bb5f54434f23cc94f5ae732"><td class="memTemplParams" colspan="2">template&lt;class A , class Timepoint &gt; </td></tr>
 <tr class="memitem:ae74627056bb5f54434f23cc94f5ae732"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="common__solving_8hpp.html#ae74627056bb5f54434f23cc94f5ae732">check_timeout</a> (A &amp;a, const Timepoint &amp;start)</td></tr>
 <tr class="separator:ae74627056bb5f54434f23cc94f5ae732"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Typedef Documentation</h2>
-<a id="ab7cbd01c4c671c527f582fffb1125923"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab7cbd01c4c671c527f582fffb1125923">&#9670;&nbsp;</a></span>Itv</h2>
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="a1cfedbdd4ea1f117b23e6eb3fe4d1bb4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1cfedbdd4ea1f117b23e6eb3fe4d1bb4">&#9670;&nbsp;</a></span>TURBO_ITV_BITS</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="common__solving_8hpp.html#ab7cbd01c4c671c527f582fffb1125923">Itv</a> =  Interval&lt;local::ZLB&gt;</td>
+          <td class="memname">#define TURBO_ITV_BITS&#160;&#160;&#160;32</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0f86942485f6b615baa815a07e9819f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f86942485f6b615baa815a07e9819f1">&#9670;&nbsp;</a></span>STR_</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define STR_</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x</td><td>)</td>
+          <td>&#160;&#160;&#160;#x</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a18d295a837ac71add5578860b55e5502"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a18d295a837ac71add5578860b55e5502">&#9670;&nbsp;</a></span>STR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define STR</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x</td><td>)</td>
+          <td>&#160;&#160;&#160;<a class="el" href="common__solving_8hpp.html#a0f86942485f6b615baa815a07e9819f1">STR_</a>(x)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Typedef Documentation</h2>
+<a id="a754d626fc8c2d53c939b65ddb30748cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a754d626fc8c2d53c939b65ddb30748cd">&#9670;&nbsp;</a></span>bound_value_type</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="common__solving_8hpp.html#a754d626fc8c2d53c939b65ddb30748cd">bound_value_type</a> =  int</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a966a2ced54ee4b3a3259c28649c1fa39"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a966a2ced54ee4b3a3259c28649c1fa39">&#9670;&nbsp;</a></span>Itv</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="common__solving_8hpp.html#a966a2ced54ee4b3a3259c28649c1fa39">Itv</a> =  Interval&lt;ZLB&lt;<a class="el" href="common__solving_8hpp.html#a754d626fc8c2d53c939b65ddb30748cd">bound_value_type</a>, battery::local_memory&gt; &gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -186,6 +265,24 @@ template&lt;class Universe , class Allocator  = battery::standard_allocator&gt; 
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="af675374954cdabdf63d036fe3c12d348"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af675374954cdabdf63d036fe3c12d348">&#9670;&nbsp;</a></span>signal_handler()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void signal_handler </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>signum</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="ad04619f00eb1d7deacc6f2326f0ace5e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad04619f00eb1d7deacc6f2326f0ace5e">&#9670;&nbsp;</a></span>block_signal_ctrlc()</h2>
 
@@ -203,16 +300,19 @@ template&lt;class Universe , class Allocator  = battery::standard_allocator&gt; 
 
 </div>
 </div>
-<a id="aceec23d67eb8f6c24010f377a52aee98"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aceec23d67eb8f6c24010f377a52aee98">&#9670;&nbsp;</a></span>must_quit()</h2>
+<a id="a5758d84e8eb657679e1a48490704f19b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5758d84e8eb657679e1a48490704f19b">&#9670;&nbsp;</a></span>must_quit()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;class A &gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">bool must_quit </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">A &amp;&#160;</td>
+          <td class="paramname"><em>a</em></td><td>)</td>
           <td></td>
         </tr>
       </table>

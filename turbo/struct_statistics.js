@@ -1,7 +1,7 @@
 var struct_statistics =
 [
     [ "allocator_type", "struct_statistics.html#a25a17eb9c5c3f19ce9b14a1c433c2f91", null ],
-    [ "Statistics", "struct_statistics.html#a9caa91ae02f86bc6a3f88e6144757fba", null ],
+    [ "Statistics", "struct_statistics.html#a638dcf0cc79f21a2aa9de503bf8e4443", null ],
     [ "Statistics", "struct_statistics.html#a540b96b8305c9aa7f633eed5a205caa8", null ],
     [ "Statistics", "struct_statistics.html#a335f6592a51a95a65cd0cdee700fc00c", null ],
     [ "Statistics", "struct_statistics.html#af78dd739f79cfd11a5b8b2a6128b7c99", null ],
@@ -12,8 +12,11 @@ var struct_statistics =
     [ "stop_timer", "struct_statistics.html#a866543508ce34abedb14f49af164c078", null ],
     [ "update_timer", "struct_statistics.html#a7e43cc34ec33533d875ab085d1e0ce93", null ],
     [ "time_ms_of", "struct_statistics.html#a6ff6489ec4ae1a5c3c5633593ba52984", null ],
+    [ "print_stat", "struct_statistics.html#abdf1040477d24f06e81377f023857ebc", null ],
     [ "print_stat", "struct_statistics.html#a9c84dfdb1c98cb0094f658961aaa64db", null ],
+    [ "print_stat_fp_iter", "struct_statistics.html#a4f9689ce44aecfe878878cf23e0d35bf", null ],
     [ "print_stat", "struct_statistics.html#aae97fde4bbd196c08766000034ad4334", null ],
+    [ "print_memory_statistics", "struct_statistics.html#a77f9832c12625799f616a7211ee2cb8b", null ],
     [ "print_timing_stat", "struct_statistics.html#a3225bdbad86ed6d1e5f039d11e351a86", null ],
     [ "print_timing_stat", "struct_statistics.html#a154803003ce703eccedcce9e9dadfb21", null ],
     [ "print_mzn_statistics", "struct_statistics.html#acc2dfb1a24c8cd351ccb16e0cdd0e2d9", null ],
@@ -22,6 +25,7 @@ var struct_statistics =
     [ "print_mzn_separator", "struct_statistics.html#abd9f0c5badf94c240a703ff94cac9bd0", null ],
     [ "print_mzn_final_separator", "struct_statistics.html#a594cfa44cd495289abdfb0dbe14696b6", null ],
     [ "Statistics", "struct_statistics.html#a7d7510ab418eb11bc4b18d5a85ba7ff4", null ],
+    [ "print_statistics", "struct_statistics.html#acdda63698d8f12d6a262e45c7ecca39e", null ],
     [ "variables", "struct_statistics.html#a8a46fc0092e09e1090ebbe518896dbd9", null ],
     [ "constraints", "struct_statistics.html#a53fda000b05e2e449e30ecc69e41a192", null ],
     [ "optimization", "struct_statistics.html#a606a956342a4283a3801fb2fda8c2af3", null ],
@@ -29,13 +33,11 @@ var struct_statistics =
     [ "fails", "struct_statistics.html#a695df106c37e284cf9a0e8a318f852e6", null ],
     [ "solutions", "struct_statistics.html#a8cd7b54b348f52447b90d992998f165c", null ],
     [ "depth_max", "struct_statistics.html#afe4fc899b4e0bfead131062b9f903eac", null ],
-    [ "exhaustive", "struct_statistics.html#a6c261eb556dce6a5a9fc7cd0db7a2425", null ],
+    [ "exhaustive", "struct_statistics.html#a7f62347857bc5b91df439ec0a049271a", null ],
     [ "eps_num_subproblems", "struct_statistics.html#aa10ea3e1d3275ffc30d2752da7aa1809", null ],
     [ "eps_solved_subproblems", "struct_statistics.html#a1871b1e12e6d3984c2d583520e6ea678", null ],
     [ "eps_skipped_subproblems", "struct_statistics.html#a0a49c5fa6a3064492f5495652ab99ab9", null ],
     [ "num_blocks_done", "struct_statistics.html#a63e822c96a840cda4ce2cac52056a3ec", null ],
     [ "fixpoint_iterations", "struct_statistics.html#a10f70590e70f4e81b4919c78a04b0483", null ],
-    [ "eliminated_variables", "struct_statistics.html#a7f8dd62036a4b239a5744a313cd663ce", null ],
-    [ "eliminated_formulas", "struct_statistics.html#adc8a85cd903cc74174b2d35570523037", null ],
     [ "timers", "struct_statistics.html#a2f998684fbd702bb270fb215af81b192", null ]
 ];

@@ -14,6 +14,5 @@ var statistics_8hpp =
       [ "WAIT_CPU", "statistics_8hpp.html#a6e0035edd58cc6ca8c94b5f9723a0d80a1122e495306c2edb5df9eb2a65953676", null ],
       [ "DIVE", "statistics_8hpp.html#a6e0035edd58cc6ca8c94b5f9723a0d80a345c2df90fed0e74ea3c8926e13e5f12", null ],
       [ "NUM_TIMERS", "statistics_8hpp.html#a6e0035edd58cc6ca8c94b5f9723a0d80a69325ca2fcd2163bfcee098542d55a50", null ]
-    ] ],
-    [ "print_memory_statistics", "statistics_8hpp.html#aa706e08664f7a52ec805a8257bcfb593", null ]
+    ] ]
 ];

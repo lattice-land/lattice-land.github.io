@@ -107,8 +107,6 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_abstract_domains_1_1tag__gpu__block__copy.html">tag_gpu_block_copy</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_abstract_domains_1_1vstat.html">vstat</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
 Public Types</h2></td></tr>
@@ -118,15 +116,15 @@ Public Types</h2></td></tr>
 <tr class="separator:a1ab2170a315a7428892ce6e3310a72a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abcf4e43f3e49ca0cd11104dc28d6ecab"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_abstract_domains.html#abcf4e43f3e49ca0cd11104dc28d6ecab">IStore</a> = VStore&lt; Universe, StoreAllocator &gt;</td></tr>
 <tr class="separator:abcf4e43f3e49ca0cd11104dc28d6ecab"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abcd054de892df21eba49c329a187d789"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_abstract_domains.html#abcd054de892df21eba49c329a187d789">IPC</a> = PIR&lt; <a class="el" href="struct_abstract_domains.html#abcf4e43f3e49ca0cd11104dc28d6ecab">IStore</a>, PropAllocator &gt;</td></tr>
-<tr class="separator:abcd054de892df21eba49c329a187d789"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6dced372de738ecc301d1ff2fb266fa9"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_abstract_domains.html#a6dced372de738ecc301d1ff2fb266fa9">ISimplifier</a> = Simplifier&lt; <a class="el" href="struct_abstract_domains.html#abcd054de892df21eba49c329a187d789">IPC</a>, BasicAllocator &gt;</td></tr>
-<tr class="separator:a6dced372de738ecc301d1ff2fb266fa9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a920e2e3271a96fc3c8819388812d8b04"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_abstract_domains.html#a920e2e3271a96fc3c8819388812d8b04">Split</a> = SplitStrategy&lt; <a class="el" href="struct_abstract_domains.html#abcd054de892df21eba49c329a187d789">IPC</a>, BasicAllocator &gt;</td></tr>
-<tr class="separator:a920e2e3271a96fc3c8819388812d8b04"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a09c320b2800de80f496d219cbe975b9d"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_abstract_domains.html#a09c320b2800de80f496d219cbe975b9d">IST</a> = SearchTree&lt; <a class="el" href="struct_abstract_domains.html#abcd054de892df21eba49c329a187d789">IPC</a>, <a class="el" href="struct_abstract_domains.html#a920e2e3271a96fc3c8819388812d8b04">Split</a>, BasicAllocator &gt;</td></tr>
-<tr class="separator:a09c320b2800de80f496d219cbe975b9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a374ae37f6bde54f0ab3e350ab8d344e7"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_abstract_domains.html#a374ae37f6bde54f0ab3e350ab8d344e7">IBAB</a> = BAB&lt; <a class="el" href="struct_abstract_domains.html#a09c320b2800de80f496d219cbe975b9d">IST</a>, <a class="el" href="struct_abstract_domains.html#a1ab2170a315a7428892ce6e3310a72a9">LIStore</a> &gt;</td></tr>
+<tr class="memitem:acb37900cdb49342155165f7ea4cf9d89"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_abstract_domains.html#acb37900cdb49342155165f7ea4cf9d89">IProp</a> = PIR&lt; <a class="el" href="struct_abstract_domains.html#abcf4e43f3e49ca0cd11104dc28d6ecab">IStore</a>, PropAllocator &gt;</td></tr>
+<tr class="separator:acb37900cdb49342155165f7ea4cf9d89"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7d38f773b4f15d86ea30df3d2012f2b0"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_abstract_domains.html#a7d38f773b4f15d86ea30df3d2012f2b0">ISimplifier</a> = Simplifier&lt; <a class="el" href="struct_abstract_domains.html#acb37900cdb49342155165f7ea4cf9d89">IProp</a>, BasicAllocator &gt;</td></tr>
+<tr class="separator:a7d38f773b4f15d86ea30df3d2012f2b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a29834dd3b953ae4cab14234d78af29ed"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_abstract_domains.html#a29834dd3b953ae4cab14234d78af29ed">Split</a> = SplitStrategy&lt; <a class="el" href="struct_abstract_domains.html#acb37900cdb49342155165f7ea4cf9d89">IProp</a>, BasicAllocator &gt;</td></tr>
+<tr class="separator:a29834dd3b953ae4cab14234d78af29ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeec371debd5d0aa0c9f071a4abb5568a"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_abstract_domains.html#aeec371debd5d0aa0c9f071a4abb5568a">IST</a> = SearchTree&lt; <a class="el" href="struct_abstract_domains.html#acb37900cdb49342155165f7ea4cf9d89">IProp</a>, <a class="el" href="struct_abstract_domains.html#a29834dd3b953ae4cab14234d78af29ed">Split</a>, BasicAllocator &gt;</td></tr>
+<tr class="separator:aeec371debd5d0aa0c9f071a4abb5568a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a374ae37f6bde54f0ab3e350ab8d344e7"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_abstract_domains.html#a374ae37f6bde54f0ab3e350ab8d344e7">IBAB</a> = BAB&lt; <a class="el" href="struct_abstract_domains.html#aeec371debd5d0aa0c9f071a4abb5568a">IST</a>, <a class="el" href="struct_abstract_domains.html#a1ab2170a315a7428892ce6e3310a72a9">LIStore</a> &gt;</td></tr>
 <tr class="separator:a374ae37f6bde54f0ab3e350ab8d344e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8598d620d5704a619174c370d5d98925"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_abstract_domains.html#a8598d620d5704a619174c370d5d98925">basic_allocator_type</a> = BasicAllocator</td></tr>
 <tr class="separator:a8598d620d5704a619174c370d5d98925"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -136,6 +134,8 @@ Public Types</h2></td></tr>
 <tr class="separator:ac1001cedd4745e2265ce6dc539582835"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2f13dd74f45325ea9b9e2c221ae9a92a"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_abstract_domains.html#a2f13dd74f45325ea9b9e2c221ae9a92a">this_type</a> = <a class="el" href="struct_abstract_domains.html">AbstractDomains</a>&lt; Universe, BasicAllocator, PropAllocator, StoreAllocator &gt;</td></tr>
 <tr class="separator:a2f13dd74f45325ea9b9e2c221ae9a92a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb064af7bb6ce0f93313cd5f303240f6"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_abstract_domains.html#aeb064af7bb6ce0f93313cd5f303240f6">F</a> = TFormula&lt; <a class="el" href="struct_abstract_domains.html#a8598d620d5704a619174c370d5d98925">basic_allocator_type</a> &gt;</td></tr>
+<tr class="separator:aeb064af7bb6ce0f93313cd5f303240f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4f51c83ceea59c4b696dca4c7175adea"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_abstract_domains.html#a4f51c83ceea59c4b696dca4c7175adea">FormulaPtr</a> = battery::shared_ptr&lt; TFormula&lt; <a class="el" href="struct_abstract_domains.html#a8598d620d5704a619174c370d5d98925">basic_allocator_type</a> &gt;, <a class="el" href="struct_abstract_domains.html#a8598d620d5704a619174c370d5d98925">basic_allocator_type</a> &gt;</td></tr>
 <tr class="separator:a4f51c83ceea59c4b696dca4c7175adea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -154,26 +154,24 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aeef7634cdf273e390a8e4149aaa36817"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5b35ac7f026cc9f039ddfe0d726c4082"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_abstract_domains.html#a5b35ac7f026cc9f039ddfe0d726c4082">AbstractDomains</a> (<a class="el" href="struct_abstract_domains.html">AbstractDomains</a> &amp;&amp;other)=default</td></tr>
 <tr class="separator:a5b35ac7f026cc9f039ddfe0d726c4082"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3027683bc187b661dc58f043307442f1"><td class="memItemLeft" align="right" valign="top">CUDA void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_abstract_domains.html#a3027683bc187b661dc58f043307442f1">allocate</a> (int num_vars)</td></tr>
-<tr class="separator:a3027683bc187b661dc58f043307442f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e196b0c2728b5274129126f717f3129"><td class="memItemLeft" align="right" valign="top">CUDA void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_abstract_domains.html#a4e196b0c2728b5274129126f717f3129">allocate</a> (int num_vars, bool with_simplifier)</td></tr>
+<tr class="separator:a4e196b0c2728b5274129126f717f3129"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a18c88dc0660c4e4deb6a374cef4b83ce"><td class="memItemLeft" align="right" valign="top">CUDA void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_abstract_domains.html#a18c88dc0660c4e4deb6a374cef4b83ce">deallocate</a> ()</td></tr>
 <tr class="separator:a18c88dc0660c4e4deb6a374cef4b83ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a135205874c1299310449ea5903e29366"><td class="memTemplParams" colspan="2">template&lt;class F &gt; </td></tr>
-<tr class="memitem:a135205874c1299310449ea5903e29366"><td class="memTemplItemLeft" align="right" valign="top">CUDA void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="struct_abstract_domains.html#a135205874c1299310449ea5903e29366">typing</a> (F &amp;f) const</td></tr>
-<tr class="separator:a135205874c1299310449ea5903e29366"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1849c23d962a7b543ebff49bfba9585b"><td class="memTemplParams" colspan="2">template&lt;class F &gt; </td></tr>
-<tr class="memitem:a1849c23d962a7b543ebff49bfba9585b"><td class="memTemplItemLeft" align="right" valign="top">CUDA bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="struct_abstract_domains.html#a1849c23d962a7b543ebff49bfba9585b">interpret</a> (const F &amp;f)</td></tr>
-<tr class="separator:a1849c23d962a7b543ebff49bfba9585b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2d4aa4bba1a424ab90d697970a40cbbb"><td class="memTemplParams" colspan="2">template&lt;class F &gt; </td></tr>
-<tr class="memitem:a2d4aa4bba1a424ab90d697970a40cbbb"><td class="memTemplItemLeft" align="right" valign="top">CUDA bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="struct_abstract_domains.html#a2d4aa4bba1a424ab90d697970a40cbbb">prepare_simplifier</a> (F &amp;f)</td></tr>
-<tr class="separator:a2d4aa4bba1a424ab90d697970a40cbbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a092ab66f78fd89cf173f34c6d89574f1"><td class="memTemplParams" colspan="2">template&lt;class F &gt; </td></tr>
-<tr class="memitem:a092ab66f78fd89cf173f34c6d89574f1"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="struct_abstract_domains.html#a092ab66f78fd89cf173f34c6d89574f1">type_and_interpret</a> (F &amp;f)</td></tr>
-<tr class="separator:a092ab66f78fd89cf173f34c6d89574f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6eea39fdb1991a1d910c277a50f284d1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_abstract_domains.html#a4f51c83ceea59c4b696dca4c7175adea">FormulaPtr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_abstract_domains.html#a6eea39fdb1991a1d910c277a50f284d1">prepare_solver</a> ()</td></tr>
-<tr class="separator:a6eea39fdb1991a1d910c277a50f284d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad4a6c57ac3828b96672c9bf3d0c5d45c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_abstract_domains.html#ad4a6c57ac3828b96672c9bf3d0c5d45c">analyze_pir</a> () const</td></tr>
-<tr class="separator:ad4a6c57ac3828b96672c9bf3d0c5d45c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a47b78d404668086782ed395d3d81b1e7"><td class="memTemplParams" colspan="2">template&lt;class F &gt; </td></tr>
+<tr class="memitem:a47b78d404668086782ed395d3d81b1e7"><td class="memTemplItemLeft" align="right" valign="top">CUDA bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="struct_abstract_domains.html#a47b78d404668086782ed395d3d81b1e7">interpret</a> (const <a class="el" href="struct_abstract_domains.html#aeb064af7bb6ce0f93313cd5f303240f6">F</a> &amp;f, bool with_default_strats)</td></tr>
+<tr class="separator:a47b78d404668086782ed395d3d81b1e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe4701ef529ef8fff649adc0686b6688"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_abstract_domains.html#a4f51c83ceea59c4b696dca4c7175adea">FormulaPtr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_abstract_domains.html#abe4701ef529ef8fff649adc0686b6688">parse_cn</a> ()</td></tr>
+<tr class="separator:abe4701ef529ef8fff649adc0686b6688"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d9727043458542ce0689928c84a1e95"><td class="memTemplParams" colspan="2">template&lt;class F &gt; </td></tr>
+<tr class="memitem:a3d9727043458542ce0689928c84a1e95"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="struct_abstract_domains.html#a3d9727043458542ce0689928c84a1e95">initialize_simplifier</a> (const <a class="el" href="struct_abstract_domains.html#aeb064af7bb6ce0f93313cd5f303240f6">F</a> &amp;f)</td></tr>
+<tr class="separator:a3d9727043458542ce0689928c84a1e95"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa1a64867b49075716b552f2089dbc6d0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_abstract_domains.html#aa1a64867b49075716b552f2089dbc6d0">preprocess_ipc</a> (<a class="el" href="struct_abstract_domains.html#aeb064af7bb6ce0f93313cd5f303240f6">F</a> &amp;f)</td></tr>
+<tr class="separator:aa1a64867b49075716b552f2089dbc6d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa00d188af939c317763937918c014b0e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_abstract_domains.html#aa00d188af939c317763937918c014b0e">preprocess_tcn</a> (<a class="el" href="struct_abstract_domains.html#aeb064af7bb6ce0f93313cd5f303240f6">F</a> &amp;f)</td></tr>
+<tr class="separator:aa00d188af939c317763937918c014b0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace2e57ff87aaa5edbd209af5976b21d0"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_abstract_domains.html#ace2e57ff87aaa5edbd209af5976b21d0">name_of_abstract_domain</a> () const</td></tr>
+<tr class="separator:ace2e57ff87aaa5edbd209af5976b21d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9ab2a88ebb928131d7392df6c2613ddc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_abstract_domains.html#a9ab2a88ebb928131d7392df6c2613ddc">preprocess</a> ()</td></tr>
 <tr class="separator:a9ab2a88ebb928131d7392df6c2613ddc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3ce563dd8c3c32d880632c11f2e5754f"><td class="memItemLeft" align="right" valign="top">CUDA bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_abstract_domains.html#a3ce563dd8c3c32d880632c11f2e5754f">on_node</a> ()</td></tr>
@@ -182,6 +180,9 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a676414b8422f5d17286263767eaeca51"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad390e307245412ec0baee7f802d56b6d"><td class="memItemLeft" align="right" valign="top">CUDA void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_abstract_domains.html#ad390e307245412ec0baee7f802d56b6d">print_solution</a> ()</td></tr>
 <tr class="separator:ad390e307245412ec0baee7f802d56b6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9505b89cbf3a3b6a21aa9396bf0655bd"><td class="memTemplParams" colspan="2">template&lt;class BestStore &gt; </td></tr>
+<tr class="memitem:a9505b89cbf3a3b6a21aa9396bf0655bd"><td class="memTemplItemLeft" align="right" valign="top">CUDA void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="struct_abstract_domains.html#a9505b89cbf3a3b6a21aa9396bf0655bd">print_solution</a> (const BestStore &amp;best_store)</td></tr>
+<tr class="separator:a9505b89cbf3a3b6a21aa9396bf0655bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad7562ff2c8012de46d646d81e6de1ea2"><td class="memItemLeft" align="right" valign="top">CUDA void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_abstract_domains.html#ad7562ff2c8012de46d646d81e6de1ea2">prune</a> ()</td></tr>
 <tr class="separator:ad7562ff2c8012de46d646d81e6de1ea2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab9e82fedabb22eabaa760d0c526d8fa2"><td class="memItemLeft" align="right" valign="top">CUDA bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_abstract_domains.html#ab9e82fedabb22eabaa760d0c526d8fa2">update_solution_stats</a> ()</td></tr>
@@ -208,15 +209,15 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a1cafafcffd4f73c00729aef4e3abff3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6163aae266ebdf3370b3fedc63c150a3"><td class="memItemLeft" align="right" valign="top">abstract_ptr&lt; <a class="el" href="struct_abstract_domains.html#abcf4e43f3e49ca0cd11104dc28d6ecab">IStore</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_abstract_domains.html#a6163aae266ebdf3370b3fedc63c150a3">store</a></td></tr>
 <tr class="separator:a6163aae266ebdf3370b3fedc63c150a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a711e6fa9a2c1994a9ab794df4ed02fc5"><td class="memItemLeft" align="right" valign="top">abstract_ptr&lt; <a class="el" href="struct_abstract_domains.html#abcd054de892df21eba49c329a187d789">IPC</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_abstract_domains.html#a711e6fa9a2c1994a9ab794df4ed02fc5">ipc</a></td></tr>
-<tr class="separator:a711e6fa9a2c1994a9ab794df4ed02fc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a974e142698e0e9d991a32191eb5e9ebe"><td class="memItemLeft" align="right" valign="top">abstract_ptr&lt; <a class="el" href="struct_abstract_domains.html#a6dced372de738ecc301d1ff2fb266fa9">ISimplifier</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_abstract_domains.html#a974e142698e0e9d991a32191eb5e9ebe">simplifier</a></td></tr>
+<tr class="memitem:ad066915b4e82fb68f8a4c9a38e159d3b"><td class="memItemLeft" align="right" valign="top">abstract_ptr&lt; <a class="el" href="struct_abstract_domains.html#acb37900cdb49342155165f7ea4cf9d89">IProp</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_abstract_domains.html#ad066915b4e82fb68f8a4c9a38e159d3b">iprop</a></td></tr>
+<tr class="separator:ad066915b4e82fb68f8a4c9a38e159d3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a974e142698e0e9d991a32191eb5e9ebe"><td class="memItemLeft" align="right" valign="top">abstract_ptr&lt; <a class="el" href="struct_abstract_domains.html#a7d38f773b4f15d86ea30df3d2012f2b0">ISimplifier</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_abstract_domains.html#a974e142698e0e9d991a32191eb5e9ebe">simplifier</a></td></tr>
 <tr class="separator:a974e142698e0e9d991a32191eb5e9ebe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aac6c0700cf3580a858e00fac362c9d6d"><td class="memItemLeft" align="right" valign="top">abstract_ptr&lt; <a class="el" href="struct_abstract_domains.html#a920e2e3271a96fc3c8819388812d8b04">Split</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_abstract_domains.html#aac6c0700cf3580a858e00fac362c9d6d">split</a></td></tr>
+<tr class="memitem:aac6c0700cf3580a858e00fac362c9d6d"><td class="memItemLeft" align="right" valign="top">abstract_ptr&lt; <a class="el" href="struct_abstract_domains.html#a29834dd3b953ae4cab14234d78af29ed">Split</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_abstract_domains.html#aac6c0700cf3580a858e00fac362c9d6d">split</a></td></tr>
 <tr class="separator:aac6c0700cf3580a858e00fac362c9d6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a97518fa291a8d0e4e8a868de3ae13dd2"><td class="memItemLeft" align="right" valign="top">abstract_ptr&lt; <a class="el" href="struct_abstract_domains.html#a920e2e3271a96fc3c8819388812d8b04">Split</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_abstract_domains.html#a97518fa291a8d0e4e8a868de3ae13dd2">eps_split</a></td></tr>
+<tr class="memitem:a97518fa291a8d0e4e8a868de3ae13dd2"><td class="memItemLeft" align="right" valign="top">abstract_ptr&lt; <a class="el" href="struct_abstract_domains.html#a29834dd3b953ae4cab14234d78af29ed">Split</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_abstract_domains.html#a97518fa291a8d0e4e8a868de3ae13dd2">eps_split</a></td></tr>
 <tr class="separator:a97518fa291a8d0e4e8a868de3ae13dd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a82c62abcf9b5ffe9f98c25a5a4f70681"><td class="memItemLeft" align="right" valign="top">abstract_ptr&lt; <a class="el" href="struct_abstract_domains.html#a09c320b2800de80f496d219cbe975b9d">IST</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_abstract_domains.html#a82c62abcf9b5ffe9f98c25a5a4f70681">search_tree</a></td></tr>
+<tr class="memitem:a82c62abcf9b5ffe9f98c25a5a4f70681"><td class="memItemLeft" align="right" valign="top">abstract_ptr&lt; <a class="el" href="struct_abstract_domains.html#aeec371debd5d0aa0c9f071a4abb5568a">IST</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_abstract_domains.html#a82c62abcf9b5ffe9f98c25a5a4f70681">search_tree</a></td></tr>
 <tr class="separator:a82c62abcf9b5ffe9f98c25a5a4f70681"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a450e02277bb86237917d7a07afb3d9e2"><td class="memItemLeft" align="right" valign="top">abstract_ptr&lt; <a class="el" href="struct_abstract_domains.html#a1ab2170a315a7428892ce6e3310a72a9">LIStore</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_abstract_domains.html#a450e02277bb86237917d7a07afb3d9e2">best</a></td></tr>
 <tr class="separator:a450e02277bb86237917d7a07afb3d9e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -291,8 +292,8 @@ template&lt;class Universe , class BasicAllocator , class PropAllocator , class 
 
 </div>
 </div>
-<a id="abcd054de892df21eba49c329a187d789"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abcd054de892df21eba49c329a187d789">&#9670;&nbsp;</a></span>IPC</h2>
+<a id="acb37900cdb49342155165f7ea4cf9d89"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acb37900cdb49342155165f7ea4cf9d89">&#9670;&nbsp;</a></span>IProp</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -300,15 +301,15 @@ template&lt;class Universe , class BasicAllocator , class PropAllocator , class 
 template&lt;class Universe , class BasicAllocator , class PropAllocator , class StoreAllocator &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="struct_abstract_domains.html">AbstractDomains</a>&lt; Universe, BasicAllocator, PropAllocator, StoreAllocator &gt;::<a class="el" href="struct_abstract_domains.html#abcd054de892df21eba49c329a187d789">IPC</a> =  PIR&lt;<a class="el" href="struct_abstract_domains.html#abcf4e43f3e49ca0cd11104dc28d6ecab">IStore</a>, PropAllocator&gt;</td>
+          <td class="memname">using <a class="el" href="struct_abstract_domains.html">AbstractDomains</a>&lt; Universe, BasicAllocator, PropAllocator, StoreAllocator &gt;::<a class="el" href="struct_abstract_domains.html#acb37900cdb49342155165f7ea4cf9d89">IProp</a> =  PIR&lt;<a class="el" href="struct_abstract_domains.html#abcf4e43f3e49ca0cd11104dc28d6ecab">IStore</a>, PropAllocator&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a6dced372de738ecc301d1ff2fb266fa9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6dced372de738ecc301d1ff2fb266fa9">&#9670;&nbsp;</a></span>ISimplifier</h2>
+<a id="a7d38f773b4f15d86ea30df3d2012f2b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7d38f773b4f15d86ea30df3d2012f2b0">&#9670;&nbsp;</a></span>ISimplifier</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -316,15 +317,15 @@ template&lt;class Universe , class BasicAllocator , class PropAllocator , class 
 template&lt;class Universe , class BasicAllocator , class PropAllocator , class StoreAllocator &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="struct_abstract_domains.html">AbstractDomains</a>&lt; Universe, BasicAllocator, PropAllocator, StoreAllocator &gt;::<a class="el" href="struct_abstract_domains.html#a6dced372de738ecc301d1ff2fb266fa9">ISimplifier</a> =  Simplifier&lt;<a class="el" href="struct_abstract_domains.html#abcd054de892df21eba49c329a187d789">IPC</a>, BasicAllocator&gt;</td>
+          <td class="memname">using <a class="el" href="struct_abstract_domains.html">AbstractDomains</a>&lt; Universe, BasicAllocator, PropAllocator, StoreAllocator &gt;::<a class="el" href="struct_abstract_domains.html#a7d38f773b4f15d86ea30df3d2012f2b0">ISimplifier</a> =  Simplifier&lt;<a class="el" href="struct_abstract_domains.html#acb37900cdb49342155165f7ea4cf9d89">IProp</a>, BasicAllocator&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a920e2e3271a96fc3c8819388812d8b04"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a920e2e3271a96fc3c8819388812d8b04">&#9670;&nbsp;</a></span>Split</h2>
+<a id="a29834dd3b953ae4cab14234d78af29ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a29834dd3b953ae4cab14234d78af29ed">&#9670;&nbsp;</a></span>Split</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -332,15 +333,15 @@ template&lt;class Universe , class BasicAllocator , class PropAllocator , class 
 template&lt;class Universe , class BasicAllocator , class PropAllocator , class StoreAllocator &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="struct_abstract_domains.html">AbstractDomains</a>&lt; Universe, BasicAllocator, PropAllocator, StoreAllocator &gt;::<a class="el" href="struct_abstract_domains.html#a920e2e3271a96fc3c8819388812d8b04">Split</a> =  SplitStrategy&lt;<a class="el" href="struct_abstract_domains.html#abcd054de892df21eba49c329a187d789">IPC</a>, BasicAllocator&gt;</td>
+          <td class="memname">using <a class="el" href="struct_abstract_domains.html">AbstractDomains</a>&lt; Universe, BasicAllocator, PropAllocator, StoreAllocator &gt;::<a class="el" href="struct_abstract_domains.html#a29834dd3b953ae4cab14234d78af29ed">Split</a> =  SplitStrategy&lt;<a class="el" href="struct_abstract_domains.html#acb37900cdb49342155165f7ea4cf9d89">IProp</a>, BasicAllocator&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a09c320b2800de80f496d219cbe975b9d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a09c320b2800de80f496d219cbe975b9d">&#9670;&nbsp;</a></span>IST</h2>
+<a id="aeec371debd5d0aa0c9f071a4abb5568a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeec371debd5d0aa0c9f071a4abb5568a">&#9670;&nbsp;</a></span>IST</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -348,7 +349,7 @@ template&lt;class Universe , class BasicAllocator , class PropAllocator , class 
 template&lt;class Universe , class BasicAllocator , class PropAllocator , class StoreAllocator &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="struct_abstract_domains.html">AbstractDomains</a>&lt; Universe, BasicAllocator, PropAllocator, StoreAllocator &gt;::<a class="el" href="struct_abstract_domains.html#a09c320b2800de80f496d219cbe975b9d">IST</a> =  SearchTree&lt;<a class="el" href="struct_abstract_domains.html#abcd054de892df21eba49c329a187d789">IPC</a>, <a class="el" href="struct_abstract_domains.html#a920e2e3271a96fc3c8819388812d8b04">Split</a>, BasicAllocator&gt;</td>
+          <td class="memname">using <a class="el" href="struct_abstract_domains.html">AbstractDomains</a>&lt; Universe, BasicAllocator, PropAllocator, StoreAllocator &gt;::<a class="el" href="struct_abstract_domains.html#aeec371debd5d0aa0c9f071a4abb5568a">IST</a> =  SearchTree&lt;<a class="el" href="struct_abstract_domains.html#acb37900cdb49342155165f7ea4cf9d89">IProp</a>, <a class="el" href="struct_abstract_domains.html#a29834dd3b953ae4cab14234d78af29ed">Split</a>, BasicAllocator&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -364,7 +365,7 @@ template&lt;class Universe , class BasicAllocator , class PropAllocator , class 
 template&lt;class Universe , class BasicAllocator , class PropAllocator , class StoreAllocator &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="struct_abstract_domains.html">AbstractDomains</a>&lt; Universe, BasicAllocator, PropAllocator, StoreAllocator &gt;::<a class="el" href="struct_abstract_domains.html#a374ae37f6bde54f0ab3e350ab8d344e7">IBAB</a> =  BAB&lt;<a class="el" href="struct_abstract_domains.html#a09c320b2800de80f496d219cbe975b9d">IST</a>, <a class="el" href="struct_abstract_domains.html#a1ab2170a315a7428892ce6e3310a72a9">LIStore</a>&gt;</td>
+          <td class="memname">using <a class="el" href="struct_abstract_domains.html">AbstractDomains</a>&lt; Universe, BasicAllocator, PropAllocator, StoreAllocator &gt;::<a class="el" href="struct_abstract_domains.html#a374ae37f6bde54f0ab3e350ab8d344e7">IBAB</a> =  BAB&lt;<a class="el" href="struct_abstract_domains.html#aeec371debd5d0aa0c9f071a4abb5568a">IST</a>, <a class="el" href="struct_abstract_domains.html#a1ab2170a315a7428892ce6e3310a72a9">LIStore</a>&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -429,6 +430,22 @@ template&lt;class Universe , class BasicAllocator , class PropAllocator , class 
       <table class="memname">
         <tr>
           <td class="memname">using <a class="el" href="struct_abstract_domains.html">AbstractDomains</a>&lt; Universe, BasicAllocator, PropAllocator, StoreAllocator &gt;::<a class="el" href="struct_abstract_domains.html#a2f13dd74f45325ea9b9e2c221ae9a92a">this_type</a> =  <a class="el" href="struct_abstract_domains.html">AbstractDomains</a>&lt;Universe, BasicAllocator, PropAllocator, StoreAllocator&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aeb064af7bb6ce0f93313cd5f303240f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb064af7bb6ce0f93313cd5f303240f6">&#9670;&nbsp;</a></span>F</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Universe , class BasicAllocator , class PropAllocator , class StoreAllocator &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="struct_abstract_domains.html">AbstractDomains</a>&lt; Universe, BasicAllocator, PropAllocator, StoreAllocator &gt;::<a class="el" href="struct_abstract_domains.html#aeb064af7bb6ce0f93313cd5f303240f6">F</a> =  TFormula&lt;<a class="el" href="struct_abstract_domains.html#a8598d620d5704a619174c370d5d98925">basic_allocator_type</a>&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -707,8 +724,8 @@ template&lt;class Universe , class BasicAllocator , class PropAllocator , class 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a3027683bc187b661dc58f043307442f1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3027683bc187b661dc58f043307442f1">&#9670;&nbsp;</a></span>allocate()</h2>
+<a id="a4e196b0c2728b5274129126f717f3129"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e196b0c2728b5274129126f717f3129">&#9670;&nbsp;</a></span>allocate()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -722,8 +739,18 @@ template&lt;class Universe , class BasicAllocator , class PropAllocator , class 
           <td class="memname">CUDA void <a class="el" href="struct_abstract_domains.html">AbstractDomains</a>&lt; Universe, BasicAllocator, PropAllocator, StoreAllocator &gt;::allocate </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>num_vars</em></td><td>)</td>
+          <td class="paramname"><em>num_vars</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>with_simplifier</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -762,38 +789,8 @@ template&lt;class Universe , class BasicAllocator , class PropAllocator , class 
 
 </div>
 </div>
-<a id="a135205874c1299310449ea5903e29366"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a135205874c1299310449ea5903e29366">&#9670;&nbsp;</a></span>typing()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class Universe , class BasicAllocator , class PropAllocator , class StoreAllocator &gt; </div>
-<div class="memtemplate">
-template&lt;class F &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">CUDA void <a class="el" href="struct_abstract_domains.html">AbstractDomains</a>&lt; Universe, BasicAllocator, PropAllocator, StoreAllocator &gt;::typing </td>
-          <td>(</td>
-          <td class="paramtype">F &amp;&#160;</td>
-          <td class="paramname"><em>f</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a1849c23d962a7b543ebff49bfba9585b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1849c23d962a7b543ebff49bfba9585b">&#9670;&nbsp;</a></span>interpret()</h2>
+<a id="a47b78d404668086782ed395d3d81b1e7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a47b78d404668086782ed395d3d81b1e7">&#9670;&nbsp;</a></span>interpret()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -808,9 +805,19 @@ template&lt;class F &gt; </div>
         <tr>
           <td class="memname">CUDA bool <a class="el" href="struct_abstract_domains.html">AbstractDomains</a>&lt; Universe, BasicAllocator, PropAllocator, StoreAllocator &gt;::interpret </td>
           <td>(</td>
-          <td class="paramtype">const F &amp;&#160;</td>
-          <td class="paramname"><em>f</em></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="struct_abstract_domains.html#aeb064af7bb6ce0f93313cd5f303240f6">F</a> &amp;&#160;</td>
+          <td class="paramname"><em>f</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>with_default_strats</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -822,68 +829,8 @@ template&lt;class F &gt; </div>
 
 </div>
 </div>
-<a id="a2d4aa4bba1a424ab90d697970a40cbbb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2d4aa4bba1a424ab90d697970a40cbbb">&#9670;&nbsp;</a></span>prepare_simplifier()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class Universe , class BasicAllocator , class PropAllocator , class StoreAllocator &gt; </div>
-<div class="memtemplate">
-template&lt;class F &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">CUDA bool <a class="el" href="struct_abstract_domains.html">AbstractDomains</a>&lt; Universe, BasicAllocator, PropAllocator, StoreAllocator &gt;::prepare_simplifier </td>
-          <td>(</td>
-          <td class="paramtype">F &amp;&#160;</td>
-          <td class="paramname"><em>f</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a092ab66f78fd89cf173f34c6d89574f1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a092ab66f78fd89cf173f34c6d89574f1">&#9670;&nbsp;</a></span>type_and_interpret()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class Universe , class BasicAllocator , class PropAllocator , class StoreAllocator &gt; </div>
-<div class="memtemplate">
-template&lt;class F &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="struct_abstract_domains.html">AbstractDomains</a>&lt; Universe, BasicAllocator, PropAllocator, StoreAllocator &gt;::type_and_interpret </td>
-          <td>(</td>
-          <td class="paramtype">F &amp;&#160;</td>
-          <td class="paramname"><em>f</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a6eea39fdb1991a1d910c277a50f284d1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6eea39fdb1991a1d910c277a50f284d1">&#9670;&nbsp;</a></span>prepare_solver()</h2>
+<a id="abe4701ef529ef8fff649adc0686b6688"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe4701ef529ef8fff649adc0686b6688">&#9670;&nbsp;</a></span>parse_cn()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -894,7 +841,7 @@ template&lt;class Universe , class BasicAllocator , class PropAllocator , class 
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="struct_abstract_domains.html#a4f51c83ceea59c4b696dca4c7175adea">FormulaPtr</a> <a class="el" href="struct_abstract_domains.html">AbstractDomains</a>&lt; Universe, BasicAllocator, PropAllocator, StoreAllocator &gt;::prepare_solver </td>
+          <td class="memname"><a class="el" href="struct_abstract_domains.html#a4f51c83ceea59c4b696dca4c7175adea">FormulaPtr</a> <a class="el" href="struct_abstract_domains.html">AbstractDomains</a>&lt; Universe, BasicAllocator, PropAllocator, StoreAllocator &gt;::parse_cn </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -906,11 +853,42 @@ template&lt;class Universe , class BasicAllocator , class PropAllocator , class 
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Parse a constraint network in the FlatZinc or XCSP3 format. The parsed formula is then syntactically simplified (<code>eval</code> function). </p>
 
 </div>
 </div>
-<a id="ad4a6c57ac3828b96672c9bf3d0c5d45c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad4a6c57ac3828b96672c9bf3d0c5d45c">&#9670;&nbsp;</a></span>analyze_pir()</h2>
+<a id="a3d9727043458542ce0689928c84a1e95"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d9727043458542ce0689928c84a1e95">&#9670;&nbsp;</a></span>initialize_simplifier()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Universe , class BasicAllocator , class PropAllocator , class StoreAllocator &gt; </div>
+<div class="memtemplate">
+template&lt;class F &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="struct_abstract_domains.html">AbstractDomains</a>&lt; Universe, BasicAllocator, PropAllocator, StoreAllocator &gt;::initialize_simplifier </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_abstract_domains.html#aeb064af7bb6ce0f93313cd5f303240f6">F</a> &amp;&#160;</td>
+          <td class="paramname"><em>f</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa1a64867b49075716b552f2089dbc6d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa1a64867b49075716b552f2089dbc6d0">&#9670;&nbsp;</a></span>preprocess_ipc()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -921,7 +899,63 @@ template&lt;class Universe , class BasicAllocator , class PropAllocator , class 
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="struct_abstract_domains.html">AbstractDomains</a>&lt; Universe, BasicAllocator, PropAllocator, StoreAllocator &gt;::analyze_pir </td>
+          <td class="memname">void <a class="el" href="struct_abstract_domains.html">AbstractDomains</a>&lt; Universe, BasicAllocator, PropAllocator, StoreAllocator &gt;::preprocess_ipc </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_abstract_domains.html#aeb064af7bb6ce0f93313cd5f303240f6">F</a> &amp;&#160;</td>
+          <td class="paramname"><em>f</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa00d188af939c317763937918c014b0e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa00d188af939c317763937918c014b0e">&#9670;&nbsp;</a></span>preprocess_tcn()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Universe , class BasicAllocator , class PropAllocator , class StoreAllocator &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="struct_abstract_domains.html">AbstractDomains</a>&lt; Universe, BasicAllocator, PropAllocator, StoreAllocator &gt;::preprocess_tcn </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_abstract_domains.html#aeb064af7bb6ce0f93313cd5f303240f6">F</a> &amp;&#160;</td>
+          <td class="paramname"><em>f</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ace2e57ff87aaa5edbd209af5976b21d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ace2e57ff87aaa5edbd209af5976b21d0">&#9670;&nbsp;</a></span>name_of_abstract_domain()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Universe , class BasicAllocator , class PropAllocator , class StoreAllocator &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char* <a class="el" href="struct_abstract_domains.html">AbstractDomains</a>&lt; Universe, BasicAllocator, PropAllocator, StoreAllocator &gt;::name_of_abstract_domain </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -933,7 +967,6 @@ template&lt;class Universe , class BasicAllocator , class PropAllocator , class 
   </tr>
 </table>
 </div><div class="memdoc">
-<p>The constraint network must be normalized. </p>
 
 </div>
 </div>
@@ -1019,7 +1052,7 @@ template&lt;class Universe , class BasicAllocator , class PropAllocator , class 
 </div>
 </div>
 <a id="ad390e307245412ec0baee7f802d56b6d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad390e307245412ec0baee7f802d56b6d">&#9670;&nbsp;</a></span>print_solution()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ad390e307245412ec0baee7f802d56b6d">&#9670;&nbsp;</a></span>print_solution() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1033,6 +1066,36 @@ template&lt;class Universe , class BasicAllocator , class PropAllocator , class 
           <td class="memname">CUDA void <a class="el" href="struct_abstract_domains.html">AbstractDomains</a>&lt; Universe, BasicAllocator, PropAllocator, StoreAllocator &gt;::print_solution </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9505b89cbf3a3b6a21aa9396bf0655bd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9505b89cbf3a3b6a21aa9396bf0655bd">&#9670;&nbsp;</a></span>print_solution() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Universe , class BasicAllocator , class PropAllocator , class StoreAllocator &gt; </div>
+<div class="memtemplate">
+template&lt;class BestStore &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">CUDA void <a class="el" href="struct_abstract_domains.html">AbstractDomains</a>&lt; Universe, BasicAllocator, PropAllocator, StoreAllocator &gt;::print_solution </td>
+          <td>(</td>
+          <td class="paramtype">const BestStore &amp;&#160;</td>
+          <td class="paramname"><em>best_store</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -1304,8 +1367,8 @@ template&lt;class Universe , class BasicAllocator , class PropAllocator , class 
 
 </div>
 </div>
-<a id="a711e6fa9a2c1994a9ab794df4ed02fc5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a711e6fa9a2c1994a9ab794df4ed02fc5">&#9670;&nbsp;</a></span>ipc</h2>
+<a id="ad066915b4e82fb68f8a4c9a38e159d3b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad066915b4e82fb68f8a4c9a38e159d3b">&#9670;&nbsp;</a></span>iprop</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1313,7 +1376,7 @@ template&lt;class Universe , class BasicAllocator , class PropAllocator , class 
 template&lt;class Universe , class BasicAllocator , class PropAllocator , class StoreAllocator &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">abstract_ptr&lt;<a class="el" href="struct_abstract_domains.html#abcd054de892df21eba49c329a187d789">IPC</a>&gt; <a class="el" href="struct_abstract_domains.html">AbstractDomains</a>&lt; Universe, BasicAllocator, PropAllocator, StoreAllocator &gt;::ipc</td>
+          <td class="memname">abstract_ptr&lt;<a class="el" href="struct_abstract_domains.html#acb37900cdb49342155165f7ea4cf9d89">IProp</a>&gt; <a class="el" href="struct_abstract_domains.html">AbstractDomains</a>&lt; Universe, BasicAllocator, PropAllocator, StoreAllocator &gt;::iprop</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1329,7 +1392,7 @@ template&lt;class Universe , class BasicAllocator , class PropAllocator , class 
 template&lt;class Universe , class BasicAllocator , class PropAllocator , class StoreAllocator &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">abstract_ptr&lt;<a class="el" href="struct_abstract_domains.html#a6dced372de738ecc301d1ff2fb266fa9">ISimplifier</a>&gt; <a class="el" href="struct_abstract_domains.html">AbstractDomains</a>&lt; Universe, BasicAllocator, PropAllocator, StoreAllocator &gt;::simplifier</td>
+          <td class="memname">abstract_ptr&lt;<a class="el" href="struct_abstract_domains.html#a7d38f773b4f15d86ea30df3d2012f2b0">ISimplifier</a>&gt; <a class="el" href="struct_abstract_domains.html">AbstractDomains</a>&lt; Universe, BasicAllocator, PropAllocator, StoreAllocator &gt;::simplifier</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1345,7 +1408,7 @@ template&lt;class Universe , class BasicAllocator , class PropAllocator , class 
 template&lt;class Universe , class BasicAllocator , class PropAllocator , class StoreAllocator &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">abstract_ptr&lt;<a class="el" href="struct_abstract_domains.html#a920e2e3271a96fc3c8819388812d8b04">Split</a>&gt; <a class="el" href="struct_abstract_domains.html">AbstractDomains</a>&lt; Universe, BasicAllocator, PropAllocator, StoreAllocator &gt;::split</td>
+          <td class="memname">abstract_ptr&lt;<a class="el" href="struct_abstract_domains.html#a29834dd3b953ae4cab14234d78af29ed">Split</a>&gt; <a class="el" href="struct_abstract_domains.html">AbstractDomains</a>&lt; Universe, BasicAllocator, PropAllocator, StoreAllocator &gt;::split</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1361,7 +1424,7 @@ template&lt;class Universe , class BasicAllocator , class PropAllocator , class 
 template&lt;class Universe , class BasicAllocator , class PropAllocator , class StoreAllocator &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">abstract_ptr&lt;<a class="el" href="struct_abstract_domains.html#a920e2e3271a96fc3c8819388812d8b04">Split</a>&gt; <a class="el" href="struct_abstract_domains.html">AbstractDomains</a>&lt; Universe, BasicAllocator, PropAllocator, StoreAllocator &gt;::eps_split</td>
+          <td class="memname">abstract_ptr&lt;<a class="el" href="struct_abstract_domains.html#a29834dd3b953ae4cab14234d78af29ed">Split</a>&gt; <a class="el" href="struct_abstract_domains.html">AbstractDomains</a>&lt; Universe, BasicAllocator, PropAllocator, StoreAllocator &gt;::eps_split</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1377,7 +1440,7 @@ template&lt;class Universe , class BasicAllocator , class PropAllocator , class 
 template&lt;class Universe , class BasicAllocator , class PropAllocator , class StoreAllocator &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">abstract_ptr&lt;<a class="el" href="struct_abstract_domains.html#a09c320b2800de80f496d219cbe975b9d">IST</a>&gt; <a class="el" href="struct_abstract_domains.html">AbstractDomains</a>&lt; Universe, BasicAllocator, PropAllocator, StoreAllocator &gt;::search_tree</td>
+          <td class="memname">abstract_ptr&lt;<a class="el" href="struct_abstract_domains.html#aeec371debd5d0aa0c9f071a4abb5568a">IST</a>&gt; <a class="el" href="struct_abstract_domains.html">AbstractDomains</a>&lt; Universe, BasicAllocator, PropAllocator, StoreAllocator &gt;::search_tree</td>
         </tr>
       </table>
 </div><div class="memdoc">

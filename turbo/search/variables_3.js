@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['depth_5fmax_232',['depth_max',['../struct_statistics.html#afe4fc899b4e0bfead131062b9f903eac',1,'Statistics']]],
-  ['domain_5fsize_233',['domain_size',['../struct_abstract_domains_1_1vstat.html#a6b68d76ec8ba7480c3726e55b76439da',1,'AbstractDomains::vstat']]]
+  ['depth_5fmax_234',['depth_max',['../struct_statistics.html#afe4fc899b4e0bfead131062b9f903eac',1,'Statistics']]],
+  ['disable_5fsimplify_235',['disable_simplify',['../struct_configuration.html#a1e4a3292646af11bad58462ccc3743d0',1,'Configuration']]]
 ];

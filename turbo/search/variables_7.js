@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['infinite_5fdomain_247',['infinite_domain',['../struct_abstract_domains_1_1vstat.html#acde61047a907867ed7f4f431684db24d',1,'AbstractDomains::vstat']]],
-  ['ipc_248',['ipc',['../struct_abstract_domains.html#a711e6fa9a2c1994a9ab794df4ed02fc5',1,'AbstractDomains']]]
+  ['iprop_248',['iprop',['../struct_abstract_domains.html#ad066915b4e82fb68f8a4c9a38e159d3b',1,'AbstractDomains']]]
 ];

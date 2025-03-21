@@ -133,11 +133,11 @@ $(document).ready(function(){initNavTree('gpu__dive__and__solve_8hpp_source.html
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <a class="code" href="struct_unique_alloc.html">UniqueAlloc&lt;bt::pool_allocator, 0&gt;</a>&gt;;</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;};</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keyword">using</span> Itv0 = Interval&lt;ZLB&lt;int, bt::local_memory&gt;&gt;;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keyword">using</span> Itv1 = Interval&lt;ZLB&lt;int, bt::atomic_memory_block&gt;&gt;;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keyword">using</span> Itv2 = Interval&lt;ZLB&lt;int, bt::atomic_memory_grid&gt;&gt;;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keyword">using</span> Itv0 = Interval&lt;ZLB&lt;bound_value_type, bt::local_memory&gt;&gt;;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keyword">using</span> Itv1 = Interval&lt;ZLB&lt;bound_value_type, bt::atomic_memory_block&gt;&gt;;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keyword">using</span> Itv2 = Interval&lt;ZLB&lt;bound_value_type, bt::atomic_memory_grid&gt;&gt;;</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keyword">using</span> AtomicBool = B&lt;bt::atomic_memory_block&gt;;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keyword">using</span> FPEngine = FixpointSubsetGPU&lt;BlockAsynchronousFixpointGPU&lt;&gt;, bt::global_allocator, CUDA_THREADS_PER_BLOCK&gt;;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keyword">using</span> FPEngine = FixpointSubsetGPU&lt;BlockAsynchronousFixpointGPU&lt;true&gt;, bt::global_allocator, CUDA_THREADS_PER_BLOCK&gt;;</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment">// Version for non-Linux systems such as Windows where pinned memory must be used (see PR #19).</span></div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">#ifdef NO_CONCURRENT_MANAGED_MEMORY</span></div>
@@ -351,7 +351,7 @@ $(document).ready(function(){initNavTree('gpu__dive__and__solve_8hpp_source.html
 <div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;      snapshot_root = bt::make_shared&lt;snapshot_type, bt::global_allocator&gt;(root-&gt;search_tree-&gt;template snapshot&lt;bt::global_allocator&gt;());</div>
 <div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;    }</div>
 <div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;    block.sync();</div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;    fp_engine-&gt;init(root-&gt;ipc-&gt;num_deductions());</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;    fp_engine-&gt;init(root-&gt;iprop-&gt;num_deductions());</div>
 <div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;    block.sync();</div>
 <div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;  }</div>
 <div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160; </div>
@@ -442,31 +442,31 @@ $(document).ready(function(){initNavTree('gpu__dive__and__solve_8hpp_source.html
 <div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;  BlockCP&amp; cp = *block_data.root;</div>
 <div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;  <span class="keyword">auto</span> group = cooperative_groups::this_thread_block();</div>
 <div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;  <span class="keyword">auto</span>&amp; fp_engine = *block_data.fp_engine;</div>
-<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;  <span class="keyword">auto</span>&amp; ipc = *cp.ipc;</div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;  <span class="keyword">auto</span>&amp; iprop = *cp.iprop;</div>
 <div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;  <span class="keyword">auto</span> start = cp.stats.start_timer_device();</div>
 <div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;  <span class="keywordtype">int</span> fp_iterations;</div>
 <div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;  <span class="keywordflow">switch</span>(cp.config.fixpoint) {</div>
 <div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;    <span class="keywordflow">case</span> <a class="code" href="config_8hpp.html#a5ee8f81cc01d530506acbb3c037a751ba06d5bf2275007ca8b3dd60a2d978e558">FixpointKind::AC1</a>:</div>
 <div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;      fp_iterations = fp_engine.fixpoint(</div>
-<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;        [&amp;](<span class="keywordtype">int</span> i){ <span class="keywordflow">return</span> ipc.deduce(i); },</div>
-<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;        [&amp;](){ <span class="keywordflow">return</span> ipc.is_bot(); });</div>
+<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;        [&amp;](<span class="keywordtype">int</span> i){ <span class="keywordflow">return</span> iprop.deduce(i); },</div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;        [&amp;](){ <span class="keywordflow">return</span> iprop.is_bot(); });</div>
 <div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;      <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;    <span class="keywordflow">case</span> <a class="code" href="config_8hpp.html#a5ee8f81cc01d530506acbb3c037a751baf7d56c9ee0b42b33964b26d10d655eeb">FixpointKind::WAC1</a>:</div>
 <div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;      <span class="keywordflow">if</span>(fp_engine.num_active() &lt;= cp.config.wac1_threshold) {</div>
 <div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;        fp_iterations = fp_engine.fixpoint(</div>
-<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;          [&amp;](<span class="keywordtype">int</span> i){ <span class="keywordflow">return</span> ipc.deduce(i); },</div>
-<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;          [&amp;](){ <span class="keywordflow">return</span> ipc.is_bot(); });</div>
+<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;          [&amp;](<span class="keywordtype">int</span> i){ <span class="keywordflow">return</span> iprop.deduce(i); },</div>
+<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;          [&amp;](){ <span class="keywordflow">return</span> iprop.is_bot(); });</div>
 <div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;      }</div>
 <div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;      <span class="keywordflow">else</span> {</div>
 <div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;        fp_iterations = fp_engine.fixpoint(</div>
-<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;          [&amp;](<span class="keywordtype">int</span> i){ <span class="keywordflow">return</span> warp_fixpoint&lt;CUDA_THREADS_PER_BLOCK&gt;(ipc, i); },</div>
-<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;          [&amp;](){ <span class="keywordflow">return</span> ipc.is_bot(); });</div>
+<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;          [&amp;](<span class="keywordtype">int</span> i){ <span class="keywordflow">return</span> warp_fixpoint&lt;CUDA_THREADS_PER_BLOCK&gt;(iprop, i); },</div>
+<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;          [&amp;](){ <span class="keywordflow">return</span> iprop.is_bot(); });</div>
 <div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;      }</div>
 <div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;      <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;  }</div>
 <div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;  start = cp.stats.stop_timer(<a class="code" href="statistics_8hpp.html#a6e0035edd58cc6ca8c94b5f9723a0d80a433c1649ecd09dc6e8c965d31f830f89">Timer::FIXPOINT</a>, start);</div>
-<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;  <span class="keywordflow">if</span>(!ipc.is_bot()) {</div>
-<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;    fp_engine.select([&amp;](<span class="keywordtype">int</span> i) { <span class="keywordflow">return</span> !ipc.ask(i); });</div>
+<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;  <span class="keywordflow">if</span>(!iprop.is_bot()) {</div>
+<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;    fp_engine.select([&amp;](<span class="keywordtype">int</span> i) { <span class="keywordflow">return</span> !iprop.ask(i); });</div>
 <div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;    start = cp.stats.stop_timer(<a class="code" href="statistics_8hpp.html#a6e0035edd58cc6ca8c94b5f9723a0d80a79bde01db3ccc1f5ff856a11a34c20df">Timer::SELECT_FP_FUNCTIONS</a>, start);</div>
 <div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;    <span class="keywordflow">if</span>(fp_engine.num_active() == 0) {</div>
 <div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;      is_leaf_node = cp.store-&gt;template is_extractable&lt;AtomicExtraction&gt;(group);</div>
@@ -478,7 +478,7 @@ $(document).ready(function(){initNavTree('gpu__dive__and__solve_8hpp_source.html
 <div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;  <span class="keywordflow">if</span>(threadIdx.x == 0) {</div>
 <div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;    cp.stats.fixpoint_iterations += fp_iterations;</div>
 <div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;    <span class="keywordtype">bool</span> is_pruned = cp.on_node();</div>
-<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;    <span class="keywordflow">if</span>(ipc.is_bot()) {</div>
+<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;    <span class="keywordflow">if</span>(iprop.is_bot()) {</div>
 <div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;      cp.on_failed_node();</div>
 <div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;    }</div>
 <div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(is_leaf_node) { <span class="comment">// is_leaf_node is set to true above.</span></div>
@@ -497,7 +497,7 @@ $(document).ready(function(){initNavTree('gpu__dive__and__solve_8hpp_source.html
 <div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;    cp.stats.stop_timer(<a class="code" href="statistics_8hpp.html#a6e0035edd58cc6ca8c94b5f9723a0d80a0f544d682c3a664870f025f48c4b04b5">Timer::SEARCH</a>, start);</div>
 <div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;  }</div>
 <div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;  <span class="keywordflow">if</span>(is_leaf_node) {</div>
-<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;    fp_engine.reset(cp.ipc-&gt;num_deductions());</div>
+<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;    fp_engine.reset(cp.iprop-&gt;num_deductions());</div>
 <div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;  }</div>
 <div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;  <span class="keywordflow">return</span> is_leaf_node;</div>
 <div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;}</div>
@@ -532,7 +532,7 @@ $(document).ready(function(){initNavTree('gpu__dive__and__solve_8hpp_source.html
 <div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;        <span class="keywordtype">size_t</span> branch_idx = (block_data.subproblem_idx &amp; (<span class="keywordtype">size_t</span>{1} &lt;&lt; remaining_depth)) &gt;&gt; remaining_depth;</div>
 <div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;        <span class="keyword">auto</span> branches = cp.eps_split-&gt;split();</div>
 <div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;        assert(branches.size() == 2);</div>
-<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;        cp.ipc-&gt;deduce(branches[branch_idx]);</div>
+<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;        cp.iprop-&gt;deduce(branches[branch_idx]);</div>
 <div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;        cp.stats.stop_timer(<a class="code" href="statistics_8hpp.html#a6e0035edd58cc6ca8c94b5f9723a0d80a0f544d682c3a664870f025f48c4b04b5">Timer::SEARCH</a>, start);</div>
 <div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;      }</div>
 <div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;    }</div>
@@ -562,354 +562,370 @@ $(document).ready(function(){initNavTree('gpu__dive__and__solve_8hpp_source.html
 <div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160;      start = cp.stats.start_timer_device();</div>
 <div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;      stop.join(grid_data.cpu_stop || *(grid_data.gpu_stop));</div>
 <div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;      <span class="comment">// propagate induces a memory fence, therefore all threads are already past the &quot;while&quot; condition.</span></div>
-<div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;      block_has_changed.meet(cp.search_tree-&gt;deduce());</div>
-<div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160;    }</div>
-<div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;    fp_engine.barrier();</div>
-<div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;  }</div>
-<div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;  cp.stats.stop_timer(<a class="code" href="statistics_8hpp.html#a6e0035edd58cc6ca8c94b5f9723a0d80a0f544d682c3a664870f025f48c4b04b5">Timer::SEARCH</a>, start);</div>
-<div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;}</div>
-<div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160; </div>
-<div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> S&gt;</div>
-<div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160;CUDA <span class="keywordtype">void</span> reduce_blocks(GridData&lt;S&gt;* grid_data) {</div>
-<div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160;  <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; grid_data-&gt;blocks.size(); ++i) {</div>
-<div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;    <span class="keywordflow">if</span>(grid_data-&gt;blocks[i].root) { <span class="comment">// `nullptr` could happen if we try to terminate the program before all blocks are even created.</span></div>
-<div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160;      grid_data-&gt;root.meet(*(grid_data-&gt;blocks[i].root));</div>
-<div class="line"><a name="l00483"></a><span class="lineno">  483</span>&#160;    }</div>
-<div class="line"><a name="l00484"></a><span class="lineno">  484</span>&#160;  }</div>
+<div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;      <span class="comment">// auto t = cp.stats.start_timer_device();</span></div>
+<div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160;      block_has_changed.meet(cp.search_tree-&gt;deduce());</div>
+<div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;      <span class="comment">// cp.stats.stop_timer(Timer::ST_DEDUCE, t);</span></div>
+<div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;      <span class="comment">//  auto t = cp.stats.start_timer_device();</span></div>
+<div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;      <span class="comment">//  auto s = cp.search_tree-&gt;split-&gt;split();</span></div>
+<div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;      <span class="comment">//  t = cp.stats.stop_timer(Timer::SPLIT, t);</span></div>
+<div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;      <span class="comment">//  auto P = cp.search_tree-&gt;push(std::move(s));</span></div>
+<div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;      <span class="comment">//  t = cp.stats.stop_timer(Timer::PUSH, t);</span></div>
+<div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160;      <span class="comment">//  block_has_changed.meet(cp.search_tree-&gt;pop(std::move(P)));</span></div>
+<div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160;      <span class="comment">//  cp.stats.stop_timer(Timer::POP, t);</span></div>
+<div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;    }</div>
+<div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160;    fp_engine.barrier();</div>
+<div class="line"><a name="l00483"></a><span class="lineno">  483</span>&#160;  }</div>
+<div class="line"><a name="l00484"></a><span class="lineno">  484</span>&#160;  cp.stats.stop_timer(<a class="code" href="statistics_8hpp.html#a6e0035edd58cc6ca8c94b5f9723a0d80a0f544d682c3a664870f025f48c4b04b5">Timer::SEARCH</a>, start);</div>
 <div class="line"><a name="l00485"></a><span class="lineno">  485</span>&#160;}</div>
 <div class="line"><a name="l00486"></a><span class="lineno">  486</span>&#160; </div>
 <div class="line"><a name="l00487"></a><span class="lineno">  487</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> S&gt;</div>
-<div class="line"><a name="l00488"></a><span class="lineno">  488</span>&#160;__global__ <span class="keywordtype">void</span> gpu_solve_kernel(GridData&lt;S&gt;* grid_data)</div>
-<div class="line"><a name="l00489"></a><span class="lineno">  489</span>&#160;{</div>
-<div class="line"><a name="l00490"></a><span class="lineno">  490</span>&#160;  <span class="keywordflow">if</span>(threadIdx.x == 0 &amp;&amp; blockIdx.x == 0 &amp;&amp; grid_data-&gt;root.config.verbose_solving) {</div>
-<div class="line"><a name="l00491"></a><span class="lineno">  491</span>&#160;    printf(<span class="stringliteral">&quot;%% GPU kernel started, starting solving...\n&quot;</span>);</div>
-<div class="line"><a name="l00492"></a><span class="lineno">  492</span>&#160;  }</div>
-<div class="line"><a name="l00493"></a><span class="lineno">  493</span>&#160;  <span class="keyword">extern</span> __shared__ <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> shared_mem[];</div>
-<div class="line"><a name="l00494"></a><span class="lineno">  494</span>&#160;  <span class="keywordtype">size_t</span> num_subproblems = grid_data-&gt;root.stats.eps_num_subproblems;</div>
-<div class="line"><a name="l00495"></a><span class="lineno">  495</span>&#160;  BlockData&lt;S&gt;&amp; block_data = grid_data-&gt;blocks[blockIdx.x];</div>
-<div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160;  block_data.allocate(*grid_data, shared_mem);</div>
-<div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160;  <span class="keyword">auto</span> solve_start = block_data.root-&gt;stats.start_timer_device();</div>
-<div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160;  <span class="keywordflow">while</span>(block_data.subproblem_idx &lt; num_subproblems &amp;&amp; !*(block_data.stop)) {</div>
-<div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160;    <span class="keywordflow">if</span>(threadIdx.x == 0 &amp;&amp; grid_data-&gt;root.config.verbose_solving) {</div>
-<div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160;      grid_data-&gt;print_lock-&gt;acquire();</div>
-<div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160;      printf(<span class="stringliteral">&quot;%% Block %d solves subproblem num %&quot;</span> PRIu64 <span class="stringliteral">&quot;\n&quot;</span>, blockIdx.x, block_data.subproblem_idx);</div>
-<div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160;      grid_data-&gt;print_lock-&gt;release();</div>
-<div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;    }</div>
-<div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160;    block_data.restore();</div>
-<div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160;    __syncthreads();</div>
-<div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;    <span class="keyword">auto</span> dive_start = block_data.root-&gt;stats.start_timer_device();</div>
-<div class="line"><a name="l00507"></a><span class="lineno">  507</span>&#160;    <span class="keywordtype">size_t</span> remaining_depth = dive(block_data, *grid_data);</div>
-<div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160;    block_data.root-&gt;stats.stop_timer(<a class="code" href="statistics_8hpp.html#a6e0035edd58cc6ca8c94b5f9723a0d80a345c2df90fed0e74ea3c8926e13e5f12">Timer::DIVE</a>, dive_start);</div>
-<div class="line"><a name="l00509"></a><span class="lineno">  509</span>&#160;    <span class="keywordflow">if</span>(remaining_depth == 0) {</div>
-<div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160;      solve_problem(block_data, *grid_data);</div>
-<div class="line"><a name="l00511"></a><span class="lineno">  511</span>&#160;      <span class="keywordflow">if</span>(threadIdx.x == 0 &amp;&amp; !*(block_data.stop)) {</div>
-<div class="line"><a name="l00512"></a><span class="lineno">  512</span>&#160;        block_data.root-&gt;stats.eps_solved_subproblems += 1;</div>
-<div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160;      }</div>
-<div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;    }</div>
-<div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;    <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160;      <span class="keywordflow">if</span>(threadIdx.x == 0 &amp;&amp; !*(block_data.stop)) {</div>
-<div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;        <span class="keywordtype">size_t</span> next_subproblem_idx = ((block_data.subproblem_idx &gt;&gt; remaining_depth) + <span class="keywordtype">size_t</span>{1}) &lt;&lt; remaining_depth;</div>
-<div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160;        grid_data-&gt;next_subproblem-&gt;meet(ZLB&lt;size_t, bt::local_memory&gt;(next_subproblem_idx));</div>
-<div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160;        <span class="comment">// It is possible that several blocks skip similar subproblems. Hence, we only count the subproblems skipped by the block solving the left most subproblem.</span></div>
-<div class="line"><a name="l00520"></a><span class="lineno">  520</span>&#160;        <span class="keywordflow">if</span>((block_data.subproblem_idx &amp; ((<span class="keywordtype">size_t</span>{1} &lt;&lt; remaining_depth) - <span class="keywordtype">size_t</span>{1})) == <span class="keywordtype">size_t</span>{0}) {</div>
-<div class="line"><a name="l00521"></a><span class="lineno">  521</span>&#160;          block_data.root-&gt;stats.eps_skipped_subproblems += next_subproblem_idx - block_data.subproblem_idx;</div>
-<div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160;        }</div>
-<div class="line"><a name="l00523"></a><span class="lineno">  523</span>&#160;      }</div>
-<div class="line"><a name="l00524"></a><span class="lineno">  524</span>&#160;    }</div>
-<div class="line"><a name="l00525"></a><span class="lineno">  525</span>&#160;    <span class="comment">// Load next problem.</span></div>
-<div class="line"><a name="l00526"></a><span class="lineno">  526</span>&#160;    <span class="keywordflow">if</span>(threadIdx.x == 0 &amp;&amp; !*(block_data.stop)) {</div>
-<div class="line"><a name="l00527"></a><span class="lineno">  527</span>&#160;      block_data.subproblem_idx = grid_data-&gt;next_subproblem-&gt;value();</div>
-<div class="line"><a name="l00528"></a><span class="lineno">  528</span>&#160;      grid_data-&gt;next_subproblem-&gt;meet(ZLB&lt;size_t, bt::local_memory&gt;(block_data.subproblem_idx + <span class="keywordtype">size_t</span>{1}));</div>
-<div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160;    }</div>
-<div class="line"><a name="l00530"></a><span class="lineno">  530</span>&#160;    __syncthreads();</div>
-<div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160;  }</div>
-<div class="line"><a name="l00532"></a><span class="lineno">  532</span>&#160;  __syncthreads();</div>
-<div class="line"><a name="l00533"></a><span class="lineno">  533</span>&#160;  block_data.root-&gt;stats.stop_timer(<a class="code" href="statistics_8hpp.html#a6e0035edd58cc6ca8c94b5f9723a0d80abf61c5b43708f01f5a198843f93e521a">Timer::SOLVE</a>, solve_start);</div>
-<div class="line"><a name="l00534"></a><span class="lineno">  534</span>&#160;  <span class="keywordflow">if</span>(threadIdx.x == 0 &amp;&amp; !*(block_data.stop)) {</div>
-<div class="line"><a name="l00535"></a><span class="lineno">  535</span>&#160;    block_data.root-&gt;stats.num_blocks_done = 1;</div>
-<div class="line"><a name="l00536"></a><span class="lineno">  536</span>&#160;  }</div>
-<div class="line"><a name="l00537"></a><span class="lineno">  537</span>&#160;  <span class="keywordflow">if</span>(threadIdx.x == 0) {</div>
-<div class="line"><a name="l00538"></a><span class="lineno">  538</span>&#160;    grid_data-&gt;print_lock-&gt;acquire();</div>
-<div class="line"><a name="l00539"></a><span class="lineno">  539</span>&#160;    <span class="keywordflow">if</span>(!grid_data-&gt;blocks_reduced) {</div>
-<div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160;      <span class="keywordtype">int</span> n = 0;</div>
-<div class="line"><a name="l00541"></a><span class="lineno">  541</span>&#160;      <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; grid_data-&gt;blocks.size(); ++i) {</div>
-<div class="line"><a name="l00542"></a><span class="lineno">  542</span>&#160;        <span class="keywordflow">if</span>(grid_data-&gt;blocks[i].root) { <span class="comment">// `nullptr` could happen if we try to terminate the program before all blocks are even created.</span></div>
-<div class="line"><a name="l00543"></a><span class="lineno">  543</span>&#160;          n += grid_data-&gt;blocks[i].root-&gt;stats.num_blocks_done;</div>
-<div class="line"><a name="l00544"></a><span class="lineno">  544</span>&#160;        }</div>
-<div class="line"><a name="l00545"></a><span class="lineno">  545</span>&#160;      }</div>
-<div class="line"><a name="l00546"></a><span class="lineno">  546</span>&#160;      <span class="keywordflow">if</span>(block_data.stop-&gt;value() || n == grid_data-&gt;blocks.size()) {</div>
-<div class="line"><a name="l00547"></a><span class="lineno">  547</span>&#160;        reduce_blocks(grid_data);</div>
-<div class="line"><a name="l00548"></a><span class="lineno">  548</span>&#160;        grid_data-&gt;blocks_reduced = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00549"></a><span class="lineno">  549</span>&#160;        cuda::atomic_thread_fence(cuda::memory_order_seq_cst, cuda::thread_scope_system);</div>
-<div class="line"><a name="l00550"></a><span class="lineno">  550</span>&#160;        grid_data-&gt;ready_to_consume.test_and_set(cuda::std::memory_order_seq_cst);</div>
-<div class="line"><a name="l00551"></a><span class="lineno">  551</span>&#160;        grid_data-&gt;ready_to_consume.notify_one();</div>
-<div class="line"><a name="l00552"></a><span class="lineno">  552</span>&#160;      }</div>
-<div class="line"><a name="l00553"></a><span class="lineno">  553</span>&#160;    }</div>
-<div class="line"><a name="l00554"></a><span class="lineno">  554</span>&#160;    grid_data-&gt;print_lock-&gt;release();</div>
-<div class="line"><a name="l00555"></a><span class="lineno">  555</span>&#160;  }</div>
-<div class="line"><a name="l00556"></a><span class="lineno">  556</span>&#160;  <span class="comment">// We must destroy all objects allocated in the shared memory, trying to destroy them anywhere else will lead to segfault.</span></div>
-<div class="line"><a name="l00557"></a><span class="lineno">  557</span>&#160;  block_data.deallocate_shared();</div>
-<div class="line"><a name="l00558"></a><span class="lineno">  558</span>&#160;}</div>
-<div class="line"><a name="l00559"></a><span class="lineno">  559</span>&#160; </div>
-<div class="line"><a name="l00560"></a><span class="lineno">  560</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt; __global__ <span class="keywordtype">void</span> gpu_sizeof_kernel(<span class="keywordtype">size_t</span>* size) { *size = <span class="keyword">sizeof</span>(T); }</div>
-<div class="line"><a name="l00561"></a><span class="lineno">  561</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
-<div class="line"><a name="l00562"></a><span class="lineno">  562</span>&#160;<span class="keywordtype">size_t</span> gpu_sizeof() {</div>
-<div class="line"><a name="l00563"></a><span class="lineno">  563</span>&#160;  <span class="keyword">auto</span> s = bt::make_unique&lt;size_t, bt::managed_allocator&gt;();</div>
-<div class="line"><a name="l00564"></a><span class="lineno">  564</span>&#160;  gpu_sizeof_kernel&lt;T&gt;&lt;&lt;&lt;1, 1&gt;&gt;&gt;(s.get());</div>
-<div class="line"><a name="l00565"></a><span class="lineno">  565</span>&#160;  CUDAEX(cudaDeviceSynchronize());</div>
-<div class="line"><a name="l00566"></a><span class="lineno">  566</span>&#160;  <span class="keywordflow">return</span> *s;</div>
+<div class="line"><a name="l00488"></a><span class="lineno">  488</span>&#160;CUDA <span class="keywordtype">void</span> reduce_blocks(GridData&lt;S&gt;* grid_data) {</div>
+<div class="line"><a name="l00489"></a><span class="lineno">  489</span>&#160;  <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; grid_data-&gt;blocks.size(); ++i) {</div>
+<div class="line"><a name="l00490"></a><span class="lineno">  490</span>&#160;    <span class="keywordflow">if</span>(grid_data-&gt;blocks[i].root) { <span class="comment">// `nullptr` could happen if we try to terminate the program before all blocks are even created.</span></div>
+<div class="line"><a name="l00491"></a><span class="lineno">  491</span>&#160;      grid_data-&gt;root.meet(*(grid_data-&gt;blocks[i].root));</div>
+<div class="line"><a name="l00492"></a><span class="lineno">  492</span>&#160;    }</div>
+<div class="line"><a name="l00493"></a><span class="lineno">  493</span>&#160;  }</div>
+<div class="line"><a name="l00494"></a><span class="lineno">  494</span>&#160;}</div>
+<div class="line"><a name="l00495"></a><span class="lineno">  495</span>&#160; </div>
+<div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> S&gt;</div>
+<div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160;__global__ <span class="keywordtype">void</span> gpu_solve_kernel(GridData&lt;S&gt;* grid_data)</div>
+<div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160;{</div>
+<div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160;  <span class="keywordflow">if</span>(threadIdx.x == 0 &amp;&amp; blockIdx.x == 0 &amp;&amp; grid_data-&gt;root.config.verbose_solving) {</div>
+<div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160;    printf(<span class="stringliteral">&quot;%% GPU kernel started, starting solving...\n&quot;</span>);</div>
+<div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160;  }</div>
+<div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160;  <span class="keyword">extern</span> __shared__ <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> shared_mem[];</div>
+<div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;  <span class="keywordtype">size_t</span> num_subproblems = grid_data-&gt;root.stats.eps_num_subproblems;</div>
+<div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160;  BlockData&lt;S&gt;&amp; block_data = grid_data-&gt;blocks[blockIdx.x];</div>
+<div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160;  block_data.allocate(*grid_data, shared_mem);</div>
+<div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;  <span class="keyword">auto</span> solve_start = block_data.root-&gt;stats.start_timer_device();</div>
+<div class="line"><a name="l00507"></a><span class="lineno">  507</span>&#160;  <span class="keywordflow">while</span>(block_data.subproblem_idx &lt; num_subproblems &amp;&amp; !*(block_data.stop)) {</div>
+<div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160;    <span class="keywordflow">if</span>(threadIdx.x == 0 &amp;&amp; grid_data-&gt;root.config.verbose_solving) {</div>
+<div class="line"><a name="l00509"></a><span class="lineno">  509</span>&#160;      grid_data-&gt;print_lock-&gt;acquire();</div>
+<div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160;      printf(<span class="stringliteral">&quot;%% Block %d solves subproblem num %&quot;</span> PRIu64 <span class="stringliteral">&quot;\n&quot;</span>, blockIdx.x, block_data.subproblem_idx);</div>
+<div class="line"><a name="l00511"></a><span class="lineno">  511</span>&#160;      grid_data-&gt;print_lock-&gt;release();</div>
+<div class="line"><a name="l00512"></a><span class="lineno">  512</span>&#160;    }</div>
+<div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160;    block_data.restore();</div>
+<div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;    __syncthreads();</div>
+<div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;    <span class="keyword">auto</span> dive_start = block_data.root-&gt;stats.start_timer_device();</div>
+<div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160;    <span class="keywordtype">size_t</span> remaining_depth = dive(block_data, *grid_data);</div>
+<div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;    block_data.root-&gt;stats.stop_timer(<a class="code" href="statistics_8hpp.html#a6e0035edd58cc6ca8c94b5f9723a0d80a345c2df90fed0e74ea3c8926e13e5f12">Timer::DIVE</a>, dive_start);</div>
+<div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160;    <span class="keywordflow">if</span>(remaining_depth == 0) {</div>
+<div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160;      solve_problem(block_data, *grid_data);</div>
+<div class="line"><a name="l00520"></a><span class="lineno">  520</span>&#160;      <span class="keywordflow">if</span>(threadIdx.x == 0 &amp;&amp; !*(block_data.stop)) {</div>
+<div class="line"><a name="l00521"></a><span class="lineno">  521</span>&#160;        block_data.root-&gt;stats.eps_solved_subproblems += 1;</div>
+<div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160;      }</div>
+<div class="line"><a name="l00523"></a><span class="lineno">  523</span>&#160;    }</div>
+<div class="line"><a name="l00524"></a><span class="lineno">  524</span>&#160;    <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00525"></a><span class="lineno">  525</span>&#160;      <span class="keywordflow">if</span>(threadIdx.x == 0 &amp;&amp; !*(block_data.stop)) {</div>
+<div class="line"><a name="l00526"></a><span class="lineno">  526</span>&#160;        <span class="keywordtype">size_t</span> next_subproblem_idx = ((block_data.subproblem_idx &gt;&gt; remaining_depth) + <span class="keywordtype">size_t</span>{1}) &lt;&lt; remaining_depth;</div>
+<div class="line"><a name="l00527"></a><span class="lineno">  527</span>&#160;        grid_data-&gt;next_subproblem-&gt;meet(ZLB&lt;size_t, bt::local_memory&gt;(next_subproblem_idx));</div>
+<div class="line"><a name="l00528"></a><span class="lineno">  528</span>&#160;        <span class="comment">// It is possible that several blocks skip similar subproblems. Hence, we only count the subproblems skipped by the block solving the left most subproblem.</span></div>
+<div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160;        <span class="keywordflow">if</span>((block_data.subproblem_idx &amp; ((<span class="keywordtype">size_t</span>{1} &lt;&lt; remaining_depth) - <span class="keywordtype">size_t</span>{1})) == <span class="keywordtype">size_t</span>{0}) {</div>
+<div class="line"><a name="l00530"></a><span class="lineno">  530</span>&#160;          block_data.root-&gt;stats.eps_skipped_subproblems += next_subproblem_idx - block_data.subproblem_idx;</div>
+<div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160;        }</div>
+<div class="line"><a name="l00532"></a><span class="lineno">  532</span>&#160;      }</div>
+<div class="line"><a name="l00533"></a><span class="lineno">  533</span>&#160;    }</div>
+<div class="line"><a name="l00534"></a><span class="lineno">  534</span>&#160;    <span class="comment">// Load next problem.</span></div>
+<div class="line"><a name="l00535"></a><span class="lineno">  535</span>&#160;    <span class="keywordflow">if</span>(threadIdx.x == 0 &amp;&amp; !*(block_data.stop)) {</div>
+<div class="line"><a name="l00536"></a><span class="lineno">  536</span>&#160;      block_data.subproblem_idx = grid_data-&gt;next_subproblem-&gt;value();</div>
+<div class="line"><a name="l00537"></a><span class="lineno">  537</span>&#160;      grid_data-&gt;next_subproblem-&gt;meet(ZLB&lt;size_t, bt::local_memory&gt;(block_data.subproblem_idx + <span class="keywordtype">size_t</span>{1}));</div>
+<div class="line"><a name="l00538"></a><span class="lineno">  538</span>&#160;    }</div>
+<div class="line"><a name="l00539"></a><span class="lineno">  539</span>&#160;    __syncthreads();</div>
+<div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160;  }</div>
+<div class="line"><a name="l00541"></a><span class="lineno">  541</span>&#160;  __syncthreads();</div>
+<div class="line"><a name="l00542"></a><span class="lineno">  542</span>&#160;  block_data.root-&gt;stats.stop_timer(<a class="code" href="statistics_8hpp.html#a6e0035edd58cc6ca8c94b5f9723a0d80abf61c5b43708f01f5a198843f93e521a">Timer::SOLVE</a>, solve_start);</div>
+<div class="line"><a name="l00543"></a><span class="lineno">  543</span>&#160;  <span class="keywordflow">if</span>(threadIdx.x == 0 &amp;&amp; !*(block_data.stop)) {</div>
+<div class="line"><a name="l00544"></a><span class="lineno">  544</span>&#160;    block_data.root-&gt;stats.num_blocks_done = 1;</div>
+<div class="line"><a name="l00545"></a><span class="lineno">  545</span>&#160;  }</div>
+<div class="line"><a name="l00546"></a><span class="lineno">  546</span>&#160;  <span class="keywordflow">if</span>(threadIdx.x == 0) {</div>
+<div class="line"><a name="l00547"></a><span class="lineno">  547</span>&#160;    grid_data-&gt;print_lock-&gt;acquire();</div>
+<div class="line"><a name="l00548"></a><span class="lineno">  548</span>&#160;    <span class="keywordflow">if</span>(!grid_data-&gt;blocks_reduced) {</div>
+<div class="line"><a name="l00549"></a><span class="lineno">  549</span>&#160;      <span class="keywordtype">int</span> n = 0;</div>
+<div class="line"><a name="l00550"></a><span class="lineno">  550</span>&#160;      <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; grid_data-&gt;blocks.size(); ++i) {</div>
+<div class="line"><a name="l00551"></a><span class="lineno">  551</span>&#160;        <span class="keywordflow">if</span>(grid_data-&gt;blocks[i].root) { <span class="comment">// `nullptr` could happen if we try to terminate the program before all blocks are even created.</span></div>
+<div class="line"><a name="l00552"></a><span class="lineno">  552</span>&#160;          n += grid_data-&gt;blocks[i].root-&gt;stats.num_blocks_done;</div>
+<div class="line"><a name="l00553"></a><span class="lineno">  553</span>&#160;        }</div>
+<div class="line"><a name="l00554"></a><span class="lineno">  554</span>&#160;      }</div>
+<div class="line"><a name="l00555"></a><span class="lineno">  555</span>&#160;      <span class="keywordflow">if</span>(block_data.stop-&gt;value() || n == grid_data-&gt;blocks.size()) {</div>
+<div class="line"><a name="l00556"></a><span class="lineno">  556</span>&#160;        reduce_blocks(grid_data);</div>
+<div class="line"><a name="l00557"></a><span class="lineno">  557</span>&#160;        grid_data-&gt;blocks_reduced = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00558"></a><span class="lineno">  558</span>&#160;        cuda::atomic_thread_fence(cuda::memory_order_seq_cst, cuda::thread_scope_system);</div>
+<div class="line"><a name="l00559"></a><span class="lineno">  559</span>&#160;        grid_data-&gt;ready_to_consume.test_and_set(cuda::std::memory_order_seq_cst);</div>
+<div class="line"><a name="l00560"></a><span class="lineno">  560</span>&#160;        grid_data-&gt;ready_to_consume.notify_one();</div>
+<div class="line"><a name="l00561"></a><span class="lineno">  561</span>&#160;      }</div>
+<div class="line"><a name="l00562"></a><span class="lineno">  562</span>&#160;    }</div>
+<div class="line"><a name="l00563"></a><span class="lineno">  563</span>&#160;    grid_data-&gt;print_lock-&gt;release();</div>
+<div class="line"><a name="l00564"></a><span class="lineno">  564</span>&#160;  }</div>
+<div class="line"><a name="l00565"></a><span class="lineno">  565</span>&#160;  <span class="comment">// We must destroy all objects allocated in the shared memory, trying to destroy them anywhere else will lead to segfault.</span></div>
+<div class="line"><a name="l00566"></a><span class="lineno">  566</span>&#160;  block_data.deallocate_shared();</div>
 <div class="line"><a name="l00567"></a><span class="lineno">  567</span>&#160;}</div>
 <div class="line"><a name="l00568"></a><span class="lineno">  568</span>&#160; </div>
-<div class="line"><a name="l00569"></a><span class="lineno">  569</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> S, <span class="keyword">class</span> U&gt;</div>
-<div class="line"><a name="l00570"></a><span class="lineno">  570</span>&#160;<span class="keywordtype">size_t</span> sizeof_store(<span class="keyword">const</span> <a class="code" href="struct_abstract_domains.html">CP&lt;U&gt;</a>&amp; root) {</div>
-<div class="line"><a name="l00571"></a><span class="lineno">  571</span>&#160;  <span class="keywordflow">return</span> gpu_sizeof&lt;typename S::BlockCP::IStore&gt;()</div>
-<div class="line"><a name="l00572"></a><span class="lineno">  572</span>&#160;       + gpu_sizeof&lt;typename S::BlockCP::IStore::universe_type&gt;() * root.<a class="code" href="struct_abstract_domains.html#a6163aae266ebdf3370b3fedc63c150a3">store</a>-&gt;vars();</div>
-<div class="line"><a name="l00573"></a><span class="lineno">  573</span>&#160;}</div>
-<div class="line"><a name="l00574"></a><span class="lineno">  574</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00575"></a><span class="lineno">  575</span>&#160;<span class="comment">/** \returns the size of the shared memory and the kind of memory used. */</span></div>
-<div class="line"><a name="l00576"></a><span class="lineno">  576</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> S, <span class="keyword">class</span> U&gt;</div>
-<div class="line"><a name="l00577"></a><span class="lineno">  577</span>&#160;MemoryConfig configure_memory(<a class="code" href="struct_abstract_domains.html">CP&lt;U&gt;</a>&amp; root) {</div>
-<div class="line"><a name="l00578"></a><span class="lineno">  578</span>&#160;  cudaDeviceProp deviceProp;</div>
-<div class="line"><a name="l00579"></a><span class="lineno">  579</span>&#160;  cudaGetDeviceProperties(&amp;deviceProp, 0);</div>
-<div class="line"><a name="l00580"></a><span class="lineno">  580</span>&#160;  <span class="keyword">const</span> <span class="keyword">auto</span>&amp; config = root.<a class="code" href="struct_abstract_domains.html#a0aa5ac01e4f4a2a8b2811edca6eb8ef9">config</a>;</div>
-<div class="line"><a name="l00581"></a><span class="lineno">  581</span>&#160;  <span class="keywordtype">size_t</span> shared_mem_capacity = deviceProp.sharedMemPerBlock;</div>
-<div class="line"><a name="l00582"></a><span class="lineno">  582</span>&#160; </div>
-<div class="line"><a name="l00583"></a><span class="lineno">  583</span>&#160;  <span class="comment">// Copy the root to know how large are the abstract domains.</span></div>
-<div class="line"><a name="l00584"></a><span class="lineno">  584</span>&#160;  <a class="code" href="struct_abstract_domains.html">CP&lt;U&gt;</a> root2(root);</div>
-<div class="line"><a name="l00585"></a><span class="lineno">  585</span>&#160; </div>
-<div class="line"><a name="l00586"></a><span class="lineno">  586</span>&#160;  <span class="keywordtype">size_t</span> store_alignment = 200; <span class="comment">// The store does not create much alignment overhead since it is almost only a single array.</span></div>
-<div class="line"><a name="l00587"></a><span class="lineno">  587</span>&#160; </div>
-<div class="line"><a name="l00588"></a><span class="lineno">  588</span>&#160;  MemoryConfig mem_config;</div>
-<div class="line"><a name="l00589"></a><span class="lineno">  589</span>&#160;  <span class="comment">// Need a bit of shared memory for the fixpoint engine.</span></div>
-<div class="line"><a name="l00590"></a><span class="lineno">  590</span>&#160;  mem_config.shared_bytes = <span class="keyword">sizeof</span>(FPEngine)+100;</div>
-<div class="line"><a name="l00591"></a><span class="lineno">  591</span>&#160;  mem_config.store_bytes = sizeof_store&lt;S&gt;(root2) + store_alignment;</div>
-<div class="line"><a name="l00592"></a><span class="lineno">  592</span>&#160;  <span class="comment">// We add 20% extra memory due to the alignment of the shared memory which is not taken into account in the statistics.</span></div>
-<div class="line"><a name="l00593"></a><span class="lineno">  593</span>&#160;  <span class="comment">// From limited experiments, alignment overhead is usually around 10%.</span></div>
-<div class="line"><a name="l00594"></a><span class="lineno">  594</span>&#160;  mem_config.pc_bytes = root2.prop_allocator.total_bytes_allocated();</div>
-<div class="line"><a name="l00595"></a><span class="lineno">  595</span>&#160;  mem_config.pc_bytes += mem_config.pc_bytes / 5;</div>
-<div class="line"><a name="l00596"></a><span class="lineno">  596</span>&#160;  <span class="keywordflow">if</span>(config.only_global_memory || shared_mem_capacity &lt; mem_config.shared_bytes + mem_config.store_bytes) {</div>
-<div class="line"><a name="l00597"></a><span class="lineno">  597</span>&#160;    <span class="keywordflow">if</span>(!config.only_global_memory &amp;&amp; config.verbose_solving) {</div>
-<div class="line"><a name="l00598"></a><span class="lineno">  598</span>&#160;      printf(<span class="stringliteral">&quot;%% The store of variables (%zuKB) cannot be stored in the shared memory of the GPU (%zuKB), therefore we use the global memory.\n&quot;</span>,</div>
-<div class="line"><a name="l00599"></a><span class="lineno">  599</span>&#160;      mem_config.store_bytes / 1000,</div>
-<div class="line"><a name="l00600"></a><span class="lineno">  600</span>&#160;      shared_mem_capacity / 1000);</div>
-<div class="line"><a name="l00601"></a><span class="lineno">  601</span>&#160;    }</div>
-<div class="line"><a name="l00602"></a><span class="lineno">  602</span>&#160;    mem_config.mem_kind = MemoryKind::GLOBAL;</div>
-<div class="line"><a name="l00603"></a><span class="lineno">  603</span>&#160;  }</div>
-<div class="line"><a name="l00604"></a><span class="lineno">  604</span>&#160;  <span class="keywordflow">else</span> <span class="keywordflow">if</span>(shared_mem_capacity &gt; mem_config.shared_bytes + mem_config.store_bytes + mem_config.pc_bytes) {</div>
-<div class="line"><a name="l00605"></a><span class="lineno">  605</span>&#160;    <span class="keywordflow">if</span>(config.verbose_solving) {</div>
-<div class="line"><a name="l00606"></a><span class="lineno">  606</span>&#160;      printf(<span class="stringliteral">&quot;%% The store of variables and the propagators (%zuKB) are stored in the shared memory of the GPU (%zuKB).\n&quot;</span>,</div>
-<div class="line"><a name="l00607"></a><span class="lineno">  607</span>&#160;      (mem_config.shared_bytes + mem_config.store_bytes + mem_config.pc_bytes) / 1000,</div>
-<div class="line"><a name="l00608"></a><span class="lineno">  608</span>&#160;      shared_mem_capacity / 1000);</div>
-<div class="line"><a name="l00609"></a><span class="lineno">  609</span>&#160;    }</div>
-<div class="line"><a name="l00610"></a><span class="lineno">  610</span>&#160;    mem_config.shared_bytes += mem_config.store_bytes + mem_config.pc_bytes;</div>
-<div class="line"><a name="l00611"></a><span class="lineno">  611</span>&#160;    mem_config.mem_kind = MemoryKind::STORE_PC_SHARED;</div>
+<div class="line"><a name="l00569"></a><span class="lineno">  569</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt; __global__ <span class="keywordtype">void</span> gpu_sizeof_kernel(<span class="keywordtype">size_t</span>* size) { *size = <span class="keyword">sizeof</span>(T); }</div>
+<div class="line"><a name="l00570"></a><span class="lineno">  570</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00571"></a><span class="lineno">  571</span>&#160;<span class="keywordtype">size_t</span> gpu_sizeof() {</div>
+<div class="line"><a name="l00572"></a><span class="lineno">  572</span>&#160;  <span class="keyword">auto</span> s = bt::make_unique&lt;size_t, bt::managed_allocator&gt;();</div>
+<div class="line"><a name="l00573"></a><span class="lineno">  573</span>&#160;  gpu_sizeof_kernel&lt;T&gt;&lt;&lt;&lt;1, 1&gt;&gt;&gt;(s.get());</div>
+<div class="line"><a name="l00574"></a><span class="lineno">  574</span>&#160;  CUDAEX(cudaDeviceSynchronize());</div>
+<div class="line"><a name="l00575"></a><span class="lineno">  575</span>&#160;  <span class="keywordflow">return</span> *s;</div>
+<div class="line"><a name="l00576"></a><span class="lineno">  576</span>&#160;}</div>
+<div class="line"><a name="l00577"></a><span class="lineno">  577</span>&#160; </div>
+<div class="line"><a name="l00578"></a><span class="lineno">  578</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> S, <span class="keyword">class</span> U&gt;</div>
+<div class="line"><a name="l00579"></a><span class="lineno">  579</span>&#160;<span class="keywordtype">size_t</span> sizeof_store(<span class="keyword">const</span> <a class="code" href="struct_abstract_domains.html">CP&lt;U&gt;</a>&amp; root) {</div>
+<div class="line"><a name="l00580"></a><span class="lineno">  580</span>&#160;  <span class="keywordflow">return</span> gpu_sizeof&lt;typename S::BlockCP::IStore&gt;()</div>
+<div class="line"><a name="l00581"></a><span class="lineno">  581</span>&#160;       + gpu_sizeof&lt;typename S::BlockCP::IStore::universe_type&gt;() * root.<a class="code" href="struct_abstract_domains.html#a6163aae266ebdf3370b3fedc63c150a3">store</a>-&gt;vars();</div>
+<div class="line"><a name="l00582"></a><span class="lineno">  582</span>&#160;}</div>
+<div class="line"><a name="l00583"></a><span class="lineno">  583</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00584"></a><span class="lineno">  584</span>&#160;<span class="comment">/** \returns the size of the shared memory and the kind of memory used. */</span></div>
+<div class="line"><a name="l00585"></a><span class="lineno">  585</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> S, <span class="keyword">class</span> U&gt;</div>
+<div class="line"><a name="l00586"></a><span class="lineno">  586</span>&#160;MemoryConfig configure_memory(<a class="code" href="struct_abstract_domains.html">CP&lt;U&gt;</a>&amp; root) {</div>
+<div class="line"><a name="l00587"></a><span class="lineno">  587</span>&#160;  cudaDeviceProp deviceProp;</div>
+<div class="line"><a name="l00588"></a><span class="lineno">  588</span>&#160;  cudaGetDeviceProperties(&amp;deviceProp, 0);</div>
+<div class="line"><a name="l00589"></a><span class="lineno">  589</span>&#160;  <span class="keyword">const</span> <span class="keyword">auto</span>&amp; config = root.<a class="code" href="struct_abstract_domains.html#a0aa5ac01e4f4a2a8b2811edca6eb8ef9">config</a>;</div>
+<div class="line"><a name="l00590"></a><span class="lineno">  590</span>&#160;  <span class="keywordtype">size_t</span> shared_mem_capacity = deviceProp.sharedMemPerBlock;</div>
+<div class="line"><a name="l00591"></a><span class="lineno">  591</span>&#160; </div>
+<div class="line"><a name="l00592"></a><span class="lineno">  592</span>&#160;  <span class="comment">// Copy the root to know how large are the abstract domains.</span></div>
+<div class="line"><a name="l00593"></a><span class="lineno">  593</span>&#160;  <a class="code" href="struct_abstract_domains.html">CP&lt;U&gt;</a> root2(root);</div>
+<div class="line"><a name="l00594"></a><span class="lineno">  594</span>&#160; </div>
+<div class="line"><a name="l00595"></a><span class="lineno">  595</span>&#160;  <span class="keywordtype">size_t</span> store_alignment = 200; <span class="comment">// The store does not create much alignment overhead since it is almost only a single array.</span></div>
+<div class="line"><a name="l00596"></a><span class="lineno">  596</span>&#160; </div>
+<div class="line"><a name="l00597"></a><span class="lineno">  597</span>&#160;  MemoryConfig mem_config;</div>
+<div class="line"><a name="l00598"></a><span class="lineno">  598</span>&#160;  <span class="comment">// Need a bit of shared memory for the fixpoint engine.</span></div>
+<div class="line"><a name="l00599"></a><span class="lineno">  599</span>&#160;  mem_config.shared_bytes = <span class="keyword">sizeof</span>(FPEngine)+100;</div>
+<div class="line"><a name="l00600"></a><span class="lineno">  600</span>&#160;  mem_config.store_bytes = sizeof_store&lt;S&gt;(root2) + store_alignment;</div>
+<div class="line"><a name="l00601"></a><span class="lineno">  601</span>&#160;  <span class="comment">// We add 20% extra memory due to the alignment of the shared memory which is not taken into account in the statistics.</span></div>
+<div class="line"><a name="l00602"></a><span class="lineno">  602</span>&#160;  <span class="comment">// From limited experiments, alignment overhead is usually around 10%.</span></div>
+<div class="line"><a name="l00603"></a><span class="lineno">  603</span>&#160;  mem_config.pc_bytes = root2.prop_allocator.total_bytes_allocated();</div>
+<div class="line"><a name="l00604"></a><span class="lineno">  604</span>&#160;  mem_config.pc_bytes += mem_config.pc_bytes / 5;</div>
+<div class="line"><a name="l00605"></a><span class="lineno">  605</span>&#160;  <span class="keywordflow">if</span>(config.only_global_memory || shared_mem_capacity &lt; mem_config.shared_bytes + mem_config.store_bytes) {</div>
+<div class="line"><a name="l00606"></a><span class="lineno">  606</span>&#160;    <span class="keywordflow">if</span>(!config.only_global_memory &amp;&amp; config.verbose_solving) {</div>
+<div class="line"><a name="l00607"></a><span class="lineno">  607</span>&#160;      printf(<span class="stringliteral">&quot;%% The store of variables (%zuKB) cannot be stored in the shared memory of the GPU (%zuKB), therefore we use the global memory.\n&quot;</span>,</div>
+<div class="line"><a name="l00608"></a><span class="lineno">  608</span>&#160;      mem_config.store_bytes / 1000,</div>
+<div class="line"><a name="l00609"></a><span class="lineno">  609</span>&#160;      shared_mem_capacity / 1000);</div>
+<div class="line"><a name="l00610"></a><span class="lineno">  610</span>&#160;    }</div>
+<div class="line"><a name="l00611"></a><span class="lineno">  611</span>&#160;    mem_config.mem_kind = MemoryKind::GLOBAL;</div>
 <div class="line"><a name="l00612"></a><span class="lineno">  612</span>&#160;  }</div>
-<div class="line"><a name="l00613"></a><span class="lineno">  613</span>&#160;  <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00613"></a><span class="lineno">  613</span>&#160;  <span class="keywordflow">else</span> <span class="keywordflow">if</span>(shared_mem_capacity &gt; mem_config.shared_bytes + mem_config.store_bytes + mem_config.pc_bytes) {</div>
 <div class="line"><a name="l00614"></a><span class="lineno">  614</span>&#160;    <span class="keywordflow">if</span>(config.verbose_solving) {</div>
-<div class="line"><a name="l00615"></a><span class="lineno">  615</span>&#160;      printf(<span class="stringliteral">&quot;%% The store of variables (%zuKB) is stored in the shared memory of the GPU (%zuKB).\n&quot;</span>,</div>
-<div class="line"><a name="l00616"></a><span class="lineno">  616</span>&#160;        mem_config.store_bytes / 1000,</div>
-<div class="line"><a name="l00617"></a><span class="lineno">  617</span>&#160;        shared_mem_capacity / 1000);</div>
+<div class="line"><a name="l00615"></a><span class="lineno">  615</span>&#160;      printf(<span class="stringliteral">&quot;%% The store of variables and the propagators (%zuKB) are stored in the shared memory of the GPU (%zuKB).\n&quot;</span>,</div>
+<div class="line"><a name="l00616"></a><span class="lineno">  616</span>&#160;      (mem_config.shared_bytes + mem_config.store_bytes + mem_config.pc_bytes) / 1000,</div>
+<div class="line"><a name="l00617"></a><span class="lineno">  617</span>&#160;      shared_mem_capacity / 1000);</div>
 <div class="line"><a name="l00618"></a><span class="lineno">  618</span>&#160;    }</div>
-<div class="line"><a name="l00619"></a><span class="lineno">  619</span>&#160;    mem_config.shared_bytes += mem_config.store_bytes;</div>
-<div class="line"><a name="l00620"></a><span class="lineno">  620</span>&#160;    mem_config.mem_kind = MemoryKind::STORE_SHARED;</div>
+<div class="line"><a name="l00619"></a><span class="lineno">  619</span>&#160;    mem_config.shared_bytes += mem_config.store_bytes + mem_config.pc_bytes;</div>
+<div class="line"><a name="l00620"></a><span class="lineno">  620</span>&#160;    mem_config.mem_kind = MemoryKind::STORE_PC_SHARED;</div>
 <div class="line"><a name="l00621"></a><span class="lineno">  621</span>&#160;  }</div>
-<div class="line"><a name="l00622"></a><span class="lineno">  622</span>&#160;  <span class="keywordflow">if</span>(config.verbose_solving) {</div>
-<div class="line"><a name="l00623"></a><span class="lineno">  623</span>&#160;    <a class="code" href="statistics_8hpp.html#aa706e08664f7a52ec805a8257bcfb593">print_memory_statistics</a>(<span class="stringliteral">&quot;store_memory_real&quot;</span>, root2.store_allocator.total_bytes_allocated());</div>
-<div class="line"><a name="l00624"></a><span class="lineno">  624</span>&#160;    <a class="code" href="statistics_8hpp.html#aa706e08664f7a52ec805a8257bcfb593">print_memory_statistics</a>(<span class="stringliteral">&quot;pc_memory_real&quot;</span>, root2.prop_allocator.total_bytes_allocated());</div>
-<div class="line"><a name="l00625"></a><span class="lineno">  625</span>&#160;    <a class="code" href="statistics_8hpp.html#aa706e08664f7a52ec805a8257bcfb593">print_memory_statistics</a>(<span class="stringliteral">&quot;other_memory_real&quot;</span>, root2.basic_allocator.total_bytes_allocated());</div>
-<div class="line"><a name="l00626"></a><span class="lineno">  626</span>&#160;  }</div>
-<div class="line"><a name="l00627"></a><span class="lineno">  627</span>&#160;  <span class="keywordflow">return</span> mem_config;</div>
-<div class="line"><a name="l00628"></a><span class="lineno">  628</span>&#160;}</div>
-<div class="line"><a name="l00629"></a><span class="lineno">  629</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00630"></a><span class="lineno">  630</span>&#160;<span class="comment">/** Wait the solving ends because of a timeout, CTRL-C or because the kernel finished. */</span></div>
-<div class="line"><a name="l00631"></a><span class="lineno">  631</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">class</span> S, <span class="keyword">class</span> Timepo<span class="keywordtype">int</span>&gt;</div>
-<div class="line"><a name="l00632"></a><span class="lineno">  632</span>&#160;<span class="keywordtype">bool</span> wait_solving_ends(GridData&lt;S&gt;&amp; grid_data, <span class="keyword">const</span> Timepoint&amp; start) {</div>
-<div class="line"><a name="l00633"></a><span class="lineno">  633</span>&#160;  cudaEvent_t event;</div>
-<div class="line"><a name="l00634"></a><span class="lineno">  634</span>&#160;  cudaEventCreateWithFlags(&amp;event,cudaEventDisableTiming);</div>
-<div class="line"><a name="l00635"></a><span class="lineno">  635</span>&#160;  cudaEventRecord(event);</div>
-<div class="line"><a name="l00636"></a><span class="lineno">  636</span>&#160;  <span class="keywordflow">while</span>(!<a class="code" href="common__solving_8hpp.html#aceec23d67eb8f6c24010f377a52aee98">must_quit</a>() &amp;&amp; <a class="code" href="common__solving_8hpp.html#ae74627056bb5f54434f23cc94f5ae732">check_timeout</a>(grid_data.root, start) &amp;&amp; cudaEventQuery(event) == cudaErrorNotReady) {</div>
-<div class="line"><a name="l00637"></a><span class="lineno">  637</span>&#160;    std::this_thread::sleep_for(std::chrono::milliseconds(100));</div>
-<div class="line"><a name="l00638"></a><span class="lineno">  638</span>&#160;  }</div>
-<div class="line"><a name="l00639"></a><span class="lineno">  639</span>&#160;  <span class="keywordflow">if</span>(cudaEventQuery(event) == cudaErrorNotReady) {</div>
-<div class="line"><a name="l00640"></a><span class="lineno">  640</span>&#160;    grid_data.cpu_stop = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00641"></a><span class="lineno">  641</span>&#160;    grid_data.root.prune();</div>
-<div class="line"><a name="l00642"></a><span class="lineno">  642</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00643"></a><span class="lineno">  643</span>&#160;  }</div>
-<div class="line"><a name="l00644"></a><span class="lineno">  644</span>&#160;  <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00645"></a><span class="lineno">  645</span>&#160;    cudaError error = cudaDeviceSynchronize();</div>
-<div class="line"><a name="l00646"></a><span class="lineno">  646</span>&#160;    <span class="keywordflow">if</span>(error == cudaErrorIllegalAddress) {</div>
-<div class="line"><a name="l00647"></a><span class="lineno">  647</span>&#160;      printf(<span class="stringliteral">&quot;%% ERROR: CUDA kernel failed due to an illegal memory access. This might be due to a stack overflow because it is too small. Try increasing the stack size with the options -stack. If it does not work, please report it as a bug.\n&quot;</span>);</div>
-<div class="line"><a name="l00648"></a><span class="lineno">  648</span>&#160;      exit(EXIT_FAILURE);</div>
-<div class="line"><a name="l00649"></a><span class="lineno">  649</span>&#160;    }</div>
-<div class="line"><a name="l00650"></a><span class="lineno">  650</span>&#160;    CUDAEX(error);</div>
-<div class="line"><a name="l00651"></a><span class="lineno">  651</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00652"></a><span class="lineno">  652</span>&#160;  }</div>
-<div class="line"><a name="l00653"></a><span class="lineno">  653</span>&#160;}</div>
-<div class="line"><a name="l00654"></a><span class="lineno">  654</span>&#160; </div>
-<div class="line"><a name="l00655"></a><span class="lineno">  655</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> S&gt;</div>
-<div class="line"><a name="l00656"></a><span class="lineno">  656</span>&#160;<span class="keywordtype">void</span> consume_kernel_solutions(GridData&lt;S&gt;&amp; grid_data) {</div>
-<div class="line"><a name="l00657"></a><span class="lineno">  657</span>&#160;  <span class="keywordflow">while</span>(!grid_data.consume_solution()) {}</div>
-<div class="line"><a name="l00658"></a><span class="lineno">  658</span>&#160;}</div>
-<div class="line"><a name="l00659"></a><span class="lineno">  659</span>&#160; </div>
-<div class="line"><a name="l00660"></a><span class="lineno">  660</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> S, <span class="keyword">class</span> U, <span class="keyword">class</span> Timepo<span class="keywordtype">int</span>&gt;</div>
-<div class="line"><a name="l00661"></a><span class="lineno">  661</span>&#160;<span class="keywordtype">void</span> transfer_memory_and_run(<a class="code" href="struct_abstract_domains.html">CP&lt;U&gt;</a>&amp; root, MemoryConfig mem_config, <span class="keyword">const</span> Timepoint&amp; start) {</div>
-<div class="line"><a name="l00662"></a><span class="lineno">  662</span>&#160;  <span class="keyword">using</span> concurrent_allocator = <span class="keyword">typename</span> S::concurrent_allocator;</div>
-<div class="line"><a name="l00663"></a><span class="lineno">  663</span>&#160;  <span class="keyword">auto</span> grid_data = bt::make_shared&lt;GridData&lt;S&gt;, concurrent_allocator&gt;(root, mem_config);</div>
-<div class="line"><a name="l00664"></a><span class="lineno">  664</span>&#160;  initialize_grid_data&lt;&lt;&lt;1,1&gt;&gt;&gt;(grid_data.get());</div>
-<div class="line"><a name="l00665"></a><span class="lineno">  665</span>&#160;  CUDAEX(cudaDeviceSynchronize());</div>
-<div class="line"><a name="l00666"></a><span class="lineno">  666</span>&#160;  <span class="keywordflow">if</span>(grid_data-&gt;root.config.print_statistics) {</div>
-<div class="line"><a name="l00667"></a><span class="lineno">  667</span>&#160;    mem_config.print_mzn_statistics();</div>
-<div class="line"><a name="l00668"></a><span class="lineno">  668</span>&#160;  }</div>
-<div class="line"><a name="l00669"></a><span class="lineno">  669</span>&#160;  std::thread consumer_thread(consume_kernel_solutions&lt;S&gt;, std::ref(*grid_data));</div>
-<div class="line"><a name="l00670"></a><span class="lineno">  670</span>&#160;  gpu_solve_kernel</div>
-<div class="line"><a name="l00671"></a><span class="lineno">  671</span>&#160;    &lt;&lt;&lt;<span class="keyword">static_cast&lt;</span><span class="keywordtype">unsigned</span> <span class="keywordtype">int</span><span class="keyword">&gt;</span>(grid_data-&gt;root.config.or_nodes),</div>
-<div class="line"><a name="l00672"></a><span class="lineno">  672</span>&#160;      CUDA_THREADS_PER_BLOCK,</div>
-<div class="line"><a name="l00673"></a><span class="lineno">  673</span>&#160;      grid_data-&gt;mem_config.shared_bytes&gt;&gt;&gt;</div>
-<div class="line"><a name="l00674"></a><span class="lineno">  674</span>&#160;    (grid_data.get());</div>
-<div class="line"><a name="l00675"></a><span class="lineno">  675</span>&#160;  <span class="keywordtype">bool</span> interrupted = wait_solving_ends(*grid_data, start);</div>
-<div class="line"><a name="l00676"></a><span class="lineno">  676</span>&#160;  consumer_thread.join();</div>
-<div class="line"><a name="l00677"></a><span class="lineno">  677</span>&#160;  CUDAEX(cudaDeviceSynchronize());</div>
-<div class="line"><a name="l00678"></a><span class="lineno">  678</span>&#160;  deallocate_grid_data&lt;&lt;&lt;1,1&gt;&gt;&gt;(grid_data.get());</div>
-<div class="line"><a name="l00679"></a><span class="lineno">  679</span>&#160;  CUDAEX(cudaDeviceSynchronize());</div>
-<div class="line"><a name="l00680"></a><span class="lineno">  680</span>&#160;}</div>
-<div class="line"><a name="l00681"></a><span class="lineno">  681</span>&#160; </div>
-<div class="line"><a name="l00682"></a><span class="lineno">  682</span>&#160;<span class="comment">// From https://stackoverflow.com/a/32531982/2231159</span></div>
-<div class="line"><a name="l00683"></a><span class="lineno">  683</span>&#160;<span class="keywordtype">int</span> threads_per_sm(cudaDeviceProp devProp) {</div>
-<div class="line"><a name="l00684"></a><span class="lineno">  684</span>&#160;  <span class="keywordflow">switch</span> (devProp.major){</div>
-<div class="line"><a name="l00685"></a><span class="lineno">  685</span>&#160;    <span class="keywordflow">case</span> 2: <span class="keywordflow">return</span> (devProp.minor == 1) ? 48 : 32; <span class="comment">// Fermi</span></div>
-<div class="line"><a name="l00686"></a><span class="lineno">  686</span>&#160;    <span class="keywordflow">case</span> 3: <span class="keywordflow">return</span> 192; <span class="comment">// Kepler</span></div>
-<div class="line"><a name="l00687"></a><span class="lineno">  687</span>&#160;    <span class="keywordflow">case</span> 5: <span class="keywordflow">return</span> 128; <span class="comment">// Maxwell</span></div>
-<div class="line"><a name="l00688"></a><span class="lineno">  688</span>&#160;    <span class="keywordflow">case</span> 6: <span class="keywordflow">return</span> (devProp.minor == 0) ? 64 : 128; <span class="comment">// Pascal</span></div>
-<div class="line"><a name="l00689"></a><span class="lineno">  689</span>&#160;    <span class="keywordflow">case</span> 7: <span class="keywordflow">return</span> 64; <span class="comment">// Volta and Turing</span></div>
-<div class="line"><a name="l00690"></a><span class="lineno">  690</span>&#160;    <span class="keywordflow">case</span> 8: <span class="keywordflow">return</span> (devProp.minor == 0) ? 64 : 128; <span class="comment">// Ampere</span></div>
-<div class="line"><a name="l00691"></a><span class="lineno">  691</span>&#160;    <span class="keywordflow">case</span> 9: <span class="keywordflow">return</span> 128; <span class="comment">// Hopper</span></div>
-<div class="line"><a name="l00692"></a><span class="lineno">  692</span>&#160;    <span class="keywordflow">default</span>: <span class="keywordflow">return</span> 64;</div>
-<div class="line"><a name="l00693"></a><span class="lineno">  693</span>&#160;  }</div>
-<div class="line"><a name="l00694"></a><span class="lineno">  694</span>&#160;}</div>
-<div class="line"><a name="l00695"></a><span class="lineno">  695</span>&#160; </div>
-<div class="line"><a name="l00696"></a><span class="lineno">  696</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> S, <span class="keyword">class</span> U&gt;</div>
-<div class="line"><a name="l00697"></a><span class="lineno">  697</span>&#160;<span class="keywordtype">void</span> configure_blocks_threads(<a class="code" href="struct_abstract_domains.html">CP&lt;U&gt;</a>&amp; root, <span class="keyword">const</span> MemoryConfig&amp; mem_config) {</div>
-<div class="line"><a name="l00698"></a><span class="lineno">  698</span>&#160;  <span class="keywordtype">int</span> hint_num_blocks;</div>
-<div class="line"><a name="l00699"></a><span class="lineno">  699</span>&#160;  <span class="keywordtype">int</span> hint_num_threads;</div>
-<div class="line"><a name="l00700"></a><span class="lineno">  700</span>&#160;  CUDAE(cudaOccupancyMaxPotentialBlockSize(&amp;hint_num_blocks, &amp;hint_num_threads, (<span class="keywordtype">void</span>*) gpu_solve_kernel&lt;S&gt;, (<span class="keywordtype">int</span>)mem_config.shared_bytes));</div>
-<div class="line"><a name="l00701"></a><span class="lineno">  701</span>&#160; </div>
-<div class="line"><a name="l00702"></a><span class="lineno">  702</span>&#160;  cudaDeviceProp deviceProp;</div>
-<div class="line"><a name="l00703"></a><span class="lineno">  703</span>&#160;  cudaGetDeviceProperties(&amp;deviceProp, 0);</div>
-<div class="line"><a name="l00704"></a><span class="lineno">  704</span>&#160; </div>
-<div class="line"><a name="l00705"></a><span class="lineno">  705</span>&#160;  <span class="keywordtype">size_t</span> total_global_mem = deviceProp.totalGlobalMem;</div>
-<div class="line"><a name="l00706"></a><span class="lineno">  706</span>&#160;  <span class="keywordtype">size_t</span> num_sm = deviceProp.multiProcessorCount;</div>
-<div class="line"><a name="l00707"></a><span class="lineno">  707</span>&#160;  <span class="keywordtype">size_t</span> num_threads_per_sm = threads_per_sm(deviceProp);</div>
-<div class="line"><a name="l00708"></a><span class="lineno">  708</span>&#160; </div>
-<div class="line"><a name="l00709"></a><span class="lineno">  709</span>&#160;  <span class="keyword">auto</span>&amp; config = root.<a class="code" href="struct_abstract_domains.html#a0aa5ac01e4f4a2a8b2811edca6eb8ef9">config</a>;</div>
-<div class="line"><a name="l00710"></a><span class="lineno">  710</span>&#160;  config.<a class="code" href="struct_configuration.html#a6400dfba9cd09ea3050d18c71c8d47fb">or_nodes</a> = (config.or_nodes == 0) ? hint_num_blocks : config.or_nodes;</div>
-<div class="line"><a name="l00711"></a><span class="lineno">  711</span>&#160; </div>
-<div class="line"><a name="l00712"></a><span class="lineno">  712</span>&#160;  <span class="comment">// The stack allocated depends on the maximum number of threads per SM, not on the actual number of threads per block.</span></div>
-<div class="line"><a name="l00713"></a><span class="lineno">  713</span>&#160;  <span class="keywordtype">size_t</span> total_stack_size = num_sm * deviceProp.maxThreadsPerMultiProcessor * config.stack_kb * 1000;</div>
-<div class="line"><a name="l00714"></a><span class="lineno">  714</span>&#160;  <span class="keywordtype">size_t</span> remaining_global_mem = total_global_mem - total_stack_size;</div>
-<div class="line"><a name="l00715"></a><span class="lineno">  715</span>&#160;  remaining_global_mem -= remaining_global_mem / 10; <span class="comment">// We leave 10% of global memory free for CUDA allocations, not sure if it is useful though.</span></div>
+<div class="line"><a name="l00622"></a><span class="lineno">  622</span>&#160;  <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00623"></a><span class="lineno">  623</span>&#160;    <span class="keywordflow">if</span>(config.verbose_solving) {</div>
+<div class="line"><a name="l00624"></a><span class="lineno">  624</span>&#160;      printf(<span class="stringliteral">&quot;%% The store of variables (%zuKB) is stored in the shared memory of the GPU (%zuKB).\n&quot;</span>,</div>
+<div class="line"><a name="l00625"></a><span class="lineno">  625</span>&#160;        mem_config.store_bytes / 1000,</div>
+<div class="line"><a name="l00626"></a><span class="lineno">  626</span>&#160;        shared_mem_capacity / 1000);</div>
+<div class="line"><a name="l00627"></a><span class="lineno">  627</span>&#160;    }</div>
+<div class="line"><a name="l00628"></a><span class="lineno">  628</span>&#160;    mem_config.shared_bytes += mem_config.store_bytes;</div>
+<div class="line"><a name="l00629"></a><span class="lineno">  629</span>&#160;    mem_config.mem_kind = MemoryKind::STORE_SHARED;</div>
+<div class="line"><a name="l00630"></a><span class="lineno">  630</span>&#160;  }</div>
+<div class="line"><a name="l00631"></a><span class="lineno">  631</span>&#160;  root.<a class="code" href="struct_abstract_domains.html#a4079f4eda90c5a3162357423aedae435">stats</a>.<a class="code" href="struct_statistics.html#a77f9832c12625799f616a7211ee2cb8b">print_memory_statistics</a>(config.verbose_solving, <span class="stringliteral">&quot;store_memory_real&quot;</span>, root2.store_allocator.total_bytes_allocated());</div>
+<div class="line"><a name="l00632"></a><span class="lineno">  632</span>&#160;  root.<a class="code" href="struct_abstract_domains.html#a4079f4eda90c5a3162357423aedae435">stats</a>.<a class="code" href="struct_statistics.html#a77f9832c12625799f616a7211ee2cb8b">print_memory_statistics</a>(config.verbose_solving, <span class="stringliteral">&quot;pc_memory_real&quot;</span>, root2.prop_allocator.total_bytes_allocated());</div>
+<div class="line"><a name="l00633"></a><span class="lineno">  633</span>&#160;  root.<a class="code" href="struct_abstract_domains.html#a4079f4eda90c5a3162357423aedae435">stats</a>.<a class="code" href="struct_statistics.html#a77f9832c12625799f616a7211ee2cb8b">print_memory_statistics</a>(config.verbose_solving, <span class="stringliteral">&quot;other_memory_real&quot;</span>, root2.basic_allocator.total_bytes_allocated());</div>
+<div class="line"><a name="l00634"></a><span class="lineno">  634</span>&#160;  <span class="keywordflow">return</span> mem_config;</div>
+<div class="line"><a name="l00635"></a><span class="lineno">  635</span>&#160;}</div>
+<div class="line"><a name="l00636"></a><span class="lineno">  636</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00637"></a><span class="lineno">  637</span>&#160;<span class="comment">/** Wait the solving ends because of a timeout, CTRL-C or because the kernel finished. */</span></div>
+<div class="line"><a name="l00638"></a><span class="lineno">  638</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">class</span> S, <span class="keyword">class</span> Timepo<span class="keywordtype">int</span>&gt;</div>
+<div class="line"><a name="l00639"></a><span class="lineno">  639</span>&#160;<span class="keywordtype">bool</span> wait_solving_ends(GridData&lt;S&gt;&amp; grid_data, <span class="keyword">const</span> Timepoint&amp; start) {</div>
+<div class="line"><a name="l00640"></a><span class="lineno">  640</span>&#160;  cudaEvent_t event;</div>
+<div class="line"><a name="l00641"></a><span class="lineno">  641</span>&#160;  cudaEventCreateWithFlags(&amp;event,cudaEventDisableTiming);</div>
+<div class="line"><a name="l00642"></a><span class="lineno">  642</span>&#160;  cudaEventRecord(event);</div>
+<div class="line"><a name="l00643"></a><span class="lineno">  643</span>&#160;  <span class="keywordflow">while</span>(!<a class="code" href="common__solving_8hpp.html#a5758d84e8eb657679e1a48490704f19b">must_quit</a>(grid_data.root) &amp;&amp; <a class="code" href="common__solving_8hpp.html#ae74627056bb5f54434f23cc94f5ae732">check_timeout</a>(grid_data.root, start) &amp;&amp; cudaEventQuery(event) == cudaErrorNotReady) {</div>
+<div class="line"><a name="l00644"></a><span class="lineno">  644</span>&#160;    std::this_thread::sleep_for(std::chrono::milliseconds(100));</div>
+<div class="line"><a name="l00645"></a><span class="lineno">  645</span>&#160;  }</div>
+<div class="line"><a name="l00646"></a><span class="lineno">  646</span>&#160;  <span class="keywordflow">if</span>(cudaEventQuery(event) == cudaErrorNotReady) {</div>
+<div class="line"><a name="l00647"></a><span class="lineno">  647</span>&#160;    grid_data.cpu_stop = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00648"></a><span class="lineno">  648</span>&#160;    grid_data.root.prune();</div>
+<div class="line"><a name="l00649"></a><span class="lineno">  649</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00650"></a><span class="lineno">  650</span>&#160;  }</div>
+<div class="line"><a name="l00651"></a><span class="lineno">  651</span>&#160;  <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00652"></a><span class="lineno">  652</span>&#160;    cudaError error = cudaDeviceSynchronize();</div>
+<div class="line"><a name="l00653"></a><span class="lineno">  653</span>&#160;    <span class="keywordflow">if</span>(error == cudaErrorIllegalAddress) {</div>
+<div class="line"><a name="l00654"></a><span class="lineno">  654</span>&#160;      printf(<span class="stringliteral">&quot;%% ERROR: CUDA kernel failed due to an illegal memory access. This might be due to a stack overflow because it is too small. Try increasing the stack size with the options -stack. If it does not work, please report it as a bug.\n&quot;</span>);</div>
+<div class="line"><a name="l00655"></a><span class="lineno">  655</span>&#160;      exit(EXIT_FAILURE);</div>
+<div class="line"><a name="l00656"></a><span class="lineno">  656</span>&#160;    }</div>
+<div class="line"><a name="l00657"></a><span class="lineno">  657</span>&#160;    CUDAEX(error);</div>
+<div class="line"><a name="l00658"></a><span class="lineno">  658</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00659"></a><span class="lineno">  659</span>&#160;  }</div>
+<div class="line"><a name="l00660"></a><span class="lineno">  660</span>&#160;}</div>
+<div class="line"><a name="l00661"></a><span class="lineno">  661</span>&#160; </div>
+<div class="line"><a name="l00662"></a><span class="lineno">  662</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> S&gt;</div>
+<div class="line"><a name="l00663"></a><span class="lineno">  663</span>&#160;<span class="keywordtype">void</span> consume_kernel_solutions(GridData&lt;S&gt;&amp; grid_data) {</div>
+<div class="line"><a name="l00664"></a><span class="lineno">  664</span>&#160;  <span class="keywordflow">while</span>(!grid_data.consume_solution()) {}</div>
+<div class="line"><a name="l00665"></a><span class="lineno">  665</span>&#160;}</div>
+<div class="line"><a name="l00666"></a><span class="lineno">  666</span>&#160; </div>
+<div class="line"><a name="l00667"></a><span class="lineno">  667</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> S, <span class="keyword">class</span> U, <span class="keyword">class</span> Timepo<span class="keywordtype">int</span>&gt;</div>
+<div class="line"><a name="l00668"></a><span class="lineno">  668</span>&#160;<span class="keywordtype">void</span> transfer_memory_and_run(<a class="code" href="struct_abstract_domains.html">CP&lt;U&gt;</a>&amp; root, MemoryConfig mem_config, <span class="keyword">const</span> Timepoint&amp; start) {</div>
+<div class="line"><a name="l00669"></a><span class="lineno">  669</span>&#160;  <span class="keyword">using</span> concurrent_allocator = <span class="keyword">typename</span> S::concurrent_allocator;</div>
+<div class="line"><a name="l00670"></a><span class="lineno">  670</span>&#160;  <span class="keyword">auto</span> grid_data = bt::make_shared&lt;GridData&lt;S&gt;, concurrent_allocator&gt;(root, mem_config);</div>
+<div class="line"><a name="l00671"></a><span class="lineno">  671</span>&#160;  initialize_grid_data&lt;&lt;&lt;1,1&gt;&gt;&gt;(grid_data.get());</div>
+<div class="line"><a name="l00672"></a><span class="lineno">  672</span>&#160;  CUDAEX(cudaDeviceSynchronize());</div>
+<div class="line"><a name="l00673"></a><span class="lineno">  673</span>&#160;  <span class="keywordflow">if</span>(grid_data-&gt;root.config.print_statistics) {</div>
+<div class="line"><a name="l00674"></a><span class="lineno">  674</span>&#160;    mem_config.print_mzn_statistics();</div>
+<div class="line"><a name="l00675"></a><span class="lineno">  675</span>&#160;    root.<a class="code" href="struct_abstract_domains.html#a4079f4eda90c5a3162357423aedae435">stats</a>.<a class="code" href="struct_statistics.html#a39037307cf8a9f4495f94e4c31390b44">print_mzn_end_stats</a>();</div>
+<div class="line"><a name="l00676"></a><span class="lineno">  676</span>&#160;  }</div>
+<div class="line"><a name="l00677"></a><span class="lineno">  677</span>&#160;  std::thread consumer_thread(consume_kernel_solutions&lt;S&gt;, std::ref(*grid_data));</div>
+<div class="line"><a name="l00678"></a><span class="lineno">  678</span>&#160;  gpu_solve_kernel</div>
+<div class="line"><a name="l00679"></a><span class="lineno">  679</span>&#160;    &lt;&lt;&lt;<span class="keyword">static_cast&lt;</span><span class="keywordtype">unsigned</span> <span class="keywordtype">int</span><span class="keyword">&gt;</span>(grid_data-&gt;root.config.or_nodes),</div>
+<div class="line"><a name="l00680"></a><span class="lineno">  680</span>&#160;      CUDA_THREADS_PER_BLOCK,</div>
+<div class="line"><a name="l00681"></a><span class="lineno">  681</span>&#160;      grid_data-&gt;mem_config.shared_bytes&gt;&gt;&gt;</div>
+<div class="line"><a name="l00682"></a><span class="lineno">  682</span>&#160;    (grid_data.get());</div>
+<div class="line"><a name="l00683"></a><span class="lineno">  683</span>&#160;  <span class="keywordtype">bool</span> interrupted = wait_solving_ends(*grid_data, start);</div>
+<div class="line"><a name="l00684"></a><span class="lineno">  684</span>&#160;  consumer_thread.join();</div>
+<div class="line"><a name="l00685"></a><span class="lineno">  685</span>&#160;  CUDAEX(cudaDeviceSynchronize());</div>
+<div class="line"><a name="l00686"></a><span class="lineno">  686</span>&#160;  deallocate_grid_data&lt;&lt;&lt;1,1&gt;&gt;&gt;(grid_data.get());</div>
+<div class="line"><a name="l00687"></a><span class="lineno">  687</span>&#160;  CUDAEX(cudaDeviceSynchronize());</div>
+<div class="line"><a name="l00688"></a><span class="lineno">  688</span>&#160;}</div>
+<div class="line"><a name="l00689"></a><span class="lineno">  689</span>&#160; </div>
+<div class="line"><a name="l00690"></a><span class="lineno">  690</span>&#160;<span class="comment">// From https://stackoverflow.com/a/32531982/2231159</span></div>
+<div class="line"><a name="l00691"></a><span class="lineno">  691</span>&#160;<span class="keywordtype">int</span> threads_per_sm(cudaDeviceProp devProp) {</div>
+<div class="line"><a name="l00692"></a><span class="lineno">  692</span>&#160;  <span class="keywordflow">switch</span> (devProp.major){</div>
+<div class="line"><a name="l00693"></a><span class="lineno">  693</span>&#160;    <span class="keywordflow">case</span> 2: <span class="keywordflow">return</span> (devProp.minor == 1) ? 48 : 32; <span class="comment">// Fermi</span></div>
+<div class="line"><a name="l00694"></a><span class="lineno">  694</span>&#160;    <span class="keywordflow">case</span> 3: <span class="keywordflow">return</span> 192; <span class="comment">// Kepler</span></div>
+<div class="line"><a name="l00695"></a><span class="lineno">  695</span>&#160;    <span class="keywordflow">case</span> 5: <span class="keywordflow">return</span> 128; <span class="comment">// Maxwell</span></div>
+<div class="line"><a name="l00696"></a><span class="lineno">  696</span>&#160;    <span class="keywordflow">case</span> 6: <span class="keywordflow">return</span> (devProp.minor == 0) ? 64 : 128; <span class="comment">// Pascal</span></div>
+<div class="line"><a name="l00697"></a><span class="lineno">  697</span>&#160;    <span class="keywordflow">case</span> 7: <span class="keywordflow">return</span> 64; <span class="comment">// Volta and Turing</span></div>
+<div class="line"><a name="l00698"></a><span class="lineno">  698</span>&#160;    <span class="keywordflow">case</span> 8: <span class="keywordflow">return</span> (devProp.minor == 0) ? 64 : 128; <span class="comment">// Ampere</span></div>
+<div class="line"><a name="l00699"></a><span class="lineno">  699</span>&#160;    <span class="keywordflow">case</span> 9: <span class="keywordflow">return</span> 128; <span class="comment">// Hopper</span></div>
+<div class="line"><a name="l00700"></a><span class="lineno">  700</span>&#160;    <span class="keywordflow">default</span>: <span class="keywordflow">return</span> 64;</div>
+<div class="line"><a name="l00701"></a><span class="lineno">  701</span>&#160;  }</div>
+<div class="line"><a name="l00702"></a><span class="lineno">  702</span>&#160;}</div>
+<div class="line"><a name="l00703"></a><span class="lineno">  703</span>&#160; </div>
+<div class="line"><a name="l00704"></a><span class="lineno">  704</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> S, <span class="keyword">class</span> U&gt;</div>
+<div class="line"><a name="l00705"></a><span class="lineno">  705</span>&#160;<span class="keywordtype">void</span> configure_blocks_threads(<a class="code" href="struct_abstract_domains.html">CP&lt;U&gt;</a>&amp; root, <span class="keyword">const</span> MemoryConfig&amp; mem_config) {</div>
+<div class="line"><a name="l00706"></a><span class="lineno">  706</span>&#160;  <span class="keywordtype">int</span> hint_num_blocks;</div>
+<div class="line"><a name="l00707"></a><span class="lineno">  707</span>&#160;  <span class="keywordtype">int</span> hint_num_threads;</div>
+<div class="line"><a name="l00708"></a><span class="lineno">  708</span>&#160;  CUDAE(cudaOccupancyMaxPotentialBlockSize(&amp;hint_num_blocks, &amp;hint_num_threads, (<span class="keywordtype">void</span>*) gpu_solve_kernel&lt;S&gt;, (<span class="keywordtype">int</span>)mem_config.shared_bytes));</div>
+<div class="line"><a name="l00709"></a><span class="lineno">  709</span>&#160; </div>
+<div class="line"><a name="l00710"></a><span class="lineno">  710</span>&#160;  cudaDeviceProp deviceProp;</div>
+<div class="line"><a name="l00711"></a><span class="lineno">  711</span>&#160;  cudaGetDeviceProperties(&amp;deviceProp, 0);</div>
+<div class="line"><a name="l00712"></a><span class="lineno">  712</span>&#160; </div>
+<div class="line"><a name="l00713"></a><span class="lineno">  713</span>&#160;  <span class="keywordtype">size_t</span> total_global_mem = deviceProp.totalGlobalMem;</div>
+<div class="line"><a name="l00714"></a><span class="lineno">  714</span>&#160;  <span class="keywordtype">size_t</span> num_sm = deviceProp.multiProcessorCount;</div>
+<div class="line"><a name="l00715"></a><span class="lineno">  715</span>&#160;  <span class="keywordtype">size_t</span> num_threads_per_sm = threads_per_sm(deviceProp);</div>
 <div class="line"><a name="l00716"></a><span class="lineno">  716</span>&#160; </div>
-<div class="line"><a name="l00717"></a><span class="lineno">  717</span>&#160;  <span class="comment">// Basically the size of the store and propagator, and 100 bytes per variable.</span></div>
-<div class="line"><a name="l00718"></a><span class="lineno">  718</span>&#160;  <span class="comment">// +1 for the root node in GridCP.</span></div>
-<div class="line"><a name="l00719"></a><span class="lineno">  719</span>&#160;  <span class="keywordtype">size_t</span> heap_usage_estimation = (config.or_nodes + 1) * (mem_config.pc_bytes + mem_config.store_bytes + 100 * root.<a class="code" href="struct_abstract_domains.html#a6163aae266ebdf3370b3fedc63c150a3">store</a>-&gt;vars());</div>
-<div class="line"><a name="l00720"></a><span class="lineno">  720</span>&#160;  <span class="keywordflow">while</span>(heap_usage_estimation &gt; remaining_global_mem) {</div>
-<div class="line"><a name="l00721"></a><span class="lineno">  721</span>&#160;    config.or_nodes--;</div>
-<div class="line"><a name="l00722"></a><span class="lineno">  722</span>&#160;  }</div>
-<div class="line"><a name="l00723"></a><span class="lineno">  723</span>&#160; </div>
-<div class="line"><a name="l00724"></a><span class="lineno">  724</span>&#160;  CUDAEX(cudaDeviceSetLimit(cudaLimitStackSize, config.stack_kb*1000));</div>
-<div class="line"><a name="l00725"></a><span class="lineno">  725</span>&#160;  CUDAEX(cudaDeviceSetLimit(cudaLimitMallocHeapSize, remaining_global_mem));</div>
-<div class="line"><a name="l00726"></a><span class="lineno">  726</span>&#160; </div>
-<div class="line"><a name="l00727"></a><span class="lineno">  727</span>&#160;  <span class="keywordflow">if</span>(config.verbose_solving) {</div>
-<div class="line"><a name="l00728"></a><span class="lineno">  728</span>&#160;    <a class="code" href="statistics_8hpp.html#aa706e08664f7a52ec805a8257bcfb593">print_memory_statistics</a>(<span class="stringliteral">&quot;stack_memory&quot;</span>, total_stack_size);</div>
-<div class="line"><a name="l00729"></a><span class="lineno">  729</span>&#160;    <a class="code" href="statistics_8hpp.html#aa706e08664f7a52ec805a8257bcfb593">print_memory_statistics</a>(<span class="stringliteral">&quot;heap_memory&quot;</span>, remaining_global_mem);</div>
-<div class="line"><a name="l00730"></a><span class="lineno">  730</span>&#160;    <a class="code" href="statistics_8hpp.html#aa706e08664f7a52ec805a8257bcfb593">print_memory_statistics</a>(<span class="stringliteral">&quot;heap_usage_estimation&quot;</span>, heap_usage_estimation);</div>
-<div class="line"><a name="l00731"></a><span class="lineno">  731</span>&#160;    printf(<span class="stringliteral">&quot;%% or_nodes=%zu\n&quot;</span>, config.or_nodes);</div>
-<div class="line"><a name="l00732"></a><span class="lineno">  732</span>&#160;  }</div>
-<div class="line"><a name="l00733"></a><span class="lineno">  733</span>&#160;}</div>
+<div class="line"><a name="l00717"></a><span class="lineno">  717</span>&#160;  <span class="keyword">auto</span>&amp; config = root.<a class="code" href="struct_abstract_domains.html#a0aa5ac01e4f4a2a8b2811edca6eb8ef9">config</a>;</div>
+<div class="line"><a name="l00718"></a><span class="lineno">  718</span>&#160;  config.<a class="code" href="struct_configuration.html#a6400dfba9cd09ea3050d18c71c8d47fb">or_nodes</a> = (config.or_nodes == 0) ? hint_num_blocks : config.or_nodes;</div>
+<div class="line"><a name="l00719"></a><span class="lineno">  719</span>&#160; </div>
+<div class="line"><a name="l00720"></a><span class="lineno">  720</span>&#160;  <span class="comment">// The stack allocated depends on the maximum number of threads per SM, not on the actual number of threads per block.</span></div>
+<div class="line"><a name="l00721"></a><span class="lineno">  721</span>&#160;  <span class="keywordtype">size_t</span> total_stack_size = num_sm * deviceProp.maxThreadsPerMultiProcessor * config.stack_kb * 1000;</div>
+<div class="line"><a name="l00722"></a><span class="lineno">  722</span>&#160;  <span class="keywordtype">size_t</span> remaining_global_mem = total_global_mem - total_stack_size;</div>
+<div class="line"><a name="l00723"></a><span class="lineno">  723</span>&#160;  remaining_global_mem -= remaining_global_mem / 10; <span class="comment">// We leave 10% of global memory free for CUDA allocations, not sure if it is useful though.</span></div>
+<div class="line"><a name="l00724"></a><span class="lineno">  724</span>&#160; </div>
+<div class="line"><a name="l00725"></a><span class="lineno">  725</span>&#160;  <span class="comment">// Basically the size of the store and propagator, and 100 bytes per variable.</span></div>
+<div class="line"><a name="l00726"></a><span class="lineno">  726</span>&#160;  <span class="comment">// +1 for the root node in GridCP.</span></div>
+<div class="line"><a name="l00727"></a><span class="lineno">  727</span>&#160;  <span class="keywordtype">size_t</span> heap_usage_estimation = (config.or_nodes + 1) * (mem_config.pc_bytes + mem_config.store_bytes + 100 * root.<a class="code" href="struct_abstract_domains.html#a6163aae266ebdf3370b3fedc63c150a3">store</a>-&gt;vars());</div>
+<div class="line"><a name="l00728"></a><span class="lineno">  728</span>&#160;  <span class="keywordflow">while</span>(heap_usage_estimation &gt; remaining_global_mem) {</div>
+<div class="line"><a name="l00729"></a><span class="lineno">  729</span>&#160;    config.or_nodes--;</div>
+<div class="line"><a name="l00730"></a><span class="lineno">  730</span>&#160;  }</div>
+<div class="line"><a name="l00731"></a><span class="lineno">  731</span>&#160; </div>
+<div class="line"><a name="l00732"></a><span class="lineno">  732</span>&#160;  CUDAEX(cudaDeviceSetLimit(cudaLimitStackSize, config.stack_kb*1000));</div>
+<div class="line"><a name="l00733"></a><span class="lineno">  733</span>&#160;  CUDAEX(cudaDeviceSetLimit(cudaLimitMallocHeapSize, remaining_global_mem));</div>
 <div class="line"><a name="l00734"></a><span class="lineno">  734</span>&#160; </div>
-<div class="line"><a name="l00735"></a><span class="lineno">  735</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> S, <span class="keyword">class</span> U, <span class="keyword">class</span> Timepo<span class="keywordtype">int</span>&gt;</div>
-<div class="line"><a name="l00736"></a><span class="lineno">  736</span>&#160;<span class="keywordtype">void</span> configure_and_run(<a class="code" href="struct_abstract_domains.html">CP&lt;U&gt;</a>&amp; root, <span class="keyword">const</span> Timepoint&amp; start) {</div>
-<div class="line"><a name="l00737"></a><span class="lineno">  737</span>&#160;  MemoryConfig mem_config = configure_memory&lt;S&gt;(root);</div>
-<div class="line"><a name="l00738"></a><span class="lineno">  738</span>&#160;  configure_blocks_threads&lt;S&gt;(root, mem_config);</div>
-<div class="line"><a name="l00739"></a><span class="lineno">  739</span>&#160;  transfer_memory_and_run&lt;S&gt;(root, mem_config, start);</div>
-<div class="line"><a name="l00740"></a><span class="lineno">  740</span>&#160;}</div>
-<div class="line"><a name="l00741"></a><span class="lineno">  741</span>&#160; </div>
-<div class="line"><a name="l00742"></a><span class="lineno">  742</span>&#160;<span class="keywordtype">void</span> check_support_unified_memory() {</div>
-<div class="line"><a name="l00743"></a><span class="lineno">  743</span>&#160;  <span class="keywordtype">int</span> attr = 0;</div>
-<div class="line"><a name="l00744"></a><span class="lineno">  744</span>&#160;  <span class="keywordtype">int</span> dev = 0;</div>
-<div class="line"><a name="l00745"></a><span class="lineno">  745</span>&#160;  CUDAEX(cudaDeviceGetAttribute(&amp;attr, cudaDevAttrManagedMemory, dev));</div>
-<div class="line"><a name="l00746"></a><span class="lineno">  746</span>&#160;  <span class="keywordflow">if</span> (!attr) {</div>
-<div class="line"><a name="l00747"></a><span class="lineno">  747</span>&#160;    std::cerr &lt;&lt; <span class="stringliteral">&quot;The GPU does not support unified memory.&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00748"></a><span class="lineno">  748</span>&#160;    exit(EXIT_FAILURE);</div>
-<div class="line"><a name="l00749"></a><span class="lineno">  749</span>&#160;  }</div>
-<div class="line"><a name="l00750"></a><span class="lineno">  750</span>&#160;}</div>
-<div class="line"><a name="l00751"></a><span class="lineno">  751</span>&#160; </div>
-<div class="line"><a name="l00752"></a><span class="lineno">  752</span>&#160;<span class="keywordtype">void</span> check_support_concurrent_managed_memory() {</div>
-<div class="line"><a name="l00753"></a><span class="lineno">  753</span>&#160;  <span class="keywordtype">int</span> attr = 0;</div>
-<div class="line"><a name="l00754"></a><span class="lineno">  754</span>&#160;  <span class="keywordtype">int</span> dev = 0;</div>
-<div class="line"><a name="l00755"></a><span class="lineno">  755</span>&#160;  CUDAEX(cudaDeviceGetAttribute(&amp;attr, cudaDevAttrConcurrentManagedAccess, dev));</div>
-<div class="line"><a name="l00756"></a><span class="lineno">  756</span>&#160;  <span class="keywordflow">if</span> (!attr) {</div>
-<div class="line"><a name="l00757"></a><span class="lineno">  757</span>&#160;<span class="preprocessor">#ifdef NO_CONCURRENT_MANAGED_MEMORY</span></div>
-<div class="line"><a name="l00758"></a><span class="lineno">  758</span>&#160;    printf(<span class="stringliteral">&quot;%% WARNING: The GPU does not support concurrent access to managed memory, hence we fall back on pinned memory.\n&quot;</span>);<span class="comment"></span></div>
-<div class="line"><a name="l00759"></a><span class="lineno">  759</span>&#160;<span class="comment">  /** Set cudaDeviceMapHost to allow cudaMallocHost() to allocate pinned memory</span></div>
-<div class="line"><a name="l00760"></a><span class="lineno">  760</span>&#160;<span class="comment">   * for concurrent access between the device and the host. It must be called</span></div>
-<div class="line"><a name="l00761"></a><span class="lineno">  761</span>&#160;<span class="comment">   * early, before any CUDA management functions, so that we can fall back to</span></div>
-<div class="line"><a name="l00762"></a><span class="lineno">  762</span>&#160;<span class="comment">   * using the pinned_allocator instead of the managed_allocator.</span></div>
-<div class="line"><a name="l00763"></a><span class="lineno">  763</span>&#160;<span class="comment">   * This is required on Windows, WSL, macOS, and NVIDIA GRID.</span></div>
-<div class="line"><a name="l00764"></a><span class="lineno">  764</span>&#160;<span class="comment">   * See also PR #18.</span></div>
-<div class="line"><a name="l00765"></a><span class="lineno">  765</span>&#160;<span class="comment">   */</span></div>
-<div class="line"><a name="l00766"></a><span class="lineno">  766</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> flags = 0;</div>
-<div class="line"><a name="l00767"></a><span class="lineno">  767</span>&#160;    CUDAEX(cudaGetDeviceFlags(&amp;flags));</div>
-<div class="line"><a name="l00768"></a><span class="lineno">  768</span>&#160;    flags |= cudaDeviceMapHost;</div>
-<div class="line"><a name="l00769"></a><span class="lineno">  769</span>&#160;    CUDAEX(cudaSetDeviceFlags(flags));</div>
-<div class="line"><a name="l00770"></a><span class="lineno">  770</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00771"></a><span class="lineno">  771</span>&#160;    printf(<span class="stringliteral">&quot;%% To run Turbo on this GPU you need to build Turbo with the option NO_CONCURRENT_MANAGED_MEMORY.\n&quot;</span>);</div>
-<div class="line"><a name="l00772"></a><span class="lineno">  772</span>&#160;    exit(EXIT_FAILURE);</div>
-<div class="line"><a name="l00773"></a><span class="lineno">  773</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00774"></a><span class="lineno">  774</span>&#160;  }</div>
-<div class="line"><a name="l00775"></a><span class="lineno">  775</span>&#160;}</div>
-<div class="line"><a name="l00776"></a><span class="lineno">  776</span>&#160; </div>
-<div class="line"><a name="l00777"></a><span class="lineno">  777</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// __CUDACC__</span></div>
-<div class="line"><a name="l00778"></a><span class="lineno">  778</span>&#160; </div>
-<div class="line"><a name="l00779"></a><span class="lineno"><a class="line" href="gpu__dive__and__solve_8hpp.html#a11121d7a74959725c36d7a97db722f39">  779</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="gpu__dive__and__solve_8hpp.html#a11121d7a74959725c36d7a97db722f39">gpu_dive_and_solve</a>(<a class="code" href="struct_configuration.html">Configuration&lt;bt::standard_allocator&gt;</a>&amp; config) {</div>
-<div class="line"><a name="l00780"></a><span class="lineno">  780</span>&#160;<span class="preprocessor">#ifndef __CUDACC__</span></div>
-<div class="line"><a name="l00781"></a><span class="lineno">  781</span>&#160;  std::cerr &lt;&lt; <span class="stringliteral">&quot;You must use a CUDA compiler (nvcc or clang) to compile Turbo on GPU.&quot;</span> &lt;&lt; std::endl;</div>
-<div class="line"><a name="l00782"></a><span class="lineno">  782</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00783"></a><span class="lineno">  783</span>&#160;  check_support_unified_memory();</div>
-<div class="line"><a name="l00784"></a><span class="lineno">  784</span>&#160;  check_support_concurrent_managed_memory();</div>
-<div class="line"><a name="l00785"></a><span class="lineno">  785</span>&#160;  <span class="keyword">auto</span> start = std::chrono::steady_clock::now();</div>
-<div class="line"><a name="l00786"></a><span class="lineno">  786</span>&#160;  <a class="code" href="struct_abstract_domains.html">CP&lt;Itv&gt;</a> root(config);</div>
-<div class="line"><a name="l00787"></a><span class="lineno">  787</span>&#160;  root.<a class="code" href="struct_abstract_domains.html#a9ab2a88ebb928131d7392df6c2613ddc">preprocess</a>();</div>
-<div class="line"><a name="l00788"></a><span class="lineno">  788</span>&#160;  <a class="code" href="common__solving_8hpp.html#ad04619f00eb1d7deacc6f2326f0ace5e">block_signal_ctrlc</a>();</div>
-<div class="line"><a name="l00789"></a><span class="lineno">  789</span>&#160;<span class="preprocessor">#ifdef NO_CONCURRENT_MANAGED_MEMORY</span></div>
-<div class="line"><a name="l00790"></a><span class="lineno">  790</span>&#160;  configure_and_run&lt;ItvSolverPinned&gt;(root, start);</div>
-<div class="line"><a name="l00791"></a><span class="lineno">  791</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00792"></a><span class="lineno">  792</span>&#160;  configure_and_run&lt;ItvSolver&gt;(root, start);</div>
-<div class="line"><a name="l00793"></a><span class="lineno">  793</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00794"></a><span class="lineno">  794</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00795"></a><span class="lineno">  795</span>&#160;}</div>
-<div class="line"><a name="l00796"></a><span class="lineno">  796</span>&#160; </div>
-<div class="line"><a name="l00797"></a><span class="lineno">  797</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// TURBO_GPU_DIVE_AND_SOLVE_HPP</span></div>
+<div class="line"><a name="l00735"></a><span class="lineno">  735</span>&#160;  root.<a class="code" href="struct_abstract_domains.html#a4079f4eda90c5a3162357423aedae435">stats</a>.<a class="code" href="struct_statistics.html#a77f9832c12625799f616a7211ee2cb8b">print_memory_statistics</a>(config.verbose_solving, <span class="stringliteral">&quot;stack_memory&quot;</span>, total_stack_size);</div>
+<div class="line"><a name="l00736"></a><span class="lineno">  736</span>&#160;  root.<a class="code" href="struct_abstract_domains.html#a4079f4eda90c5a3162357423aedae435">stats</a>.<a class="code" href="struct_statistics.html#a77f9832c12625799f616a7211ee2cb8b">print_memory_statistics</a>(config.verbose_solving, <span class="stringliteral">&quot;heap_memory&quot;</span>, remaining_global_mem);</div>
+<div class="line"><a name="l00737"></a><span class="lineno">  737</span>&#160;  root.<a class="code" href="struct_abstract_domains.html#a4079f4eda90c5a3162357423aedae435">stats</a>.<a class="code" href="struct_statistics.html#a77f9832c12625799f616a7211ee2cb8b">print_memory_statistics</a>(config.verbose_solving, <span class="stringliteral">&quot;heap_usage_estimation&quot;</span>, heap_usage_estimation);</div>
+<div class="line"><a name="l00738"></a><span class="lineno">  738</span>&#160;  <span class="keywordflow">if</span>(config.verbose_solving) {</div>
+<div class="line"><a name="l00739"></a><span class="lineno">  739</span>&#160;    printf(<span class="stringliteral">&quot;%% or_nodes=%zu\n&quot;</span>, config.or_nodes);</div>
+<div class="line"><a name="l00740"></a><span class="lineno">  740</span>&#160;  }</div>
+<div class="line"><a name="l00741"></a><span class="lineno">  741</span>&#160;}</div>
+<div class="line"><a name="l00742"></a><span class="lineno">  742</span>&#160; </div>
+<div class="line"><a name="l00743"></a><span class="lineno">  743</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> S, <span class="keyword">class</span> U, <span class="keyword">class</span> Timepo<span class="keywordtype">int</span>&gt;</div>
+<div class="line"><a name="l00744"></a><span class="lineno">  744</span>&#160;<span class="keywordtype">void</span> configure_and_run(<a class="code" href="struct_abstract_domains.html">CP&lt;U&gt;</a>&amp; root, <span class="keyword">const</span> Timepoint&amp; start) {</div>
+<div class="line"><a name="l00745"></a><span class="lineno">  745</span>&#160;  MemoryConfig mem_config = configure_memory&lt;S&gt;(root);</div>
+<div class="line"><a name="l00746"></a><span class="lineno">  746</span>&#160;  configure_blocks_threads&lt;S&gt;(root, mem_config);</div>
+<div class="line"><a name="l00747"></a><span class="lineno">  747</span>&#160;  transfer_memory_and_run&lt;S&gt;(root, mem_config, start);</div>
+<div class="line"><a name="l00748"></a><span class="lineno">  748</span>&#160;}</div>
+<div class="line"><a name="l00749"></a><span class="lineno">  749</span>&#160; </div>
+<div class="line"><a name="l00750"></a><span class="lineno">  750</span>&#160;<span class="keywordtype">void</span> check_support_unified_memory() {</div>
+<div class="line"><a name="l00751"></a><span class="lineno">  751</span>&#160;  <span class="keywordtype">int</span> attr = 0;</div>
+<div class="line"><a name="l00752"></a><span class="lineno">  752</span>&#160;  <span class="keywordtype">int</span> dev = 0;</div>
+<div class="line"><a name="l00753"></a><span class="lineno">  753</span>&#160;  CUDAEX(cudaDeviceGetAttribute(&amp;attr, cudaDevAttrManagedMemory, dev));</div>
+<div class="line"><a name="l00754"></a><span class="lineno">  754</span>&#160;  <span class="keywordflow">if</span> (!attr) {</div>
+<div class="line"><a name="l00755"></a><span class="lineno">  755</span>&#160;    std::cerr &lt;&lt; <span class="stringliteral">&quot;The GPU does not support unified memory.&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00756"></a><span class="lineno">  756</span>&#160;    exit(EXIT_FAILURE);</div>
+<div class="line"><a name="l00757"></a><span class="lineno">  757</span>&#160;  }</div>
+<div class="line"><a name="l00758"></a><span class="lineno">  758</span>&#160;}</div>
+<div class="line"><a name="l00759"></a><span class="lineno">  759</span>&#160; </div>
+<div class="line"><a name="l00760"></a><span class="lineno">  760</span>&#160;<span class="keywordtype">void</span> check_support_concurrent_managed_memory() {</div>
+<div class="line"><a name="l00761"></a><span class="lineno">  761</span>&#160;  <span class="keywordtype">int</span> attr = 0;</div>
+<div class="line"><a name="l00762"></a><span class="lineno">  762</span>&#160;  <span class="keywordtype">int</span> dev = 0;</div>
+<div class="line"><a name="l00763"></a><span class="lineno">  763</span>&#160;  CUDAEX(cudaDeviceGetAttribute(&amp;attr, cudaDevAttrConcurrentManagedAccess, dev));</div>
+<div class="line"><a name="l00764"></a><span class="lineno">  764</span>&#160;  <span class="keywordflow">if</span> (!attr) {</div>
+<div class="line"><a name="l00765"></a><span class="lineno">  765</span>&#160;<span class="preprocessor">#ifdef NO_CONCURRENT_MANAGED_MEMORY</span></div>
+<div class="line"><a name="l00766"></a><span class="lineno">  766</span>&#160;    printf(<span class="stringliteral">&quot;%% WARNING: The GPU does not support concurrent access to managed memory, hence we fall back on pinned memory.\n&quot;</span>);<span class="comment"></span></div>
+<div class="line"><a name="l00767"></a><span class="lineno">  767</span>&#160;<span class="comment">  /** Set cudaDeviceMapHost to allow cudaMallocHost() to allocate pinned memory</span></div>
+<div class="line"><a name="l00768"></a><span class="lineno">  768</span>&#160;<span class="comment">   * for concurrent access between the device and the host. It must be called</span></div>
+<div class="line"><a name="l00769"></a><span class="lineno">  769</span>&#160;<span class="comment">   * early, before any CUDA management functions, so that we can fall back to</span></div>
+<div class="line"><a name="l00770"></a><span class="lineno">  770</span>&#160;<span class="comment">   * using the pinned_allocator instead of the managed_allocator.</span></div>
+<div class="line"><a name="l00771"></a><span class="lineno">  771</span>&#160;<span class="comment">   * This is required on Windows, WSL, macOS, and NVIDIA GRID.</span></div>
+<div class="line"><a name="l00772"></a><span class="lineno">  772</span>&#160;<span class="comment">   * See also PR #18.</span></div>
+<div class="line"><a name="l00773"></a><span class="lineno">  773</span>&#160;<span class="comment">   */</span></div>
+<div class="line"><a name="l00774"></a><span class="lineno">  774</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> flags = 0;</div>
+<div class="line"><a name="l00775"></a><span class="lineno">  775</span>&#160;    CUDAEX(cudaGetDeviceFlags(&amp;flags));</div>
+<div class="line"><a name="l00776"></a><span class="lineno">  776</span>&#160;    flags |= cudaDeviceMapHost;</div>
+<div class="line"><a name="l00777"></a><span class="lineno">  777</span>&#160;    CUDAEX(cudaSetDeviceFlags(flags));</div>
+<div class="line"><a name="l00778"></a><span class="lineno">  778</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00779"></a><span class="lineno">  779</span>&#160;    printf(<span class="stringliteral">&quot;%% To run Turbo on this GPU you need to build Turbo with the option NO_CONCURRENT_MANAGED_MEMORY.\n&quot;</span>);</div>
+<div class="line"><a name="l00780"></a><span class="lineno">  780</span>&#160;    exit(EXIT_FAILURE);</div>
+<div class="line"><a name="l00781"></a><span class="lineno">  781</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00782"></a><span class="lineno">  782</span>&#160;  }</div>
+<div class="line"><a name="l00783"></a><span class="lineno">  783</span>&#160;}</div>
+<div class="line"><a name="l00784"></a><span class="lineno">  784</span>&#160; </div>
+<div class="line"><a name="l00785"></a><span class="lineno">  785</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// __CUDACC__</span></div>
+<div class="line"><a name="l00786"></a><span class="lineno">  786</span>&#160; </div>
+<div class="line"><a name="l00787"></a><span class="lineno"><a class="line" href="gpu__dive__and__solve_8hpp.html#a11121d7a74959725c36d7a97db722f39">  787</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="gpu__dive__and__solve_8hpp.html#a11121d7a74959725c36d7a97db722f39">gpu_dive_and_solve</a>(<a class="code" href="struct_configuration.html">Configuration&lt;bt::standard_allocator&gt;</a>&amp; config) {</div>
+<div class="line"><a name="l00788"></a><span class="lineno">  788</span>&#160;<span class="preprocessor">#ifndef __CUDACC__</span></div>
+<div class="line"><a name="l00789"></a><span class="lineno">  789</span>&#160;  std::cerr &lt;&lt; <span class="stringliteral">&quot;You must use a CUDA compiler (nvcc or clang) to compile Turbo on GPU.&quot;</span> &lt;&lt; std::endl;</div>
+<div class="line"><a name="l00790"></a><span class="lineno">  790</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00791"></a><span class="lineno">  791</span>&#160;  check_support_unified_memory();</div>
+<div class="line"><a name="l00792"></a><span class="lineno">  792</span>&#160;  check_support_concurrent_managed_memory();</div>
+<div class="line"><a name="l00793"></a><span class="lineno">  793</span>&#160;  <span class="keyword">auto</span> start = std::chrono::steady_clock::now();</div>
+<div class="line"><a name="l00794"></a><span class="lineno">  794</span>&#160;  <a class="code" href="struct_abstract_domains.html">CP&lt;Itv&gt;</a> root(config);</div>
+<div class="line"><a name="l00795"></a><span class="lineno">  795</span>&#160;  root.<a class="code" href="struct_abstract_domains.html#a9ab2a88ebb928131d7392df6c2613ddc">preprocess</a>();</div>
+<div class="line"><a name="l00796"></a><span class="lineno">  796</span>&#160;  <span class="keywordflow">if</span>(root.<a class="code" href="struct_abstract_domains.html#ad066915b4e82fb68f8a4c9a38e159d3b">iprop</a>-&gt;is_bot()) {</div>
+<div class="line"><a name="l00797"></a><span class="lineno">  797</span>&#160;    root.<a class="code" href="struct_abstract_domains.html#a1ba9490f8b7b9a1f9058ca5c7352c1e7">print_final_solution</a>();</div>
+<div class="line"><a name="l00798"></a><span class="lineno">  798</span>&#160;    <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00799"></a><span class="lineno">  799</span>&#160;  }</div>
+<div class="line"><a name="l00800"></a><span class="lineno">  800</span>&#160;  <a class="code" href="common__solving_8hpp.html#ad04619f00eb1d7deacc6f2326f0ace5e">block_signal_ctrlc</a>();</div>
+<div class="line"><a name="l00801"></a><span class="lineno">  801</span>&#160;<span class="preprocessor">#ifdef NO_CONCURRENT_MANAGED_MEMORY</span></div>
+<div class="line"><a name="l00802"></a><span class="lineno">  802</span>&#160;  configure_and_run&lt;ItvSolverPinned&gt;(root, start);</div>
+<div class="line"><a name="l00803"></a><span class="lineno">  803</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00804"></a><span class="lineno">  804</span>&#160;  configure_and_run&lt;ItvSolver&gt;(root, start);</div>
+<div class="line"><a name="l00805"></a><span class="lineno">  805</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00806"></a><span class="lineno">  806</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00807"></a><span class="lineno">  807</span>&#160;}</div>
+<div class="line"><a name="l00808"></a><span class="lineno">  808</span>&#160; </div>
+<div class="line"><a name="l00809"></a><span class="lineno">  809</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// TURBO_GPU_DIVE_AND_SOLVE_HPP</span></div>
 <div class="ttc" id="acommon__solving_8hpp_html"><div class="ttname"><a href="common__solving_8hpp.html">common_solving.hpp</a></div></div>
-<div class="ttc" id="acommon__solving_8hpp_html_aceec23d67eb8f6c24010f377a52aee98"><div class="ttname"><a href="common__solving_8hpp.html#aceec23d67eb8f6c24010f377a52aee98">must_quit</a></div><div class="ttdeci">bool must_quit()</div><div class="ttdef"><b>Definition:</b> common_solving.hpp:89</div></div>
-<div class="ttc" id="acommon__solving_8hpp_html_ad04619f00eb1d7deacc6f2326f0ace5e"><div class="ttname"><a href="common__solving_8hpp.html#ad04619f00eb1d7deacc6f2326f0ace5e">block_signal_ctrlc</a></div><div class="ttdeci">void block_signal_ctrlc()</div><div class="ttdef"><b>Definition:</b> common_solving.hpp:77</div></div>
-<div class="ttc" id="acommon__solving_8hpp_html_ae74627056bb5f54434f23cc94f5ae732"><div class="ttname"><a href="common__solving_8hpp.html#ae74627056bb5f54434f23cc94f5ae732">check_timeout</a></div><div class="ttdeci">bool check_timeout(A &amp;a, const Timepoint &amp;start)</div><div class="ttdef"><b>Definition:</b> common_solving.hpp:101</div></div>
+<div class="ttc" id="acommon__solving_8hpp_html_a5758d84e8eb657679e1a48490704f19b"><div class="ttname"><a href="common__solving_8hpp.html#a5758d84e8eb657679e1a48490704f19b">must_quit</a></div><div class="ttdeci">bool must_quit(A &amp;a)</div><div class="ttdef"><b>Definition:</b> common_solving.hpp:78</div></div>
+<div class="ttc" id="acommon__solving_8hpp_html_ad04619f00eb1d7deacc6f2326f0ace5e"><div class="ttname"><a href="common__solving_8hpp.html#ad04619f00eb1d7deacc6f2326f0ace5e">block_signal_ctrlc</a></div><div class="ttdeci">void block_signal_ctrlc()</div><div class="ttdef"><b>Definition:</b> common_solving.hpp:72</div></div>
+<div class="ttc" id="acommon__solving_8hpp_html_ae74627056bb5f54434f23cc94f5ae732"><div class="ttname"><a href="common__solving_8hpp.html#ae74627056bb5f54434f23cc94f5ae732">check_timeout</a></div><div class="ttdeci">bool check_timeout(A &amp;a, const Timepoint &amp;start)</div><div class="ttdef"><b>Definition:</b> common_solving.hpp:90</div></div>
 <div class="ttc" id="aconfig_8hpp_html_a5ee8f81cc01d530506acbb3c037a751ba06d5bf2275007ca8b3dd60a2d978e558"><div class="ttname"><a href="config_8hpp.html#a5ee8f81cc01d530506acbb3c037a751ba06d5bf2275007ca8b3dd60a2d978e558">FixpointKind::AC1</a></div><div class="ttdeci">@ AC1</div></div>
 <div class="ttc" id="aconfig_8hpp_html_a5ee8f81cc01d530506acbb3c037a751baf7d56c9ee0b42b33964b26d10d655eeb"><div class="ttname"><a href="config_8hpp.html#a5ee8f81cc01d530506acbb3c037a751baf7d56c9ee0b42b33964b26d10d655eeb">FixpointKind::WAC1</a></div><div class="ttdeci">@ WAC1</div></div>
-<div class="ttc" id="agpu__dive__and__solve_8hpp_html_a11121d7a74959725c36d7a97db722f39"><div class="ttname"><a href="gpu__dive__and__solve_8hpp.html#a11121d7a74959725c36d7a97db722f39">gpu_dive_and_solve</a></div><div class="ttdeci">void gpu_dive_and_solve(Configuration&lt; bt::standard_allocator &gt; &amp;config)</div><div class="ttdef"><b>Definition:</b> gpu_dive_and_solve.hpp:779</div></div>
+<div class="ttc" id="agpu__dive__and__solve_8hpp_html_a11121d7a74959725c36d7a97db722f39"><div class="ttname"><a href="gpu__dive__and__solve_8hpp.html#a11121d7a74959725c36d7a97db722f39">gpu_dive_and_solve</a></div><div class="ttdeci">void gpu_dive_and_solve(Configuration&lt; bt::standard_allocator &gt; &amp;config)</div><div class="ttdef"><b>Definition:</b> gpu_dive_and_solve.hpp:787</div></div>
 <div class="ttc" id="astatistics_8hpp_html_a6e0035edd58cc6ca8c94b5f9723a0d80a0f544d682c3a664870f025f48c4b04b5"><div class="ttname"><a href="statistics_8hpp.html#a6e0035edd58cc6ca8c94b5f9723a0d80a0f544d682c3a664870f025f48c4b04b5">Timer::SEARCH</a></div><div class="ttdeci">@ SEARCH</div></div>
 <div class="ttc" id="astatistics_8hpp_html_a6e0035edd58cc6ca8c94b5f9723a0d80a345c2df90fed0e74ea3c8926e13e5f12"><div class="ttname"><a href="statistics_8hpp.html#a6e0035edd58cc6ca8c94b5f9723a0d80a345c2df90fed0e74ea3c8926e13e5f12">Timer::DIVE</a></div><div class="ttdeci">@ DIVE</div></div>
 <div class="ttc" id="astatistics_8hpp_html_a6e0035edd58cc6ca8c94b5f9723a0d80a433c1649ecd09dc6e8c965d31f830f89"><div class="ttname"><a href="statistics_8hpp.html#a6e0035edd58cc6ca8c94b5f9723a0d80a433c1649ecd09dc6e8c965d31f830f89">Timer::FIXPOINT</a></div><div class="ttdeci">@ FIXPOINT</div></div>
 <div class="ttc" id="astatistics_8hpp_html_a6e0035edd58cc6ca8c94b5f9723a0d80a79bde01db3ccc1f5ff856a11a34c20df"><div class="ttname"><a href="statistics_8hpp.html#a6e0035edd58cc6ca8c94b5f9723a0d80a79bde01db3ccc1f5ff856a11a34c20df">Timer::SELECT_FP_FUNCTIONS</a></div><div class="ttdeci">@ SELECT_FP_FUNCTIONS</div></div>
 <div class="ttc" id="astatistics_8hpp_html_a6e0035edd58cc6ca8c94b5f9723a0d80abf61c5b43708f01f5a198843f93e521a"><div class="ttname"><a href="statistics_8hpp.html#a6e0035edd58cc6ca8c94b5f9723a0d80abf61c5b43708f01f5a198843f93e521a">Timer::SOLVE</a></div><div class="ttdeci">@ SOLVE</div></div>
-<div class="ttc" id="astatistics_8hpp_html_aa706e08664f7a52ec805a8257bcfb593"><div class="ttname"><a href="statistics_8hpp.html#aa706e08664f7a52ec805a8257bcfb593">print_memory_statistics</a></div><div class="ttdeci">void print_memory_statistics(const char *key, size_t bytes)</div><div class="ttdef"><b>Definition:</b> statistics.hpp:12</div></div>
-<div class="ttc" id="astruct_abstract_domains_html"><div class="ttname"><a href="struct_abstract_domains.html">AbstractDomains</a></div><div class="ttdef"><b>Definition:</b> common_solving.hpp:155</div></div>
-<div class="ttc" id="astruct_abstract_domains_html_a0aa5ac01e4f4a2a8b2811edca6eb8ef9"><div class="ttname"><a href="struct_abstract_domains.html#a0aa5ac01e4f4a2a8b2811edca6eb8ef9">AbstractDomains::config</a></div><div class="ttdeci">Configuration&lt; BasicAllocator &gt; config</div><div class="ttdef"><b>Definition:</b> common_solving.hpp:282</div></div>
-<div class="ttc" id="astruct_abstract_domains_html_a6163aae266ebdf3370b3fedc63c150a3"><div class="ttname"><a href="struct_abstract_domains.html#a6163aae266ebdf3370b3fedc63c150a3">AbstractDomains::store</a></div><div class="ttdeci">abstract_ptr&lt; IStore &gt; store</div><div class="ttdef"><b>Definition:</b> common_solving.hpp:267</div></div>
-<div class="ttc" id="astruct_abstract_domains_html_a9ab2a88ebb928131d7392df6c2613ddc"><div class="ttname"><a href="struct_abstract_domains.html#a9ab2a88ebb928131d7392df6c2613ddc">AbstractDomains::preprocess</a></div><div class="ttdeci">void preprocess()</div><div class="ttdef"><b>Definition:</b> common_solving.hpp:568</div></div>
+<div class="ttc" id="astruct_abstract_domains_html"><div class="ttname"><a href="struct_abstract_domains.html">AbstractDomains</a></div><div class="ttdef"><b>Definition:</b> common_solving.hpp:144</div></div>
+<div class="ttc" id="astruct_abstract_domains_html_a0aa5ac01e4f4a2a8b2811edca6eb8ef9"><div class="ttname"><a href="struct_abstract_domains.html#a0aa5ac01e4f4a2a8b2811edca6eb8ef9">AbstractDomains::config</a></div><div class="ttdeci">Configuration&lt; BasicAllocator &gt; config</div><div class="ttdef"><b>Definition:</b> common_solving.hpp:277</div></div>
+<div class="ttc" id="astruct_abstract_domains_html_a1ba9490f8b7b9a1f9058ca5c7352c1e7"><div class="ttname"><a href="struct_abstract_domains.html#a1ba9490f8b7b9a1f9058ca5c7352c1e7">AbstractDomains::print_final_solution</a></div><div class="ttdeci">CUDA void print_final_solution()</div><div class="ttdef"><b>Definition:</b> common_solving.hpp:800</div></div>
+<div class="ttc" id="astruct_abstract_domains_html_a4079f4eda90c5a3162357423aedae435"><div class="ttname"><a href="struct_abstract_domains.html#a4079f4eda90c5a3162357423aedae435">AbstractDomains::stats</a></div><div class="ttdeci">Statistics&lt; BasicAllocator &gt; stats</div><div class="ttdef"><b>Definition:</b> common_solving.hpp:278</div></div>
+<div class="ttc" id="astruct_abstract_domains_html_a6163aae266ebdf3370b3fedc63c150a3"><div class="ttname"><a href="struct_abstract_domains.html#a6163aae266ebdf3370b3fedc63c150a3">AbstractDomains::store</a></div><div class="ttdeci">abstract_ptr&lt; IStore &gt; store</div><div class="ttdef"><b>Definition:</b> common_solving.hpp:262</div></div>
+<div class="ttc" id="astruct_abstract_domains_html_a9ab2a88ebb928131d7392df6c2613ddc"><div class="ttname"><a href="struct_abstract_domains.html#a9ab2a88ebb928131d7392df6c2613ddc">AbstractDomains::preprocess</a></div><div class="ttdeci">void preprocess()</div><div class="ttdef"><b>Definition:</b> common_solving.hpp:552</div></div>
+<div class="ttc" id="astruct_abstract_domains_html_ad066915b4e82fb68f8a4c9a38e159d3b"><div class="ttname"><a href="struct_abstract_domains.html#ad066915b4e82fb68f8a4c9a38e159d3b">AbstractDomains::iprop</a></div><div class="ttdeci">abstract_ptr&lt; IProp &gt; iprop</div><div class="ttdef"><b>Definition:</b> common_solving.hpp:263</div></div>
 <div class="ttc" id="astruct_configuration_html"><div class="ttname"><a href="struct_configuration.html">Configuration</a></div><div class="ttdef"><b>Definition:</b> config.hpp:34</div></div>
-<div class="ttc" id="astruct_configuration_html_a6400dfba9cd09ea3050d18c71c8d47fb"><div class="ttname"><a href="struct_configuration.html#a6400dfba9cd09ea3050d18c71c8d47fb">Configuration::or_nodes</a></div><div class="ttdeci">size_t or_nodes</div><div class="ttdef"><b>Definition:</b> config.hpp:47</div></div>
-<div class="ttc" id="astruct_unique_alloc_html"><div class="ttname"><a href="struct_unique_alloc.html">UniqueAlloc</a></div><div class="ttdef"><b>Definition:</b> common_solving.hpp:118</div></div>
-<div class="ttc" id="astruct_unique_alloc_html_a6356566b7fe9ca0f9fc36f1d30b2ac7c"><div class="ttname"><a href="struct_unique_alloc.html#a6356566b7fe9ca0f9fc36f1d30b2ac7c">UniqueAlloc::allocate</a></div><div class="ttdeci">CUDA void * allocate(size_t bytes)</div><div class="ttdef"><b>Definition:</b> common_solving.hpp:126</div></div>
+<div class="ttc" id="astruct_configuration_html_a6400dfba9cd09ea3050d18c71c8d47fb"><div class="ttname"><a href="struct_configuration.html#a6400dfba9cd09ea3050d18c71c8d47fb">Configuration::or_nodes</a></div><div class="ttdeci">size_t or_nodes</div><div class="ttdef"><b>Definition:</b> config.hpp:48</div></div>
+<div class="ttc" id="astruct_statistics_html_a39037307cf8a9f4495f94e4c31390b44"><div class="ttname"><a href="struct_statistics.html#a39037307cf8a9f4495f94e4c31390b44">Statistics::print_mzn_end_stats</a></div><div class="ttdeci">CUDA void print_mzn_end_stats() const</div><div class="ttdef"><b>Definition:</b> statistics.hpp:287</div></div>
+<div class="ttc" id="astruct_statistics_html_a77f9832c12625799f616a7211ee2cb8b"><div class="ttname"><a href="struct_statistics.html#a77f9832c12625799f616a7211ee2cb8b">Statistics::print_memory_statistics</a></div><div class="ttdeci">CUDA void print_memory_statistics(bool verbose, const char *key, size_t bytes) const</div><div class="ttdef"><b>Definition:</b> statistics.hpp:227</div></div>
+<div class="ttc" id="astruct_unique_alloc_html"><div class="ttname"><a href="struct_unique_alloc.html">UniqueAlloc</a></div><div class="ttdef"><b>Definition:</b> common_solving.hpp:107</div></div>
+<div class="ttc" id="astruct_unique_alloc_html_a6356566b7fe9ca0f9fc36f1d30b2ac7c"><div class="ttname"><a href="struct_unique_alloc.html#a6356566b7fe9ca0f9fc36f1d30b2ac7c">UniqueAlloc::allocate</a></div><div class="ttdeci">CUDA void * allocate(size_t bytes)</div><div class="ttdef"><b>Definition:</b> common_solving.hpp:115</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
