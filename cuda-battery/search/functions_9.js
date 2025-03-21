@@ -1,10 +1,10 @@
 var searchData=
 [
-  ['make_5froot_0',['make_root',['../namespacebattery.html#ad7b3cdf8a15ca157faba5b4a19cd482e',1,'battery']]],
-  ['make_5fshared_1',['make_shared',['../namespacebattery.html#a80acf3e6520c21d3d7fa56171591983e',1,'battery']]],
-  ['make_5funique_2',['make_unique',['../namespacebattery.html#a1652654e798862763b7c3461da8b039b',1,'battery']]],
-  ['max_3',['max',['../namespacebattery.html#a400d773016494f4681eab0c2dbd6eadc',1,'battery']]],
-  ['min_4',['min',['../namespacebattery.html#a375b99e48991c4ae20bd3804e92ef160',1,'battery']]],
-  ['mul_5fdown_5',['mul_down',['../namespacebattery.html#a076fedaed8fce45a5c564872de4db0b5',1,'battery']]],
-  ['mul_5fup_6',['mul_up',['../namespacebattery.html#a98d96cfd1ace3bf496862506cc3c4e9f',1,'battery']]]
+  ['make_5froot_243',['make_root',['../namespacebattery.html#a9fa8a86a5ae7e10b78873491b2518547',1,'battery']]],
+  ['make_5fshared_244',['make_shared',['../namespacebattery.html#ae61605945519ce21c6957dcd5222bbe7',1,'battery']]],
+  ['make_5funique_245',['make_unique',['../namespacebattery.html#a08d5604fdc7ea7c18562cb614bcab5ad',1,'battery']]],
+  ['max_246',['max',['../namespacebattery.html#af571851f28510faf8538e0589d7cf016',1,'battery']]],
+  ['min_247',['min',['../namespacebattery.html#a4265fdd695e9ad077b0afb5169545776',1,'battery']]],
+  ['mul_5fdown_248',['mul_down',['../namespacebattery.html#a6dd3e5546b5286d98cb29c7560542759',1,'battery']]],
+  ['mul_5fup_249',['mul_up',['../namespacebattery.html#ae3edf2725aaea683aff7a100733b26f2',1,'battery']]]
 ];

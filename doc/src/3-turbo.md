@@ -61,7 +61,7 @@ With more subproblems, the advantage is not as clear, but it is definitely an ex
 ## v1.1.1 Partial evaluation
 
 The version 1.1.1 brings partial evaluation of the logical formulas, essentially by aggregating constants and rewriting constraints with fewer operators.
-We fully evaluate the expressions without variables, using distributivity laws for addition and multiplication (e.g. in `4 + x + 1` we evaluate `4 + 1`).
+We fully evaluate the expressions without variables, using commutativity laws for addition and multiplication (e.g. in `4 + x + 1` we evaluate `4 + 1`).
 We apply some standard simplification laws:
 * Propagating neutral and absorber elements (using identity and annihilator laws) of conjunction, disjunction, implication, equivalence, addition, subtraction, multiplication and division.
 * Eliminating double arithmetic and logical negations.
