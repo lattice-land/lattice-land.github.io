@@ -19,6 +19,7 @@ var classlala_1_1_var_env =
     [ "num_abstract_doms", "classlala_1_1_var_env.html#a282e2ca603f59cf4d358508434c116d8", null ],
     [ "num_vars", "classlala_1_1_var_env.html#ab081512efec6a44cca0fb735b214bf79", null ],
     [ "num_vars_in", "classlala_1_1_var_env.html#abfe4eed2f69f6b57e657e9a51fa5644f", null ],
+    [ "print", "classlala_1_1_var_env.html#a2ed6e3b049fd5be628f073beeba8ef3b", null ],
     [ "interpret", "classlala_1_1_var_env.html#a6fcf31bb71a1eb5aa6b2202a860e2e87", null ],
     [ "variable_of", "classlala_1_1_var_env.html#a89624c975c926e2da52f64b056972a23", null ],
     [ "variable_of", "classlala_1_1_var_env.html#ade7c56c68ea09d9cf7dead205ea5ff5f", null ],

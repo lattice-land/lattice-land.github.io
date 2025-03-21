@@ -73,10 +73,12 @@ var ast_8hpp =
       [ "MINIMIZE", "ast_8hpp.html#a4be41540c5051a480d0611a3e216b659ad31b4d2b16f0588a88f952ed29ddace6", null ]
     ] ],
     [ "string_of_sig", "ast_8hpp.html#a23e4cd05f6c827108d47c98443be639e", null ],
+    [ "string_of_sig_txt", "ast_8hpp.html#aac6e3ffc4f0a1537b100e12d835fde0f", null ],
     [ "is_prefix", "ast_8hpp.html#af2b298de3e0cbb50bbc02bc606b7c56a", null ],
     [ "is_division", "ast_8hpp.html#abf05545f06bb4e74db05c3c520cb31e8", null ],
     [ "is_modulo", "ast_8hpp.html#a97ff9ae908dd0eed685d87631506b3eb", null ],
     [ "is_associative", "ast_8hpp.html#a6b055c3c2499841f43012304df8c0686", null ],
+    [ "is_commutative", "ast_8hpp.html#afe97cb464937f52cf9740935c72d95c0", null ],
     [ "is_arithmetic_comparison", "ast_8hpp.html#aa36870240eda9c7f0b1d4a3c063e10cd", null ],
     [ "is_logical", "ast_8hpp.html#a5b74d0fad8edd85cd73c0b82b0df6345", null ],
     [ "is_predicate", "ast_8hpp.html#a18a0c6edcd92ebf5d23f69e8b9211fb9", null ],

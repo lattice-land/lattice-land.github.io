@@ -16,6 +16,7 @@ var annotated_dup =
       [ "DispatchIndex", "structlala_1_1_dispatch_index.html", "structlala_1_1_dispatch_index" ],
       [ "VarEnv", "classlala_1_1_var_env.html", "classlala_1_1_var_env" ],
       [ "Sort", "structlala_1_1_sort.html", "structlala_1_1_sort" ],
+      [ "SimplifierStats", "structlala_1_1_simplifier_stats.html", "structlala_1_1_simplifier_stats" ],
       [ "Simplifier", "classlala_1_1_simplifier.html", "classlala_1_1_simplifier" ],
       [ "PreSDec", "structlala_1_1_pre_s_dec.html", null ],
       [ "PreSInc", "structlala_1_1_pre_s_inc.html", "structlala_1_1_pre_s_inc" ],

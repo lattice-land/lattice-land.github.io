@@ -12,6 +12,7 @@ var algorithm_8hpp =
     [ "num_quantified_vars", "algorithm_8hpp.html#a66dda4c39e820cfd39e75737378d033e", null ],
     [ "num_quantified_vars", "algorithm_8hpp.html#a6fdf54773f9858c9ef2b06b250f3a0c3", null ],
     [ "num_constraints", "algorithm_8hpp.html#a3749d6ff27c5005bbbe560ede8ee98a0", null ],
+    [ "num_tnf_constraints", "algorithm_8hpp.html#a2df1ecd67f11da8fd94360c55a714df7", null ],
     [ "type_of_conjunction", "algorithm_8hpp.html#a93ff80f41d2a60ce49d9d969792f3818", null ],
     [ "extract_ty", "algorithm_8hpp.html#a2af6441863bd25ce8c40bc31a4e988d6", null ],
     [ "negate", "algorithm_8hpp.html#a61c82f922a369376733ac1ceb63f2ecc", null ],
@@ -24,7 +25,9 @@ var algorithm_8hpp =
     [ "converse_comparison", "algorithm_8hpp.html#a37723381538b58c397b57008bcc7671b", null ],
     [ "map_avar_to_lvar", "algorithm_8hpp.html#a1c3a823ec9c5e512892e628d8311c543", null ],
     [ "eval", "algorithm_8hpp.html#ae6506d073b2c1165fa92bffeae6fd4bf", null ],
+    [ "normalize", "algorithm_8hpp.html#acbed5bc11756124529058ac92fbc0c2b", null ],
     [ "normalize", "algorithm_8hpp.html#a505158a64e90b36755f6e84b5db6b987", null ],
     [ "decompose_in_constraint", "algorithm_8hpp.html#af1aed9c4d9ba677f7255545ffa2f7df3", null ],
-    [ "decompose_arith_neq_constraint", "algorithm_8hpp.html#ab77aa301355868d2d9458857ea2946a8", null ]
+    [ "decompose_arith_neq_constraint", "algorithm_8hpp.html#ab77aa301355868d2d9458857ea2946a8", null ],
+    [ "decompose_set_constraints", "algorithm_8hpp.html#abfb8776da0b69ec59521ec98ca9dc95c", null ]
 ];

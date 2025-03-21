@@ -12,6 +12,7 @@ var dir_22ec94e099ac4ca178246c6ac98c2d99 =
     [ "interpretation.hpp", "interpretation_8hpp.html", "interpretation_8hpp" ],
     [ "interval.hpp", "interval_8hpp.html", "interval_8hpp" ],
     [ "simplifier.hpp", "simplifier_8hpp.html", [
+      [ "SimplifierStats", "structlala_1_1_simplifier_stats.html", "structlala_1_1_simplifier_stats" ],
       [ "Simplifier", "classlala_1_1_simplifier.html", "classlala_1_1_simplifier" ],
       [ "light_copy_tag", "structlala_1_1_simplifier_1_1light__copy__tag.html", null ],
       [ "tell_type", "structlala_1_1_simplifier_1_1tell__type.html", "structlala_1_1_simplifier_1_1tell__type" ]

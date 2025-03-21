@@ -61,6 +61,6 @@ var classlala_1_1_t_formula =
     [ "map_atype", "classlala_1_1_t_formula.html#acf12a1ad457cc57f419abb16a2a193a3", null ],
     [ "inplace_map", "classlala_1_1_t_formula.html#a3202a61cdd7935087df1cb54093592d1", null ],
     [ "map", "classlala_1_1_t_formula.html#ae8f93a4904714389e5cb9ee76b95f6f4", null ],
-    [ "print", "classlala_1_1_t_formula.html#abf04875013ba79ffe4ddaeffede01496", null ],
+    [ "print", "classlala_1_1_t_formula.html#ad83f72eca4e048751c610d3c0cb803a2", null ],
     [ "TFormula", "classlala_1_1_t_formula.html#a1ae5b519a1a605de4484945fda47f773", null ]
 ];

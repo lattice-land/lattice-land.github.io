@@ -99,436 +99,446 @@ $(document).ready(function(){initNavTree('ternarize_8hpp_source.html',''); initR
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="env_8hpp.html">env.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacelala.html">lala</a> {</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">namespace </span>impl {</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> F, <span class="keyword">class</span> Env&gt;</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">class </span>Ternarizer</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;{</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;  <span class="keyword">using</span> allocator_type = battery::standard_allocator;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">  /** A constraint in ternary form is either unary or of the form `x = (y &lt;op&gt; z)`. */</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">bool</span> is_ternary_form(<span class="keyword">const</span> F&amp; f, <span class="keywordtype">bool</span> ternarize_all = <span class="keyword">false</span>) {</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keywordtype">int</span> vars = <a class="code" href="namespacelala.html#ac68fae34e298f9dc08e81209a98dea89">num_vars</a>(f);</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordflow">return</span> (!ternarize_all &amp;&amp; vars == 1) ||</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;      (vars == 3 &amp;&amp; f.is_binary() &amp;&amp; f.sig() == <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a540dd9fbbe27d8900c8cd221cdc50134">EQ</a> &amp;&amp;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;         ((f.seq(0).is_variable() &amp;&amp; f.seq(1).is_binary() &amp;&amp; is_ternary_op(f.seq(1).sig()) &amp;&amp; f.seq(1).seq(0).is_variable() &amp;&amp; f.seq(1).seq(1).is_variable())</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;       || (f.seq(1).is_variable() &amp;&amp; f.seq(0).is_binary() &amp;&amp; is_ternary_op(f.seq(0).sig()) &amp;&amp; f.seq(0).seq(0).is_variable() &amp;&amp; f.seq(0).seq(1).is_variable())));</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  }</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">bool</span> is_ternary_op(<a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659">Sig</a> sig) {</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordflow">return</span> sig == <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659aab34a3b23024271c113e7e4b1514bbe0">MAX</a> || sig == <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a862175bb85bef55b954e572e71f4ffcd">MIN</a> || sig == <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a540dd9fbbe27d8900c8cd221cdc50134">EQ</a> || sig == <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a17a7bbf0e65530521932e221dc59c066">LEQ</a> || (!<a class="code" href="namespacelala.html#a5b74d0fad8edd85cd73c0b82b0df6345">is_logical</a>(sig) &amp;&amp; !<a class="code" href="namespacelala.html#a18a0c6edcd92ebf5d23f69e8b9211fb9">is_predicate</a>(sig));</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  }</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  <span class="keywordtype">void</span> introduce_existing_var(<span class="keyword">const</span> std::string&amp; varname) {</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordflow">if</span>(varname.starts_with(<span class="stringliteral">&quot;__VAR_Z_&quot;</span>)) {</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;      introduced_int_vars = std::max((<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>)std::stoul(varname.substr(8))+1, introduced_int_vars);</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    }</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(varname.starts_with(<span class="stringliteral">&quot;__VAR_B_&quot;</span>)) {</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;      introduced_bool_vars = std::max((<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>)std::stoul(varname.substr(8))+1, introduced_bool_vars);</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    }</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  }</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">public</span>:<span class="comment"></span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment">  /** The environment is helpful to recover the sort of the free variables. */</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  Ternarizer(<span class="keyword">const</span> Env&amp; env, <span class="keywordtype">bool</span> ternarize_all):</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    introduced_int_vars(0),</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    introduced_bool_vars(0),</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    introduced_constants(0),</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    env(env),</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    ternarize_all(ternarize_all)</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  {<span class="comment"></span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment">    /** We skip all the temporary variables already created in the environment. */</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; env.num_vars(); ++i) {</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;      introduce_existing_var(std::string(env[i].name.data()));</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    }</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  }</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  <span class="keyword">const</span> Env&amp; env;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  <span class="keywordtype">bool</span> ternarize_all;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  battery::vector&lt;F, allocator_type&gt; conjunction;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  battery::vector&lt;F, allocator_type&gt; existentials;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  std::unordered_map&lt;std::string, int&gt; name2exists;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> introduced_int_vars;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> introduced_bool_vars;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> introduced_constants;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  F introduce_var(<span class="keyword">const</span> std::string&amp; name, <span class="keyword">auto</span> sort, <span class="keywordtype">bool</span> constant) {</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keyword">auto</span> var_name = LVar&lt;allocator_type&gt;(name.data());</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    assert(!env.contains(name.data()));</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    existentials.push_back(F::make_exists(<a class="code" href="sort_8hpp.html#af5d67e1d1856b2c01653a0f9ab95d391">UNTYPED</a>, var_name, sort));</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    assert(!name2exists.contains(name));</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    name2exists[name] = existentials.size() - 1;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordflow">if</span>(constant) { introduced_constants++; }</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(sort.is_int()) { introduced_int_vars++; }</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(sort.is_bool()) { introduced_bool_vars++; }</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keywordflow">return</span> F::make_lvar(<a class="code" href="sort_8hpp.html#af5d67e1d1856b2c01653a0f9ab95d391">UNTYPED</a>, var_name);</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;  }</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;  F introduce_int_var() {</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    std::string name = <span class="stringliteral">&quot;__VAR_Z_&quot;</span> + std::to_string(introduced_int_vars);</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordflow">return</span> introduce_var(name, Sort&lt;allocator_type&gt;(<a class="code" href="structlala_1_1_sort.html#a267f9fffa9f58fd4365285c11724129ba8989f82c154434d068d4f62cdd351977">Sort&lt;allocator_type&gt;::Int</a>), <span class="keyword">false</span>);</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;  }</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;  F introduce_bool_var() {</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    std::string name = <span class="stringliteral">&quot;__VAR_B_&quot;</span> + std::to_string(introduced_bool_vars);</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keywordflow">return</span> introduce_var(name, Sort&lt;allocator_type&gt;(<a class="code" href="structlala_1_1_sort.html#a267f9fffa9f58fd4365285c11724129ba687c5aef38205e57a8482ae6a20531c3">Sort&lt;allocator_type&gt;::Bool</a>), <span class="keyword">false</span>);</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;  }</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;  F ternarize_constant(<span class="keyword">const</span> F&amp; f) {</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    assert(f.is(F::Z) || f.is(<a class="code" href="namespacelala_1_1local.html#a41aab129767430c7ec1557da582c168b">F::B</a>));</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keyword">auto</span> index = f.to_z();</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    std::string name = <span class="stringliteral">&quot;__CONSTANT_&quot;</span> + (index &lt; 0 ? std::string(<span class="stringliteral">&quot;m&quot;</span>) : std::string(<span class="stringliteral">&quot;&quot;</span>)) + std::to_string(abs(index));</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="comment">// if the constant is already a logical variable, we return it.</span></div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keywordflow">if</span> (name2exists.contains(name) || env.contains(name.data())) {</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;      <span class="keywordflow">return</span> F::make_lvar(<a class="code" href="sort_8hpp.html#af5d67e1d1856b2c01653a0f9ab95d391">UNTYPED</a>, LVar&lt;allocator_type&gt;(name.data()));</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    }</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keyword">auto</span> var = introduce_var(name, f.sort().value(), <span class="keyword">true</span>);</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    conjunction.push_back(F::make_binary(var, <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a540dd9fbbe27d8900c8cd221cdc50134">EQ</a>, f));</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="keywordflow">return</span> var;</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;  }</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;  <span class="keywordtype">bool</span> is_constant_var(<span class="keyword">const</span> F&amp; x)<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keywordflow">if</span>(x.is(F::LV)) {</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;      std::string varname(x.lv().data());</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;      <span class="keywordflow">return</span> varname.starts_with(<span class="stringliteral">&quot;__CONSTANT_&quot;</span>);</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    }</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;  }</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;  <span class="keywordtype">int</span> value_of_constant(<span class="keyword">const</span> F&amp; x)<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    assert(is_constant_var(x));</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    std::string varname(x.lv().data());</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    varname = varname.substr(11);</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    varname[0] = varname[0] == <span class="charliteral">&#39;m&#39;</span> ? <span class="charliteral">&#39;-&#39;</span> : varname[0];</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <span class="keywordflow">return</span> std::stoi(varname);</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;  }</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;<span class="comment">  /** We try to simplify the ternary constraint into a unary constraint in case of constant values. */</span></div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;  <span class="keywordtype">bool</span> try_simplify_push_ternary(<span class="keyword">const</span> F&amp; x, <span class="keyword">const</span> F&amp; y, <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659">Sig</a> sig, <span class="keyword">const</span> F&amp; z) {<span class="comment"></span></div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;<span class="comment">    /** We don&#39;t simplify if we need to ternarize everything. */</span></div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <span class="keywordflow">if</span>(ternarize_all) {</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;      <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    }<span class="comment"></span></div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;<span class="comment">    /** We first seek to simply the ternary constraint in case of two constants. */</span></div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <span class="keywordtype">int</span> xc = is_constant_var(x);</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <span class="keywordtype">int</span> yc = is_constant_var(y);</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <span class="keywordtype">int</span> zc = is_constant_var(z);</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    <span class="keywordflow">if</span>(yc + zc == 2) {</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;      F y_sig_z = F::make_binary(F::make_z(value_of_constant(y)), sig, F::make_z(value_of_constant(z)));</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;      F simplified = F::make_binary(x, <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a540dd9fbbe27d8900c8cd221cdc50134">EQ</a>, <a class="code" href="namespacelala.html#ae6506d073b2c1165fa92bffeae6fd4bf">eval</a>(y_sig_z));</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;      <span class="keywordflow">if</span>(is_ternary_form(simplified)) {</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;        compute(simplified);</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;      }</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    }</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(xc + yc + zc == 2) {</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;      assert(xc == 1);</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;      F y_sig_z =</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;        (yc == 1)</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;        ? F::make_binary(F::make_z(value_of_constant(y)), sig, z)</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;        : F::make_binary(y, sig, F::make_z(value_of_constant(z)));</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;      <span class="keywordtype">int</span> x_value = value_of_constant(x);</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;      <span class="keywordflow">if</span>(x_value == 0) {</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;        <span class="keyword">auto</span> r = <a class="code" href="namespacelala.html#a61c82f922a369376733ac1ceb63f2ecc">negate</a>(y_sig_z);</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;        F not_y_sig_z = r.has_value() ? *r : F::make_unary(<a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a18f2489be7b8b3ac8699bdf3508e1a6e">NOT</a>, y_sig_z);</div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;        not_y_sig_z = <a class="code" href="namespacelala.html#ae6506d073b2c1165fa92bffeae6fd4bf">eval</a>(not_y_sig_z);</div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;        <span class="keywordflow">if</span>(is_ternary_form(not_y_sig_z)) {</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;          compute(not_y_sig_z);</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;          <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;        }</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;      }</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;      <span class="keywordflow">else</span> <span class="keywordflow">if</span>(is_ternary_form(y_sig_z)) {</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;        compute(y_sig_z);</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;      }</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    }</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;  }</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;<span class="comment">  /** Create the ternary formula `x = y &lt;sig&gt; z`. */</span></div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;  F push_ternary(<span class="keyword">const</span> F&amp; x, <span class="keyword">const</span> F&amp; y, <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659">Sig</a> sig, <span class="keyword">const</span> F&amp; z) {</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    <span class="keywordflow">if</span>(try_simplify_push_ternary(x, y, sig, z)) {</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;      <span class="keywordflow">return</span> x;</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    }<span class="comment"></span></div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;<span class="comment">    /** If the simplification was not possible, we add the ternary constraint. */</span></div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    conjunction.push_back(F::make_binary(x, <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a540dd9fbbe27d8900c8cd221cdc50134">EQ</a>, F::make_binary(y, sig, z)));</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    <span class="keywordflow">return</span> x;</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;  }</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160; </div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;  F ternarize_unary(<span class="keyword">const</span> F&amp; f, <span class="keywordtype">bool</span> toplevel = <span class="keyword">false</span>) {</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    F x = <a class="code" href="namespacelala.html#ad33f36a358eb1db17dc852e6bb2bf314">ternarize</a>(f.seq(0));</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    <span class="keywordflow">switch</span>(f.sig()) {<span class="comment"></span></div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;<span class="comment">      /** -x ~~&gt; t = 0 - x */</span></div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;      <span class="keywordflow">case</span> <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659afd5c2ae3d5e7293327344b6c3485fc82">NEG</a>: {</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;        F t = push_ternary(introduce_int_var(), <a class="code" href="namespacelala.html#ad33f36a358eb1db17dc852e6bb2bf314">ternarize</a>(F::make_z(0)), <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659ae0bb1bc3a0e410d6068f020c858d190c">SUB</a>, x);</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;        <span class="keywordflow">if</span>(toplevel) {</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;          <span class="keywordflow">return</span> <a class="code" href="namespacelala.html#ad33f36a358eb1db17dc852e6bb2bf314">ternarize</a>(F::make_binary(t, <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a09229291382be14131439437cd0709c6">NEQ</a>, F::make_z(0)), <span class="keyword">true</span>);</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;        }</div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;        <span class="keywordflow">return</span> t;</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;      }<span class="comment"></span></div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;<span class="comment">      /** |x| ~~&gt; t1 = 0 - x /\ t2 &lt;= max(x, t1) /\ t2 &gt;= 0 /\ t2 &gt;= x /\ t2 &gt;= t1 */</span></div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;      <span class="keywordflow">case</span> <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659adc30e84e5ba6fbd73512392c6d37628e">ABS</a>: {</div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;        F t1 = <a class="code" href="namespacelala.html#ad33f36a358eb1db17dc852e6bb2bf314">ternarize</a>(F::make_unary(<a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659afd5c2ae3d5e7293327344b6c3485fc82">NEG</a>, x));</div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;        F t2 = introduce_int_var();</div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;        compute(F::make_binary(t2, <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a641b631289f14a66696ebca79e717cad">GEQ</a>, F::make_z(0)));</div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;        compute(F::make_binary(t2, <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a641b631289f14a66696ebca79e717cad">GEQ</a>, t1));</div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;        compute(F::make_binary(t2, <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a641b631289f14a66696ebca79e717cad">GEQ</a>, x));</div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;        compute(F::make_binary(t2, <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a17a7bbf0e65530521932e221dc59c066">LEQ</a>, F::make_binary(x, <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659aab34a3b23024271c113e7e4b1514bbe0">MAX</a>, t1)));</div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;        <span class="keywordflow">if</span>(toplevel) {</div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;          <span class="keywordflow">return</span> <a class="code" href="namespacelala.html#ad33f36a358eb1db17dc852e6bb2bf314">ternarize</a>(F::make_binary(t2, <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a09229291382be14131439437cd0709c6">NEQ</a>, F::make_z(0)), <span class="keyword">true</span>);</div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;        }</div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;        <span class="keywordflow">return</span> t2;</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;      }<span class="comment"></span></div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;<span class="comment">      /** NOT x ~~&gt; ternarize(x = 0) ~~&gt; t = (x = 0) */</span></div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;      <span class="keywordflow">case</span> <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a18f2489be7b8b3ac8699bdf3508e1a6e">NOT</a>: <span class="keywordflow">return</span> <a class="code" href="namespacelala.html#ad33f36a358eb1db17dc852e6bb2bf314">ternarize</a>(F::make_binary(x, <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a540dd9fbbe27d8900c8cd221cdc50134">EQ</a>, F::make_z(0)), toplevel);</div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;      <span class="keywordflow">case</span> <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659ad31b4d2b16f0588a88f952ed29ddace6">MINIMIZE</a>:</div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;      <span class="keywordflow">case</span> <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659ad20094bfd86b4eb408d39956ec443856">MAXIMIZE</a>: {</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;        conjunction.push_back(F::make_unary(f.sig(), x));</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;        <span class="keywordflow">return</span> x;</div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;      }</div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;      <span class="keywordflow">default</span>: {</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;        printf(<span class="stringliteral">&quot;Unary operator %s not supported\n&quot;</span>, <a class="code" href="namespacelala.html#a23e4cd05f6c827108d47c98443be639e">string_of_sig</a>(f.sig()));</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;        printf(<span class="stringliteral">&quot;In formula: &quot;</span>); f.print(); printf(<span class="stringliteral">&quot;\n&quot;</span>);</div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;        <span class="comment">// assert(false);</span></div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;        <span class="keywordflow">return</span> f;</div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;      }</div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;    }</div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;  }</div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160; </div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;  <span class="keywordtype">bool</span> is_boolean(<span class="keyword">const</span> F&amp; f) {</div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;    assert(f.is(F::LV));</div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;    std::string varname(f.lv().data());</div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;    <span class="keywordflow">if</span>(name2exists.contains(varname)) {</div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;      <span class="keywordflow">return</span> battery::get&lt;1&gt;(existentials[name2exists[varname]].exists()).is_bool();</div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;    }</div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;    <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;      <span class="keyword">auto</span> var_opt = env.variable_of(varname.data());</div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;      <span class="keywordflow">if</span>(var_opt.has_value()) {</div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;        <span class="keywordflow">return</span> var_opt-&gt;get().sort.is_bool();</div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;      }</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> F&gt;</div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="namespacelala.html#a1ce6029f0aeed7c9c49d36cb08bcab05">   10</a></span>&#160;<span class="keywordtype">bool</span> <a class="code" href="namespacelala.html#a1ce6029f0aeed7c9c49d36cb08bcab05">is_constant_var</a>(<span class="keyword">const</span> F&amp; x) {</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;  <span class="keywordflow">if</span>(x.is(F::LV)) {</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    std::string varname(x.lv().data());</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keywordflow">return</span> varname.starts_with(<span class="stringliteral">&quot;__CONSTANT_&quot;</span>);</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;  }</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;  <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;}</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> F&gt;</div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="namespacelala.html#a45cb02b7572ae2fcc282003ab02acf2b">   19</a></span>&#160;<span class="keywordtype">int</span> <a class="code" href="namespacelala.html#a45cb02b7572ae2fcc282003ab02acf2b">value_of_constant</a>(<span class="keyword">const</span> F&amp; x) {</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;  assert(<a class="code" href="namespacelala.html#a1ce6029f0aeed7c9c49d36cb08bcab05">is_constant_var</a>(x));</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;  std::string varname(x.lv().data());</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;  varname = varname.substr(11);</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  varname[0] = varname[0] == <span class="charliteral">&#39;m&#39;</span> ? <span class="charliteral">&#39;-&#39;</span> : varname[0];</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;  <span class="keywordflow">return</span> std::stoi(varname);</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;}</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> F&gt;</div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="namespacelala.html#aeb4678868a81e9a9dcad057b7c4b4c8b">   28</a></span>&#160;CUDA <span class="keywordtype">bool</span> <a class="code" href="namespacelala.html#aeb4678868a81e9a9dcad057b7c4b4c8b">is_tnf</a>(<span class="keyword">const</span> F&amp; f) {</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  <span class="keywordflow">return</span> f.is_binary() &amp;&amp; f.seq(0).is_variable() &amp;&amp;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    (f.sig() == <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a540dd9fbbe27d8900c8cd221cdc50134">EQ</a> || f.sig() == <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659ad60ed828472e93a9450a506013af502b">EQUIV</a>) &amp;&amp;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    f.seq(1).is_binary() &amp;&amp; f.seq(1).seq(0).is_variable() &amp;&amp;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    f.seq(1).seq(1).is_variable();</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;}</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">namespace </span>impl {</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> F, <span class="keyword">class</span> Env&gt;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">class </span>Ternarizer</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;{</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  <span class="keyword">using</span> allocator_type = battery::standard_allocator;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment">  /** A constraint is in extended ternary form if it is either unary (without NEQ, IN) or of the form `x = (y &lt;op&gt; z)`. */</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">bool</span> is_extended_ternary_form(<span class="keyword">const</span> F&amp; f) {</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">int</span> vars = <a class="code" href="namespacelala.html#ac68fae34e298f9dc08e81209a98dea89">num_vars</a>(f);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordflow">return</span> (vars == 1 &amp;&amp; (f.is(F::E) || (f.is_binary() &amp;&amp; f.sig() != <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a09229291382be14131439437cd0709c6">NEQ</a> &amp;&amp; f.sig() != <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a66ca795a675e7b0f114cc986a45323b4">IN</a> &amp;&amp; (f.seq(0).is_variable() || f.seq(1).is_variable()) &amp;&amp; (f.seq(0).is_constant() || f.seq(1).is_constant())))) ||</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;      (vars == 3 &amp;&amp; f.is_binary() &amp;&amp; f.sig() == <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a540dd9fbbe27d8900c8cd221cdc50134">EQ</a> &amp;&amp;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;         ((f.seq(0).is_variable() &amp;&amp; f.seq(1).is_binary() &amp;&amp; is_ternary_op(f.seq(1).sig()) &amp;&amp; f.seq(1).seq(0).is_variable() &amp;&amp; f.seq(1).seq(1).is_variable())</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;       || (f.seq(1).is_variable() &amp;&amp; f.seq(0).is_binary() &amp;&amp; is_ternary_op(f.seq(0).sig()) &amp;&amp; f.seq(0).seq(0).is_variable() &amp;&amp; f.seq(0).seq(1).is_variable())));</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  }</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">bool</span> is_ternary_op(<a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659">Sig</a> sig) {</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordflow">return</span> sig == <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659aab34a3b23024271c113e7e4b1514bbe0">MAX</a> || sig == <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a862175bb85bef55b954e572e71f4ffcd">MIN</a> || sig == <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a540dd9fbbe27d8900c8cd221cdc50134">EQ</a> || sig == <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a17a7bbf0e65530521932e221dc59c066">LEQ</a> || (!<a class="code" href="namespacelala.html#a5b74d0fad8edd85cd73c0b82b0df6345">is_logical</a>(sig) &amp;&amp; !<a class="code" href="namespacelala.html#a18a0c6edcd92ebf5d23f69e8b9211fb9">is_predicate</a>(sig));</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  }</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  <span class="keywordtype">void</span> introduce_existing_var(<span class="keyword">const</span> std::string&amp; varname) {</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordflow">if</span>(varname.starts_with(<span class="stringliteral">&quot;__VAR_Z_&quot;</span>)) {</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;      introduced_int_vars = std::max((<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>)std::stoul(varname.substr(8))+1, introduced_int_vars);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    }</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(varname.starts_with(<span class="stringliteral">&quot;__VAR_B_&quot;</span>)) {</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;      introduced_bool_vars = std::max((<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>)std::stoul(varname.substr(8))+1, introduced_bool_vars);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    }</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  }</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="keyword">public</span>:<span class="comment"></span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="comment">  /** The environment is helpful to recover the sort of the free variables. */</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;  Ternarizer(<span class="keyword">const</span> Env&amp; env):</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    introduced_int_vars(0),</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    introduced_bool_vars(0),</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    introduced_constants(0),</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    env(env)</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;  {<span class="comment"></span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="comment">    /** We skip all the temporary variables already created in the environment. */</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; env.num_vars(); ++i) {</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;      introduce_existing_var(std::string(env[i].name.data()));</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    }</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;  }</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;  <span class="keyword">const</span> Env&amp; env;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  battery::vector&lt;F, allocator_type&gt; conjunction;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;  battery::vector&lt;F, allocator_type&gt; existentials;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;  std::unordered_map&lt;std::string, int&gt; name2exists;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;  <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> introduced_int_vars;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;  <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> introduced_bool_vars;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;  <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> introduced_constants;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;  F introduce_var(<span class="keyword">const</span> std::string&amp; name, <span class="keyword">auto</span> sort, <span class="keywordtype">bool</span> constant) {</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keyword">auto</span> var_name = LVar&lt;allocator_type&gt;(name.data());</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    assert(!env.contains(name.data()));</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    existentials.push_back(F::make_exists(<a class="code" href="sort_8hpp.html#af5d67e1d1856b2c01653a0f9ab95d391">UNTYPED</a>, var_name, sort));</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    assert(!name2exists.contains(name));</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    name2exists[name] = existentials.size() - 1;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keywordflow">if</span>(constant) { introduced_constants++; }</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(sort.is_int()) { introduced_int_vars++; }</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(sort.is_bool()) { introduced_bool_vars++; }</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keywordflow">return</span> F::make_lvar(<a class="code" href="sort_8hpp.html#af5d67e1d1856b2c01653a0f9ab95d391">UNTYPED</a>, var_name);</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;  }</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;  F introduce_int_var() {</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    std::string name = <span class="stringliteral">&quot;__VAR_Z_&quot;</span> + std::to_string(introduced_int_vars);</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <span class="keywordflow">return</span> introduce_var(name, Sort&lt;allocator_type&gt;(<a class="code" href="structlala_1_1_sort.html#a267f9fffa9f58fd4365285c11724129ba8989f82c154434d068d4f62cdd351977">Sort&lt;allocator_type&gt;::Int</a>), <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;  }</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;  F introduce_bool_var() {</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    std::string name = <span class="stringliteral">&quot;__VAR_B_&quot;</span> + std::to_string(introduced_bool_vars);</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keywordflow">return</span> introduce_var(name, Sort&lt;allocator_type&gt;(<a class="code" href="structlala_1_1_sort.html#a267f9fffa9f58fd4365285c11724129ba687c5aef38205e57a8482ae6a20531c3">Sort&lt;allocator_type&gt;::Bool</a>), <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;  }</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;  F ternarize_constant(<span class="keyword">const</span> F&amp; f) {</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    assert(f.is(F::Z) || f.is(<a class="code" href="namespacelala_1_1local.html#a41aab129767430c7ec1557da582c168b">F::B</a>));</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="keyword">auto</span> index = f.to_z();</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    std::string name = <span class="stringliteral">&quot;__CONSTANT_&quot;</span> + (index &lt; 0 ? std::string(<span class="stringliteral">&quot;m&quot;</span>) : std::string(<span class="stringliteral">&quot;&quot;</span>)) + std::to_string(abs(index));</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <span class="comment">// if the constant is already a logical variable, we return it.</span></div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <span class="keywordflow">if</span> (name2exists.contains(name) || env.contains(name.data())) {</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;      <span class="keywordflow">return</span> F::make_lvar(<a class="code" href="sort_8hpp.html#af5d67e1d1856b2c01653a0f9ab95d391">UNTYPED</a>, LVar&lt;allocator_type&gt;(name.data()));</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    }</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <span class="keyword">auto</span> var = introduce_var(name, f.sort().value(), <span class="keyword">true</span>);</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    conjunction.push_back(F::make_binary(var, <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a540dd9fbbe27d8900c8cd221cdc50134">EQ</a>, f));</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <span class="keywordflow">return</span> var;</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;  }</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;<span class="comment">  /** Create a unary formula if the ternary formula can be simplified. */</span></div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;  <span class="keywordtype">bool</span> simplify_to_unary(F x, F y, <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659">Sig</a> sig, F z) {<span class="comment"></span></div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;<span class="comment">    /** Unary constraint of the form `1 &lt;=&gt; x &lt;= 5`, `0 &lt;=&gt; x &lt;= 5` or `1 &lt;=&gt; x == 5`   */</span></div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    <span class="keywordflow">if</span>(<a class="code" href="namespacelala.html#a1ce6029f0aeed7c9c49d36cb08bcab05">is_constant_var</a>(x) &amp;&amp; (<a class="code" href="namespacelala.html#a1ce6029f0aeed7c9c49d36cb08bcab05">is_constant_var</a>(y) || <a class="code" href="namespacelala.html#a1ce6029f0aeed7c9c49d36cb08bcab05">is_constant_var</a>(z)) &amp;&amp;</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;      (sig == <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a17a7bbf0e65530521932e221dc59c066">LEQ</a> || (sig == <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a540dd9fbbe27d8900c8cd221cdc50134">EQ</a> &amp;&amp; <a class="code" href="namespacelala.html#a45cb02b7572ae2fcc282003ab02acf2b">value_of_constant</a>(x) == 1)))</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    {</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;      <span class="keyword">auto</span> yv = <a class="code" href="namespacelala.html#a1ce6029f0aeed7c9c49d36cb08bcab05">is_constant_var</a>(y) ? F::make_z(<a class="code" href="namespacelala.html#a45cb02b7572ae2fcc282003ab02acf2b">value_of_constant</a>(y)) : y;</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;      <span class="keyword">auto</span> zv = <a class="code" href="namespacelala.html#a1ce6029f0aeed7c9c49d36cb08bcab05">is_constant_var</a>(z) ? F::make_z(<a class="code" href="namespacelala.html#a45cb02b7572ae2fcc282003ab02acf2b">value_of_constant</a>(z)) : z;</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;      <span class="keywordflow">if</span>(<a class="code" href="namespacelala.html#a45cb02b7572ae2fcc282003ab02acf2b">value_of_constant</a>(x) == 0) {</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;        conjunction.push_back(F::make_binary(yv, <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a9a76ae871be40983573273fc3e619651">GT</a>, zv));</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;      }</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;      <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;        conjunction.push_back(F::make_binary(yv, sig, zv));</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;      }</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;      <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    }</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;  }</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;<span class="comment">  /** Create the ternary formula `x = y &lt;sig&gt; z`. */</span></div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;  F push_ternary(F x, F y, <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659">Sig</a> sig, F z) {</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    <span class="keywordflow">if</span>(simplify_to_unary(x,y,sig,z)) {</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;      <span class="keywordflow">return</span> x;</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    }</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    <span class="keywordflow">if</span>(sig == <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659ae0bb1bc3a0e410d6068f020c858d190c">SUB</a>) {<span class="comment"></span></div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;<span class="comment">      /** We simplify x = y - z into y = x + z. */</span></div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;      conjunction.push_back(F::make_binary(y, <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a540dd9fbbe27d8900c8cd221cdc50134">EQ</a>, F::make_binary(x, <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a645a9c49ebbe25417ae4f4c57447aa02">ADD</a>, z)));</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;      <span class="keywordflow">return</span> x;</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    }<span class="comment"></span></div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;<span class="comment">    /** If the simplification was not possible, we add the ternary constraint. */</span></div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    conjunction.push_back(F::make_binary(x, <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a540dd9fbbe27d8900c8cd221cdc50134">EQ</a>, F::make_binary(y, sig, z)));</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    <span class="keywordflow">return</span> x;</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;  }</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160; </div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;  F ternarize_unary(<span class="keyword">const</span> F&amp; f, <span class="keywordtype">bool</span> toplevel = <span class="keyword">false</span>) {</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    F x = <a class="code" href="namespacelala.html#a644d3cb2c2ce4391ea7fd253af991cf1">ternarize</a>(f.seq(0));</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    <span class="keywordflow">switch</span>(f.sig()) {<span class="comment"></span></div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;<span class="comment">      /** -x ~~&gt; t = 0 - x */</span></div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;      <span class="keywordflow">case</span> <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659afd5c2ae3d5e7293327344b6c3485fc82">NEG</a>: {</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;        F t = push_ternary(introduce_int_var(), <a class="code" href="namespacelala.html#a644d3cb2c2ce4391ea7fd253af991cf1">ternarize</a>(F::make_z(0)), <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659ae0bb1bc3a0e410d6068f020c858d190c">SUB</a>, x);</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;        <span class="keywordflow">if</span>(toplevel) {</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;          <span class="keywordflow">return</span> <a class="code" href="namespacelala.html#a644d3cb2c2ce4391ea7fd253af991cf1">ternarize</a>(F::make_binary(t, <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a09229291382be14131439437cd0709c6">NEQ</a>, F::make_z(0)), <span class="keyword">true</span>);</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;        }</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;        <span class="keywordflow">return</span> t;</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;      }<span class="comment"></span></div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;<span class="comment">      /** |x| ~~&gt; t1 = 0 - x /\ t2 = max(x, t1) /\ t2 &gt;= 0 */</span></div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;      <span class="keywordflow">case</span> <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659adc30e84e5ba6fbd73512392c6d37628e">ABS</a>: {</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;        F t1 = <a class="code" href="namespacelala.html#a644d3cb2c2ce4391ea7fd253af991cf1">ternarize</a>(F::make_unary(<a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659afd5c2ae3d5e7293327344b6c3485fc82">NEG</a>, x));</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;        F t2 = introduce_int_var();</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;        compute(F::make_binary(t2, <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a540dd9fbbe27d8900c8cd221cdc50134">EQ</a>, F::make_binary(x, <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659aab34a3b23024271c113e7e4b1514bbe0">MAX</a>, t1)));</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;        compute(F::make_binary(t2, <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a641b631289f14a66696ebca79e717cad">GEQ</a>, F::make_z(0)));</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;        <span class="keywordflow">if</span>(toplevel) {</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;          <span class="keywordflow">return</span> <a class="code" href="namespacelala.html#a644d3cb2c2ce4391ea7fd253af991cf1">ternarize</a>(F::make_binary(t2, <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a09229291382be14131439437cd0709c6">NEQ</a>, F::make_z(0)), <span class="keyword">true</span>);</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;        }</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;        <span class="keywordflow">return</span> t2;</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;      }<span class="comment"></span></div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;<span class="comment">      /** NOT x ~~&gt; ternarize(x = 0) ~~&gt; t = (x = 0) */</span></div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;      <span class="keywordflow">case</span> <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a18f2489be7b8b3ac8699bdf3508e1a6e">NOT</a>: <span class="keywordflow">return</span> <a class="code" href="namespacelala.html#a644d3cb2c2ce4391ea7fd253af991cf1">ternarize</a>(F::make_binary(x, <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a540dd9fbbe27d8900c8cd221cdc50134">EQ</a>, F::make_z(0)), toplevel);</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;      <span class="keywordflow">case</span> <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659ad31b4d2b16f0588a88f952ed29ddace6">MINIMIZE</a>:</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;      <span class="keywordflow">case</span> <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659ad20094bfd86b4eb408d39956ec443856">MAXIMIZE</a>: {</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;        conjunction.push_back(F::make_unary(f.sig(), x));</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;        <span class="keywordflow">return</span> x;</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;      }</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;      <span class="keywordflow">default</span>: {</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;        printf(<span class="stringliteral">&quot;Unary operator %s not supported\n&quot;</span>, <a class="code" href="namespacelala.html#a23e4cd05f6c827108d47c98443be639e">string_of_sig</a>(f.sig()));</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;        printf(<span class="stringliteral">&quot;In formula: &quot;</span>); f.print(); printf(<span class="stringliteral">&quot;\n&quot;</span>);</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;        <span class="comment">// assert(false);</span></div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;        <span class="keywordflow">return</span> f;</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;      }</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;    }</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;  }</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160; </div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;  <span class="keywordtype">bool</span> is_boolean(<span class="keyword">const</span> F&amp; f) {</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    assert(f.is(F::LV));</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;    std::string varname(f.lv().data());</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;    <span class="keywordflow">if</span>(name2exists.contains(varname)) {</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;      <span class="keywordflow">return</span> battery::get&lt;1&gt;(existentials[name2exists[varname]].exists()).is_bool();</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;    }</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;    <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;      <span class="keyword">auto</span> var_opt = env.variable_of(varname.data());</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;      <span class="keywordflow">if</span>(var_opt.has_value()) {</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;        <span class="keywordflow">return</span> var_opt-&gt;get().sort.is_bool();</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;      }</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;    }</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;    assert(<span class="keyword">false</span>); <span class="comment">// undeclared variable.</span></div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;  }</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;<span class="comment">  /** Let `t` be a variable in a logical context, e.g. X OR Y.</span></div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;<span class="comment">   * If `t` is an integer, the semantics is that `t` is true whenever `t != 0`, and not only when `t == 1`.</span></div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;<span class="comment">   */</span></div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;  F booleanize(<span class="keyword">const</span> F&amp; t, <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659">Sig</a> sig) {</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;    <span class="keywordflow">if</span>(<a class="code" href="namespacelala.html#a5b74d0fad8edd85cd73c0b82b0df6345">is_logical</a>(sig) &amp;&amp; !is_boolean(t)) {</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;      <span class="keywordflow">return</span> <a class="code" href="namespacelala.html#a644d3cb2c2ce4391ea7fd253af991cf1">ternarize</a>(F::make_binary(t, <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a09229291382be14131439437cd0709c6">NEQ</a>, F::make_z(0)));</div>
 <div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;    }</div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    assert(<span class="keyword">false</span>); <span class="comment">// undeclared variable.</span></div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;  }</div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;<span class="comment">  /** Let `t` be a variable in a logical context, e.g. X OR Y.</span></div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;<span class="comment">   * If `t` is an integer, the semantics is that `t` is true whenever `t != 0`, and not only when `t == 1`.</span></div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;<span class="comment">   */</span></div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;  F booleanize(<span class="keyword">const</span> F&amp; t, <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659">Sig</a> sig) {</div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;    <span class="keywordflow">if</span>(<a class="code" href="namespacelala.html#a5b74d0fad8edd85cd73c0b82b0df6345">is_logical</a>(sig) &amp;&amp; !is_boolean(t)) {</div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;      <span class="keywordflow">return</span> <a class="code" href="namespacelala.html#ad33f36a358eb1db17dc852e6bb2bf314">ternarize</a>(F::make_binary(t, <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a09229291382be14131439437cd0709c6">NEQ</a>, F::make_z(0)));</div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;    }</div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;    <span class="keywordflow">return</span> t;</div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;  }</div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160; </div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;  F ternarize_binary(F f, <span class="keywordtype">bool</span> toplevel) {<span class="comment"></span></div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;<span class="comment">    /** We introduce a new temporary variable `t0`.</span></div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;<span class="comment">     * The type of `t0` is decided by the return type of the operator and whether we are at toplevel or not.</span></div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;    F t0;</div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;    F t1;</div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;    F t2;</div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;    <span class="keywordtype">bool</span> almost_ternary = <span class="keyword">false</span>;<span class="comment"></span></div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;<span class="comment">    /** We first handle &quot;almost ternarized&quot; constraint.</span></div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;<span class="comment">     * If the symbol is already an equality with a variable on one side, we only need to ternarize the other half.</span></div>
-<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;<span class="comment">     * We set t0 to be the variable and proceeds. */</span></div>
-<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;    <span class="keywordflow">if</span>((((f.seq(0).is_variable() || f.seq(0).is_constant()) &amp;&amp; f.seq(1).is_binary())</div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;     ||((f.seq(1).is_variable() || f.seq(1).is_constant()) &amp;&amp; f.seq(0).is_binary()))</div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;     &amp;&amp; (f.sig() == <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659ad60ed828472e93a9450a506013af502b">EQUIV</a> || f.sig() == <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a540dd9fbbe27d8900c8cd221cdc50134">EQ</a>))</div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;    {</div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;      <span class="keywordtype">int</span> left = f.seq(0).is_binary();</div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;      <span class="keywordtype">int</span> right = f.seq(1).is_binary();</div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;      t0 = <a class="code" href="namespacelala.html#ad33f36a358eb1db17dc852e6bb2bf314">ternarize</a>(f.seq(left));</div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;      f = f.seq(right);</div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;      toplevel = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;      almost_ternary = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;    }</div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;    t1 = <a class="code" href="namespacelala.html#ad33f36a358eb1db17dc852e6bb2bf314">ternarize</a>(f.seq(0));</div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;    t1 = booleanize(t1, f.sig());</div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;    t2 = <a class="code" href="namespacelala.html#ad33f36a358eb1db17dc852e6bb2bf314">ternarize</a>(f.seq(1));</div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;    t2 = booleanize(t2, f.sig());</div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;    <span class="keywordflow">if</span>(!almost_ternary) {<span class="comment"></span></div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;<span class="comment">    /** We don&#39;t need to create t0 for these formulas at toplevel. */</span></div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;      <span class="keywordflow">if</span>(toplevel &amp;&amp; (f.sig() == <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a09229291382be14131439437cd0709c6">NEQ</a> || f.sig() == <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a027b109c9077f7a388b91ef4df848041">XOR</a> || f.sig() == <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a1bbad9f2ee9d2a009ac601ea93770cdd">IMPLY</a> || f.sig() == <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a9a76ae871be40983573273fc3e619651">GT</a> || f.sig() == <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659ab511bc3f2670b98e55fc89f91b427e69">LT</a>)) {}</div>
-<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;      <span class="keywordflow">else</span> <span class="keywordflow">if</span>(<a class="code" href="namespacelala.html#a5b74d0fad8edd85cd73c0b82b0df6345">is_logical</a>(f.sig()) || <a class="code" href="namespacelala.html#a18a0c6edcd92ebf5d23f69e8b9211fb9">is_predicate</a>(f.sig())</div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;        || ((f.sig() == <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a862175bb85bef55b954e572e71f4ffcd">MIN</a> || f.sig() == <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659aab34a3b23024271c113e7e4b1514bbe0">MAX</a>) &amp;&amp; is_boolean(t1) &amp;&amp; is_boolean(t2)))</div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;      {</div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;        t0 = toplevel ? ternarize_constant(F::make_z(1)) : introduce_bool_var();</div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;      }</div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;      <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;        t0 = toplevel ? ternarize_constant(F::make_z(1)) : introduce_int_var();</div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;      }</div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;    }</div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;    <span class="keywordflow">switch</span>(f.sig()) {</div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;      <span class="keywordflow">case</span> <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659ad1c7a8b98bec59dc3f6ac28209040e8e">AND</a>:</div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;      <span class="keywordflow">case</span> <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a862175bb85bef55b954e572e71f4ffcd">MIN</a>: <span class="keywordflow">return</span> push_ternary(t0, t1, <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a862175bb85bef55b954e572e71f4ffcd">MIN</a>, t2);</div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;      <span class="keywordflow">case</span> <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a5398910447fe7bf71bd3a3bb4ae539c9">OR</a>:</div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;      <span class="keywordflow">case</span> <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659aab34a3b23024271c113e7e4b1514bbe0">MAX</a>: <span class="keywordflow">return</span> push_ternary(t0, t1, <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659aab34a3b23024271c113e7e4b1514bbe0">MAX</a>, t2);</div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;      <span class="keywordflow">case</span> <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a540dd9fbbe27d8900c8cd221cdc50134">EQ</a>:</div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;      <span class="keywordflow">case</span> <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659ad60ed828472e93a9450a506013af502b">EQUIV</a>: <span class="keywordflow">return</span> push_ternary(t0, t1, <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a540dd9fbbe27d8900c8cd221cdc50134">EQ</a>, t2);</div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;      <span class="comment">// x xor y ~~&gt; t1 = not t2 /\ t1 = (x = y)</span></div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;      <span class="keywordflow">case</span> <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a09229291382be14131439437cd0709c6">NEQ</a>:</div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;      <span class="keywordflow">case</span> <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a027b109c9077f7a388b91ef4df848041">XOR</a>: {</div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;        <span class="keywordflow">if</span>(toplevel) {</div>
-<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;          <span class="keywordflow">return</span> push_ternary(ternarize_constant(F::make_z(0)), t1, <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a540dd9fbbe27d8900c8cd221cdc50134">EQ</a>, t2);</div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;        }</div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;        push_ternary(<a class="code" href="namespacelala.html#ad33f36a358eb1db17dc852e6bb2bf314">ternarize</a>(F::make_unary(<a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a18f2489be7b8b3ac8699bdf3508e1a6e">NOT</a>, t0)), t1, <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a540dd9fbbe27d8900c8cd221cdc50134">EQ</a>, t2);</div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;        <span class="keywordflow">return</span> t0;</div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;      }</div>
-<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;      <span class="keywordflow">case</span> <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a1bbad9f2ee9d2a009ac601ea93770cdd">IMPLY</a>: <span class="keywordflow">return</span> <a class="code" href="namespacelala.html#ad33f36a358eb1db17dc852e6bb2bf314">ternarize</a>(F::make_binary(F::make_unary(<a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a18f2489be7b8b3ac8699bdf3508e1a6e">NOT</a>, t1), <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a5398910447fe7bf71bd3a3bb4ae539c9">OR</a>, t2), toplevel);</div>
-<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;      <span class="keywordflow">case</span> <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a17a7bbf0e65530521932e221dc59c066">LEQ</a>: <span class="keywordflow">return</span> push_ternary(t0, t1, <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a17a7bbf0e65530521932e221dc59c066">LEQ</a>, t2);</div>
-<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;      <span class="comment">// x &gt;= y ~~&gt; y &lt;= x</span></div>
-<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;      <span class="keywordflow">case</span> <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a641b631289f14a66696ebca79e717cad">GEQ</a>: <span class="keywordflow">return</span> push_ternary(t0, t2, <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a17a7bbf0e65530521932e221dc59c066">LEQ</a>, t1);</div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;      <span class="comment">// x &gt; y ~~&gt; !(x &lt;= y)</span></div>
-<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;      <span class="keywordflow">case</span> <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a9a76ae871be40983573273fc3e619651">GT</a>: {</div>
-<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;        <span class="keywordflow">if</span>(toplevel) {</div>
-<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;          <span class="keywordflow">return</span> push_ternary(ternarize_constant(F::make_z(0)), t1, <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a17a7bbf0e65530521932e221dc59c066">LEQ</a>, t2);</div>
-<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;        }</div>
-<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;        push_ternary(<a class="code" href="namespacelala.html#ad33f36a358eb1db17dc852e6bb2bf314">ternarize</a>(F::make_unary(<a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a18f2489be7b8b3ac8699bdf3508e1a6e">NOT</a>, t0)), t1, <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a17a7bbf0e65530521932e221dc59c066">LEQ</a>, t2);</div>
-<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;        <span class="keywordflow">return</span> t0;</div>
-<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;      }</div>
-<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;      <span class="comment">// x &lt; y ~~&gt; y &gt; x ~~&gt; !(y &lt;= x)</span></div>
-<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;      <span class="keywordflow">case</span> <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659ab511bc3f2670b98e55fc89f91b427e69">LT</a>: {</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    <span class="keywordflow">return</span> t;</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;  }</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160; </div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;  F ternarize_binary(F f, <span class="keywordtype">bool</span> toplevel) {</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;    <span class="keywordflow">if</span>(f.sig() == <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a66ca795a675e7b0f114cc986a45323b4">IN</a> &amp;&amp; f.is_binary() &amp;&amp; f.seq(0).is_variable() &amp;&amp; f.seq(1).is(F::S)) {</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;      <span class="keywordflow">if</span>(toplevel) {</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;        compute(<a class="code" href="namespacelala.html#af1aed9c4d9ba677f7255545ffa2f7df3">decompose_in_constraint</a>(f));<span class="comment"></span></div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;<span class="comment">        /** The decomposition of x in S does not capture the approximation x &gt;= min(S) /\ x &lt;= max(S).</span></div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;<span class="comment">         * Therefore, we still give this unary constraint to the interval store in order to over-approximate it.</span></div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;<span class="comment">         * We avoid adding the over-approximation if the decomposition is also a unary constraint. */</span></div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;        <span class="keywordflow">if</span>(f.seq(1).s().size() &gt; 1) {</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;          conjunction.push_back(f);</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;        }</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;        <span class="keywordflow">return</span> F::make_true(); <span class="comment">/* unused anyways. */</span></div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;      }</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;      <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespacelala.html#a644d3cb2c2ce4391ea7fd253af991cf1">ternarize</a>(<a class="code" href="namespacelala.html#af1aed9c4d9ba677f7255545ffa2f7df3">decompose_in_constraint</a>(f), toplevel);</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;      }</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;    }<span class="comment"></span></div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;<span class="comment">    /** We introduce a new temporary variable `t0`.</span></div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;<span class="comment">     * The type of `t0` is decided by the return type of the operator and whether we are at toplevel or not.</span></div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;    F t0;</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;    F t1;</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;    F t2;</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;    <span class="keywordtype">bool</span> almost_ternary = <span class="keyword">false</span>;<span class="comment"></span></div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;<span class="comment">    /** We first handle &quot;almost ternarized&quot; constraint.</span></div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;<span class="comment">     * If the symbol is already an equality with a variable on one side, we only need to ternarize the other half.</span></div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;<span class="comment">     * We set t0 to be the variable and proceeds. */</span></div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;    <span class="keywordflow">if</span>((((f.seq(0).is_variable() || f.seq(0).is_constant()) &amp;&amp; f.seq(1).is_binary())</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;     ||((f.seq(1).is_variable() || f.seq(1).is_constant()) &amp;&amp; f.seq(0).is_binary()))</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;     &amp;&amp; (f.sig() == <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659ad60ed828472e93a9450a506013af502b">EQUIV</a> || f.sig() == <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a540dd9fbbe27d8900c8cd221cdc50134">EQ</a>))</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;    {</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;      <span class="keywordtype">int</span> left = f.seq(0).is_binary();</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;      <span class="keywordtype">int</span> right = f.seq(1).is_binary();<span class="comment"></span></div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;<span class="comment">      /** If a IN constraint appears on the right side, we decompose it here and immediately call ternarize again. */</span></div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;      <span class="keywordflow">if</span>(f.seq(right).sig() == <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a66ca795a675e7b0f114cc986a45323b4">IN</a>) {</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespacelala.html#a644d3cb2c2ce4391ea7fd253af991cf1">ternarize</a>(F::make_binary(f.seq(left), <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a540dd9fbbe27d8900c8cd221cdc50134">EQ</a>, <a class="code" href="namespacelala.html#af1aed9c4d9ba677f7255545ffa2f7df3">decompose_in_constraint</a>(f.seq(right))), toplevel);</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;      }</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;      t0 = <a class="code" href="namespacelala.html#a644d3cb2c2ce4391ea7fd253af991cf1">ternarize</a>(f.seq(left));</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;      f = f.seq(right);</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;      toplevel = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;      almost_ternary = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;    }</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;    t1 = <a class="code" href="namespacelala.html#a644d3cb2c2ce4391ea7fd253af991cf1">ternarize</a>(f.seq(0));</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;    t1 = booleanize(t1, f.sig());</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;    t2 = <a class="code" href="namespacelala.html#a644d3cb2c2ce4391ea7fd253af991cf1">ternarize</a>(f.seq(1));</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;    t2 = booleanize(t2, f.sig());</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;    <span class="keywordflow">if</span>(!almost_ternary) {<span class="comment"></span></div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;<span class="comment">    /** We don&#39;t need to create t0 for these formulas at toplevel. */</span></div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;      <span class="keywordflow">if</span>(toplevel &amp;&amp; (f.sig() == <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a09229291382be14131439437cd0709c6">NEQ</a> || f.sig() == <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a027b109c9077f7a388b91ef4df848041">XOR</a> || f.sig() == <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a1bbad9f2ee9d2a009ac601ea93770cdd">IMPLY</a> || f.sig() == <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a9a76ae871be40983573273fc3e619651">GT</a> || f.sig() == <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659ab511bc3f2670b98e55fc89f91b427e69">LT</a>)) {}</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;      <span class="keywordflow">else</span> <span class="keywordflow">if</span>(<a class="code" href="namespacelala.html#a5b74d0fad8edd85cd73c0b82b0df6345">is_logical</a>(f.sig()) || <a class="code" href="namespacelala.html#a18a0c6edcd92ebf5d23f69e8b9211fb9">is_predicate</a>(f.sig())</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;        || ((f.sig() == <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a862175bb85bef55b954e572e71f4ffcd">MIN</a> || f.sig() == <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659aab34a3b23024271c113e7e4b1514bbe0">MAX</a>) &amp;&amp; is_boolean(t1) &amp;&amp; is_boolean(t2)))</div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;      {</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;        t0 = toplevel ? ternarize_constant(F::make_z(1)) : introduce_bool_var();</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;      }</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;      <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;        t0 = toplevel ? ternarize_constant(F::make_z(1)) : introduce_int_var();</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;      }</div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;    }</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;    <span class="keywordflow">switch</span>(f.sig()) {</div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;      <span class="keywordflow">case</span> <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659ad1c7a8b98bec59dc3f6ac28209040e8e">AND</a>:</div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;      <span class="keywordflow">case</span> <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a862175bb85bef55b954e572e71f4ffcd">MIN</a>: <span class="keywordflow">return</span> push_ternary(t0, t1, <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a862175bb85bef55b954e572e71f4ffcd">MIN</a>, t2);</div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;      <span class="keywordflow">case</span> <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a5398910447fe7bf71bd3a3bb4ae539c9">OR</a>:</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;      <span class="keywordflow">case</span> <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659aab34a3b23024271c113e7e4b1514bbe0">MAX</a>: <span class="keywordflow">return</span> push_ternary(t0, t1, <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659aab34a3b23024271c113e7e4b1514bbe0">MAX</a>, t2);</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;      <span class="keywordflow">case</span> <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a540dd9fbbe27d8900c8cd221cdc50134">EQ</a>:</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;      <span class="keywordflow">case</span> <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659ad60ed828472e93a9450a506013af502b">EQUIV</a>: <span class="keywordflow">return</span> push_ternary(t0, t1, <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a540dd9fbbe27d8900c8cd221cdc50134">EQ</a>, t2);</div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;      <span class="comment">// x xor y ~~&gt; t1 = not t2 /\ t1 = (x = y)</span></div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;      <span class="keywordflow">case</span> <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a09229291382be14131439437cd0709c6">NEQ</a>:</div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;      <span class="keywordflow">case</span> <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a027b109c9077f7a388b91ef4df848041">XOR</a>: {</div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;        <span class="keywordflow">if</span>(toplevel) {</div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;          <span class="keywordflow">return</span> push_ternary(ternarize_constant(F::make_z(0)), t1, <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a540dd9fbbe27d8900c8cd221cdc50134">EQ</a>, t2);</div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;        }</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;        push_ternary(<a class="code" href="namespacelala.html#a644d3cb2c2ce4391ea7fd253af991cf1">ternarize</a>(F::make_unary(<a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a18f2489be7b8b3ac8699bdf3508e1a6e">NOT</a>, t0)), t1, <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a540dd9fbbe27d8900c8cd221cdc50134">EQ</a>, t2);</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;        <span class="keywordflow">return</span> t0;</div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;      }</div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;      <span class="keywordflow">case</span> <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a1bbad9f2ee9d2a009ac601ea93770cdd">IMPLY</a>: <span class="keywordflow">return</span> <a class="code" href="namespacelala.html#a644d3cb2c2ce4391ea7fd253af991cf1">ternarize</a>(F::make_binary(F::make_unary(<a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a18f2489be7b8b3ac8699bdf3508e1a6e">NOT</a>, t1), <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a5398910447fe7bf71bd3a3bb4ae539c9">OR</a>, t2), toplevel);</div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;      <span class="keywordflow">case</span> <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a17a7bbf0e65530521932e221dc59c066">LEQ</a>: <span class="keywordflow">return</span> push_ternary(t0, t1, <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a17a7bbf0e65530521932e221dc59c066">LEQ</a>, t2);</div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;      <span class="comment">// x &gt;= y ~~&gt; y &lt;= x</span></div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;      <span class="keywordflow">case</span> <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a641b631289f14a66696ebca79e717cad">GEQ</a>: <span class="keywordflow">return</span> push_ternary(t0, t2, <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a17a7bbf0e65530521932e221dc59c066">LEQ</a>, t1);</div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;      <span class="comment">// x &gt; y ~~&gt; !(x &lt;= y)</span></div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;      <span class="keywordflow">case</span> <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a9a76ae871be40983573273fc3e619651">GT</a>: {</div>
 <div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;        <span class="keywordflow">if</span>(toplevel) {</div>
-<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;          <span class="keywordflow">return</span> push_ternary(ternarize_constant(F::make_z(0)), t2, <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a17a7bbf0e65530521932e221dc59c066">LEQ</a>, t1);</div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;          <span class="keywordflow">return</span> push_ternary(ternarize_constant(F::make_z(0)), t1, <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a17a7bbf0e65530521932e221dc59c066">LEQ</a>, t2);</div>
 <div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;        }</div>
-<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;        push_ternary(<a class="code" href="namespacelala.html#ad33f36a358eb1db17dc852e6bb2bf314">ternarize</a>(F::make_unary(<a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a18f2489be7b8b3ac8699bdf3508e1a6e">NOT</a>, t0)), t2, <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a17a7bbf0e65530521932e221dc59c066">LEQ</a>, t1);</div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;        push_ternary(<a class="code" href="namespacelala.html#a644d3cb2c2ce4391ea7fd253af991cf1">ternarize</a>(F::make_unary(<a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a18f2489be7b8b3ac8699bdf3508e1a6e">NOT</a>, t0)), t1, <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a17a7bbf0e65530521932e221dc59c066">LEQ</a>, t2);</div>
 <div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;        <span class="keywordflow">return</span> t0;</div>
 <div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;      }</div>
-<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;      <span class="keywordflow">default</span>: {</div>
-<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;        <span class="keywordflow">return</span> push_ternary(t0, t1, f.sig(), t2);</div>
-<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;      }</div>
-<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;    }</div>
-<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;  }</div>
-<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160; </div>
-<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;  std::pair&lt;F, F&gt; binarize_middle(<span class="keyword">const</span> F&amp; f) {</div>
-<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;    assert(f.is(F::Seq) &amp;&amp; f.seq().size() &gt; 2);</div>
-<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;    battery::vector&lt;F, allocator_type&gt; left;</div>
-<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;    battery::vector&lt;F, allocator_type&gt; right;</div>
-<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;    <span class="keywordtype">int</span> i;</div>
-<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;    <span class="keywordflow">for</span>(i = 0; i &lt; f.seq().size() / 2; ++i) {</div>
-<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;      left.push_back(f.seq(i));</div>
-<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;    }</div>
-<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;    <span class="keywordflow">for</span>(; i &lt; f.seq().size(); ++i) {</div>
-<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;      right.push_back(f.seq(i));</div>
-<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;    }</div>
-<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;    <span class="keywordflow">return</span> {</div>
-<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;      <a class="code" href="namespacelala.html#ad33f36a358eb1db17dc852e6bb2bf314">ternarize</a>(left.size() == 1 ? left.back() : F::make_nary(f.sig(), std::move(left))),</div>
-<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;      <a class="code" href="namespacelala.html#ad33f36a358eb1db17dc852e6bb2bf314">ternarize</a>(right.size() == 1 ? right.back() : F::make_nary(f.sig(), std::move(right)))};</div>
-<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;  }</div>
-<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160; </div>
-<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;  F ternarize_nary(<span class="keyword">const</span> F&amp; f, <span class="keywordtype">bool</span> toplevel) {</div>
-<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;    <span class="keywordflow">if</span>(<a class="code" href="namespacelala.html#a6b055c3c2499841f43012304df8c0686">is_associative</a>(f.sig())) {</div>
-<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;      <span class="keyword">auto</span> [t1, t2] = binarize_middle(f);</div>
-<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;      <span class="keywordflow">return</span> <a class="code" href="namespacelala.html#ad33f36a358eb1db17dc852e6bb2bf314">ternarize</a>(F::make_binary(t1, f.sig(), t2), toplevel);</div>
-<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;    }</div>
-<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;    <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;      F tmp = <a class="code" href="namespacelala.html#ad33f36a358eb1db17dc852e6bb2bf314">ternarize</a>(F::make_binary(f.seq(0), f.sig(), f.seq(1)));</div>
-<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;      <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 2; i &lt; f.seq().size() - 1; i++) {</div>
-<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;        tmp = <a class="code" href="namespacelala.html#ad33f36a358eb1db17dc852e6bb2bf314">ternarize</a>(F::make_binary(tmp, f.sig(), f.seq(i)));</div>
-<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;      }</div>
-<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;      tmp = <a class="code" href="namespacelala.html#ad33f36a358eb1db17dc852e6bb2bf314">ternarize</a>(F::make_binary(tmp, f.sig(), f.seq(f.seq().size() - 1)), toplevel);</div>
-<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;      <span class="keywordflow">return</span> tmp;</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;      <span class="comment">// x &lt; y ~~&gt; y &gt; x ~~&gt; !(y &lt;= x)</span></div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;      <span class="keywordflow">case</span> <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659ab511bc3f2670b98e55fc89f91b427e69">LT</a>: {</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;        <span class="keywordflow">if</span>(toplevel) {</div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;          <span class="keywordflow">return</span> push_ternary(ternarize_constant(F::make_z(0)), t2, <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a17a7bbf0e65530521932e221dc59c066">LEQ</a>, t1);</div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;        }</div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;        push_ternary(<a class="code" href="namespacelala.html#a644d3cb2c2ce4391ea7fd253af991cf1">ternarize</a>(F::make_unary(<a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a18f2489be7b8b3ac8699bdf3508e1a6e">NOT</a>, t0)), t2, <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a17a7bbf0e65530521932e221dc59c066">LEQ</a>, t1);</div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;        <span class="keywordflow">return</span> t0;</div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;      }</div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;      <span class="keywordflow">default</span>: {</div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;        <span class="keywordflow">return</span> push_ternary(t0, t1, f.sig(), t2);</div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;      }</div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;    }</div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;  }</div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160; </div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;  std::pair&lt;F, F&gt; binarize_middle(<span class="keyword">const</span> F&amp; f) {</div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;    assert(f.is(F::Seq) &amp;&amp; f.seq().size() &gt; 2);</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;    battery::vector&lt;F, allocator_type&gt; left;</div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;    battery::vector&lt;F, allocator_type&gt; right;</div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;    <span class="keywordtype">int</span> i;</div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;    <span class="keywordflow">for</span>(i = 0; i &lt; f.seq().size() / 2; ++i) {</div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;      left.push_back(f.seq(i));</div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;    }</div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;    <span class="keywordflow">for</span>(; i &lt; f.seq().size(); ++i) {</div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;      right.push_back(f.seq(i));</div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;    }</div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;    <span class="keywordflow">return</span> {</div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;      <a class="code" href="namespacelala.html#a644d3cb2c2ce4391ea7fd253af991cf1">ternarize</a>(left.size() == 1 ? left.back() : F::make_nary(f.sig(), std::move(left))),</div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;      <a class="code" href="namespacelala.html#a644d3cb2c2ce4391ea7fd253af991cf1">ternarize</a>(right.size() == 1 ? right.back() : F::make_nary(f.sig(), std::move(right)))};</div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;  }</div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160; </div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;  F ternarize_nary(<span class="keyword">const</span> F&amp; f, <span class="keywordtype">bool</span> toplevel) {</div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;    <span class="keywordflow">if</span>(<a class="code" href="namespacelala.html#a6b055c3c2499841f43012304df8c0686">is_associative</a>(f.sig())) {</div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;      <span class="keyword">auto</span> [t1, t2] = binarize_middle(f);</div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;      <span class="keywordflow">return</span> <a class="code" href="namespacelala.html#a644d3cb2c2ce4391ea7fd253af991cf1">ternarize</a>(F::make_binary(t1, f.sig(), t2), toplevel);</div>
 <div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;    }</div>
-<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;  }</div>
-<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160; </div>
-<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;  F <a class="code" href="namespacelala.html#ad33f36a358eb1db17dc852e6bb2bf314">ternarize</a>(<span class="keyword">const</span> F&amp; f, <span class="keywordtype">bool</span> toplevel = <span class="keyword">false</span>) {</div>
-<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;    <span class="keywordflow">if</span> (f.is_variable()) {</div>
-<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;      <span class="keywordflow">if</span>(toplevel) {</div>
-<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespacelala.html#ad33f36a358eb1db17dc852e6bb2bf314">ternarize</a>(F::make_binary(f, <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a09229291382be14131439437cd0709c6">NEQ</a>, F::make_z(0)), <span class="keyword">true</span>);</div>
-<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;      }</div>
-<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;      <span class="keywordflow">return</span> f;</div>
-<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;    }</div>
-<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (f.is(F::Z) || f.is(<a class="code" href="namespacelala_1_1local.html#a41aab129767430c7ec1557da582c168b">F::B</a>)) {</div>
-<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;      <span class="keywordflow">if</span>(toplevel) {</div>
-<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;        <span class="keywordflow">return</span> f.to_z() != 0 ? F::make_true() : F::make_false();</div>
-<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;      }</div>
-<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;      <span class="keywordflow">return</span> ternarize_constant(f);</div>
-<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;    }</div>
-<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (f.is(F::S)) {</div>
-<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;      <span class="keywordflow">return</span> f;</div>
-<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;    }</div>
-<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (f.is_unary()) {</div>
-<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;      <span class="keywordflow">return</span> ternarize_unary(f, toplevel);</div>
-<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;    }</div>
-<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (f.is_binary()) {</div>
-<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;      <span class="keywordflow">return</span> ternarize_binary(f, toplevel);</div>
-<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;    }</div>
-<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (f.is(F::Seq) &amp;&amp; f.seq().size() &gt; 2) {</div>
-<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;      <span class="keywordflow">return</span> ternarize_nary(f, toplevel);</div>
-<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;    }</div>
-<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;    printf(<span class="stringliteral">&quot;Unsupported formula: &quot;</span>); f.print(<span class="keyword">false</span>); printf(<span class="stringliteral">&quot;\n&quot;</span>);</div>
-<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;    assert(<span class="keyword">false</span>);</div>
-<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;    <span class="keywordflow">return</span> F::make_false();</div>
-<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;  }</div>
-<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160; </div>
-<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;  <span class="keywordtype">void</span> compute(<span class="keyword">const</span> F&amp; f) {</div>
-<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;    <span class="keywordflow">if</span> (f.is(F::Seq) &amp;&amp; f.sig() == <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659ad1c7a8b98bec59dc3f6ac28209040e8e">AND</a>) {</div>
-<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;      <span class="keyword">auto</span> seq = f.seq();</div>
-<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;      <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; seq.size(); ++i) {</div>
-<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;        compute(f.seq(i));</div>
-<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;      }</div>
-<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;    }</div>
-<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(f.is(F::E)) {</div>
-<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;      existentials.push_back(f);</div>
-<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;      std::string varname(battery::get&lt;0&gt;(f.exists()).data());</div>
-<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;      name2exists[varname] = existentials.size() - 1;<span class="comment"></span></div>
-<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;<span class="comment">      /** If ternarize has been called before, some temporary variables __VAR_Z_* and __VAR_B_* might already have been created.</span></div>
-<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;<span class="comment">       * In that case, we need to update the counters to avoid conflicts.</span></div>
-<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;<span class="comment">       * This is not perfect, because it requires existential quantifier are in the beginning of the formula (before we introduce any variable).</span></div>
-<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;<span class="comment">       * For more robustness, we should rename the variables in the formula, if introduced_int_vars &gt;= X in __VAR_Z_X.</span></div>
-<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;<span class="comment">       */</span></div>
-<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;      introduce_existing_var(varname);</div>
-<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;    }</div>
-<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(!f.is(F::ESeq) &amp;&amp; !is_ternary_form(f, ternarize_all)) {</div>
-<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;      <a class="code" href="namespacelala.html#ad33f36a358eb1db17dc852e6bb2bf314">ternarize</a>(f, <span class="keyword">true</span>);</div>
-<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;    }</div>
-<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;    <span class="comment">// Either it is unary, or already in ternary form.</span></div>
-<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;    <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;      conjunction.push_back(f);</div>
-<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;    }</div>
-<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;  }</div>
-<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160; </div>
-<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;  F create() &amp;&amp; {</div>
-<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;    <span class="keyword">auto</span> ternarized_formula = std::move(existentials);</div>
-<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; conjunction.size(); ++i) {</div>
-<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;      ternarized_formula.push_back(std::move(conjunction[i]));</div>
-<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;    }</div>
-<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;    <span class="keywordflow">if</span>(ternarized_formula.size() == 1) {</div>
-<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;      <span class="keywordflow">return</span> std::move(ternarized_formula[0]);</div>
-<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;    }</div>
-<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;    <span class="keywordflow">return</span> F::make_nary(<a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659ad1c7a8b98bec59dc3f6ac28209040e8e">AND</a>, std::move(ternarized_formula), <a class="code" href="sort_8hpp.html#af5d67e1d1856b2c01653a0f9ab95d391">UNTYPED</a>, <span class="keyword">false</span>);</div>
-<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;  }</div>
-<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;};</div>
-<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160; </div>
-<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;} <span class="comment">// namespace impl</span></div>
-<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;<span class="comment"> * Given a formula `f`, we transform it into a conjunction of formulas of this form:</span></div>
-<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;<span class="comment"> * 1. `x &lt;op&gt; c` where `c` is a constant.</span></div>
-<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;<span class="comment"> * 2. `x = (y &lt;op&gt; z)` where `&lt;op&gt;` is a binary operator, either arithmetic or a comparison (`=`, `&lt;=`).</span></div>
-<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;<span class="comment"> * This ternary form is used by the lala-pc/PIR solver.</span></div>
-<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> F, <span class="keyword">class</span> Env = VarEnv&lt;battery::standard_allocator&gt;&gt;</div>
-<div class="line"><a name="l00423"></a><span class="lineno"><a class="line" href="namespacelala.html#ad33f36a358eb1db17dc852e6bb2bf314">  423</a></span>&#160;F <a class="code" href="namespacelala.html#ad33f36a358eb1db17dc852e6bb2bf314">ternarize</a>(<span class="keyword">const</span> F&amp; f, <span class="keyword">const</span> Env&amp; env = Env(), <span class="keywordtype">bool</span> ternarize_all = <span class="keyword">false</span>) {</div>
-<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;  impl::Ternarizer&lt;F, Env&gt; ternarizer(env, ternarize_all);</div>
-<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;  ternarizer.compute(f);</div>
-<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;  <span class="keywordflow">return</span> std::move(ternarizer).create();</div>
-<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;}</div>
-<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160; </div>
-<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;} <span class="comment">// namespace lala</span></div>
-<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160; </div>
-<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// LALA_CORE_TERNARIZE_HPP</span></div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;    <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;      F tmp = <a class="code" href="namespacelala.html#a644d3cb2c2ce4391ea7fd253af991cf1">ternarize</a>(F::make_binary(f.seq(0), f.sig(), f.seq(1)));</div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;      <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 2; i &lt; f.seq().size() - 1; i++) {</div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;        tmp = <a class="code" href="namespacelala.html#a644d3cb2c2ce4391ea7fd253af991cf1">ternarize</a>(F::make_binary(tmp, f.sig(), f.seq(i)));</div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;      }</div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;      tmp = <a class="code" href="namespacelala.html#a644d3cb2c2ce4391ea7fd253af991cf1">ternarize</a>(F::make_binary(tmp, f.sig(), f.seq(f.seq().size() - 1)), toplevel);</div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;      <span class="keywordflow">return</span> tmp;</div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;    }</div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;  }</div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160; </div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;  F <a class="code" href="namespacelala.html#a644d3cb2c2ce4391ea7fd253af991cf1">ternarize</a>(<span class="keyword">const</span> F&amp; f, <span class="keywordtype">bool</span> toplevel = <span class="keyword">false</span>) {</div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;    <span class="keywordflow">if</span> (f.is_variable()) {</div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;      <span class="keywordflow">if</span>(toplevel) {</div>
+<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespacelala.html#a644d3cb2c2ce4391ea7fd253af991cf1">ternarize</a>(F::make_binary(f, <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a09229291382be14131439437cd0709c6">NEQ</a>, F::make_z(0)), <span class="keyword">true</span>);</div>
+<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;      }</div>
+<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;      <span class="keywordflow">return</span> f;</div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;    }</div>
+<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (f.is(F::Z) || f.is(<a class="code" href="namespacelala_1_1local.html#a41aab129767430c7ec1557da582c168b">F::B</a>)) {</div>
+<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;      <span class="keywordflow">if</span>(toplevel) {</div>
+<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;        <span class="keywordflow">return</span> f.to_z() != 0 ? F::make_true() : F::make_false();</div>
+<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;      }</div>
+<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;      <span class="keywordflow">return</span> ternarize_constant(f);</div>
+<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;    }</div>
+<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (f.is(F::S)) {</div>
+<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;      <span class="keywordflow">return</span> f;</div>
+<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;    }</div>
+<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (f.is_unary()) {</div>
+<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;      <span class="keywordflow">return</span> ternarize_unary(f, toplevel);</div>
+<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;    }</div>
+<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (f.is_binary()) {</div>
+<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;      <span class="keywordflow">return</span> ternarize_binary(f, toplevel);</div>
+<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;    }</div>
+<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (f.is(F::Seq) &amp;&amp; f.seq().size() &gt; 2) {</div>
+<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;      <span class="keywordflow">return</span> ternarize_nary(f, toplevel);</div>
+<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;    }</div>
+<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;    printf(<span class="stringliteral">&quot;Unsupported formula: &quot;</span>); f.print(<span class="keyword">false</span>); printf(<span class="stringliteral">&quot;\n&quot;</span>);</div>
+<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;    assert(<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;    <span class="keywordflow">return</span> F::make_false();</div>
+<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;  }</div>
+<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160; </div>
+<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;  <span class="keywordtype">void</span> compute(<span class="keyword">const</span> F&amp; f) {</div>
+<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;    <span class="keywordflow">if</span> (f.is(F::Seq) &amp;&amp; f.sig() == <a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659ad1c7a8b98bec59dc3f6ac28209040e8e">AND</a>) {</div>
+<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;      <span class="keyword">const</span> <span class="keyword">auto</span>&amp; seq = f.seq();</div>
+<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;      <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; seq.size(); ++i) {</div>
+<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;        compute(f.seq(i));</div>
+<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;      }</div>
+<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;    }</div>
+<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(f.is(F::E)) {</div>
+<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;      existentials.push_back(f);</div>
+<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;      std::string varname(battery::get&lt;0&gt;(f.exists()).data());</div>
+<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;      name2exists[varname] = existentials.size() - 1;<span class="comment"></span></div>
+<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;<span class="comment">      /** If ternarize has been called before, some temporary variables __VAR_Z_* and __VAR_B_* might already have been created.</span></div>
+<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;<span class="comment">       * In that case, we need to update the counters to avoid conflicts.</span></div>
+<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;<span class="comment">       * This is not perfect, because it requires existential quantifier to be in the beginning of the formula (before we introduce any variable).</span></div>
+<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;<span class="comment">       * For more robustness, we should rename the variables in the formula, if introduced_int_vars &gt;= X in __VAR_Z_X.</span></div>
+<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;<span class="comment">       */</span></div>
+<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;      introduce_existing_var(varname);</div>
+<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;    }</div>
+<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(!f.is(F::ESeq) &amp;&amp; !is_extended_ternary_form(f)) {</div>
+<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;      <a class="code" href="namespacelala.html#a644d3cb2c2ce4391ea7fd253af991cf1">ternarize</a>(f, <span class="keyword">true</span>);</div>
+<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;    }</div>
+<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;    <span class="comment">// Either it is unary, an extended formula or already in ternary form.</span></div>
+<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;    <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;      conjunction.push_back(f);</div>
+<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;    }</div>
+<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;  }</div>
+<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160; </div>
+<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;  F create() &amp;&amp; {</div>
+<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;    <span class="keyword">auto</span> ternarized_formula = std::move(existentials);</div>
+<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; conjunction.size(); ++i) {</div>
+<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;      ternarized_formula.push_back(std::move(conjunction[i]));</div>
+<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;    }</div>
+<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;    <span class="keywordflow">if</span>(ternarized_formula.size() == 1) {</div>
+<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;      <span class="keywordflow">return</span> std::move(ternarized_formula[0]);</div>
+<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;    }</div>
+<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;    <span class="keywordflow">return</span> F::make_nary(<a class="code" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659ad1c7a8b98bec59dc3f6ac28209040e8e">AND</a>, std::move(ternarized_formula), <a class="code" href="sort_8hpp.html#af5d67e1d1856b2c01653a0f9ab95d391">UNTYPED</a>, <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;  }</div>
+<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;};</div>
+<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160; </div>
+<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;} <span class="comment">// namespace impl</span></div>
+<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;<span class="comment"> * Given a formula `f`, we transform it into a conjunction of formulas of this form:</span></div>
+<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;<span class="comment"> * 1. `x &lt;op&gt; c` where `c` is a constant.</span></div>
+<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;<span class="comment"> * 2. `x = (y &lt;op&gt; z)` where `&lt;op&gt;` is a binary operator, either arithmetic or a comparison (`=`, `&lt;=`).</span></div>
+<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;<span class="comment"> * This ternary form is used by the lala-pc/PIR solver.</span></div>
+<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> F, <span class="keyword">class</span> Env = VarEnv&lt;battery::standard_allocator&gt;&gt;</div>
+<div class="line"><a name="l00431"></a><span class="lineno"><a class="line" href="namespacelala.html#a644d3cb2c2ce4391ea7fd253af991cf1">  431</a></span>&#160;F <a class="code" href="namespacelala.html#a644d3cb2c2ce4391ea7fd253af991cf1">ternarize</a>(<span class="keyword">const</span> F&amp; f, <span class="keyword">const</span> Env&amp; env = Env()) {</div>
+<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;  impl::Ternarizer&lt;F, Env&gt; ternarizer(env);</div>
+<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;  ternarizer.compute(f);</div>
+<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;  <span class="keywordflow">return</span> std::move(ternarizer).create();</div>
+<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;}</div>
+<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160; </div>
+<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;} <span class="comment">// namespace lala</span></div>
+<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160; </div>
+<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// LALA_CORE_TERNARIZE_HPP</span></div>
 <div class="ttc" id="aast_8hpp_html"><div class="ttname"><a href="ast_8hpp.html">ast.hpp</a></div></div>
 <div class="ttc" id="aenv_8hpp_html"><div class="ttname"><a href="env_8hpp.html">env.hpp</a></div></div>
 <div class="ttc" id="anamespacelala_1_1local_html_a41aab129767430c7ec1557da582c168b"><div class="ttname"><a href="namespacelala_1_1local.html#a41aab129767430c7ec1557da582c168b">lala::local::B</a></div><div class="ttdeci">::lala::B&lt;::battery::local_memory &gt; B</div><div class="ttdef"><b>Definition:</b> b.hpp:12</div></div>
 <div class="ttc" id="anamespacelala_html"><div class="ttname"><a href="namespacelala.html">lala</a></div><div class="ttdef"><b>Definition:</b> abstract_deps.hpp:14</div></div>
-<div class="ttc" id="anamespacelala_html_a18a0c6edcd92ebf5d23f69e8b9211fb9"><div class="ttname"><a href="namespacelala.html#a18a0c6edcd92ebf5d23f69e8b9211fb9">lala::is_predicate</a></div><div class="ttdeci">CUDA constexpr NI bool is_predicate(Sig sig)</div><div class="ttdef"><b>Definition:</b> ast.hpp:217</div></div>
+<div class="ttc" id="anamespacelala_html_a18a0c6edcd92ebf5d23f69e8b9211fb9"><div class="ttname"><a href="namespacelala.html#a18a0c6edcd92ebf5d23f69e8b9211fb9">lala::is_predicate</a></div><div class="ttdeci">CUDA constexpr NI bool is_predicate(Sig sig)</div><div class="ttdef"><b>Definition:</b> ast.hpp:256</div></div>
+<div class="ttc" id="anamespacelala_html_a1ce6029f0aeed7c9c49d36cb08bcab05"><div class="ttname"><a href="namespacelala.html#a1ce6029f0aeed7c9c49d36cb08bcab05">lala::is_constant_var</a></div><div class="ttdeci">bool is_constant_var(const F &amp;x)</div><div class="ttdef"><b>Definition:</b> ternarize.hpp:10</div></div>
 <div class="ttc" id="anamespacelala_html_a23e4cd05f6c827108d47c98443be639e"><div class="ttname"><a href="namespacelala.html#a23e4cd05f6c827108d47c98443be639e">lala::string_of_sig</a></div><div class="ttdeci">CUDA NI const char * string_of_sig(Sig sig)</div><div class="ttdef"><b>Definition:</b> ast.hpp:121</div></div>
+<div class="ttc" id="anamespacelala_html_a45cb02b7572ae2fcc282003ab02acf2b"><div class="ttname"><a href="namespacelala.html#a45cb02b7572ae2fcc282003ab02acf2b">lala::value_of_constant</a></div><div class="ttdeci">int value_of_constant(const F &amp;x)</div><div class="ttdef"><b>Definition:</b> ternarize.hpp:19</div></div>
 <div class="ttc" id="anamespacelala_html_a4be41540c5051a480d0611a3e216b659"><div class="ttname"><a href="namespacelala.html#a4be41540c5051a480d0611a3e216b659">lala::Sig</a></div><div class="ttdeci">Sig</div><div class="ttdef"><b>Definition:</b> ast.hpp:94</div></div>
 <div class="ttc" id="anamespacelala_html_a4be41540c5051a480d0611a3e216b659a027b109c9077f7a388b91ef4df848041"><div class="ttname"><a href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a027b109c9077f7a388b91ef4df848041">lala::XOR</a></div><div class="ttdeci">@ XOR</div><div class="ttdoc">Logical connector.</div><div class="ttdef"><b>Definition:</b> ast.hpp:114</div></div>
 <div class="ttc" id="anamespacelala_html_a4be41540c5051a480d0611a3e216b659a09229291382be14131439437cd0709c6"><div class="ttname"><a href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a09229291382be14131439437cd0709c6">lala::NEQ</a></div><div class="ttdeci">@ NEQ</div><div class="ttdoc">Equality relations.</div><div class="ttdef"><b>Definition:</b> ast.hpp:112</div></div>
@@ -538,6 +548,8 @@ $(document).ready(function(){initNavTree('ternarize_8hpp_source.html',''); initR
 <div class="ttc" id="anamespacelala_html_a4be41540c5051a480d0611a3e216b659a5398910447fe7bf71bd3a3bb4ae539c9"><div class="ttname"><a href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a5398910447fe7bf71bd3a3bb4ae539c9">lala::OR</a></div><div class="ttdeci">@ OR</div><div class="ttdoc">Unary arithmetic function symbols.</div><div class="ttdef"><b>Definition:</b> ast.hpp:114</div></div>
 <div class="ttc" id="anamespacelala_html_a4be41540c5051a480d0611a3e216b659a540dd9fbbe27d8900c8cd221cdc50134"><div class="ttname"><a href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a540dd9fbbe27d8900c8cd221cdc50134">lala::EQ</a></div><div class="ttdeci">@ EQ</div><div class="ttdoc">Unary arithmetic function symbols.</div><div class="ttdef"><b>Definition:</b> ast.hpp:112</div></div>
 <div class="ttc" id="anamespacelala_html_a4be41540c5051a480d0611a3e216b659a641b631289f14a66696ebca79e717cad"><div class="ttname"><a href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a641b631289f14a66696ebca79e717cad">lala::GEQ</a></div><div class="ttdeci">@ GEQ</div><div class="ttdoc">Unary arithmetic function symbols.</div><div class="ttdef"><b>Definition:</b> ast.hpp:113</div></div>
+<div class="ttc" id="anamespacelala_html_a4be41540c5051a480d0611a3e216b659a645a9c49ebbe25417ae4f4c57447aa02"><div class="ttname"><a href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a645a9c49ebbe25417ae4f4c57447aa02">lala::ADD</a></div><div class="ttdeci">@ ADD</div><div class="ttdoc">Unary arithmetic function symbols.</div><div class="ttdef"><b>Definition:</b> ast.hpp:97</div></div>
+<div class="ttc" id="anamespacelala_html_a4be41540c5051a480d0611a3e216b659a66ca795a675e7b0f114cc986a45323b4"><div class="ttname"><a href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a66ca795a675e7b0f114cc986a45323b4">lala::IN</a></div><div class="ttdeci">@ IN</div><div class="ttdoc">Set membership predicate.</div><div class="ttdef"><b>Definition:</b> ast.hpp:108</div></div>
 <div class="ttc" id="anamespacelala_html_a4be41540c5051a480d0611a3e216b659a862175bb85bef55b954e572e71f4ffcd"><div class="ttname"><a href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a862175bb85bef55b954e572e71f4ffcd">lala::MIN</a></div><div class="ttdeci">@ MIN</div><div class="ttdoc">Unary arithmetic function symbols.</div><div class="ttdef"><b>Definition:</b> ast.hpp:97</div></div>
 <div class="ttc" id="anamespacelala_html_a4be41540c5051a480d0611a3e216b659a9a76ae871be40983573273fc3e619651"><div class="ttname"><a href="namespacelala.html#a4be41540c5051a480d0611a3e216b659a9a76ae871be40983573273fc3e619651">lala::GT</a></div><div class="ttdeci">@ GT</div><div class="ttdoc">Arithmetic comparison predicates. When applied to set, it corresponds to the lexicographic ordering o...</div><div class="ttdef"><b>Definition:</b> ast.hpp:113</div></div>
 <div class="ttc" id="anamespacelala_html_a4be41540c5051a480d0611a3e216b659aab34a3b23024271c113e7e4b1514bbe0"><div class="ttname"><a href="namespacelala.html#a4be41540c5051a480d0611a3e216b659aab34a3b23024271c113e7e4b1514bbe0">lala::MAX</a></div><div class="ttdeci">@ MAX</div><div class="ttdoc">Binary arithmetic function symbols.</div><div class="ttdef"><b>Definition:</b> ast.hpp:97</div></div>
@@ -549,12 +561,12 @@ $(document).ready(function(){initNavTree('ternarize_8hpp_source.html',''); initR
 <div class="ttc" id="anamespacelala_html_a4be41540c5051a480d0611a3e216b659adc30e84e5ba6fbd73512392c6d37628e"><div class="ttname"><a href="namespacelala.html#a4be41540c5051a480d0611a3e216b659adc30e84e5ba6fbd73512392c6d37628e">lala::ABS</a></div><div class="ttdeci">@ ABS</div><div class="ttdoc">Unary arithmetic function symbols.</div><div class="ttdef"><b>Definition:</b> ast.hpp:96</div></div>
 <div class="ttc" id="anamespacelala_html_a4be41540c5051a480d0611a3e216b659ae0bb1bc3a0e410d6068f020c858d190c"><div class="ttname"><a href="namespacelala.html#a4be41540c5051a480d0611a3e216b659ae0bb1bc3a0e410d6068f020c858d190c">lala::SUB</a></div><div class="ttdeci">@ SUB</div><div class="ttdoc">Unary arithmetic function symbols.</div><div class="ttdef"><b>Definition:</b> ast.hpp:97</div></div>
 <div class="ttc" id="anamespacelala_html_a4be41540c5051a480d0611a3e216b659afd5c2ae3d5e7293327344b6c3485fc82"><div class="ttname"><a href="namespacelala.html#a4be41540c5051a480d0611a3e216b659afd5c2ae3d5e7293327344b6c3485fc82">lala::NEG</a></div><div class="ttdeci">@ NEG</div><div class="ttdoc">Unary arithmetic function symbols.</div><div class="ttdef"><b>Definition:</b> ast.hpp:96</div></div>
-<div class="ttc" id="anamespacelala_html_a5b74d0fad8edd85cd73c0b82b0df6345"><div class="ttname"><a href="namespacelala.html#a5b74d0fad8edd85cd73c0b82b0df6345">lala::is_logical</a></div><div class="ttdeci">CUDA constexpr NI bool is_logical(Sig sig)</div><div class="ttdef"><b>Definition:</b> ast.hpp:213</div></div>
-<div class="ttc" id="anamespacelala_html_a61c82f922a369376733ac1ceb63f2ecc"><div class="ttname"><a href="namespacelala.html#a61c82f922a369376733ac1ceb63f2ecc">lala::negate</a></div><div class="ttdeci">CUDA NI std::optional&lt; F &gt; negate(const F &amp;f)</div><div class="ttdef"><b>Definition:</b> algorithm.hpp:284</div></div>
-<div class="ttc" id="anamespacelala_html_a6b055c3c2499841f43012304df8c0686"><div class="ttname"><a href="namespacelala.html#a6b055c3c2499841f43012304df8c0686">lala::is_associative</a></div><div class="ttdeci">CUDA constexpr NI bool is_associative(Sig sig)</div><div class="ttdef"><b>Definition:</b> ast.hpp:204</div></div>
-<div class="ttc" id="anamespacelala_html_ac68fae34e298f9dc08e81209a98dea89"><div class="ttname"><a href="namespacelala.html#ac68fae34e298f9dc08e81209a98dea89">lala::num_vars</a></div><div class="ttdeci">CUDA NI int num_vars(const F &amp;f)</div><div class="ttdef"><b>Definition:</b> algorithm.hpp:153</div></div>
-<div class="ttc" id="anamespacelala_html_ad33f36a358eb1db17dc852e6bb2bf314"><div class="ttname"><a href="namespacelala.html#ad33f36a358eb1db17dc852e6bb2bf314">lala::ternarize</a></div><div class="ttdeci">F ternarize(const F &amp;f, const Env &amp;env=Env(), bool ternarize_all=false)</div><div class="ttdef"><b>Definition:</b> ternarize.hpp:423</div></div>
-<div class="ttc" id="anamespacelala_html_ae6506d073b2c1165fa92bffeae6fd4bf"><div class="ttname"><a href="namespacelala.html#ae6506d073b2c1165fa92bffeae6fd4bf">lala::eval</a></div><div class="ttdeci">CUDA NI F eval(const F &amp;f)</div><div class="ttdef"><b>Definition:</b> algorithm.hpp:792</div></div>
+<div class="ttc" id="anamespacelala_html_a5b74d0fad8edd85cd73c0b82b0df6345"><div class="ttname"><a href="namespacelala.html#a5b74d0fad8edd85cd73c0b82b0df6345">lala::is_logical</a></div><div class="ttdeci">CUDA constexpr NI bool is_logical(Sig sig)</div><div class="ttdef"><b>Definition:</b> ast.hpp:252</div></div>
+<div class="ttc" id="anamespacelala_html_a644d3cb2c2ce4391ea7fd253af991cf1"><div class="ttname"><a href="namespacelala.html#a644d3cb2c2ce4391ea7fd253af991cf1">lala::ternarize</a></div><div class="ttdeci">F ternarize(const F &amp;f, const Env &amp;env=Env())</div><div class="ttdef"><b>Definition:</b> ternarize.hpp:431</div></div>
+<div class="ttc" id="anamespacelala_html_a6b055c3c2499841f43012304df8c0686"><div class="ttname"><a href="namespacelala.html#a6b055c3c2499841f43012304df8c0686">lala::is_associative</a></div><div class="ttdeci">CUDA constexpr NI bool is_associative(Sig sig)</div><div class="ttdef"><b>Definition:</b> ast.hpp:238</div></div>
+<div class="ttc" id="anamespacelala_html_ac68fae34e298f9dc08e81209a98dea89"><div class="ttname"><a href="namespacelala.html#ac68fae34e298f9dc08e81209a98dea89">lala::num_vars</a></div><div class="ttdeci">CUDA NI int num_vars(const F &amp;f)</div><div class="ttdef"><b>Definition:</b> algorithm.hpp:154</div></div>
+<div class="ttc" id="anamespacelala_html_aeb4678868a81e9a9dcad057b7c4b4c8b"><div class="ttname"><a href="namespacelala.html#aeb4678868a81e9a9dcad057b7c4b4c8b">lala::is_tnf</a></div><div class="ttdeci">CUDA bool is_tnf(const F &amp;f)</div><div class="ttdef"><b>Definition:</b> ternarize.hpp:28</div></div>
+<div class="ttc" id="anamespacelala_html_af1aed9c4d9ba677f7255545ffa2f7df3"><div class="ttname"><a href="namespacelala.html#af1aed9c4d9ba677f7255545ffa2f7df3">lala::decompose_in_constraint</a></div><div class="ttdeci">CUDA F decompose_in_constraint(const F &amp;f, const typename F::allocator_type &amp;alloc=typename F::allocator_type())</div><div class="ttdef"><b>Definition:</b> algorithm.hpp:944</div></div>
 <div class="ttc" id="asort_8hpp_html_af5d67e1d1856b2c01653a0f9ab95d391"><div class="ttname"><a href="sort_8hpp.html#af5d67e1d1856b2c01653a0f9ab95d391">UNTYPED</a></div><div class="ttdeci">#define UNTYPED</div><div class="ttdef"><b>Definition:</b> sort.hpp:21</div></div>
 <div class="ttc" id="astructlala_1_1_sort_html_a267f9fffa9f58fd4365285c11724129ba687c5aef38205e57a8482ae6a20531c3"><div class="ttname"><a href="structlala_1_1_sort.html#a267f9fffa9f58fd4365285c11724129ba687c5aef38205e57a8482ae6a20531c3">lala::Sort::Bool</a></div><div class="ttdeci">@ Bool</div><div class="ttdef"><b>Definition:</b> sort.hpp:28</div></div>
 <div class="ttc" id="astructlala_1_1_sort_html_a267f9fffa9f58fd4365285c11724129ba8989f82c154434d068d4f62cdd351977"><div class="ttname"><a href="structlala_1_1_sort.html#a267f9fffa9f58fd4365285c11724129ba8989f82c154434d068d4f62cdd351977">lala::Sort::Int</a></div><div class="ttdeci">@ Int</div><div class="ttdef"><b>Definition:</b> sort.hpp:29</div></div>

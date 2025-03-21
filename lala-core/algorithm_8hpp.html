@@ -96,6 +96,7 @@ $(document).ready(function(){initNavTree('algorithm_8hpp.html',''); initResizabl
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="ast_8hpp_source.html">ast.hpp</a>&quot;</code><br />
+<code>#include &lt;map&gt;</code><br />
 </div>
 <p><a href="algorithm_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -142,6 +143,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a3749d6ff27c5005bbbe560ede8ee98a0"><td class="memTemplParams" colspan="2">template&lt;class F &gt; </td></tr>
 <tr class="memitem:a3749d6ff27c5005bbbe560ede8ee98a0"><td class="memTemplItemLeft" align="right" valign="top">CUDA size_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelala.html#a3749d6ff27c5005bbbe560ede8ee98a0">lala::num_constraints</a> (const F &amp;f)</td></tr>
 <tr class="separator:a3749d6ff27c5005bbbe560ede8ee98a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2df1ecd67f11da8fd94360c55a714df7"><td class="memTemplParams" colspan="2">template&lt;class F &gt; </td></tr>
+<tr class="memitem:a2df1ecd67f11da8fd94360c55a714df7"><td class="memTemplItemLeft" align="right" valign="top">CUDA size_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelala.html#a2df1ecd67f11da8fd94360c55a714df7">lala::num_tnf_constraints</a> (const F &amp;f)</td></tr>
+<tr class="separator:a2df1ecd67f11da8fd94360c55a714df7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a93ff80f41d2a60ce49d9d969792f3818"><td class="memTemplParams" colspan="2">template&lt;class F &gt; </td></tr>
 <tr class="memitem:a93ff80f41d2a60ce49d9d969792f3818"><td class="memTemplItemLeft" align="right" valign="top">CUDA NI AType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelala.html#a93ff80f41d2a60ce49d9d969792f3818">lala::type_of_conjunction</a> (const typename F::Sequence &amp;seq)</td></tr>
 <tr class="separator:a93ff80f41d2a60ce49d9d969792f3818"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -176,6 +180,9 @@ Functions</h2></td></tr>
 <tr class="memitem:ae6506d073b2c1165fa92bffeae6fd4bf"><td class="memTemplParams" colspan="2">template&lt;class F &gt; </td></tr>
 <tr class="memitem:ae6506d073b2c1165fa92bffeae6fd4bf"><td class="memTemplItemLeft" align="right" valign="top">CUDA NI F&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelala.html#ae6506d073b2c1165fa92bffeae6fd4bf">lala::eval</a> (const F &amp;f)</td></tr>
 <tr class="separator:ae6506d073b2c1165fa92bffeae6fd4bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acbed5bc11756124529058ac92fbc0c2b"><td class="memTemplParams" colspan="2">template&lt;class F , class Alloc  = battery::standard_allocator&gt; </td></tr>
+<tr class="memitem:acbed5bc11756124529058ac92fbc0c2b"><td class="memTemplItemLeft" align="right" valign="top">CUDA NI F&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelala.html#acbed5bc11756124529058ac92fbc0c2b">lala::normalize</a> (const F &amp;f, battery::vector&lt; F, Alloc &gt; &amp;extra)</td></tr>
+<tr class="separator:acbed5bc11756124529058ac92fbc0c2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a505158a64e90b36755f6e84b5db6b987"><td class="memTemplParams" colspan="2">template&lt;class F &gt; </td></tr>
 <tr class="memitem:a505158a64e90b36755f6e84b5db6b987"><td class="memTemplItemLeft" align="right" valign="top">CUDA NI F&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelala.html#a505158a64e90b36755f6e84b5db6b987">lala::normalize</a> (const F &amp;f)</td></tr>
 <tr class="separator:a505158a64e90b36755f6e84b5db6b987"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -185,6 +192,9 @@ Functions</h2></td></tr>
 <tr class="memitem:ab77aa301355868d2d9458857ea2946a8"><td class="memTemplParams" colspan="2">template&lt;class F &gt; </td></tr>
 <tr class="memitem:ab77aa301355868d2d9458857ea2946a8"><td class="memTemplItemLeft" align="right" valign="top">CUDA F&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelala.html#ab77aa301355868d2d9458857ea2946a8">lala::decompose_arith_neq_constraint</a> (const F &amp;f, const typename F::allocator_type &amp;alloc=typename F::allocator_type())</td></tr>
 <tr class="separator:ab77aa301355868d2d9458857ea2946a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abfb8776da0b69ec59521ec98ca9dc95c"><td class="memTemplParams" colspan="2">template&lt;class F &gt; </td></tr>
+<tr class="memitem:abfb8776da0b69ec59521ec98ca9dc95c"><td class="memTemplItemLeft" align="right" valign="top">std::optional&lt; F &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelala.html#abfb8776da0b69ec59521ec98ca9dc95c">lala::decompose_set_constraints</a> (const F &amp;f, std::map&lt; std::string, std::vector&lt; std::string &gt;&gt; &amp;set2bool_vars)</td></tr>
+<tr class="separator:abfb8776da0b69ec59521ec98ca9dc95c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 </div><!-- doc-content -->

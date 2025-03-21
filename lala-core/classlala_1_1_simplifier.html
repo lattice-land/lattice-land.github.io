@@ -128,8 +128,8 @@ Public Types</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ac87b643603b96d9ce301d75ef8f8189c"><td class="memItemLeft" align="right" valign="top">CUDA&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlala_1_1_simplifier.html#ac87b643603b96d9ce301d75ef8f8189c">Simplifier</a> (<a class="el" href="namespacelala.html#a6c626918dd7c19ff046f5cebaabec18f">AType</a> atype, <a class="el" href="namespacelala.html#a609554da1e3f1cb56804fcca736e7d70">abstract_ptr</a>&lt; <a class="el" href="classlala_1_1_simplifier.html#a50f5b1c6c5652ddbc3d976c35381badd">sub_type</a> &gt; sub, const <a class="el" href="classlala_1_1_simplifier.html#a2f69859a415214850d61e38a9b0dca21">allocator_type</a> &amp;alloc=<a class="el" href="classlala_1_1_simplifier.html#a2f69859a415214850d61e38a9b0dca21">allocator_type</a>())</td></tr>
-<tr class="separator:ac87b643603b96d9ce301d75ef8f8189c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab6d92933970a40ea9121e96b2c936989"><td class="memItemLeft" align="right" valign="top">CUDA&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlala_1_1_simplifier.html#ab6d92933970a40ea9121e96b2c936989">Simplifier</a> (<a class="el" href="namespacelala.html#a6c626918dd7c19ff046f5cebaabec18f">AType</a> atype, <a class="el" href="namespacelala.html#a6c626918dd7c19ff046f5cebaabec18f">AType</a> store_aty, <a class="el" href="namespacelala.html#a609554da1e3f1cb56804fcca736e7d70">abstract_ptr</a>&lt; <a class="el" href="classlala_1_1_simplifier.html#a50f5b1c6c5652ddbc3d976c35381badd">sub_type</a> &gt; sub, const <a class="el" href="classlala_1_1_simplifier.html#a2f69859a415214850d61e38a9b0dca21">allocator_type</a> &amp;alloc=<a class="el" href="classlala_1_1_simplifier.html#a2f69859a415214850d61e38a9b0dca21">allocator_type</a>())</td></tr>
+<tr class="separator:ab6d92933970a40ea9121e96b2c936989"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2a281d7bffdfb0437e011b855e8a091a"><td class="memItemLeft" align="right" valign="top">CUDA&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlala_1_1_simplifier.html#a2a281d7bffdfb0437e011b855e8a091a">Simplifier</a> (<a class="el" href="classlala_1_1_simplifier.html#a9180ae4cc5fe9d740a10afcc40b529a1">this_type</a> &amp;&amp;other)</td></tr>
 <tr class="separator:a2a281d7bffdfb0437e011b855e8a091a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae6774b7c3d904da74bf2be12650eaaad"><td class="memTemplParams" colspan="2">template&lt;class A2 , class Alloc2 &gt; </td></tr>
@@ -149,20 +149,50 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a8f06bab1a14accca38ac6a0be0322e06"><td class="memTemplParams" colspan="2">template&lt;IKind kind, bool diagnose = false, class F , class Env , class Alloc2 &gt; </td></tr>
 <tr class="memitem:a8f06bab1a14accca38ac6a0be0322e06"><td class="memTemplItemLeft" align="right" valign="top">CUDA bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classlala_1_1_simplifier.html#a8f06bab1a14accca38ac6a0be0322e06">interpret</a> (const F &amp;f, Env &amp;env, <a class="el" href="structlala_1_1_simplifier_1_1tell__type.html">tell_type</a>&lt; Alloc2 &gt; &amp;tell, <a class="el" href="classlala_1_1_i_diagnostics.html">IDiagnostics</a> &amp;diagnostics) const</td></tr>
 <tr class="separator:a8f06bab1a14accca38ac6a0be0322e06"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac932b1dd6b2180b102e5873407735a6e"><td class="memItemLeft" align="right" valign="top">CUDA void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlala_1_1_simplifier.html#ac932b1dd6b2180b102e5873407735a6e">initialize</a> (int <a class="el" href="namespacelala.html#ac68fae34e298f9dc08e81209a98dea89">num_vars</a>, int num_cons)</td></tr>
+<tr class="separator:ac932b1dd6b2180b102e5873407735a6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acf461f5d2a3e391e305f31c34bbeb924"><td class="memTemplParams" colspan="2">template&lt;class Seq &gt; </td></tr>
+<tr class="memitem:acf461f5d2a3e391e305f31c34bbeb924"><td class="memTemplItemLeft" align="right" valign="top">CUDA void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classlala_1_1_simplifier.html#acf461f5d2a3e391e305f31c34bbeb924">initialize_tnf</a> (int <a class="el" href="namespacelala.html#ac68fae34e298f9dc08e81209a98dea89">num_vars</a>, const Seq &amp;tnf)</td></tr>
+<tr class="separator:acf461f5d2a3e391e305f31c34bbeb924"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2bfd5a5748b3d9bf62b8d514038a2f93"><td class="memTemplParams" colspan="2">template&lt;class Alloc2 &gt; </td></tr>
 <tr class="memitem:a2bfd5a5748b3d9bf62b8d514038a2f93"><td class="memTemplItemLeft" align="right" valign="top">CUDA bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classlala_1_1_simplifier.html#a2bfd5a5748b3d9bf62b8d514038a2f93">deduce</a> (<a class="el" href="structlala_1_1_simplifier_1_1tell__type.html">tell_type</a>&lt; Alloc2 &gt; &amp;&amp;t)</td></tr>
 <tr class="separator:a2bfd5a5748b3d9bf62b8d514038a2f93"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a71b7c2ae2ca641502eb8ec51cdf9c3b3"><td class="memItemLeft" align="right" valign="top">CUDA <a class="el" href="classlala_1_1_a_var.html">AVar</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlala_1_1_simplifier.html#a71b7c2ae2ca641502eb8ec51cdf9c3b3">var_of</a> (const <a class="el" href="classlala_1_1_t_formula.html">TFormula</a>&lt; <a class="el" href="classlala_1_1_simplifier.html#a2f69859a415214850d61e38a9b0dca21">allocator_type</a> &gt; &amp;f) const</td></tr>
+<tr class="separator:a71b7c2ae2ca641502eb8ec51cdf9c3b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adaf14cbf086bc30ab3dcab69b004f260"><td class="memTemplParams" colspan="2">template&lt;class Alloc , class Abs , class Env &gt; </td></tr>
 <tr class="memitem:adaf14cbf086bc30ab3dcab69b004f260"><td class="memTemplItemLeft" align="right" valign="top">CUDA void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classlala_1_1_simplifier.html#adaf14cbf086bc30ab3dcab69b004f260">print_variable</a> (const <a class="el" href="namespacelala.html#acb9f389c51804929bfb3e6d682d77ff0">LVar</a>&lt; Alloc &gt; &amp;vname, const Env &amp;benv, const Abs &amp;b) const</td></tr>
 <tr class="separator:adaf14cbf086bc30ab3dcab69b004f260"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a684b7350e108b5377717a31a1300ce14"><td class="memItemLeft" align="right" valign="top">CUDA <a class="el" href="namespacelala_1_1local.html#a41aab129767430c7ec1557da582c168b">local::B</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlala_1_1_simplifier.html#a684b7350e108b5377717a31a1300ce14">cons_deduce</a> (int i)</td></tr>
+<tr class="separator:a684b7350e108b5377717a31a1300ce14"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab7be7af8bd461a15a2091d27bbc299e0"><td class="memItemLeft" align="right" valign="top">CUDA size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlala_1_1_simplifier.html#ab7be7af8bd461a15a2091d27bbc299e0">num_deductions</a> () const</td></tr>
 <tr class="separator:ab7be7af8bd461a15a2091d27bbc299e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a26b92ca27c3d7390f2065102db574b61"><td class="memItemLeft" align="right" valign="top">CUDA <a class="el" href="namespacelala_1_1local.html#a41aab129767430c7ec1557da582c168b">local::B</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlala_1_1_simplifier.html#a26b92ca27c3d7390f2065102db574b61">deduce</a> (size_t i)</td></tr>
 <tr class="separator:a26b92ca27c3d7390f2065102db574b61"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a85e607537b1a4428dbea353064a93840"><td class="memItemLeft" align="right" valign="top">CUDA size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlala_1_1_simplifier.html#a85e607537b1a4428dbea353064a93840">num_eliminated_variables</a> () const</td></tr>
-<tr class="separator:a85e607537b1a4428dbea353064a93840"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad4079bfffb058052e0db7c07c6a72636"><td class="memItemLeft" align="right" valign="top">CUDA size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlala_1_1_simplifier.html#ad4079bfffb058052e0db7c07c6a72636">num_eliminated_formulas</a> () const</td></tr>
-<tr class="separator:ad4079bfffb058052e0db7c07c6a72636"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a52db65fd7b0107988e663fa44f109af2"><td class="memTemplParams" colspan="2">template&lt;class Env &gt; </td></tr>
+<tr class="memitem:a52db65fd7b0107988e663fa44f109af2"><td class="memTemplItemLeft" align="right" valign="top">CUDA void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classlala_1_1_simplifier.html#a52db65fd7b0107988e663fa44f109af2">init_env</a> (const Env &amp;env)</td></tr>
+<tr class="separator:a52db65fd7b0107988e663fa44f109af2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a92570d6d687659cc2ab1ef9f90a5b60a"><td class="memTemplParams" colspan="2">template&lt;class Seq &gt; </td></tr>
+<tr class="memitem:a92570d6d687659cc2ab1ef9f90a5b60a"><td class="memTemplItemLeft" align="right" valign="top">CUDA bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classlala_1_1_simplifier.html#a92570d6d687659cc2ab1ef9f90a5b60a">i_cse</a> (const Seq &amp;tnf, <a class="el" href="structlala_1_1_simplifier_stats.html">SimplifierStats</a> &amp;stats)</td></tr>
+<tr class="separator:a92570d6d687659cc2ab1ef9f90a5b60a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91f81695d2d5fada350493b422491e73"><td class="memTemplParams" colspan="2">template&lt;class Seq &gt; </td></tr>
+<tr class="memitem:a91f81695d2d5fada350493b422491e73"><td class="memTemplItemLeft" align="right" valign="top">CUDA bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classlala_1_1_simplifier.html#a91f81695d2d5fada350493b422491e73">algebraic_simplify</a> (Seq &amp;tnf, <a class="el" href="structlala_1_1_simplifier_stats.html">SimplifierStats</a> &amp;stats)</td></tr>
+<tr class="separator:a91f81695d2d5fada350493b422491e73"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeafd5d81c9e879864509c8686f62cc5c"><td class="memItemLeft" align="right" valign="top">CUDA void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlala_1_1_simplifier.html#aeafd5d81c9e879864509c8686f62cc5c">meet_equivalence_classes</a> ()</td></tr>
+<tr class="separator:aeafd5d81c9e879864509c8686f62cc5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f0d0398e8a0ec583d22e8637cd0665b"><td class="memTemplParams" colspan="2">template&lt;class B , class Seq &gt; </td></tr>
+<tr class="memitem:a6f0d0398e8a0ec583d22e8637cd0665b"><td class="memTemplItemLeft" align="right" valign="top">CUDA void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classlala_1_1_simplifier.html#a6f0d0398e8a0ec583d22e8637cd0665b">eliminate_entailed_constraints</a> (const <a class="el" href="classlala_1_1_b.html">B</a> &amp;b, const Seq &amp;tnf, <a class="el" href="structlala_1_1_simplifier_stats.html">SimplifierStats</a> &amp;stats)</td></tr>
+<tr class="separator:a6f0d0398e8a0ec583d22e8637cd0665b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aadbaf3b8ca3b3530bd826e92f6dcd970"><td class="memTemplParams" colspan="2">template&lt;class Seq &gt; </td></tr>
+<tr class="memitem:aadbaf3b8ca3b3530bd826e92f6dcd970"><td class="memTemplItemLeft" align="right" valign="top">CUDA void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classlala_1_1_simplifier.html#aadbaf3b8ca3b3530bd826e92f6dcd970">eliminate_useless_variables</a> (const Seq &amp;tnf, size_t &amp;num_eliminated_variables)</td></tr>
+<tr class="separator:aadbaf3b8ca3b3530bd826e92f6dcd970"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac4e829383c170fe249dd263c6f434e7a"><td class="memTemplParams" colspan="2">template&lt;class F &gt; </td></tr>
+<tr class="memitem:ac4e829383c170fe249dd263c6f434e7a"><td class="memTemplItemLeft" align="right" valign="top">CUDA void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classlala_1_1_simplifier.html#ac4e829383c170fe249dd263c6f434e7a">substitute</a> (F &amp;f) const</td></tr>
+<tr class="separator:ac4e829383c170fe249dd263c6f434e7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9334d97347f741587fc0a00d80b9a4a1"><td class="memItemLeft" align="right" valign="top">CUDA size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlala_1_1_simplifier.html#a9334d97347f741587fc0a00d80b9a4a1">num_vars_after_elimination</a> () const</td></tr>
+<tr class="separator:a9334d97347f741587fc0a00d80b9a4a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae85ac117fe1ed5e9930978498fcdde08"><td class="memTemplParams" colspan="2">template&lt;class Seq &gt; </td></tr>
+<tr class="memitem:ae85ac117fe1ed5e9930978498fcdde08"><td class="memTemplItemLeft" align="right" valign="top">CUDA NI <a class="el" href="classlala_1_1_t_formula.html">TFormula</a>&lt; <a class="el" href="classlala_1_1_simplifier.html#a2f69859a415214850d61e38a9b0dca21">allocator_type</a> &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classlala_1_1_simplifier.html#ae85ac117fe1ed5e9930978498fcdde08">deinterpret</a> (const Seq &amp;source, bool <a class="el" href="classlala_1_1_simplifier.html#ac4e829383c170fe249dd263c6f434e7a">substitute</a>)</td></tr>
+<tr class="separator:ae85ac117fe1ed5e9930978498fcdde08"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0257d3a32bf90543014d4f8386aa5866"><td class="memItemLeft" align="right" valign="top">CUDA NI <a class="el" href="classlala_1_1_t_formula.html">TFormula</a>&lt; <a class="el" href="classlala_1_1_simplifier.html#a2f69859a415214850d61e38a9b0dca21">allocator_type</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlala_1_1_simplifier.html#a0257d3a32bf90543014d4f8386aa5866">deinterpret</a> ()</td></tr>
 <tr class="separator:a0257d3a32bf90543014d4f8386aa5866"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -205,7 +235,7 @@ class lala::Simplifier&lt; A, Allocator &gt;</h3>
 <li>Removing entailed formulas.</li>
 <li>Removing variable equality by tracking equivalence classes.</li>
 </ol>
-<p>The simplified formula can be obtained by calling <code><a class="el" href="classlala_1_1_simplifier.html#a0257d3a32bf90543014d4f8386aa5866">deinterpret()</a></code>. Given a solution to the simplified formula, the extended model (with the variables deleted) can be obtained by calling <code>representative()</code> to obtain the representative variable of each equivalence class. </p>
+<p>The simplified formula can be obtained by calling <code><a class="el" href="classlala_1_1_simplifier.html#a0257d3a32bf90543014d4f8386aa5866">deinterpret()</a></code>. Given a solution to the simplified formula, the value of the variables deleted can be obtained by calling <code><a class="el" href="classlala_1_1_simplifier.html#adaf14cbf086bc30ab3dcab69b004f260">print_variable()</a></code>. </p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a id="a2f69859a415214850d61e38a9b0dca21"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2f69859a415214850d61e38a9b0dca21">&#9670;&nbsp;</a></span>allocator_type</h2>
@@ -320,8 +350,8 @@ template&lt;class A , class Allocator &gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="ac87b643603b96d9ce301d75ef8f8189c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac87b643603b96d9ce301d75ef8f8189c">&#9670;&nbsp;</a></span>Simplifier() <span class="overload">[1/3]</span></h2>
+<a id="ab6d92933970a40ea9121e96b2c936989"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab6d92933970a40ea9121e96b2c936989">&#9670;&nbsp;</a></span>Simplifier() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -336,6 +366,12 @@ template&lt;class A , class Allocator &gt; </div>
           <td>(</td>
           <td class="paramtype"><a class="el" href="namespacelala.html#a6c626918dd7c19ff046f5cebaabec18f">AType</a>&#160;</td>
           <td class="paramname"><em>atype</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespacelala.html#a6c626918dd7c19ff046f5cebaabec18f">AType</a>&#160;</td>
+          <td class="paramname"><em>store_aty</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -660,6 +696,85 @@ template&lt;IKind kind, bool diagnose = false, class F , class Env , class Alloc
 
 </div>
 </div>
+<a id="ac932b1dd6b2180b102e5873407735a6e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac932b1dd6b2180b102e5873407735a6e">&#9670;&nbsp;</a></span>initialize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class A , class Allocator &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">CUDA void <a class="el" href="classlala_1_1_simplifier.html">lala::Simplifier</a>&lt; A, Allocator &gt;::initialize </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>num_vars</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>num_cons</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="acf461f5d2a3e391e305f31c34bbeb924"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf461f5d2a3e391e305f31c34bbeb924">&#9670;&nbsp;</a></span>initialize_tnf()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class A , class Allocator &gt; </div>
+<div class="memtemplate">
+template&lt;class Seq &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">CUDA void <a class="el" href="classlala_1_1_simplifier.html">lala::Simplifier</a>&lt; A, Allocator &gt;::initialize_tnf </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>num_vars</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Seq &amp;&#160;</td>
+          <td class="paramname"><em>tnf</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>We initialize the equivalence classes and var/cons elimination masks. Further, we eliminate all constraints in <code>tnf</code> that are not in TNF. (It is the existential quantifiers and unary constraints that are re-generated from the underlying store later.) </p>
+
+</div>
+</div>
 <a id="a2bfd5a5748b3d9bf62b8d514038a2f93"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2bfd5a5748b3d9bf62b8d514038a2f93">&#9670;&nbsp;</a></span>deduce() <span class="overload">[1/2]</span></h2>
 
@@ -688,6 +803,34 @@ template&lt;class Alloc2 &gt; </div>
 </table>
 </div><div class="memdoc">
 <p>@sequential </p>
+
+</div>
+</div>
+<a id="a71b7c2ae2ca641502eb8ec51cdf9c3b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a71b7c2ae2ca641502eb8ec51cdf9c3b3">&#9670;&nbsp;</a></span>var_of()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class A , class Allocator &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">CUDA <a class="el" href="classlala_1_1_a_var.html">AVar</a> <a class="el" href="classlala_1_1_simplifier.html">lala::Simplifier</a>&lt; A, Allocator &gt;::var_of </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classlala_1_1_t_formula.html">TFormula</a>&lt; <a class="el" href="classlala_1_1_simplifier.html#a2f69859a415214850d61e38a9b0dca21">allocator_type</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>f</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -735,6 +878,34 @@ template&lt;class Alloc , class Abs , class Env &gt; </div>
 </table>
 </div><div class="memdoc">
 <p>Print the abstract universe of <code>vname</code> taking into account simplifications (representative variable and constant). </p>
+
+</div>
+</div>
+<a id="a684b7350e108b5377717a31a1300ce14"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a684b7350e108b5377717a31a1300ce14">&#9670;&nbsp;</a></span>cons_deduce()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class A , class Allocator &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">CUDA <a class="el" href="namespacelala_1_1local.html#a41aab129767430c7ec1557da582c168b">local::B</a> <a class="el" href="classlala_1_1_simplifier.html">lala::Simplifier</a>&lt; A, Allocator &gt;::cons_deduce </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>i</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -794,8 +965,121 @@ template&lt;class A , class Allocator &gt; </div>
 
 </div>
 </div>
-<a id="a85e607537b1a4428dbea353064a93840"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a85e607537b1a4428dbea353064a93840">&#9670;&nbsp;</a></span>num_eliminated_variables()</h2>
+<a id="a52db65fd7b0107988e663fa44f109af2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a52db65fd7b0107988e663fa44f109af2">&#9670;&nbsp;</a></span>init_env()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class A , class Allocator &gt; </div>
+<div class="memtemplate">
+template&lt;class Env &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">CUDA void <a class="el" href="classlala_1_1_simplifier.html">lala::Simplifier</a>&lt; A, Allocator &gt;::init_env </td>
+          <td>(</td>
+          <td class="paramtype">const Env &amp;&#160;</td>
+          <td class="paramname"><em>env</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a92570d6d687659cc2ab1ef9f90a5b60a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a92570d6d687659cc2ab1ef9f90a5b60a">&#9670;&nbsp;</a></span>i_cse()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class A , class Allocator &gt; </div>
+<div class="memtemplate">
+template&lt;class Seq &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">CUDA bool <a class="el" href="classlala_1_1_simplifier.html">lala::Simplifier</a>&lt; A, Allocator &gt;::i_cse </td>
+          <td>(</td>
+          <td class="paramtype">const Seq &amp;&#160;</td>
+          <td class="paramname"><em>tnf</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structlala_1_1_simplifier_stats.html">SimplifierStats</a> &amp;&#160;</td>
+          <td class="paramname"><em>stats</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>I-CSE algorithm. For each pair of TNF constraints <code>x &lt;=&gt; y op z</code> and &lsquo;x&rsquo; &lt;=&gt; y' op' z'<code>, whenever</code>[y'] = [y]<code>,</code>op = op'<code>and</code>[z] = [z']<code>, we add the equivalence</code>x = x'<code>and eliminate the second constraint. Note that [x] represents the equivalence class of</code>x<code>. To avoid an algorithm running in O(n^2), we use a hash map to detect syntactical equivalence between</code>y op z<code>and</code>y' op z'`. Further, for commutative operators, we redefine the equality function.</p>
+<p>This algorithm is applied until a fixpoint is reached. </p><dl class="section return"><dt>Returns</dt><dd>The number of formulas eliminated. </dd></dl>
+
+</div>
+</div>
+<a id="a91f81695d2d5fada350493b422491e73"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a91f81695d2d5fada350493b422491e73">&#9670;&nbsp;</a></span>algebraic_simplify()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class A , class Allocator &gt; </div>
+<div class="memtemplate">
+template&lt;class Seq &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">CUDA bool <a class="el" href="classlala_1_1_simplifier.html">lala::Simplifier</a>&lt; A, Allocator &gt;::algebraic_simplify </td>
+          <td>(</td>
+          <td class="paramtype">Seq &amp;&#160;</td>
+          <td class="paramname"><em>tnf</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structlala_1_1_simplifier_stats.html">SimplifierStats</a> &amp;&#160;</td>
+          <td class="paramname"><em>stats</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Perform algebraic simplification on the TNF. The non-eliminated constraints are assumed to be in TNF. </p>
+
+</div>
+</div>
+<a id="aeafd5d81c9e879864509c8686f62cc5c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeafd5d81c9e879864509c8686f62cc5c">&#9670;&nbsp;</a></span>meet_equivalence_classes()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -806,7 +1090,151 @@ template&lt;class A , class Allocator &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">CUDA size_t <a class="el" href="classlala_1_1_simplifier.html">lala::Simplifier</a>&lt; A, Allocator &gt;::num_eliminated_variables </td>
+          <td class="memname">CUDA void <a class="el" href="classlala_1_1_simplifier.html">lala::Simplifier</a>&lt; A, Allocator &gt;::meet_equivalence_classes </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6f0d0398e8a0ec583d22e8637cd0665b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f0d0398e8a0ec583d22e8637cd0665b">&#9670;&nbsp;</a></span>eliminate_entailed_constraints()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class A , class Allocator &gt; </div>
+<div class="memtemplate">
+template&lt;class B , class Seq &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">CUDA void <a class="el" href="classlala_1_1_simplifier.html">lala::Simplifier</a>&lt; A, Allocator &gt;::eliminate_entailed_constraints </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classlala_1_1_b.html">B</a> &amp;&#160;</td>
+          <td class="paramname"><em>b</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const Seq &amp;&#160;</td>
+          <td class="paramname"><em>tnf</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structlala_1_1_simplifier_stats.html">SimplifierStats</a> &amp;&#160;</td>
+          <td class="paramname"><em>stats</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aadbaf3b8ca3b3530bd826e92f6dcd970"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aadbaf3b8ca3b3530bd826e92f6dcd970">&#9670;&nbsp;</a></span>eliminate_useless_variables()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class A , class Allocator &gt; </div>
+<div class="memtemplate">
+template&lt;class Seq &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">CUDA void <a class="el" href="classlala_1_1_simplifier.html">lala::Simplifier</a>&lt; A, Allocator &gt;::eliminate_useless_variables </td>
+          <td>(</td>
+          <td class="paramtype">const Seq &amp;&#160;</td>
+          <td class="paramname"><em>tnf</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t &amp;&#160;</td>
+          <td class="paramname"><em>num_eliminated_variables</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac4e829383c170fe249dd263c6f434e7a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac4e829383c170fe249dd263c6f434e7a">&#9670;&nbsp;</a></span>substitute()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class A , class Allocator &gt; </div>
+<div class="memtemplate">
+template&lt;class F &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">CUDA void <a class="el" href="classlala_1_1_simplifier.html">lala::Simplifier</a>&lt; A, Allocator &gt;::substitute </td>
+          <td>(</td>
+          <td class="paramtype">F &amp;&#160;</td>
+          <td class="paramname"><em>f</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Given any formula (not necessarily in TNF), we substitute each variable with its representative variable or a constant if it got eliminated. </p>
+
+</div>
+</div>
+<a id="a9334d97347f741587fc0a00d80b9a4a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9334d97347f741587fc0a00d80b9a4a1">&#9670;&nbsp;</a></span>num_vars_after_elimination()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class A , class Allocator &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">CUDA size_t <a class="el" href="classlala_1_1_simplifier.html">lala::Simplifier</a>&lt; A, Allocator &gt;::num_vars_after_elimination </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -821,22 +1249,35 @@ template&lt;class A , class Allocator &gt; </div>
 
 </div>
 </div>
-<a id="ad4079bfffb058052e0db7c07c6a72636"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad4079bfffb058052e0db7c07c6a72636">&#9670;&nbsp;</a></span>num_eliminated_formulas()</h2>
+<a id="ae85ac117fe1ed5e9930978498fcdde08"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae85ac117fe1ed5e9930978498fcdde08">&#9670;&nbsp;</a></span>deinterpret() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;class A , class Allocator &gt; </div>
+<div class="memtemplate">
+template&lt;class Seq &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">CUDA size_t <a class="el" href="classlala_1_1_simplifier.html">lala::Simplifier</a>&lt; A, Allocator &gt;::num_eliminated_formulas </td>
+          <td class="memname">CUDA NI <a class="el" href="classlala_1_1_t_formula.html">TFormula</a>&lt;<a class="el" href="classlala_1_1_simplifier.html#a2f69859a415214850d61e38a9b0dca21">allocator_type</a>&gt; <a class="el" href="classlala_1_1_simplifier.html">lala::Simplifier</a>&lt; A, Allocator &gt;::deinterpret </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td class="paramtype">const Seq &amp;&#160;</td>
+          <td class="paramname"><em>source</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>substitute</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -849,7 +1290,7 @@ template&lt;class A , class Allocator &gt; </div>
 </div>
 </div>
 <a id="a0257d3a32bf90543014d4f8386aa5866"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0257d3a32bf90543014d4f8386aa5866">&#9670;&nbsp;</a></span>deinterpret()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a0257d3a32bf90543014d4f8386aa5866">&#9670;&nbsp;</a></span>deinterpret() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">

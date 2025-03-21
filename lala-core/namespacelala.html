@@ -136,6 +136,8 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlala_1_1_sort.html">Sort</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlala_1_1_simplifier_stats.html">SimplifierStats</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classlala_1_1_simplifier.html">Simplifier</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlala_1_1_pre_s_dec.html">PreSDec</a></td></tr>
@@ -394,6 +396,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a3749d6ff27c5005bbbe560ede8ee98a0"><td class="memTemplParams" colspan="2">template&lt;class F &gt; </td></tr>
 <tr class="memitem:a3749d6ff27c5005bbbe560ede8ee98a0"><td class="memTemplItemLeft" align="right" valign="top">CUDA size_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelala.html#a3749d6ff27c5005bbbe560ede8ee98a0">num_constraints</a> (const F &amp;f)</td></tr>
 <tr class="separator:a3749d6ff27c5005bbbe560ede8ee98a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2df1ecd67f11da8fd94360c55a714df7"><td class="memTemplParams" colspan="2">template&lt;class F &gt; </td></tr>
+<tr class="memitem:a2df1ecd67f11da8fd94360c55a714df7"><td class="memTemplItemLeft" align="right" valign="top">CUDA size_t&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelala.html#a2df1ecd67f11da8fd94360c55a714df7">num_tnf_constraints</a> (const F &amp;f)</td></tr>
+<tr class="separator:a2df1ecd67f11da8fd94360c55a714df7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a93ff80f41d2a60ce49d9d969792f3818"><td class="memTemplParams" colspan="2">template&lt;class F &gt; </td></tr>
 <tr class="memitem:a93ff80f41d2a60ce49d9d969792f3818"><td class="memTemplItemLeft" align="right" valign="top">CUDA NI <a class="el" href="namespacelala.html#a6c626918dd7c19ff046f5cebaabec18f">AType</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelala.html#a93ff80f41d2a60ce49d9d969792f3818">type_of_conjunction</a> (const typename F::Sequence &amp;seq)</td></tr>
 <tr class="separator:a93ff80f41d2a60ce49d9d969792f3818"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -428,6 +433,9 @@ Functions</h2></td></tr>
 <tr class="memitem:ae6506d073b2c1165fa92bffeae6fd4bf"><td class="memTemplParams" colspan="2">template&lt;class F &gt; </td></tr>
 <tr class="memitem:ae6506d073b2c1165fa92bffeae6fd4bf"><td class="memTemplItemLeft" align="right" valign="top">CUDA NI F&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelala.html#ae6506d073b2c1165fa92bffeae6fd4bf">eval</a> (const F &amp;f)</td></tr>
 <tr class="separator:ae6506d073b2c1165fa92bffeae6fd4bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acbed5bc11756124529058ac92fbc0c2b"><td class="memTemplParams" colspan="2">template&lt;class F , class Alloc  = battery::standard_allocator&gt; </td></tr>
+<tr class="memitem:acbed5bc11756124529058ac92fbc0c2b"><td class="memTemplItemLeft" align="right" valign="top">CUDA NI F&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelala.html#acbed5bc11756124529058ac92fbc0c2b">normalize</a> (const F &amp;f, battery::vector&lt; F, Alloc &gt; &amp;extra)</td></tr>
+<tr class="separator:acbed5bc11756124529058ac92fbc0c2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a505158a64e90b36755f6e84b5db6b987"><td class="memTemplParams" colspan="2">template&lt;class F &gt; </td></tr>
 <tr class="memitem:a505158a64e90b36755f6e84b5db6b987"><td class="memTemplItemLeft" align="right" valign="top">CUDA NI F&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelala.html#a505158a64e90b36755f6e84b5db6b987">normalize</a> (const F &amp;f)</td></tr>
 <tr class="separator:a505158a64e90b36755f6e84b5db6b987"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -437,8 +445,13 @@ Functions</h2></td></tr>
 <tr class="memitem:ab77aa301355868d2d9458857ea2946a8"><td class="memTemplParams" colspan="2">template&lt;class F &gt; </td></tr>
 <tr class="memitem:ab77aa301355868d2d9458857ea2946a8"><td class="memTemplItemLeft" align="right" valign="top">CUDA F&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelala.html#ab77aa301355868d2d9458857ea2946a8">decompose_arith_neq_constraint</a> (const F &amp;f, const typename F::allocator_type &amp;alloc=typename F::allocator_type())</td></tr>
 <tr class="separator:ab77aa301355868d2d9458857ea2946a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abfb8776da0b69ec59521ec98ca9dc95c"><td class="memTemplParams" colspan="2">template&lt;class F &gt; </td></tr>
+<tr class="memitem:abfb8776da0b69ec59521ec98ca9dc95c"><td class="memTemplItemLeft" align="right" valign="top">std::optional&lt; F &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelala.html#abfb8776da0b69ec59521ec98ca9dc95c">decompose_set_constraints</a> (const F &amp;f, std::map&lt; std::string, std::vector&lt; std::string &gt;&gt; &amp;set2bool_vars)</td></tr>
+<tr class="separator:abfb8776da0b69ec59521ec98ca9dc95c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a23e4cd05f6c827108d47c98443be639e"><td class="memItemLeft" align="right" valign="top">CUDA NI const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelala.html#a23e4cd05f6c827108d47c98443be639e">string_of_sig</a> (<a class="el" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659">Sig</a> sig)</td></tr>
 <tr class="separator:a23e4cd05f6c827108d47c98443be639e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac6e3ffc4f0a1537b100e12d835fde0f"><td class="memItemLeft" align="right" valign="top">CUDA NI const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelala.html#aac6e3ffc4f0a1537b100e12d835fde0f">string_of_sig_txt</a> (<a class="el" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659">Sig</a> sig)</td></tr>
+<tr class="separator:aac6e3ffc4f0a1537b100e12d835fde0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af2b298de3e0cbb50bbc02bc606b7c56a"><td class="memItemLeft" align="right" valign="top">CUDA constexpr NI bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelala.html#af2b298de3e0cbb50bbc02bc606b7c56a">is_prefix</a> (<a class="el" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659">Sig</a> sig)</td></tr>
 <tr class="separator:af2b298de3e0cbb50bbc02bc606b7c56a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abf05545f06bb4e74db05c3c520cb31e8"><td class="memItemLeft" align="right" valign="top">CUDA constexpr NI bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelala.html#abf05545f06bb4e74db05c3c520cb31e8">is_division</a> (<a class="el" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659">Sig</a> sig)</td></tr>
@@ -447,6 +460,8 @@ Functions</h2></td></tr>
 <tr class="separator:a97ff9ae908dd0eed685d87631506b3eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6b055c3c2499841f43012304df8c0686"><td class="memItemLeft" align="right" valign="top">CUDA constexpr NI bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelala.html#a6b055c3c2499841f43012304df8c0686">is_associative</a> (<a class="el" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659">Sig</a> sig)</td></tr>
 <tr class="separator:a6b055c3c2499841f43012304df8c0686"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe97cb464937f52cf9740935c72d95c0"><td class="memItemLeft" align="right" valign="top">CUDA constexpr NI bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelala.html#afe97cb464937f52cf9740935c72d95c0">is_commutative</a> (<a class="el" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659">Sig</a> sig)</td></tr>
+<tr class="separator:afe97cb464937f52cf9740935c72d95c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa36870240eda9c7f0b1d4a3c063e10cd"><td class="memItemLeft" align="right" valign="top">CUDA constexpr NI bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelala.html#aa36870240eda9c7f0b1d4a3c063e10cd">is_arithmetic_comparison</a> (<a class="el" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659">Sig</a> sig)</td></tr>
 <tr class="separator:aa36870240eda9c7f0b1d4a3c063e10cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5b74d0fad8edd85cd73c0b82b0df6345"><td class="memItemLeft" align="right" valign="top">CUDA constexpr NI bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelala.html#a5b74d0fad8edd85cd73c0b82b0df6345">is_logical</a> (<a class="el" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659">Sig</a> sig)</td></tr>
@@ -462,9 +477,18 @@ Functions</h2></td></tr>
 <tr class="memitem:a06f3e5ada938781bdb8c667a159242fe"><td class="memTemplParams" colspan="2">template&lt;class Alloc1 , class Alloc2 &gt; </td></tr>
 <tr class="memitem:a06f3e5ada938781bdb8c667a159242fe"><td class="memTemplItemLeft" align="right" valign="top">CUDA NI bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelala.html#a06f3e5ada938781bdb8c667a159242fe">operator==</a> (const <a class="el" href="structlala_1_1_sort.html">Sort</a>&lt; Alloc1 &gt; &amp;lhs, const <a class="el" href="structlala_1_1_sort.html">Sort</a>&lt; Alloc2 &gt; &amp;rhs)</td></tr>
 <tr class="separator:a06f3e5ada938781bdb8c667a159242fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad33f36a358eb1db17dc852e6bb2bf314"><td class="memTemplParams" colspan="2">template&lt;class F , class Env  = VarEnv&lt;battery::standard_allocator&gt;&gt; </td></tr>
-<tr class="memitem:ad33f36a358eb1db17dc852e6bb2bf314"><td class="memTemplItemLeft" align="right" valign="top">F&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelala.html#ad33f36a358eb1db17dc852e6bb2bf314">ternarize</a> (const F &amp;f, const Env &amp;env=Env(), bool ternarize_all=false)</td></tr>
-<tr class="separator:ad33f36a358eb1db17dc852e6bb2bf314"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ce6029f0aeed7c9c49d36cb08bcab05"><td class="memTemplParams" colspan="2">template&lt;class F &gt; </td></tr>
+<tr class="memitem:a1ce6029f0aeed7c9c49d36cb08bcab05"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelala.html#a1ce6029f0aeed7c9c49d36cb08bcab05">is_constant_var</a> (const F &amp;x)</td></tr>
+<tr class="separator:a1ce6029f0aeed7c9c49d36cb08bcab05"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a45cb02b7572ae2fcc282003ab02acf2b"><td class="memTemplParams" colspan="2">template&lt;class F &gt; </td></tr>
+<tr class="memitem:a45cb02b7572ae2fcc282003ab02acf2b"><td class="memTemplItemLeft" align="right" valign="top">int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelala.html#a45cb02b7572ae2fcc282003ab02acf2b">value_of_constant</a> (const F &amp;x)</td></tr>
+<tr class="separator:a45cb02b7572ae2fcc282003ab02acf2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb4678868a81e9a9dcad057b7c4b4c8b"><td class="memTemplParams" colspan="2">template&lt;class F &gt; </td></tr>
+<tr class="memitem:aeb4678868a81e9a9dcad057b7c4b4c8b"><td class="memTemplItemLeft" align="right" valign="top">CUDA bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelala.html#aeb4678868a81e9a9dcad057b7c4b4c8b">is_tnf</a> (const F &amp;f)</td></tr>
+<tr class="separator:aeb4678868a81e9a9dcad057b7c4b4c8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a644d3cb2c2ce4391ea7fd253af991cf1"><td class="memTemplParams" colspan="2">template&lt;class F , class Env  = VarEnv&lt;battery::standard_allocator&gt;&gt; </td></tr>
+<tr class="memitem:a644d3cb2c2ce4391ea7fd253af991cf1"><td class="memTemplItemLeft" align="right" valign="top">F&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelala.html#a644d3cb2c2ce4391ea7fd253af991cf1">ternarize</a> (const F &amp;f, const Env &amp;env=Env())</td></tr>
+<tr class="separator:a644d3cb2c2ce4391ea7fd253af991cf1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4a8490aa25a4cc0da52f96a42f15ad70"><td class="memTemplParams" colspan="2">template&lt;class A , class R  = A&gt; </td></tr>
 <tr class="memitem:a4a8490aa25a4cc0da52f96a42f15ad70"><td class="memTemplItemLeft" align="right" valign="top">R&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelala.html#a4a8490aa25a4cc0da52f96a42f15ad70">project_fun</a> (<a class="el" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659">Sig</a> fun, const A &amp;a, const A &amp;b)</td></tr>
 <tr class="separator:a4a8490aa25a4cc0da52f96a42f15ad70"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -2071,6 +2095,27 @@ template&lt;class F &gt; </div>
 
 </div>
 </div>
+<a id="a2df1ecd67f11da8fd94360c55a714df7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2df1ecd67f11da8fd94360c55a714df7">&#9670;&nbsp;</a></span>num_tnf_constraints()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class F &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">CUDA size_t lala::num_tnf_constraints </td>
+          <td>(</td>
+          <td class="paramtype">const F &amp;&#160;</td>
+          <td class="paramname"><em>f</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>We ignore all constraints not in TNF. </p>
+
+</div>
+</div>
 <a id="a93ff80f41d2a60ce49d9d969792f3818"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a93ff80f41d2a60ce49d9d969792f3818">&#9670;&nbsp;</a></span>type_of_conjunction()</h2>
 
@@ -2358,8 +2403,47 @@ template&lt;class F &gt; </div>
 
 </div>
 </div>
+<a id="acbed5bc11756124529058ac92fbc0c2b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acbed5bc11756124529058ac92fbc0c2b">&#9670;&nbsp;</a></span>normalize() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class F , class Alloc  = battery::standard_allocator&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">CUDA NI F lala::normalize </td>
+          <td>(</td>
+          <td class="paramtype">const F &amp;&#160;</td>
+          <td class="paramname"><em>f</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">battery::vector&lt; F, Alloc &gt; &amp;&#160;</td>
+          <td class="paramname"><em>extra</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>We do simple transformation on the formula to obtain a sort of normal form such that:</p><ol type="1">
+<li>For all c &lt;op&gt; t, where <code>c</code> is a constant and <code>t</code> a term, we transform it into t &lt;converse-op&gt; c, whenever &lt;op&gt; has a converse.</li>
+<li>For all t &lt;op&gt; v, where <code>v</code> is a variable and <code>t</code> a term (not a variable or constant), we transform it into v &lt;converse-op&gt; t, whenever &lt;op&gt; has a converse.</li>
+<li>Try to push NOT inside the formula (see <code>negate</code>).</li>
+<li>Transform <code>not x</code> into <code>x = 0</code>.</li>
+<li>Transform <code>x in {v}</code> into <code>x = v</code>.</li>
+</ol>
+<p>This avoids to repeat the same transformation in different abstract domains.</p>
+<p>To avoid traversing several times the formula, <code>normalize</code> also collect "extra logical" formulas (extended sequence and MINIMIZE/MAXIMIZE predicates). </p>
+
+</div>
+</div>
 <a id="a505158a64e90b36755f6e84b5db6b987"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a505158a64e90b36755f6e84b5db6b987">&#9670;&nbsp;</a></span>normalize()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a505158a64e90b36755f6e84b5db6b987">&#9670;&nbsp;</a></span>normalize() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2375,14 +2459,6 @@ template&lt;class F &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>We do simple transformation on the formula to obtain a sort of normal form such that:</p><ol type="1">
-<li>For all c &lt;op&gt; t, where <code>c</code> is a constant and <code>t</code> a term, we transform it into t &lt;converse-op&gt; c, whenever &lt;op&gt; has a converse.</li>
-<li>For all t &lt;op&gt; v, where <code>v</code> is a constant and <code>t</code> a term (not a variable or constant), we transform it into v &lt;converse-op&gt; t, whenever &lt;op&gt; has a converse.</li>
-<li>Try to push NOT inside the formula (see <code>negate</code>).</li>
-<li>Transform <code>not x</code> into <code>x = 0</code>.</li>
-<li>Transform <code>x in {v}</code> into <code>x = v</code>.</li>
-</ol>
-<p>This avoids to repeat the same transformation in different abstract domains. </p>
 
 </div>
 </div>
@@ -2447,6 +2523,37 @@ template&lt;class F &gt; </div>
 
 </div>
 </div>
+<a id="abfb8776da0b69ec59521ec98ca9dc95c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abfb8776da0b69ec59521ec98ca9dc95c">&#9670;&nbsp;</a></span>decompose_set_constraints()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class F &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::optional&lt;F&gt; lala::decompose_set_constraints </td>
+          <td>(</td>
+          <td class="paramtype">const F &amp;&#160;</td>
+          <td class="paramname"><em>f</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::map&lt; std::string, std::vector&lt; std::string &gt;&gt; &amp;&#160;</td>
+          <td class="paramname"><em>set2bool_vars</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Rewrite a formula <code>f</code> into a new formula without set variables and set constraints. If some set variables are unbounded, we return an empty optional. Otherwise the new formula does not contain any set variable and constraint, and the mapping between set variables and Boolean variables is stored in <code>set2int_vars</code>. For instance a set variable <code>S in {[{}, {1,2}]}</code> is turned into two Boolean variables <code>__S_contains_1</code> and <code>__S_contains_2</code>. </p>
+
+</div>
+</div>
 <a id="a23e4cd05f6c827108d47c98443be639e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a23e4cd05f6c827108d47c98443be639e">&#9670;&nbsp;</a></span>string_of_sig()</h2>
 
@@ -2458,6 +2565,32 @@ template&lt;class F &gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">CUDA NI const char* lala::string_of_sig </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659">Sig</a>&#160;</td>
+          <td class="paramname"><em>sig</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aac6e3ffc4f0a1537b100e12d835fde0f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac6e3ffc4f0a1537b100e12d835fde0f">&#9670;&nbsp;</a></span>string_of_sig_txt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">CUDA NI const char* lala::string_of_sig_txt </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659">Sig</a>&#160;</td>
           <td class="paramname"><em>sig</em></td><td>)</td>
@@ -2562,6 +2695,32 @@ template&lt;class F &gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">CUDA constexpr NI bool lala::is_associative </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659">Sig</a>&#160;</td>
+          <td class="paramname"><em>sig</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afe97cb464937f52cf9740935c72d95c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe97cb464937f52cf9740935c72d95c0">&#9670;&nbsp;</a></span>is_commutative()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">CUDA constexpr NI bool lala::is_commutative </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659">Sig</a>&#160;</td>
           <td class="paramname"><em>sig</em></td><td>)</td>
@@ -2754,8 +2913,68 @@ template&lt;class Alloc1 , class Alloc2 &gt; </div>
 
 </div>
 </div>
-<a id="ad33f36a358eb1db17dc852e6bb2bf314"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad33f36a358eb1db17dc852e6bb2bf314">&#9670;&nbsp;</a></span>ternarize()</h2>
+<a id="a1ce6029f0aeed7c9c49d36cb08bcab05"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ce6029f0aeed7c9c49d36cb08bcab05">&#9670;&nbsp;</a></span>is_constant_var()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class F &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool lala::is_constant_var </td>
+          <td>(</td>
+          <td class="paramtype">const F &amp;&#160;</td>
+          <td class="paramname"><em>x</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a45cb02b7572ae2fcc282003ab02acf2b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a45cb02b7572ae2fcc282003ab02acf2b">&#9670;&nbsp;</a></span>value_of_constant()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class F &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">int lala::value_of_constant </td>
+          <td>(</td>
+          <td class="paramtype">const F &amp;&#160;</td>
+          <td class="paramname"><em>x</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aeb4678868a81e9a9dcad057b7c4b4c8b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb4678868a81e9a9dcad057b7c4b4c8b">&#9670;&nbsp;</a></span>is_tnf()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class F &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">CUDA bool lala::is_tnf </td>
+          <td>(</td>
+          <td class="paramtype">const F &amp;&#160;</td>
+          <td class="paramname"><em>f</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a644d3cb2c2ce4391ea7fd253af991cf1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a644d3cb2c2ce4391ea7fd253af991cf1">&#9670;&nbsp;</a></span>ternarize()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2772,13 +2991,7 @@ template&lt;class F , class Env  = VarEnv&lt;battery::standard_allocator&gt;&gt;
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const Env &amp;&#160;</td>
-          <td class="paramname"><em>env</em> = <code>Env()</code>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>ternarize_all</em> = <code>false</code>&#160;</td>
+          <td class="paramname"><em>env</em> = <code>Env()</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
