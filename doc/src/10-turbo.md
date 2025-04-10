@@ -1,6 +1,6 @@
 # v1.2.4: Ternary Normal Form
 
-_27 December 2024_ During the hackathon with Nvidia, we profiled the code and discovered that the representation of propagators was problematic.
+_27 December 2024._ During the hackathon with Nvidia, we profiled the code and discovered that the representation of propagators was problematic.
 Let's take an example with the constraint `x * x + y < 5` which is internally represented by the following AST:
 
 <img src="turbo-v1.2/propagator_tree.png" alt="isolated" width="250"/>

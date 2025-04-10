@@ -1,49 +1,48 @@
 <!DOCTYPE HTML>
-<html lang="en" class="light sidebar-visible" dir="ltr">
+<html lang="en" class="sidebar-visible no-js light">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
         <title>v1.0.1: Unoptimized Turbo - Lattice Land Book</title>
-
+                
 
         <!-- Custom HTML head -->
+        
 
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="theme-color" content="#ffffff">
+        <meta name="theme-color" content="#ffffff" />
 
-        <link rel="icon" href="favicon.svg">
-        <link rel="shortcut icon" href="favicon.png">
-        <link rel="stylesheet" href="css/variables.css">
+                <link rel="icon" href="favicon.svg">
+                        <link rel="shortcut icon" href="favicon.png">
+                <link rel="stylesheet" href="css/variables.css">
         <link rel="stylesheet" href="css/general.css">
         <link rel="stylesheet" href="css/chrome.css">
-        <link rel="stylesheet" href="css/print.css" media="print">
-
+                <link rel="stylesheet" href="css/print.css" media="print">
+        
         <!-- Fonts -->
         <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
-        <link rel="stylesheet" href="fonts/fonts.css">
-
+                <link rel="stylesheet" href="fonts/fonts.css">
+        
         <!-- Highlight.js Stylesheets -->
         <link rel="stylesheet" href="highlight.css">
         <link rel="stylesheet" href="tomorrow-night.css">
         <link rel="stylesheet" href="ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
-        <link rel="stylesheet" href="custom.css">
-
-
+                <link rel="stylesheet" href="custom.css">
+        
+            </head>
+    <body>
         <!-- Provide site root to javascript -->
-        <script>
+        <script type="text/javascript">
             var path_to_root = "";
             var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
         </script>
-        <!-- Start loading toc.js asap -->
-        <script src="toc.js"></script>
-    </head>
-    <body>
-    <div id="body-container">
+
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
-        <script>
+        <script type="text/javascript">
             try {
                 var theme = localStorage.getItem('mdbook-theme');
                 var sidebar = localStorage.getItem('mdbook-sidebar');
@@ -59,79 +58,71 @@
         </script>
 
         <!-- Set the theme before any content is loaded, prevents flash -->
-        <script>
+        <script type="text/javascript">
             var theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
-            const html = document.documentElement;
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
             html.classList.remove('light')
             html.classList.add(theme);
-            html.classList.add("js");
+            html.classList.add('js');
         </script>
 
-        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
-
         <!-- Hide / unhide sidebar before it is displayed -->
-        <script>
-            var sidebar = null;
-            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
-            } else {
-                sidebar = 'hidden';
             }
-            sidebar_toggle.checked = sidebar === 'visible';
             html.classList.remove('sidebar-visible');
             html.classList.add("sidebar-" + sidebar);
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <!-- populated by js -->
-            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
-            <noscript>
-                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
-            </noscript>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
-                <div class="sidebar-resize-indicator"></div>
-            </div>
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="index.html"><strong aria-hidden="true">1.</strong> Lattice Land</a></li><li class="chapter-item expanded affix "><li class="part-title">CUDA Battery Library</li><li class="chapter-item expanded "><a href="1-cuda-battery.html"><strong aria-hidden="true">2.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="2-cuda-battery.html"><strong aria-hidden="true">3.</strong> Data from CPU to GPU</a></li><li class="chapter-item expanded "><a href="3-cuda-battery.html"><strong aria-hidden="true">4.</strong> CMake Project</a></li><li class="chapter-item expanded "><a href="4-cuda-battery.html"><strong aria-hidden="true">5.</strong> In-Kernel Allocation</a></li><li class="chapter-item expanded "><a href="5-cuda-battery.html"><strong aria-hidden="true">6.</strong> Shared Memory Allocator</a></li><li class="chapter-item expanded "><a href="6-cuda-battery.html"><strong aria-hidden="true">7.</strong> Caution</a></li><li class="chapter-item expanded affix "><li class="part-title">Seminars</li><li class="chapter-item expanded "><a href="abstract-week.html"><strong aria-hidden="true">8.</strong> Abstract Interpretation Workshop (2024)</a></li><li class="chapter-item expanded affix "><li class="part-title">Turbo Technical Journal</li><li class="chapter-item expanded "><a href="1-turbo.html"><strong aria-hidden="true">9.</strong> Introducing Turbo</a></li><li class="chapter-item expanded "><a href="2-turbo.html" class="active"><strong aria-hidden="true">10.</strong> v1.0.1: Unoptimized Turbo</a></li><li class="chapter-item expanded "><a href="3-turbo.html"><strong aria-hidden="true">11.</strong> v1.1.{0-1}: Preprocessing</a></li><li class="chapter-item expanded "><a href="4-turbo.html"><strong aria-hidden="true">12.</strong> v1.1.2: (Dis)equality Propagator</a></li><li class="chapter-item expanded "><a href="5-turbo.html"><strong aria-hidden="true">13.</strong> v1.1.3: Warp Synchronization</a></li><li class="chapter-item expanded "><a href="6-turbo.html"><strong aria-hidden="true">14.</strong> v1.1.{4-5}: Sorting Propagators</a></li><li class="chapter-item expanded "><a href="7-turbo.html"><strong aria-hidden="true">15.</strong> v1.1.{6-7}: Sharing Propagators</a></li><li class="chapter-item expanded "><a href="8-turbo.html"><strong aria-hidden="true">16.</strong> v1.2.0: Refactoring</a></li><li class="chapter-item expanded "><a href="9-turbo.html"><strong aria-hidden="true">17.</strong> v1.2.{1-3}: Open Hackathon</a></li><li class="chapter-item expanded "><a href="10-turbo.html"><strong aria-hidden="true">18.</strong> v1.2.4: Ternary Normal Form</a></li><li class="chapter-item expanded "><a href="11-turbo.html"><strong aria-hidden="true">19.</strong> v1.2.5: Trivially Copyable</a></li><li class="chapter-item expanded affix "><li class="part-title">About</li><li class="chapter-item expanded "><a href="about.html"><strong aria-hidden="true">20.</strong> About</a></li></ol>            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
+                
                 <div id="menu-bar-hover-placeholder"></div>
-                <div id="menu-bar" class="menu-bar sticky">
+                <div id="menu-bar" class="menu-bar sticky bordered">
                     <div class="left-buttons">
-                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
                             <i class="fa fa-bars"></i>
-                        </label>
+                        </button>
                         <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
                             <i class="fa fa-paint-brush"></i>
                         </button>
                         <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
                         </ul>
-                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                                <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                             <i class="fa fa-search"></i>
                         </button>
-                    </div>
+                                            </div>
 
                     <h1 class="menu-title">Lattice Land Book</h1>
 
                     <div class="right-buttons">
-                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                                                <a href="print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
-
+                                                                        
                     </div>
                 </div>
 
-                <div id="search-wrapper" class="hidden">
+                                <div id="search-wrapper" class="hidden">
                     <form id="searchbar-outer" class="searchbar-outer">
                         <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
                     </form>
@@ -141,9 +132,9 @@
                         </ul>
                     </div>
                 </div>
-
+                
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
-                <script>
+                <script type="text/javascript">
                     document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
                     document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
                     Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
@@ -210,7 +201,7 @@ In the following table, I describe the problems of the benchmarking suite (<code
 <li>RCPSP: Minimize makespan of tasks under resources constraints.</li>
 <li>Spot 5: Select a subset of photograph to be taken maximizing a weight.</li>
 </ul>
-<div class="table-wrapper"><table><thead><tr><th>Problem</th><th>#Inst</th><th>Kind</th><th>Global Constraints</th><th>Shape</th></tr></thead><tbody>
+<table><thead><tr><th>Problem</th><th>#Inst</th><th>Kind</th><th>Global Constraints</th><th>Shape</th></tr></thead><tbody>
 <tr><td>Wordpress</td><td>1</td><td>Allocation</td><td>None</td><td>Many <code>sum()()</code>.</td></tr>
 <tr><td>ACCAP</td><td>2</td><td>Allocation</td><td><code>diffn</code> (1)</td><td>Precedence constraints.</td></tr>
 <tr><td>Tower</td><td>1</td><td>Allocation</td><td>None</td><td></td></tr>
@@ -226,7 +217,6 @@ In the following table, I describe the problems of the benchmarking suite (<code
 <tr><td>RCPSP</td><td>18</td><td>Scheduling</td><td><code>cumulative</code></td><td>Precedence constraints, disjunctions.</td></tr>
 <tr><td>Spot 5</td><td>1</td><td>Ad-hoc</td><td><code>table</code></td><td></td></tr>
 </tbody></table>
-</div>
 <h3 id="analysis"><a class="header" href="#analysis">Analysis</a></h3>
 <p>The primary goal of our initial benchmarking session is to gauge how Turbo measures up against contemporary, state-of-the-art constraint solvers (spoiler: there's room for improvement).
 In order to assess the efficiency of Turbo, I compared it against Choco and Or-Tools:</p>
@@ -247,7 +237,7 @@ We run on the CPU mainly for debugging and comparative efficiency analysis.</p>
 <p>About the details of the experiments:</p>
 <ul>
 <li>Timeout: 5 minutes per instance (it is relatively small in order to quickly iterate and test new optimizations of Turbo).</li>
-<li>EPS (TurboGPU): generate 1024 subproblems (<code>-sub 10</code> for "2^10").</li>
+<li>EPS (TurboGPU): generate 1024 subproblems (<code>-sub 10</code> for &quot;2^10&quot;).</li>
 </ul>
 <p><em>Warning</em>: Before we start, let's get something straight: <em>the comparison between TurboGPU and other solver is relatively unfair.</em>
 In particular, because of EPS, TurboGPU uses breadth-first search at the top of the tree, and thus sometimes can get better bounds, while the others use depth-first search and might stay stuck in the left part of the search tree longer.
@@ -270,7 +260,7 @@ Back to Turbo, let's compare it to our its CPU-version and the baseline solvers:
 <img src="turbo-v1.0.1/turbogpu-vs-choco.png" alt="TurboGPU vs Choco" />
 <img src="turbo-v1.0.1/turbogpu-vs-choco-noglobal.png" alt="TurboGPU vs Choco.noglobal" /></p>
 <p>For future references, it is interesting to have an average of some speed and memory metrics across all problems:</p>
-<div class="table-wrapper"><table><thead><tr><th>Metrics</th><th>Average</th><th>Median</th></tr></thead><tbody>
+<table><thead><tr><th>Metrics</th><th>Average</th><th>Median</th></tr></thead><tbody>
 <tr><td>Nodes per second</td><td>1246.77</td><td>35.07</td></tr>
 <tr><td>Fixpoint iterations per second</td><td>10014.91</td><td>257.84</td></tr>
 <tr><td>Fixpoint iterations per node</td><td>8.48</td><td>7.11</td></tr>
@@ -281,8 +271,7 @@ Back to Turbo, let's compare it to our its CPU-version and the baseline solvers:
 <tr><td>#Problems satisfiable</td><td>27</td><td></td></tr>
 <tr><td>#Problems unknown</td><td>3</td><td></td></tr>
 </tbody></table>
-</div>
-<p>When comparing the number of nodes per second, we can see that TurboGPU explores around 5 to 10 times more nodes per second than TurboCPU; showing a "purely computational gain" when using the GPU.
+<p>When comparing the number of nodes per second, we can see that TurboGPU explores around 5 to 10 times more nodes per second than TurboCPU; showing a &quot;purely computational gain&quot; when using the GPU.
 Just 5x to 10x quicker is actually not that much quicker considering we have 64 streaming multiprocessors, and indicate we are under-using the parallel capacities of the GPU.
 In the future, I'll benchmark how efficiently Turbo is using the GPU using the profiling tools of NVIDIA.</p>
 <p><img src="turbo-v1.0.1/number-of-nodes-per-second.png" alt="TurboGPU nodes per second" /></p>
@@ -306,50 +295,49 @@ I think two important missing optimizations are:</p>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="1-turbo.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                                    <a rel="prev" href="1-turbo.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
-
-                            <a rel="next prefetch" href="3-turbo.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        
+                                                    <a rel="next" href="3-turbo.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
-
+                        
                         <div style="clear: both"></div>
                     </nav>
                 </div>
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="1-turbo.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                    <a rel="prev" href="1-turbo.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
-
-                    <a rel="next prefetch" href="3-turbo.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                
+                                    <a rel="next" href="3-turbo.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
-            </nav>
+                            </nav>
 
         </div>
 
-
-
-
-        <script>
+        
+        
+        
+                <script type="text/javascript">
             window.playground_copyable = true;
         </script>
-
-
-        <script src="elasticlunr.min.js"></script>
-        <script src="mark.min.js"></script>
-        <script src="searcher.js"></script>
-
-        <script src="clipboard.min.js"></script>
-        <script src="highlight.js"></script>
-        <script src="book.js"></script>
+        
+        
+                <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
 
         <!-- Custom JS scripts -->
-
-
-    </div>
+        
+        
     </body>
 </html>

@@ -36,6 +36,7 @@
 * [v1.2.0: Refactoring](8-turbo.md)
 * [v1.2.{1-3}: Open Hackathon](9-turbo.md)
 * [v1.2.4: Ternary Normal Form](10-turbo.md)
+* [v1.2.5: Trivially Copyable](11-turbo.md)
 
 # About
 
