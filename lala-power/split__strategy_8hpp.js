@@ -1,8 +1,8 @@
 var split__strategy_8hpp =
 [
-    [ "SplitStrategy", "classlala_1_1_split_strategy.html", "classlala_1_1_split_strategy" ],
-    [ "snapshot_type", "structlala_1_1_split_strategy_1_1snapshot__type.html", "structlala_1_1_split_strategy_1_1snapshot__type" ],
-    [ "strategy_type", "structlala_1_1_split_strategy_1_1strategy__type.html", "structlala_1_1_split_strategy_1_1strategy__type" ],
+    [ "lala::StrategyType< Allocator >", "structlala_1_1_strategy_type.html", "structlala_1_1_strategy_type" ],
+    [ "lala::SplitStrategy< A, Allocator >", "classlala_1_1_split_strategy.html", "classlala_1_1_split_strategy" ],
+    [ "lala::SplitStrategy< A, Allocator >::snapshot_type< Alloc >", "structlala_1_1_split_strategy_1_1snapshot__type.html", "structlala_1_1_split_strategy_1_1snapshot__type" ],
     [ "VariableOrder", "split__strategy_8hpp.html#a587db5b120e4ed2e5d0fffaf51256941", [
       [ "INPUT_ORDER", "split__strategy_8hpp.html#a587db5b120e4ed2e5d0fffaf51256941a3464ff2e27eedf9343ef4a332155a60b", null ],
       [ "FIRST_FAIL", "split__strategy_8hpp.html#a587db5b120e4ed2e5d0fffaf51256941a6de43da36a15d9bbce1895c724b01eaa", null ],

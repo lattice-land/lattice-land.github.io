@@ -1,19 +1,18 @@
 var classlala_1_1_split_strategy =
 [
     [ "snapshot_type", "structlala_1_1_split_strategy_1_1snapshot__type.html", "structlala_1_1_split_strategy_1_1snapshot__type" ],
-    [ "strategy_type", "structlala_1_1_split_strategy_1_1strategy__type.html", "structlala_1_1_split_strategy_1_1strategy__type" ],
     [ "allocator_type", "classlala_1_1_split_strategy.html#a44421e73128a70a7b9b013fe86dca78e", null ],
     [ "sub_type", "classlala_1_1_split_strategy.html#a56b1a059b3735e7002aca43546f09867", null ],
     [ "sub_allocator_type", "classlala_1_1_split_strategy.html#a6ed86288f6db42b2cef213b9b3b33dc5", null ],
     [ "sub_tell_type", "classlala_1_1_split_strategy.html#a4b58176322f5e24933c7119ce52700e3", null ],
     [ "branch_type", "classlala_1_1_split_strategy.html#a9ec6b504046c141cc2bc82f7987220f9", null ],
     [ "this_type", "classlala_1_1_split_strategy.html#aaacf858d20b49b97e335766d640b0f86", null ],
-    [ "tell_type", "classlala_1_1_split_strategy.html#a404c4e67784744f42fda0a48dc610fc9", null ],
+    [ "tell_type", "classlala_1_1_split_strategy.html#a3bbb33cd899539fb1a1c4fc0ae98d482", null ],
     [ "SplitStrategy", "classlala_1_1_split_strategy.html#ab105c3f2da3a696df4abea3e1e385ecf", null ],
     [ "SplitStrategy", "classlala_1_1_split_strategy.html#a4261c77fb711202f868d26cefe13afec", null ],
     [ "aty", "classlala_1_1_split_strategy.html#aa4a30b25dc0ca36ec75fb2279f9ee190", null ],
     [ "get_allocator", "classlala_1_1_split_strategy.html#a298e70854daa1d89ab1b97538d8dcd01", null ],
-    [ "snapshot", "classlala_1_1_split_strategy.html#aae011c787436535786c0cb7dfdb323b9", null ],
+    [ "snapshot", "classlala_1_1_split_strategy.html#aa28170f4fbf137c382ca86d37ac83c3a", null ],
     [ "restore", "classlala_1_1_split_strategy.html#acc8db2d7e3cfbfef97ae3af757568eb0", null ],
     [ "reset", "classlala_1_1_split_strategy.html#abf5102e67676c60dd2c5f1c824fe8a61", null ],
     [ "interpret_tell", "classlala_1_1_split_strategy.html#a5701a608e86f61d00d92da1422dada37", null ],
@@ -21,5 +20,6 @@ var classlala_1_1_split_strategy =
     [ "deduce", "classlala_1_1_split_strategy.html#a52e569d01883f0d52a767961361c5267", null ],
     [ "split", "classlala_1_1_split_strategy.html#ad0b0f2530754be67a738417aa59ce8f7", null ],
     [ "num_strategies", "classlala_1_1_split_strategy.html#adda9aae4a42e22db8b98958ad17c03d5", null ],
+    [ "strategies_", "classlala_1_1_split_strategy.html#aa296e26fe0f169510912a5df2b601bb9", null ],
     [ "SplitStrategy", "classlala_1_1_split_strategy.html#a4e6bcb207ff4f3f520b5092c1edc55d7", null ]
 ];

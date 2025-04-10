@@ -6,8 +6,8 @@ var structlala_1_1_search_tree_1_1snapshot__type =
     [ "snapshot_type", "structlala_1_1_search_tree_1_1snapshot__type.html#a5fc976ecaf356e2888b6ae4a20c8cfec", null ],
     [ "snapshot_type", "structlala_1_1_search_tree_1_1snapshot__type.html#a0a322fefcdf556561afe8052507abb97", null ],
     [ "snapshot_type", "structlala_1_1_search_tree_1_1snapshot__type.html#aae777da1bfac0091a6f6278af5473708", null ],
-    [ "operator=", "structlala_1_1_search_tree_1_1snapshot__type.html#a3775b7f4dfcdb19420fa89c1d049d455", null ],
-    [ "operator=", "structlala_1_1_search_tree_1_1snapshot__type.html#a4042df66cb32ac871c0bfd22ffd2d9cd", null ],
+    [ "operator=", "structlala_1_1_search_tree_1_1snapshot__type.html#a6d8a7aeab26a73b4e3d77deaafb3b51b", null ],
+    [ "operator=", "structlala_1_1_search_tree_1_1snapshot__type.html#a1cc6aa9efbfb275e9d16801717242e26", null ],
     [ "sub_snap", "structlala_1_1_search_tree_1_1snapshot__type.html#ae365c6e0b280abe9f2f4b0aec2016200", null ],
     [ "split_snap", "structlala_1_1_search_tree_1_1snapshot__type.html#ae92f2f3bdeb382da57dc66b068a5576b", null ],
     [ "sub", "structlala_1_1_search_tree_1_1snapshot__type.html#a8cdabb1038a957ebf3b3d6689d95dead", null ]

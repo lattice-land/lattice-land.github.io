@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['table_303',['Table',['../classlala_1_1_table.html#a8e81002ba43a153c791f034907db0034',1,'lala::Table']]],
-  ['tables_304',['Tables',['../classlala_1_1_tables.html#a3ce0130543be615ce54ddf86ff70fff2',1,'lala::Tables']]],
-  ['tell_5ftype_305',['tell_type',['../structlala_1_1_b_a_b_1_1tell__type.html#aacf03bed9da3ee52d604fcc0b851f8d9',1,'lala::BAB::tell_type::tell_type()'],['../structlala_1_1_search_tree_1_1tell__type.html#aa26c0608c0a5197918de9926205a3b9c',1,'lala::SearchTree::tell_type::tell_type()'],['../structlala_1_1_table_1_1tell__type.html#aa26c0608c0a5197918de9926205a3b9c',1,'lala::Table::tell_type::tell_type()'],['../structlala_1_1_tables_1_1tell__type.html#aa26c0608c0a5197918de9926205a3b9c',1,'lala::Tables::tell_type::tell_type()']]]
+  ['searchtree_0',['SearchTree',['../classlala_1_1_search_tree.html#af8f9b572d0b4bef0e8a0e34d5e9b20a4',1,'lala::SearchTree']]],
+  ['splitstrategy_1',['SplitStrategy',['../classlala_1_1_split_strategy.html#a4e6bcb207ff4f3f520b5092c1edc55d7',1,'lala::SplitStrategy']]],
+  ['strategytype_2',['StrategyType',['../structlala_1_1_strategy_type.html#a131701b4917e58fb6becd3a02efa543a',1,'lala::StrategyType']]]
 ];
