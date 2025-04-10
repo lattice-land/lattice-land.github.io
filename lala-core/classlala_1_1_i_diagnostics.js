@@ -5,7 +5,7 @@ var classlala_1_1_i_diagnostics =
     [ "this_type", "classlala_1_1_i_diagnostics.html#a26588401817c64c40245b99c46a01249", null ],
     [ "IDiagnostics", "classlala_1_1_i_diagnostics.html#ab2c596f2fb3435bdd1b46729abe35b22", null ],
     [ "IDiagnostics", "classlala_1_1_i_diagnostics.html#a90ce76f2265afff11900728413c84006", null ],
-    [ "add_suberror", "classlala_1_1_i_diagnostics.html#a12d140313bf173bd162da8148515763b", null ],
+    [ "add_suberror", "classlala_1_1_i_diagnostics.html#af5ccaae74fd269c651888c074dad3af6", null ],
     [ "num_suberrors", "classlala_1_1_i_diagnostics.html#a9e48db9ac0b5bb4f3a8c03757e81516e", null ],
     [ "cut", "classlala_1_1_i_diagnostics.html#a15e332758bd90859d4ec4023629f7378", null ],
     [ "merge", "classlala_1_1_i_diagnostics.html#a8ee3835d67bae450cb979f22db8c1fb9", null ],

@@ -1,6 +1,6 @@
 var diagnostics_8hpp =
 [
-    [ "IDiagnostics", "classlala_1_1_i_diagnostics.html", "classlala_1_1_i_diagnostics" ],
+    [ "lala::IDiagnostics", "classlala_1_1_i_diagnostics.html", "classlala_1_1_i_diagnostics" ],
     [ "INTERPRETATION_ERROR", "diagnostics_8hpp.html#afa74c959d3c419329529df2e63237b85", null ],
     [ "INTERPRETATION_WARNING", "diagnostics_8hpp.html#a2bce66e69856e3f3078b1a540e4ac277", null ],
     [ "RETURN_INTERPRETATION_ERROR", "diagnostics_8hpp.html#afef084862eecba1f79f8d4588e7d85b2", null ],

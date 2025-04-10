@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['width_753',['width',['../classlala_1_1_interval.html#a14a3c138e78bab93aee890a855fa95bd',1,'lala::Interval::width()'],['../classlala_1_1_n_bitset.html#ac569c99d130689d1d5d1b0f6e2bb319c',1,'lala::NBitset::width()']]]
+  ['width_0',['width',['../classlala_1_1_interval.html#aa32cb700b47215d07cc51c1f538c033e',1,'lala::Interval::width()'],['../classlala_1_1_n_bitset.html#ad26b089c3dca510b9eaf07334596f397',1,'lala::NBitset::width()']]]
 ];

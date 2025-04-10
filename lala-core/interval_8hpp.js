@@ -1,10 +1,10 @@
 var interval_8hpp =
 [
-    [ "Interval", "classlala_1_1_interval.html", "classlala_1_1_interval" ],
-    [ "fjoin", "interval_8hpp.html#a5f8567b4b7b672cd68c5ee007e162edd", null ],
-    [ "fmeet", "interval_8hpp.html#a6d74ae6169bdb123d1b2c3332e2c7802", null ],
-    [ "operator<", "interval_8hpp.html#ae508a71503241549919b188c5d372194", null ],
-    [ "operator>", "interval_8hpp.html#ac67cd603d201f2f6df30d4fe521fd427", null ],
-    [ "operator==", "interval_8hpp.html#a972f62a10e87e036d30d453ad4b3f59e", null ],
-    [ "operator<<", "interval_8hpp.html#a7ff81ccef2fad201c1b2061fbaf3ad9f", null ]
+    [ "lala::Interval< U >", "classlala_1_1_interval.html", "classlala_1_1_interval" ],
+    [ "fjoin", "interval_8hpp.html#a098d0ca4113ea1c2c15a7116936524de", null ],
+    [ "fmeet", "interval_8hpp.html#a3ea96158c9231d519aa856b35a7ecf38", null ],
+    [ "operator<", "interval_8hpp.html#a3d436ce98ff7d08515c9b113594c006b", null ],
+    [ "operator>", "interval_8hpp.html#a9882b578e2f8b02730f31620b51cd026", null ],
+    [ "operator==", "interval_8hpp.html#a6c95a394c05fd2c3e46d72ec1fcc934b", null ],
+    [ "operator<<", "interval_8hpp.html#a8e0b0c30b7a7b1cf51a7239b8bb2674d", null ]
 ];

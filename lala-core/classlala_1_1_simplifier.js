@@ -34,7 +34,7 @@ var classlala_1_1_simplifier =
     [ "eliminate_useless_variables", "classlala_1_1_simplifier.html#aadbaf3b8ca3b3530bd826e92f6dcd970", null ],
     [ "substitute", "classlala_1_1_simplifier.html#ac4e829383c170fe249dd263c6f434e7a", null ],
     [ "num_vars_after_elimination", "classlala_1_1_simplifier.html#a9334d97347f741587fc0a00d80b9a4a1", null ],
-    [ "deinterpret", "classlala_1_1_simplifier.html#ae85ac117fe1ed5e9930978498fcdde08", null ],
-    [ "deinterpret", "classlala_1_1_simplifier.html#a0257d3a32bf90543014d4f8386aa5866", null ],
+    [ "deinterpret", "classlala_1_1_simplifier.html#a7f8409f5fbcbf1ee9d26219eaff00d5f", null ],
+    [ "deinterpret", "classlala_1_1_simplifier.html#ac60f902bedc0215768e1dfd1e4257c9b", null ],
     [ "Simplifier", "classlala_1_1_simplifier.html#abb7b1b8372ac24e438139ebc86dc99c4", null ]
 ];
