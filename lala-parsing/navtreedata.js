@@ -41,7 +41,7 @@ var NAVTREE =
         [ "All", "functions.html", null ],
         [ "Functions", "functions_func.html", null ],
         [ "Variables", "functions_vars.html", null ],
-        [ "Related Functions", "functions_rela.html", null ]
+        [ "Related Symbols", "functions_rela.html", null ]
       ] ]
     ] ],
     [ "Files", "files.html", [
@@ -56,7 +56,8 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"_x_c_s_p3__parser_8hpp.html"
+"_x_c_s_p3__parser_8hpp.html",
+"classlala_1_1_solver_output.html#af18a742f937fd50897670be8809474fb"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
