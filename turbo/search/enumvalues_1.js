@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['cpu_301',['CPU',['../config_8hpp.html#a0ac03ab06a859320a9072002bdf3aa0fa2b55387dd066c5bac646ac61543d152d',1,'config.hpp']]]
+  ['barebones_0',['BAREBONES',['../config_8hpp.html#a0ac03ab06a859320a9072002bdf3aa0fa8f687b02d7aff0438e55da0f175cc825',1,'config.hpp']]]
 ];

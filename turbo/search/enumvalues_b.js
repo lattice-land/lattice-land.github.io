@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['wac1_315',['WAC1',['../config_8hpp.html#a5ee8f81cc01d530506acbb3c037a751baf7d56c9ee0b42b33964b26d10d655eeb',1,'config.hpp']]],
-  ['wait_5fcpu_316',['WAIT_CPU',['../statistics_8hpp.html#a6e0035edd58cc6ca8c94b5f9723a0d80a1122e495306c2edb5df9eb2a65953676',1,'statistics.hpp']]]
+  ['transfer_5fcpu2gpu_0',['TRANSFER_CPU2GPU',['../statistics_8hpp.html#a6e0035edd58cc6ca8c94b5f9723a0d80a0cba79c41fc527a8e78600934dc7c3c6',1,'statistics.hpp']]],
+  ['transfer_5fgpu2cpu_1',['TRANSFER_GPU2CPU',['../statistics_8hpp.html#a6e0035edd58cc6ca8c94b5f9723a0d80a41dda7a604badd52fe521cb713e7a39f',1,'statistics.hpp']]]
 ];

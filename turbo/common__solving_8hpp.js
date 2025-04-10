@@ -1,10 +1,10 @@
 var common__solving_8hpp =
 [
-    [ "UniqueAlloc", "struct_unique_alloc.html", "struct_unique_alloc" ],
-    [ "UniqueLightAlloc", "struct_unique_light_alloc.html", "struct_unique_light_alloc" ],
-    [ "AbstractDomains", "struct_abstract_domains.html", "struct_abstract_domains" ],
-    [ "tag_copy_cons", "struct_abstract_domains_1_1tag__copy__cons.html", null ],
-    [ "tag_gpu_block_copy", "struct_abstract_domains_1_1tag__gpu__block__copy.html", null ],
+    [ "UniqueAlloc< Alloc, n >", "struct_unique_alloc.html", "struct_unique_alloc" ],
+    [ "UniqueLightAlloc< Alloc, n >", "struct_unique_light_alloc.html", "struct_unique_light_alloc" ],
+    [ "AbstractDomains< Universe, BasicAllocator, PropAllocator, StoreAllocator >", "struct_abstract_domains.html", "struct_abstract_domains" ],
+    [ "AbstractDomains< Universe, BasicAllocator, PropAllocator, StoreAllocator >::tag_copy_cons", "struct_abstract_domains_1_1tag__copy__cons.html", null ],
+    [ "AbstractDomains< Universe, BasicAllocator, PropAllocator, StoreAllocator >::tag_gpu_block_copy", "struct_abstract_domains_1_1tag__gpu__block__copy.html", null ],
     [ "TURBO_ITV_BITS", "common__solving_8hpp.html#a1cfedbdd4ea1f117b23e6eb3fe4d1bb4", null ],
     [ "STR_", "common__solving_8hpp.html#a0f86942485f6b615baa815a07e9819f1", null ],
     [ "STR", "common__solving_8hpp.html#a18d295a837ac71add5578860b55e5502", null ],

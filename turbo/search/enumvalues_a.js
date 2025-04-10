@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['transfer_5fcpu2gpu_313',['TRANSFER_CPU2GPU',['../statistics_8hpp.html#a6e0035edd58cc6ca8c94b5f9723a0d80a0cba79c41fc527a8e78600934dc7c3c6',1,'statistics.hpp']]],
-  ['transfer_5fgpu2cpu_314',['TRANSFER_GPU2CPU',['../statistics_8hpp.html#a6e0035edd58cc6ca8c94b5f9723a0d80a41dda7a604badd52fe521cb713e7a39f',1,'statistics.hpp']]]
+  ['search_0',['SEARCH',['../statistics_8hpp.html#a6e0035edd58cc6ca8c94b5f9723a0d80a0f544d682c3a664870f025f48c4b04b5',1,'statistics.hpp']]],
+  ['select_5ffp_5ffunctions_1',['SELECT_FP_FUNCTIONS',['../statistics_8hpp.html#a6e0035edd58cc6ca8c94b5f9723a0d80a79bde01db3ccc1f5ff856a11a34c20df',1,'statistics.hpp']]],
+  ['solve_2',['SOLVE',['../statistics_8hpp.html#a6e0035edd58cc6ca8c94b5f9723a0d80abf61c5b43708f01f5a198843f93e521a',1,'statistics.hpp']]]
 ];

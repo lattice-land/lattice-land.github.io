@@ -1,6 +1,8 @@
 var searchData=
 [
-  ['only_5fglobal_5fmemory_252',['only_global_memory',['../struct_configuration.html#aae1fab75cbb6561fa2d07eb7ed8c8b97',1,'Configuration']]],
-  ['optimization_253',['optimization',['../struct_statistics.html#a606a956342a4283a3801fb2fda8c2af3',1,'Statistics']]],
-  ['or_5fnodes_254',['or_nodes',['../struct_configuration.html#a6400dfba9cd09ea3050d18c71c8d47fb',1,'Configuration']]]
+  ['network_5fanalysis_0',['network_analysis',['../struct_configuration.html#abc65b4f3828ae49e3486f4e075bc87be',1,'Configuration']]],
+  ['nodes_1',['nodes',['../struct_statistics.html#a368ef129a8ac56816509374fdae65369',1,'Statistics']]],
+  ['num_5fblocks_2',['num_blocks',['../struct_statistics.html#ac0bca55a06fb5e994cbd29d9d8140f30',1,'Statistics']]],
+  ['num_5fblocks_5fdone_3',['num_blocks_done',['../struct_statistics.html#a63e822c96a840cda4ce2cac52056a3ec',1,'Statistics']]],
+  ['num_5fdeductions_4',['num_deductions',['../struct_statistics.html#abc30e7145a70456eaa476d560c54f0d5',1,'Statistics']]]
 ];
