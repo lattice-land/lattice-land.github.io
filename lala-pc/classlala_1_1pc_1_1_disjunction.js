@@ -14,7 +14,7 @@ var classlala_1_1pc_1_1_disjunction =
     [ "deduce", "classlala_1_1pc_1_1_disjunction.html#a8ebf9ed5bf28e228357bf6163828bbe4", null ],
     [ "contradeduce", "classlala_1_1pc_1_1_disjunction.html#a1a333b2840075fa8462d037dc1882424", null ],
     [ "print", "classlala_1_1pc_1_1_disjunction.html#aa6a2dab7e8de3bbaec9a167c1c0cee1c", null ],
-    [ "deinterpret", "classlala_1_1pc_1_1_disjunction.html#a0fcff166ca7b34d266266c54ac9381ad", null ],
+    [ "deinterpret", "classlala_1_1pc_1_1_disjunction.html#a6fd5bf93887e9ff0973f30cc23b162bc", null ],
     [ "length", "classlala_1_1pc_1_1_disjunction.html#ab1e0ea90f22a1a1f7ed0eadf81440bbe", null ],
     [ "Disjunction", "classlala_1_1pc_1_1_disjunction.html#ad3499685da1e082a6224097c02ca6b18", null ]
 ];
