@@ -1,52 +1,54 @@
 <!DOCTYPE HTML>
-<html lang="en" class="sidebar-visible no-js light">
+<html lang="en" class="light sidebar-visible" dir="ltr">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
         <title>Lattice Land Book</title>
-                <meta name="robots" content="noindex" />
-                
+        <meta name="robots" content="noindex">
+
 
         <!-- Custom HTML head -->
-        
 
-        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="theme-color" content="#ffffff" />
+        <meta name="theme-color" content="#ffffff">
 
-                <link rel="icon" href="favicon.svg">
-                        <link rel="shortcut icon" href="favicon.png">
-                <link rel="stylesheet" href="css/variables.css">
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
         <link rel="stylesheet" href="css/general.css">
         <link rel="stylesheet" href="css/chrome.css">
-                <link rel="stylesheet" href="css/print.css" media="print">
-        
+        <link rel="stylesheet" href="css/print.css" media="print">
+
         <!-- Fonts -->
         <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
-                <link rel="stylesheet" href="fonts/fonts.css">
-        
+        <link rel="stylesheet" href="fonts/fonts.css">
+
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" href="highlight.css">
-        <link rel="stylesheet" href="tomorrow-night.css">
-        <link rel="stylesheet" href="ayu-highlight.css">
+        <link rel="stylesheet" id="highlight-css" href="highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="ayu-highlight.css">
 
         <!-- Custom theme stylesheets -->
-                <link rel="stylesheet" href="custom.css">
-        
-            </head>
-    <body>
-        <!-- Provide site root to javascript -->
-        <script type="text/javascript">
-            var path_to_root = "";
-            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
-        </script>
+        <link rel="stylesheet" href="custom.css">
 
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
-        <script type="text/javascript">
+        <script>
             try {
-                var theme = localStorage.getItem('mdbook-theme');
-                var sidebar = localStorage.getItem('mdbook-sidebar');
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
 
                 if (theme.startsWith('"') && theme.endsWith('"')) {
                     localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
@@ -59,71 +61,81 @@
         </script>
 
         <!-- Set the theme before any content is loaded, prevents flash -->
-        <script type="text/javascript">
-            var theme;
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
-            var html = document.querySelector('html');
-            html.classList.remove('no-js')
+            const html = document.documentElement;
             html.classList.remove('light')
             html.classList.add(theme);
-            html.classList.add('js');
+            html.classList.add("js");
         </script>
 
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
         <!-- Hide / unhide sidebar before it is displayed -->
-        <script type="text/javascript">
-            var html = document.querySelector('html');
-            var sidebar = 'hidden';
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
             }
+            sidebar_toggle.checked = sidebar === 'visible';
             html.classList.remove('sidebar-visible');
             html.classList.add("sidebar-" + sidebar);
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded "><a href="index.html"><strong aria-hidden="true">1.</strong> Lattice Land</a></li><li class="chapter-item expanded affix "><li class="part-title">CUDA Battery Library</li><li class="chapter-item expanded "><a href="1-cuda-battery.html"><strong aria-hidden="true">2.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="2-cuda-battery.html"><strong aria-hidden="true">3.</strong> Data from CPU to GPU</a></li><li class="chapter-item expanded "><a href="3-cuda-battery.html"><strong aria-hidden="true">4.</strong> CMake Project</a></li><li class="chapter-item expanded "><a href="4-cuda-battery.html"><strong aria-hidden="true">5.</strong> In-Kernel Allocation</a></li><li class="chapter-item expanded "><a href="5-cuda-battery.html"><strong aria-hidden="true">6.</strong> Shared Memory Allocator</a></li><li class="chapter-item expanded "><a href="6-cuda-battery.html"><strong aria-hidden="true">7.</strong> Caution</a></li><li class="chapter-item expanded affix "><li class="part-title">Seminars</li><li class="chapter-item expanded "><a href="abstract-week.html"><strong aria-hidden="true">8.</strong> Abstract Interpretation Workshop (2024)</a></li><li class="chapter-item expanded affix "><li class="part-title">Turbo Technical Journal</li><li class="chapter-item expanded "><a href="1-turbo.html"><strong aria-hidden="true">9.</strong> Introducing Turbo</a></li><li class="chapter-item expanded "><a href="2-turbo.html"><strong aria-hidden="true">10.</strong> v1.0.1: Unoptimized Turbo</a></li><li class="chapter-item expanded "><a href="3-turbo.html"><strong aria-hidden="true">11.</strong> v1.1.{0-1}: Preprocessing</a></li><li class="chapter-item expanded "><a href="4-turbo.html"><strong aria-hidden="true">12.</strong> v1.1.2: (Dis)equality Propagator</a></li><li class="chapter-item expanded "><a href="5-turbo.html"><strong aria-hidden="true">13.</strong> v1.1.3: Warp Synchronization</a></li><li class="chapter-item expanded "><a href="6-turbo.html"><strong aria-hidden="true">14.</strong> v1.1.{4-5}: Sorting Propagators</a></li><li class="chapter-item expanded "><a href="7-turbo.html"><strong aria-hidden="true">15.</strong> v1.1.{6-7}: Sharing Propagators</a></li><li class="chapter-item expanded "><a href="8-turbo.html"><strong aria-hidden="true">16.</strong> v1.2.0: Refactoring</a></li><li class="chapter-item expanded "><a href="9-turbo.html"><strong aria-hidden="true">17.</strong> v1.2.{1-3}: Open Hackathon</a></li><li class="chapter-item expanded "><a href="10-turbo.html"><strong aria-hidden="true">18.</strong> v1.2.4: Ternary Normal Form</a></li><li class="chapter-item expanded "><a href="11-turbo.html"><strong aria-hidden="true">19.</strong> v1.2.5: Trivially Copyable</a></li><li class="chapter-item expanded affix "><li class="part-title">About</li><li class="chapter-item expanded "><a href="about.html"><strong aria-hidden="true">20.</strong> About</a></li></ol>            </div>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
         </nav>
 
         <div id="page-wrapper" class="page-wrapper">
 
             <div class="page">
-                
                 <div id="menu-bar-hover-placeholder"></div>
-                <div id="menu-bar" class="menu-bar sticky bordered">
+                <div id="menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
-                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
                             <i class="fa fa-bars"></i>
-                        </button>
+                        </label>
                         <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
                             <i class="fa fa-paint-brush"></i>
                         </button>
                         <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
                         </ul>
-                                                <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
                             <i class="fa fa-search"></i>
                         </button>
-                                            </div>
+                    </div>
 
                     <h1 class="menu-title">Lattice Land Book</h1>
 
                     <div class="right-buttons">
-                                                <a href="print.html" title="Print this book" aria-label="Print this book">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
-                                                                        
+
                     </div>
                 </div>
 
-                                <div id="search-wrapper" class="hidden">
+                <div id="search-wrapper" class="hidden">
                     <form id="searchbar-outer" class="searchbar-outer">
                         <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
                     </form>
@@ -133,9 +145,9 @@
                         </ul>
                     </div>
                 </div>
-                
+
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
-                <script type="text/javascript">
+                <script>
                     document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
                     document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
                     Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
@@ -164,7 +176,7 @@ See also the chapter <a href="1-cuda-battery.html">CUDA-Battery Library</a>.</li
 </ul>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="introduction"><a class="header" href="#introduction">Introduction</a></h1>
 <p>The main objective of the CUDA battery library is to make it easier to develop software fully executing on the GPU.
-This is in contrast to applications where the CPU is the &quot;director&quot;, and the GPU is only there to execute small kernels performing specific parallel tasks.
+This is in contrast to applications where the CPU is the "director", and the GPU is only there to execute small kernels performing specific parallel tasks.
 We want to have the whole computation on the GPU when possible.
 Why you asked?
 Because it is more efficient as we avoid round-trips between CPU and GPU; although calling a kernel is very fast, the memory transfers are still costly.
@@ -274,7 +286,7 @@ Moreover, to follow good software engineering practice, these temporary structur
 This is the default allocation mode when declaring a variable in CUDA kernel, hence it does not need any support from this library.</p>
 <h2 id="block-local-memory"><a class="header" href="#block-local-memory">Block-local Memory</a></h2>
 <p>Block-local memory is a chunk of memory that is only accessed by the threads of a single block.
-To avoid any ambiguity: &quot;block-local memory&quot; is conceptual and might reside in global memory; it is not necessarily in shared memory.</p>
+To avoid any ambiguity: "block-local memory" is conceptual and might reside in global memory; it is not necessarily in shared memory.</p>
 <p>A simple use-case is when blocks need to work on different copies of an original array.
 Suppose <code>*v_ptr</code> is an array shared by all blocks.
 In the following kernel, we show how to use <code>battery::make_unique_block</code> to copy <code>*v_ptr</code> into a block-local vector <code>v_block</code>.</p>
@@ -294,7 +306,7 @@ Before you use this technique, keep reading because you might need to increase t
 <h2 id="avoiding-obscure-cuda-runtime-errors"><a class="header" href="#avoiding-obscure-cuda-runtime-errors">Avoiding Obscure CUDA Runtime Errors</a></h2>
 <p>Developing an entire system within a single kernel can easily lead to CUDA runtime error due to overflow of the allowed heap and stack memory.
 The heap memory is by-default limited to 8 MB for allocations taking place in the kernel.
-If you allocate more than 8 MB, which is not very difficult, you will run into an error of the style &quot;CUDA runtime error an illegal memory access was encountered&quot;.
+If you allocate more than 8 MB, which is not very difficult, you will run into an error of the style "CUDA runtime error an illegal memory access was encountered".
 In that case, you must increase the size of the heap, and this can be done as follows:</p>
 <pre><code class="language-c++">// Multiply by 10 the default value, so now we have 80MB.
 void increase_heap_size() {
@@ -302,7 +314,7 @@ void increase_heap_size() {
   cudaDeviceGetLimit(&amp;max_heap_size, cudaLimitMallocHeapSize);
   CUDAE(cudaDeviceSetLimit(cudaLimitMallocHeapSize, max_heap_size*10));
   cudaDeviceGetLimit(&amp;max_heap_size, cudaLimitMallocHeapSize);
-  printf(&quot;%%GPU_max_heap_size=%zu (%zuMB)\n&quot;, max_heap_size, max_heap_size/1000/1000);
+  printf("%%GPU_max_heap_size=%zu (%zuMB)\n", max_heap_size, max_heap_size/1000/1000);
 }
 
 int main() {
@@ -320,7 +332,7 @@ In that case you can increase the size of the stack as follows:</p>
   size_t max_stack_size = 1024;
   CUDAE(cudaDeviceSetLimit(cudaLimitStackSize, max_stack_size*10));
   cudaDeviceGetLimit(&amp;max_stack_size, cudaLimitStackSize);
-  printf(&quot;%%GPU_max_stack_size=%zu (%zuKB)\n&quot;, max_stack_size, max_stack_size/1000);
+  printf("%%GPU_max_stack_size=%zu (%zuKB)\n", max_stack_size, max_stack_size/1000);
 }
 </code></pre>
 <p>For information, the stack frames are stored in global memory, but the compiler will try its best to place them in the registers and caches when possible.</p>
@@ -406,7 +418,7 @@ Nevertheless, it is possible to write such algorithms in CUDA using <a href="htt
 To use them well, I would advise to take a class (or <a href="https://arxiv.org/abs/1701.00854">read a book</a>) on parallel programming and memory consistency models.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="abstract-interpretation-workshop"><a class="header" href="#abstract-interpretation-workshop">Abstract Interpretation Workshop</a></h1>
 <p>Hello! During a full week in June, we gather together to study <em>abstract interpretation</em> from its theoretical foundation (lattice theory) to its latest applications (constraint programming, neural network verification).</p>
-<p>Abstract interpretation is a formal theory of software verification invented by Radhia and Patrick Cousot in the seventies to detect bugs in programs statically (&quot;at compile-time&quot;) and directly on the source code (not on a model of the program).
+<p>Abstract interpretation is a formal theory of software verification invented by Radhia and Patrick Cousot in the seventies to detect bugs in programs statically ("at compile-time") and directly on the source code (not on a model of the program).
 The main contribution of abstract interpretation is to overapproximate the semantics of a program: violations of properties are always discovered, but we sometimes obtain false-positives.
 The mathematical framework of abstract interpretation is rich and the papers in the field are complicated for beginners.
 During this week, we take our time to understand and digest the main ingredients of abstract interpretation.</p>
@@ -563,7 +575,7 @@ The threads will end up competing for the caches, and it will generate many memo
 Memory transfers are usually the most costly operation, hence you try to avoid (or hide) them in a GPU; loading data from the global memory is about 10x slower than from the L1 cache.
 I am not saying it is impossible to do efficiently, but it seems quite complicated, especially when taking into account warps that are SIMD units of the GPUs (blocks of 32 threads), and thus must all have their data ready in the cache at the same time when executing.
 This is a hypothesis based on intuition and discussion with GPU experts, but it has not been verified experimentally.</p>
-<p>Instead of relying on a &quot;one subproblem per core&quot; design that is so commonly used in parallel constraint solvers, we can execute one subproblem per SM.
+<p>Instead of relying on a "one subproblem per core" design that is so commonly used in parallel constraint solvers, we can execute one subproblem per SM.
 And parallelism within an SM is achieved by parallelizing propagation!
 It is worth mentioning that no attempt to parallelize propagation resulted in a faster solver in comparison to simply parallelizing the search.
 In fact, no modern solver parallelizes propagation.
@@ -629,7 +641,7 @@ In the following table, I describe the problems of the benchmarking suite (<code
 <li>RCPSP: Minimize makespan of tasks under resources constraints.</li>
 <li>Spot 5: Select a subset of photograph to be taken maximizing a weight.</li>
 </ul>
-<table><thead><tr><th>Problem</th><th>#Inst</th><th>Kind</th><th>Global Constraints</th><th>Shape</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Problem</th><th>#Inst</th><th>Kind</th><th>Global Constraints</th><th>Shape</th></tr></thead><tbody>
 <tr><td>Wordpress</td><td>1</td><td>Allocation</td><td>None</td><td>Many <code>sum()()</code>.</td></tr>
 <tr><td>ACCAP</td><td>2</td><td>Allocation</td><td><code>diffn</code> (1)</td><td>Precedence constraints.</td></tr>
 <tr><td>Tower</td><td>1</td><td>Allocation</td><td>None</td><td></td></tr>
@@ -645,6 +657,7 @@ In the following table, I describe the problems of the benchmarking suite (<code
 <tr><td>RCPSP</td><td>18</td><td>Scheduling</td><td><code>cumulative</code></td><td>Precedence constraints, disjunctions.</td></tr>
 <tr><td>Spot 5</td><td>1</td><td>Ad-hoc</td><td><code>table</code></td><td></td></tr>
 </tbody></table>
+</div>
 <h3 id="analysis"><a class="header" href="#analysis">Analysis</a></h3>
 <p>The primary goal of our initial benchmarking session is to gauge how Turbo measures up against contemporary, state-of-the-art constraint solvers (spoiler: there's room for improvement).
 In order to assess the efficiency of Turbo, I compared it against Choco and Or-Tools:</p>
@@ -665,7 +678,7 @@ We run on the CPU mainly for debugging and comparative efficiency analysis.</p>
 <p>About the details of the experiments:</p>
 <ul>
 <li>Timeout: 5 minutes per instance (it is relatively small in order to quickly iterate and test new optimizations of Turbo).</li>
-<li>EPS (TurboGPU): generate 1024 subproblems (<code>-sub 10</code> for &quot;2^10&quot;).</li>
+<li>EPS (TurboGPU): generate 1024 subproblems (<code>-sub 10</code> for "2^10").</li>
 </ul>
 <p><em>Warning</em>: Before we start, let's get something straight: <em>the comparison between TurboGPU and other solver is relatively unfair.</em>
 In particular, because of EPS, TurboGPU uses breadth-first search at the top of the tree, and thus sometimes can get better bounds, while the others use depth-first search and might stay stuck in the left part of the search tree longer.
@@ -688,7 +701,7 @@ Back to Turbo, let's compare it to our its CPU-version and the baseline solvers:
 <img src="turbo-v1.0.1/turbogpu-vs-choco.png" alt="TurboGPU vs Choco" />
 <img src="turbo-v1.0.1/turbogpu-vs-choco-noglobal.png" alt="TurboGPU vs Choco.noglobal" /></p>
 <p>For future references, it is interesting to have an average of some speed and memory metrics across all problems:</p>
-<table><thead><tr><th>Metrics</th><th>Average</th><th>Median</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Metrics</th><th>Average</th><th>Median</th></tr></thead><tbody>
 <tr><td>Nodes per second</td><td>1246.77</td><td>35.07</td></tr>
 <tr><td>Fixpoint iterations per second</td><td>10014.91</td><td>257.84</td></tr>
 <tr><td>Fixpoint iterations per node</td><td>8.48</td><td>7.11</td></tr>
@@ -699,7 +712,8 @@ Back to Turbo, let's compare it to our its CPU-version and the baseline solvers:
 <tr><td>#Problems satisfiable</td><td>27</td><td></td></tr>
 <tr><td>#Problems unknown</td><td>3</td><td></td></tr>
 </tbody></table>
-<p>When comparing the number of nodes per second, we can see that TurboGPU explores around 5 to 10 times more nodes per second than TurboCPU; showing a &quot;purely computational gain&quot; when using the GPU.
+</div>
+<p>When comparing the number of nodes per second, we can see that TurboGPU explores around 5 to 10 times more nodes per second than TurboCPU; showing a "purely computational gain" when using the GPU.
 Just 5x to 10x quicker is actually not that much quicker considering we have 64 streaming multiprocessors, and indicate we are under-using the parallel capacities of the GPU.
 In the future, I'll benchmark how efficiently Turbo is using the GPU using the profiling tools of NVIDIA.</p>
 <p><img src="turbo-v1.0.1/number-of-nodes-per-second.png" alt="TurboGPU nodes per second" /></p>
@@ -738,7 +752,7 @@ There is a solution using CUDA dynamic parallelism, but I did not take the time 
 Indeed, reducing the problem leads to fewer propagators that need to be executed, which is observed by a reduction of the number of iterations to reach a fixpoint (-14% on average).
 But the additional speed is also explained by the variables store that has been cut by half on average and the propagators' memory decreased by 22%.
 It reduces the pressure on the L1 and L2 caches and more problems can be stored in the shared memory; in our case, one more problem can be stored in shared memory when simplifying.</p>
-<table><thead><tr><th>Metrics</th><th>Average</th><th>Δ v1.0.1</th><th>Median</th><th>Δ v1.0.1</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Metrics</th><th>Average</th><th>Δ v1.0.1</th><th>Median</th><th>Δ v1.0.1</th></tr></thead><tbody>
 <tr><td>Nodes per seconds</td><td>2379.95</td><td>+91%</td><td>611.27</td><td>+1742%</td></tr>
 <tr><td>Fixpoint iterations per second</td><td>12303.02</td><td>+23%</td><td>2273.83</td><td>+882%</td></tr>
 <tr><td>Fixpoint iterations per node</td><td>7.31</td><td>-14%</td><td>5.9</td><td>-17%</td></tr>
@@ -749,12 +763,13 @@ It reduces the pressure on the L1 and L2 caches and more problems can be stored 
 <tr><td>#Problems satisfiable</td><td>22</td><td>27</td><td></td><td></td></tr>
 <tr><td>#Problems unknown</td><td>3</td><td>3</td><td></td><td></td></tr>
 </tbody></table>
+</div>
 <p><img src="turbo-v1.1/turbogpu-v1.0.1-vs-turbogpu-v1.1.0.png" alt="TurboGPU-v1.0.1 vs TurboGPU-v1.1.0" /></p>
 <h2 id="v110b-increasing-the-number-of-subproblems"><a class="header" href="#v110b-increasing-the-number-of-subproblems">v1.1.0b Increasing the number of subproblems</a></h2>
 <p>By default, the number of subproblems created is 1024 (2^10) (option <code>-sub 10</code>).
 This choice is rather arbitrary, so I ran additional experiments to see if increasing that number could lead to better results.
 The answer is that it is quite hard to choose a good generic number, but overall 4096 (2^12) subproblems gave better results and is the new default for the future versions.</p>
-<table><thead><tr><th>Metrics</th><th>Average</th><th>Δ v1.1.0</th><th>Median</th><th>Δ v1.1.0</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Metrics</th><th>Average</th><th>Δ v1.1.0</th><th>Median</th><th>Δ v1.1.0</th></tr></thead><tbody>
 <tr><td>Nodes per seconds</td><td>2529.68</td><td>+6%</td><td>809.31</td><td>+32%</td></tr>
 <tr><td>Fixpoint iterations per second</td><td>12449.48</td><td>+1%</td><td>3306.37</td><td>+45%</td></tr>
 <tr><td>Fixpoint iterations per node</td><td>6.77</td><td>-7%</td><td>5.19</td><td>-12%</td></tr>
@@ -765,6 +780,7 @@ The answer is that it is quite hard to choose a good generic number, but overall
 <tr><td>#Problems satisfiable</td><td>21</td><td>22</td><td></td><td></td></tr>
 <tr><td>#Problems unknown</td><td>3</td><td>3</td><td></td><td></td></tr>
 </tbody></table>
+</div>
 <p>In particular, we see that increasing the number of subproblems to 4096 contributes to a better average of nodes per second and to solving one more problem to optimality.
 With more subproblems, the advantage is not as clear, but it is definitely an experiment to try again on future versions of Turbo.</p>
 <p><img src="turbo-v1.1/turbogpu-v1.1.0-1024-vs-turbogpu-v1.1.0-4096.png" alt="TurboGPU-v1.1.0 vs TurboGPU-v1.1.0b" /></p>
@@ -786,9 +802,9 @@ We apply some standard simplification laws:</p>
 <p>These rules could be generalized in the future.</p>
 <p>This simple optimization leads to another big leap in the number of nodes per second and reduces significantly the memory footprint of propagators.
 For the first time, there is a problem (nfc_24_4_2) that can be entirely stored in the shared memory (store of variables and propagators).
-However, the impact of being entirely in the shared memory is not very impressive, with &quot;only&quot; 42% more nodes per second in comparison to v1.1.0b, knowing the average is at 62%.
+However, the impact of being entirely in the shared memory is not very impressive, with "only" 42% more nodes per second in comparison to v1.1.0b, knowing the average is at 62%.
 We should validate experimentally if manually managing the shared memory is really worth it, or if the default caching policy of CUDA does a good enough job.</p>
-<table><thead><tr><th>Metrics</th><th>Average</th><th>Δ v1.1.0b</th><th>Median</th><th>Δ v1.1.0b</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Metrics</th><th>Average</th><th>Δ v1.1.0b</th><th>Median</th><th>Δ v1.1.0b</th></tr></thead><tbody>
 <tr><td>Nodes per second</td><td>4087.42</td><td>+62%</td><td>976.72</td><td>+21%</td></tr>
 <tr><td>Fixpoint iterations per second</td><td>17837.83</td><td>+43%</td><td>3878.13</td><td>+17%</td></tr>
 <tr><td>Fixpoint iterations per node</td><td>6.79</td><td>+0.3%</td><td>5.17</td><td>-0.4%</td></tr>
@@ -799,6 +815,7 @@ We should validate experimentally if manually managing the shared memory is real
 <tr><td>#Problems satisfiable</td><td>22</td><td>22</td><td></td><td></td></tr>
 <tr><td>#Problems unknown</td><td>2</td><td>3</td><td></td><td></td></tr>
 </tbody></table>
+</div>
 <h2 id="overall-standing"><a class="header" href="#overall-standing">Overall standing</a></h2>
 <p><img src="turbo-v1.1/overall-standing-v1.1.0.png" alt="Overall standing" /></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="v112-disequality-propagator"><a class="header" href="#v112-disequality-propagator">v1.1.2: (Dis)equality Propagator</a></h1>
@@ -814,7 +831,7 @@ Let <code>project(a, x)</code> be a function of the abstract domain <code>a</cod
 For instance, if I write <code>x + y &gt;= [0..5]</code>, it means that <code>project(a, x) + project(a, y)</code> should be included in the interval <code>[0..5]</code> according to the interval ordering.
 From a logical perspective, it implements the constraints <code>x + y &gt;= 0</code> and <code>x + y &lt;= 5</code>.
 Using some generic lattice operations (essentially projection, ordering and join operator), we can perform the propagation of this constraint.
-If the underlying domain is an interval, it will achieve bound consistency, and if it is a bitset, it should achieve arc consistency; I say &quot;should&quot; because I did not formally prove that yet.</p>
+If the underlying domain is an interval, it will achieve bound consistency, and if it is a bitset, it should achieve arc consistency; I say "should" because I did not formally prove that yet.</p>
 <p>This lattice-based propagator is quite compact because it can represent many primitive constraints, for instance:</p>
 <ul>
 <li><code>x == y</code> is <code>x - y &gt;= [0..0]</code>.</li>
@@ -834,7 +851,7 @@ Finally, using these dedicated propagators reduces the propagators' memory in av
 The benchmarking set consists of many instances of the RCPSP problem, for which using these propagators increases the memory.
 When discarding the RCPSP benchmarks, the median memory footprint of the propagators is actually reduced by a factor of 3, and the average memory is reduced by about 30%!
 I'm unsure which constraints of the RCPSP model lead to this issue, but due to the limited impact I decided not to investigate.</p>
-<table><thead><tr><th>Metrics</th><th>Average</th><th>Δ v1.1.1</th><th>Median</th><th>Δ v1.1.1</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Metrics</th><th>Average</th><th>Δ v1.1.1</th><th>Median</th><th>Δ v1.1.1</th></tr></thead><tbody>
 <tr><td>Nodes per seconds</td><td>3778.83</td><td>-8%</td><td>1049.48</td><td>+7%</td></tr>
 <tr><td>Fixpoint iterations per second</td><td>16935.39</td><td>-5%</td><td>3847.91</td><td>-1%</td></tr>
 <tr><td>Fixpoint iterations per node</td><td>7.34</td><td>+8%</td><td>5.16</td><td>0%</td></tr>
@@ -847,11 +864,12 @@ I'm unsure which constraints of the RCPSP model lead to this issue, but due to t
 <tr><td>#Problem with store in shared memory</td><td>10</td><td>10</td><td></td><td></td></tr>
 <tr><td>#Problem with prop in shared memory</td><td>1</td><td>1</td><td></td><td></td></tr>
 </tbody></table>
+</div>
 <p><img src="turbo-v1.1/turbogpu-v1.1.1-vs-turbogpu-v1.1.2.png" alt="TurboGPU-v1.1.1 vs TurboGPU-v1.1.2" /></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="v113-warp-synchronization"><a class="header" href="#v113-warp-synchronization">v1.1.3: Warp Synchronization</a></h1>
 <p><em>07 March 2024.</em> We increase by 15% the number of nodes per second by adding a single line of CUDA code.
 The trick is to synchronize the warps in the fixpoint loop to reunite threads that have diverged.</p>
-<p>In Turbo, the propagators are called &quot;refinement operators&quot; and are essentially monotone function over a lattice structure, we will use both terms interchangeably.
+<p>In Turbo, the propagators are called "refinement operators" and are essentially monotone function over a lattice structure, we will use both terms interchangeably.
 For instance, the octagon abstract domain consists of many small refinement operators implementing the Floyd-Warshall shortest path algorithm.
 We compute the fixpoint of the refinement operators over the abstract domain <code>a</code> in a fixpoint loop.
 For the curious, the loop in version 1.1.2 is implemented as:</p>
@@ -876,7 +894,7 @@ In Turbo, we obtained the best results by quadrupling the number of cores, to ob
 This group of threads is called a <em>block</em>.
 The CUDA scheduler is scheduling groups of 32 threads called <em>warps</em> instead of scheduling individual threads.
 A block of 256 threads is thus made of 8 warps, and due to the number of cores, there are only 2 warps at any moment that are executed together.
-When talking about GPU, it is common to hear that the GPU &quot;can only execute in parallel the same instructions with different data&quot; (SIMD parallelism).
+When talking about GPU, it is common to hear that the GPU "can only execute in parallel the same instructions with different data" (SIMD parallelism).
 But this is only true at the level of a warp, for 32 threads.
 Two warps can execute completely different instructions without any penalty.
 Now, let's look at what happens if two threads within a warp execute two different instructions.
@@ -895,7 +913,7 @@ The optimization in version 1.1.3 is to synchronize the threads of each warp (<c
 <p>It leads to better parallelism since at each iteration we start with the full warp of 32 threads and not a warp already split by a previous iteration.
 The results show the efficiency of this approach.
 Interestingly, it also shows that we need more iterations to reach the fixpoint, which might be due to the fact that the propagators are running in a different order due to <code>__syncwarp()</code>.</p>
-<table><thead><tr><th>Metrics</th><th>Average</th><th>Δ v1.1.2</th><th>Median</th><th>Δ v1.1.2</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Metrics</th><th>Average</th><th>Δ v1.1.2</th><th>Median</th><th>Δ v1.1.2</th></tr></thead><tbody>
 <tr><td>Nodes per seconds</td><td>4328.83</td><td>+15%</td><td>1240.06</td><td>+18%</td></tr>
 <tr><td>Fixpoint iterations per second</td><td>21347.57</td><td>+26%</td><td>6519.14</td><td>+69%</td></tr>
 <tr><td>Fixpoint iterations per node</td><td>8.60</td><td>+17%</td><td>5.31</td><td>+3%</td></tr>
@@ -908,6 +926,7 @@ Interestingly, it also shows that we need more iterations to reach the fixpoint,
 <tr><td>#Problem with store in shared memory</td><td>10</td><td>10</td><td></td><td></td></tr>
 <tr><td>#Problem with prop in shared memory</td><td>1</td><td>1</td><td></td><td></td></tr>
 </tbody></table>
+</div>
 <p>There are many possible optimizations to improve the efficiency of the fixpoint loop, in particular to avoid thread divergence.
 I'm going next to try something very simple: to sort the propagators according to their structures, which should reduce divergence, we'll see!</p>
 <p>The following pie charts show that the version v1.1.3 is strictly better than all others before, which validate the usefulness of our optimizations.</p>
@@ -926,7 +945,7 @@ The results are not impressive, and it shows that thread divergence is perhaps n
 Nevertheless, given how cheap this optimization is, I decided to keep it.
 Note that on some benchmarks where the propagators are very unsorted (e.g. <code>gfd_schedule</code>), sorting increases by 50% the number of nodes explored.</p>
 <h2 id="results-v114"><a class="header" href="#results-v114">Results v1.1.4</a></h2>
-<table><thead><tr><th>Metrics</th><th>Average</th><th>Δ v1.1.3</th><th>Median</th><th>Δ v1.1.3</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Metrics</th><th>Average</th><th>Δ v1.1.3</th><th>Median</th><th>Δ v1.1.3</th></tr></thead><tbody>
 <tr><td>Nodes per seconds</td><td>4439.68</td><td>+3%</td><td>1236.87</td><td>0%</td></tr>
 <tr><td>Fixpoint iterations per second</td><td>21659.62</td><td>+1%</td><td>6492.20</td><td>0%</td></tr>
 <tr><td>Fixpoint iterations per node</td><td>8.69</td><td>+1%</td><td>5.07</td><td>-5%</td></tr>
@@ -939,9 +958,10 @@ Note that on some benchmarks where the propagators are very unsorted (e.g. <code
 <tr><td>#Problem with store in shared memory</td><td>10</td><td>10</td><td></td><td></td></tr>
 <tr><td>#Problem with prop in shared memory</td><td>1</td><td>1</td><td></td><td></td></tr>
 </tbody></table>
+</div>
 <p><img src="turbo-v1.1/turbogpu-v1.1.3-vs-turbogpu-v1.1.4.png" alt="TurboGPU-v1.1.3 vs TurboGPU-v1.1.4" /></p>
 <h2 id="results-v115"><a class="header" href="#results-v115">Results v1.1.5</a></h2>
-<table><thead><tr><th>Metrics</th><th>Average</th><th>Δ v1.1.3</th><th>Median</th><th>Δ v1.1.3</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Metrics</th><th>Average</th><th>Δ v1.1.3</th><th>Median</th><th>Δ v1.1.3</th></tr></thead><tbody>
 <tr><td>Nodes per seconds</td><td>4513.37</td><td>+4%</td><td>1243.61</td><td>0%</td></tr>
 <tr><td>Fixpoint iterations per second</td><td>21787.61</td><td>+2%</td><td>6612.26</td><td>+1%</td></tr>
 <tr><td>Fixpoint iterations per node</td><td>8.50</td><td>-1%</td><td>5.38</td><td>+1%</td></tr>
@@ -954,6 +974,7 @@ Note that on some benchmarks where the propagators are very unsorted (e.g. <code
 <tr><td>#Problem with store in shared memory</td><td>10</td><td>10</td><td></td><td></td></tr>
 <tr><td>#Problem with prop in shared memory</td><td>1</td><td>1</td><td></td><td></td></tr>
 </tbody></table>
+</div>
 <p><img src="turbo-v1.1/turbogpu-v1.1.3-vs-turbogpu-v1.1.5.png" alt="TurboGPU-v1.1.3 vs TurboGPU-v1.1.5" /></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="v116-sharing-propagators"><a class="header" href="#v116-sharing-propagators">v1.1.6: Sharing Propagators</a></h1>
 <p><em>28 August 2024.</em> Each subproblem is currently solved independently in a CUDA block, and the solver state is duplicated on each block.
@@ -965,7 +986,7 @@ And this can lead to a segmentation fault.
 The new <code>root_ptr</code> consider that the first owner of the pointer is the one that will also destroy it, which has the advantage of not required a references counter.
 Of course, it is the responsibility of the programmer to delete the pointer after all blocks have terminated.</p>
 <p>Once again, and similarly to the version 1.1.5, the improvement is not as great as expected with only 5% more nodes explored on average.</p>
-<table><thead><tr><th>Metrics</th><th>Average</th><th>Δ v1.1.5</th><th>Median</th><th>Δ v1.1.5</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Metrics</th><th>Average</th><th>Δ v1.1.5</th><th>Median</th><th>Δ v1.1.5</th></tr></thead><tbody>
 <tr><td>Nodes per seconds</td><td>4758.85</td><td>+5%</td><td>1287.70</td><td>+4%</td></tr>
 <tr><td>Fixpoint iterations per second</td><td>23376.47</td><td>+7%</td><td>7228.01</td><td>+9%</td></tr>
 <tr><td>Fixpoint iterations per node</td><td>8.74</td><td>+3%</td><td>5.39</td><td>0%</td></tr>
@@ -978,11 +999,12 @@ Of course, it is the responsibility of the programmer to delete the pointer afte
 <tr><td>#Problem with store in shared memory</td><td>10</td><td>10</td><td></td><td></td></tr>
 <tr><td>#Problem with prop in shared memory</td><td>1</td><td>1</td><td></td><td></td></tr>
 </tbody></table>
+</div>
 <p><img src="turbo-v1.1/turbogpu-v1.1.5-vs-turbogpu-v1.1.6.png" alt="TurboGPU-v1.1.5 vs TurboGPU-v1.1.6" /></p>
 <h2 id="v117-changing-the-eps-search-strategy-bonus"><a class="header" href="#v117-changing-the-eps-search-strategy-bonus">v1.1.7: Changing the EPS Search Strategy (Bonus)</a></h2>
 <p>For fun and profits, I try to change the EPS search strategy to improve the benchmarks in a cheap and easy way.
 It happens that selecting the smallest value of the smallest domain (first-fail) is a bit better than performing a bisection.</p>
-<table><thead><tr><th>Metrics</th><th>Average</th><th>Δ v1.1.6</th><th>Median</th><th>Δ v1.1.6</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Metrics</th><th>Average</th><th>Δ v1.1.6</th><th>Median</th><th>Δ v1.1.6</th></tr></thead><tbody>
 <tr><td>Nodes per seconds</td><td>4527.37</td><td>-5%</td><td>1287.14</td><td>0%</td></tr>
 <tr><td>Fixpoint iterations per second</td><td>25015.74</td><td>+7%</td><td>7100.85</td><td>-2%</td></tr>
 <tr><td>Fixpoint iterations per node</td><td>8.93</td><td>+2%</td><td>5.39</td><td>0%</td></tr>
@@ -995,6 +1017,7 @@ It happens that selecting the smallest value of the smallest domain (first-fail)
 <tr><td>#Problem with store in shared memory</td><td>10</td><td>10</td><td></td><td></td></tr>
 <tr><td>#Problem with prop in shared memory</td><td>1</td><td>1</td><td></td><td></td></tr>
 </tbody></table>
+</div>
 <p><img src="turbo-v1.1/turbogpu-v1.1.6-vs-turbogpu-v1.1.7.png" alt="TurboGPU-v1.1.6 vs TurboGPU-v1.1.7" /></p>
 <h2 id="summary-v11"><a class="header" href="#summary-v11">Summary v1.1</a></h2>
 <p>The CUDA optimizations performed in the versions 1.1.* did not help to get amazing gain in performance.
@@ -1004,7 +1027,7 @@ Turbo is a full application with thousands of lines of code and the call to a si
 When the first version of Turbo was developed for the AAAI-2022 paper, it was very simple in terms of capabilities and could only manage scheduling problems.
 We now manage any kind of discrete constraints, and the solver is based on <em>abstract interpretation</em>, the abstract domain architecture has a cost due to various abstractions.
 Before we reach the code required for a thread to execute a propagator, we find many local variables on the way that might need to be stored in register.
-Clearly, the code is not suited at all for a GPU architecture, it could even be surprising it works &quot;that well&quot;.</p>
+Clearly, the code is not suited at all for a GPU architecture, it could even be surprising it works "that well".</p>
 <p>In the next versions 1.2.*, we are going to focus on splitting the kernel into smaller kernels, perhaps doing the search on the CPU and only the propagation loop on the GPU.
 Doing it all on the GPU was mainly to reduce data transfers, but clearly, with only 4527 nodes explored per second, the data bandwidth is far from being the bottleneck.</p>
 <p><img src="turbo-v1.1/overall-standing-v1.1.png" alt="Overall Standing v1.1" /></p>
@@ -1029,17 +1052,17 @@ For ACCAP (a40_f800), the objectives found are very close (2549 vs. 2545), and a
 The median nodes-per-second metric decreased by 17%, but after closer inspection, the only substantial drop occurred in the triangular/n39.dzn problem, where the nodes-per-second decreased from 828,963 to 686,341.
 This is because this problem happens to sit at the midpoint of the distribution.</p>
 <p>The number of fixpoint iterations per node increased slightly (+4%) on average, likely due to the 16% rise in the number of propagators.
-The increase in propagators is due to the removal of the &quot;lattice propagator&quot; mentioned in v1.1.2, it did not prove as useful as expected.
+The increase in propagators is due to the removal of the "lattice propagator" mentioned in v1.1.2, it did not prove as useful as expected.
 However, the number of fixpoint iterations is compensated by an 11% increase in the number of iterations per second, so overall efficiency has improved.
 In conclusion, the refactoring has positively impacted efficiency in terms of nodes-per-second, without significantly affecting the quality of objective bounds.</p>
-<table><thead><tr><th>Metrics</th><th>Normalized average [0,100]</th><th>Δ v1.1.7</th><th>#best (_/15)</th><th>Average</th><th>Δ v1.1.7</th><th>Median</th><th>Δ v1.1.7</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Metrics</th><th>Normalized average [0,100]</th><th>Δ v1.1.7</th><th>#best (_/15)</th><th>Average</th><th>Δ v1.1.7</th><th>Median</th><th>Δ v1.1.7</th></tr></thead><tbody>
 <tr><td>Nodes per second</td><td>97.45</td><td>+7%</td><td>11</td><td>10846.81</td><td>+21%</td><td>2287.35</td><td>-17%</td></tr>
 <tr><td>Fixpoint iterations per second</td><td>98.33</td><td>+11%</td><td>13</td><td>61386.99</td><td>+23%</td><td>27328.03</td><td>+15%</td></tr>
 <tr><td>Fixpoint iterations per node</td><td>99.18</td><td>+4%</td><td>4</td><td>14.67</td><td>+3%</td><td>8.59</td><td>+7%</td></tr>
 <tr><td>Propagators memory</td><td>99.50</td><td>+16%</td><td>2</td><td>10.97MB</td><td>+16%</td><td>4.30MB</td><td>+34%</td></tr>
 <tr><td>Variables store memory</td><td>99.97</td><td>0%</td><td>1</td><td>51.43KB</td><td>0%</td><td>6.74KB</td><td>0%</td></tr>
 </tbody></table>
-<table><thead><tr><th>Metrics</th><th>Count</th><th>Δ v1.1.7</th></tr></thead><tbody>
+</div><div class="table-wrapper"><table><thead><tr><th>Metrics</th><th>Count</th><th>Δ v1.1.7</th></tr></thead><tbody>
 <tr><td>#Problems at optimality</td><td>0</td><td>0</td></tr>
 <tr><td>#Problems satisfiable</td><td>13</td><td>13</td></tr>
 <tr><td>#Problems unknown</td><td>2</td><td>2</td></tr>
@@ -1047,6 +1070,7 @@ In conclusion, the refactoring has positively impacted efficiency in terms of no
 <tr><td>#Problem with prop in shared memory</td><td>1</td><td>1</td></tr>
 <tr><td>#Problems with IDLE SMs at timeout</td><td>2</td><td>1</td></tr>
 </tbody></table>
+</div>
 <p><img src="turbo-v1.2/turbogpu-v1.1.7-vs-turbogpu-v1.2.0.png" alt="TurboGPU-v1.1.7 vs TurboGPU-v1.2.0" /></p>
 <h2 id="shared-memory-vs-global-memory"><a class="header" href="#shared-memory-vs-global-memory">Shared Memory vs Global Memory</a></h2>
 <p>On GPUs, each streaming multiprocessor has an L1 cache, which is extremely fast but relatively small (around 100KB, depending on the GPU model).
@@ -1055,14 +1079,14 @@ A portion of the L1 cache, known as shared memory, can be reserved to store freq
 Implementing this optimization is complex, as it requires using C++-templates for all data structures with the memory allocator's type.</p>
 <p>The key question is: does this optimization improve efficiency?
 To find out, we ran experiments on these seven problems, comparing the performance of Turbo with shared memory optimization against a version of Turbo that uses global memory exclusively (v1.2.0-gmem).</p>
-<table><thead><tr><th>Metrics</th><th>Normalized average [0,100]</th><th>Δ v1.2.0-gmem</th><th>#best (_/7)</th><th>Average</th><th>Δ v1.2.0-gmem</th><th>Median</th><th>Δ v1.2.0-gmem</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Metrics</th><th>Normalized average [0,100]</th><th>Δ v1.2.0-gmem</th><th>#best (_/7)</th><th>Average</th><th>Δ v1.2.0-gmem</th><th>Median</th><th>Δ v1.2.0-gmem</th></tr></thead><tbody>
 <tr><td>Nodes per second</td><td>100.00</td><td>+5%</td><td>7</td><td>19068.33</td><td>+4%</td><td>22729.96</td><td>+5%</td></tr>
 <tr><td>Fixpoint iterations per second</td><td>100.00</td><td>+4%</td><td>7</td><td>109048.09</td><td>+4%</td><td>58060.52</td><td>+3%</td></tr>
 <tr><td>Fixpoint iterations per node</td><td>99.76</td><td>0%</td><td>4</td><td>6.16</td><td>0%</td><td>5.38</td><td>0%</td></tr>
 <tr><td>Propagators memory</td><td>100.00</td><td>0%</td><td>0</td><td>7.07MB</td><td>0%</td><td>0.63MB</td><td>0%</td></tr>
 <tr><td>Variables store memory</td><td>100.00</td><td>0%</td><td>0</td><td>4.98KB</td><td>0%</td><td>4.22KB</td><td>0%</td></tr>
 </tbody></table>
-<table><thead><tr><th>Metrics</th><th>Count</th><th>Δ v1.2.0-gmem</th></tr></thead><tbody>
+</div><div class="table-wrapper"><table><thead><tr><th>Metrics</th><th>Count</th><th>Δ v1.2.0-gmem</th></tr></thead><tbody>
 <tr><td>#Problems at optimality</td><td>0</td><td>0</td></tr>
 <tr><td>#Problems satisfiable</td><td>6</td><td>6</td></tr>
 <tr><td>#Problems unknown</td><td>1</td><td>1</td></tr>
@@ -1070,6 +1094,7 @@ To find out, we ran experiments on these seven problems, comparing the performan
 <tr><td>#Problem with prop in shared memory</td><td>1</td><td>0</td></tr>
 <tr><td>#Problems with IDLE SMs at timeout</td><td>0.0</td><td>0.0</td></tr>
 </tbody></table>
+</div>
 <p>Using shared memory consistently improved the number of nodes processed per second on these problems, and there were no cases where performance was negatively affected.
 But honestly, +5% was hardly worth the troubles of programming with allocators.
 That said, it's possible that the benefits of this optimization are being overshadowed by other GPU-related issues, such as the high number of registers in use.
@@ -1083,14 +1108,14 @@ To explore this, we address two questions: are the results still correct without
 Additionally, we didn’t encounter any bugs—all the results were correct.
 This suggests one of two possibilities: either 32-bit integer loads and stores are inherently atomic on this hardware, or race conditions are so rare that they weren’t detected, even after several hours of computation.
 Since we can’t be sure, we have to adhere to the formal CUDA semantics, and therefore keep atomics to guarantee correctness!</p>
-<table><thead><tr><th>Metrics</th><th>Normalized average [0,100]</th><th>Δ v1.2.0</th><th>#best (_/15)</th><th>Average</th><th>Δ v1.2.0</th><th>Median</th><th>Δ v1.2.0</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Metrics</th><th>Normalized average [0,100]</th><th>Δ v1.2.0</th><th>#best (_/15)</th><th>Average</th><th>Δ v1.2.0</th><th>Median</th><th>Δ v1.2.0</th></tr></thead><tbody>
 <tr><td>Nodes per second</td><td>100.00</td><td>+13%</td><td>15</td><td>12146.40</td><td>+12%</td><td>2680.12</td><td>+17%</td></tr>
 <tr><td>Fixpoint iterations per second</td><td>99.52</td><td>+13%</td><td>14</td><td>74963.50</td><td>+22%</td><td>30621.28</td><td>+12%</td></tr>
 <tr><td>Fixpoint iterations per node</td><td>96.84</td><td>0%</td><td>7</td><td>15.24</td><td>+4%</td><td>8.74</td><td>+2%</td></tr>
 <tr><td>Propagators memory</td><td>100.00</td><td>0%</td><td>0</td><td>10.97MB</td><td>0%</td><td>4.30MB</td><td>0%</td></tr>
 <tr><td>Variables store memory</td><td>100.00</td><td>0%</td><td>0</td><td>51.43KB</td><td>0%</td><td>6.74KB</td><td>0%</td></tr>
 </tbody></table>
-<table><thead><tr><th>Metrics</th><th>Count</th><th>Δ v1.2.0</th></tr></thead><tbody>
+</div><div class="table-wrapper"><table><thead><tr><th>Metrics</th><th>Count</th><th>Δ v1.2.0</th></tr></thead><tbody>
 <tr><td>#Problems at optimality</td><td>0</td><td>0</td></tr>
 <tr><td>#Problems satisfiable</td><td>13</td><td>13</td></tr>
 <tr><td>#Problems unknown</td><td>2</td><td>2</td></tr>
@@ -1098,25 +1123,27 @@ Since we can’t be sure, we have to adhere to the formal CUDA semantics, and th
 <tr><td>#Problem with prop in shared memory</td><td>1</td><td>1</td></tr>
 <tr><td>#Problems with IDLE SMs at timeout</td><td>2</td><td>2</td></tr>
 </tbody></table>
+</div>
 <p><img src="turbo-v1.2/turbogpu-v1.2.0-vs-turbogpu-v1.2.0-noatomics.png" alt="TurboGPU-v1.2.0 vs TurboGPU-v1.2.0-noatomics" /></p>
 <h2 id="more-benchmarks"><a class="header" href="#more-benchmarks">More Benchmarks</a></h2>
 <p>We did additional benchmarks to run OrTools and Choco in parallel, Choco with Java11 and Java22, and Turbo on CPU.</p>
 <p><img src="turbo-v1.2/overall-standing-v1.2.0.png" alt="Overall Standing v1.2.0" /></p>
-<table><thead><tr><th align="left">Name</th><th align="right">Average nodes-per-second</th><th align="right">#Problems at optimality</th><th align="right">#Problems SAT</th><th align="right">#Problems unknown</th></tr></thead><tbody>
-<tr><td align="left">ortools_9.9_20threads</td><td align="right">-</td><td align="right">13</td><td align="right">2</td><td align="right">0</td></tr>
-<tr><td align="left">ortools_9.9</td><td align="right">13453.8</td><td align="right">10</td><td align="right">4</td><td align="right">1</td></tr>
-<tr><td align="left">ortools.noglobal_9.9</td><td align="right">15035.4</td><td align="right">9</td><td align="right">5</td><td align="right">1</td></tr>
-<tr><td align="left">choco_4.10.15_10threads</td><td align="right">26081.2</td><td align="right">7</td><td align="right">7</td><td align="right">1</td></tr>
-<tr><td align="left">choco_4.10.15_java11_10threads</td><td align="right">21082.7</td><td align="right">7</td><td align="right">7</td><td align="right">1</td></tr>
-<tr><td align="left">choco_4.10.15_20threads</td><td align="right">9564.2</td><td align="right">5</td><td align="right">9</td><td align="right">1</td></tr>
-<tr><td align="left">choco_4.10.15_java11_20threads</td><td align="right">12708.8</td><td align="right">4</td><td align="right">10</td><td align="right">1</td></tr>
-<tr><td align="left">choco_4.10.15</td><td align="right">11527.6</td><td align="right">2</td><td align="right">12</td><td align="right">1</td></tr>
-<tr><td align="left">choco_4.10.15_java11</td><td align="right">10459.6</td><td align="right">2</td><td align="right">12</td><td align="right">1</td></tr>
-<tr><td align="left">turbo.gpu_1.2.0_4096_64_256_noatomics</td><td align="right">12146.4</td><td align="right">0</td><td align="right">13</td><td align="right">2</td></tr>
-<tr><td align="left">turbo.gpu_1.2.0_4096_64_256</td><td align="right">10846.8</td><td align="right">0</td><td align="right">13</td><td align="right">2</td></tr>
-<tr><td align="left">turbo.gpu_1.1.7_4096_64_256</td><td align="right">8997.1</td><td align="right">0</td><td align="right">13</td><td align="right">2</td></tr>
-<tr><td align="left">turbo.cpu_1.2.0</td><td align="right">3673.46</td><td align="right">0</td><td align="right">13</td><td align="right">2</td></tr>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: left">Name</th><th style="text-align: right">Average nodes-per-second</th><th style="text-align: right">#Problems at optimality</th><th style="text-align: right">#Problems SAT</th><th style="text-align: right">#Problems unknown</th></tr></thead><tbody>
+<tr><td style="text-align: left">ortools_9.9_20threads</td><td style="text-align: right">-</td><td style="text-align: right">13</td><td style="text-align: right">2</td><td style="text-align: right">0</td></tr>
+<tr><td style="text-align: left">ortools_9.9</td><td style="text-align: right">13453.8</td><td style="text-align: right">10</td><td style="text-align: right">4</td><td style="text-align: right">1</td></tr>
+<tr><td style="text-align: left">ortools.noglobal_9.9</td><td style="text-align: right">15035.4</td><td style="text-align: right">9</td><td style="text-align: right">5</td><td style="text-align: right">1</td></tr>
+<tr><td style="text-align: left">choco_4.10.15_10threads</td><td style="text-align: right">26081.2</td><td style="text-align: right">7</td><td style="text-align: right">7</td><td style="text-align: right">1</td></tr>
+<tr><td style="text-align: left">choco_4.10.15_java11_10threads</td><td style="text-align: right">21082.7</td><td style="text-align: right">7</td><td style="text-align: right">7</td><td style="text-align: right">1</td></tr>
+<tr><td style="text-align: left">choco_4.10.15_20threads</td><td style="text-align: right">9564.2</td><td style="text-align: right">5</td><td style="text-align: right">9</td><td style="text-align: right">1</td></tr>
+<tr><td style="text-align: left">choco_4.10.15_java11_20threads</td><td style="text-align: right">12708.8</td><td style="text-align: right">4</td><td style="text-align: right">10</td><td style="text-align: right">1</td></tr>
+<tr><td style="text-align: left">choco_4.10.15</td><td style="text-align: right">11527.6</td><td style="text-align: right">2</td><td style="text-align: right">12</td><td style="text-align: right">1</td></tr>
+<tr><td style="text-align: left">choco_4.10.15_java11</td><td style="text-align: right">10459.6</td><td style="text-align: right">2</td><td style="text-align: right">12</td><td style="text-align: right">1</td></tr>
+<tr><td style="text-align: left">turbo.gpu_1.2.0_4096_64_256_noatomics</td><td style="text-align: right">12146.4</td><td style="text-align: right">0</td><td style="text-align: right">13</td><td style="text-align: right">2</td></tr>
+<tr><td style="text-align: left">turbo.gpu_1.2.0_4096_64_256</td><td style="text-align: right">10846.8</td><td style="text-align: right">0</td><td style="text-align: right">13</td><td style="text-align: right">2</td></tr>
+<tr><td style="text-align: left">turbo.gpu_1.1.7_4096_64_256</td><td style="text-align: right">8997.1</td><td style="text-align: right">0</td><td style="text-align: right">13</td><td style="text-align: right">2</td></tr>
+<tr><td style="text-align: left">turbo.cpu_1.2.0</td><td style="text-align: right">3673.46</td><td style="text-align: right">0</td><td style="text-align: right">13</td><td style="text-align: right">2</td></tr>
 </tbody></table>
+</div>
 <p>The version of Java plays a significant role in performance, showing a speedup of 10% to 25% when moving from Java 11 to Java 22, which is now the default version for our experiments.
 Interestingly, Choco doesn't handle excessive threading well-one thread per core consistently outperforms two threads per core.</p>
 <p>The sequential CPU version of Turbo isn't performing too badly, exploring 3673 nodes per second.
@@ -1141,7 +1168,7 @@ The hackathon spans 2 weeks, beginning with a meeting on 15 October to explain t
 Among the mentors, we are fortunate to have two engineers from Nvidia working on <a href="https://developer.nvidia.com/blog/record-breaking-nvidia-cuopt-algorithms-deliver-route-optimization-solutions-100x-faster/">cuOpt</a> and a <a href="https://developer.nvidia.com/blog/accelerate-large-linear-programming-problems-with-nvidia-cuopt/">linear programming solver</a>.</p>
 <p>During the first meeting, I try to compile Turbo on the Helios HPC and... boom, <code>nvcc</code> is killed by the memory manager due to excessive memory usage.
 I encountered a similar problem last year and reported the bug to Nvidia.
-The bug was closed as &quot;will not fix&quot;, citing that our kernel is simply too large and needed to be split into smaller kernels.
+The bug was closed as "will not fix", citing that our kernel is simply too large and needed to be split into smaller kernels.
 By adding <code>__noinline__</code> attributes in key places, I could work around the bug and compile it on <code>sm_70</code> and <code>sm_86</code> architectures.
 It seems that for <code>sm_90</code> architectures (of the GH200), the compiler is again doing very aggressive optimizations, and Turbo is just too large for it.</p>
 <p>Although the full GPU version avoids memory transfers between the CPU and GPU, we still hit other bottlenecks due to the kernel's size such as high register pressure.
@@ -1177,7 +1204,7 @@ This solution successfully compiles on Helios.</p>
 </li>
 </ul>
 <h2 id="hybrid-dive-and-solve-algorithm-v122"><a class="header" href="#hybrid-dive-and-solve-algorithm-v122">Hybrid Dive and Solve Algorithm (v1.2.2)</a></h2>
-<p>If you don't know the &quot;propagate-and-search&quot; algorithm of constraint programming, please watch <a href="https://youtu.be/vAzGmkOJveY">this video</a> I made for the AAAI conference (thanks Covid), starting at 5'30'' (if you are familiar with GPUs).
+<p>If you don't know the "propagate-and-search" algorithm of constraint programming, please watch <a href="https://youtu.be/vAzGmkOJveY">this video</a> I made for the AAAI conference (thanks Covid), starting at 5'30'' (if you are familiar with GPUs).
 It also explains how this algorithm is executed in parallel on GPU.</p>
 <p>We keep the same algorithm as full-GPU Turbo (option <code>-arch=gpu</code>) but only performs the propagation on the GPU (option <code>-arch=hybrid</code>).
 The algorithm consists of two parts:</p>
@@ -1189,19 +1216,21 @@ The algorithm consists of two parts:</p>
 <p>During the dive and solve operations, the propagation step is always executed on the GPU.
 Starting from version 1.2.2, we execute a single kernel and each CPU thread interacts with a single block of that persistent kernel.
 We compare the full-GPU architecture and this hybrid architecture in the following table (this is on my desktop computer (RTX A5000) due to 1.2.0 not compiling on Helios).</p>
-<table><thead><tr><th>Metrics</th><th>Normalized average [0,100]</th><th>Δ v1.2.0</th><th>#best (_/16)</th><th>Average</th><th>Δ v1.2.0</th><th>Median</th><th>Δ v1.2.0</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Metrics</th><th>Normalized average [0,100]</th><th>Δ v1.2.0</th><th>#best (_/16)</th><th>Average</th><th>Δ v1.2.0</th><th>Median</th><th>Δ v1.2.0</th></tr></thead><tbody>
 <tr><td>Nodes per second</td><td>93.93</td><td>-4%</td><td>7</td><td>10271.03</td><td>-1%</td><td>2519.29</td><td>-19%</td></tr>
 <tr><td>Fixpoint iterations per second</td><td>95.76</td><td>-2%</td><td>7</td><td>60155.16</td><td>-1%</td><td>31502.75</td><td>-1%</td></tr>
 <tr><td>Fixpoint iterations per node</td><td>99.76</td><td>+2%</td><td>6</td><td>16.77</td><td>+15%</td><td>9.00</td><td>0%</td></tr>
 </tbody></table>
+</div>
 <p>The hybrid version is slightly less efficient than with the full-GPU version, but considering the number of round-trips between the CPU and GPU I was expecting worst results.
 Nonetheless, because the kernel is now smaller, we can execute more blocks in parallel.
 With 128 blocks, we surpass the version v1.2.0 as shown in the following table.</p>
-<table><thead><tr><th>Metrics</th><th>Normalized average [0,100]</th><th>Δ v1.2.0</th><th>#best (_/16)</th><th>Average</th><th>Δ v1.2.0</th><th>Median</th><th>Δ v1.2.0</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Metrics</th><th>Normalized average [0,100]</th><th>Δ v1.2.0</th><th>#best (_/16)</th><th>Average</th><th>Δ v1.2.0</th><th>Median</th><th>Δ v1.2.0</th></tr></thead><tbody>
 <tr><td>Nodes per second</td><td>94.97</td><td>+5%</td><td>8</td><td>13475.41</td><td>+29%</td><td>3029.66</td><td>-2%</td></tr>
 <tr><td>Fixpoint iterations per second</td><td>94.53</td><td>+4%</td><td>8</td><td>81399.98</td><td>+33%</td><td>33540.01</td><td>+5%</td></tr>
 <tr><td>Fixpoint iterations per node</td><td>97.39</td><td>0%</td><td>11</td><td>15.43</td><td>+5%</td><td>9.20</td><td>+2%</td></tr>
 </tbody></table>
+</div>
 <p>In terms of the best objectives found, the hybrid version performs better with 64 blocks than with 128 blocks.
 Indeed, with 128 blocks, we explore a wider search tree at the cost of exploring fewer nodes per block.
 It is known as the exploration-exploitation dilemma.
@@ -1225,18 +1254,20 @@ Although it is not formally documented, much code relies on load/store atomicity
 Therefore, we can safely remove the atomic unlike what I concluded in the <a href="https://lattice-land.github.io/8-turbo.html">v1.2.0 post</a>.</p>
 <p>This optimization proves very useful with a 17% increase in nodes per second with 64 blocks, and a 28% increase with 128 blocks.
 Previously, removing atomic variables accounted for a 13% increase, which is likely a key factor in this speed-up. Deactivating propagators does not hurt, but seems to be less critical than other optimizations.</p>
-<p>(<code>-or 64 -arch hybrid</code>)
-| Metrics | Normalized average [0,100] | Δ v1.2.2 | #best (_/16) | Average | Δ v1.2.2 | Median | Δ v1.2.2 |
-|---------|----------------------------|----------|--------------|---------|----------|--------|----------|
-| Nodes per second | 99.59 | +17% | 14 | 11786.66 | +15% | 3252.29 | +29% |
-| Fixpoint iterations per second | 100.00 | +24% | 16 | 81532.87 | +36% | 43905.01 | +39% |
-| Fixpoint iterations per node | 99.08 | +5% | 4 | 18.60 | +11% | 9.10 | +1% |</p>
-<p>(<code>-or 128 -arch hybrid</code>)
-| Metrics | Normalized average [0,100] | Δ v1.2.2 | #best (_/16) | Average | Δ v1.2.2 | Median | Δ v1.2.2 |
-|---------|----------------------------|----------|--------------|---------|----------|--------|----------|
-| Nodes per second | 99.96 | +28% | 15 | 18543.27 | +38% | 4082.88 | +35% |
-| Fixpoint iterations per second | 100.00 | +35% | 16 | 129459.21 | +59% | 48995.62 | +46% |
-| Fixpoint iterations per node | 98.94 | +5% | 4 | 17.00 | +10% | 9.19 | 0% |</p>
+<p>(<code>-or 64 -arch hybrid</code>)</p>
+<div class="table-wrapper"><table><thead><tr><th>Metrics</th><th>Normalized average [0,100]</th><th>Δ v1.2.2</th><th>#best (_/16)</th><th>Average</th><th>Δ v1.2.2</th><th>Median</th><th>Δ v1.2.2</th></tr></thead><tbody>
+<tr><td>Nodes per second</td><td>99.59</td><td>+17%</td><td>14</td><td>11786.66</td><td>+15%</td><td>3252.29</td><td>+29%</td></tr>
+<tr><td>Fixpoint iterations per second</td><td>100.00</td><td>+24%</td><td>16</td><td>81532.87</td><td>+36%</td><td>43905.01</td><td>+39%</td></tr>
+<tr><td>Fixpoint iterations per node</td><td>99.08</td><td>+5%</td><td>4</td><td>18.60</td><td>+11%</td><td>9.10</td><td>+1%</td></tr>
+</tbody></table>
+</div>
+<p>(<code>-or 128 -arch hybrid</code>)</p>
+<div class="table-wrapper"><table><thead><tr><th>Metrics</th><th>Normalized average [0,100]</th><th>Δ v1.2.2</th><th>#best (_/16)</th><th>Average</th><th>Δ v1.2.2</th><th>Median</th><th>Δ v1.2.2</th></tr></thead><tbody>
+<tr><td>Nodes per second</td><td>99.96</td><td>+28%</td><td>15</td><td>18543.27</td><td>+38%</td><td>4082.88</td><td>+35%</td></tr>
+<tr><td>Fixpoint iterations per second</td><td>100.00</td><td>+35%</td><td>16</td><td>129459.21</td><td>+59%</td><td>48995.62</td><td>+46%</td></tr>
+<tr><td>Fixpoint iterations per node</td><td>98.94</td><td>+5%</td><td>4</td><td>17.00</td><td>+10%</td><td>9.19</td><td>0%</td></tr>
+</tbody></table>
+</div>
 <p>This new version also dominates the previous one in terms of objective found.
 Further, we almost close the gap with the full GPU version v1.2.0 which remains better on only one problem.</p>
 <p><img src="turbo-v1.2/turbohybrid64-v1.2.2-vs-turbohybrid64-v1.2.3.png" alt="TurboHybrid64-v1.2.2 vs TurboHybrid64-v1.2.3" />
@@ -1247,43 +1278,46 @@ Further, we almost close the gap with the full GPU version v1.2.0 which remains 
 The speedup observed with the GH200 demonstrates excellent scalability.
 Doubling the number of SMs effectively doubles the number of nodes per second.
 The following table compares the hybrid versions with 1 block per SM on my desktop and Helios.</p>
-<table><thead><tr><th>Metrics</th><th>Normalized average [0,100]</th><th>Δ v1.2.2</th><th>#best (_/16)</th><th>Average</th><th>Δ v1.2.2</th><th>Median</th><th>Δ v1.2.2</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Metrics</th><th>Normalized average [0,100]</th><th>Δ v1.2.2</th><th>#best (_/16)</th><th>Average</th><th>Δ v1.2.2</th><th>Median</th><th>Δ v1.2.2</th></tr></thead><tbody>
 <tr><td>Nodes per second</td><td>100.00</td><td>+128%</td><td>16</td><td>33232.29</td><td>+224%</td><td>7796.88</td><td>+209%</td></tr>
 <tr><td>Fixpoint iterations per second</td><td>100.00</td><td>+137%</td><td>16</td><td>184996.45</td><td>+208%</td><td>69359.75</td><td>+120%</td></tr>
 <tr><td>Fixpoint iterations per node</td><td>98.32</td><td>+4%</td><td>6</td><td>19.11</td><td>+14%</td><td>10.03</td><td>+11%</td></tr>
 </tbody></table>
+</div>
 <p>We have more than a linear scaling, probably due to the larger L1 cache and other improvement in the H200 GPU.
 We further improve the nodes per second metric by using 2 blocks per SM (264 blocks).</p>
-<table><thead><tr><th>Metrics</th><th>Normalized average [0,100]</th><th>Δ v1.2.2</th><th>#best (_/16)</th><th>Average</th><th>Δ v1.2.2</th><th>Median</th><th>Δ v1.2.2</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Metrics</th><th>Normalized average [0,100]</th><th>Δ v1.2.2</th><th>#best (_/16)</th><th>Average</th><th>Δ v1.2.2</th><th>Median</th><th>Δ v1.2.2</th></tr></thead><tbody>
 <tr><td>Nodes per second</td><td>99.83</td><td>+21%</td><td>14</td><td>40330.87</td><td>+21%</td><td>9945.53</td><td>+28%</td></tr>
 <tr><td>Fixpoint iterations per second</td><td>98.86</td><td>+18%</td><td>15</td><td>258809.97</td><td>+40%</td><td>78749.49</td><td>+14%</td></tr>
 <tr><td>Fixpoint iterations per node</td><td>97.30</td><td>-2%</td><td>10</td><td>18.38</td><td>-4%</td><td>9.37</td><td>-7%</td></tr>
 </tbody></table>
+</div>
 <p>Finally, the version 1.2.3 gives an additional speedup, comparable than the one obtained on my desktop, as shown in the next table.</p>
-<table><thead><tr><th>Metrics</th><th>Normalized average [0,100]</th><th>Δ v1.2.2</th><th>#best (_/16)</th><th>Average</th><th>Δ v1.2.2</th><th>Median</th><th>Δ v1.2.2</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Metrics</th><th>Normalized average [0,100]</th><th>Δ v1.2.2</th><th>#best (_/16)</th><th>Average</th><th>Δ v1.2.2</th><th>Median</th><th>Δ v1.2.2</th></tr></thead><tbody>
 <tr><td>Nodes per second</td><td>99.70</td><td>+26%</td><td>14</td><td>45520.83</td><td>+13%</td><td>15676.14</td><td>+58%</td></tr>
 <tr><td>Fixpoint iterations per second</td><td>100.00</td><td>+36%</td><td>16</td><td>360362.70</td><td>+39%</td><td>116916.62</td><td>+48%</td></tr>
 <tr><td>Fixpoint iterations per node</td><td>98.97</td><td>+7%</td><td>4</td><td>20.17</td><td>+10%</td><td>10.45</td><td>+12%</td></tr>
 </tbody></table>
+</div>
 <h2 id="summary-hackathon"><a class="header" href="#summary-hackathon">Summary Hackathon</a></h2>
 <p>This hackathon was highly productive.
 It allowed me to verify the correctness of the persistent kernel design (v1.2.2) and to use CUB to eliminate entailed propagators (v1.2.3).
 More importantly, I discussed the overall design of Turbo, addressing the overly generic approach (code working both on CPU and GPU, using modern C++ patterns, etc.) which hindered performance.</p>
 <p>During the three days, we also discussed a new design of propagators and the result will be in a post-hackathon version 1.2.4, so stay tuned!</p>
-<table><thead><tr><th align="left">short_uid</th><th align="right">avg_nodes_per_second</th><th align="right">problem_optimal</th><th align="right">problem_sat</th><th align="right">problem_unknown</th></tr></thead><tbody>
-<tr><td align="left">turbo.hybrid_GH200_1.2.3_4096_264</td><td align="right">45520.8</td><td align="right">0</td><td align="right">14</td><td align="right">2</td></tr>
-<tr><td align="left">turbo.hybrid_GH200_1.2.2_4096_264</td><td align="right">40330.9</td><td align="right">0</td><td align="right">14</td><td align="right">2</td></tr>
-<tr><td align="left">turbo.hybrid_GH200_1.2.3_4096_132</td><td align="right">36589.3</td><td align="right">0</td><td align="right">14</td><td align="right">2</td></tr>
-<tr><td align="left">turbo.hybrid_GH200_1.2.2_4096_132</td><td align="right">33232.3</td><td align="right">0</td><td align="right">14</td><td align="right">2</td></tr>
-<tr><td align="left">turbo.hybrid_RTXA5000_1.2.3_4096_128</td><td align="right">18543.3</td><td align="right">0</td><td align="right">14</td><td align="right">2</td></tr>
-<tr><td align="left">turbo.hybrid_RTXA5000_1.2.2_4096_128</td><td align="right">13475.4</td><td align="right">0</td><td align="right">14</td><td align="right">2</td></tr>
-<tr><td align="left">turbo.hybrid_RTXA5000_1.2.3_4096_64</td><td align="right">11786.7</td><td align="right">0</td><td align="right">14</td><td align="right">2</td></tr>
-<tr><td align="left">turbo.gpu_RTXA5000_1.2.0_4096_64_noatomics</td><td align="right">11684.4</td><td align="right">0</td><td align="right">14</td><td align="right">2</td></tr>
-<tr><td align="left">turbo.gpu_RTXA5000_1.2.0_4096_64</td><td align="right">10412.7</td><td align="right">0</td><td align="right">14</td><td align="right">2</td></tr>
-<tr><td align="left">turbo.hybrid_RTXA5000_1.2.2_hybrid_4096_64</td><td align="right">10271</td><td align="right">0</td><td align="right">14</td><td align="right">2</td></tr>
-<tr><td align="left">turbo.hybrid_RTXA5000_1.2.1_hybrid_4096_64</td><td align="right">1628.89</td><td align="right">0</td><td align="right">14</td><td align="right">2</td></tr>
+<div class="table-wrapper"><table><thead><tr><th style="text-align: left">short_uid</th><th style="text-align: right">avg_nodes_per_second</th><th style="text-align: right">problem_optimal</th><th style="text-align: right">problem_sat</th><th style="text-align: right">problem_unknown</th></tr></thead><tbody>
+<tr><td style="text-align: left">turbo.hybrid_GH200_1.2.3_4096_264</td><td style="text-align: right">45520.8</td><td style="text-align: right">0</td><td style="text-align: right">14</td><td style="text-align: right">2</td></tr>
+<tr><td style="text-align: left">turbo.hybrid_GH200_1.2.2_4096_264</td><td style="text-align: right">40330.9</td><td style="text-align: right">0</td><td style="text-align: right">14</td><td style="text-align: right">2</td></tr>
+<tr><td style="text-align: left">turbo.hybrid_GH200_1.2.3_4096_132</td><td style="text-align: right">36589.3</td><td style="text-align: right">0</td><td style="text-align: right">14</td><td style="text-align: right">2</td></tr>
+<tr><td style="text-align: left">turbo.hybrid_GH200_1.2.2_4096_132</td><td style="text-align: right">33232.3</td><td style="text-align: right">0</td><td style="text-align: right">14</td><td style="text-align: right">2</td></tr>
+<tr><td style="text-align: left">turbo.hybrid_RTXA5000_1.2.3_4096_128</td><td style="text-align: right">18543.3</td><td style="text-align: right">0</td><td style="text-align: right">14</td><td style="text-align: right">2</td></tr>
+<tr><td style="text-align: left">turbo.hybrid_RTXA5000_1.2.2_4096_128</td><td style="text-align: right">13475.4</td><td style="text-align: right">0</td><td style="text-align: right">14</td><td style="text-align: right">2</td></tr>
+<tr><td style="text-align: left">turbo.hybrid_RTXA5000_1.2.3_4096_64</td><td style="text-align: right">11786.7</td><td style="text-align: right">0</td><td style="text-align: right">14</td><td style="text-align: right">2</td></tr>
+<tr><td style="text-align: left">turbo.gpu_RTXA5000_1.2.0_4096_64_noatomics</td><td style="text-align: right">11684.4</td><td style="text-align: right">0</td><td style="text-align: right">14</td><td style="text-align: right">2</td></tr>
+<tr><td style="text-align: left">turbo.gpu_RTXA5000_1.2.0_4096_64</td><td style="text-align: right">10412.7</td><td style="text-align: right">0</td><td style="text-align: right">14</td><td style="text-align: right">2</td></tr>
+<tr><td style="text-align: left">turbo.hybrid_RTXA5000_1.2.2_hybrid_4096_64</td><td style="text-align: right">10271</td><td style="text-align: right">0</td><td style="text-align: right">14</td><td style="text-align: right">2</td></tr>
+<tr><td style="text-align: left">turbo.hybrid_RTXA5000_1.2.1_hybrid_4096_64</td><td style="text-align: right">1628.89</td><td style="text-align: right">0</td><td style="text-align: right">14</td><td style="text-align: right">2</td></tr>
 </tbody></table>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="v124-ternary-normal-form"><a class="header" href="#v124-ternary-normal-form">v1.2.4: Ternary Normal Form</a></h1>
+</div><div style="break-before: page; page-break-before: always;"></div><h1 id="v124-ternary-normal-form"><a class="header" href="#v124-ternary-normal-form">v1.2.4: Ternary Normal Form</a></h1>
 <p><em>27 December 2024.</em> During the hackathon with Nvidia, we profiled the code and discovered that the representation of propagators was problematic.
 Let's take an example with the constraint <code>x * x + y &lt; 5</code> which is internally represented by the following AST:</p>
 <img src="turbo-v1.2/propagator_tree.png" alt="isolated" width="250"/>
@@ -1313,7 +1347,7 @@ ONE = (t2 &lt;= z)
 </code></pre>
 <p>Where <code>t1,t2,ONE</code> are new variables where <code>ONE</code> is initialized to <code>1</code>.
 Note that the symbol <code>=</code> is relational, hence using <code>ONE = (t2 &lt;= z)</code> forces the constraint on the right to be true.
-This is called a &quot;reified constraint&quot; in the jargon of constraint programming, but in TNF it has the same representation as any other constraint.
+This is called a "reified constraint" in the jargon of constraint programming, but in TNF it has the same representation as any other constraint.
 TNF allows us to represent compactly a propagator using:</p>
 <pre><code class="language-cpp">struct bytecode_type {
   Sig op;
@@ -1327,7 +1361,7 @@ TNF allows us to represent compactly a propagator using:</p>
 <p>One obvious drawback of this approach is the increased number of temporary variables and constraints.
 While the increase in the number of constraints is relatively low and stable across problems (between 1x and 4x), the increase in the number of variables ranges between 1x and 139x in the case of the Wordpress problem.
 This variability warrants further investigation in the future to explore ways of reducing the number of generated variables.</p>
-<table><thead><tr><th>Problem</th><th>Data</th><th>#Vars</th><th>#Vars (TNF)</th><th>#Constraints</th><th>#Constraints (TNF)</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Problem</th><th>Data</th><th>#Vars</th><th>#Vars (TNF)</th><th>#Constraints</th><th>#Constraints (TNF)</th></tr></thead><tbody>
 <tr><td>team-assignment</td><td>data3_5_31</td><td>15932.0</td><td>35445.0 (x2.22)</td><td>25684.0</td><td>45197.0 (x1.76)</td></tr>
 <tr><td>generalized-peacable-queens</td><td>n8_q3</td><td>2940.0</td><td>20186.0 (x6.87)</td><td>8273.0</td><td>25519.0 (x3.08)</td></tr>
 <tr><td>spot5</td><td>404</td><td>1112.0</td><td>22053.0 (x19.83)</td><td>8124.0</td><td>29065.0 (x3.58)</td></tr>
@@ -1345,15 +1379,17 @@ This variability warrants further investigation in the future to explore ways of
 <tr><td>stripboard</td><td>common-emitter-simple</td><td>2123.0</td><td>14581.0 (x6.87)</td><td>4563.0</td><td>17093.0 (x3.75)</td></tr>
 <tr><td>gfd-schedule</td><td>n55f2d50m30k3_10124</td><td>32604.0</td><td>67749.0 (x2.08)</td><td>54575.0</td><td>89720.0 (x1.64)</td></tr>
 </tbody></table>
+</div>
 <h2 id="benchmarks"><a class="header" href="#benchmarks">Benchmarks</a></h2>
 <p>The following table compares hybrid v1.2.3 and hybrid v1.2.4, both with 128 blocks.</p>
-<table><thead><tr><th>Metrics</th><th>Normalized average [0,100]</th><th>Δ v1.2.3</th><th>#best (_/16)</th><th>Average</th><th>Δ v1.2.3</th><th>Median</th><th>Δ v1.2.3</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Metrics</th><th>Normalized average [0,100]</th><th>Δ v1.2.3</th><th>#best (_/16)</th><th>Average</th><th>Δ v1.2.3</th><th>Median</th><th>Δ v1.2.3</th></tr></thead><tbody>
 <tr><td>Nodes per second</td><td>83.75</td><td>+29%</td><td>11</td><td>21808.77</td><td>+18%</td><td>6061.18</td><td>+48%</td></tr>
 <tr><td>Fixpoint iterations per second</td><td>100.00</td><td>+254%</td><td>16</td><td>845483.88</td><td>+553%</td><td>143327.93</td><td>+193%</td></tr>
 <tr><td>Fixpoint iterations per node</td><td>100.00</td><td>+187%</td><td>0</td><td>40.45</td><td>+138%</td><td>22.76</td><td>+148%</td></tr>
 <tr><td>Propagators memory</td><td>19.91</td><td>-80%</td><td>15</td><td>0.85MB</td><td>-90%</td><td>0.42MB</td><td>-89%</td></tr>
 <tr><td>Variables store memory</td><td>100.00</td><td>+656%</td><td>0</td><td>402.75KB</td><td>+718%</td><td>208.20KB</td><td>+1844%</td></tr>
 </tbody></table>
+</div>
 <p>Let's analyze the speedup of this new version v1.2.4.
 The number of fixpoint iterations per second has increased by 254% which is a very large gain.
 However, the increase in nodes per second is only 29%, and it increases in only 11 out of 16 problems.
@@ -1367,13 +1403,14 @@ In all 16 problems, the new version requires more iterations to converge compare
 Perhaps more surprisingly, the memory footprint of the propagators is much lower than in v1.2.3, with an average reduction of 80%.
 Although we have more propagators, each one requires only 16 bytes, as opposed to v1.2.3, where propagator representation involved additional overhead from the shared pointer and variant data structures.</p>
 <p>As for the full GPU version, we notice a similar behavior (we compare against full GPU v1.2.0 because v1.2.{1-3} were only modifying the hybrid version):</p>
-<table><thead><tr><th>Metrics</th><th>Normalized average [0,100]</th><th>Δ v1.2.0</th><th>#best (_/16)</th><th>Average</th><th>Δ v1.2.0</th><th>Median</th><th>Δ v1.2.0</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Metrics</th><th>Normalized average [0,100]</th><th>Δ v1.2.0</th><th>#best (_/16)</th><th>Average</th><th>Δ v1.2.0</th><th>Median</th><th>Δ v1.2.0</th></tr></thead><tbody>
 <tr><td>Nodes per second</td><td>89.02</td><td>+28%</td><td>12</td><td>14467.35</td><td>+24%</td><td>5583.57</td><td>+50%</td></tr>
 <tr><td>Fixpoint iterations per second</td><td>100.00</td><td>+315%</td><td>16</td><td>510492.99</td><td>+586%</td><td>136773.93</td><td>+238%</td></tr>
 <tr><td>Fixpoint iterations per node</td><td>100.00</td><td>+203%</td><td>0</td><td>40.47</td><td>+167%</td><td>24.07</td><td>+162%</td></tr>
 <tr><td>Propagators memory</td><td>19.91</td><td>-80%</td><td>15</td><td>1.03MB</td><td>-90%</td><td>0.51MB</td><td>-89%</td></tr>
 <tr><td>Variables store memory</td><td>100.00</td><td>+630%</td><td>0</td><td>402.93KB</td><td>+715%</td><td>208.39KB</td><td>+1813%</td></tr>
 </tbody></table>
+</div>
 <h2 id="profiling"><a class="header" href="#profiling">Profiling</a></h2>
 <p>The hackathon reminded me that we should always prioritize the next improvement based on what the profiler reveals.
 While this is a well-known principle, it's easy to forget.</p>
@@ -1405,7 +1442,7 @@ To confirm this hypothesis, we should test this version on the GH200, which is p
 <p>From a research perspective it is more interesting to focus on the fixpoint loop parallelization.
 Furthermore, improving the full-GPU version---which does not compile on modern GPUs---is less exciting.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="v125-trivially-copyable"><a class="header" href="#v125-trivially-copyable">v1.2.5: Trivially Copyable</a></h1>
-<p><em>4 January 2025.</em> If <em>premature optimization</em> is the root of all evil, we demonstrate in this version that <em>premature generalization</em> is the root of inefficiency on the GPU.</p>
+<p><em>4 January 2025.</em> If <em>premature optimization</em> is the root of all evil, we show a case where <em>premature generalization</em> is the root of inefficiency on the GPU.</p>
 <p>While profiling Turbo, I identified <code>cuda::std::tuple</code> as a performance bottleneck.
 The inefficiency stemmed from the <code>Interval</code> class, which was originally implemented using a <code>CartesianProduct</code> abstraction to represent intervals as a pair of lower and upper bounds.
 The goal being to stay close to the mathematical definition of interval.
@@ -1414,23 +1451,168 @@ However, tuple is <em>not trivially copyable</em>.
 This meant that every time an interval was transferred from the CPU to GPU (and vice-versa) the constructor of each element was invoked, incurring a significant overhead.</p>
 <p>To address this, I refactored <code>Interval</code> to directly store the lower and upper bounds as members, eliminating the use of <code>CartesianProduct</code> and <code>tuple</code>.
 As shown in the table below, this simple refactoring doubled the number of nodes explored per second, for the hybrid version with 128 blocks.</p>
-<table><thead><tr><th>Metrics</th><th>Normalized average [0,100]</th><th>Δ v1.2.4</th><th>#best (_/16)</th><th>Average</th><th>Δ v1.2.4</th><th>Median</th><th>Δ v1.2.4</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Metrics</th><th>Normalized average [0,100]</th><th>Δ v1.2.4</th><th>#best (_/16)</th><th>Average</th><th>Δ v1.2.4</th><th>Median</th><th>Δ v1.2.4</th></tr></thead><tbody>
 <tr><td>Nodes per second</td><td>99.98</td><td>+97%</td><td>15</td><td>34154.16</td><td>+56%</td><td>17018.07</td><td>+180%</td></tr>
 <tr><td>Fixpoint iterations per second</td><td>99.96</td><td>+104%</td><td>15</td><td>1102807.71</td><td>+30%</td><td>419951.32</td><td>+192%</td></tr>
 <tr><td>Fixpoint iterations per node</td><td>99.82</td><td>+4%</td><td>6</td><td>42.51</td><td>+5%</td><td>25.34</td><td>+11%</td></tr>
 <tr><td>Propagators memory</td><td>100.00</td><td>0%</td><td>0</td><td>0.85MB</td><td>0%</td><td>0.42MB</td><td>0%</td></tr>
 <tr><td>Variables store memory</td><td>100.00</td><td>0%</td><td>0</td><td>402.75KB</td><td>0%</td><td>208.20KB</td><td>0%</td></tr>
 </tbody></table>
+</div>
 <p>Interestingly, the full GPU architecture (<code>-arch gpu</code>) benefits less from this optimization.</p>
-<table><thead><tr><th>Metrics</th><th>Normalized average [0,100]</th><th>Δ v1.2.4</th><th>#best (_/16)</th><th>Average</th><th>Δ v1.2.4</th><th>Median</th><th>Δ v1.2.4</th></tr></thead><tbody>
+<div class="table-wrapper"><table><thead><tr><th>Metrics</th><th>Normalized average [0,100]</th><th>Δ v1.2.4</th><th>#best (_/16)</th><th>Average</th><th>Δ v1.2.4</th><th>Median</th><th>Δ v1.2.4</th></tr></thead><tbody>
 <tr><td>Nodes per second</td><td>99.98</td><td>+8%</td><td>15</td><td>15135.09</td><td>+5%</td><td>6002.31</td><td>+7%</td></tr>
 <tr><td>Fixpoint iterations per second</td><td>100.00</td><td>+7%</td><td>15</td><td>523632.56</td><td>+2%</td><td>151634.36</td><td>+11%</td></tr>
 <tr><td>Fixpoint iterations per node</td><td>99.43</td><td>-1%</td><td>13</td><td>40.22</td><td>-1%</td><td>24.03</td><td>0%</td></tr>
 <tr><td>Propagators memory</td><td>100.00</td><td>0%</td><td>0</td><td>1.03MB</td><td>0%</td><td>0.51MB</td><td>0%</td></tr>
 <tr><td>Variables store memory</td><td>100.00</td><td>0%</td><td>0</td><td>402.93KB</td><td>0%</td><td>208.39KB</td><td>0%</td></tr>
 </tbody></table>
+</div>
 <p>It indicates that non-trivial copy is particularly inefficient when transferring data between CPU and GPU.</p>
-<p>On Helios (GH200), however, the difference between versions becomes negligible. This is likely due to the unified memory architecture of SM90, which reduces the impact of memory transfer costs.</p>
+<h3 id="helios-gh200-superchip"><a class="header" href="#helios-gh200-superchip">Helios (GH200 Superchip)</a></h3>
+<p>On Helios (GH200), however, the difference between these two versions becomes negligible.
+This is likely due to the unified memory architecture of SM90, which reduces the impact of memory transfer costs.
+The following table shows the difference with 264 blocks and hybrid architecture.</p>
+<div class="table-wrapper"><table><thead><tr><th>Metrics</th><th>Normalized average [0,100]</th><th>Δ v1.2.4</th><th>#best (_/16)</th><th>Average</th><th>Δ v1.2.4</th><th>Median</th><th>Δ v1.2.4</th></tr></thead><tbody>
+<tr><td>Nodes per second</td><td>98.02</td><td>0%</td><td>10</td><td>94111.37</td><td>-3%</td><td>32453.57</td><td>0%</td></tr>
+<tr><td>Fixpoint iterations per second</td><td>98.13</td><td>0%</td><td>8</td><td>3175947.36</td><td>-7%</td><td>847653.49</td><td>+2%</td></tr>
+<tr><td>Fixpoint iterations per node</td><td>99.69</td><td>0%</td><td>10</td><td>43.71</td><td>0%</td><td>25.15</td><td>0%</td></tr>
+<tr><td>Propagators memory</td><td>99.97</td><td>0%</td><td>1</td><td>0.85MB</td><td>0%</td><td>0.42MB</td><td>0%</td></tr>
+<tr><td>Variables store memory</td><td>99.97</td><td>0%</td><td>1</td><td>402.75KB</td><td>0%</td><td>208.20KB</td><td>0%</td></tr>
+</tbody></table>
+</div>
+<p>It is interesting to compare the H100 to my desktop GPU A5000.
+Since the A5000 has 64 SMs and H100 has 132 SMs, it should be at least twice as fast on H100.
+The normalized average shows indeed an increase of +125%, which is a bit more than 2 times faster, but also due to the fact that the GH200 is equipped with a 72-cores CPU, while my desktop has only a 10-cores CPU.</p>
+<div class="table-wrapper"><table><thead><tr><th>Metrics</th><th>Normalized average [0,100]</th><th>Δ A5000</th><th>#best (_/16)</th><th>Average</th><th>Δ A5000</th><th>Median</th><th>Δ A5000</th></tr></thead><tbody>
+<tr><td>Nodes per second</td><td>100.00</td><td>+125%</td><td>16</td><td>80590.15</td><td>+312%</td><td>24332.89</td><td>+153%</td></tr>
+<tr><td>Fixpoint iterations per second</td><td>100.00</td><td>+131%</td><td>16</td><td>2591379.51</td><td>+335%</td><td>528451.52</td><td>+76%</td></tr>
+<tr><td>Fixpoint iterations per node</td><td>98.59</td><td>+2%</td><td>7</td><td>43.04</td><td>+4%</td><td>26.03</td><td>+2%</td></tr>
+</tbody></table>
+</div><div style="break-before: page; page-break-before: always;"></div><h1 id="v126-warp-centric-fixpoint"><a class="header" href="#v126-warp-centric-fixpoint">v1.2.6: Warp-centric Fixpoint</a></h1>
+<p><em>22 January 2025.</em> Version 1.2.6 introduces a warp-centric fixpoint engine designed to better leverage GPU architecture and improve propagation efficiency.</p>
+<p>The previous fixpoint engine followed a straightforward scheduling strategy: with 256 threads and an array of propagators [p1, p2, ..., pN], each thread executes propagators spaced 256 apart—thread 1 handles p1, then p257, then p513, and so on. After processing its assigned propagators, each thread hits a barrier and waits for all others to complete before continuing the loop. The process terminates once no propagator changed the domain of any variable.</p>
+<p>This strategy corresponds to the AC1 algorithm, first introduced by Mackworth in his 1977 paper <em>Consistency in Networks of Relations</em>. While AC1 is correct, it often performs redundant work—many scheduled propagators have no effect on variable domains, leading to inefficiencies.</p>
+<h3 id="introducing-warp-centric-propagation"><a class="header" href="#introducing-warp-centric-propagation">Introducing Warp-Centric Propagation</a></h3>
+<p>In v1.2.6, we propose a new fixpoint algorithm tailored to GPU architectures: the warp-centric AC1 fixpoint (WAC1). The key insight is that propagators grouped within a warp often share variables. This grouping is not intentional but emerges from how constraint models are written and how constraints are decomposed in ternary form.</p>
+<p>WAC1 takes advantage of this spatial locality by allowing each warp to compute a local fixpoint across its 32 propagators before proceeding. Algorithmically, this approach reduces the number of propagator calls. On the hardware side, it reuses bytecode already loaded into cache and registers, improving execution efficiency.</p>
+<p>To benchmark this improvement, we use version 1.2.8 and simulate the older versions:</p>
+<ul>
+<li>v1.2.5 ≈ v1.2.8 with <code>-disable_simplify -arch hybrid -fp ac1</code></li>
+<li>v1.2.6 ≈ v1.2.8 with <code>-disable_simplify -arch hybrid -fp wac1</code></li>
+</ul>
+<p>Both configurations use <code>-or 128 -sub 15</code>.
+We get a few bug fixes and a new statistics presented below.</p>
+<h3 id="benchmark-results-a5000"><a class="header" href="#benchmark-results-a5000">Benchmark Results (A5000)</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>Metrics</th><th>Normalized average [0,100]</th><th>Δ v1.2.5</th><th>#best (_/16)</th><th>Average</th><th>Δ v1.2.5</th><th>Median</th><th>Δ v1.2.5</th></tr></thead><tbody>
+<tr><td>Nodes per second</td><td>98.78</td><td>+19%</td><td>12</td><td>39881.91</td><td>+5%</td><td>22466.70</td><td>+26%</td></tr>
+<tr><td>Deductions per node</td><td>68.26</td><td>-31%</td><td>14</td><td>1117197.24</td><td>-57%</td><td>319343.77</td><td>-32%</td></tr>
+<tr><td>Fixpoint iterations per second</td><td>65.62</td><td>-34%</td><td>1</td><td>465136.92</td><td>-49%</td><td>270480.10</td><td>-41%</td></tr>
+<tr><td>Fixpoint iterations per node</td><td>51.90</td><td>-48%</td><td>16</td><td>17.07</td><td>-58%</td><td>11.71</td><td>-51%</td></tr>
+<tr><td>Propagators memory</td><td>100.00</td><td>0%</td><td>0</td><td>0.86MB</td><td>0%</td><td>0.42MB</td><td>0%</td></tr>
+<tr><td>Variables store memory</td><td>100.00</td><td>0%</td><td>0</td><td>403.25KB</td><td>0%</td><td>208.95KB</td><td>0%</td></tr>
+</tbody></table>
+</div>
+<p>With AC1, the average number of fixpoint iterations per node is around 40.
+WAC1 cuts this down to just 17 iterations per node.
+However, since each WAC1 iteration involves more work—reaching a local fixpoint within a warp—raw iteration counts are not directly comparable.
+To better evaluate this, we introduce a new metric: <em>deductions per node</em>, representing the number of propagator calls per node. WAC1 reduces deductions by 31%, indicating faster convergence to a fixpoint. This leads to a 19% improvement in normalized nodes explored per second, demonstrating clear performance benefits.</p>
+<h3 id="performance-on-h100"><a class="header" href="#performance-on-h100">Performance on H100</a></h3>
+<p>The H100 GPU shows a similar trend. Note that these benchmarks used the actual v1.2.5 and v1.2.6 versions, so the deductions per node metric was not available. Both experiments ran with <code>-or 264 -sub 12 -arch hybrid</code>.</p>
+<div class="table-wrapper"><table><thead><tr><th>Metrics</th><th>Normalized average [0,100]</th><th>Δ v1.2.5</th><th>#best (_/16)</th><th>Average</th><th>Δ v1.2.5</th><th>Median</th><th>Δ v1.2.5</th></tr></thead><tbody>
+<tr><td>Nodes per second</td><td>98.54</td><td>+28%</td><td>13</td><td>96386.82</td><td>+2%</td><td>46832.15</td><td>+44%</td></tr>
+<tr><td>Fixpoint iterations per second</td><td>62.08</td><td>-38%</td><td>0</td><td>1438501.41</td><td>-55%</td><td>551572.85</td><td>-35%</td></tr>
+<tr><td>Fixpoint iterations per node</td><td>47.11</td><td>-53%</td><td>16</td><td>17.11</td><td>-61%</td><td>12.46</td><td>-50%</td></tr>
+</tbody></table>
+</div>
+<h3 id="conclusion"><a class="header" href="#conclusion">Conclusion</a></h3>
+<p>The new warp-centric fixpoint algorithm (WAC1) reduces redundant propagation work and better utilizes GPU hardware capabilities. With up to 31% fewer deductions per node and 19–28% faster node exploration, WAC1 represents a substantial improvement over the traditional AC1 approach.
+Furthermore, it highlights the importance of fixpoint engines on performance, and we could consider further improving the fixpoint engine in future work.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="v127-preprocessing-again"><a class="header" href="#v127-preprocessing-again">v1.2.7: Preprocessing Again</a></h1>
+<p><em>21 March 2025.</em> Ternary constraints significantly accelerate parallel propagation—often by an order of magnitude—thanks to their uniform representation. However, this comes with a trade-off: the number of variables and constraints increases significantly, in some cases by up to four orders of magnitude. To address this, I revisited preprocessing, inspired by recent and past work in the constraint programming community, especially:</p>
+<ul>
+<li>I. Araya et al., <a href="https://doi.org/10.1007/978-3-540-85958-1_23"> Exploiting Common Subexpressions in Numerical CSPs</a>, 2008, CP.</li>
+<li>P. Nightingale et al., <a href="https://doi.org/10.1016/j.artint.2017.07.001">Automatically improving constraint models in Savile Row</a>, 2017, Artificial Intelligence.</li>
+</ul>
+<p>Thanks to the compact structure of ternary representations, implementing preprocessing algorithms becomes simpler and more efficient. The core optimization introduced in this version is the elimination of common subexpressions.</p>
+<p>Given two ternary constraints <code>x = y &lt;op&gt; z</code> and <code>a = b &lt;op'&gt; c</code>, if the right-hand sides are syntactically identical (y = b, op = op', z = c), we can safely eliminate one of the constraints and introduce an equality <code>x = a</code> instead. This small transformation, repeated many times, has a large cumulative impact.</p>
+<p>The full preprocessing algorithm will be described in an upcoming paper.</p>
+<h3 id="benchmark-results-a5000-1"><a class="header" href="#benchmark-results-a5000-1">Benchmark Results (A5000)</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>Metrics</th><th>Normalized average [0,100]</th><th>Δ v1.2.6</th><th>#best (_/16)</th><th>Average</th><th>Δ v1.2.6</th><th>Median</th><th>Δ v1.2.6</th></tr></thead><tbody>
+<tr><td>Nodes per second</td><td>100.00</td><td>+24%</td><td>16</td><td>46886.52</td><td>+18%</td><td>28322.51</td><td>+26%</td></tr>
+<tr><td>Deductions per node</td><td>61.01</td><td>-39%</td><td>16</td><td>812898.02</td><td>-27%</td><td>219665.79</td><td>-31%</td></tr>
+<tr><td>Fixpoint iterations per second</td><td>90.60</td><td>+4%</td><td>8</td><td>443548.64</td><td>-5%</td><td>326175.74</td><td>+21%</td></tr>
+<tr><td>Fixpoint iterations per node</td><td>82.93</td><td>-17%</td><td>16</td><td>14.99</td><td>-12%</td><td>10.23</td><td>-13%</td></tr>
+<tr><td>Propagators memory</td><td>65.62</td><td>-34%</td><td>16</td><td>0.64MB</td><td>-25%</td><td>0.25MB</td><td>-41%</td></tr>
+<tr><td>Variables store memory</td><td>61.68</td><td>-38%</td><td>16</td><td>288.38KB</td><td>-28%</td><td>89.04KB</td><td>-57%</td></tr>
+</tbody></table>
+</div>
+<p>Preprocessing in v1.2.7 improves overall solver performance by reducing redundancy at the constraint level. Notably:</p>
+<ul>
+<li>Nodes explored per second increased by 24%.</li>
+<li>Deductions per node dropped by 39%, which means the fixpoint engine converges faster.</li>
+<li>Propagator and variable memory footprints shrank by 34% and 38%, respectively.</li>
+<li>On six benchmarks, the reduced variable store now fits into shared memory (up from three in v1.2.6)</li>
+</ul>
+<p>Currently, preprocessing is only applied to the ternarized model. A potential improvement would be to apply subexpression elimination (as in Nightingale et al.) to the original model before ternarization, opening new opportunities for optimization.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="v128-cost-of-abstraction"><a class="header" href="#v128-cost-of-abstraction">v1.2.8: Cost of Abstraction</a></h1>
+<p><em>10 April 2025.</em> Version 1.2.8 introduces a new solving algorithm called <code>barebones</code>, which can be activated via the option <code>-arch barebones</code>.
+This architecture strips away some abstractions to reduce kernel code complexity and ensure compatibility with H100 GPUs.</p>
+<p>While less generic than the existing algorithms, <code>barebones</code> is significantly more efficient—delivering up to +63% nodes per second and, for the first time, proving optimality on three instances.</p>
+<h3 id="minimalist-by-design"><a class="header" href="#minimalist-by-design">Minimalist by Design</a></h3>
+<p>The key design decision is to remove dependencies on <code>SearchTree</code> and <code>BAB</code> abstract domains.
+The entire search process is implemented in a single file, <code>barebones_dive_and_solve.hpp</code> (about 1000 LOC), compared to 700 LOC for <code>gpu_dive_and_solve.hpp</code> and 800 LOC for <code>hybrid_dive_and_solve.hpp</code>.</p>
+<p>Despite losing generality, we retain full functionality.
+In theory, we could add any constraint to the search tree during solving, but this feature was not used.
+The only dynamically added constraint is the objective bound—now directly handled with interval domains, reducing overhead.</p>
+<p>Similarly, instead of supporting arbitrary branching like <code>x &lt; y ∨ x = y ∨ x &gt; y</code>, we stick to binary strategies such as <code>x &lt; 10 ∨ x ≥ 10</code>, which can be efficiently implemented with two intervals: <code>[xl, 9]</code> and <code>[10, xu]</code>.</p>
+<h3 id="parallel-branching--restoration"><a class="header" href="#parallel-branching--restoration">Parallel Branching &amp; Restoration</a></h3>
+<p>With simplified branching and fewer abstractions, search becomes easier to parallelize.</p>
+<p>Branching strategies (variable + value selection) now leverage parallel iteration over the variable store, e.g., to find the smallest domain.
+Restoring the variables' domain upon backtracking is also done in parallel.</p>
+<p>This significantly reduces search time, which is now negligible compared to propagation.
+This was not the case in the GPU and hybrid versions, as illustrated in <a href="https://lattice-land.github.io/10-turbo.html#profiling">previous experiments</a>.</p>
+<p><img src="turbo-v1.2/turbogpu-v1.2.8-time-profile.png" alt="Turbo Barebones v1.2.8 Time Profile" /></p>
+<p>As shown above, on the "roster-sickness_small-4" instance, 191 blocks remain idle at timeout, indicating load imbalance.
+Improving work decomposition across threads is a near-term priority.</p>
+<h3 id="automatic-block-configuration"><a class="header" href="#automatic-block-configuration">Automatic Block Configuration</a></h3>
+<p>Previously, the number of CUDA blocks was set manually using <code>-or</code>, e.g. <code>-or 128</code>.
+Now, you can enable automatic configuration via <code>-or 0</code>. It uses CUDA’s <code>cudaOccupancyMaxActiveBlocksPerMultiprocessor</code> to maximize the number of blocks per SM.
+We then attempt to fit the variable and propagator stores into shared memory with the selected configuration.
+The goal is to favor higher occupancy, even if it means using global memory in some cases.</p>
+<h3 id="benchmark-results-a5000-2"><a class="header" href="#benchmark-results-a5000-2">Benchmark Results (A5000)</a></h3>
+<p>Using <code>-or 128 -arch barebones -fp wac1</code>, the performance gains are substantial:</p>
+<div class="table-wrapper"><table><thead><tr><th>Metrics</th><th>Normalized average [0,100]</th><th>Δ v1.2.7</th><th>#best (_/16)</th><th>Average</th><th>Δ v1.2.7</th><th>Median</th><th>Δ v1.2.7</th></tr></thead><tbody>
+<tr><td>Nodes per second</td><td>99.87</td><td>+49%</td><td>15</td><td>211302.32</td><td>+351%</td><td>34413.66</td><td>+22%</td></tr>
+<tr><td>Deductions per node</td><td>95.80</td><td>-3%</td><td>9</td><td>815118.16</td><td>0%</td><td>185548.13</td><td>-16%</td></tr>
+<tr><td>Fixpoint iterations per second</td><td>99.97</td><td>+47%</td><td>15</td><td>1541334.10</td><td>+248%</td><td>437091.95</td><td>+34%</td></tr>
+<tr><td>Fixpoint iterations per node</td><td>96.45</td><td>-2%</td><td>9</td><td>14.52</td><td>-3%</td><td>9.29</td><td>-9%</td></tr>
+<tr><td>Propagators memory</td><td>99.99</td><td>0%</td><td>9</td><td>0.64MB</td><td>0%</td><td>0.25MB</td><td>0%</td></tr>
+<tr><td>Variables store memory</td><td>100.00</td><td>0%</td><td>0</td><td>288.40KB</td><td>0%</td><td>89.06KB</td><td>0%</td></tr>
+</tbody></table>
+</div>
+<p>With automatic block configuration (<code>-or 0</code>), we gain an additional speed-up:</p>
+<div class="table-wrapper"><table><thead><tr><th>Metrics</th><th>Normalized average [0,100]</th><th>Δ v1.2.7</th><th>#best (_/16)</th><th>Average</th><th>Δ v1.2.7</th><th>Median</th><th>Δ v1.2.7</th></tr></thead><tbody>
+<tr><td>Nodes per second</td><td>99.17</td><td>+63%</td><td>15</td><td>262153.55</td><td>+459%</td><td>43555.10</td><td>+54%</td></tr>
+<tr><td>Deductions per node</td><td>96.52</td><td>-1%</td><td>6</td><td>823142.05</td><td>+1%</td><td>191625.76</td><td>-13%</td></tr>
+<tr><td>Fixpoint iterations per second</td><td>99.62</td><td>+65%</td><td>15</td><td>1925882.39</td><td>+334%</td><td>502630.01</td><td>+54%</td></tr>
+<tr><td>Fixpoint iterations per node</td><td>97.11</td><td>-1%</td><td>6</td><td>14.95</td><td>0%</td><td>9.31</td><td>-9%</td></tr>
+<tr><td>Propagators memory</td><td>99.99</td><td>0%</td><td>9</td><td>0.64MB</td><td>0%</td><td>0.25MB</td><td>0%</td></tr>
+<tr><td>Variables store memory</td><td>100.00</td><td>0%</td><td>0</td><td>288.40KB</td><td>0%</td><td>89.06KB</td><td>0%</td></tr>
+</tbody></table>
+</div>
+<h3 id="results-summary"><a class="header" href="#results-summary">Results Summary</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>Metrics</th><th><code>barebones</code></th><th><code>hybrid</code></th></tr></thead><tbody>
+<tr><td>#Problems at optimality</td><td>3</td><td>0</td></tr>
+<tr><td>#Problems satisfiable</td><td>11</td><td>14</td></tr>
+<tr><td>#Problems unknown</td><td>2</td><td>2</td></tr>
+<tr><td>#Problem with store in shared memory</td><td>1</td><td>6</td></tr>
+<tr><td>#Problem with prop in shared memory</td><td>0</td><td>0</td></tr>
+<tr><td>#Problems with IDLE SMs at timeout</td><td>1</td><td>2</td></tr>
+</tbody></table>
+</div>
+<p>This is the first time the solver could prove optimality on three problems within a 5-minute timeout.
+It validates the trade-off: by removing abstraction, we unlock performance and simplify the codebase—without losing what matters.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="about"><a class="header" href="#about">About</a></h1>
 <p>The lattice land project is developed at the University of Luxembourg by a wonderful team:</p>
 <ul>
@@ -1451,42 +1633,43 @@ We thank the Luxembourg National Research Fund (FNR) for this opportunity.</p>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                        
-                        
+
+
                         <div style="clear: both"></div>
                     </nav>
                 </div>
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                
-                            </nav>
+
+            </nav>
 
         </div>
 
-        
-        
-        
-                <script type="text/javascript">
+
+
+
+        <script>
             window.playground_copyable = true;
         </script>
-        
-        
-                <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
-        
-        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
-        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
 
         <!-- Custom JS scripts -->
-        
-                        <script type="text/javascript">
+
+        <script>
         window.addEventListener('load', function() {
             window.setTimeout(window.print, 100);
         });
         </script>
-                
+
+    </div>
     </body>
 </html>
