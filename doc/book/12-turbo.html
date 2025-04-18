@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>v1.1.{4-5}: Sorting Propagators - Lattice Land Book</title>
+        <title>v1.2.6: Warp-centric Fixpoint - Lattice Land Book</title>
 
 
         <!-- Custom HTML head -->
@@ -156,59 +156,55 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="v114-5-sorting-propagators"><a class="header" href="#v114-5-sorting-propagators">v1.1.{4-5}: Sorting Propagators</a></h1>
-<p><em>28 August 2024.</em> We perform two experiments to reduce thread divergence by sorting propagators, for the reasons mentioned in the <a href="5-turbo.html">previous post</a>.
-Given a list of propagators representing constraints, we sort on the syntactic shape of the constraint:</p>
+                        <h1 id="v126-warp-centric-fixpoint"><a class="header" href="#v126-warp-centric-fixpoint">v1.2.6: Warp-centric Fixpoint</a></h1>
+<p><em>22 January 2025.</em> Version 1.2.6 introduces a warp-centric fixpoint engine designed to better leverage GPU architecture and improve propagation efficiency.</p>
+<p>The previous fixpoint engine followed a straightforward scheduling strategy: with 256 threads and an array of propagators [p1, p2, ..., pN], each thread executes propagators spaced 256 apart—thread 1 handles p1, then p257, then p513, and so on. After processing its assigned propagators, each thread hits a barrier and waits for all others to complete before continuing the loop. The process terminates once no propagator changed the domain of any variable.</p>
+<p>This strategy corresponds to the AC1 algorithm, first introduced by Mackworth in his 1977 paper <em>Consistency in Networks of Relations</em>. While AC1 is correct, it often performs redundant work—many scheduled propagators have no effect on variable domains, leading to inefficiencies.</p>
+<h3 id="introducing-warp-centric-propagation"><a class="header" href="#introducing-warp-centric-propagation">Introducing Warp-Centric Propagation</a></h3>
+<p>In v1.2.6, we propose a new fixpoint algorithm tailored to GPU architectures: the warp-centric AC1 fixpoint (WAC1). The key insight is that propagators grouped within a warp often share variables. This grouping is not intentional but emerges from how constraint models are written and how constraints are decomposed in ternary form.</p>
+<p>WAC1 takes advantage of this spatial locality by allowing each warp to compute a local fixpoint across its 32 propagators before proceeding. Algorithmically, this approach reduces the number of propagator calls. On the hardware side, it reuses bytecode already loaded into cache and registers, improving execution efficiency.</p>
+<p>To benchmark this improvement, we use version 1.2.8 and simulate the older versions:</p>
 <ul>
-<li>v1.1.4: Sort on the symbol of the outermost predicate of the formula, e.g. <code>x &lt; y</code> is equal to <code>z + y &lt; x * x</code>, but less than <code>x &lt;= y</code> for an arbitrary ordering between &lt; and &lt;=.</li>
-<li>v1.1.5: Lexicographic sort on the first predicate symbol followed by the length of the formula, e.g. <code>length(x &lt; y) = 2 &lt; 3 = length(z + y &lt; x * x)</code>.</li>
+<li>v1.2.5 ≈ v1.2.8 with <code>-disable_simplify -arch hybrid -fp ac1</code></li>
+<li>v1.2.6 ≈ v1.2.8 with <code>-disable_simplify -arch hybrid -fp wac1</code></li>
 </ul>
-<p>These are quite simple solutions to reduce divergence while avoiding spending too much time on a sorting algorithm specialized to minimize divergence.
-The results are not impressive, and it shows that thread divergence is perhaps not the biggest bottleneck of Turbo.
-Nevertheless, given how cheap this optimization is, I decided to keep it.
-Note that on some benchmarks where the propagators are very unsorted (e.g. <code>gfd_schedule</code>), sorting increases by 50% the number of nodes explored.</p>
-<h2 id="results-v114"><a class="header" href="#results-v114">Results v1.1.4</a></h2>
-<div class="table-wrapper"><table><thead><tr><th>Metrics</th><th>Average</th><th>Δ v1.1.3</th><th>Median</th><th>Δ v1.1.3</th></tr></thead><tbody>
-<tr><td>Nodes per seconds</td><td>4439.68</td><td>+3%</td><td>1236.87</td><td>0%</td></tr>
-<tr><td>Fixpoint iterations per second</td><td>21659.62</td><td>+1%</td><td>6492.20</td><td>0%</td></tr>
-<tr><td>Fixpoint iterations per node</td><td>8.69</td><td>+1%</td><td>5.07</td><td>-5%</td></tr>
-<tr><td>#Problems with IDLE SMs at timeout</td><td>9</td><td>9</td><td></td><td></td></tr>
-<tr><td>Propagators memory</td><td>9.01MB</td><td>0%</td><td>8.08MB</td><td>0%</td></tr>
-<tr><td>Variables store memory</td><td>72.29KB</td><td>0%</td><td>84.10KB</td><td>0%</td></tr>
-<tr><td>#Problems at optimality</td><td>11</td><td>11</td><td></td><td></td></tr>
-<tr><td>#Problems satisfiable</td><td>22</td><td>22</td><td></td><td></td></tr>
-<tr><td>#Problems unknown</td><td>2</td><td>2</td><td></td><td></td></tr>
-<tr><td>#Problem with store in shared memory</td><td>10</td><td>10</td><td></td><td></td></tr>
-<tr><td>#Problem with prop in shared memory</td><td>1</td><td>1</td><td></td><td></td></tr>
+<p>Both configurations use <code>-or 128 -sub 15</code>.
+We get a few bug fixes and a new statistics presented below.</p>
+<h3 id="benchmark-results-a5000"><a class="header" href="#benchmark-results-a5000">Benchmark Results (A5000)</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>Metrics</th><th>Normalized average [0,100]</th><th>Δ v1.2.5</th><th>#best (_/16)</th><th>Average</th><th>Δ v1.2.5</th><th>Median</th><th>Δ v1.2.5</th></tr></thead><tbody>
+<tr><td>Nodes per second</td><td>98.78</td><td>+19%</td><td>12</td><td>39881.91</td><td>+5%</td><td>22466.70</td><td>+26%</td></tr>
+<tr><td>Deductions per node</td><td>68.26</td><td>-31%</td><td>14</td><td>1117197.24</td><td>-57%</td><td>319343.77</td><td>-32%</td></tr>
+<tr><td>Fixpoint iterations per second</td><td>65.62</td><td>-34%</td><td>1</td><td>465136.92</td><td>-49%</td><td>270480.10</td><td>-41%</td></tr>
+<tr><td>Fixpoint iterations per node</td><td>51.90</td><td>-48%</td><td>16</td><td>17.07</td><td>-58%</td><td>11.71</td><td>-51%</td></tr>
+<tr><td>Propagators memory</td><td>100.00</td><td>0%</td><td>0</td><td>0.86MB</td><td>0%</td><td>0.42MB</td><td>0%</td></tr>
+<tr><td>Variables store memory</td><td>100.00</td><td>0%</td><td>0</td><td>403.25KB</td><td>0%</td><td>208.95KB</td><td>0%</td></tr>
 </tbody></table>
 </div>
-<p><img src="turbo-v1.1/turbogpu-v1.1.3-vs-turbogpu-v1.1.4.png" alt="TurboGPU-v1.1.3 vs TurboGPU-v1.1.4" /></p>
-<h2 id="results-v115"><a class="header" href="#results-v115">Results v1.1.5</a></h2>
-<div class="table-wrapper"><table><thead><tr><th>Metrics</th><th>Average</th><th>Δ v1.1.3</th><th>Median</th><th>Δ v1.1.3</th></tr></thead><tbody>
-<tr><td>Nodes per seconds</td><td>4513.37</td><td>+4%</td><td>1243.61</td><td>0%</td></tr>
-<tr><td>Fixpoint iterations per second</td><td>21787.61</td><td>+2%</td><td>6612.26</td><td>+1%</td></tr>
-<tr><td>Fixpoint iterations per node</td><td>8.50</td><td>-1%</td><td>5.38</td><td>+1%</td></tr>
-<tr><td>#Problems with IDLE SMs at timeout</td><td>9</td><td>9</td><td></td><td></td></tr>
-<tr><td>Propagators memory</td><td>9.01MB</td><td>0%</td><td>8.08MB</td><td>0%</td></tr>
-<tr><td>Variables store memory</td><td>72.29KB</td><td>0%</td><td>84.10KB</td><td>0%</td></tr>
-<tr><td>#Problems at optimality</td><td>11</td><td>11</td><td></td><td></td></tr>
-<tr><td>#Problems satisfiable</td><td>22</td><td>22</td><td></td><td></td></tr>
-<tr><td>#Problems unknown</td><td>2</td><td>2</td><td></td><td></td></tr>
-<tr><td>#Problem with store in shared memory</td><td>10</td><td>10</td><td></td><td></td></tr>
-<tr><td>#Problem with prop in shared memory</td><td>1</td><td>1</td><td></td><td></td></tr>
+<p>With AC1, the average number of fixpoint iterations per node is around 40.
+WAC1 cuts this down to just 17 iterations per node.
+However, since each WAC1 iteration involves more work—reaching a local fixpoint within a warp—raw iteration counts are not directly comparable.
+To better evaluate this, we introduce a new metric: <em>deductions per node</em>, representing the number of propagator calls per node. WAC1 reduces deductions by 31%, indicating faster convergence to a fixpoint. This leads to a 19% improvement in normalized nodes explored per second, demonstrating clear performance benefits.</p>
+<h3 id="performance-on-h100"><a class="header" href="#performance-on-h100">Performance on H100</a></h3>
+<p>The H100 GPU shows a similar trend. Note that these benchmarks used the actual v1.2.5 and v1.2.6 versions, so the deductions per node metric was not available. Both experiments ran with <code>-or 264 -sub 12 -arch hybrid</code>.</p>
+<div class="table-wrapper"><table><thead><tr><th>Metrics</th><th>Normalized average [0,100]</th><th>Δ v1.2.5</th><th>#best (_/16)</th><th>Average</th><th>Δ v1.2.5</th><th>Median</th><th>Δ v1.2.5</th></tr></thead><tbody>
+<tr><td>Nodes per second</td><td>98.54</td><td>+28%</td><td>13</td><td>96386.82</td><td>+2%</td><td>46832.15</td><td>+44%</td></tr>
+<tr><td>Fixpoint iterations per second</td><td>62.08</td><td>-38%</td><td>0</td><td>1438501.41</td><td>-55%</td><td>551572.85</td><td>-35%</td></tr>
+<tr><td>Fixpoint iterations per node</td><td>47.11</td><td>-53%</td><td>16</td><td>17.11</td><td>-61%</td><td>12.46</td><td>-50%</td></tr>
 </tbody></table>
 </div>
-<p><img src="turbo-v1.1/turbogpu-v1.1.3-vs-turbogpu-v1.1.5.png" alt="TurboGPU-v1.1.3 vs TurboGPU-v1.1.5" /></p>
+<h3 id="conclusion"><a class="header" href="#conclusion">Conclusion</a></h3>
+<p>The new warp-centric fixpoint algorithm (WAC1) reduces redundant propagation work and better utilizes GPU hardware capabilities. With up to 31% fewer deductions per node and 19–28% faster node exploration, WAC1 represents a substantial improvement over the traditional AC1 approach.
+Furthermore, it highlights the importance of fixpoint engines on performance, and we could consider further improving the fixpoint engine in future work.</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="5-turbo.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="11-turbo.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next prefetch" href="7-turbo.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="13-turbo.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -218,11 +214,11 @@ Note that on some benchmarks where the propagators are very unsorted (e.g. <code
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="5-turbo.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="11-turbo.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next prefetch" href="7-turbo.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="13-turbo.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>

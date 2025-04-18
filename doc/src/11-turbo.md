@@ -1,6 +1,6 @@
 # v1.2.5: Trivially Copyable
 
-_4 January 2025._ If _premature optimization_ is the root of all evil, we demonstrate in this version that _premature generalization_ is the root of inefficiency on the GPU.
+_4 January 2025._ If _premature optimization_ is the root of all evil, we show a case where _premature generalization_ is the root of inefficiency on the GPU.
 
 While profiling Turbo, I identified `cuda::std::tuple` as a performance bottleneck.
 The inefficiency stemmed from the `Interval` class, which was originally implemented using a `CartesianProduct` abstraction to represent intervals as a pair of lower and upper bounds.
@@ -32,4 +32,26 @@ Interestingly, the full GPU architecture (`-arch gpu`) benefits less from this o
 
 It indicates that non-trivial copy is particularly inefficient when transferring data between CPU and GPU.
 
-On Helios (GH200), however, the difference between versions becomes negligible. This is likely due to the unified memory architecture of SM90, which reduces the impact of memory transfer costs.
+### Helios (GH200 Superchip)
+
+On Helios (GH200), however, the difference between these two versions becomes negligible.
+This is likely due to the unified memory architecture of SM90, which reduces the impact of memory transfer costs.
+The following table shows the difference with 264 blocks and hybrid architecture.
+
+| Metrics | Normalized average [0,100] | Δ v1.2.4 | #best (_/16) | Average | Δ v1.2.4 | Median | Δ v1.2.4 |
+|---------|----------------------------|----------|--------------|---------|----------|--------|----------|
+| Nodes per second | 98.02 | 0% | 10 | 94111.37 | -3% | 32453.57 | 0% |
+| Fixpoint iterations per second | 98.13 | 0% | 8 | 3175947.36 | -7% | 847653.49 | +2% |
+| Fixpoint iterations per node | 99.69 | 0% | 10 | 43.71 | 0% | 25.15 | 0% |
+| Propagators memory | 99.97 | 0% | 1 | 0.85MB | 0% | 0.42MB | 0% |
+| Variables store memory | 99.97 | 0% | 1 | 402.75KB | 0% | 208.20KB | 0% |
+
+It is interesting to compare the H100 to my desktop GPU A5000.
+Since the A5000 has 64 SMs and H100 has 132 SMs, it should be at least twice as fast on H100.
+The normalized average shows indeed an increase of +125%, which is a bit more than 2 times faster, but also due to the fact that the GH200 is equipped with a 72-cores CPU, while my desktop has only a 10-cores CPU.
+
+| Metrics | Normalized average [0,100] | Δ A5000 | #best (_/16) | Average | Δ A5000 | Median | Δ A5000 |
+|---------|----------------------------|----------|--------------|---------|----------|--------|----------|
+| Nodes per second | 100.00 | +125% | 16 | 80590.15 | +312% | 24332.89 | +153% |
+| Fixpoint iterations per second | 100.00 | +131% | 16 | 2591379.51 | +335% | 528451.52 | +76% |
+| Fixpoint iterations per node | 98.59 | +2% | 7 | 43.04 | +4% | 26.03 | +2% |

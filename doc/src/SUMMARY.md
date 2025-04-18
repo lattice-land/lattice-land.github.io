@@ -37,6 +37,9 @@
 * [v1.2.{1-3}: Open Hackathon](9-turbo.md)
 * [v1.2.4: Ternary Normal Form](10-turbo.md)
 * [v1.2.5: Trivially Copyable](11-turbo.md)
+* [v1.2.6: Warp-centric Fixpoint](12-turbo.md)
+* [v1.2.7: Preprocessing Again](13-turbo.md)
+* [v1.2.8: Cost of Abstraction](14-turbo.md)
 
 # About
 

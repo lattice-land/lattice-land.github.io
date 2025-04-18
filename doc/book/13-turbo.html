@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>v1.1.{4-5}: Sorting Propagators - Lattice Land Book</title>
+        <title>v1.2.7: Preprocessing Again - Lattice Land Book</title>
 
 
         <!-- Custom HTML head -->
@@ -156,59 +156,43 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="v114-5-sorting-propagators"><a class="header" href="#v114-5-sorting-propagators">v1.1.{4-5}: Sorting Propagators</a></h1>
-<p><em>28 August 2024.</em> We perform two experiments to reduce thread divergence by sorting propagators, for the reasons mentioned in the <a href="5-turbo.html">previous post</a>.
-Given a list of propagators representing constraints, we sort on the syntactic shape of the constraint:</p>
+                        <h1 id="v127-preprocessing-again"><a class="header" href="#v127-preprocessing-again">v1.2.7: Preprocessing Again</a></h1>
+<p><em>21 March 2025.</em> Ternary constraints significantly accelerate parallel propagation—often by an order of magnitude—thanks to their uniform representation. However, this comes with a trade-off: the number of variables and constraints increases significantly, in some cases by up to four orders of magnitude. To address this, I revisited preprocessing, inspired by recent and past work in the constraint programming community, especially:</p>
 <ul>
-<li>v1.1.4: Sort on the symbol of the outermost predicate of the formula, e.g. <code>x &lt; y</code> is equal to <code>z + y &lt; x * x</code>, but less than <code>x &lt;= y</code> for an arbitrary ordering between &lt; and &lt;=.</li>
-<li>v1.1.5: Lexicographic sort on the first predicate symbol followed by the length of the formula, e.g. <code>length(x &lt; y) = 2 &lt; 3 = length(z + y &lt; x * x)</code>.</li>
+<li>I. Araya et al., <a href="https://doi.org/10.1007/978-3-540-85958-1_23"> Exploiting Common Subexpressions in Numerical CSPs</a>, 2008, CP.</li>
+<li>P. Nightingale et al., <a href="https://doi.org/10.1016/j.artint.2017.07.001">Automatically improving constraint models in Savile Row</a>, 2017, Artificial Intelligence.</li>
 </ul>
-<p>These are quite simple solutions to reduce divergence while avoiding spending too much time on a sorting algorithm specialized to minimize divergence.
-The results are not impressive, and it shows that thread divergence is perhaps not the biggest bottleneck of Turbo.
-Nevertheless, given how cheap this optimization is, I decided to keep it.
-Note that on some benchmarks where the propagators are very unsorted (e.g. <code>gfd_schedule</code>), sorting increases by 50% the number of nodes explored.</p>
-<h2 id="results-v114"><a class="header" href="#results-v114">Results v1.1.4</a></h2>
-<div class="table-wrapper"><table><thead><tr><th>Metrics</th><th>Average</th><th>Δ v1.1.3</th><th>Median</th><th>Δ v1.1.3</th></tr></thead><tbody>
-<tr><td>Nodes per seconds</td><td>4439.68</td><td>+3%</td><td>1236.87</td><td>0%</td></tr>
-<tr><td>Fixpoint iterations per second</td><td>21659.62</td><td>+1%</td><td>6492.20</td><td>0%</td></tr>
-<tr><td>Fixpoint iterations per node</td><td>8.69</td><td>+1%</td><td>5.07</td><td>-5%</td></tr>
-<tr><td>#Problems with IDLE SMs at timeout</td><td>9</td><td>9</td><td></td><td></td></tr>
-<tr><td>Propagators memory</td><td>9.01MB</td><td>0%</td><td>8.08MB</td><td>0%</td></tr>
-<tr><td>Variables store memory</td><td>72.29KB</td><td>0%</td><td>84.10KB</td><td>0%</td></tr>
-<tr><td>#Problems at optimality</td><td>11</td><td>11</td><td></td><td></td></tr>
-<tr><td>#Problems satisfiable</td><td>22</td><td>22</td><td></td><td></td></tr>
-<tr><td>#Problems unknown</td><td>2</td><td>2</td><td></td><td></td></tr>
-<tr><td>#Problem with store in shared memory</td><td>10</td><td>10</td><td></td><td></td></tr>
-<tr><td>#Problem with prop in shared memory</td><td>1</td><td>1</td><td></td><td></td></tr>
+<p>Thanks to the compact structure of ternary representations, implementing preprocessing algorithms becomes simpler and more efficient. The core optimization introduced in this version is the elimination of common subexpressions.</p>
+<p>Given two ternary constraints <code>x = y &lt;op&gt; z</code> and <code>a = b &lt;op'&gt; c</code>, if the right-hand sides are syntactically identical (y = b, op = op', z = c), we can safely eliminate one of the constraints and introduce an equality <code>x = a</code> instead. This small transformation, repeated many times, has a large cumulative impact.</p>
+<p>The full preprocessing algorithm will be described in an upcoming paper.</p>
+<h3 id="benchmark-results-a5000"><a class="header" href="#benchmark-results-a5000">Benchmark Results (A5000)</a></h3>
+<div class="table-wrapper"><table><thead><tr><th>Metrics</th><th>Normalized average [0,100]</th><th>Δ v1.2.6</th><th>#best (_/16)</th><th>Average</th><th>Δ v1.2.6</th><th>Median</th><th>Δ v1.2.6</th></tr></thead><tbody>
+<tr><td>Nodes per second</td><td>100.00</td><td>+24%</td><td>16</td><td>46886.52</td><td>+18%</td><td>28322.51</td><td>+26%</td></tr>
+<tr><td>Deductions per node</td><td>61.01</td><td>-39%</td><td>16</td><td>812898.02</td><td>-27%</td><td>219665.79</td><td>-31%</td></tr>
+<tr><td>Fixpoint iterations per second</td><td>90.60</td><td>+4%</td><td>8</td><td>443548.64</td><td>-5%</td><td>326175.74</td><td>+21%</td></tr>
+<tr><td>Fixpoint iterations per node</td><td>82.93</td><td>-17%</td><td>16</td><td>14.99</td><td>-12%</td><td>10.23</td><td>-13%</td></tr>
+<tr><td>Propagators memory</td><td>65.62</td><td>-34%</td><td>16</td><td>0.64MB</td><td>-25%</td><td>0.25MB</td><td>-41%</td></tr>
+<tr><td>Variables store memory</td><td>61.68</td><td>-38%</td><td>16</td><td>288.38KB</td><td>-28%</td><td>89.04KB</td><td>-57%</td></tr>
 </tbody></table>
 </div>
-<p><img src="turbo-v1.1/turbogpu-v1.1.3-vs-turbogpu-v1.1.4.png" alt="TurboGPU-v1.1.3 vs TurboGPU-v1.1.4" /></p>
-<h2 id="results-v115"><a class="header" href="#results-v115">Results v1.1.5</a></h2>
-<div class="table-wrapper"><table><thead><tr><th>Metrics</th><th>Average</th><th>Δ v1.1.3</th><th>Median</th><th>Δ v1.1.3</th></tr></thead><tbody>
-<tr><td>Nodes per seconds</td><td>4513.37</td><td>+4%</td><td>1243.61</td><td>0%</td></tr>
-<tr><td>Fixpoint iterations per second</td><td>21787.61</td><td>+2%</td><td>6612.26</td><td>+1%</td></tr>
-<tr><td>Fixpoint iterations per node</td><td>8.50</td><td>-1%</td><td>5.38</td><td>+1%</td></tr>
-<tr><td>#Problems with IDLE SMs at timeout</td><td>9</td><td>9</td><td></td><td></td></tr>
-<tr><td>Propagators memory</td><td>9.01MB</td><td>0%</td><td>8.08MB</td><td>0%</td></tr>
-<tr><td>Variables store memory</td><td>72.29KB</td><td>0%</td><td>84.10KB</td><td>0%</td></tr>
-<tr><td>#Problems at optimality</td><td>11</td><td>11</td><td></td><td></td></tr>
-<tr><td>#Problems satisfiable</td><td>22</td><td>22</td><td></td><td></td></tr>
-<tr><td>#Problems unknown</td><td>2</td><td>2</td><td></td><td></td></tr>
-<tr><td>#Problem with store in shared memory</td><td>10</td><td>10</td><td></td><td></td></tr>
-<tr><td>#Problem with prop in shared memory</td><td>1</td><td>1</td><td></td><td></td></tr>
-</tbody></table>
-</div>
-<p><img src="turbo-v1.1/turbogpu-v1.1.3-vs-turbogpu-v1.1.5.png" alt="TurboGPU-v1.1.3 vs TurboGPU-v1.1.5" /></p>
+<p>Preprocessing in v1.2.7 improves overall solver performance by reducing redundancy at the constraint level. Notably:</p>
+<ul>
+<li>Nodes explored per second increased by 24%.</li>
+<li>Deductions per node dropped by 39%, which means the fixpoint engine converges faster.</li>
+<li>Propagator and variable memory footprints shrank by 34% and 38%, respectively.</li>
+<li>On six benchmarks, the reduced variable store now fits into shared memory (up from three in v1.2.6)</li>
+</ul>
+<p>Currently, preprocessing is only applied to the ternarized model. A potential improvement would be to apply subexpression elimination (as in Nightingale et al.) to the original model before ternarization, opening new opportunities for optimization.</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                            <a rel="prev" href="5-turbo.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                            <a rel="prev" href="12-turbo.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
 
-                            <a rel="next prefetch" href="7-turbo.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                            <a rel="next prefetch" href="14-turbo.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
 
@@ -218,11 +202,11 @@ Note that on some benchmarks where the propagators are very unsorted (e.g. <code
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                    <a rel="prev" href="5-turbo.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                    <a rel="prev" href="12-turbo.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
 
-                    <a rel="next prefetch" href="7-turbo.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                    <a rel="next prefetch" href="14-turbo.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
             </nav>
