@@ -75,6 +75,7 @@ var ast_8hpp =
     [ "string_of_sig", "ast_8hpp.html#aad8550569c2adf06a8d8ce470bd2e3e9", null ],
     [ "string_of_sig_txt", "ast_8hpp.html#a1da97af03c9861950716dc66474b12df", null ],
     [ "is_prefix", "ast_8hpp.html#a9decc16cdfba74c367b1edf7110e595f", null ],
+    [ "is_z_division", "ast_8hpp.html#a4bdeec6615517313ff5194ce052402c1", null ],
     [ "is_division", "ast_8hpp.html#ab39552615f718c4f45eece484b13baa8", null ],
     [ "is_modulo", "ast_8hpp.html#adcf455317064ad356964a272138df9b5", null ],
     [ "is_associative", "ast_8hpp.html#a4ad1145d2bc437a38928e69fc17af113", null ],

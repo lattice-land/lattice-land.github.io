@@ -364,6 +364,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a6c95a394c05fd2c3e46d72ec1fcc934b" id="r_a6c95a394c05fd2c3e46d72ec1fcc934b"><td class="memTemplParams" colspan="2">template&lt;class L , class K &gt; </td></tr>
 <tr class="memitem:a6c95a394c05fd2c3e46d72ec1fcc934b"><td class="memTemplItemLeft" align="right" valign="top">CUDA constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelala.html#a6c95a394c05fd2c3e46d72ec1fcc934b">operator==</a> (const <a class="el" href="classlala_1_1_interval.html">Interval</a>&lt; L &gt; &amp;a, const <a class="el" href="classlala_1_1_interval.html">Interval</a>&lt; K &gt; &amp;b)</td></tr>
 <tr class="separator:a6c95a394c05fd2c3e46d72ec1fcc934b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2513d516dcd6086b6e37670fcd9bc8f6" id="r_a2513d516dcd6086b6e37670fcd9bc8f6"><td class="memTemplParams" colspan="2">template&lt;class L &gt; </td></tr>
+<tr class="memitem:a2513d516dcd6086b6e37670fcd9bc8f6"><td class="memTemplItemLeft" align="right" valign="top">CUDA constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelala.html#a2513d516dcd6086b6e37670fcd9bc8f6">operator==</a> (const <a class="el" href="classlala_1_1_interval.html">Interval</a>&lt; L &gt; &amp;a, typename L::value_type k)</td></tr>
+<tr class="separator:a2513d516dcd6086b6e37670fcd9bc8f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8e0b0c30b7a7b1cf51a7239b8bb2674d" id="r_a8e0b0c30b7a7b1cf51a7239b8bb2674d"><td class="memTemplParams" colspan="2">template&lt;class L &gt; </td></tr>
 <tr class="memitem:a8e0b0c30b7a7b1cf51a7239b8bb2674d"><td class="memTemplItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacelala.html#a8e0b0c30b7a7b1cf51a7239b8bb2674d">operator&lt;&lt;</a> (std::ostream &amp;s, const <a class="el" href="classlala_1_1_interval.html">Interval</a>&lt; L &gt; &amp;itv)</td></tr>
 <tr class="separator:a8e0b0c30b7a7b1cf51a7239b8bb2674d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -467,6 +470,8 @@ Functions</h2></td></tr>
 <tr class="separator:a1da97af03c9861950716dc66474b12df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9decc16cdfba74c367b1edf7110e595f" id="r_a9decc16cdfba74c367b1edf7110e595f"><td class="memItemLeft" align="right" valign="top">CUDA NI constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelala.html#a9decc16cdfba74c367b1edf7110e595f">is_prefix</a> (<a class="el" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659">Sig</a> sig)</td></tr>
 <tr class="separator:a9decc16cdfba74c367b1edf7110e595f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4bdeec6615517313ff5194ce052402c1" id="r_a4bdeec6615517313ff5194ce052402c1"><td class="memItemLeft" align="right" valign="top">CUDA NI constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelala.html#a4bdeec6615517313ff5194ce052402c1">is_z_division</a> (<a class="el" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659">Sig</a> sig)</td></tr>
+<tr class="separator:a4bdeec6615517313ff5194ce052402c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab39552615f718c4f45eece484b13baa8" id="r_ab39552615f718c4f45eece484b13baa8"><td class="memItemLeft" align="right" valign="top">CUDA NI constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelala.html#ab39552615f718c4f45eece484b13baa8">is_division</a> (<a class="el" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659">Sig</a> sig)</td></tr>
 <tr class="separator:ab39552615f718c4f45eece484b13baa8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adcf455317064ad356964a272138df9b5" id="r_adcf455317064ad356964a272138df9b5"><td class="memItemLeft" align="right" valign="top">CUDA NI constexpr bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacelala.html#adcf455317064ad356964a272138df9b5">is_modulo</a> (<a class="el" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659">Sig</a> sig)</td></tr>
@@ -1190,7 +1195,7 @@ template&lt;class... As, class... Bs&gt; </div>
 </div>
 </div>
 <a id="a44314d29734db79278128b688836bcb5" name="a44314d29734db79278128b688836bcb5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a44314d29734db79278128b688836bcb5">&#9670;&#160;</a></span>operator==() <span class="overload">[1/8]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a44314d29734db79278128b688836bcb5">&#9670;&#160;</a></span>operator==() <span class="overload">[1/9]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1708,7 +1713,7 @@ template&lt;class L , class K &gt; </div>
 </div>
 </div>
 <a id="a6c95a394c05fd2c3e46d72ec1fcc934b" name="a6c95a394c05fd2c3e46d72ec1fcc934b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6c95a394c05fd2c3e46d72ec1fcc934b">&#9670;&#160;</a></span>operator==() <span class="overload">[2/8]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c95a394c05fd2c3e46d72ec1fcc934b">&#9670;&#160;</a></span>operator==() <span class="overload">[2/9]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1729,6 +1734,44 @@ template&lt;class L , class K &gt; </div>
           <td></td>
           <td class="paramtype">const <a class="el" href="classlala_1_1_interval.html">Interval</a>&lt; K &gt; &amp;&#160;</td>
           <td class="paramname"><em>b</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2513d516dcd6086b6e37670fcd9bc8f6" name="a2513d516dcd6086b6e37670fcd9bc8f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2513d516dcd6086b6e37670fcd9bc8f6">&#9670;&#160;</a></span>operator==() <span class="overload">[3/9]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class L &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">CUDA constexpr bool lala::operator== </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classlala_1_1_interval.html">Interval</a>&lt; L &gt; &amp;&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">typename L::value_type&#160;</td>
+          <td class="paramname"><em>k</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -2695,6 +2738,32 @@ template&lt;class F &gt; </div>
 
 </div>
 </div>
+<a id="a4bdeec6615517313ff5194ce052402c1" name="a4bdeec6615517313ff5194ce052402c1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4bdeec6615517313ff5194ce052402c1">&#9670;&#160;</a></span>is_z_division()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">CUDA NI constexpr bool lala::is_z_division </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="namespacelala.html#a4be41540c5051a480d0611a3e216b659">Sig</a>&#160;</td>
+          <td class="paramname"><em>sig</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="ab39552615f718c4f45eece484b13baa8" name="ab39552615f718c4f45eece484b13baa8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab39552615f718c4f45eece484b13baa8">&#9670;&#160;</a></span>is_division()</h2>
 
@@ -2878,7 +2947,7 @@ template&lt;class F &gt; </div>
 </div>
 </div>
 <a id="aa035eb336900b61d13e7f0dbc517d334" name="aa035eb336900b61d13e7f0dbc517d334"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa035eb336900b61d13e7f0dbc517d334">&#9670;&#160;</a></span>operator==() <span class="overload">[3/8]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aa035eb336900b61d13e7f0dbc517d334">&#9670;&#160;</a></span>operator==() <span class="overload">[4/9]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -2939,7 +3008,7 @@ template&lt;class F , class Env &gt; </div>
 </div>
 </div>
 <a id="a06f3e5ada938781bdb8c667a159242fe" name="a06f3e5ada938781bdb8c667a159242fe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a06f3e5ada938781bdb8c667a159242fe">&#9670;&#160;</a></span>operator==() <span class="overload">[4/8]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a06f3e5ada938781bdb8c667a159242fe">&#9670;&#160;</a></span>operator==() <span class="overload">[5/9]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -3324,7 +3393,7 @@ template&lt;class Pre , class M1 , class M2 &gt; </div>
 </div>
 </div>
 <a id="a9c526553b97b12fe3c7b5c3226312a55" name="a9c526553b97b12fe3c7b5c3226312a55"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9c526553b97b12fe3c7b5c3226312a55">&#9670;&#160;</a></span>operator==() <span class="overload">[5/8]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c526553b97b12fe3c7b5c3226312a55">&#9670;&#160;</a></span>operator==() <span class="overload">[6/9]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -3544,7 +3613,7 @@ template&lt;class Pre , class M1 , class M2 &gt; </div>
 </div>
 </div>
 <a id="ab37e7655b17f0850fda3656c62f962a4" name="ab37e7655b17f0850fda3656c62f962a4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab37e7655b17f0850fda3656c62f962a4">&#9670;&#160;</a></span>operator==() <span class="overload">[6/8]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ab37e7655b17f0850fda3656c62f962a4">&#9670;&#160;</a></span>operator==() <span class="overload">[7/9]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -3764,7 +3833,7 @@ template&lt;size_t N, class M1 , class M2 , class T &gt; </div>
 </div>
 </div>
 <a id="a1e53df1bee8511ee593c619415ad7918" name="a1e53df1bee8511ee593c619415ad7918"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1e53df1bee8511ee593c619415ad7918">&#9670;&#160;</a></span>operator==() <span class="overload">[7/8]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e53df1bee8511ee593c619415ad7918">&#9670;&#160;</a></span>operator==() <span class="overload">[8/9]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -3952,7 +4021,7 @@ template&lt;class L , class K , class Alloc1 , class Alloc2 &gt; </div>
 </div>
 </div>
 <a id="af527b0d9cb84ef22cddd191486265146" name="af527b0d9cb84ef22cddd191486265146"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af527b0d9cb84ef22cddd191486265146">&#9670;&#160;</a></span>operator==() <span class="overload">[8/8]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#af527b0d9cb84ef22cddd191486265146">&#9670;&#160;</a></span>operator==() <span class="overload">[9/9]</span></h2>
 
 <div class="memitem">
 <div class="memproto">

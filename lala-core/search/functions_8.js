@@ -50,5 +50,6 @@ var searchData=
   ['is_5fv_5fop_5fz_47',['is_v_op_z',['../namespacelala.html#a8264bf97bc739bc4ef3de14b159d4d6c',1,'lala']]],
   ['is_5fvar_5fequality_48',['is_var_equality',['../namespacelala.html#a704b489e2f66fc4666a9d9d5dd07f0a5',1,'lala']]],
   ['is_5fvariable_49',['is_variable',['../classlala_1_1_t_formula.html#a8db452e830e40499b1790051feb1dae6',1,'lala::TFormula']]],
-  ['iterate_50',['iterate',['../classlala_1_1_fixpoint_subset_c_p_u.html#a11c1f0a07978e7edddd4115348c472bd',1,'lala::FixpointSubsetCPU::iterate()'],['../classlala_1_1_gauss_seidel_iteration.html#afbdc53daa4fc6d7a690af3821d7a21db',1,'lala::GaussSeidelIteration::iterate()']]]
+  ['is_5fz_5fdivision_50',['is_z_division',['../namespacelala.html#a4bdeec6615517313ff5194ce052402c1',1,'lala']]],
+  ['iterate_51',['iterate',['../classlala_1_1_fixpoint_subset_c_p_u.html#a11c1f0a07978e7edddd4115348c472bd',1,'lala::FixpointSubsetCPU::iterate()'],['../classlala_1_1_gauss_seidel_iteration.html#afbdc53daa4fc6d7a690af3821d7a21db',1,'lala::GaussSeidelIteration::iterate()']]]
 ];
