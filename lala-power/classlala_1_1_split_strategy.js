@@ -8,7 +8,7 @@ var classlala_1_1_split_strategy =
     [ "branch_type", "classlala_1_1_split_strategy.html#a9ec6b504046c141cc2bc82f7987220f9", null ],
     [ "this_type", "classlala_1_1_split_strategy.html#aaacf858d20b49b97e335766d640b0f86", null ],
     [ "tell_type", "classlala_1_1_split_strategy.html#a3bbb33cd899539fb1a1c4fc0ae98d482", null ],
-    [ "SplitStrategy", "classlala_1_1_split_strategy.html#ab105c3f2da3a696df4abea3e1e385ecf", null ],
+    [ "SplitStrategy", "classlala_1_1_split_strategy.html#abe0afa1134da497cd5898bcd6bcb8682", null ],
     [ "SplitStrategy", "classlala_1_1_split_strategy.html#a4261c77fb711202f868d26cefe13afec", null ],
     [ "aty", "classlala_1_1_split_strategy.html#aa4a30b25dc0ca36ec75fb2279f9ee190", null ],
     [ "get_allocator", "classlala_1_1_split_strategy.html#a298e70854daa1d89ab1b97538d8dcd01", null ],
@@ -20,6 +20,8 @@ var classlala_1_1_split_strategy =
     [ "deduce", "classlala_1_1_split_strategy.html#a52e569d01883f0d52a767961361c5267", null ],
     [ "split", "classlala_1_1_split_strategy.html#ad0b0f2530754be67a738417aa59ce8f7", null ],
     [ "num_strategies", "classlala_1_1_split_strategy.html#adda9aae4a42e22db8b98958ad17c03d5", null ],
+    [ "push_eps_strategy", "classlala_1_1_split_strategy.html#a476f8ede07c5c030159fdc13b17d24c0", null ],
+    [ "skip_eps_strategy", "classlala_1_1_split_strategy.html#a7a697807e8204ec744d8cccf633ee678", null ],
     [ "strategies_", "classlala_1_1_split_strategy.html#aa296e26fe0f169510912a5df2b601bb9", null ],
     [ "SplitStrategy", "classlala_1_1_split_strategy.html#a4e6bcb207ff4f3f520b5092c1edc55d7", null ]
 ];

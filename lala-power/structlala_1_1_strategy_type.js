@@ -7,6 +7,7 @@ var structlala_1_1_strategy_type =
     [ "StrategyType", "structlala_1_1_strategy_type.html#ac033bb362b172ca97bb7cf904d46813f", null ],
     [ "StrategyType", "structlala_1_1_strategy_type.html#a6426d411b93952f39481f0939e45bf93", null ],
     [ "operator=", "structlala_1_1_strategy_type.html#a78e78f9f8162b4d3ed5b782e3edd7966", null ],
+    [ "operator=", "structlala_1_1_strategy_type.html#ac13da4d1376cfbcd1cd51f5f7b37dc70", null ],
     [ "get_allocator", "structlala_1_1_strategy_type.html#aeba081a0151897094033cb766fc37dfb", null ],
     [ "StrategyType", "structlala_1_1_strategy_type.html#a131701b4917e58fb6becd3a02efa543a", null ],
     [ "var_order", "structlala_1_1_strategy_type.html#abd8afe72b1200100ad083761ce61c51b", null ],
