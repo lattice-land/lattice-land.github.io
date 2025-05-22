@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['xor_0',['Xor',['../classlala_1_1pc_1_1_formula.html#a18568d8d352d7bc6b5f3546f0ba1e740',1,'lala::pc::Formula']]]
+  ['value_5ft_0',['value_t',['../classlala_1_1_p_i_r.html#af53aeb11419af1f700688a9b5fc022dd',1,'lala::PIR']]]
 ];

@@ -33,5 +33,6 @@ var searchData=
   ['make_5fxor_30',['make_xor',['../classlala_1_1pc_1_1_formula.html#a580b609585eb94006cf8693ac2eba7d4',1,'lala::pc::Formula']]],
   ['max_31',['Max',['../classlala_1_1pc_1_1_term.html#a5b96aa2914afc661f6502e1d74570ecf',1,'lala::pc::Term']]],
   ['min_32',['Min',['../classlala_1_1pc_1_1_term.html#a47ac9d1f850a2990bb5b4e5ca5bb6da3',1,'lala::pc::Term']]],
-  ['mul_33',['Mul',['../classlala_1_1pc_1_1_term.html#a8efa6ec1da2a52adcce52c0616c22a75',1,'lala::pc::Term']]]
+  ['minf_33',['MINF',['../pir_8hpp.html#a1fca73ec0aeff99662a055435f007d56',1,'pir.hpp']]],
+  ['mul_34',['Mul',['../classlala_1_1pc_1_1_term.html#a8efa6ec1da2a52adcce52c0616c22a75',1,'lala::pc::Term']]]
 ];

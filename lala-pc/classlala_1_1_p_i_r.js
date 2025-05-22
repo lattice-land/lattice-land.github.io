@@ -12,6 +12,8 @@ var classlala_1_1_p_i_r =
     [ "bytecodes_type", "classlala_1_1_p_i_r.html#ab0dc7ce2561e02ff793ddc45bdeb1e39", null ],
     [ "tell_type", "classlala_1_1_p_i_r.html#acda05e961766d074226ce5ed1e7899d4", null ],
     [ "ask_type", "classlala_1_1_p_i_r.html#a1751579515f83bc92110ac9448523f76", null ],
+    [ "Itv", "classlala_1_1_p_i_r.html#a26b13a63c8de4ee5e2babdbb5f69d3d5", null ],
+    [ "value_t", "classlala_1_1_p_i_r.html#af53aeb11419af1f700688a9b5fc022dd", null ],
     [ "PIR", "classlala_1_1_p_i_r.html#a4c48f10bf31f15b1879af97c5df8a49e", null ],
     [ "PIR", "classlala_1_1_p_i_r.html#ae0123e4270cb857df20dc629d3047aad", null ],
     [ "PIR", "classlala_1_1_p_i_r.html#ae314aafdf7958a8f888798b358b4763d", null ],
