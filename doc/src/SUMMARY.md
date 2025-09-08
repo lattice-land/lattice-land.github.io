@@ -20,9 +20,10 @@
 
 # Parallel Abstract Constraint Reasoning -->
 
-# Seminars
+# Events
 
 * [Abstract Interpretation Workshop (2024)](abstract-week.md)
+* [Parallel Programming Competition (2025)](parcomp2025/index.html)
 
 # Turbo Technical Journal
 

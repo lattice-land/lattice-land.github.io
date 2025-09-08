@@ -38,11 +38,23 @@
             const path_to_root = "";
             const default_light_theme = "light";
             const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex.js";
         </script>
         <!-- Start loading toc.js asap -->
         <script src="toc.js"></script>
     </head>
     <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
     <div id="body-container">
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script>
@@ -83,10 +95,13 @@
                 sidebar = sidebar || 'visible';
             } else {
                 sidebar = 'hidden';
+                sidebar_toggle.checked = false;
             }
-            sidebar_toggle.checked = sidebar === 'visible';
-            html.classList.remove('sidebar-visible');
-            html.classList.add("sidebar-" + sidebar);
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
         </script>
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
@@ -120,7 +135,7 @@
                             <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
                             <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
                         </ul>
-                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
                             <i class="fa fa-search"></i>
                         </button>
                     </div>
@@ -137,7 +152,12 @@
 
                 <div id="search-wrapper" class="hidden">
                     <form id="searchbar-outer" class="searchbar-outer">
-                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                        <div class="search-wrapper">
+                            <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <i class="fa fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
                     </form>
                     <div id="searchresults-outer" class="searchresults-outer hidden">
                         <div id="searchresults-header" class="searchresults-header"></div>
@@ -557,7 +577,780 @@ We discuss how this paradigm was applied to write Turbo, a constraint solver bas
 <h2 id="sponsors"><a class="header" href="#sponsors">Sponsors</a></h2>
 <p>This project occurs in the context of the project COMOC (ref. C21/IS/16101289), 2021-2025.
 We thank the Luxembourg National Research Fund (FNR) for this opportunity.</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="turbo"><a class="header" href="#turbo">Turbo</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Parallel Programming Competition@uni.lu</title>
+  <meta name="description" content="1st parallel programming competition @uni.lu" />
+  <!-- NES.css + Pixel font -->
+  <link href="https://unpkg.com/nes.css@2.3.0/css/nes.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
+  <link rel="apple-touch-icon" href="https://nostalgic-css.github.io/NES.css/favicon.png" />
+  <link rel="shortcut icon" type="image/png" href="https://nostalgic-css.github.io/NES.css/favicon.png" />
+  <link rel="shortcut icon" sizes="196x196" href="https://nostalgic-css.github.io/NES.css/favicon.png" />
+  <style>
+    :root {
+      --bg1: #0f1220;
+      --bg2: #1a1f35;
+      --panel: #151a2b;
+      --accent: #00e5ff;
+    }
+<pre><code>html {
+  min-height: 100%;
+}
+
+body {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background: radial-gradient(1200px 600px at 10% -10%, rgba(0, 229, 255, 0.15), transparent),
+    radial-gradient(1000px 500px at 90% 10%, rgba(255, 255, 255, 0.05), transparent),
+    linear-gradient(180deg, var(--bg2), var(--bg1));
+  color: #e6e6e6;
+  font-family: 'Press Start 2P', cursive;
+  letter-spacing: 0.5px;
+}
+
+.wrap {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+header {
+  display: grid;
+  grid-template-columns: 64px 1fr auto;
+  gap: 16px;
+  align-items: center;
+  /* margin-bottom: 20px; */
+}
+
+.brand-title {
+  line-height: 1.3;
+  padding-left: 10px;
+}
+
+.brand-sub {
+  font-size: 10px;
+  opacity: 0.8;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 3fr 7fr;
+  gap: 10px;
+}
+
+.about {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+@media (max-width: 900px) {
+
+  header {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr; /* 小屏幕时上下排列 */
+  }
+
+  .about {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+}
+
+.nes-container.is-dark {
+  background: var(--panel);
+  margin: 20px;
+}
+
+.hero {
+  margin-bottom: 16px;
+}
+
+.repo-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.status-line {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.countdown-time {
+  font-size: 20px;
+}
+
+.pill {
+  display: inline-block;
+  padding: 6px 10px;
+  border: 2px solid #fff;
+  border-radius: 999px;
+  font-size: 10px;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.nes-table td,
+.nes-table th {
+  font-size: 12px;
+}
+
+.rank-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+footer {
+  /* margin-top: 28px; */
+  opacity: 0.85;
+  font-size: 10px;
+  text-align: center;
+}
+
+.blink {
+  animation: blink 1.2s steps(1, end) infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ---------- Cute overrides + table fixes ---------- */
+:root {
+  /* softer, cute-ish palette */
+  --bg1: #2a2a6a;
+  /* deep indigo */
+  --bg2: #4a3f86;
+  /* violet */
+  --panel: #262357;
+  /* dark violet-blue */
+  --accent: #ffd1dc;
+  /* pastel pink */
+}
+
+body {
+  background:
+    radial-gradient(1000px 500px at 85% 5%, rgba(171, 235, 255, .22), transparent),
+    radial-gradient(1200px 600px at 15% -10%, rgba(255, 209, 220, .25), transparent),
+    linear-gradient(180deg, var(--bg2), var(--bg1));
+}
+
+/* tiny pixel-dots layer for retro charm */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image: radial-gradient(#fff 1px, transparent 1.2px);
+  background-size: 4px 4px;
+  opacity: .05;
+  mix-blend-mode: screen;
+}
+
+/* table layout fixes */
+.nes-table {
+  table-layout: auto;
+  width: 100%;
+}
+
+.nes-table th,
+.nes-table td {
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+.nes-table td.team {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.nes-table td,
+.nes-table th {
+  font-size: 12px;
+}
+
+.rank-badge i {
+  margin-right: 2px;
+}
+
+.rank-badge .hash {
+  margin-left: 4px;
+}
+
+.typer-caret::after {
+  content: "▮";
+  margin-left: 4px;
+  animation: blink 1.2s steps(1, end) infinite;
+}
+
+.nes-balloon[data-typer] {
+  position: relative;
+  display: inline-block;
+}
+
+.nes-balloon[data-typer] .typer {
+  position: absolute;
+  inset: 0;
+  white-space: pre-wrap;
+}
+
+.nes-balloon[data-typer] .placeholder {
+  visibility: hidden;
+  white-space: pre-wrap;
+}
+
+.nes-table td.level {
+  max-width: 200px;
+  white-space: normal;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* 固定表格布局：避免因内容变化引起列宽跳动 */
+.leaderboard-table {
+  table-layout: fixed;
+}
+
+.leaderboard-table th,
+.leaderboard-table td {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  /* 如需多行换行，可改为 normal，并删掉 ellipsis */
+}
+
+/* Team 列如果想换行：取消 nowrap，并允许断词 */
+/* .leaderboard-table td.team { white-space: normal; overflow-wrap: break-word; } */
+
+/* 骨架占位（shimmer） */
+.skel {
+  position: relative;
+  height: 1em;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, .08);
+  overflow: hidden;
+}
+
+.skel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(90deg,
+      transparent, rgba(255, 255, 255, .18), transparent);
+  animation: shimmer 1.2s infinite;
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* 让占位条在不同列宽里看起来舒适 */
+.skel.w-60 {
+  width: 60%;
+}
+
+.skel.w-40 {
+  width: 40%;
+}
+
+.skel.w-30 {
+  width: 30%;
+}
+
+.skel.w-20 {
+  width: 20%;
+}
+
+.skel.w-10 {
+  width: 10%;
+}
+
+/* 错误行样式 */
+.tr-error td {
+  color: #ff8a8a;
+}
+</code></pre>
+  </style>
+</head>
+<body>
+  <!--
+    HOW TO CONFIGURE
+    1) Set the competition start instant in CONFIG.startTime (ISO-8601).
+       Example: "2025-09-05T10:00:00Z" (UTC) or "2025-09-05T12:00:00+02:00" (local with offset).
+       You can also override via URL like: ?start=2025-09-05T10:00:00Z&repo=https://github.com/org/repo
+    2) The competition duration is fixed to 5 hours by default (CONFIG.durationHours = 5).
+    3) Update the leaderboard data below in the LEADERBOARD array.
+  -->
+  <div class="wrap">
+    <header>
+      <i class="nes-pokeball" aria-hidden="true"></i>
+      <div>
+        <h1 id="1st-parallel-programming-competition-unilu" class="brand-title"><a class="header" href="#1st-parallel-programming-competition-unilu">1st Parallel Programming Competition @uni.lu</a></h1>
+      </div>
+      <div class="repo-actions">
+        <img src="https://i.imgur.com/6Y7QLfN.png" width="100px" />
+        <img
+          src="https://www.luxprovide.lu/wp-content/themes/luxprovide2023/public/images/logo/logo_notagline_color_blue.4b07cb.svg"
+          width="200px" />
+        <a id="repoLink" class="nes-btn is-primary" target="_blank" rel="noopener">Get Started</a>
+        <button id="shareBtn" class="nes-btn">Share</button>
+      </div>
+    </header>
+<pre><code>&lt;section class="grid"&gt;
+  &lt;!-- Left column --&gt;
+  &lt;div class="nes-container is-dark with-title hero"&gt;
+    &lt;p class="title"&gt;Status&lt;/p&gt;
+
+    &lt;div class="status-line"&gt;
+      &lt;span id="statusBadge" class="nes-badge"&gt;&lt;span class="is-warning"&gt;STARTS IN&lt;/span&gt;&lt;/span&gt;
+      &lt;span id="statusLabel"&gt;Starts in&lt;/span&gt;
+      &lt;span id="statusCountdown" class="countdown-time" aria-live="polite"&gt;--:--:--&lt;/span&gt;
+    &lt;/div&gt;
+
+    &lt;progress id="statusProgress" class="nes-progress is-primary" value="0" max="100" hidden&gt;&lt;/progress&gt;
+  &lt;/div&gt;
+  &lt;!-- Right column --&gt;
+  &lt;div&gt;
+    &lt;div class="nes-container is-dark with-title"&gt;
+      &lt;p class="title"&gt;Leaderboard&lt;/p&gt;
+      &lt;table class="nes-table is-bordered is-dark leaderboard-table"&gt;
+        &lt;colgroup&gt;
+          &lt;col style="width:20px"&gt; &lt;!-- Rank --&gt;
+          &lt;col style="width:70px"&gt; &lt;!-- Team --&gt;
+          &lt;col style="width:20px"&gt; &lt;!-- Level --&gt;
+          &lt;col style="width:30px"&gt; &lt;!-- Score --&gt;
+          &lt;col style="width:40px"&gt; &lt;!-- Last Submission --&gt;
+        &lt;/colgroup&gt;
+        &lt;thead&gt;
+          &lt;tr&gt;
+            &lt;th&gt;Rank&lt;/th&gt;
+            &lt;th&gt;Team&lt;/th&gt;
+            &lt;th&gt;Level&lt;/th&gt;
+            &lt;th&gt;Runtime&lt;/th&gt;
+            &lt;th&gt;Last Submission&lt;/th&gt;
+          &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody id="leaderboardBody"&gt;&lt;/tbody&gt;
+      &lt;/table&gt;
+      &lt;br /&gt;
+      &lt;p style="font-size: 12px;"&gt;!Participants are ranked by level first; if levels are equal, the shorter runtime
+        prevails.&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+&lt;div class="nes-container is-dark with-title"&gt;
+  &lt;p class="title"&gt;About&lt;/p&gt;
+  &lt;section class="message-list about"&gt;
+    &lt;section class="message -left"&gt;
+      &lt;!-- Balloon --&gt;
+      &lt;div class="nes-balloon from-left is-dark" data-typer data-typer-speed="30"&gt;
+        &lt;p&gt;The clock is ticking—parallelize as a team or fall behind. Challenge the limits of parallel programming—and take home the prize.&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;i class="nes-kirby"&gt;&lt;/i&gt;
+    &lt;/section&gt;
+
+    &lt;section class="message -right" style="text-align: right;"&gt;
+      &lt;!-- Balloon --&gt;
+      &lt;div class="nes-balloon from-right is-dark" data-typer data-typer-speed="30" data-typer-delay="5000"&gt;
+        Contest window: 9AM - 8PM
+        Join us at MNO, room 1.010
+      &lt;/div&gt;
+      &lt;i class="nes-charmander"&gt;&lt;/i&gt;
+    &lt;/section&gt;
+  &lt;/section&gt;
+&lt;/div&gt;
+&lt;footer style="display: flex; flex-direction: column; align-items: center; gap: 12px;"&gt;
+  &lt;span class="pill"&gt;Organized by Master in High Performance Computing&lt;a
+      href="https://www.uni.lu/fstm-en/study-programs/master-in-high-performance-computing/"&gt; @MHPC2025&lt;/a&gt;, made
+    with &lt;a href="https://github.com/nostalgic-css/NES.css"&gt;NES.css&lt;/a&gt; by @Multivac&lt;/span&gt;
+  &lt;!-- &lt;span class="pill"&gt;Made with NES.css&lt;/span&gt; --&gt;
+&lt;/footer&gt;
+</code></pre>
+  </div>
+  <script>
+    const OFFSET = 168;
+    const BASE_ = '172.17.6';
+    const TEAMS = [
+      { name: 'Lattice PTSD', id: `${BASE_}.${OFFSET + 1}`, reservation: 1 },
+      { name: 'Race Conditioners', id: `${BASE_}.${OFFSET + 2}`, reservation: 2 },
+      { name: 'Ancient Forest', id: `${BASE_}.${OFFSET + 3}`, reservation: 3 },
+      { name: 'Vector Ninjas', id: `${BASE_}.${OFFSET + 4}`, reservation: 4 },
+      { name: 'Ctrl+C, Ctrl+Vibes', id: `${BASE_}.${OFFSET + 5}`, reservation: 5 },
+      { name: 'Cache Queens', id: `${BASE_}.${OFFSET + 6}`, reservation: 6 },
+      { name: 'SIMD Legends', id: `${BASE_}.${OFFSET + 7}`, reservation: 7 }
+    ];
+
+    // ======== CONFIG ========
+    const POLL_MS = 3000;
+    const CONFIG = {
+      title: 'Parallel Programming Competition',
+      repoUrl: 'https://github.com/multivvac/parallel-programming-competition-uni.lu',
+      startTime: '2025-09-11T06:00:00Z',
+      durationHours: 5
+    };
+
+    // Allow runtime overrides via URL parameters
+    const params = new URLSearchParams(location.search);
+    if (params.get('repo')) CONFIG.repoUrl = params.get('repo');
+    if (params.get('start')) CONFIG.startTime = params.get('start');
+
+    let leaderboardData = TEAMS.map(team => {
+      const entry = null;
+      return {
+        team: team.name,
+        level: entry ? entry.level : 0,
+        score: entry ? entry.perf : 0,
+        last: entry ? entry.last : '-',
+        reservation: `ppc-${team.reservation}`
+      };
+    });
+    // ====== 模拟 API（保留/替换为真实 fetch 均可） ======
+    function fetchLeaderboard() {
+      return new Promise((resolve, reject) => {
+        fetch(`https://ppc25-leaderboard-lucky-hall-d5ed.huangweiurob.workers.dev/?_=${Date.now()}`, { cache: 'no-store' })
+          .then(response => {
+            if (!response.ok) {
+              throw new Error('Network response was not ok');
+            }
+            return response.text();
+          })
+          .then(csvText => {
+            const lines = csvText.trim().split('\n');
+            const data = lines.slice(1).map(line => {
+              const [id, level, perf, last] = line.split(',');
+              return {
+                id: id,
+                level: parseInt(level, 10),
+                perf: parseInt(perf, 10),
+                last: parseInt(last, 10)
+              };
+            });
+            const nowIso = new Date().toISOString();
+            const teamData = TEAMS.map(team => {
+              const entry = data.find(d => d.id === team.id);
+              return {
+                team: team.name,
+                level: entry ? entry.level : 0,
+                score: entry ? entry.perf : 0,
+                last: entry ? entry.last : '-',
+                reservation: `ppc-${team.reservation}`
+              };
+            });
+            resolve(teamData);
+          })
+          .catch(() => reject(new Error('Network error')));
+      });
+    }
+
+    // ====== 占位/错误渲染 ======
+    function renderLoadingRows() {
+      tbody.innerHTML = '';
+      for (let i = 0; i < 7; i++) {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td><span class="skel w-20"></span></td>
+          <td><span class="skel w-60"></span></td>
+          <td><span class="skel w-30"></span></td>
+          <td><span class="skel w-20"></span></td>
+          <td><span class="skel w-40"></span></td>
+        `;
+        tbody.appendChild(tr);
+      }
+    }
+
+    function renderErrorRow(msg = `Failed to load. Retrying in ${POLL_MS / 1000}s…`) {
+      tbody.innerHTML = '';
+      const tr = document.createElement('tr');
+      tr.className = 'tr-error';
+      const td = document.createElement('td');
+      td.colSpan = 5;
+      td.textContent = msg;
+      tr.appendChild(td);
+      tbody.appendChild(tr);
+    }
+
+    // ====== 排名渲染（并列同名次：1,2,2,4…） ======
+    function renderLeaderboard(data) {
+      const rows = [...data].sort((a, b) => {
+        if (b.level !== a.level) return b.level - a.level;
+        // score means latency: lower is better
+        return a.score - b.score;
+      });
+
+      tbody.innerHTML = '';
+
+      let displayRank = 0; // 当前显示名次
+      let seenCount = 0; // 迭代到第几条
+      let prevScore = null;
+      let prevLevel = null;
+
+      for (const row of rows) {
+        seenCount++;
+        if (row.level !== prevLevel || row.score !== prevScore) {
+          displayRank = seenCount; // 新分数段：名次=当前序号
+          prevLevel = row.level;
+          prevScore = row.score;
+        }
+
+        const tr = document.createElement('tr');
+        const rankTd = document.createElement('td');
+        const teamTd = document.createElement('td');
+        const levelTd = document.createElement('td');
+        const scoreTd = document.createElement('td');
+        const lastTd = document.createElement('td');
+
+        const rankWrap = document.createElement('span');
+        let s = '';
+        let icons = '';
+        if (displayRank === 1) {
+          icons = '<i class="nes-icon trophy" aria-hidden="true"></i>'.repeat(1);
+        }
+        // else if (displayRank === 2) icons = '<i class="nes-icon trophy" aria-hidden="true"></i>'.repeat(2);
+        // else if (displayRank === 3) icons = '<i class="nes-icon trophy" aria-hidden="true"></i>';
+        if (icons) rankWrap.innerHTML = icons + '<span class="hash">#' + displayRank + '</span>';
+        else rankWrap.textContent = `#${displayRank}`;
+        rankTd.appendChild(rankWrap);
+
+        teamTd.className = 'team';
+        teamTd.textContent = row.team;
+
+        levelTd.className = 'level';
+        levelTd.innerHTML = (row.level && row.level > 0) ? '<i class="nes-icon is-small star"></i>'.repeat(row.level || 0) : '-';
+
+        scoreTd.textContent = row.score.toLocaleString();
+
+        const lastDate = new Date(row.last);
+        lastTd.textContent = isNaN(lastDate) ? '-' : lastDate.toLocaleTimeString();
+
+        tr.append(rankTd, teamTd, levelTd, scoreTd, lastTd);
+        tbody.appendChild(tr);
+      }
+    }
+    // ======== DOM REFS ========
+    const repoLink = document.getElementById('repoLink');
+    const shareBtn = document.getElementById('shareBtn');
+    const prelaunchEl = document.getElementById('prelaunch');
+    const liveEl = document.getElementById('live');
+    const endedEl = document.getElementById('ended');
+    const countdownEl = document.getElementById('countdown');
+    const progressEl = document.getElementById('progress');
+    const tbody = document.getElementById('leaderboardBody');
+
+    // ======== INIT ========
+    document.title = CONFIG.title;
+    repoLink.href = CONFIG.repoUrl;
+
+    const DURATION_MS = (CONFIG.durationHours || 5) * 60 * 60 * 1000;
+
+    // Parse start time safely
+    let startMs = Date.parse(CONFIG.startTime);
+    if (Number.isNaN(startMs)) {
+      // Fallback: start in 1 hour if invalid
+      startMs = Date.now() + 60 * 60 * 1000;
+    }
+    const endMs = startMs + DURATION_MS;
+
+    // Localized timestamps for display
+    const startDate = new Date(startMs);
+    const startLocal = startDate.toLocaleString(undefined, {
+      year: 'numeric', month: 'short', day: '2-digit', hour: '2-digit', minute: '2-digit'
+    });
+
+    renderLeaderboard(leaderboardData);
+    // 首次拉取 + 渲染
+    async function refreshLeaderboard() {
+      try {
+        const data = await fetchLeaderboard();
+        leaderboardData = data;
+        renderLeaderboard(leaderboardData);
+      } catch (e) {
+        console.error('fetch leaderboard failed:', e);
+      }
+    }
+    // Share helper (copies a link with current start + repo params)
+    shareBtn.addEventListener('click', async () => {
+      const url = new URL(location.href);
+      url.searchParams.set('start', new Date(startMs).toISOString());
+      url.searchParams.set('repo', CONFIG.repoUrl);
+      try {
+        await navigator.clipboard.writeText(url.toString());
+        shareBtn.classList.add('is-primary');
+        shareBtn.textContent = 'Copied!';
+        setTimeout(() => { shareBtn.classList.remove('is-primary'); shareBtn.textContent = 'Share'; }, 1200);
+      } catch {
+        window.prompt('Copy this URL:', url.toString());
+      }
+    });
+    refreshLeaderboard();
+
+    // assumes CONFIG.startTime and CONFIG.durationHours already exist
+
+    const badgeInner = document.querySelector('#statusBadge > span');
+    const statusLabel = document.getElementById('statusLabel');
+    const statusCountdown = document.getElementById('statusCountdown');
+    const statusProgress = document.getElementById('statusProgress');
+
+    const fmt = (ms) => {
+      const t = Math.max(0, Math.floor(ms / 1000));
+      const h = String(Math.floor(t / 3600)).padStart(2, '0');
+      const m = String(Math.floor((t % 3600) / 60)).padStart(2, '0');
+      const s = String(t % 60).padStart(2, '0');
+      return `${h}:${m}:${s}`;
+    };
+
+    function fmtLong(ms) {
+      if (ms < 0) ms = 0;
+      const totalSec = Math.floor(ms / 1000);
+      const days = Math.floor(totalSec / 86400);
+      const hours = Math.floor((totalSec % 86400) / 3600);
+      const minutes = Math.floor((totalSec % 3600) / 60);
+      const seconds = totalSec % 60;
+
+      const parts = [];
+      const add = (v, label) => parts.push(`${v} ${label}${v === 1 ? "" : "s"}`);
+
+      if (days) add(days, "day");
+      if (days || hours) add(hours, "hour");
+      if (days || hours || minutes) add(minutes, "minute");
+      add(seconds, "second");
+
+      return parts.join(" ");
+    }
+
+    function typeBalloon(el, { speed = 25, startDelay = 200, cursor = true } = {}) {
+      const ps = Array.from(el.querySelectorAll('p'));
+      const raw = (ps.length ? ps.map(p => p.textContent.trim()).join('\n\n')
+        : el.textContent.trim());
+
+      el.innerHTML = '';
+      el.style.position = 'relative';
+
+      const placeholder = document.createElement('div');
+      placeholder.className = 'placeholder';
+      placeholder.textContent = raw;
+
+      const typer = document.createElement('div');
+      typer.className = 'typer' + (cursor ? ' typer-caret' : '');
+
+      const pad = getComputedStyle(el).padding;
+      if (pad) typer.style.padding = pad;
+
+      el.append(placeholder, typer);
+
+      const esc = s => s.replace(/[&<>]/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[m]));
+
+      let i = 0;
+      function step() {
+        if (i >= raw.length) {
+          typer.classList.remove('typer-caret');
+          return;
+        }
+        const ch = raw[i++];
+        typer.innerHTML += (ch === '\n') ? '<br>' : esc(ch);
+        setTimeout(step, speed);
+      }
+      setTimeout(step, startDelay);
+    }
+
+    function updateStatus() {
+      const now = Date.now();
+
+      if (now < startMs) {
+        badgeInner.className = 'is-warning';
+        badgeInner.textContent = 'STARTS IN';
+        statusLabel.textContent = 'Starts in';
+        statusCountdown.textContent = fmtLong(startMs - now);
+        statusProgress.hidden = true;
+      } else if (now < endMs) {
+        // time left in competition
+        badgeInner.className = 'is-success';
+        badgeInner.textContent = 'TIME LEFT';
+        statusLabel.textContent = 'Time left';
+        const remaining = endMs - now;
+        statusCountdown.textContent = fmt(remaining);
+        statusProgress.hidden = false;
+        statusProgress.value = ((now - startMs) / (endMs - startMs)) * 100;
+      } else {
+        // finished
+        badgeInner.className = 'is-error';
+        badgeInner.textContent = 'FINISHED';
+        statusLabel.textContent = 'Finished';
+        statusCountdown.textContent = '00:00:00';
+        statusProgress.hidden = false;
+        statusProgress.value = 100;
+      }
+    }
+
+
+    document.querySelectorAll('.nes-balloon[data-typer]').forEach((el, idx) => {
+      const speed = Number(el.getAttribute('data-typer-speed')) || 25;
+      const delay = Number(el.getAttribute('data-typer-delay')) || (200 + idx * 200);
+      typeBalloon(el, { speed, startDelay: delay, cursor: true });
+    });
+    updateStatus();
+    setInterval(updateStatus, 1000);
+    // ====== 刷新调度（首屏展示骨架、每30s轮询） ======
+    const MIN_SKELETON_MS = 400; // 防止瞬间闪烁
+
+    async function refreshLeaderboard() {
+      // 展示骨架
+      const t0 = performance.now();
+      // renderLoadingRows();
+
+      try {
+        const data = await fetchLeaderboard();
+        const elapsed = performance.now() - t0;
+        // 保持最少骨架时间，避免闪烁
+        if (elapsed < MIN_SKELETON_MS) {
+          await new Promise(r => setTimeout(r, MIN_SKELETON_MS - elapsed));
+        }
+        renderLeaderboard(data);
+      } catch (e) {
+        console.error(e);
+        renderErrorRow();
+      }
+    }
+
+    // 首次拉取
+    refreshLeaderboard();
+    // 轮询
+    setInterval(refreshLeaderboard, POLL_MS);
+  </script>
+</body>
+</html><div style="break-before: page; page-break-before: always;"></div><h1 id="turbo"><a class="header" href="#turbo">Turbo</a></h1>
 <p>(For a concise introduction to GPU programming, you can check out my <a href="https://ulhpc-tutorials.readthedocs.io/en/latest/gpu/cuda2023/">tutorial</a> and go through the slides; it is especially useful to know the CUDA vocabulary).</p>
 <p><em>30 August 2023.</em> Turbo is a constraint solver running entirely on the GPU with an architecture based on abstract domains.
 Intuitively, due to their complex architecture and dynamic data structures, constraint solvers seem to be a poor match for GPUs.
@@ -1669,6 +2462,7 @@ We thank the Luxembourg National Research Fund (FNR) for this opportunity.</p>
             window.setTimeout(window.print, 100);
         });
         </script>
+
 
     </div>
     </body>

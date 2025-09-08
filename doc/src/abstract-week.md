@@ -1,3 +1,8 @@
+
+
+
+
+
 # Abstract Interpretation Workshop
 
 Hello! During a full week in June, we gather together to study _abstract interpretation_ from its theoretical foundation (lattice theory) to its latest applications (constraint programming, neural network verification).
