@@ -446,7 +446,7 @@
       startTime: '2025-09-11T11:00:00Z',
       durationHours: 5
     };
-    const POLL_MS = (Date.now() < new Date(CONFIG.startTime)) ? 60000 : 3000;
+    const POLL_MS = (Date.now() < new Date(CONFIG.startTime)) ? 60000 : 60000;
 
     // Allow runtime overrides via URL parameters
     const params = new URLSearchParams(location.search);
