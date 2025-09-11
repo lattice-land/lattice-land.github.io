@@ -440,13 +440,13 @@
     ];
 
     // ======== CONFIG ========
-    const POLL_MS = 3000;
     const CONFIG = {
       title: 'Parallel Programming Competition',
       repoUrl: 'https://github.com/multivvac/parallel-programming-competition-uni.lu',
       startTime: '2025-09-11T11:00:00Z',
       durationHours: 5
     };
+    const POLL_MS = (Date.now() < new Date(CONFIG.startTime)) ? 60000 : 3000;
 
     // Allow runtime overrides via URL parameters
     const params = new URLSearchParams(location.search);
