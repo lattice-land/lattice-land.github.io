@@ -1,0 +1,280 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Roadmap 2026 - Lattice Land Book</title>
+                
+
+        <!-- Custom HTML head -->
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+                <link rel="icon" href="favicon.svg">
+                        <link rel="shortcut icon" href="favicon.png">
+                <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+                <link rel="stylesheet" href="css/print.css" media="print">
+        
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+                <link rel="stylesheet" href="fonts/fonts.css">
+        
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+                <link rel="stylesheet" href="custom.css">
+        
+            </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="index.html"><strong aria-hidden="true">1.</strong> Lattice Land</a></li><li class="chapter-item expanded affix "><li class="part-title">CUDA Battery Library</li><li class="chapter-item expanded "><a href="1-cuda-battery.html"><strong aria-hidden="true">2.</strong> Introduction</a></li><li class="chapter-item expanded "><a href="2-cuda-battery.html"><strong aria-hidden="true">3.</strong> Data from CPU to GPU</a></li><li class="chapter-item expanded "><a href="3-cuda-battery.html"><strong aria-hidden="true">4.</strong> CMake Project</a></li><li class="chapter-item expanded "><a href="4-cuda-battery.html"><strong aria-hidden="true">5.</strong> In-Kernel Allocation</a></li><li class="chapter-item expanded "><a href="5-cuda-battery.html"><strong aria-hidden="true">6.</strong> Shared Memory Allocator</a></li><li class="chapter-item expanded "><a href="6-cuda-battery.html"><strong aria-hidden="true">7.</strong> Caution</a></li><li class="chapter-item expanded affix "><li class="part-title">Events</li><li class="chapter-item expanded "><a href="abstract-week.html"><strong aria-hidden="true">8.</strong> Abstract Interpretation Workshop (2024)</a></li><li class="chapter-item expanded "><a href="parcomp2025/index.html"><strong aria-hidden="true">9.</strong> Parallel Programming Competition (2025)</a></li><li class="chapter-item expanded affix "><li class="part-title">Turbo Technical Journal</li><li class="chapter-item expanded "><a href="1-turbo.html"><strong aria-hidden="true">10.</strong> Introducing Turbo</a></li><li class="chapter-item expanded "><a href="2-turbo.html"><strong aria-hidden="true">11.</strong> v1.0.1: Unoptimized Turbo</a></li><li class="chapter-item expanded "><a href="3-turbo.html"><strong aria-hidden="true">12.</strong> v1.1.{0-1}: Preprocessing</a></li><li class="chapter-item expanded "><a href="4-turbo.html"><strong aria-hidden="true">13.</strong> v1.1.2: (Dis)equality Propagator</a></li><li class="chapter-item expanded "><a href="5-turbo.html"><strong aria-hidden="true">14.</strong> v1.1.3: Warp Synchronization</a></li><li class="chapter-item expanded "><a href="6-turbo.html"><strong aria-hidden="true">15.</strong> v1.1.{4-5}: Sorting Propagators</a></li><li class="chapter-item expanded "><a href="7-turbo.html"><strong aria-hidden="true">16.</strong> v1.1.{6-7}: Sharing Propagators</a></li><li class="chapter-item expanded "><a href="8-turbo.html"><strong aria-hidden="true">17.</strong> v1.2.0: Refactoring</a></li><li class="chapter-item expanded "><a href="9-turbo.html"><strong aria-hidden="true">18.</strong> v1.2.{1-3}: Open Hackathon</a></li><li class="chapter-item expanded "><a href="10-turbo.html"><strong aria-hidden="true">19.</strong> v1.2.4: Ternary Normal Form</a></li><li class="chapter-item expanded "><a href="11-turbo.html"><strong aria-hidden="true">20.</strong> v1.2.5: Trivially Copyable</a></li><li class="chapter-item expanded "><a href="12-turbo.html"><strong aria-hidden="true">21.</strong> v1.2.6: Warp-centric Fixpoint</a></li><li class="chapter-item expanded "><a href="13-turbo.html"><strong aria-hidden="true">22.</strong> v1.2.7: Preprocessing Again</a></li><li class="chapter-item expanded "><a href="14-turbo.html"><strong aria-hidden="true">23.</strong> v1.2.8: Cost of Abstraction</a></li><li class="chapter-item expanded "><a href="15-turbo.html" class="active"><strong aria-hidden="true">24.</strong> Roadmap 2026</a></li><li class="chapter-item expanded affix "><li class="part-title">About</li><li class="chapter-item expanded "><a href="publications.html"><strong aria-hidden="true">25.</strong> Publications</a></li><li class="chapter-item expanded "><a href="about.html"><strong aria-hidden="true">26.</strong> About</a></li></ol>            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                                                <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                                            </div>
+
+                    <h1 class="menu-title">Lattice Land Book</h1>
+
+                    <div class="right-buttons">
+                                                <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                                                                        
+                    </div>
+                </div>
+
+                                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="roadmap-2026"><a class="header" href="#roadmap-2026">Roadmap 2026</a></h1>
+<p><em>30 March 2026.</em> The year 2025 marks the end of the FNR-funded project COMOC.</p>
+<p>Over the course of the project, we developed Turbo, a general-purpose, exact, discrete constraint programming solver that runs entirely on GPU architectures.
+Turbo supports the discrete subset of MiniZinc and can solve instances from the <a href="https://www.minizinc.org/challenge/">MiniZinc Challenge</a> benchmark suite.
+It is already competitive with sequential CP solvers such as Choco, and on some problems it can even outperform OR-Tools.</p>
+<p>The algorithms behind the current version of the solver (v1.2.8) were published at <a href="https://ptal.github.io/research#aaai2026">AAAI 2026</a>.
+This paper is the final scientific deliverable of the COMOC project.</p>
+<p>The foundations are now in place, and in 2026 we will build a new set of projects on top of them.</p>
+<p>This year also marks the start of a new FNR-funded project, NEURESA, in collaboration with  <a href="https://cognifyer.ai/">Cognifyer</a>.
+NEURESA stands for <em>Neuro-Symbolic Reasoning for Embedded System Architectures Design</em>.
+In this project, we investigate how LLMs can support both the modelling stage—specialized here to the design of embedded system architectures—and the solving stage, where they may help improve Turbo’s decisions.</p>
+<p>The team is also growing:</p>
+<ul>
+<li><em>Clément Poncelet</em> joins the NEURESA team as a postdoctoral researcher.</li>
+<li><em>Yi-Nung Tsao</em> (PhD candidate) is investigating Turbo for continuous problems and neural network verification (NNV).</li>
+<li><em>Hakan Hasan</em> begins a PhD on distributed constraint solving, and just got his first paper at the <a href="https://ptal.github.io/research.html#papoc2026">PaPoc workshop 2026</a>.</li>
+<li><em>Anisa Meta</em> joins us to explore GPU-based preprocessing algorithms in the context of her Master's thesis.</li>
+<li><em>Wei Huang</em> continues his work on reducing the number of iterations in fixpoint computation, also as part of his Master's thesis.</li>
+<li>A team of motivated first-year students–<em>Wenbo Han</em>, <em>Eduardo Rodrigez</em> and <em>Ching-Yao Tang</em>–is working on reducing the number of memory transactions during fixpoint computation.</li>
+</ul>
+<p>We have an exciting research agenda for 2026.
+In this post, I discuss some directions we plan to explore.</p>
+<h3 id="continuous-constraint-problems"><a class="header" href="#continuous-constraint-problems">Continuous Constraint Problems</a></h3>
+<p>In recent years, NVIDIA GPUs have tended to include more floating-point cores (FP32) than integer cores (INT32), largely because of their heavy use in machine learning workloads.
+On Hopper H100 architectures, there are <a href="https://developer.nvidia.com/blog/nvidia-hopper-architecture-in-depth/">twice as many</a>.
+For Turbo, this opens two research directions:</p>
+<ol>
+<li>extending Turbo to continuous constraint solving;</li>
+<li>solving discrete constraint problems using floating-point representations (FP32, or even FP4, FP8, FP16, FP64).</li>
+</ol>
+<p>The first direction is not trivial, because floating-point arithmetic introduces many subtle difficulties.
+Fortunately, there is already a rich body of work in this area.
+The following survey papers and references provide a strong starting point:</p>
+<ul>
+<li>Interval arithmetic: <a href="https://fab.cba.mit.edu/classes/S62.12/docs/Hickey_interval.pdf">Hickey et al., Interval Arithmetic: from Principles to Implementation, 2003</a> and <a href="https://dl.acm.org/doi/pdf/10.1145/3264448">Kulisch U., Mathematics and Speed for Interval Arithmetic: A Complement to IEEE 1788</a></li>
+<li>Inverse interval functions: <a href="https://hal.science/hal-00288457v1/document">Goualard F., Interval Extensions of Multivalued Inverse Functions, 2008</a></li>
+<li>Midpoint of an interval: <a href="https://hal.science/hal-00576641v2/document">Goualard F., How do you compute the midpoint of an interval?, 2014</a></li>
+<li>Computing an over-approximation (branch-and-prune): <a href="https://dl.acm.org/doi/pdf/10.1145/1132973.1132980">Granvilliers L., Algorithm 852: RealPaver: an interval solver using constraint satisfaction techniques, 2006</a> and <a href="https://hal.science/file/index/docid/428957/filename/quimper.pdf">Chabert et al., Contractor Programming, 2009</a></li>
+<li>Optimization problems (brand-and-bound): <a href="https://link.springer.com/article/10.1007/s10898-015-0390-4">Araya I. et al, Interval Branch-and-Bound algorithms for optimization and constraint satisfaction: a survey and prospects, 2016</a></li>
+<li>Computing an under-approximation: <a href="https://link.springer.com/article/10.1007/s10898-014-0145-7">Araya I. et al., Upper Bounding in Inner Regions for Global Optimization under Inequality Constraints, 2014</a></li>
+</ul>
+<p>The second extension—solving discrete problems with floating-point domains—is not new.
+It was introduced in <a href="https://www.sciencedirect.com/science/article/pii/S0743106696001422">CLP(BNR)</a> as a way to unify the representation of Boolean, natural and real-valued domains.
+An integer domain can be represented by carefully rounding the bounds of a real interval.
+The same strategy is implemented in IC, the <a href="https://eclipseclp.org/doc/libman/libman016.html">Hybrid Finite Domain / Real Number Interval Constraint Solver</a> of the ECLiPSe constraint logic programming system.</p>
+<p>The key intuition is to observe that a 32-bits floating-point number can <em>exactly represent</em> integer in the range [-2^24, 2^24].</p>
+<p>There are then two possible ways to propagate constraints over such domains.
+As in CLP(BNR) and ECLiPSe, one can apply standard floating-point propagators and then round the result back to an integer domain.
+However, this may produce weaker propagation.
+For example, <code>[1,1] * [0,1]</code> yields <code>[0,+oo]</code> with a continuous propagator, whereas an integer propagator would infer the tighter domain <code>[0,1]</code>.</p>
+<p>This suggests an interesting research direction: using integer propagators over floating-point domains.
+That could lead to a novel contribution.
+Additional speedups may also be possible by using lower-precision floating-point formats whenever the domains fit safely within the available representation.</p>
+<h3 id="towards-efficient-search-strategy"><a class="header" href="#towards-efficient-search-strategy">Towards Efficient Search Strategy</a></h3>
+<p>So far, we have compared Turbo against Choco and OR-Tools using a fixed search strategy–the one specified the MiniZinc model.
+In practice, however, <em>adaptive search strategy</em> such as <em>wdom/deg</em>, <em>FRBA</em> or <em>pick/dom</em> are often much more effective.</p>
+<p>As highlighted in <a href="https://hal.science/hal-04220560/document">this paper</a>, there are three main ingredients behind the success of modern CP solvers:</p>
+<ol>
+<li><em>adaptative search strategy</em>;</li>
+<li><em>solution-based phase saving</em>;</li>
+<li><em>restarts</em>.</li>
+</ol>
+<p>The ACE solver has recently shown strong performances in the XCSP3 competition, including against hybrid SAT+CP solvers based on lazy clause generation.</p>
+<p>At the moment, it remains unclear how to parallelize the learning component of SAT solvers effectively on GPUs, so this is not a direction we plan to pursue yet.
+By contrast, the three components listed above appear much more amenable to efficient GPU implementation.</p>
+<p>This extension could become a major milestone for Turbo: it should allow the solver to handle a broader class of problems, and begin competing more seriously in the open category of constraint solving competitions.</p>
+<h3 id="fixpoint-computation-improvement"><a class="header" href="#fixpoint-computation-improvement">Fixpoint Computation Improvement</a></h3>
+<p>Turbo’s current fixpoint loop is deliberately simple.
+Each warp iterates over all constraints, synchronizes with the others, and, if anything changed, starts another pass.
+This mode is exposed as <code>-fp ac1</code>.
+A small improvement is available with <code>-fp wac1</code>, where each warp computes a local fixpoint over groups of 32 constraints before synchronizing globally.</p>
+<p>We are currently exploring two orthogonal optimization directions:</p>
+<ol>
+<li><em>converging faster</em>, by reducing the number of fixpoint iterations;</li>
+<li><em>reducing memory transactions</em>, by improving memory access patterns.</li>
+</ol>
+<p>The first direction is primarily algorithmic: it aims to <em>statically schedule</em> constraints in a way that accelerates convergence to the fixpoint.</p>
+<p>The second direction is more hardware-oriented: it aims to improve memory coalescing and reduce memory traffic by reordering variables and constraints appropriately.</p>
+<p>From preliminary experiments, we expect each of these optimizations to provide a speedup of at least <em>2x</em>.
+It is still unclear, however, how strongly they interact, and whether their gains will combine cleanly in practice.</p>
+<!-- ### Array and Bounded Existential and Universal Quantifiers
+
+The decomposition of a constraint network into ternary constraint network can be expensive. -->
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                                                    <a rel="prev" href="14-turbo.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+                                                    <a rel="next" href="publications.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                                    <a rel="prev" href="14-turbo.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+                                    <a rel="next" href="publications.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                            </nav>
+
+        </div>
+
+        
+        
+        
+                <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        
+        
+                <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+        
+    </body>
+</html>
