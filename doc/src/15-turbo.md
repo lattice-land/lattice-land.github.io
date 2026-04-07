@@ -99,6 +99,10 @@ The second direction is more hardware-oriented: it aims to improve memory coales
 From preliminary experiments, we expect each of these optimizations to provide a speedup of at least *2x*.
 It is still unclear, however, how strongly they interact, and whether their gains will combine cleanly in practice.
 
+### Bounded Existential and Universal Quantifiers
+
+
+
 <!-- ### Array and Bounded Existential and Universal Quantifiers
 
 The decomposition of a constraint network into ternary constraint network can be expensive. -->
