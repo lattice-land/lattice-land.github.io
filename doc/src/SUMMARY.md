@@ -24,6 +24,7 @@
 
 * [Abstract Interpretation Workshop (2024)](abstract-week.md)
 * [Parallel Programming Competition (2025)](parcomp2025/index.html)
+* [NEURESA Workshop (2026)](neuresa-2026.md)
 
 # Turbo Technical Journal
 
