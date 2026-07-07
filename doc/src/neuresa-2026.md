@@ -21,7 +21,7 @@ Thursday 9 July 2026 in MNO 1.040. The breakfast and coffee are provided by Jolt
   * 15:00-15:30: Clement Poncelet, _"A First Prototype Involving Turbo for Solving LLM-Driven Generated Constraints? "_.
   * 15:30-15:45: break.
   * 15:45-16:00: Wenbo Han, _"How Many Cycles to Access L1 and Shared Memory on NVIDIA GPUs?"_.
-  * 16:00-16:30: Frédéric Pinel, _"Designing a Parallel Fixpoint Algorithm for Breadth-First Search"_.
+  * 16:00-16:30: Frédéric Pinel, _"Designing a Parallel Fixpoint Algorithm for Breadth-First Search and Future Works"_.
   * 16:30-17:00: Pierre Talbot, _"Towards Turbo 1.3"_.
 
 ## Sponsors
