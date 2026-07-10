@@ -16,13 +16,13 @@ Thursday 9 July 2026 in MNO 1.040. The breakfast and coffee are provided by Jolt
 
 * *Afternoon session*:
   * 13:00: Coffee and pastries.
-  * 13:30-14:30: ***Invited Talk:*** Mohand Mezmaz, _"Language Models as Optimizers: Towards a Framework for Combinatorial Optimization"_.
-  * 14:30-15:00: Patrick Keller, _"Presentation of Cognifyer"_.
-  * 15:00-15:30: Clement Poncelet, _"A First Prototype Involving Turbo for Solving LLM-Driven Generated Constraints? "_.
+  * 13:30-14:30: ***Invited Talk:*** Mohand Mezmaz, _"Language Models as Optimizers: Towards a Framework for Combinatorial Optimization"_, [slides](neuresa-workshop-2026/neuresa-2026-mohand-mezmaz-slides.pdf).
+  * 14:30-15:00: Patrick Keller, _"Presentation of Cognifyer"_, [slides](neuresa-workshop-2026/neuresa-2026-patrick-keller-slides.pdf).
+  * 15:00-15:30: Clement Poncelet, _"A First Prototype Involving Turbo for Solving LLM-Driven Generated Constraints? "_, [slides](neuresa-workshop-2026/neuresa-2026-clement-poncelet-slides.pdf).
   * 15:30-15:45: break.
-  * 15:45-16:00: Wenbo Han, _"How Many Cycles to Access L1 and Shared Memory on NVIDIA GPUs?"_.
+  * 15:45-16:00: Wenbo Han, _"How Many Cycles to Access L1 and Shared Memory on NVIDIA GPUs?"_, [slides](neuresa-workshop-2026/neuresa-2026-wenbo-han-slides.pdf).
   * 16:00-16:30: Frédéric Pinel, _"Designing a Parallel Fixpoint Algorithm for Breadth-First Search and Future Works"_.
-  * 16:30-17:00: Pierre Talbot, _"Towards Turbo 1.3"_.
+  * 16:30-17:00: Pierre Talbot, _"Towards Turbo 1.3"_, [slides](neuresa-workshop-2026/neuresa-2026-pierre-talbot-slides.pdf).
 
 ## Sponsors
 

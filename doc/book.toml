@@ -1,6 +1,5 @@
 [book]
 authors = ["Pierre Talbot"]
-multilingual = false
 src = "src"
 title = "Lattice Land Book"
 
