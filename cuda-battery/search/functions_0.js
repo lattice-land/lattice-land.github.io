@@ -8,5 +8,6 @@ var searchData=
   ['allocate_5froot_5',['allocate_root',['../namespacebattery.html#a47b678e18c761ca80bd9481c43faa63c',1,'battery']]],
   ['allocate_5fshared_6',['allocate_shared',['../namespacebattery.html#ad39e1be9a722728743293cf55e20009f',1,'battery']]],
   ['allocate_5funique_7',['allocate_unique',['../namespacebattery.html#a35e89e15262f2011b6fa52697179fb39',1,'battery']]],
-  ['any_8',['any',['../classbattery_1_1bitset.html#abc1fed1fe40f376e3fd002389ce4af1f',1,'battery::bitset::any()'],['../classbattery_1_1dynamic__bitset.html#a1cffb01960610317e0bee259d976d704',1,'battery::dynamic_bitset::any()']]]
+  ['any_8',['any',['../classbattery_1_1bitset.html#abc1fed1fe40f376e3fd002389ce4af1f',1,'battery::bitset::any()'],['../classbattery_1_1dynamic__bitset.html#a1cffb01960610317e0bee259d976d704',1,'battery::dynamic_bitset::any()']]],
+  ['any_5fsync_9',['any_sync',['../structbattery_1_1_sequential.html#a2c224cf4dba57151d487f402b0d12a49',1,'battery::Sequential']]]
 ];

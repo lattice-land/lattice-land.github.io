@@ -59,10 +59,10 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "algorithm_8hpp.html",
-"classbattery_1_1root__ptr.html#ac918b70cb11e9f1e4229495343cd5a99",
-"classbattery_1_1vector.html#ab3a0f12d453317705fb93ef8924d6148",
-"utility_8hpp.html#a8ae8ab5eb9518ff6512231fc7df911e8"
+"classbattery_1_1root__ptr.html#aeafbd1324187fa40a5df2a39c3e35727",
+"classbattery_1_1vector.html#ac75442ac8a49fc76b3bc6c55d12bcbe0"
 ];
 
-var SYNCONMSG = 'click to disable panel synchronisation';
-var SYNCOFFMSG = 'click to enable panel synchronisation';
+const SYNCONMSG = 'click to disable panel synchronization';
+const SYNCOFFMSG = 'click to enable panel synchronization';
+const LISTOFALLMEMBERS = 'List of all members';

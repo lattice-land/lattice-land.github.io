@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['ediv_0',['ediv',['../namespacebattery.html#a28c4d88dcac6fce6fa5fc801d977bfa6',1,'battery']]],
-  ['emod_1',['emod',['../namespacebattery.html#a92866c733283ea66429851f8024b156e',1,'battery']]],
+  ['ediv_0',['ediv',['../namespacebattery.html#addec89bbf66c92e7b5f97cc197393672',1,'battery']]],
+  ['emod_1',['emod',['../namespacebattery.html#a0fbaa9752151250c3c007c70c0c11c1e',1,'battery']]],
   ['emplace_5fback_2',['emplace_back',['../classbattery_1_1vector.html#a1ef86959b5aa18a1849f129b1a192c22',1,'battery::vector']]],
   ['empty_3',['empty',['../classbattery_1_1vector.html#ac069f65044de1bbe06849200f3c135eb',1,'battery::vector']]],
   ['ends_5fwith_4',['ends_with',['../classbattery_1_1string.html#a0b2765cd4d3112974ff8cdb7b77085d4',1,'battery::string']]],
